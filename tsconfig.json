@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib":["es6", "dom"],
+      "module": "commonjs",
+      "declaration": true,
+      "sourceMap": true,
+      "strict": true,
+      "typeRoots": ["./definitions_json"]
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist", "**/__tests__/*"]
+  }

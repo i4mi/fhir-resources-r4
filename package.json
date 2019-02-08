@@ -1,0 +1,31 @@
+{
+  "name": "fhir_resources",
+  "version": "0.0.1",
+  "description": "FHIR resources definitions",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf /dist && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i4mi/fhir-resources.ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/i4mi/fhir-resources.ts/issues"
+  },
+  "homepage": "https://github.com/i4mi/fhir-resources.ts",
+  "keywords": [],
+  "author": "Stefan Iseli @ Institute for Medical Inormatics (I4MI)",
+  "license": "Apache Version 2.0",
+  "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}

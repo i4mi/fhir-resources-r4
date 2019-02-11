@@ -11,7 +11,8 @@ import { Element,
          Duration,
          Period,
          Timing,
-         Expression} from "./fhir._";
+         Expression,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

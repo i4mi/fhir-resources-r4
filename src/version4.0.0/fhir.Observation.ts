@@ -10,7 +10,8 @@ import { Element,
          Narrative,
          Quantity,
          Ratio,
-         SampledData} from "./fhir._";
+         SampledData,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

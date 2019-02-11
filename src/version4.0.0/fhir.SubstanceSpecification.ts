@@ -7,7 +7,8 @@ import { Element,
          Narrative, 
          Quantity,
          Ratio, 
-         Attachment } from "./fhir._";
+         Attachment,
+         Range } from "./fhir._";
 
 // To parse this data:
 //

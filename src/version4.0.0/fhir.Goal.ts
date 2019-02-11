@@ -8,7 +8,8 @@ import { Element,
          Narrative,
          Quantity,
          Ratio,
-         Duration} from "./fhir._";
+         Duration,
+         Range } from "./fhir._";
 
 // To parse this data:
 //

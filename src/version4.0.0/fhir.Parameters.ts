@@ -29,7 +29,8 @@ import { Element,
          Timing,
          TriggerDefinition,
          UsageContext,
-         Meta} from "./fhir._";
+         Meta,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

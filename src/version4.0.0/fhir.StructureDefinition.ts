@@ -30,7 +30,8 @@ import { Element,
          SampledData,
          Signature,
          Timing,
-         TriggerDefinition} from "./fhir._";
+         TriggerDefinition,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

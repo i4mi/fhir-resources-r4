@@ -7,7 +7,8 @@ import { Element,
          Identifier,
          Meta,
          Annotation,
-         Narrative} from "./fhir._";
+         Narrative,
+         Range } from "./fhir._";
 
 // To parse this data:
 //

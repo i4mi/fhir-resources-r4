@@ -15,7 +15,8 @@ import { Element,
          Timing,
          TriggerDefinition,
          Expression,
-         Quantity} from "./fhir._";
+         Quantity,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

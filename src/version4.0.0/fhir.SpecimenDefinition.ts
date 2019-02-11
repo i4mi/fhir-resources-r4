@@ -6,7 +6,8 @@ import { Element,
          Narrative,
          Duration,
          Quantity,
-         Reference} from "./fhir._";
+         Reference,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

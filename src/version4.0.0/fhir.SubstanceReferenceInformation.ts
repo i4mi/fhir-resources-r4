@@ -5,7 +5,8 @@ import { Element,
          CodeableConcept, 
          Reference, 
          Identifier, 
-         Quantity } from "./fhir._";
+         Quantity,
+         Range} from "./fhir._";
 
 // To parse this data:
 //

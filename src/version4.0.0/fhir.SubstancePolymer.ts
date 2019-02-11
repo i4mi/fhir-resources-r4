@@ -4,7 +4,8 @@ import { Element,
          Meta, 
          Narrative, 
          Quantity, 
-         Attachment } from "./fhir._";
+         Attachment,
+         Range } from "./fhir._";
 
 // To parse this data:
 //

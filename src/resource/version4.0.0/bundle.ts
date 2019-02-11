@@ -1,11 +1,13 @@
 import { FhirBundleType, Bundle, Method, BundleEntry } from "../../definition/version4.0.0/fhir.Bundle";
 
-export class I4MIBundle {
-    _bundle!: Bundle;
+export class I4MIBundle implements Bundle {
+    resourceType = 'Bundle';
+
+    type!: FhirBundleType;
+    entry!: Array<BundleEntry>;
 
     constructor(type: FhirBundleType) {
-        this._bundle.resourceType = 'Bundle';
-        this._bundle.type = type;
+        this.type = type;
     }
 
     /**
@@ -18,17 +20,17 @@ export class I4MIBundle {
 
         let length: number = 0;
 
-        if (typeof this._bundle.entry !== 'undefined') {
-            length = Number(this._bundle.entry.length);
+        if (typeof this.entry !== 'undefined') {
+            length = Number(this.entry.length);
         }
 
         entry.id = String(length += 1);
         
-        if (typeof this._bundle.entry === 'undefined') {
-            this._bundle.entry = [];
+        if (typeof this.entry === 'undefined') {
+            this.entry = [];
         }
 
-        this._bundle.entry.push({
+        this.entry.push({
             request: {
                 method: method,
                 url: url

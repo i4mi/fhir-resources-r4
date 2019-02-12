@@ -1,4 +1,9 @@
 import { FhirBundleType, Bundle, Method, BundleEntry } from "../../definition/version4.0.0/fhir.Bundle";
+import { Guid } from "guid-typescript";
+
+export interface I4MIInterfaceToMapResource {
+    [key: string]: any;
+}
 
 export class I4MIBundle implements Bundle {
     resourceType = 'Bundle';
@@ -13,29 +18,91 @@ export class I4MIBundle implements Bundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param url Request url of bundle entry
-     * @param entry A fhir resource. Note that is has to be a valid resource!
+     * @param resourceType Resource type of bundle entry
+     * @param resource A fhir resource. Note that is has to be a valid resource!
+     * @returns the added bundle entry
      */
-    addEntry(method: Method, url: string, entry: any) {
+    addEntry(method: Method, resourceType: string, resource: any): BundleEntry {
 
-        let length: number = 0;
+        let id: string;
 
-        if (typeof this.entry !== 'undefined') {
-            length = Number(this.entry.length);
-        }
+        // Generate id
+        id = this.generateId();
 
-        entry.id = String(length += 1);
-        
+        // create entry array if still undefined
         if (typeof this.entry === 'undefined') {
             this.entry = [];
         }
 
-        this.entry.push({
+        // check if id of resource is already set
+        if (typeof resource.id !== 'undefined') {
+            // now using already given id
+            console.warn(`Entry id already given. Now using ${resource.id} as id`);
+            id = resource.id;
+
+            // check if there already is an entry with given id
+            if (this.idAlreadyExistsInBundle(id)) {
+                throw Error(`An entry with the id ${resource.id} already exists in bundle`);
+            }
+        }
+
+        // Set relative id to entry
+        resource.id = id;
+
+        // adding bundle entry of resource with method and resource type
+        let bundleEntry: BundleEntry = {
             request: {
                 method: method,
-                url: url
+                url: resourceType
             },
-            resource: entry.toJSON()
-        } as BundleEntry);
+            resource: resource
+        };
+        this.entry.push(bundleEntry);
+
+        return bundleEntry;
     }
+
+    /**
+     * Removes an entry with the id x from the bundle
+     * @param id Id of entry to remove
+     * @returns the removed bundle entry or, if id not found, undefined
+     */
+    removeEntry(id: string): BundleEntry | undefined {
+        let removedItem: BundleEntry | undefined = undefined;
+        this.entry.forEach((e, index) => {
+            let resource = <I4MIInterfaceToMapResource>e.resource;
+            if (resource['id'] === id) {
+                removedItem = e;
+                this.entry.splice(index, 1);
+            }
+        });
+        if (typeof removedItem === 'undefined')
+            console.warn(`No Entry to remove with id ${id} found`)
+        
+        return removedItem;
+    }
+
+    /**
+     * Generates a id for
+     * @returns guid as string
+     */
+    private generateId(): string {
+        return Guid.create().toString();
+    }
+
+    /**
+     * Checks if the given id already exists in the bundle
+     * @param id id to check if exists in bundle
+     * @returns true, if id already exists
+     * @returns false, if id not exists
+     */
+    private idAlreadyExistsInBundle(id: string) {
+        for (let e of this.entry) {
+            let resource = <I4MIInterfaceToMapResource>e.resource;
+            if (resource['id'] === id)
+                return true;
+        }
+        return false;
+    }
+
 }

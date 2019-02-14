@@ -6,7 +6,7 @@
       "declaration": true,
       "sourceMap": true,
       "strict": true,
-      "typeRoots": ["./definitions_json"]
+      "typeRoots": ["./node_modules/@types"]
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist", "**/__tests__/*"]

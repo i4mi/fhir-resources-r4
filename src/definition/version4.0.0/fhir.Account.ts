@@ -1,53 +1,46 @@
-import { Element, 
-         Extension,
-         Identifier,
-         Meta,
-         Reference,
-         Period,
-         Narrative,
-         CodeableConcept } from './fhir._';
-
-// To parse this data:
-//
-//   import { Convert, FhirAccount } from "./file";
-//
-//   const fhirAccount = Convert.toFhirAccount(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Extension,
+    Identifier,
+    Meta,
+    Reference,
+    Period,
+    Narrative,
+    CodeableConcept
+} from './fhir._';
 
 export interface Account {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Account | number | null | string>;
+    contained?: Account[];
     /**
      * The party(s) that are responsible for covering the payment of this account, and what
      * order should they be applied to the account.
      */
-    coverage?: Array<any[] | boolean | AccountCoverage | number | number | null | string>;
+    coverage?: AccountCoverage[];
     /**
      * Provides additional information about what the account tracks and how it is used.
      */
@@ -59,11 +52,11 @@ export interface Account {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The parties responsible for balancing the account if other payment options fall short.
      */
-    guarantor?: Array<any[] | boolean | AccountGuarantor | number | number | null | string>;
+    guarantor?: AccountGuarantor[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -73,7 +66,7 @@ export interface Account {
      * Unique identifier used to reference the account.  Might or might not be intended for
      * human use (e.g. credit card number).
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -89,7 +82,7 @@ export interface Account {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -103,7 +96,7 @@ export interface Account {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Name used for the account when displaying it to humans in reports, etc.
      */
@@ -112,29 +105,29 @@ export interface Account {
      * Indicates the service area, hospital, department, etc. with responsibility for managing
      * the Account.
      */
-    owner?: any[] | boolean | Reference | number | number | null | string;
+    owner?: Reference;
     /**
      * Reference to a parent Account.
      */
-    partOf?: any[] | boolean | Reference | number | number | null | string;
+    partOf?: Reference;
     /**
      * This is a Account resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The date range of services associated with this account.
      */
-    servicePeriod?: any[] | boolean | Period | number | number | null | string;
+    servicePeriod?: Period;
     /**
      * Indicates whether the account is presently used/usable or not.
      */
-    status?: FhirAccountStatus;
+    status?: AccountStatus;
     /**
      * Identifies the entity which incurs the expenses. While the immediate recipients of
      * services or goods might be entities related to the subject, the expenses were ultimately
      * incurred by the subject of the Account.
      */
-    subject?: Array<any[] | boolean | Reference | number | number | null | string>;
+    subject?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -142,18 +135,22 @@ export interface Account {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Categorizes the account for reporting and searching purposes.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * A financial tool for tracking value accrued for a particular purpose.  In the healthcare
+ * field, used to track charges for a patient, cost centers, etc.
+ */
 export interface AccountCoverage {
     /**
      * Extensions for priority
      */
-    _priority?: any[] | boolean | Element | number | number | null | string;
+    _priority?: Element;
     /**
      * The party(s) that contribute to payment (or part of) of the charges applied to this
      * account (including self-pay).
@@ -161,7 +158,7 @@ export interface AccountCoverage {
      * A coverage may only be responsible for specific types of charges, and the sequence of the
      * coverages in the account could be important when processing billing.
      */
-    coverage: any[] | boolean | Reference | number | number | null | string;
+    coverage?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -169,7 +166,7 @@ export interface AccountCoverage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -188,18 +185,22 @@ export interface AccountCoverage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The priority of the coverage in the context of this account.
      */
     priority?: number;
 }
 
+/**
+ * A financial tool for tracking value accrued for a particular purpose.  In the healthcare
+ * field, used to track charges for a patient, cost centers, etc.
+ */
 export interface AccountGuarantor {
     /**
      * Extensions for onHold
      */
-    _onHold?: any[] | boolean | Element | number | number | null | string;
+    _onHold?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -207,7 +208,7 @@ export interface AccountGuarantor {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -226,7 +227,7 @@ export interface AccountGuarantor {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A guarantor may be placed on credit hold or otherwise have their role temporarily
      * suspended.
@@ -235,17 +236,18 @@ export interface AccountGuarantor {
     /**
      * The entity who is responsible.
      */
-    party: any[] | boolean | Reference | number | number | null | string;
+    party?: Reference;
     /**
      * The timeframe during which the guarantor accepts responsibility for the account.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
 }
+
 
 /**
  * Indicates whether the account is presently used/usable or not.
  */
-export enum FhirAccountStatus {
+export enum AccountStatus {
     Active = "active",
     EnteredInError = "entered-in-error",
     Inactive = "inactive",

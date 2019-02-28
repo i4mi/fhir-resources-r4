@@ -2,32 +2,30 @@ import { Element,
          Meta, 
          Reference} from "./fhir._";
 
-// To parse this data:
-//
-//   import { Convert, FhirBinary } from "./file";
-//
-//   const fhirBinary = Convert.toFhirBinary(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
-
+/**
+ * see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas
+ *
+ * A resource that represents the data of a single raw artifact as digital content
+ * accessible in its native format.  A Binary resource can contain any content, whether
+ * text, image, pdf, zip archive, etc.
+ */
 export interface Binary {
     /**
      * Extensions for contentType
      */
-    _contentType?: any[] | boolean | Element | number | number | null | string;
+    _contentType?: Element;
     /**
      * Extensions for data
      */
-    _data?: any[] | boolean | Element | number | number | null | string;
+    _data?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
@@ -56,11 +54,11 @@ export interface Binary {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * This is a Binary resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * This element identifies another resource that can be used as a proxy of the security
      * sensitivity to use when deciding and enforcing access control rules for the Binary
@@ -72,5 +70,5 @@ export interface Binary {
      * a patient, and access should only be granted to applications that have access to the
      * patient.
      */
-    securityContext?: any[] | boolean | Reference | number | number | null | string;
+    securityContext?: Reference;
 }

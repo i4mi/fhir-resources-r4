@@ -1,35 +1,117 @@
-import { Element,
-         Extension, 
-         Identifier,
-         Meta,
-         Signature} from "./fhir._";
+import {
+    Element,
+    Extension,
+    Identifier,
+    Meta,
+    Signature
+} from "./fhir._";
 
-// To parse this data:
-//
-//   import { Convert, FhirBundle } from "./file";
-//
-//   const fhirBundle = Convert.toFhirBundle(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
 
+export interface Bundle {
+    /**
+     * Extensions for implicitRules
+     */
+    _implicitRules?: Element;
+    /**
+     * Extensions for language
+     */
+    _language?: Element;
+    /**
+     * Extensions for timestamp
+     */
+    _timestamp?: Element;
+    /**
+     * Extensions for total
+     */
+    _total?: Element;
+    /**
+     * Extensions for type
+     */
+    _type?: Element;
+    /**
+     * An entry in a bundle resource - will either contain a resource or information about a
+     * resource (transactions and history only).
+     */
+    entry?: BundleEntry[];
+    /**
+     * The logical id of the resource, as used in the URL for the resource. Once assigned, this
+     * value never changes.
+     */
+    id?: string;
+    /**
+     * A persistent identifier for the bundle that won't change as a bundle is copied from
+     * server to server.
+     */
+    identifier?: Identifier;
+    /**
+     * A reference to a set of rules that were followed when the resource was constructed, and
+     * which must be understood when processing the content. Often, this is a reference to an
+     * implementation guide that defines the special rules along with other profiles etc.
+     */
+    implicitRules?: string;
+    /**
+     * The base language in which the resource is written.
+     */
+    language?: string;
+    /**
+     * A series of links that provide context to this bundle.
+     */
+    link?: BundleLink[];
+    /**
+     * The metadata about the resource. This is content that is maintained by the
+     * infrastructure. Changes to the content might not always be associated with version
+     * changes to the resource.
+     */
+    meta?: Meta;
+    /**
+     * This is a Bundle resource
+     */
+    resourceType?: any;
+    /**
+     * Digital Signature - base64 encoded. XML-DSig or a JWT.
+     */
+    signature?: Signature;
+    /**
+     * The date/time that the bundle was assembled - i.e. when the resources were placed in the
+     * bundle.
+     */
+    timestamp?: string;
+    /**
+     * If a set of search matches, this is the total number of entries of type 'match' across
+     * all pages in the search.  It does not include search.mode = 'include' or 'outcome'
+     * entries and it does not provide a count of the number of entries in the Bundle.
+     */
+    total?: number;
+    /**
+     * Indicates the purpose of this bundle - how it is intended to be used.
+     */
+    type?: BundleType;
+}
+
+/**
+ * Indicates the results of processing the corresponding 'request' entry in the batch or
+ * transaction being responded to or what the results of an operation where when returning
+ * history.
+ *
+ * A container for a collection of resources.
+ */
 export interface BundleResponse {
     /**
      * Extensions for etag
      */
-    _etag?: any[] | boolean | Element | number | number | null | string;
+    _etag?: Element;
     /**
      * Extensions for lastModified
      */
-    _lastModified?: any[] | boolean | Element | number | number | null | string;
+    _lastModified?: Element;
     /**
      * Extensions for location
      */
-    _location?: any[] | boolean | Element | number | number | null | string;
+    _location?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * The Etag for the resource, if the operation for the entry produced a versioned resource
      * (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource
@@ -43,7 +125,7 @@ export interface BundleResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -71,12 +153,12 @@ export interface BundleResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An OperationOutcome containing hints and warnings produced as part of processing this
      * entry in a batch or transaction.
      */
-    outcome?: any[] | boolean | Bundle | number | null | string;
+    outcome?: Bundle;
     /**
      * The status code returned by processing this entry. The status SHALL start with a 3 digit
      * HTTP code (e.g. 404) and may contain the standard HTTP description associated with the
@@ -85,11 +167,14 @@ export interface BundleResponse {
     status?: string;
 }
 
+/**
+ * A container for a collection of resources.
+ */
 export interface BundleEntry {
     /**
      * Extensions for fullUrl
      */
-    _fullUrl?: any[] | boolean | Element | number | number | null | string;
+    _fullUrl?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -97,7 +182,7 @@ export interface BundleEntry {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the
      * resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent
@@ -116,7 +201,7 @@ export interface BundleEntry {
     /**
      * A series of links that provide context to this entry.
      */
-    link?: Array<any[] | boolean | BundleLink | number | number | null | string>;
+    link?: BundleLink[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -130,120 +215,42 @@ export interface BundleEntry {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Additional information about how this entry should be processed as part of a transaction
      * or batch.  For history, it shows how the entry was processed to create the version
      * contained in the entry.
      */
-    request?: any[] | boolean | BundleRequest | number | number | null | string;
+    request?: BundleRequest;
     /**
      * The Resource for the entry. The purpose/meaning of the resource is determined by the
      * Bundle.type.
      */
-    resource?: any[] | boolean | Bundle | number | null | string;
+    resource?: Bundle;
     /**
      * Indicates the results of processing the corresponding 'request' entry in the batch or
      * transaction being responded to or what the results of an operation where when returning
      * history.
      */
-    response?: any[] | boolean | BundleResponse | number | number | null | string;
+    response?: BundleResponse;
     /**
      * Information about the search process that lead to the creation of this entry.
      */
-    search?: any[] | boolean | BundleSearch | number | number | null | string;
+    search?: BundleSearch;
 }
 
-export interface Bundle {
-    /**
-     * Extensions for implicitRules
-     */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
-    /**
-     * Extensions for language
-     */
-    _language?: any[] | boolean | Element | number | number | null | string;
-    /**
-     * Extensions for timestamp
-     */
-    _timestamp?: any[] | boolean | Element | number | number | null | string;
-    /**
-     * Extensions for total
-     */
-    _total?: any[] | boolean | Element | number | number | null | string;
-    /**
-     * Extensions for type
-     */
-    _type?: any[] | boolean | Element | number | number | null | string;
-    /**
-     * An entry in a bundle resource - will either contain a resource or information about a
-     * resource (transactions and history only).
-     */
-    entry?: Array<any[] | boolean | BundleEntry | number | number | null | string>;
-    /**
-     * The logical id of the resource, as used in the URL for the resource. Once assigned, this
-     * value never changes.
-     */
-    id?: string;
-    /**
-     * A persistent identifier for the bundle that won't change as a bundle is copied from
-     * server to server.
-     */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
-    /**
-     * A reference to a set of rules that were followed when the resource was constructed, and
-     * which must be understood when processing the content. Often, this is a reference to an
-     * implementation guide that defines the special rules along with other profiles etc.
-     */
-    implicitRules?: string;
-    /**
-     * The base language in which the resource is written.
-     */
-    language?: string;
-    /**
-     * A series of links that provide context to this bundle.
-     */
-    link?: Array<any[] | boolean | BundleLink | number | number | null | string>;
-    /**
-     * The metadata about the resource. This is content that is maintained by the
-     * infrastructure. Changes to the content might not always be associated with version
-     * changes to the resource.
-     */
-    meta?: any[] | boolean | Meta | number | number | null | string;
-    /**
-     * This is a Bundle resource
-     */
-    resourceType: any;
-    /**
-     * Digital Signature - base64 encoded. XML-DSig or a JWT.
-     */
-    signature?: any[] | boolean | Signature | number | number | null | string;
-    /**
-     * The date/time that the bundle was assembled - i.e. when the resources were placed in the
-     * bundle.
-     */
-    timestamp?: string;
-    /**
-     * If a set of search matches, this is the total number of entries of type 'match' across
-     * all pages in the search.  It does not include search.mode = 'include' or 'outcome'
-     * entries and it does not provide a count of the number of entries in the Bundle.
-     */
-    total?: number;
-    /**
-     * Indicates the purpose of this bundle - how it is intended to be used.
-     */
-    type?: FhirBundleType;
-}
-
+/**
+ * A container for a collection of resources.
+ */
 export interface BundleLink {
     /**
      * Extensions for relation
      */
-    _relation?: any[] | boolean | Element | number | number | null | string;
+    _relation?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -251,7 +258,7 @@ export interface BundleLink {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -270,7 +277,7 @@ export interface BundleLink {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A name which details the functional use for this link - see
      * [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
@@ -282,31 +289,38 @@ export interface BundleLink {
     url?: string;
 }
 
+/**
+ * Additional information about how this entry should be processed as part of a transaction
+ * or batch.  For history, it shows how the entry was processed to create the version
+ * contained in the entry.
+ *
+ * A container for a collection of resources.
+ */
 export interface BundleRequest {
     /**
      * Extensions for ifMatch
      */
-    _ifMatch?: any[] | boolean | Element | number | number | null | string;
+    _ifMatch?: Element;
     /**
      * Extensions for ifModifiedSince
      */
-    _ifModifiedSince?: any[] | boolean | Element | number | number | null | string;
+    _ifModifiedSince?: Element;
     /**
      * Extensions for ifNoneExist
      */
-    _ifNoneExist?: any[] | boolean | Element | number | number | null | string;
+    _ifNoneExist?: Element;
     /**
      * Extensions for ifNoneMatch
      */
-    _ifNoneMatch?: any[] | boolean | Element | number | number | null | string;
+    _ifNoneMatch?: Element;
     /**
      * Extensions for method
      */
-    _method?: any[] | boolean | Element | number | number | null | string;
+    _method?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -314,7 +328,7 @@ export interface BundleRequest {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -360,7 +374,7 @@ export interface BundleRequest {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The URL for this entry, relative to the root (the address to which the request is posted).
      */
@@ -380,15 +394,20 @@ export enum Method {
     Put = "PUT",
 }
 
+/**
+ * Information about the search process that lead to the creation of this entry.
+ *
+ * A container for a collection of resources.
+ */
 export interface BundleSearch {
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * Extensions for score
      */
-    _score?: any[] | boolean | Element | number | number | null | string;
+    _score?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -396,7 +415,7 @@ export interface BundleSearch {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -421,7 +440,7 @@ export interface BundleSearch {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * When searching, the server's search ranking score for the entry.
      */
@@ -442,7 +461,7 @@ export enum Mode {
 /**
  * Indicates the purpose of this bundle - how it is intended to be used.
  */
-export enum FhirBundleType {
+export enum BundleType {
     Batch = "batch",
     BatchResponse = "batch-response",
     Collection = "collection",

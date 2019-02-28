@@ -1,68 +1,61 @@
-import { Element,
-         CodeableConcept, 
-         Identifier,
-         Extension,
-         Meta,
-         Reference,
-         Narrative,
-         Period} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirCatalogEntry } from "./file";
-//
-//   const fhirCatalogEntry = Convert.toFhirCatalogEntry(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    CodeableConcept,
+    Identifier,
+    Extension,
+    Meta,
+    Reference,
+    Narrative,
+    Period
+} from "./fhir._";
 
 export interface CatalogEntry {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastUpdated
      */
-    _lastUpdated?: any[] | boolean | Element | number | number | null | string;
+    _lastUpdated?: Element;
     /**
      * Extensions for orderable
      */
-    _orderable?: any[] | boolean | Element | number | number | null | string;
+    _orderable?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for validTo
      */
-    _validTo?: any[] | boolean | Element | number | number | null | string;
+    _validTo?: Element;
     /**
      * Used for examplefor Out of Formulary, or any specifics.
      */
-    additionalCharacteristic?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    additionalCharacteristic?: CodeableConcept[];
     /**
      * User for example for ATC classification, or.
      */
-    additionalClassification?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    additionalClassification?: CodeableConcept[];
     /**
      * Used in supporting related concepts, e.g. NDC to RxNorm.
      */
-    additionalIdentifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    additionalIdentifier?: Identifier[];
     /**
      * Classes of devices, or ATC for medication.
      */
-    classification?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    classification?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CatalogEntry | number | null | string>;
+    contained?: CatalogEntry[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -70,7 +63,7 @@ export interface CatalogEntry {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -80,7 +73,7 @@ export interface CatalogEntry {
      * Used in supporting different identifiers for the same product, e.g. manufacturer code and
      * retailer code.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -101,7 +94,7 @@ export interface CatalogEntry {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -115,7 +108,7 @@ export interface CatalogEntry {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Whether the entry represents an orderable item.
      */
@@ -123,20 +116,20 @@ export interface CatalogEntry {
     /**
      * The item in a catalog or definition.
      */
-    referencedItem: any[] | boolean | Reference | number | number | null | string;
+    referencedItem?: Reference;
     /**
      * Used for example, to point to a substance, or to a device used to administer a medication.
      */
-    relatedEntry?: Array<any[] | boolean | CatalogEntryRelatedEntry | number | number | null | string>;
+    relatedEntry?: CatalogEntryRelatedEntry[];
     /**
      * This is a CatalogEntry resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Used to support catalog exchange even for unsupported products, e.g. getting list of
      * medications even if not prescribable.
      */
-    status?: FhirCatalogEntryStatus;
+    status?: CatalogEntryStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -144,26 +137,29 @@ export interface CatalogEntry {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The type of item - medication, device, service, protocol or other.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The time period in which this catalog entry is expected to be active.
      */
-    validityPeriod?: any[] | boolean | Period | number | number | null | string;
+    validityPeriod?: Period;
     /**
      * The date until which this catalog entry is expected to be active.
      */
     validTo?: string;
 }
 
+/**
+ * Catalog entries are wrappers that contextualize items included in a catalog.
+ */
 export interface CatalogEntryRelatedEntry {
     /**
      * Extensions for relationtype
      */
-    _relationtype?: any[] | boolean | Element | number | number | null | string;
+    _relationtype?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -171,7 +167,7 @@ export interface CatalogEntryRelatedEntry {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -180,7 +176,7 @@ export interface CatalogEntryRelatedEntry {
     /**
      * The reference to the related item.
      */
-    item: any[] | boolean | Reference | number | number | null | string;
+    item?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -194,7 +190,7 @@ export interface CatalogEntryRelatedEntry {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The type of relation to the related item: child, parent, packageContent,
      * containerPackage, usedIn, uses, requires, etc.
@@ -215,7 +211,7 @@ export enum Relationtype {
  * Used to support catalog exchange even for unsupported products, e.g. getting list of
  * medications even if not prescribable.
  */
-export enum FhirCatalogEntryStatus {
+export enum CatalogEntryStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

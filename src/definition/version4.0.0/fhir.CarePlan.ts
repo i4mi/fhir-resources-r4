@@ -1,97 +1,90 @@
-import { Element,
-         Reference, 
-         CodeableConcept,
-         Extension,
-         Identifier,
-         Meta,
-         Annotation,
-         Period,
-         Narrative,
-         Quantity,
-         Timing} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirCarePlan } from "./file";
-//
-//   const fhirCarePlan = Convert.toFhirCarePlan(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    CodeableConcept,
+    Extension,
+    Identifier,
+    Meta,
+    Annotation,
+    Period,
+    Narrative,
+    Quantity,
+    Timing
+} from "./fhir._";
 
 export interface CarePlan {
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for instantiatesUri
      */
-    _instantiatesUri?: Array<any[] | boolean | Element | number | number | null | string>;
+    _instantiatesUri?: Element[];
     /**
      * Extensions for intent
      */
-    _intent?: any[] | boolean | Element | number | number | null | string;
+    _intent?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Identifies a planned action to occur as part of the plan.  For example, a medication to
      * be used, lab tests to perform, self-monitoring, education, etc.
      */
-    activity?: Array<any[] | boolean | CarePlanActivity | number | number | null | string>;
+    activity?: CarePlanActivity[];
     /**
      * Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or
      * mitigation are handled by this plan.
      */
-    addresses?: Array<any[] | boolean | Reference | number | number | null | string>;
+    addresses?: Reference[];
     /**
      * When populated, the author is responsible for the care plan.  The care plan is attributed
      * to the author.
      */
-    author?: any[] | boolean | Reference | number | number | null | string;
+    author?: Reference;
     /**
      * A care plan that is fulfilled in whole or in part by this care plan.
      */
-    basedOn?: Array<any[] | boolean | Reference | number | number | null | string>;
+    basedOn?: Reference[];
     /**
      * Identifies all people and organizations who are expected to be involved in the care
      * envisioned by this plan.
      */
-    careTeam?: Array<any[] | boolean | Reference | number | number | null | string>;
+    careTeam?: Reference[];
     /**
      * Identifies what "kind" of plan this is to support differentiation between multiple
      * co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management",
      * "wellness plan", etc.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CarePlan | number | null | string>;
+    contained?: CarePlan[];
     /**
      * Identifies the individual(s) or organization who provided the contents of the care plan.
      */
-    contributor?: Array<any[] | boolean | Reference | number | number | null | string>;
+    contributor?: Reference[];
     /**
      * Represents when this particular CarePlan record was created in the system, which is often
      * a system-generated date.
@@ -105,7 +98,7 @@ export interface CarePlan {
      * The Encounter during which this CarePlan was created or to which the creation of this
      * record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -113,11 +106,11 @@ export interface CarePlan {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Describes the intended objective(s) of carrying out the care plan.
      */
-    goal?: Array<any[] | boolean | Reference | number | number | null | string>;
+    goal?: Reference[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -127,7 +120,7 @@ export interface CarePlan {
      * Business identifiers assigned to this care plan by the performer or other systems which
      * remain constant as the resource is updated and propagates from server to server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -158,7 +151,7 @@ export interface CarePlan {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -172,27 +165,27 @@ export interface CarePlan {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * General notes about the care plan not covered elsewhere.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * A larger care plan of which this particular care plan is a component or step.
      */
-    partOf?: Array<any[] | boolean | Reference | number | number | null | string>;
+    partOf?: Reference[];
     /**
      * Indicates when the plan did (or is intended to) come into effect and end.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Completed or terminated care plan whose function is taken by this new care plan.
      */
-    replaces?: Array<any[] | boolean | Reference | number | number | null | string>;
+    replaces?: Reference[];
     /**
      * This is a CarePlan resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Indicates whether the plan is currently being acted upon, represents future intentions or
      * is now a historical record.
@@ -201,13 +194,13 @@ export interface CarePlan {
     /**
      * Identifies the patient or group whose intended care is described by the plan.
      */
-    subject: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * Identifies portions of the patient's record that specifically influenced the formation of
      * the plan.  These might include comorbidities, recent procedures, limitations, recent
      * assessments, etc.
      */
-    supportingInfo?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInfo?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -215,19 +208,24 @@ export interface CarePlan {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Human-friendly name for the care plan.
      */
     title?: string;
 }
 
+/**
+ * Describes the intention of how one or more practitioners intend to deliver care for a
+ * particular patient, group or community for a period of time, possibly limited to care for
+ * a specific condition or set of conditions.
+ */
 export interface CarePlanActivity {
     /**
      * A simple summary of a planned activity suitable for a general care plan system (e.g. form
      * driven) that doesn't know about specific resources such as procedure etc.
      */
-    detail?: any[] | boolean | CarePlanDetail | number | number | null | string;
+    detail?: CarePlanDetail;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -235,7 +233,7 @@ export interface CarePlanActivity {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -254,63 +252,71 @@ export interface CarePlanActivity {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Identifies the outcome at the point when the status of the activity is assessed.  For
      * example, the outcome of an education activity could be patient understands (or not).
      */
-    outcomeCodeableConcept?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    outcomeCodeableConcept?: CodeableConcept[];
     /**
      * Details of the outcome or action resulting from the activity.  The reference to an
      * "event" resource, such as Procedure or Encounter or Observation, is the result/outcome of
      * the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR
      * using the CarePlan.activity.reference (a reference to a “request” resource).
      */
-    outcomeReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    outcomeReference?: Reference[];
     /**
      * Notes about the adherence/status/progress of the activity.
      */
-    progress?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    progress?: Annotation[];
     /**
      * The details of the proposed activity represented in a specific resource.
      */
-    reference?: any[] | boolean | Reference | number | number | null | string;
+    reference?: Reference;
 }
 
+/**
+ * A simple summary of a planned activity suitable for a general care plan system (e.g. form
+ * driven) that doesn't know about specific resources such as procedure etc.
+ *
+ * Describes the intention of how one or more practitioners intend to deliver care for a
+ * particular patient, group or community for a period of time, possibly limited to care for
+ * a specific condition or set of conditions.
+ */
 export interface CarePlanDetail {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for doNotPerform
      */
-    _doNotPerform?: any[] | boolean | Element | number | number | null | string;
+    _doNotPerform?: Element;
     /**
      * Extensions for instantiatesUri
      */
-    _instantiatesUri?: Array<any[] | boolean | Element | number | number | null | string>;
+    _instantiatesUri?: Element[];
     /**
      * Extensions for kind
      */
-    _kind?: any[] | boolean | Element | number | number | null | string;
+    _kind?: Element;
     /**
      * Extensions for scheduledString
      */
-    _scheduledString?: any[] | boolean | Element | number | number | null | string;
+    _scheduledString?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Detailed description of the type of planned activity; e.g. what lab test, what procedure,
      * what kind of encounter.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * Identifies the quantity expected to be consumed in a given day.
      */
-    dailyAmount?: any[] | boolean | Quantity | number | number | null | string;
+    dailyAmount?: Quantity;
     /**
      * This provides a textual description of constraints on the intended activity occurrence,
      * including relation to other activities.  It may also include objectives, pre-conditions
@@ -331,12 +337,12 @@ export interface CarePlanDetail {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Internal reference that identifies the goals that this activity is intended to contribute
      * towards meeting.
      */
-    goal?: Array<any[] | boolean | Reference | number | number | null | string>;
+    goal?: Reference[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -363,7 +369,7 @@ export interface CarePlanDetail {
      * Identifies the facility where the activity will occur; e.g. home, hospital, specific
      * clinic, etc.
      */
-    location?: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -377,37 +383,37 @@ export interface CarePlanDetail {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Identifies who's expected to be involved in the activity.
      */
-    performer?: Array<any[] | boolean | Reference | number | number | null | string>;
+    performer?: Reference[];
     /**
      * Identifies the food, drug or other product to be consumed or supplied in the activity.
      */
-    productCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    productCodeableConcept?: CodeableConcept;
     /**
      * Identifies the food, drug or other product to be consumed or supplied in the activity.
      */
-    productReference?: any[] | boolean | Reference | number | number | null | string;
+    productReference?: Reference;
     /**
      * Identifies the quantity expected to be supplied, administered or consumed by the subject.
      */
-    quantity?: any[] | boolean | Quantity | number | number | null | string;
+    quantity?: Quantity;
     /**
      * Provides the rationale that drove the inclusion of this particular activity as part of
      * the plan or the reason why the activity was prohibited.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Indicates another resource, such as the health condition(s), whose existence justifies
      * this request and drove the inclusion of this particular activity as part of the plan.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * The period, timing or frequency upon which the described activity is to occur.
      */
-    scheduledPeriod?: any[] | boolean | Period | number | number | null | string;
+    scheduledPeriod?: Period;
     /**
      * The period, timing or frequency upon which the described activity is to occur.
      */
@@ -415,7 +421,7 @@ export interface CarePlanDetail {
     /**
      * The period, timing or frequency upon which the described activity is to occur.
      */
-    scheduledTiming?: any[] | boolean | Timing | number | number | null | string;
+    scheduledTiming?: Timing;
     /**
      * Identifies what progress is being made for the specific activity.
      */
@@ -423,7 +429,7 @@ export interface CarePlanDetail {
     /**
      * Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
      */
-    statusReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    statusReason?: CodeableConcept;
 }
 
 /**

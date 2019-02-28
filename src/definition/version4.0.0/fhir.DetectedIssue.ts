@@ -1,65 +1,58 @@
-import { Element,
-         Reference, 
-         CodeableConcept,
-         Extension,
-         Period,
-         Identifier,
-         Meta,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirDetectedIssue } from "./file";
-//
-//   const fhirDetectedIssue = Convert.toFhirDetectedIssue(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    CodeableConcept,
+    Extension,
+    Period,
+    Identifier,
+    Meta,
+    Narrative
+} from "./fhir._";
 
 export interface DetectedIssue {
     /**
      * Extensions for detail
      */
-    _detail?: any[] | boolean | Element | number | number | null | string;
+    _detail?: Element;
     /**
      * Extensions for identifiedDateTime
      */
-    _identifiedDateTime?: any[] | boolean | Element | number | number | null | string;
+    _identifiedDateTime?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for reference
      */
-    _reference?: any[] | boolean | Element | number | number | null | string;
+    _reference?: Element;
     /**
      * Extensions for severity
      */
-    _severity?: any[] | boolean | Element | number | number | null | string;
+    _severity?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Individual or device responsible for the issue being raised.  For example, a decision
      * support application or a pharmacist conducting a medication review.
      */
-    author?: any[] | boolean | Reference | number | number | null | string;
+    author?: Reference;
     /**
      * Identifies the general type of issue identified.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | DetectedIssue | number | null | string>;
+    contained?: DetectedIssue[];
     /**
      * A textual explanation of the detected issue.
      */
@@ -68,7 +61,7 @@ export interface DetectedIssue {
      * Supporting evidence or manifestations that provide the basis for identifying the detected
      * issue such as a GuidanceResponse or MeasureReport.
      */
-    evidence?: Array<any[] | boolean | DetectedIssueEvidence | number | number | null | string>;
+    evidence?: DetectedIssueEvidence[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -76,7 +69,7 @@ export interface DetectedIssue {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -89,16 +82,16 @@ export interface DetectedIssue {
     /**
      * The date or period when the detected issue was initially identified.
      */
-    identifiedPeriod?: any[] | boolean | Period | number | number | null | string;
+    identifiedPeriod?: Period;
     /**
      * Business identifier associated with the detected issue record.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * Indicates the resource representing the current activity or proposed activity that is
      * potentially problematic.
      */
-    implicated?: Array<any[] | boolean | Reference | number | number | null | string>;
+    implicated?: Reference[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -114,14 +107,14 @@ export interface DetectedIssue {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * Indicates an action that has been taken or is committed to reduce or eliminate the
      * likelihood of the risk identified by the detected issue from manifesting.  Can also
      * reflect an observation of known mitigating factors that may reduce/eliminate the need for
      * any action.
      */
-    mitigation?: Array<any[] | boolean | DetectedIssueMitigation | number | number | null | string>;
+    mitigation?: DetectedIssueMitigation[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -135,11 +128,11 @@ export interface DetectedIssue {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates the patient whose record the detected issue is associated with.
      */
-    patient?: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * The literature, knowledge-base or similar reference that describes the propensity for the
      * detected issue identified.
@@ -148,7 +141,7 @@ export interface DetectedIssue {
     /**
      * This is a DetectedIssue resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Indicates the degree of importance associated with the identified issue based on the
      * potential impact on the patient.
@@ -165,19 +158,24 @@ export interface DetectedIssue {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
 
+/**
+ * Indicates an actual or potential clinical issue with or between one or more active or
+ * proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective
+ * treatment frequency, Procedure-condition conflict, etc.
+ */
 export interface DetectedIssueEvidence {
     /**
      * A manifestation that led to the recording of this detected issue.
      */
-    code?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    code?: CodeableConcept[];
     /**
      * Links to resources that constitute evidence for the detected issue such as a
      * GuidanceResponse or MeasureReport.
      */
-    detail?: Array<any[] | boolean | Reference | number | number | null | string>;
+    detail?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -185,7 +183,7 @@ export interface DetectedIssueEvidence {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -204,24 +202,29 @@ export interface DetectedIssueEvidence {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * Indicates an actual or potential clinical issue with or between one or more active or
+ * proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective
+ * treatment frequency, Procedure-condition conflict, etc.
+ */
 export interface DetectedIssueMitigation {
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Describes the action that was taken or the observation that was made that
      * reduces/eliminates the risk associated with the identified issue.
      */
-    action: any[] | boolean | CodeableConcept | number | number | null | string;
+    action?: CodeableConcept;
     /**
      * Identifies the practitioner who determined the mitigation and takes responsibility for
      * the mitigation step occurring.
      */
-    author?: any[] | boolean | Reference | number | number | null | string;
+    author?: Reference;
     /**
      * Indicates when the mitigating action was documented.
      */
@@ -233,7 +236,7 @@ export interface DetectedIssueMitigation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -252,7 +255,7 @@ export interface DetectedIssueMitigation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
 /**

@@ -1,84 +1,77 @@
-import { Element,
-         Reference, 
-         CodeableConcept,
-         Extension,
-         Identifier,
-         Meta,
-         Annotation,
-         Period,
-         Timing,
-         Money,
-         Quantity,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirChargeItem } from "./file";
-//
-//   const fhirChargeItem = Convert.toFhirChargeItem(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    CodeableConcept,
+    Extension,
+    Identifier,
+    Meta,
+    Annotation,
+    Period,
+    Timing,
+    Money,
+    Quantity,
+    Narrative
+} from "./fhir._";
 
 export interface ChargeItem {
     /**
      * Extensions for definitionUri
      */
-    _definitionUri?: Array<any[] | boolean | Element | number | number | null | string>;
+    _definitionUri?: Element[];
     /**
      * Extensions for enteredDate
      */
-    _enteredDate?: any[] | boolean | Element | number | number | null | string;
+    _enteredDate?: Element;
     /**
      * Extensions for factorOverride
      */
-    _factorOverride?: any[] | boolean | Element | number | number | null | string;
+    _factorOverride?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for occurrenceDateTime
      */
-    _occurrenceDateTime?: any[] | boolean | Element | number | number | null | string;
+    _occurrenceDateTime?: Element;
     /**
      * Extensions for overrideReason
      */
-    _overrideReason?: any[] | boolean | Element | number | number | null | string;
+    _overrideReason?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Account into which this ChargeItems belongs.
      */
-    account?: Array<any[] | boolean | Reference | number | number | null | string>;
+    account?: Reference[];
     /**
      * The anatomical location where the related service has been applied.
      */
-    bodysite?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    bodysite?: CodeableConcept[];
     /**
      * A code that identifies the charge, like a billing code.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | ChargeItem | number | null | string>;
+    contained?: ChargeItem[];
     /**
      * The encounter or episode of care that establishes the context for this event.
      */
-    context?: any[] | boolean | Reference | number | number | null | string;
+    context?: Reference;
     /**
      * The financial cost center permits the tracking of charge attribution.
      */
-    costCenter?: any[] | boolean | Reference | number | number | null | string;
+    costCenter?: Reference;
     /**
      * References the source of pricing information, rules of application for the code this
      * ChargeItem uses.
@@ -96,7 +89,7 @@ export interface ChargeItem {
     /**
      * The device, practitioner, etc. who entered the charge item.
      */
-    enterer?: any[] | boolean | Reference | number | number | null | string;
+    enterer?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -104,7 +97,7 @@ export interface ChargeItem {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Factor overriding the factor determined by the rules associated with the code.
      */
@@ -117,7 +110,7 @@ export interface ChargeItem {
     /**
      * Identifiers assigned to this event performer or other systems.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -133,7 +126,7 @@ export interface ChargeItem {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -147,11 +140,11 @@ export interface ChargeItem {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Comments made about the event by the performer, subject or other participants.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Date/time(s) or duration when the charged service was applied.
      */
@@ -159,11 +152,11 @@ export interface ChargeItem {
     /**
      * Date/time(s) or duration when the charged service was applied.
      */
-    occurrencePeriod?: any[] | boolean | Period | number | number | null | string;
+    occurrencePeriod?: Period;
     /**
      * Date/time(s) or duration when the charged service was applied.
      */
-    occurrenceTiming?: any[] | boolean | Timing | number | number | null | string;
+    occurrenceTiming?: Timing;
     /**
      * If the list price or the rule-based factor associated with the code is overridden, this
      * attribute can capture a text to indicate the  reason for this action.
@@ -172,61 +165,61 @@ export interface ChargeItem {
     /**
      * ChargeItems can be grouped to larger ChargeItems covering the whole set.
      */
-    partOf?: Array<any[] | boolean | Reference | number | number | null | string>;
+    partOf?: Reference[];
     /**
      * Indicates who or what performed or participated in the charged service.
      */
-    performer?: Array<any[] | boolean | ChargeItemPerformer | number | number | null | string>;
+    performer?: ChargeItemPerformer[];
     /**
      * The organization requesting the service.
      */
-    performingOrganization?: any[] | boolean | Reference | number | number | null | string;
+    performingOrganization?: Reference;
     /**
      * Total price of the charge overriding the list price associated with the code.
      */
-    priceOverride?: any[] | boolean | Money | number | number | null | string;
+    priceOverride?: Money;
     /**
      * Identifies the device, food, drug or other product being charged either by type code or
      * reference to an instance.
      */
-    productCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    productCodeableConcept?: CodeableConcept;
     /**
      * Identifies the device, food, drug or other product being charged either by type code or
      * reference to an instance.
      */
-    productReference?: any[] | boolean | Reference | number | number | null | string;
+    productReference?: Reference;
     /**
      * Quantity of which the charge item has been serviced.
      */
-    quantity?: any[] | boolean | Quantity | number | number | null | string;
+    quantity?: Quantity;
     /**
      * Describes why the event occurred in coded or textual form.
      */
-    reason?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reason?: CodeableConcept[];
     /**
      * The organization performing the service.
      */
-    requestingOrganization?: any[] | boolean | Reference | number | number | null | string;
+    requestingOrganization?: Reference;
     /**
      * This is a ChargeItem resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Indicated the rendered service that caused this charge.
      */
-    service?: Array<any[] | boolean | Reference | number | number | null | string>;
+    service?: Reference[];
     /**
      * The current state of the ChargeItem.
      */
-    status?: FhirChargeItemStatus;
+    status?: ChargeItemStatus;
     /**
      * The individual or set of individuals the action is being or was performed on.
      */
-    subject: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * Further information supporting this charge.
      */
-    supportingInformation?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInformation?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -234,14 +227,22 @@ export interface ChargeItem {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
 
+
+/**
+ * The resource ChargeItem describes the provision of healthcare provider products for a
+ * certain patient, therefore referring not only to the product, but containing in addition
+ * details of the provision, like date, time, amounts and participating organizations and
+ * persons. Main Usage of the ChargeItem is to enable the billing process and internal cost
+ * allocation.
+ */
 export interface ChargeItemPerformer {
     /**
      * The device, practitioner, etc. who performed or participated in the service.
      */
-    actor: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -249,12 +250,12 @@ export interface ChargeItemPerformer {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Describes the type of performance or participation(e.g. primary surgeon,
      * anesthesiologiest, etc.).
      */
-    function?: any[] | boolean | CodeableConcept | number | number | null | string;
+    function?: CodeableConcept;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -273,13 +274,13 @@ export interface ChargeItemPerformer {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
 /**
  * The current state of the ChargeItem.
  */
-export enum FhirChargeItemStatus {
+export enum ChargeItemStatus {
     Aborted = "aborted",
     Billable = "billable",
     Billed = "billed",

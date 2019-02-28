@@ -1,69 +1,62 @@
-import { Element,
-         Reference, 
-         CodeableConcept,
-         Period,
-         Extension,
-         Identifier,
-         Annotation,
-         Meta,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirClinicalImpression } from "./file";
-//
-//   const fhirClinicalImpression = Convert.toFhirClinicalImpression(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    CodeableConcept,
+    Period,
+    Extension,
+    Identifier,
+    Annotation,
+    Meta,
+    Narrative
+} from "./fhir._";
 
 export interface ClinicalImpression {
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for effectiveDateTime
      */
-    _effectiveDateTime?: any[] | boolean | Element | number | number | null | string;
+    _effectiveDateTime?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for protocol
      */
-    _protocol?: Array<any[] | boolean | Element | number | number | null | string>;
+    _protocol?: Element[];
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for summary
      */
-    _summary?: any[] | boolean | Element | number | number | null | string;
+    _summary?: Element;
     /**
      * The clinician performing the assessment.
      */
-    assessor?: any[] | boolean | Reference | number | number | null | string;
+    assessor?: Reference;
     /**
      * Categorizes the type of clinical assessment performed.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | ClinicalImpression | number | null | string>;
+    contained?: ClinicalImpression[];
     /**
      * Indicates when the documentation of the assessment was complete.
      */
@@ -80,12 +73,12 @@ export interface ClinicalImpression {
     /**
      * The point in time or period over which the subject was assessed.
      */
-    effectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    effectivePeriod?: Period;
     /**
      * The Encounter during which this ClinicalImpression was created or to which the creation
      * of this record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -93,12 +86,12 @@ export interface ClinicalImpression {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Specific findings or diagnoses that were considered likely or relevant to ongoing
      * treatment.
      */
-    finding?: Array<any[] | boolean | ClinicalImpressionFinding | number | number | null | string>;
+    finding?: ClinicalImpressionFinding[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -109,7 +102,7 @@ export interface ClinicalImpression {
      * systems which remain constant as the resource is updated and propagates from server to
      * server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -122,7 +115,7 @@ export interface ClinicalImpression {
      * investigations may include data generated during the assessment process, or data
      * previously generated and recorded that is pertinent to the outcomes.
      */
-    investigation?: Array<any[] | boolean | ClinicalImpressionInvestigation | number | number | null | string>;
+    investigation?: ClinicalImpressionInvestigation[];
     /**
      * The base language in which the resource is written.
      */
@@ -132,7 +125,7 @@ export interface ClinicalImpression {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -146,30 +139,30 @@ export interface ClinicalImpression {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Commentary about the impression, typically recorded after the impression itself was made,
      * though supplemental notes by the original author could also appear.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * A reference to the last assessment that was conducted on this patient. Assessments are
      * often/usually ongoing in nature; a care provider (practitioner or team) will make new
      * assessments on an ongoing basis as new data arises or the patient's conditions changes.
      */
-    previous?: any[] | boolean | Reference | number | number | null | string;
+    previous?: Reference;
     /**
      * A list of the relevant problems/conditions for a patient.
      */
-    problem?: Array<any[] | boolean | Reference | number | number | null | string>;
+    problem?: Reference[];
     /**
      * Estimate of likely outcome.
      */
-    prognosisCodeableConcept?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    prognosisCodeableConcept?: CodeableConcept[];
     /**
      * RiskAssessment expressing likely outcome.
      */
-    prognosisReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    prognosisReference?: Reference[];
     /**
      * Reference to a specific published clinical protocol that was followed during this
      * assessment, and/or that provides evidence in support of the diagnosis.
@@ -178,7 +171,7 @@ export interface ClinicalImpression {
     /**
      * This is a ClinicalImpression resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Identifies the workflow status of the assessment.
      */
@@ -186,11 +179,11 @@ export interface ClinicalImpression {
     /**
      * Captures the reason for the current state of the ClinicalImpression.
      */
-    statusReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    statusReason?: CodeableConcept;
     /**
      * The patient or group of individuals assessed as part of this record.
      */
-    subject: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A text summary of the investigations and the diagnosis.
      */
@@ -198,7 +191,7 @@ export interface ClinicalImpression {
     /**
      * Information supporting the clinical impression.
      */
-    supportingInfo?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInfo?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -206,14 +199,22 @@ export interface ClinicalImpression {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
 
+/**
+ * A record of a clinical assessment performed to determine what problem(s) may affect the
+ * patient and before planning the treatments or management strategies that are best to
+ * manage a patient's condition. Assessments are often 1:1 with a clinical consultation /
+ * encounter,  but this varies greatly depending on the clinical workflow. This resource is
+ * called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the
+ * recording of assessment tools such as Apgar score.
+ */
 export interface ClinicalImpressionFinding {
     /**
      * Extensions for basis
      */
-    _basis?: any[] | boolean | Element | number | number | null | string;
+    _basis?: Element;
     /**
      * Which investigations support finding or diagnosis.
      */
@@ -225,7 +226,7 @@ export interface ClinicalImpressionFinding {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -235,12 +236,12 @@ export interface ClinicalImpressionFinding {
      * Specific text or code for finding or diagnosis, which may include ruled-out or resolved
      * conditions.
      */
-    itemCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    itemCodeableConcept?: CodeableConcept;
     /**
      * Specific reference for finding or diagnosis, which may include ruled-out or resolved
      * conditions.
      */
-    itemReference?: any[] | boolean | Reference | number | number | null | string;
+    itemReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -254,16 +255,24 @@ export interface ClinicalImpressionFinding {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * A record of a clinical assessment performed to determine what problem(s) may affect the
+ * patient and before planning the treatments or management strategies that are best to
+ * manage a patient's condition. Assessments are often 1:1 with a clinical consultation /
+ * encounter,  but this varies greatly depending on the clinical workflow. This resource is
+ * called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the
+ * recording of assessment tools such as Apgar score.
+ */
 export interface ClinicalImpressionInvestigation {
     /**
      * A name/code for the group ("set") of investigations. Typically, this will be something
      * like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and
      * others such groups such as (exposure|family|travel|nutritional) history may be used.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -271,7 +280,7 @@ export interface ClinicalImpressionInvestigation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -280,7 +289,7 @@ export interface ClinicalImpressionInvestigation {
     /**
      * A record of a specific investigation that was undertaken.
      */
-    item?: Array<any[] | boolean | Reference | number | number | null | string>;
+    item?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -294,5 +303,5 @@ export interface ClinicalImpressionInvestigation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }

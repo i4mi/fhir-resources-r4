@@ -1,73 +1,66 @@
-import { Element,
-         Period, 
-         Reference,
-         CodeableConcept,
-         Extension,
-         Identifier,
-         Attachment,
-         Meta,
-         Narrative,
-         Signature,
-         Coding,
-         Annotation,
-         Timing,
-         Quantity,
-         Money} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirContract } from "./file";
-//
-//   const fhirContract = Convert.toFhirContract(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Period,
+    Reference,
+    CodeableConcept,
+    Extension,
+    Identifier,
+    Attachment,
+    Meta,
+    Narrative,
+    Signature,
+    Coding,
+    Annotation,
+    Timing,
+    Quantity,
+    Money
+} from "./fhir._";
 
 export interface Contract {
     /**
      * Extensions for alias
      */
-    _alias?: Array<any[] | boolean | Element | number | number | null | string>;
+    _alias?: Element[];
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for instantiatesUri
      */
-    _instantiatesUri?: any[] | boolean | Element | number | number | null | string;
+    _instantiatesUri?: Element;
     /**
      * Extensions for issued
      */
-    _issued?: any[] | boolean | Element | number | number | null | string;
+    _issued?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for subtitle
      */
-    _subtitle?: any[] | boolean | Element | number | number | null | string;
+    _subtitle?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Alternative representation of the title for this Contract definition, derivative, or
      * instance in any legal state., e.g., a domain specific contract number related to
@@ -77,45 +70,45 @@ export interface Contract {
     /**
      * Relevant time or time-period when this Contract is applicable.
      */
-    applies?: any[] | boolean | Period | number | number | null | string;
+    applies?: Period;
     /**
      * The individual or organization that authored the Contract definition, derivative, or
      * instance in any legal state.
      */
-    author?: any[] | boolean | Reference | number | number | null | string;
+    author?: Reference;
     /**
      * A formally or informally recognized grouping of people, principals, organizations, or
      * jurisdictions formed for the purpose of achieving some form of collective action such as
      * the promulgation, administration and enforcement of contracts and policies.
      */
-    authority?: Array<any[] | boolean | Reference | number | number | null | string>;
+    authority?: Reference[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Contract | number | null | string>;
+    contained?: Contract[];
     /**
      * Precusory content developed with a focus and intent of supporting the formation a
      * Contract instance, which may be associated with and transformable into a Contract.
      */
-    contentDefinition?: any[] | boolean | ContractContentDefinition | number | number | null | string;
+    contentDefinition?: ContractContentDefinition;
     /**
      * The minimal content derived from the basal information source at a specific stage in its
      * lifecycle.
      */
-    contentDerivative?: any[] | boolean | CodeableConcept | number | number | null | string;
+    contentDerivative?: CodeableConcept;
     /**
      * Recognized governance framework or system operating with a circumscribed scope in
      * accordance with specified principles, policies, processes or procedures for managing
      * rights, actions, or behaviors of parties or principals relative to resources.
      */
-    domain?: Array<any[] | boolean | Reference | number | number | null | string>;
+    domain?: Reference[];
     /**
      * Event resulting in discontinuation or termination of this Contract instance by one or
      * more parties to the contract.
      */
-    expirationType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    expirationType?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -123,7 +116,7 @@ export interface Contract {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The "patient friendly language" versionof the Contract in whole or in parts. "Patient
      * friendly language" means the representation of the Contract and Contract Provisions in a
@@ -132,7 +125,7 @@ export interface Contract {
      * Contract understand the roles, actions, obligations, responsibilities, and implication of
      * the agreement.
      */
-    friendly?: Array<any[] | boolean | ContractFriendly | number | number | null | string>;
+    friendly?: ContractFriendly[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -141,7 +134,7 @@ export interface Contract {
     /**
      * Unique identifier for this Contract or a derivative that references a Source Contract.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -152,7 +145,7 @@ export interface Contract {
      * The URL pointing to a FHIR-defined Contract Definition that is adhered to in whole or
      * part by this Contract.
      */
-    instantiatesCanonical?: any[] | boolean | Reference | number | number | null | string;
+    instantiatesCanonical?: Reference;
     /**
      * The URL pointing to an externally maintained definition that is adhered to in whole or in
      * part by this Contract.
@@ -169,32 +162,32 @@ export interface Contract {
     /**
      * List of Legal expressions or representations of this Contract.
      */
-    legal?: Array<any[] | boolean | ContractLegal | number | number | null | string>;
+    legal?: ContractLegal[];
     /**
      * Legally binding Contract: This is the signed and legally recognized representation of the
      * Contract, which is considered the "source of truth" and which would be the basis for
      * legal action related to enforcement of this Contract.
      */
-    legallyBindingAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    legallyBindingAttachment?: Attachment;
     /**
      * Legally binding Contract: This is the signed and legally recognized representation of the
      * Contract, which is considered the "source of truth" and which would be the basis for
      * legal action related to enforcement of this Contract.
      */
-    legallyBindingReference?: any[] | boolean | Reference | number | number | null | string;
+    legallyBindingReference?: Reference;
     /**
      * Legal states of the formation of a legal instrument, which is a formally executed written
      * document that can be formally attributed to its author, records and formally expresses a
      * legally enforceable act, process, or contractual duty, obligation, or right, and
      * therefore evidences that act, process, or agreement.
      */
-    legalState?: any[] | boolean | CodeableConcept | number | number | null | string;
+    legalState?: CodeableConcept;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -208,7 +201,7 @@ export interface Contract {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying this Contract definition, derivative, or instance in
      * any legal state. Provides additional information about its content. This name should be
@@ -223,31 +216,31 @@ export interface Contract {
      * the target that was changed in the update.
      * http://build.fhir.org/provenance-definitions.html#Provenance.entity.
      */
-    relevantHistory?: Array<any[] | boolean | Reference | number | number | null | string>;
+    relevantHistory?: Reference[];
     /**
      * This is a Contract resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * List of Computable Policy Rule Language Representations of this Contract.
      */
-    rule?: Array<any[] | boolean | ContractRule | number | number | null | string>;
+    rule?: ContractRule[];
     /**
      * A selector of legal concerns for this Contract definition, derivative, or instance in any
      * legal state.
      */
-    scope?: any[] | boolean | CodeableConcept | number | number | null | string;
+    scope?: CodeableConcept;
     /**
      * Parties with legal standing in the Contract, including the principal parties, the
      * grantor(s) and grantee(s), which are any person or organization bound by the contract,
      * and any ancillary parties, which facilitate the execution of the contract such as a
      * notary or witness.
      */
-    signer?: Array<any[] | boolean | ContractSigner | number | number | null | string>;
+    signer?: ContractSigner[];
     /**
      * Sites in which the contract is complied with,  exercised, or in force.
      */
-    site?: Array<any[] | boolean | Reference | number | number | null | string>;
+    site?: Reference[];
     /**
      * The status of the resource instance.
      */
@@ -255,7 +248,7 @@ export interface Contract {
     /**
      * The target entity impacted by or of interest to parties to the agreement.
      */
-    subject?: Array<any[] | boolean | Reference | number | number | null | string>;
+    subject?: Reference[];
     /**
      * An explanatory or alternate user-friendly title for this Contract definition, derivative,
      * or instance in any legal state.t giving additional information about its content.
@@ -265,17 +258,17 @@ export interface Contract {
      * Sub-category for the Contract that distinguishes the kinds of systems that would be
      * interested in the Contract within the context of the Contract's scope.
      */
-    subType?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    subType?: CodeableConcept[];
     /**
      * Information that may be needed by/relevant to the performer in their execution of this
      * term action.
      */
-    supportingInfo?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInfo?: Reference[];
     /**
      * One or more Contract Provisions, which may be related and conveyed as a group, and may
      * contain nested groups.
      */
-    term?: Array<any[] | boolean | ContractTerm | number | number | null | string>;
+    term?: ContractTerm[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -283,7 +276,7 @@ export interface Contract {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for this Contract definition, derivative, or
      * instance in any legal state.t giving additional information about its content.
@@ -293,19 +286,19 @@ export interface Contract {
      * Narrows the range of legal concerns to focus on the achievement of specific contractual
      * objectives.
      */
-    topicCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    topicCodeableConcept?: CodeableConcept;
     /**
      * Narrows the range of legal concerns to focus on the achievement of specific contractual
      * objectives.
      */
-    topicReference?: any[] | boolean | Reference | number | number | null | string;
+    topicReference?: Reference;
     /**
      * A high-level category for the legal instrument, whether constructed as a Contract
      * definition, derivative, or instance in any legal state.  Provides additional information
      * about its content within the context of the Contract's scope to distinguish the kinds of
      * systems that would be interested in the contract.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Canonical identifier for this contract, represented as a URI (globally unique).
      */
@@ -316,19 +309,26 @@ export interface Contract {
     version?: string;
 }
 
+/**
+ * Precusory content developed with a focus and intent of supporting the formation a
+ * Contract instance, which may be associated with and transformable into a Contract.
+ *
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractContentDefinition {
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for publicationDate
      */
-    _publicationDate?: any[] | boolean | Element | number | number | null | string;
+    _publicationDate?: Element;
     /**
      * Extensions for publicationStatus
      */
-    _publicationStatus?: any[] | boolean | Element | number | number | null | string;
+    _publicationStatus?: Element;
     /**
      * A copyright statement relating to Contract precursor content. Copyright statements are
      * generally legal restrictions on the use and publishing of the Contract precursor content.
@@ -341,7 +341,7 @@ export interface ContractContentDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -360,7 +360,7 @@ export interface ContractContentDefinition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The date (and optionally time) when the contract was published. The date must change when
      * the business version changes and it must change if the status code changes. In addition,
@@ -374,30 +374,34 @@ export interface ContractContentDefinition {
     /**
      * The  individual or organization that published the Contract precursor content.
      */
-    publisher?: any[] | boolean | Reference | number | number | null | string;
+    publisher?: Reference;
     /**
      * Detailed Precusory content type.
      */
-    subType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    subType?: CodeableConcept;
     /**
      * Precusory content structure and use, i.e., a boilerplate, template, application for a
      * contract such as an insurance policy or benefits under a program, e.g., workers
      * compensation.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractFriendly {
     /**
      * Human readable rendering of this Contract in a format and representation intended to
      * enhance comprehension and ensure understandability.
      */
-    contentAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    contentAttachment?: Attachment;
     /**
      * Human readable rendering of this Contract in a format and representation intended to
      * enhance comprehension and ensure understandability.
      */
-    contentReference?: any[] | boolean | Reference | number | number | null | string;
+    contentReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -405,7 +409,7 @@ export interface ContractFriendly {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -424,18 +428,22 @@ export interface ContractFriendly {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractLegal {
     /**
      * Contract legal text in human renderable form.
      */
-    contentAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    contentAttachment?: Attachment;
     /**
      * Contract legal text in human renderable form.
      */
-    contentReference?: any[] | boolean | Reference | number | number | null | string;
+    contentReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -443,7 +451,7 @@ export interface ContractLegal {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -462,18 +470,22 @@ export interface ContractLegal {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractRule {
     /**
      * Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
      */
-    contentAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    contentAttachment?: Attachment;
     /**
      * Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
      */
-    contentReference?: any[] | boolean | Reference | number | number | null | string;
+    contentReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -481,7 +493,7 @@ export interface ContractRule {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -500,9 +512,13 @@ export interface ContractRule {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractSigner {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -511,7 +527,7 @@ export interface ContractSigner {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -530,43 +546,47 @@ export interface ContractSigner {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Party which is a signator to this Contract.
      */
-    party: any[] | boolean | Reference | number | number | null | string;
+    party?: Reference;
     /**
      * Legally binding Contract DSIG signature contents in Base64.
      */
-    signature: Array<any[] | boolean | Signature | number | number | null | string>;
+    signature?: Signature[];
     /**
      * Role of this Contract signer, e.g. notary, grantee.
      */
-    type: any[] | boolean | Coding | number | number | null | string;
+    type?: Coding;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractTerm {
     /**
      * Extensions for issued
      */
-    _issued?: any[] | boolean | Element | number | number | null | string;
+    _issued?: Element;
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * An actor taking a role in an activity for which it can be assigned some degree of
      * responsibility for the activity taking place.
      */
-    action?: Array<any[] | boolean | ContractAction | number | number | null | string>;
+    action?: ContractAction[];
     /**
      * Relevant time or time-period when this Contract Provision is applicable.
      */
-    applies?: any[] | boolean | Period | number | number | null | string;
+    applies?: Period;
     /**
      * Contract Term Asset List.
      */
-    asset?: Array<any[] | boolean | ContractAsset | number | number | null | string>;
+    asset?: ContractAsset[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -574,11 +594,11 @@ export interface ContractTerm {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Nested group of Contract Provisions.
      */
-    group?: Array<any[] | boolean | ContractTerm | number | number | null | string>;
+    group?: ContractTerm[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -587,7 +607,7 @@ export interface ContractTerm {
     /**
      * Unique identifier for this particular Contract Provision.
      */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
+    identifier?: Identifier;
     /**
      * When this Contract Provision was issued.
      */
@@ -605,20 +625,20 @@ export interface ContractTerm {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The matter of concern in the context of this provision of the agrement.
      */
-    offer: any[] | boolean | ContractOffer | number | number | null | string;
+    offer?: ContractOffer;
     /**
      * Security labels that protect the handling of information about the term and its elements,
      * which may be specifically identified..
      */
-    securityLabel?: Array<any[] | boolean | ContractSecurityLabel | number | number | null | string>;
+    securityLabel?: ContractSecurityLabel[];
     /**
      * A specialized legal clause or condition based on overarching contract type.
      */
-    subType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    subType?: CodeableConcept;
     /**
      * Statement of a provision in a policy or a contract.
      */
@@ -626,60 +646,64 @@ export interface ContractTerm {
     /**
      * The entity that the term applies to.
      */
-    topicCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    topicCodeableConcept?: CodeableConcept;
     /**
      * The entity that the term applies to.
      */
-    topicReference?: any[] | boolean | Reference | number | number | null | string;
+    topicReference?: Reference;
     /**
      * A legal clause or condition contained within a contract that requires one or both parties
      * to perform a particular requirement by some specified time or prevents one or both
      * parties from performing a particular requirement by some specified time.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractAction {
     /**
      * Extensions for contextLinkId
      */
-    _contextLinkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _contextLinkId?: Element[];
     /**
      * Extensions for doNotPerform
      */
-    _doNotPerform?: any[] | boolean | Element | number | number | null | string;
+    _doNotPerform?: Element;
     /**
      * Extensions for linkId
      */
-    _linkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _linkId?: Element[];
     /**
      * Extensions for occurrenceDateTime
      */
-    _occurrenceDateTime?: any[] | boolean | Element | number | number | null | string;
+    _occurrenceDateTime?: Element;
     /**
      * Extensions for performerLinkId
      */
-    _performerLinkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _performerLinkId?: Element[];
     /**
      * Extensions for reason
      */
-    _reason?: Array<any[] | boolean | Element | number | number | null | string>;
+    _reason?: Element[];
     /**
      * Extensions for reasonLinkId
      */
-    _reasonLinkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _reasonLinkId?: Element[];
     /**
      * Extensions for requesterLinkId
      */
-    _requesterLinkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _requesterLinkId?: Element[];
     /**
      * Extensions for securityLabelNumber
      */
-    _securityLabelNumber?: Array<any[] | boolean | Element | number | number | null | string>;
+    _securityLabelNumber?: Element[];
     /**
      * Encounter or Episode with primary association to specified term activity.
      */
-    context?: any[] | boolean | Reference | number | number | null | string;
+    context?: Reference;
     /**
      * Id [identifier??] of the clause or question text related to the requester of this action
      * in the referenced form or QuestionnaireResponse.
@@ -696,7 +720,7 @@ export interface ContractAction {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -705,7 +729,7 @@ export interface ContractAction {
     /**
      * Reason or purpose for the action stipulated by this Contract Provision.
      */
-    intent: any[] | boolean | CodeableConcept | number | number | null | string;
+    intent?: CodeableConcept;
     /**
      * Id [identifier??] of the clause or question text related to this action in the referenced
      * form or QuestionnaireResponse.
@@ -724,12 +748,12 @@ export interface ContractAction {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Comments made about the term action made by the requester, performer, subject or other
      * participants.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * When action happens.
      */
@@ -737,15 +761,15 @@ export interface ContractAction {
     /**
      * When action happens.
      */
-    occurrencePeriod?: any[] | boolean | Period | number | number | null | string;
+    occurrencePeriod?: Period;
     /**
      * When action happens.
      */
-    occurrenceTiming?: any[] | boolean | Timing | number | number | null | string;
+    occurrenceTiming?: Timing;
     /**
      * Indicates who or what is being asked to perform (or not perform) the ction.
      */
-    performer?: any[] | boolean | Reference | number | number | null | string;
+    performer?: Reference;
     /**
      * Id [identifier??] of the clause or question text related to the reason type or reference
      * of this  action in the referenced form or QuestionnaireResponse.
@@ -755,11 +779,11 @@ export interface ContractAction {
      * The type of role or competency of an individual desired or required to perform or not
      * perform the action.
      */
-    performerRole?: any[] | boolean | CodeableConcept | number | number | null | string;
+    performerRole?: CodeableConcept;
     /**
      * The type of individual that is desired or required to perform or not perform the action.
      */
-    performerType?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    performerType?: CodeableConcept[];
     /**
      * Describes why the action is to be performed or not performed in textual form.
      */
@@ -768,7 +792,7 @@ export interface ContractAction {
      * Rationale for the action to be performed or not performed. Describes why the action is
      * permitted or prohibited.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Id [identifier??] of the clause or question text related to the reason type or reference
      * of this  action in the referenced form or QuestionnaireResponse.
@@ -778,11 +802,11 @@ export interface ContractAction {
      * Indicates another resource whose existence justifies permitting or not permitting this
      * action.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * Who or what initiated the action and has responsibility for its activation.
      */
-    requester?: Array<any[] | boolean | Reference | number | number | null | string>;
+    requester?: Reference[];
     /**
      * Id [identifier??] of the clause or question text related to the requester of this action
      * in the referenced form or QuestionnaireResponse.
@@ -795,18 +819,22 @@ export interface ContractAction {
     /**
      * Current state of the term action.
      */
-    status: any[] | boolean | CodeableConcept | number | number | null | string;
+    status?: CodeableConcept;
     /**
      * Entity of the action.
      */
-    subject?: Array<any[] | boolean | ContractSubject | number | number | null | string>;
+    subject?: ContractSubject[];
     /**
      * Activity or service obligation to be done or not done, performed or not performed,
      * effectuated or not by this Contract term.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractSubject {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -815,7 +843,7 @@ export interface ContractSubject {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -834,38 +862,42 @@ export interface ContractSubject {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The entity the action is performed or not performed on or for.
      */
-    reference: Array<any[] | boolean | Reference | number | number | null | string>;
+    reference?: Reference[];
     /**
      * Role type of agent assigned roles in this Contract.
      */
-    role?: any[] | boolean | CodeableConcept | number | number | null | string;
+    role?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractAsset {
     /**
      * Extensions for condition
      */
-    _condition?: any[] | boolean | Element | number | number | null | string;
+    _condition?: Element;
     /**
      * Extensions for linkId
      */
-    _linkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _linkId?: Element[];
     /**
      * Extensions for securityLabelNumber
      */
-    _securityLabelNumber?: Array<any[] | boolean | Element | number | number | null | string>;
+    _securityLabelNumber?: Element[];
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Response to assets.
      */
-    answer?: Array<any[] | boolean | ContractAnswer | number | number | null | string>;
+    answer?: ContractAnswer[];
     /**
      * Description of the quality and completeness of the asset that imay be a factor in its
      * valuation.
@@ -874,7 +906,7 @@ export interface ContractAsset {
     /**
      * Circumstance of the asset.
      */
-    context?: Array<any[] | boolean | ContractContext | number | number | null | string>;
+    context?: ContractContext[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -882,7 +914,7 @@ export interface ContractAsset {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -906,24 +938,24 @@ export interface ContractAsset {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Asset relevant contractual time period.
      */
-    period?: Array<any[] | boolean | Period | number | number | null | string>;
+    period?: Period[];
     /**
      * Type of Asset availability for use or ownership.
      */
-    periodType?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    periodType?: CodeableConcept[];
     /**
      * Specifies the applicability of the term to an asset resource instance, and instances it
      * refers to orinstances that refer to it, and/or are owned by the offeree.
      */
-    relationship?: any[] | boolean | Coding | number | number | null | string;
+    relationship?: Coding;
     /**
      * Differentiates the kind of the asset .
      */
-    scope?: any[] | boolean | CodeableConcept | number | number | null | string;
+    scope?: CodeableConcept;
     /**
      * Security labels that protects the asset.
      */
@@ -931,7 +963,7 @@ export interface ContractAsset {
     /**
      * May be a subtype or part of an offered asset.
      */
-    subtype?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    subtype?: CodeableConcept[];
     /**
      * Clause or question text (Prose Object) concerning the asset in a linked form, such as a
      * QuestionnaireResponse used in the formation of the contract.
@@ -940,54 +972,58 @@ export interface ContractAsset {
     /**
      * Target entity type about which the term may be concerned.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
     /**
      * Associated entities.
      */
-    typeReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    typeReference?: Reference[];
     /**
      * Time period of asset use.
      */
-    usePeriod?: Array<any[] | boolean | Period | number | number | null | string>;
+    usePeriod?: Period[];
     /**
      * Contract Valued Item List.
      */
-    valuedItem?: Array<any[] | boolean | ContractValuedItem | number | number | null | string>;
+    valuedItem?: ContractValuedItem[];
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractAnswer {
     /**
      * Extensions for valueBoolean
      */
-    _valueBoolean?: any[] | boolean | Element | number | number | null | string;
+    _valueBoolean?: Element;
     /**
      * Extensions for valueDate
      */
-    _valueDate?: any[] | boolean | Element | number | number | null | string;
+    _valueDate?: Element;
     /**
      * Extensions for valueDateTime
      */
-    _valueDateTime?: any[] | boolean | Element | number | number | null | string;
+    _valueDateTime?: Element;
     /**
      * Extensions for valueDecimal
      */
-    _valueDecimal?: any[] | boolean | Element | number | number | null | string;
+    _valueDecimal?: Element;
     /**
      * Extensions for valueInteger
      */
-    _valueInteger?: any[] | boolean | Element | number | number | null | string;
+    _valueInteger?: Element;
     /**
      * Extensions for valueString
      */
-    _valueString?: any[] | boolean | Element | number | number | null | string;
+    _valueString?: Element;
     /**
      * Extensions for valueTime
      */
-    _valueTime?: any[] | boolean | Element | number | number | null | string;
+    _valueTime?: Element;
     /**
      * Extensions for valueUri
      */
-    _valueUri?: any[] | boolean | Element | number | number | null | string;
+    _valueUri?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -995,7 +1031,7 @@ export interface ContractAnswer {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1014,13 +1050,13 @@ export interface ContractAnswer {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Response to an offer clause or question text,  which enables selection of values to be
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
      * warrently duration, or whether biospecimen may be used for further research.
      */
-    valueAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    valueAttachment?: Attachment;
     /**
      * Response to an offer clause or question text,  which enables selection of values to be
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
@@ -1032,7 +1068,7 @@ export interface ContractAnswer {
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
      * warrently duration, or whether biospecimen may be used for further research.
      */
-    valueCoding?: any[] | boolean | Coding | number | number | null | string;
+    valueCoding?: Coding;
     /**
      * Response to an offer clause or question text,  which enables selection of values to be
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
@@ -1062,13 +1098,13 @@ export interface ContractAnswer {
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
      * warrently duration, or whether biospecimen may be used for further research.
      */
-    valueQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    valueQuantity?: Quantity;
     /**
      * Response to an offer clause or question text,  which enables selection of values to be
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
      * warrently duration, or whether biospecimen may be used for further research.
      */
-    valueReference?: any[] | boolean | Reference | number | number | null | string;
+    valueReference?: Reference;
     /**
      * Response to an offer clause or question text,  which enables selection of values to be
      * agreed to, e.g., the period of participation, the date of occupancy of a rental,
@@ -1089,16 +1125,20 @@ export interface ContractAnswer {
     valueUri?: string;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractContext {
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Coded representation of the context generally or of the Referenced entity, such as the
      * asset holder type or location.
      */
-    code?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    code?: CodeableConcept[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1106,7 +1146,7 @@ export interface ContractContext {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1125,47 +1165,51 @@ export interface ContractContext {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Asset context reference may include the creator, custodian, or owning Person or
      * Organization (e.g., bank, repository),  location held, e.g., building,  jurisdiction.
      */
-    reference?: any[] | boolean | Reference | number | number | null | string;
+    reference?: Reference;
     /**
      * Context description.
      */
     text?: string;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractValuedItem {
     /**
      * Extensions for effectiveTime
      */
-    _effectiveTime?: any[] | boolean | Element | number | number | null | string;
+    _effectiveTime?: Element;
     /**
      * Extensions for factor
      */
-    _factor?: any[] | boolean | Element | number | number | null | string;
+    _factor?: Element;
     /**
      * Extensions for linkId
      */
-    _linkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _linkId?: Element[];
     /**
      * Extensions for payment
      */
-    _payment?: any[] | boolean | Element | number | number | null | string;
+    _payment?: Element;
     /**
      * Extensions for paymentDate
      */
-    _paymentDate?: any[] | boolean | Element | number | number | null | string;
+    _paymentDate?: Element;
     /**
      * Extensions for points
      */
-    _points?: any[] | boolean | Element | number | number | null | string;
+    _points?: Element;
     /**
      * Extensions for securityLabelNumber
      */
-    _securityLabelNumber?: Array<any[] | boolean | Element | number | number | null | string>;
+    _securityLabelNumber?: Element[];
     /**
      * Indicates the time during which this Contract ValuedItem information is effective.
      */
@@ -1173,11 +1217,11 @@ export interface ContractValuedItem {
     /**
      * Specific type of Contract Valued Item that may be priced.
      */
-    entityCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    entityCodeableConcept?: CodeableConcept;
     /**
      * Specific type of Contract Valued Item that may be priced.
      */
-    entityReference?: any[] | boolean | Reference | number | number | null | string;
+    entityReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1185,7 +1229,7 @@ export interface ContractValuedItem {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A real number that represents a multiplier used in determining the overall value of the
      * Contract Valued Item delivered. The concept of a Factor allows for a discount or
@@ -1200,7 +1244,7 @@ export interface ContractValuedItem {
     /**
      * Identifies a Contract Valued Item instance.
      */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
+    identifier?: Identifier;
     /**
      * Id  of the clause or question text related to the context of this valuedItem in the
      * referenced form or QuestionnaireResponse.
@@ -1219,13 +1263,13 @@ export interface ContractValuedItem {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For
      * example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  *
      * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
      */
-    net?: any[] | boolean | Money | number | number | null | string;
+    net?: Money;
     /**
      * Terms of valuation.
      */
@@ -1245,15 +1289,15 @@ export interface ContractValuedItem {
      * Specifies the units by which the Contract Valued Item is measured or counted, and
      * quantifies the countable or measurable Contract Valued Item instances.
      */
-    quantity?: any[] | boolean | Quantity | number | number | null | string;
+    quantity?: Quantity;
     /**
      * Who will receive payment.
      */
-    recipient?: any[] | boolean | Reference | number | number | null | string;
+    recipient?: Reference;
     /**
      * Who will make payment.
      */
-    responsible?: any[] | boolean | Reference | number | number | null | string;
+    responsible?: Reference;
     /**
      * A set of security labels that define which terms are controlled by this condition.
      */
@@ -1261,35 +1305,41 @@ export interface ContractValuedItem {
     /**
      * A Contract Valued Item unit valuation measure.
      */
-    unitPrice?: any[] | boolean | Money | number | number | null | string;
+    unitPrice?: Money;
 }
 
+/**
+ * The matter of concern in the context of this provision of the agrement.
+ *
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractOffer {
     /**
      * Extensions for linkId
      */
-    _linkId?: Array<any[] | boolean | Element | number | number | null | string>;
+    _linkId?: Element[];
     /**
      * Extensions for securityLabelNumber
      */
-    _securityLabelNumber?: Array<any[] | boolean | Element | number | number | null | string>;
+    _securityLabelNumber?: Element[];
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Response to offer text.
      */
-    answer?: Array<any[] | boolean | ContractAnswer | number | number | null | string>;
+    answer?: ContractAnswer[];
     /**
      * Type of choice made by accepting party with respect to an offer made by an offeror/
      * grantee.
      */
-    decision?: any[] | boolean | CodeableConcept | number | number | null | string;
+    decision?: CodeableConcept;
     /**
      * How the decision about a Contract was conveyed.
      */
-    decisionMode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    decisionMode?: CodeableConcept[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1297,7 +1347,7 @@ export interface ContractOffer {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1306,7 +1356,7 @@ export interface ContractOffer {
     /**
      * Unique identifier for this particular Contract Provision.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * The id of the clause or question text of the offer in the referenced
      * questionnaire/response.
@@ -1325,11 +1375,11 @@ export interface ContractOffer {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Offer Recipient.
      */
-    party?: Array<any[] | boolean | ContractParty | number | number | null | string>;
+    party?: ContractParty[];
     /**
      * Security labels that protects the offer.
      */
@@ -1343,14 +1393,18 @@ export interface ContractOffer {
      * all usages of the asset in any way not inconsistent with a prior contract, custom, or law
      * (Hart, 1995, p. 30).
      */
-    topic?: any[] | boolean | Reference | number | number | null | string;
+    topic?: Reference;
     /**
      * Type of Contract Provision such as specific requirements, purposes for actions,
      * obligations, prohibitions, e.g. life time maximum benefit.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractParty {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -1359,7 +1413,7 @@ export interface ContractParty {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1378,37 +1432,41 @@ export interface ContractParty {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Participant in the offer.
      */
-    reference: Array<any[] | boolean | Reference | number | number | null | string>;
+    reference?: Reference[];
     /**
      * How the party participates in the offer.
      */
-    role: any[] | boolean | CodeableConcept | number | number | null | string;
+    role?: CodeableConcept;
 }
 
+/**
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy
+ * or agreement.
+ */
 export interface ContractSecurityLabel {
     /**
      * Extensions for number
      */
-    _number?: Array<any[] | boolean | Element | number | number | null | string>;
+    _number?: Element[];
     /**
      * Security label privacy tag that species the applicable privacy and security policies
      * governing this term and/or term elements.
      */
-    category?: Array<any[] | boolean | Coding | number | number | null | string>;
+    category?: Coding[];
     /**
      * Security label privacy tag that species the level of confidentiality protection required
      * for this term and/or term elements.
      */
-    classification: any[] | boolean | Coding | number | number | null | string;
+    classification?: Coding;
     /**
      * Security label privacy tag that species the manner in which term and/or term elements are
      * to be protected.
      */
-    control?: Array<any[] | boolean | Coding | number | number | null | string>;
+    control?: Coding[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1416,7 +1474,7 @@ export interface ContractSecurityLabel {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1435,7 +1493,7 @@ export interface ContractSecurityLabel {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Number used to link this term or term element to the applicable Security Label.
      */

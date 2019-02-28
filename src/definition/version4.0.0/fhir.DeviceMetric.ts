@@ -1,46 +1,39 @@
-import { Element,
-         Extension, 
-         Identifier,
-         Timing,
-         Meta,
-         Reference,
-         Narrative,
-         CodeableConcept} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirDeviceMetric } from "./file";
-//
-//   const fhirDeviceMetric = Convert.toFhirDeviceMetric(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Extension,
+    Identifier,
+    Timing,
+    Meta,
+    Reference,
+    Narrative,
+    CodeableConcept
+} from "./fhir._";
 
 export interface DeviceMetric {
     /**
      * Extensions for category
      */
-    _category?: any[] | boolean | Element | number | number | null | string;
+    _category?: Element;
     /**
      * Extensions for color
      */
-    _color?: any[] | boolean | Element | number | number | null | string;
+    _color?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for operationalStatus
      */
-    _operationalStatus?: any[] | boolean | Element | number | number | null | string;
+    _operationalStatus?: Element;
     /**
      * Describes the calibrations that have been performed or that are required to be performed.
      */
-    calibration?: Array<any[] | boolean | DeviceMetricCalibration | number | number | null | string>;
+    calibration?: DeviceMetricCalibration[];
     /**
      * Indicates the category of the observation generation process. A DeviceMetric can be for
      * example a setting, measurement, or calculation.
@@ -58,7 +51,7 @@ export interface DeviceMetric {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | DeviceMetric | number | null | string>;
+    contained?: DeviceMetric[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -66,7 +59,7 @@ export interface DeviceMetric {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -76,7 +69,7 @@ export interface DeviceMetric {
      * Unique instance identifiers assigned to a device by the device or gateway software,
      * manufacturers, other organizations or owners. For example: handle ID.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -96,13 +89,13 @@ export interface DeviceMetric {
      * the measurement repetition time, if the device does not update the published observed
      * value with the same frequency as it was measured.
      */
-    measurementPeriod?: any[] | boolean | Timing | number | number | null | string;
+    measurementPeriod?: Timing;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -116,7 +109,7 @@ export interface DeviceMetric {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
@@ -128,16 +121,16 @@ export interface DeviceMetric {
      * be used by a client application to distinguish DeviceMetrics that have the same type, but
      * should be interpreted based on their containment location.
      */
-    parent?: any[] | boolean | Reference | number | number | null | string;
+    parent?: Reference;
     /**
      * This is a DeviceMetric resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Describes the link to the  Device that this DeviceMetric belongs to and that contains
      * administrative device information such as manufacturer, serial number, etc.
      */
-    source?: any[] | boolean | Reference | number | number | null | string;
+    source?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -145,31 +138,34 @@ export interface DeviceMetric {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Describes the unit that an observed value determined for this metric will have. For
      * example: Percent, Seconds, etc.
      */
-    unit?: any[] | boolean | CodeableConcept | number | number | null | string;
+    unit?: CodeableConcept;
 }
 
+/**
+ * Describes a measurement, calculation or setting capability of a medical device.
+ */
 export interface DeviceMetricCalibration {
     /**
      * Extensions for state
      */
-    _state?: any[] | boolean | Element | number | number | null | string;
+    _state?: Element;
     /**
      * Extensions for time
      */
-    _time?: any[] | boolean | Element | number | number | null | string;
+    _time?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -177,7 +173,7 @@ export interface DeviceMetricCalibration {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -196,7 +192,7 @@ export interface DeviceMetricCalibration {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Describes the state of the calibration.
      */

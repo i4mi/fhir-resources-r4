@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "build": "rm -rf /dist && webpack"
+    "build": "rm -rf ./dist && webpack"
   },
   "repository": {
     "type": "git",

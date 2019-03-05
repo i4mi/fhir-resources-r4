@@ -98,7 +98,7 @@ export interface AuditEvent {
     /**
      * Indicates whether the event succeeded or failed.
      */
-    outcome?: Outcome;
+    outcome?: AuditEventOutcome;
     /**
      * A free text description of the outcome of the event.
      */
@@ -461,7 +461,7 @@ export interface AuditEventDetail {
 /**
  * Indicates whether the event succeeded or failed.
  */
-export enum Outcome {
+export enum AuditEventOutcome {
     The0 = "0",
     The12 = "12",
     The4 = "4",

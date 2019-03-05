@@ -3,27 +3,27 @@ export interface AuditEvent {
     /**
      * Extensions for action
      */
-    _action?: any[] | boolean | Element | number | number | null | string;
+    _action?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for outcome
      */
-    _outcome?: any[] | boolean | Element | number | number | null | string;
+    _outcome?: Element;
     /**
      * Extensions for outcomeDesc
      */
-    _outcomeDesc?: any[] | boolean | Element | number | number | null | string;
+    _outcomeDesc?: Element;
     /**
      * Extensions for recorded
      */
-    _recorded?: any[] | boolean | Element | number | number | null | string;
+    _recorded?: Element;
     /**
      * Indicator for type of action performed during the event that generated the audit.
      */
@@ -31,17 +31,17 @@ export interface AuditEvent {
     /**
      * An actor taking an active role in the event or activity that is logged.
      */
-    agent: Array<any[] | boolean | AuditEventAgent | number | number | null | string>;
+    agent?: AuditEventAgent[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | AuditEvent | number | null | string>;
+    contained?: AuditEvent[];
     /**
      * Specific instances of data or objects that have been accessed.
      */
-    entity?: Array<any[] | boolean | AuditEventEntity | number | number | null | string>;
+    entity?: AuditEventEntity[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -49,7 +49,7 @@ export interface AuditEvent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -70,7 +70,7 @@ export interface AuditEvent {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -84,11 +84,11 @@ export interface AuditEvent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates whether the event succeeded or failed.
      */
-    outcome?: Outcome;
+    outcome?: AuditEventOutcome;
     /**
      * A free text description of the outcome of the event.
      */
@@ -96,11 +96,11 @@ export interface AuditEvent {
     /**
      * The period during which the activity occurred.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * The purposeOfUse (reason) that was used during the event being recorded.
      */
-    purposeOfEvent?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    purposeOfEvent?: CodeableConcept[];
     /**
      * The time when the event was recorded.
      */
@@ -108,15 +108,15 @@ export interface AuditEvent {
     /**
      * This is a AuditEvent resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The system that is reporting the event.
      */
-    source: any[] | boolean | AuditEventSource | number | number | null | string;
+    source?: AuditEventSource;
     /**
      * Identifier for the category of event.
      */
-    subtype?: Array<any[] | boolean | Coding | number | number | null | string>;
+    subtype?: Coding[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -124,12 +124,12 @@ export interface AuditEvent {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Identifier for a family of the event.  For example, a menu item, program, rule, policy,
      * function code, application name or URL. It identifies the performed function.
      */
-    type: any[] | boolean | Coding | number | number | null | string;
+    type?: Coding;
 }
 /**
  * Indicator for type of action performed during the event that generated the audit.
@@ -141,23 +141,27 @@ export declare enum Action {
     R = "R",
     U = "U"
 }
+/**
+ * A record of an event made for purposes of maintaining a security log. Typical uses
+ * include detection of intrusion attempts and monitoring for inappropriate usage.
+ */
 export interface AuditEventAgent {
     /**
      * Extensions for altId
      */
-    _altId?: any[] | boolean | Element | number | number | null | string;
+    _altId?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for policy
      */
-    _policy?: Array<any[] | boolean | Element | number | number | null | string>;
+    _policy?: Element[];
     /**
      * Extensions for requestor
      */
-    _requestor?: any[] | boolean | Element | number | number | null | string;
+    _requestor?: Element;
     /**
      * Alternative agent Identifier. For a human, this should be a user identifier text string
      * from authentication system. This identifier would be one known to a common authentication
@@ -171,7 +175,7 @@ export interface AuditEventAgent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -180,11 +184,11 @@ export interface AuditEventAgent {
     /**
      * Where the event occurred.
      */
-    location?: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * Type of media involved. Used when the event is about exporting/importing onto media.
      */
-    media?: any[] | boolean | Coding | number | number | null | string;
+    media?: Coding;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -198,7 +202,7 @@ export interface AuditEventAgent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Human-meaningful name for the agent.
      */
@@ -206,7 +210,7 @@ export interface AuditEventAgent {
     /**
      * Logical network location for application activity, if the activity has a network location.
      */
-    network?: any[] | boolean | AuditEventNetwork | number | number | null | string;
+    network?: AuditEventNetwork;
     /**
      * The policy or plan that authorized the activity being recorded. Typically, a single
      * activity may have multiple applicable policies, such as patient consent, guarantor
@@ -217,7 +221,7 @@ export interface AuditEventAgent {
      * The reason (purpose of use), specific to this agent, that was used during the event being
      * recorded.
      */
-    purposeOfUse?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    purposeOfUse?: CodeableConcept[];
     /**
      * Indicator that the user is or is not the requestor, or initiator, for the event being
      * audited.
@@ -227,25 +231,32 @@ export interface AuditEventAgent {
      * The security role that the user was acting under, that come from local codes defined by
      * the access control security system (e.g. RBAC, ABAC) used in the local context.
      */
-    role?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    role?: CodeableConcept[];
     /**
      * Specification of the participation type the user plays when performing the event.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Reference to who this agent is that was involved in the event.
      */
-    who?: any[] | boolean | Reference | number | number | null | string;
+    who?: Reference;
 }
+/**
+ * Logical network location for application activity, if the activity has a network
+ * location.
+ *
+ * A record of an event made for purposes of maintaining a security log. Typical uses
+ * include detection of intrusion attempts and monitoring for inappropriate usage.
+ */
 export interface AuditEventNetwork {
     /**
      * Extensions for address
      */
-    _address?: any[] | boolean | Element | number | number | null | string;
+    _address?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * An identifier for the network access point of the user device for the audit event.
      */
@@ -257,7 +268,7 @@ export interface AuditEventNetwork {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -276,7 +287,7 @@ export interface AuditEventNetwork {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An identifier for the type of network access point that originated the audit event.
      */
@@ -292,19 +303,23 @@ export declare enum AuditEventNetworkType {
     The4 = "4",
     The5 = "5"
 }
+/**
+ * A record of an event made for purposes of maintaining a security log. Typical uses
+ * include detection of intrusion attempts and monitoring for inappropriate usage.
+ */
 export interface AuditEventEntity {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for query
      */
-    _query?: any[] | boolean | Element | number | number | null | string;
+    _query?: Element;
     /**
      * Text that describes the entity in more detail.
      */
@@ -312,7 +327,7 @@ export interface AuditEventEntity {
     /**
      * Tagged value pairs for conveying additional information about the entity.
      */
-    detail?: Array<any[] | boolean | AuditEventDetail | number | number | null | string>;
+    detail?: AuditEventDetail[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -320,7 +335,7 @@ export interface AuditEventEntity {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -329,7 +344,7 @@ export interface AuditEventEntity {
     /**
      * Identifier for the data life-cycle stage for the entity.
      */
-    lifecycle?: any[] | boolean | Coding | number | number | null | string;
+    lifecycle?: Coding;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -343,7 +358,7 @@ export interface AuditEventEntity {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A name of the entity in the audit event.
      */
@@ -355,33 +370,37 @@ export interface AuditEventEntity {
     /**
      * Code representing the role the entity played in the event being audited.
      */
-    role?: any[] | boolean | Coding | number | number | null | string;
+    role?: Coding;
     /**
      * Security labels for the identified entity.
      */
-    securityLabel?: Array<any[] | boolean | Coding | number | number | null | string>;
+    securityLabel?: Coding[];
     /**
      * The type of the object that was involved in this audit event.
      */
-    type?: any[] | boolean | Coding | number | number | null | string;
+    type?: Coding;
     /**
      * Identifies a specific instance of the entity. The reference should be version specific.
      */
-    what?: any[] | boolean | Reference | number | number | null | string;
+    what?: Reference;
 }
+/**
+ * A record of an event made for purposes of maintaining a security log. Typical uses
+ * include detection of intrusion attempts and monitoring for inappropriate usage.
+ */
 export interface AuditEventDetail {
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for valueBase64Binary
      */
-    _valueBase64Binary?: any[] | boolean | Element | number | number | null | string;
+    _valueBase64Binary?: Element;
     /**
      * Extensions for valueString
      */
-    _valueString?: any[] | boolean | Element | number | number | null | string;
+    _valueString?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -389,7 +408,7 @@ export interface AuditEventDetail {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -408,7 +427,7 @@ export interface AuditEventDetail {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The type of extra detail provided in the value.
      */
@@ -425,17 +444,23 @@ export interface AuditEventDetail {
 /**
  * Indicates whether the event succeeded or failed.
  */
-export declare enum Outcome {
+export declare enum AuditEventOutcome {
     The0 = "0",
     The12 = "12",
     The4 = "4",
     The8 = "8"
 }
+/**
+ * The system that is reporting the event.
+ *
+ * A record of an event made for purposes of maintaining a security log. Typical uses
+ * include detection of intrusion attempts and monitoring for inappropriate usage.
+ */
 export interface AuditEventSource {
     /**
      * Extensions for site
      */
-    _site?: any[] | boolean | Element | number | number | null | string;
+    _site?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -443,7 +468,7 @@ export interface AuditEventSource {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -462,11 +487,11 @@ export interface AuditEventSource {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Identifier of the source where the event was detected.
      */
-    observer: any[] | boolean | Reference | number | number | null | string;
+    observer?: Reference;
     /**
      * Logical source location within the healthcare enterprise network.  For example, a
      * hospital or other provider location within a multi-entity provider group.
@@ -475,5 +500,5 @@ export interface AuditEventSource {
     /**
      * Code specifying the type of source where event originated.
      */
-    type?: Array<any[] | boolean | Coding | number | number | null | string>;
+    type?: Coding[];
 }

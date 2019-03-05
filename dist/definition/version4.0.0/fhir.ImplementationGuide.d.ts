@@ -3,73 +3,73 @@ export interface ImplementationGuide {
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for fhirVersion
      */
-    _fhirVersion?: Array<any[] | boolean | Element | number | number | null | string>;
+    _fhirVersion?: Element[];
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for license
      */
-    _license?: any[] | boolean | Element | number | number | null | string;
+    _license?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for packageId
      */
-    _packageId?: any[] | boolean | Element | number | number | null | string;
+    _packageId?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | ImplementationGuide | number | null | string>;
+    contained?: ImplementationGuide[];
     /**
      * A copyright statement relating to the implementation guide and/or its contents. Copyright
      * statements are generally legal restrictions on the use and publishing of the
@@ -86,12 +86,12 @@ export interface ImplementationGuide {
     /**
      * The information needed by an IG publisher tool to publish the whole implementation guide.
      */
-    definition?: any[] | boolean | ImplementationGuideDefinition | number | number | null | string;
+    definition?: ImplementationGuideDefinition;
     /**
      * Another implementation guide that this implementation depends on. Typically, an
      * implementation guide uses value sets, profiles etc.defined in other implementation guides.
      */
-    dependsOn?: Array<any[] | boolean | ImplementationGuideDependsOn | number | number | null | string>;
+    dependsOn?: ImplementationGuideDependsOn[];
     /**
      * A free text natural language description of the implementation guide from a consumer's
      * perspective.
@@ -110,18 +110,18 @@ export interface ImplementationGuide {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The version(s) of the FHIR specification that this ImplementationGuide targets - e.g.
      * describes how to use. The value of this element is the formal version of the
      * specification, without the revision number, e.g. [publication].[major].[minor], which is
      * 4.0.0. for this version.
      */
-    fhirVersion?: FhirVersion[];
+    fhirVersion?: ImplementationGuideFhirVersion[];
     /**
      * A set of profiles that all resources covered by this implementation guide must conform to.
      */
-    global?: Array<any[] | boolean | ImplementationGuideGlobal | number | number | null | string>;
+    global?: ImplementationGuideGlobal[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -136,7 +136,7 @@ export interface ImplementationGuide {
     /**
      * A legal or geographic region in which the implementation guide is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -149,13 +149,13 @@ export interface ImplementationGuide {
     /**
      * Information about an assembled implementation guide, created by the publication tooling.
      */
-    manifest?: any[] | boolean | ImplementationGuideManifest | number | number | null | string;
+    manifest?: ImplementationGuideManifest;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -169,7 +169,7 @@ export interface ImplementationGuide {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the implementation guide. This name should be usable
      * as an identifier for the module by machine processing applications such as code
@@ -189,11 +189,11 @@ export interface ImplementationGuide {
     /**
      * This is a ImplementationGuide resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status of this implementation guide. Enables tracking the life-cycle of the content.
      */
-    status?: FhirImplementationGuideStatus;
+    status?: ImplementationGuideStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -201,7 +201,7 @@ export interface ImplementationGuide {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the implementation guide.
      */
@@ -221,7 +221,7 @@ export interface ImplementationGuide {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate implementation guide instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the implementation guide when it
      * is referenced in a specification, model, design or instance. This is an arbitrary value
@@ -231,6 +231,15 @@ export interface ImplementationGuide {
      */
     version?: string;
 }
+/**
+ * The information needed by an IG publisher tool to publish the whole implementation
+ * guide.
+ *
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideDefinition {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -239,11 +248,11 @@ export interface ImplementationGuideDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A logical group of resources. Logical groups can be used when building pages.
      */
-    grouping?: Array<any[] | boolean | ImplementationGuideGrouping | number | number | null | string>;
+    grouping?: ImplementationGuideGrouping[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -262,36 +271,42 @@ export interface ImplementationGuideDefinition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A page / section in the implementation guide. The root page is the implementation guide
      * home page.
      */
-    page?: any[] | boolean | ImplementationGuidePage | number | number | null | string;
+    page?: ImplementationGuidePage;
     /**
      * Defines how IG is built by tools.
      */
-    parameter?: Array<any[] | boolean | ImplementationGuideParameter | number | number | null | string>;
+    parameter?: ImplementationGuideParameter[];
     /**
      * A resource that is part of the implementation guide. Conformance resources (value set,
      * structure definition, capability statements etc.) are obvious candidates for inclusion,
      * but any kind of resource can be included as an example resource.
      */
-    resource: Array<any[] | boolean | ImplementationGuideResource | number | number | null | string>;
+    resource?: ImplementationGuideResource[];
     /**
      * A template for building resources.
      */
-    template?: Array<any[] | boolean | ImplementationGuideTemplate | number | number | null | string>;
+    template?: ImplementationGuideTemplate[];
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideGrouping {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Human readable text describing the package.
      */
@@ -303,7 +318,7 @@ export interface ImplementationGuideGrouping {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -322,26 +337,35 @@ export interface ImplementationGuideGrouping {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The human-readable title to display for the package of resources when rendering the
      * implementation guide.
      */
     name?: string;
 }
+/**
+ * A page / section in the implementation guide. The root page is the implementation guide
+ * home page.
+ *
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuidePage {
     /**
      * Extensions for generation
      */
-    _generation?: any[] | boolean | Element | number | number | null | string;
+    _generation?: Element;
     /**
      * Extensions for nameUrl
      */
-    _nameUrl?: any[] | boolean | Element | number | number | null | string;
+    _nameUrl?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -349,7 +373,7 @@ export interface ImplementationGuidePage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A code that indicates how the page is generated.
      */
@@ -372,11 +396,11 @@ export interface ImplementationGuidePage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The source address for the page.
      */
-    nameReference?: any[] | boolean | Reference | number | number | null | string;
+    nameReference?: Reference;
     /**
      * The source address for the page.
      */
@@ -384,7 +408,7 @@ export interface ImplementationGuidePage {
     /**
      * Nested Pages/Sections under this page.
      */
-    page?: Array<any[] | boolean | ImplementationGuidePage | number | number | null | string>;
+    page?: ImplementationGuidePage[];
     /**
      * A short title used to represent this page in navigational structures such as table of
      * contents, bread crumbs, etc.
@@ -396,24 +420,30 @@ export interface ImplementationGuidePage {
  */
 export declare enum Generation {
     Generated = "generated",
-    HTML = "html",
+    Html = "html",
     Markdown = "markdown",
-    XML = "xml"
+    Xml = "xml"
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideParameter {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * apply | path-resource | path-pages | path-tx-cache | expansion-parameter |
      * rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
      */
-    code?: Code;
+    code?: ImplementationGuideParameterCode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -421,7 +451,7 @@ export interface ImplementationGuideParameter {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -440,7 +470,7 @@ export interface ImplementationGuideParameter {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Value for named type.
      */
@@ -450,43 +480,49 @@ export interface ImplementationGuideParameter {
  * apply | path-resource | path-pages | path-tx-cache | expansion-parameter |
  * rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
  */
-export declare enum Code {
+export declare enum ImplementationGuideParameterCode {
     Apply = "apply",
     ExpansionParameter = "expansion-parameter",
-    GenerateJSON = "generate-json",
     GenerateTurtle = "generate-turtle",
-    GenerateXML = "generate-xml",
-    HTMLTemplate = "html-template",
+    Generatejson = "generate-json",
+    Generatexml = "generate-xml",
+    HtmlTemplate = "html-template",
     PathPages = "path-pages",
     PathResource = "path-resource",
     PathTxCache = "path-tx-cache",
     RuleBrokenLinks = "rule-broken-links"
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideResource {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for exampleBoolean
      */
-    _exampleBoolean?: any[] | boolean | Element | number | number | null | string;
+    _exampleBoolean?: Element;
     /**
      * Extensions for exampleCanonical
      */
-    _exampleCanonical?: any[] | boolean | Element | number | number | null | string;
+    _exampleCanonical?: Element;
     /**
      * Extensions for fhirVersion
      */
-    _fhirVersion?: Array<any[] | boolean | Element | number | number | null | string>;
+    _fhirVersion?: Element[];
     /**
      * Extensions for groupingId
      */
-    _groupingId?: any[] | boolean | Element | number | number | null | string;
+    _groupingId?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * A description of the reason that a resource has been included in the implementation guide.
      */
@@ -508,13 +544,13 @@ export interface ImplementationGuideResource {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are
      * specified, the resource is assumed to apply to all the versions stated in
      * ImplementationGuide.fhirVersion.
      */
-    fhirVersion?: FhirVersion[];
+    fhirVersion?: ImplementationGuideFhirVersion[];
     /**
      * Reference to the id of the grouping this resource appears in.
      */
@@ -537,7 +573,7 @@ export interface ImplementationGuideResource {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A human assigned name for the resource. All resources SHOULD have a name, but the name
      * may be extracted from the resource (e.g. ValueSet.name).
@@ -546,9 +582,9 @@ export interface ImplementationGuideResource {
     /**
      * Where this resource is found.
      */
-    reference: any[] | boolean | Reference | number | number | null | string;
+    reference?: Reference;
 }
-export declare enum FhirVersion {
+export declare enum ImplementationGuideFhirVersion {
     The001 = "0.01",
     The005 = "0.05",
     The006 = "0.06",
@@ -571,19 +607,25 @@ export declare enum FhirVersion {
     The350 = "3.5.0",
     The400 = "4.0.0"
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideTemplate {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for scope
      */
-    _scope?: any[] | boolean | Element | number | number | null | string;
+    _scope?: Element;
     /**
      * Extensions for source
      */
-    _source?: any[] | boolean | Element | number | number | null | string;
+    _source?: Element;
     /**
      * Type of template specified.
      */
@@ -595,7 +637,7 @@ export interface ImplementationGuideTemplate {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -614,7 +656,7 @@ export interface ImplementationGuideTemplate {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The scope in which the template applies.
      */
@@ -624,15 +666,21 @@ export interface ImplementationGuideTemplate {
      */
     source?: string;
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideDependsOn {
     /**
      * Extensions for packageId
      */
-    _packageId?: any[] | boolean | Element | number | number | null | string;
+    _packageId?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -640,7 +688,7 @@ export interface ImplementationGuideDependsOn {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -659,7 +707,7 @@ export interface ImplementationGuideDependsOn {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The NPM package name for the Implementation Guide that this IG depends on.
      */
@@ -667,18 +715,24 @@ export interface ImplementationGuideDependsOn {
     /**
      * A canonical reference to the Implementation guide for the dependency.
      */
-    uri: string;
+    uri?: string;
     /**
      * The version of the IG that is depended on, when the correct version is required to
      * understand the IG correctly.
      */
     version?: string;
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideGlobal {
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -686,7 +740,7 @@ export interface ImplementationGuideGlobal {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -705,11 +759,11 @@ export interface ImplementationGuideGlobal {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A reference to the profile that all instances must conform to.
      */
-    profile: string;
+    profile?: string;
     /**
      * The type of resource that all instances must conform to.
      */
@@ -751,7 +805,7 @@ export declare enum License {
     Apsl20 = "APSL-2.0",
     Artistic10 = "Artistic-1.0",
     Artistic10Cl8 = "Artistic-1.0-cl8",
-    Artistic10PERL = "Artistic-1.0-Perl",
+    Artistic10Perl = "Artistic-1.0-Perl",
     Artistic20 = "Artistic-2.0",
     BSD1Clause = "BSD-1-Clause",
     BSD2Clause = "BSD-2-Clause",
@@ -959,7 +1013,7 @@ export declare enum License {
     Noweb = "Noweb",
     Nposl30 = "NPOSL-3.0",
     Nrl = "NRL",
-    ODBL10 = "ODbL-1.0",
+    ODbL10 = "ODbL-1.0",
     OcctPl = "OCCT-PL",
     Oclc20 = "OCLC-2.0",
     Ofl10 = "OFL-1.0",
@@ -1067,19 +1121,27 @@ export declare enum License {
     Zlib = "Zlib",
     ZlibAcknowledgement = "zlib-acknowledgement"
 }
+/**
+ * Information about an assembled implementation guide, created by the publication tooling.
+ *
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideManifest {
     /**
      * Extensions for image
      */
-    _image?: Array<any[] | boolean | Element | number | number | null | string>;
+    _image?: Element[];
     /**
      * Extensions for other
      */
-    _other?: Array<any[] | boolean | Element | number | number | null | string>;
+    _other?: Element[];
     /**
      * Extensions for rendering
      */
-    _rendering?: any[] | boolean | Element | number | number | null | string;
+    _rendering?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1087,7 +1149,7 @@ export interface ImplementationGuideManifest {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1110,7 +1172,7 @@ export interface ImplementationGuideManifest {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates the relative path of an additional non-page, non-image file that is part of the
      * IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived
@@ -1120,7 +1182,7 @@ export interface ImplementationGuideManifest {
     /**
      * Information about a page within the IG.
      */
-    page?: Array<any[] | boolean | ImplementationGuidePage1 | number | number | null | string>;
+    page?: ImplementationGuidePage1[];
     /**
      * A pointer to official web page, PDF or other rendering of the implementation guide.
      */
@@ -1130,21 +1192,27 @@ export interface ImplementationGuideManifest {
      * structure definition, capability statements etc.) are obvious candidates for inclusion,
      * but any kind of resource can be included as an example resource.
      */
-    resource: Array<any[] | boolean | ImplementationGuideResource1 | number | number | null | string>;
+    resource?: ImplementationGuideResource1[];
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuidePage1 {
     /**
      * Extensions for anchor
      */
-    _anchor?: Array<any[] | boolean | Element | number | number | null | string>;
+    _anchor?: Element[];
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * The name of an anchor available on the page.
      */
@@ -1156,7 +1224,7 @@ export interface ImplementationGuidePage1 {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1175,7 +1243,7 @@ export interface ImplementationGuidePage1 {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Relative path to the page.
      */
@@ -1185,19 +1253,25 @@ export interface ImplementationGuidePage1 {
      */
     title?: string;
 }
+/**
+ * A set of rules of how a particular interoperability or standards problem is solved -
+ * typically through the use of FHIR resources. This resource is used to gather all the
+ * parts of an implementation guide into a logical whole and to publish a computable
+ * definition of all the parts.
+ */
 export interface ImplementationGuideResource1 {
     /**
      * Extensions for exampleBoolean
      */
-    _exampleBoolean?: any[] | boolean | Element | number | number | null | string;
+    _exampleBoolean?: Element;
     /**
      * Extensions for exampleCanonical
      */
-    _exampleCanonical?: any[] | boolean | Element | number | number | null | string;
+    _exampleCanonical?: Element;
     /**
      * Extensions for relativePath
      */
-    _relativePath?: any[] | boolean | Element | number | number | null | string;
+    _relativePath?: Element;
     /**
      * If true or a reference, indicates the resource is an example instance.  If a reference is
      * present, indicates that the example is an example of the specified profile.
@@ -1215,7 +1289,7 @@ export interface ImplementationGuideResource1 {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1234,11 +1308,11 @@ export interface ImplementationGuideResource1 {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Where this resource is found.
      */
-    reference: any[] | boolean | Reference | number | number | null | string;
+    reference?: Reference;
     /**
      * The relative path for primary page for this resource within the IG.
      */
@@ -1247,7 +1321,7 @@ export interface ImplementationGuideResource1 {
 /**
  * The status of this implementation guide. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirImplementationGuideStatus {
+export declare enum ImplementationGuideStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

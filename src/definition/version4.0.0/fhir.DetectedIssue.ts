@@ -146,7 +146,7 @@ export interface DetectedIssue {
      * Indicates the degree of importance associated with the identified issue based on the
      * potential impact on the patient.
      */
-    severity?: Severity;
+    severity?: DetectedIssueSeverity;
     /**
      * Indicates the status of the detected issue.
      */
@@ -262,7 +262,7 @@ export interface DetectedIssueMitigation {
  * Indicates the degree of importance associated with the identified issue based on the
  * potential impact on the patient.
  */
-export enum Severity {
+export enum DetectedIssueSeverity {
     High = "high",
     Low = "low",
     Moderate = "moderate",

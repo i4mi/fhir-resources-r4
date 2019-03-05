@@ -1,12 +1,12 @@
-import { FhirBundleType, Bundle, Method, BundleEntry } from "../../definition/version4.0.0/fhir.Bundle";
+import { BundleType, Bundle, Method, BundleEntry } from "../../definition/version4.0.0/fhir.Bundle";
 export interface I4MIInterfaceToMapResource {
     [key: string]: any;
 }
 export declare class I4MIBundle implements Bundle {
     resourceType: string;
-    type: FhirBundleType;
+    type: BundleType;
     entry: Array<BundleEntry>;
-    constructor(type: FhirBundleType);
+    constructor(type: BundleType);
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry

@@ -1,78 +1,71 @@
-import { Element,
-         ContactDetail, 
-         Period,
-         Reference,
-         Extension,
-         Identifier,
-         CodeableConcept,
-         Meta,
-         Annotation,
-         RelatedArtifact,
-         Narrative,
-         UsageContext} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirEffectEvidenceSynthesis } from "./file";
-//
-//   const fhirEffectEvidenceSynthesis = Convert.toFhirEffectEvidenceSynthesis(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    ContactDetail,
+    Period,
+    Reference,
+    Extension,
+    Identifier,
+    CodeableConcept,
+    Meta,
+    Annotation,
+    RelatedArtifact,
+    Narrative,
+    UsageContext
+} from "./fhir._";
 
 export interface EffectEvidenceSynthesis {
     /**
      * Extensions for approvalDate
      */
-    _approvalDate?: any[] | boolean | Element | number | number | null | string;
+    _approvalDate?: Element;
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastReviewDate
      */
-    _lastReviewDate?: any[] | boolean | Element | number | number | null | string;
+    _lastReviewDate?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * The date on which the resource content was approved by the publisher. Approval happens
      * once when the content is officially approved for usage.
@@ -82,21 +75,21 @@ export interface EffectEvidenceSynthesis {
      * An individiual or organization primarily involved in the creation and maintenance of the
      * content.
      */
-    author?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    author?: ContactDetail[];
     /**
      * A description of the certainty of the effect estimate.
      */
-    certainty?: Array<any[] | boolean | EffectEvidenceSynthesisCertainty | number | number | null | string>;
+    certainty?: EffectEvidenceSynthesisCertainty[];
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | EffectEvidenceSynthesis | number | null | string>;
+    contained?: EffectEvidenceSynthesis[];
     /**
      * A copyright statement relating to the effect evidence synthesis and/or its contents.
      * Copyright statements are generally legal restrictions on the use and publishing of the
@@ -118,30 +111,30 @@ export interface EffectEvidenceSynthesis {
     /**
      * An individual or organization primarily responsible for internal coherence of the content.
      */
-    editor?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    editor?: ContactDetail[];
     /**
      * The estimated effect of the exposure variant.
      */
-    effectEstimate?: Array<any[] | boolean | EffectEvidenceSynthesisEffectEstimate | number | number | null | string>;
+    effectEstimate?: EffectEvidenceSynthesisEffectEstimate[];
     /**
      * The period during which the effect evidence synthesis content was or is planned to be in
      * active use.
      */
-    effectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    effectivePeriod?: Period;
     /**
      * An individual or organization responsible for officially endorsing the content for use in
      * some setting.
      */
-    endorser?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    endorser?: ContactDetail[];
     /**
      * A reference to a EvidenceVariable resource that defines the exposure for the research.
      */
-    exposure: any[] | boolean | Reference | number | number | null | string;
+    exposure?: Reference;
     /**
      * A reference to a EvidenceVariable resource that defines the comparison exposure for the
      * research.
      */
-    exposureAlternative: any[] | boolean | Reference | number | number | null | string;
+    exposureAlternative?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -149,7 +142,7 @@ export interface EffectEvidenceSynthesis {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -160,7 +153,7 @@ export interface EffectEvidenceSynthesis {
      * represented in other formats, or referenced in a specification, model, design or an
      * instance.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -171,7 +164,7 @@ export interface EffectEvidenceSynthesis {
      * A legal or geographic region in which the effect evidence synthesis is intended to be
      * used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -186,7 +179,7 @@ export interface EffectEvidenceSynthesis {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -200,7 +193,7 @@ export interface EffectEvidenceSynthesis {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the effect evidence synthesis. This name should be
      * usable as an identifier for the module by machine processing applications such as code
@@ -210,15 +203,15 @@ export interface EffectEvidenceSynthesis {
     /**
      * A human-readable string to clarify or explain concepts about the resource.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * A reference to a EvidenceVariable resomece that defines the outcome for the research.
      */
-    outcome: any[] | boolean | Reference | number | number | null | string;
+    outcome?: Reference;
     /**
      * A reference to a EvidenceVariable resource that defines the population for the research.
      */
-    population: any[] | boolean | Reference | number | number | null | string;
+    population?: Reference;
     /**
      * The name of the organization or individual that published the effect evidence synthesis.
      */
@@ -227,37 +220,37 @@ export interface EffectEvidenceSynthesis {
      * Related artifacts such as additional documentation, justification, or bibliographic
      * references.
      */
-    relatedArtifact?: Array<any[] | boolean | RelatedArtifact | number | number | null | string>;
+    relatedArtifact?: RelatedArtifact[];
     /**
      * This is a EffectEvidenceSynthesis resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A description of the results for each exposure considered in the effect estimate.
      */
-    resultsByExposure?: Array<any[] | boolean | EffectEvidenceSynthesisResultsByExposure | number | number | null | string>;
+    resultsByExposure?: EffectEvidenceSynthesisResultsByExposure[];
     /**
      * An individual or organization primarily responsible for review of some aspect of the
      * content.
      */
-    reviewer?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    reviewer?: ContactDetail[];
     /**
      * A description of the size of the sample involved in the synthesis.
      */
-    sampleSize?: any[] | boolean | EffectEvidenceSynthesisSampleSize | number | number | null | string;
+    sampleSize?: EffectEvidenceSynthesisSampleSize;
     /**
      * The status of this effect evidence synthesis. Enables tracking the life-cycle of the
      * content.
      */
-    status?: FhirEffectEvidenceSynthesisStatus;
+    status?: EffectEvidenceSynthesisStatus;
     /**
      * Type of study eg randomized trial.
      */
-    studyType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    studyType?: CodeableConcept;
     /**
      * Type of synthesis eg meta-analysis.
      */
-    synthesisType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    synthesisType?: CodeableConcept;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -265,7 +258,7 @@ export interface EffectEvidenceSynthesis {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the effect evidence synthesis.
      */
@@ -275,7 +268,7 @@ export interface EffectEvidenceSynthesis {
      * a high-level categorization grouping types of EffectEvidenceSynthesiss that can be useful
      * for filtering and searching.
      */
-    topic?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    topic?: CodeableConcept[];
     /**
      * An absolute URI that is used to identify this effect evidence synthesis when it is
      * referenced in a specification, model, design or an instance; also called its canonical
@@ -291,7 +284,7 @@ export interface EffectEvidenceSynthesis {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate effect evidence synthesis instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the effect evidence synthesis
      * when it is referenced in a specification, model, design or instance. This is an arbitrary
@@ -303,11 +296,16 @@ export interface EffectEvidenceSynthesis {
     version?: string;
 }
 
+/**
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisCertainty {
     /**
      * A description of a component of the overall certainty.
      */
-    certaintySubcomponent?: Array<any[] | boolean | EffectEvidenceSynthesisCertaintySubcomponent | number | number | null | string>;
+    certaintySubcomponent?: EffectEvidenceSynthesisCertaintySubcomponent[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -315,7 +313,7 @@ export interface EffectEvidenceSynthesisCertainty {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -334,17 +332,22 @@ export interface EffectEvidenceSynthesisCertainty {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A human-readable string to clarify or explain concepts about the resource.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * A rating of the certainty of the effect estimate.
      */
-    rating?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    rating?: CodeableConcept[];
 }
 
+/**
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisCertaintySubcomponent {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -353,7 +356,7 @@ export interface EffectEvidenceSynthesisCertaintySubcomponent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -372,30 +375,35 @@ export interface EffectEvidenceSynthesisCertaintySubcomponent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A human-readable string to clarify or explain concepts about the resource.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * A rating of a subcomponent of rating certainty.
      */
-    rating?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    rating?: CodeableConcept[];
     /**
      * Type of subcomponent of certainty rating.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisEffectEstimate {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * Human-readable summary of effect estimate.
      */
@@ -407,7 +415,7 @@ export interface EffectEvidenceSynthesisEffectEstimate {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -426,19 +434,19 @@ export interface EffectEvidenceSynthesisEffectEstimate {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A description of the precision of the estimate for the effect.
      */
-    precisionEstimate?: Array<any[] | boolean | EffectEvidenceSynthesisPrecisionEstimate | number | number | null | string>;
+    precisionEstimate?: EffectEvidenceSynthesisPrecisionEstimate[];
     /**
      * Examples include relative risk and mean difference.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Specifies the UCUM unit for the outcome.
      */
-    unitOfMeasure?: any[] | boolean | CodeableConcept | number | number | null | string;
+    unitOfMeasure?: CodeableConcept;
     /**
      * The point estimate of the effect estimate.
      */
@@ -446,22 +454,27 @@ export interface EffectEvidenceSynthesisEffectEstimate {
     /**
      * Used to define variant exposure states such as low-risk state.
      */
-    variantState?: any[] | boolean | CodeableConcept | number | number | null | string;
+    variantState?: CodeableConcept;
 }
 
+/**
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisPrecisionEstimate {
     /**
      * Extensions for from
      */
-    _from?: any[] | boolean | Element | number | number | null | string;
+    _from?: Element;
     /**
      * Extensions for level
      */
-    _level?: any[] | boolean | Element | number | number | null | string;
+    _level?: Element;
     /**
      * Extensions for to
      */
-    _to?: any[] | boolean | Element | number | number | null | string;
+    _to?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -469,7 +482,7 @@ export interface EffectEvidenceSynthesisPrecisionEstimate {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Lower bound of confidence interval.
      */
@@ -496,7 +509,7 @@ export interface EffectEvidenceSynthesisPrecisionEstimate {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Upper bound of confidence interval.
      */
@@ -504,18 +517,23 @@ export interface EffectEvidenceSynthesisPrecisionEstimate {
     /**
      * Examples include confidence interval and interquartile range.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
 
+/**
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisResultsByExposure {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for exposureState
      */
-    _exposureState?: any[] | boolean | Element | number | number | null | string;
+    _exposureState?: Element;
     /**
      * Human-readable summary of results by exposure state.
      */
@@ -531,7 +549,7 @@ export interface EffectEvidenceSynthesisResultsByExposure {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -550,15 +568,15 @@ export interface EffectEvidenceSynthesisResultsByExposure {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Reference to a RiskEvidenceSynthesis resource.
      */
-    riskEvidenceSynthesis: any[] | boolean | Reference | number | number | null | string;
+    riskEvidenceSynthesis?: Reference;
     /**
      * Used to define variant exposure states such as low-risk state.
      */
-    variantState?: any[] | boolean | CodeableConcept | number | number | null | string;
+    variantState?: CodeableConcept;
 }
 
 /**
@@ -569,19 +587,26 @@ export enum ExposureState {
     ExposureAlternative = "exposure-alternative",
 }
 
+/**
+ * A description of the size of the sample involved in the synthesis.
+ *
+ * The EffectEvidenceSynthesis resource describes the difference in an outcome between
+ * exposures states in a population where the effect estimate is derived from a combination
+ * of research studies.
+ */
 export interface EffectEvidenceSynthesisSampleSize {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for numberOfParticipants
      */
-    _numberOfParticipants?: any[] | boolean | Element | number | number | null | string;
+    _numberOfParticipants?: Element;
     /**
      * Extensions for numberOfStudies
      */
-    _numberOfStudies?: any[] | boolean | Element | number | number | null | string;
+    _numberOfStudies?: Element;
     /**
      * Human-readable summary of sample size.
      */
@@ -593,7 +618,7 @@ export interface EffectEvidenceSynthesisSampleSize {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -612,7 +637,7 @@ export interface EffectEvidenceSynthesisSampleSize {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Number of participants included in this evidence synthesis.
      */
@@ -627,7 +652,7 @@ export interface EffectEvidenceSynthesisSampleSize {
  * The status of this effect evidence synthesis. Enables tracking the life-cycle of the
  * content.
  */
-export enum FhirEffectEvidenceSynthesisStatus {
+export enum EffectEvidenceSynthesisStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

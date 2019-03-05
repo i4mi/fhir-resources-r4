@@ -3,31 +3,31 @@ export interface Group {
     /**
      * Extensions for active
      */
-    _active?: any[] | boolean | Element | number | number | null | string;
+    _active?: Element;
     /**
      * Extensions for actual
      */
-    _actual?: any[] | boolean | Element | number | number | null | string;
+    _actual?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for quantity
      */
-    _quantity?: any[] | boolean | Element | number | number | null | string;
+    _quantity?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Indicates whether the record for the group is available for use or is merely being
      * retained for historical purposes.
@@ -41,17 +41,17 @@ export interface Group {
     /**
      * Identifies traits whose presence r absence is shared by members of the group.
      */
-    characteristic?: Array<any[] | boolean | GroupCharacteristic | number | number | null | string>;
+    characteristic?: GroupCharacteristic[];
     /**
      * Provides a specific type of resource the group includes; e.g. "cow", "syringe", etc.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Group | number | null | string>;
+    contained?: Group[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -59,7 +59,7 @@ export interface Group {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -68,7 +68,7 @@ export interface Group {
     /**
      * A unique business identifier for this group.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -83,17 +83,17 @@ export interface Group {
      * Entity responsible for defining and maintaining Group characteristics and/or registered
      * members.
      */
-    managingEntity?: any[] | boolean | Reference | number | number | null | string;
+    managingEntity?: Reference;
     /**
      * Identifies the resource instances that are members of the group.
      */
-    member?: Array<any[] | boolean | GroupMember | number | number | null | string>;
+    member?: GroupMember[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -107,7 +107,7 @@ export interface Group {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A label assigned to the group for human identification and communication.
      */
@@ -119,7 +119,7 @@ export interface Group {
     /**
      * This is a Group resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -127,25 +127,30 @@ export interface Group {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Identifies the broad classification of the kind of resources the group includes.
      */
-    type?: FhirGroupType;
+    type?: GroupType;
 }
+/**
+ * Represents a defined collection of entities that may be discussed or acted upon
+ * collectively but which are not expected to act collectively, and are not formally or
+ * legally recognized; i.e. a collection of entities that isn't an Organization.
+ */
 export interface GroupCharacteristic {
     /**
      * Extensions for exclude
      */
-    _exclude?: any[] | boolean | Element | number | number | null | string;
+    _exclude?: Element;
     /**
      * Extensions for valueBoolean
      */
-    _valueBoolean?: any[] | boolean | Element | number | number | null | string;
+    _valueBoolean?: Element;
     /**
      * A code that identifies the kind of trait being asserted.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * If true, indicates the characteristic is one that is NOT held by members of the group.
      */
@@ -157,7 +162,7 @@ export interface GroupCharacteristic {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -176,12 +181,12 @@ export interface GroupCharacteristic {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The period over which the characteristic is tested; e.g. the patient had an operation
      * during the month of June.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the
      * group.
@@ -191,33 +196,38 @@ export interface GroupCharacteristic {
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the
      * group.
      */
-    valueCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the
      * group.
      */
-    valueQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    valueQuantity?: Quantity;
     /**
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the
      * group.
      */
-    valueRange?: any[] | boolean | Range | number | number | null | string;
+    valueRange?: Range;
     /**
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the
      * group.
      */
-    valueReference?: any[] | boolean | Reference | number | number | null | string;
+    valueReference?: Reference;
 }
+/**
+ * Represents a defined collection of entities that may be discussed or acted upon
+ * collectively but which are not expected to act collectively, and are not formally or
+ * legally recognized; i.e. a collection of entities that isn't an Organization.
+ */
 export interface GroupMember {
     /**
      * Extensions for inactive
      */
-    _inactive?: any[] | boolean | Element | number | number | null | string;
+    _inactive?: Element;
     /**
      * A reference to the entity that is a member of the group. Must be consistent with
      * Group.type. If the entity is another group, then the type must be the same.
      */
-    entity: any[] | boolean | Reference | number | number | null | string;
+    entity?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -225,7 +235,7 @@ export interface GroupMember {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -249,16 +259,16 @@ export interface GroupMember {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The period that the member was in the group, if known.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
 }
 /**
  * Identifies the broad classification of the kind of resources the group includes.
  */
-export declare enum FhirGroupType {
+export declare enum GroupType {
     Animal = "animal",
     Device = "device",
     Medication = "medication",

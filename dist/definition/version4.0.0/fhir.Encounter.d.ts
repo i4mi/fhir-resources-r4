@@ -3,32 +3,32 @@ export interface Encounter {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * The set of accounts that may be used for billing for this Encounter.
      */
-    account?: Array<any[] | boolean | Reference | number | number | null | string>;
+    account?: Reference[];
     /**
      * The appointment that scheduled this encounter.
      */
-    appointment?: Array<any[] | boolean | Reference | number | number | null | string>;
+    appointment?: Reference[];
     /**
      * The request this encounter satisfies (e.g. incoming referral or procedure request).
      */
-    basedOn?: Array<any[] | boolean | Reference | number | number | null | string>;
+    basedOn?: Reference[];
     /**
      * Concepts representing classification of patient encounter such as ambulatory
      * (outpatient), inpatient, emergency, home health or others due to local variations.
      */
-    class: any[] | boolean | Coding | number | number | null | string;
+    class?: Coding;
     /**
      * The class history permits the tracking of the encounters transitions without needing to
      * go  through the resource history.  This would be used for a case where an admission
@@ -37,17 +37,17 @@ export interface Encounter {
      * easily follow the patient and not require re-processing and not get lost or cancelled
      * during a kind of discharge from emergency to inpatient.
      */
-    classHistory?: Array<any[] | boolean | EncounterClassHistory | number | number | null | string>;
+    classHistory?: EncounterClassHistory[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Encounter | number | null | string>;
+    contained?: Encounter[];
     /**
      * The list of diagnosis relevant to this encounter.
      */
-    diagnosis?: Array<any[] | boolean | EncounterDiagnosis | number | number | null | string>;
+    diagnosis?: EncounterDiagnosis[];
     /**
      * Where a specific encounter should be classified as a part of a specific episode(s) of
      * care this field should be used. This association can facilitate grouping of related
@@ -57,7 +57,7 @@ export interface Encounter {
      * the episode of care to append another encounter to it (the episode of care could span
      * years).
      */
-    episodeOfCare?: Array<any[] | boolean | Reference | number | number | null | string>;
+    episodeOfCare?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -65,11 +65,11 @@ export interface Encounter {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Details about the admission to a healthcare service.
      */
-    hospitalization?: any[] | boolean | EncounterHospitalization | number | number | null | string;
+    hospitalization?: EncounterHospitalization;
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -78,7 +78,7 @@ export interface Encounter {
     /**
      * Identifier(s) by which this encounter is known.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -92,17 +92,17 @@ export interface Encounter {
     /**
      * Quantity of time the encounter lasted. This excludes the time during leaves of absence.
      */
-    length?: any[] | boolean | Duration | number | number | null | string;
+    length?: Duration;
     /**
      * List of locations where  the patient has been during this encounter.
      */
-    location?: Array<any[] | boolean | EncounterLocation | number | number | null | string>;
+    location?: EncounterLocation[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -116,37 +116,37 @@ export interface Encounter {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The list of people responsible for providing the service.
      */
-    participant?: Array<any[] | boolean | EncounterParticipant | number | number | null | string>;
+    participant?: EncounterParticipant[];
     /**
      * Another Encounter of which this encounter is a part of (administratively or in time).
      */
-    partOf?: any[] | boolean | Reference | number | number | null | string;
+    partOf?: Reference;
     /**
      * The start and end time of the encounter.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Indicates the urgency of the encounter.
      */
-    priority?: any[] | boolean | CodeableConcept | number | number | null | string;
+    priority?: CodeableConcept;
     /**
      * Reason the encounter takes place, expressed as a code. For admissions, this can be used
      * for a coded admission diagnosis.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Reason the encounter takes place, expressed as a code. For admissions, this can be used
      * for a coded admission diagnosis.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * This is a Encounter resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The organization that is primarily responsible for this Encounter's services. This MAY be
      * the same as the organization on the Patient record, however it could be different, such
@@ -154,25 +154,25 @@ export interface Encounter {
      * billed seperately) for an external consultation.  Refer to the example bundle showing an
      * abbreviated set of Encounters for a colonoscopy.
      */
-    serviceProvider?: any[] | boolean | Reference | number | number | null | string;
+    serviceProvider?: Reference;
     /**
      * Broad categorization of the service that is to be provided (e.g. cardiology).
      */
-    serviceType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    serviceType?: CodeableConcept;
     /**
      * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
      */
-    status?: FhirEncounterStatus;
+    status?: EncounterStatus;
     /**
      * The status history permits the encounter resource to contain the status history without
      * needing to read through the historical versions of the resource, or even have the server
      * store them.
      */
-    statusHistory?: Array<any[] | boolean | EncounterStatusHistory | number | number | null | string>;
+    statusHistory?: EncounterStatusHistory[];
     /**
      * The patient or group present at the encounter.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -180,18 +180,22 @@ export interface Encounter {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing,
      * rehabilitation).
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
 }
+/**
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterClassHistory {
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
-    class: any[] | boolean | Coding | number | number | null | string;
+    class?: Coding;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -199,7 +203,7 @@ export interface EncounterClassHistory {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -218,23 +222,27 @@ export interface EncounterClassHistory {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The time that the episode was in the specified class.
      */
-    period: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
 }
+/**
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterDiagnosis {
     /**
      * Extensions for rank
      */
-    _rank?: any[] | boolean | Element | number | number | null | string;
+    _rank?: Element;
     /**
      * Reason the encounter takes place, as specified using information from another resource.
      * For admissions, this is the admission diagnosis. The indication will typically be a
      * Condition (with other resources referenced in the evidence.detail), or a Procedure.
      */
-    condition: any[] | boolean | Reference | number | number | null | string;
+    condition?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -242,7 +250,7 @@ export interface EncounterDiagnosis {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -261,7 +269,7 @@ export interface EncounterDiagnosis {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Ranking of the diagnosis (for each role type).
      */
@@ -269,25 +277,31 @@ export interface EncounterDiagnosis {
     /**
      * Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
      */
-    use?: any[] | boolean | CodeableConcept | number | number | null | string;
+    use?: CodeableConcept;
 }
+/**
+ * Details about the admission to a healthcare service.
+ *
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterHospitalization {
     /**
      * From where patient was admitted (physician referral, transfer).
      */
-    admitSource?: any[] | boolean | CodeableConcept | number | number | null | string;
+    admitSource?: CodeableConcept;
     /**
      * Location/organization to which the patient is discharged.
      */
-    destination?: any[] | boolean | Reference | number | number | null | string;
+    destination?: Reference;
     /**
      * Diet preferences reported by the patient.
      */
-    dietPreference?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    dietPreference?: CodeableConcept[];
     /**
      * Category or kind of location after discharge.
      */
-    dischargeDisposition?: any[] | boolean | CodeableConcept | number | number | null | string;
+    dischargeDisposition?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -295,7 +309,7 @@ export interface EncounterHospitalization {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -314,34 +328,38 @@ export interface EncounterHospitalization {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The location/organization from which the patient came before admission.
      */
-    origin?: any[] | boolean | Reference | number | number | null | string;
+    origin?: Reference;
     /**
      * Pre-admission identifier.
      */
-    preAdmissionIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    preAdmissionIdentifier?: Identifier;
     /**
      * Whether this hospitalization is a readmission and why if known.
      */
-    reAdmission?: any[] | boolean | CodeableConcept | number | number | null | string;
+    reAdmission?: CodeableConcept;
     /**
      * Any special requests that have been made for this hospitalization encounter, such as the
      * provision of specific equipment or other things.
      */
-    specialArrangement?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    specialArrangement?: CodeableConcept[];
     /**
      * Special courtesies (VIP, board member).
      */
-    specialCourtesy?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    specialCourtesy?: CodeableConcept[];
 }
+/**
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterLocation {
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -349,7 +367,7 @@ export interface EncounterLocation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -358,7 +376,7 @@ export interface EncounterLocation {
     /**
      * The location where the encounter takes place.
      */
-    location: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -372,16 +390,16 @@ export interface EncounterLocation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Time period during which the patient was present at the location.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * This will be used to specify the required levels (bed/ward/room/etc.) desired to be
      * recorded to simplify either messaging or query.
      */
-    physicalType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    physicalType?: CodeableConcept;
     /**
      * The status of the participants' presence at the specified location during the period
      * specified. If the participant is no longer at the location, then the period will have an
@@ -400,6 +418,10 @@ export declare enum EncounterLocationStatus {
     Planned = "planned",
     Reserved = "reserved"
 }
+/**
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterParticipant {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -408,7 +430,7 @@ export interface EncounterParticipant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -417,7 +439,7 @@ export interface EncounterParticipant {
     /**
      * Persons involved in the encounter other than the patient.
      */
-    individual?: any[] | boolean | Reference | number | number | null | string;
+    individual?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -431,21 +453,21 @@ export interface EncounterParticipant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The period of time that the specified participant participated in the encounter. These
      * can overlap or be sub-sets of the overall encounter's period.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Role of participant in encounter.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
 }
 /**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
-export declare enum FhirEncounterStatus {
+export declare enum EncounterStatus {
     Arrived = "arrived",
     Cancelled = "cancelled",
     EnteredInError = "entered-in-error",
@@ -456,11 +478,15 @@ export declare enum FhirEncounterStatus {
     Triaged = "triaged",
     Unknown = "unknown"
 }
+/**
+ * An interaction between a patient and healthcare provider(s) for the purpose of providing
+ * healthcare service(s) or assessing the health status of a patient.
+ */
 export interface EncounterStatusHistory {
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -468,7 +494,7 @@ export interface EncounterStatusHistory {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -487,13 +513,13 @@ export interface EncounterStatusHistory {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The time that the episode was in the specified status.
      */
-    period: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
      */
-    status?: FhirEncounterStatus;
+    status?: EncounterStatus;
 }

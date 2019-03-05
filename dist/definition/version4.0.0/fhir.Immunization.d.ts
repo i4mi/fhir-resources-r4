@@ -3,63 +3,63 @@ export interface Immunization {
     /**
      * Extensions for expirationDate
      */
-    _expirationDate?: any[] | boolean | Element | number | number | null | string;
+    _expirationDate?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for isSubpotent
      */
-    _isSubpotent?: any[] | boolean | Element | number | number | null | string;
+    _isSubpotent?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lotNumber
      */
-    _lotNumber?: any[] | boolean | Element | number | number | null | string;
+    _lotNumber?: Element;
     /**
      * Extensions for occurrenceDateTime
      */
-    _occurrenceDateTime?: any[] | boolean | Element | number | number | null | string;
+    _occurrenceDateTime?: Element;
     /**
      * Extensions for occurrenceString
      */
-    _occurrenceString?: any[] | boolean | Element | number | number | null | string;
+    _occurrenceString?: Element;
     /**
      * Extensions for primarySource
      */
-    _primarySource?: any[] | boolean | Element | number | number | null | string;
+    _primarySource?: Element;
     /**
      * Extensions for recorded
      */
-    _recorded?: any[] | boolean | Element | number | number | null | string;
+    _recorded?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Immunization | number | null | string>;
+    contained?: Immunization[];
     /**
      * The quantity of vaccine product that was administered.
      */
-    doseQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    doseQuantity?: Quantity;
     /**
      * Educational material presented to the patient (or guardian) at the time of vaccine
      * administration.
      */
-    education?: Array<any[] | boolean | ImmunizationEducation | number | number | null | string>;
+    education?: ImmunizationEducation[];
     /**
      * The visit or admission or other contact between patient and health care provider the
      * immunization was performed as part of.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * Date vaccine batch expires.
      */
@@ -71,14 +71,14 @@ export interface Immunization {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Indicates the source of the vaccine actually administered. This may be different than the
      * patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine
      * but due to inventory issues, vaccine purchased with private funds was actually
      * administered).
      */
-    fundingSource?: any[] | boolean | CodeableConcept | number | number | null | string;
+    fundingSource?: CodeableConcept;
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -87,7 +87,7 @@ export interface Immunization {
     /**
      * A unique identifier assigned to this immunization record.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -106,7 +106,7 @@ export interface Immunization {
     /**
      * The service delivery location where the vaccine administration occurred.
      */
-    location?: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * Lot number of the  vaccine product.
      */
@@ -114,13 +114,13 @@ export interface Immunization {
     /**
      * Name of vaccine manufacturer.
      */
-    manufacturer?: any[] | boolean | Reference | number | number | null | string;
+    manufacturer?: Reference;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -134,11 +134,11 @@ export interface Immunization {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Extra information about the immunization that is not conveyed by the other attributes.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Date vaccine administered or was to be administered.
      */
@@ -150,11 +150,11 @@ export interface Immunization {
     /**
      * The patient who either received or did not receive the immunization.
      */
-    patient: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * Indicates who performed the immunization event.
      */
-    performer?: Array<any[] | boolean | ImmunizationPerformer | number | number | null | string>;
+    performer?: ImmunizationPerformer[];
     /**
      * An indication that the content of the record is based on information from the person who
      * administered the vaccine. This reflects the context under which the data was originally
@@ -164,26 +164,26 @@ export interface Immunization {
     /**
      * Indicates a patient's eligibility for a funding program.
      */
-    programEligibility?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    programEligibility?: CodeableConcept[];
     /**
      * The protocol (set of recommendations) being followed by the provider who administered the
      * dose.
      */
-    protocolApplied?: Array<any[] | boolean | ImmunizationProtocolApplied | number | number | null | string>;
+    protocolApplied?: ImmunizationProtocolApplied[];
     /**
      * Categorical data indicating that an adverse event is associated in time to an
      * immunization.
      */
-    reaction?: Array<any[] | boolean | ImmunizationReaction | number | number | null | string>;
+    reaction?: ImmunizationReaction[];
     /**
      * Reasons why the vaccine was administered.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Condition, Observation or DiagnosticReport that supports why the immunization was
      * administered.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * The date the occurrence of the immunization was first captured in the record -
      * potentially significantly after the occurrence of the event.
@@ -193,19 +193,19 @@ export interface Immunization {
      * The source of the data when the report of the immunization event is not based on
      * information from the person who administered the vaccine.
      */
-    reportOrigin?: any[] | boolean | CodeableConcept | number | number | null | string;
+    reportOrigin?: CodeableConcept;
     /**
      * This is a Immunization resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The path by which the vaccine product is taken into the body.
      */
-    route?: any[] | boolean | CodeableConcept | number | number | null | string;
+    route?: CodeableConcept;
     /**
      * Body site where vaccine was administered.
      */
-    site?: any[] | boolean | CodeableConcept | number | number | null | string;
+    site?: CodeableConcept;
     /**
      * Indicates the current status of the immunization event.
      */
@@ -213,11 +213,11 @@ export interface Immunization {
     /**
      * Indicates the reason the immunization event was not performed.
      */
-    statusReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    statusReason?: CodeableConcept;
     /**
      * Reason why a dose is considered to be subpotent.
      */
-    subpotentReason?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    subpotentReason?: CodeableConcept[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -225,29 +225,33 @@ export interface Immunization {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Vaccine that was administered or was to be administered.
      */
-    vaccineCode: any[] | boolean | CodeableConcept | number | number | null | string;
+    vaccineCode?: CodeableConcept;
 }
+/**
+ * Describes the event of a patient being administered a vaccine or a record of an
+ * immunization as reported by a patient, a clinician or another party.
+ */
 export interface ImmunizationEducation {
     /**
      * Extensions for documentType
      */
-    _documentType?: any[] | boolean | Element | number | number | null | string;
+    _documentType?: Element;
     /**
      * Extensions for presentationDate
      */
-    _presentationDate?: any[] | boolean | Element | number | number | null | string;
+    _presentationDate?: Element;
     /**
      * Extensions for publicationDate
      */
-    _publicationDate?: any[] | boolean | Element | number | number | null | string;
+    _publicationDate?: Element;
     /**
      * Extensions for reference
      */
-    _reference?: any[] | boolean | Element | number | number | null | string;
+    _reference?: Element;
     /**
      * Identifier of the material presented to the patient.
      */
@@ -259,7 +263,7 @@ export interface ImmunizationEducation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -278,7 +282,7 @@ export interface ImmunizationEducation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Date the educational material was given to the patient.
      */
@@ -293,11 +297,15 @@ export interface ImmunizationEducation {
      */
     reference?: string;
 }
+/**
+ * Describes the event of a patient being administered a vaccine or a record of an
+ * immunization as reported by a patient, a clinician or another party.
+ */
 export interface ImmunizationPerformer {
     /**
      * The practitioner or organization who performed the action.
      */
-    actor: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -305,11 +313,11 @@ export interface ImmunizationPerformer {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Describes the type of performance (e.g. ordering provider, administering provider, etc.).
      */
-    function?: any[] | boolean | CodeableConcept | number | number | null | string;
+    function?: CodeableConcept;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -328,33 +336,37 @@ export interface ImmunizationPerformer {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * Describes the event of a patient being administered a vaccine or a record of an
+ * immunization as reported by a patient, a clinician or another party.
+ */
 export interface ImmunizationProtocolApplied {
     /**
      * Extensions for doseNumberPositiveInt
      */
-    _doseNumberPositiveInt?: any[] | boolean | Element | number | number | null | string;
+    _doseNumberPositiveInt?: Element;
     /**
      * Extensions for doseNumberString
      */
-    _doseNumberString?: any[] | boolean | Element | number | number | null | string;
+    _doseNumberString?: Element;
     /**
      * Extensions for series
      */
-    _series?: any[] | boolean | Element | number | number | null | string;
+    _series?: Element;
     /**
      * Extensions for seriesDosesPositiveInt
      */
-    _seriesDosesPositiveInt?: any[] | boolean | Element | number | number | null | string;
+    _seriesDosesPositiveInt?: Element;
     /**
      * Extensions for seriesDosesString
      */
-    _seriesDosesString?: any[] | boolean | Element | number | number | null | string;
+    _seriesDosesString?: Element;
     /**
      * Indicates the authority who published the protocol (e.g. ACIP) that is being followed.
      */
-    authority?: any[] | boolean | Reference | number | number | null | string;
+    authority?: Reference;
     /**
      * Nominal position in a series.
      */
@@ -370,7 +382,7 @@ export interface ImmunizationProtocolApplied {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -389,7 +401,7 @@ export interface ImmunizationProtocolApplied {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * One possible path to achieve presumed immunity against a disease - within the context of
      * an authority.
@@ -406,17 +418,21 @@ export interface ImmunizationProtocolApplied {
     /**
      * The vaccine preventable disease the dose is being administered against.
      */
-    targetDisease?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    targetDisease?: CodeableConcept[];
 }
+/**
+ * Describes the event of a patient being administered a vaccine or a record of an
+ * immunization as reported by a patient, a clinician or another party.
+ */
 export interface ImmunizationReaction {
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for reported
      */
-    _reported?: any[] | boolean | Element | number | number | null | string;
+    _reported?: Element;
     /**
      * Date of reaction to the immunization.
      */
@@ -424,7 +440,7 @@ export interface ImmunizationReaction {
     /**
      * Details of the reaction.
      */
-    detail?: any[] | boolean | Reference | number | number | null | string;
+    detail?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -432,7 +448,7 @@ export interface ImmunizationReaction {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -451,7 +467,7 @@ export interface ImmunizationReaction {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Self-reported indicator.
      */

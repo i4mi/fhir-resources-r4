@@ -1,56 +1,49 @@
-import { Element,
-         CodeableConcept, 
-         Reference,
-         Extension,
-         Identifier,
-         Meta,
-         Attachment,
-         ContactPoint,
-         Narrative,
-         Period} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirHealthcareService } from "./file";
-//
-//   const fhirHealthcareService = Convert.toFhirHealthcareService(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    CodeableConcept,
+    Reference,
+    Extension,
+    Identifier,
+    Meta,
+    Attachment,
+    ContactPoint,
+    Narrative,
+    Period
+} from "./fhir._";
 
 export interface HealthcareService {
     /**
      * Extensions for active
      */
-    _active?: any[] | boolean | Element | number | number | null | string;
+    _active?: Element;
     /**
      * Extensions for appointmentRequired
      */
-    _appointmentRequired?: any[] | boolean | Element | number | number | null | string;
+    _appointmentRequired?: Element;
     /**
      * Extensions for availabilityExceptions
      */
-    _availabilityExceptions?: any[] | boolean | Element | number | number | null | string;
+    _availabilityExceptions?: Element;
     /**
      * Extensions for comment
      */
-    _comment?: any[] | boolean | Element | number | number | null | string;
+    _comment?: Element;
     /**
      * Extensions for extraDetails
      */
-    _extraDetails?: any[] | boolean | Element | number | number | null | string;
+    _extraDetails?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * This flag is used to mark the record to not be used. This is not used when a center is
      * closed for maintenance, or for holidays, the notAvailable period is to be used for this.
@@ -71,15 +64,15 @@ export interface HealthcareService {
     /**
      * A collection of times that the Service Site is available.
      */
-    availableTime?: Array<any[] | boolean | HealthcareServiceAvailableTime | number | number | null | string>;
+    availableTime?: HealthcareServiceAvailableTime[];
     /**
      * Identifies the broad category of service being performed or delivered.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * Collection of characteristics (attributes).
      */
-    characteristic?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    characteristic?: CodeableConcept[];
     /**
      * Any additional description of the service and/or any specific issues not covered by the
      * other attributes, which can be displayed as further detail under the serviceName.
@@ -90,27 +83,27 @@ export interface HealthcareService {
      * permits a directory to declare the languages this is offered in. Typically this is only
      * provided where a service operates in communities with mixed languages used.
      */
-    communication?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    communication?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | HealthcareService | number | null | string>;
+    contained?: HealthcareService[];
     /**
      * The location(s) that this service is available to (not where the service is provided).
      */
-    coverageArea?: Array<any[] | boolean | Reference | number | number | null | string>;
+    coverageArea?: Reference[];
     /**
      * Does this service have specific eligibility requirements that need to be met in order to
      * use the service?
      */
-    eligibility?: Array<any[] | boolean | HealthcareServiceEligibility | number | number | null | string>;
+    eligibility?: HealthcareServiceEligibility[];
     /**
      * Technical endpoints providing access to services operated for the specific healthcare
      * services defined at this resource.
      */
-    endpoint?: Array<any[] | boolean | Reference | number | number | null | string>;
+    endpoint?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -118,7 +111,7 @@ export interface HealthcareService {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Extra details about the service that can't be placed in the other fields.
      */
@@ -131,7 +124,7 @@ export interface HealthcareService {
     /**
      * External identifiers for this item.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -145,13 +138,13 @@ export interface HealthcareService {
     /**
      * The location(s) where this healthcare service may be provided.
      */
-    location?: Array<any[] | boolean | Reference | number | number | null | string>;
+    location?: Reference[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -165,7 +158,7 @@ export interface HealthcareService {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Further description of the service as it would be presented to a consumer while searching.
      */
@@ -174,42 +167,42 @@ export interface HealthcareService {
      * The HealthcareService is not available during this period of time due to the provided
      * reason.
      */
-    notAvailable?: Array<any[] | boolean | HealthcareServiceNotAvailable | number | number | null | string>;
+    notAvailable?: HealthcareServiceNotAvailable[];
     /**
      * If there is a photo/symbol associated with this HealthcareService, it may be included
      * here to facilitate quick identification of the service in a list.
      */
-    photo?: any[] | boolean | Attachment | number | number | null | string;
+    photo?: Attachment;
     /**
      * Programs that this service is applicable to.
      */
-    program?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    program?: CodeableConcept[];
     /**
      * The organization that provides this healthcare service.
      */
-    providedBy?: any[] | boolean | Reference | number | number | null | string;
+    providedBy?: Reference;
     /**
      * Ways that the service accepts referrals, if this is not provided then it is implied that
      * no referral is required.
      */
-    referralMethod?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    referralMethod?: CodeableConcept[];
     /**
      * This is a HealthcareService resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The code(s) that detail the conditions under which the healthcare service is
      * available/offered.
      */
-    serviceProvisionCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    serviceProvisionCode?: CodeableConcept[];
     /**
      * Collection of specialties handled by the service site. This is more of a medical term.
      */
-    specialty?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    specialty?: CodeableConcept[];
     /**
      * List of contacts related to this specific healthcare service.
      */
-    telecom?: Array<any[] | boolean | ContactPoint | number | number | null | string>;
+    telecom?: ContactPoint[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -217,30 +210,33 @@ export interface HealthcareService {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The specific type of service that may be delivered or performed.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
 }
 
+/**
+ * The details of a healthcare service available at a location.
+ */
 export interface HealthcareServiceAvailableTime {
     /**
      * Extensions for allDay
      */
-    _allDay?: any[] | boolean | Element | number | number | null | string;
+    _allDay?: Element;
     /**
      * Extensions for availableEndTime
      */
-    _availableEndTime?: any[] | boolean | Element | number | number | null | string;
+    _availableEndTime?: Element;
     /**
      * Extensions for availableStartTime
      */
-    _availableStartTime?: any[] | boolean | Element | number | number | null | string;
+    _availableStartTime?: Element;
     /**
      * Extensions for daysOfWeek
      */
-    _daysOfWeek?: Array<any[] | boolean | Element | number | number | null | string>;
+    _daysOfWeek?: Element[];
     /**
      * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
      */
@@ -264,7 +260,7 @@ export interface HealthcareServiceAvailableTime {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -283,7 +279,7 @@ export interface HealthcareServiceAvailableTime {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
 export enum DaysOfWeek {
@@ -296,15 +292,18 @@ export enum DaysOfWeek {
     Wed = "wed",
 }
 
+/**
+ * The details of a healthcare service available at a location.
+ */
 export interface HealthcareServiceEligibility {
     /**
      * Extensions for comment
      */
-    _comment?: any[] | boolean | Element | number | number | null | string;
+    _comment?: Element;
     /**
      * Coded value for the eligibility.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * Describes the eligibility conditions for the service.
      */
@@ -316,7 +315,7 @@ export interface HealthcareServiceEligibility {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -335,14 +334,17 @@ export interface HealthcareServiceEligibility {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * The details of a healthcare service available at a location.
+ */
 export interface HealthcareServiceNotAvailable {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * The reason that can be presented to the user as to why this time is not available.
      */
@@ -350,7 +352,7 @@ export interface HealthcareServiceNotAvailable {
     /**
      * Service is not available (seasonally or for a public holiday) from this date.
      */
-    during?: any[] | boolean | Period | number | number | null | string;
+    during?: Period;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -358,7 +360,7 @@ export interface HealthcareServiceNotAvailable {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -377,5 +379,5 @@ export interface HealthcareServiceNotAvailable {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }

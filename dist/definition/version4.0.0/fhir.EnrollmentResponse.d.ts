@@ -3,33 +3,33 @@ export interface EnrollmentResponse {
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for disposition
      */
-    _disposition?: any[] | boolean | Element | number | number | null | string;
+    _disposition?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for outcome
      */
-    _outcome?: any[] | boolean | Element | number | number | null | string;
+    _outcome?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | EnrollmentResponse | number | null | string>;
+    contained?: EnrollmentResponse[];
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
@@ -45,7 +45,7 @@ export interface EnrollmentResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -54,7 +54,7 @@ export interface EnrollmentResponse {
     /**
      * The Response business identifier.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -70,7 +70,7 @@ export interface EnrollmentResponse {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -84,27 +84,27 @@ export interface EnrollmentResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The Insurer who produced this adjudicated response.
      */
-    organization?: any[] | boolean | Reference | number | number | null | string;
+    organization?: Reference;
     /**
      * Processing status: error, complete.
      */
-    outcome?: Outcome;
+    outcome?: EnrollmentResponseOutcome;
     /**
      * Original request resource reference.
      */
-    request?: any[] | boolean | Reference | number | number | null | string;
+    request?: Reference;
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    requestProvider?: any[] | boolean | Reference | number | number | null | string;
+    requestProvider?: Reference;
     /**
      * This is a EnrollmentResponse resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status of the resource instance.
      */
@@ -116,12 +116,12 @@ export interface EnrollmentResponse {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
 /**
  * Processing status: error, complete.
  */
-export declare enum Outcome {
+export declare enum EnrollmentResponseOutcome {
     Complete = "complete",
     Error = "error",
     Partial = "partial",

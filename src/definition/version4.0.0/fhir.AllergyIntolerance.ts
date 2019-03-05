@@ -56,7 +56,7 @@ export interface AllergyIntolerance {
     /**
      * Category of the identified substance.
      */
-    category?: Category[];
+    category?: AllergyIntoleranceCategory[];
     /**
      * The clinical status of the allergy or intolerance.
      */
@@ -211,7 +211,7 @@ export interface AllergyIntolerance {
     verificationStatus?: CodeableConcept;
 }
 
-export enum Category {
+export enum AllergyIntoleranceCategory {
     Biologic = "biologic",
     Environment = "environment",
     Food = "food",
@@ -298,7 +298,7 @@ export interface AllergyIntoleranceReaction {
      * Clinical assessment of the severity of the reaction event as a whole, potentially
      * considering multiple different manifestations.
      */
-    severity?: Severity;
+    severity?: AllergyIntoleranceSeverity;
     /**
      * Identification of the specific substance (or pharmaceutical product) considered to be
      * responsible for the Adverse Reaction event. Note: the substance for a specific reaction
@@ -317,7 +317,7 @@ export interface AllergyIntoleranceReaction {
  * Clinical assessment of the severity of the reaction event as a whole, potentially
  * considering multiple different manifestations.
  */
-export enum Severity {
+export enum AllergyIntoleranceSeverity {
     Mild = "mild",
     Moderate = "moderate",
     Severe = "severe",

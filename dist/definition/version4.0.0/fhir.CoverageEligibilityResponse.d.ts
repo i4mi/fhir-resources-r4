@@ -3,45 +3,45 @@ export interface CoverageEligibilityResponse {
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for disposition
      */
-    _disposition?: any[] | boolean | Element | number | number | null | string;
+    _disposition?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for outcome
      */
-    _outcome?: any[] | boolean | Element | number | number | null | string;
+    _outcome?: Element;
     /**
      * Extensions for preAuthRef
      */
-    _preAuthRef?: any[] | boolean | Element | number | number | null | string;
+    _preAuthRef?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: Array<any[] | boolean | Element | number | number | null | string>;
+    _purpose?: Element[];
     /**
      * Extensions for servicedDate
      */
-    _servicedDate?: any[] | boolean | Element | number | number | null | string;
+    _servicedDate?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CoverageEligibilityResponse | number | null | string>;
+    contained?: CoverageEligibilityResponse[];
     /**
      * The date this resource was created.
      */
@@ -53,7 +53,7 @@ export interface CoverageEligibilityResponse {
     /**
      * Errors encountered during the processing of the request.
      */
-    error?: Array<any[] | boolean | CoverageEligibilityResponseError | number | number | null | string>;
+    error?: CoverageEligibilityResponseError[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -61,11 +61,11 @@ export interface CoverageEligibilityResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A code for the form to be used for printing the content.
      */
-    form?: any[] | boolean | CodeableConcept | number | number | null | string;
+    form?: CodeableConcept;
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -74,7 +74,7 @@ export interface CoverageEligibilityResponse {
     /**
      * A unique identifier assigned to this coverage eligiblity request.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -84,11 +84,11 @@ export interface CoverageEligibilityResponse {
     /**
      * Financial instruments for reimbursement for the health care products and services.
      */
-    insurance?: Array<any[] | boolean | CoverageEligibilityResponseInsurance | number | number | null | string>;
+    insurance?: CoverageEligibilityResponseInsurance[];
     /**
      * The Insurer who issued the coverage in question and is the author of the response.
      */
-    insurer: any[] | boolean | Reference | number | number | null | string;
+    insurer?: Reference;
     /**
      * The base language in which the resource is written.
      */
@@ -98,7 +98,7 @@ export interface CoverageEligibilityResponse {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -112,16 +112,16 @@ export interface CoverageEligibilityResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The outcome of the request processing.
      */
-    outcome?: Outcome;
+    outcome?: CoverageEligibilityResponseOutcome;
     /**
      * The party who is the beneficiary of the supplied coverage and for whom eligibility is
      * sought.
      */
-    patient: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * A reference from the Insurer to which these services pertain to be used on further
      * communication and as proof that the request occurred.
@@ -133,19 +133,19 @@ export interface CoverageEligibilityResponse {
      * and return of coverages for the patient; and/or validation that the specified coverage is
      * in-force at the date/period specified or 'now' if not specified.
      */
-    purpose?: Purpose[];
+    purpose?: CoverageEligibilityResponsePurpose[];
     /**
      * Reference to the original request resource.
      */
-    request: any[] | boolean | Reference | number | number | null | string;
+    request?: Reference;
     /**
      * The provider which is responsible for the request.
      */
-    requestor?: any[] | boolean | Reference | number | number | null | string;
+    requestor?: Reference;
     /**
      * This is a CoverageEligibilityResponse resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The date or dates when the enclosed suite of services were performed or completed.
      */
@@ -153,7 +153,7 @@ export interface CoverageEligibilityResponse {
     /**
      * The date or dates when the enclosed suite of services were performed or completed.
      */
-    servicedPeriod?: any[] | boolean | Period | number | number | null | string;
+    servicedPeriod?: Period;
     /**
      * The status of the resource instance.
      */
@@ -165,14 +165,18 @@ export interface CoverageEligibilityResponse {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
+/**
+ * This resource provides eligibility and plan details from the processing of an
+ * CoverageEligibilityRequest resource.
+ */
 export interface CoverageEligibilityResponseError {
     /**
      * An error code,from a specified code system, which details why the eligibility check could
      * not be performed.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -180,7 +184,7 @@ export interface CoverageEligibilityResponseError {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -199,23 +203,27 @@ export interface CoverageEligibilityResponseError {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * This resource provides eligibility and plan details from the processing of an
+ * CoverageEligibilityRequest resource.
+ */
 export interface CoverageEligibilityResponseInsurance {
     /**
      * Extensions for inforce
      */
-    _inforce?: any[] | boolean | Element | number | number | null | string;
+    _inforce?: Element;
     /**
      * The term of the benefits documented in this response.
      */
-    benefitPeriod?: any[] | boolean | Period | number | number | null | string;
+    benefitPeriod?: Period;
     /**
      * Reference to the insurance card level information contained in the Coverage resource. The
      * coverage issuing insurer will use these details to locate the patient's actual coverage
      * within the insurer's information system.
      */
-    coverage: any[] | boolean | Reference | number | number | null | string;
+    coverage?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -223,7 +231,7 @@ export interface CoverageEligibilityResponseInsurance {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -238,7 +246,7 @@ export interface CoverageEligibilityResponseInsurance {
      * Benefits and optionally current balances, and authorization details by category or
      * service.
      */
-    item?: Array<any[] | boolean | CoverageEligibilityResponseItem | number | number | null | string>;
+    item?: CoverageEligibilityResponseItem[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -252,29 +260,33 @@ export interface CoverageEligibilityResponseInsurance {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * This resource provides eligibility and plan details from the processing of an
+ * CoverageEligibilityRequest resource.
+ */
 export interface CoverageEligibilityResponseItem {
     /**
      * Extensions for authorizationRequired
      */
-    _authorizationRequired?: any[] | boolean | Element | number | number | null | string;
+    _authorizationRequired?: Element;
     /**
      * Extensions for authorizationUrl
      */
-    _authorizationUrl?: any[] | boolean | Element | number | number | null | string;
+    _authorizationUrl?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for excluded
      */
-    _excluded?: any[] | boolean | Element | number | number | null | string;
+    _excluded?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * A boolean flag indicating whether a preauthorization is required prior to actual service
      * delivery.
@@ -283,7 +295,7 @@ export interface CoverageEligibilityResponseItem {
     /**
      * Codes or comments regarding information or actions associated with the preauthorization.
      */
-    authorizationSupporting?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    authorizationSupporting?: CodeableConcept[];
     /**
      * A web location for obtaining requirements or descriptive information regarding the
      * preauthorization.
@@ -292,12 +304,12 @@ export interface CoverageEligibilityResponseItem {
     /**
      * Benefits used to date.
      */
-    benefit?: Array<any[] | boolean | CoverageEligibilityResponseBenefit | number | number | null | string>;
+    benefit?: CoverageEligibilityResponseBenefit[];
     /**
      * Code to identify the general type of benefits under which products and services are
      * provided.
      */
-    category?: any[] | boolean | CodeableConcept | number | number | null | string;
+    category?: CodeableConcept;
     /**
      * A richer description of the benefit or services covered.
      */
@@ -314,7 +326,7 @@ export interface CoverageEligibilityResponseItem {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -324,7 +336,7 @@ export interface CoverageEligibilityResponseItem {
      * Item typification or modifiers codes to convey additional context for the product or
      * service.
      */
-    modifier?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    modifier?: CodeableConcept[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -338,7 +350,7 @@ export interface CoverageEligibilityResponseItem {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A short name or tag for the benefit.
      */
@@ -347,46 +359,50 @@ export interface CoverageEligibilityResponseItem {
      * Is a flag to indicate whether the benefits refer to in-network providers or
      * out-of-network providers.
      */
-    network?: any[] | boolean | CodeableConcept | number | number | null | string;
+    network?: CodeableConcept;
     /**
      * This contains the product, service, drug or other billing code for the item.
      */
-    productOrService?: any[] | boolean | CodeableConcept | number | number | null | string;
+    productOrService?: CodeableConcept;
     /**
      * The practitioner who is eligible for the provision of the product or service.
      */
-    provider?: any[] | boolean | Reference | number | number | null | string;
+    provider?: Reference;
     /**
      * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual
      * visits'.
      */
-    term?: any[] | boolean | CodeableConcept | number | number | null | string;
+    term?: CodeableConcept;
     /**
      * Indicates if the benefits apply to an individual or to the family.
      */
-    unit?: any[] | boolean | CodeableConcept | number | number | null | string;
+    unit?: CodeableConcept;
 }
+/**
+ * This resource provides eligibility and plan details from the processing of an
+ * CoverageEligibilityRequest resource.
+ */
 export interface CoverageEligibilityResponseBenefit {
     /**
      * Extensions for allowedString
      */
-    _allowedString?: any[] | boolean | Element | number | number | null | string;
+    _allowedString?: Element;
     /**
      * Extensions for allowedUnsignedInt
      */
-    _allowedUnsignedInt?: any[] | boolean | Element | number | number | null | string;
+    _allowedUnsignedInt?: Element;
     /**
      * Extensions for usedString
      */
-    _usedString?: any[] | boolean | Element | number | number | null | string;
+    _usedString?: Element;
     /**
      * Extensions for usedUnsignedInt
      */
-    _usedUnsignedInt?: any[] | boolean | Element | number | number | null | string;
+    _usedUnsignedInt?: Element;
     /**
      * The quantity of the benefit which is permitted under the coverage.
      */
-    allowedMoney?: any[] | boolean | Money | number | number | null | string;
+    allowedMoney?: Money;
     /**
      * The quantity of the benefit which is permitted under the coverage.
      */
@@ -402,7 +418,7 @@ export interface CoverageEligibilityResponseBenefit {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -421,15 +437,15 @@ export interface CoverageEligibilityResponseBenefit {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Classification of benefit being provided.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The quantity of the benefit which have been consumed to date.
      */
-    usedMoney?: any[] | boolean | Money | number | number | null | string;
+    usedMoney?: Money;
     /**
      * The quantity of the benefit which have been consumed to date.
      */
@@ -442,13 +458,13 @@ export interface CoverageEligibilityResponseBenefit {
 /**
  * The outcome of the request processing.
  */
-export declare enum Outcome {
+export declare enum CoverageEligibilityResponseOutcome {
     Complete = "complete",
     Error = "error",
     Partial = "partial",
     Queued = "queued"
 }
-export declare enum Purpose {
+export declare enum CoverageEligibilityResponsePurpose {
     AuthRequirements = "auth-requirements",
     Benefits = "benefits",
     Discovery = "discovery",

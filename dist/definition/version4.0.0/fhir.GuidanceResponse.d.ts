@@ -3,51 +3,51 @@ export interface GuidanceResponse {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for moduleCanonical
      */
-    _moduleCanonical?: any[] | boolean | Element | number | number | null | string;
+    _moduleCanonical?: Element;
     /**
      * Extensions for moduleUri
      */
-    _moduleUri?: any[] | boolean | Element | number | number | null | string;
+    _moduleUri?: Element;
     /**
      * Extensions for occurrenceDateTime
      */
-    _occurrenceDateTime?: any[] | boolean | Element | number | number | null | string;
+    _occurrenceDateTime?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | GuidanceResponse | number | null | string>;
+    contained?: GuidanceResponse[];
     /**
      * If the evaluation could not be completed due to lack of information, or additional
      * information would potentially result in a more accurate response, this element will a
      * description of the data required in order to proceed with the evaluation. A subsequent
      * request to the service should include this data.
      */
-    dataRequirement?: Array<any[] | boolean | DataRequirement | number | number | null | string>;
+    dataRequirement?: DataRequirement[];
     /**
      * The encounter during which this response was created or to which the creation of this
      * record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * Messages resulting from the evaluation of the artifact or artifacts. As part of
      * evaluating the request, the engine may produce informational or warning messages. These
      * messages will be provided by this element.
      */
-    evaluationMessage?: Array<any[] | boolean | Reference | number | number | null | string>;
+    evaluationMessage?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -55,7 +55,7 @@ export interface GuidanceResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -64,7 +64,7 @@ export interface GuidanceResponse {
     /**
      * Allows a service to provide  unique, business identifiers for the response.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -80,7 +80,7 @@ export interface GuidanceResponse {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -94,7 +94,7 @@ export interface GuidanceResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
@@ -102,7 +102,7 @@ export interface GuidanceResponse {
     /**
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
-    moduleCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    moduleCodeableConcept?: CodeableConcept;
     /**
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
@@ -110,7 +110,7 @@ export interface GuidanceResponse {
     /**
      * Provides a mechanism to communicate additional information about the response.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Indicates when the guidance response was processed.
      */
@@ -121,36 +121,36 @@ export interface GuidanceResponse {
      * part of the operation result. However, modules may define specific outputs that would be
      * returned as the result of the evaluation, and these would be returned in this element.
      */
-    outputParameters?: any[] | boolean | Reference | number | number | null | string;
+    outputParameters?: Reference;
     /**
      * Provides a reference to the device that performed the guidance.
      */
-    performer?: any[] | boolean | Reference | number | number | null | string;
+    performer?: Reference;
     /**
      * Describes the reason for the guidance response in coded or textual form.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Indicates the reason the request was initiated. This is typically provided as a parameter
      * to the evaluation and echoed by the service, although for some use cases, such as
      * subscription- or event-based scenarios, it may provide an indication of the cause for the
      * response.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * The identifier of the request associated with this response. If an identifier was given
      * as part of the request, it will be reproduced here to enable the requester to more easily
      * identify the response in a multi-request scenario.
      */
-    requestIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    requestIdentifier?: Identifier;
     /**
      * This is a GuidanceResponse resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The actions, if any, produced by the evaluation of the artifact.
      */
-    result?: any[] | boolean | Reference | number | number | null | string;
+    result?: Reference;
     /**
      * The status of the response. If the evaluation is completed successfully, the status will
      * indicate success. However, in order to complete the evaluation, the engine may require
@@ -160,11 +160,11 @@ export interface GuidanceResponse {
      * be provided if more data was available, the status will be data-requested, and the
      * response will contain a description of the additional requested information.
      */
-    status?: FhirGuidanceResponseStatus;
+    status?: GuidanceResponseStatus;
     /**
      * The patient for which the request was processed.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -172,7 +172,7 @@ export interface GuidanceResponse {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
 /**
  * The status of the response. If the evaluation is completed successfully, the status will
@@ -183,7 +183,7 @@ export interface GuidanceResponse {
  * be provided if more data was available, the status will be data-requested, and the
  * response will contain a description of the additional requested information.
  */
-export declare enum FhirGuidanceResponseStatus {
+export declare enum GuidanceResponseStatus {
     DataRequested = "data-requested",
     DataRequired = "data-required",
     EnteredInError = "entered-in-error",

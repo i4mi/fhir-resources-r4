@@ -132,7 +132,7 @@ export interface CapabilityStatement {
      * SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no
      * default value.
      */
-    fhirVersion?: FhirVersion;
+    fhirVersion?: CapabilityStatementFhirVersion;
     /**
      * A list of the formats supported by this implementation using their content types.
      */
@@ -359,7 +359,7 @@ export enum CapabilityStatementDocumentMode {
  * SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no
  * default value.
  */
-export enum FhirVersion {
+export enum CapabilityStatementFhirVersion {
     The001 = "0.01",
     The005 = "0.05",
     The006 = "0.06",

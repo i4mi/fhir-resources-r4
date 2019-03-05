@@ -426,7 +426,7 @@ export interface BundleSearch {
      * _include requirement, or to convey information or warning information about the search
      * process.
      */
-    mode?: Mode;
+    mode?: BundleSearchMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -452,7 +452,7 @@ export interface BundleSearch {
  * _include requirement, or to convey information or warning information about the search
  * process.
  */
-export enum Mode {
+export enum BundleSearchMode {
     Include = "include",
     Match = "match",
     Outcome = "outcome",

@@ -133,7 +133,7 @@ export interface CoverageEligibilityRequest {
      * and return of coverages for the patient; and/or validation that the specified coverage is
      * in-force at the date/period specified or 'now' if not specified.
      */
-    purpose?: Purpose[];
+    purpose?: CoverageEligibilityRequestPurpose[];
     /**
      * This is a CoverageEligibilityRequest resource
      */
@@ -355,7 +355,7 @@ export interface CoverageEligibilityRequestDiagnosis {
     modifierExtension?: Extension[];
 }
 
-export enum Purpose {
+export enum CoverageEligibilityRequestPurpose {
     AuthRequirements = "auth-requirements",
     Benefits = "benefits",
     Discovery = "discovery",

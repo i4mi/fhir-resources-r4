@@ -202,7 +202,7 @@ export interface CompositionAttester {
     /**
      * The type of attestation the authenticator offers.
      */
-    mode?: Mode;
+    mode?: CompositionAttesterMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -230,7 +230,7 @@ export interface CompositionAttester {
 /**
  * The type of attestation the authenticator offers.
  */
-export enum Mode {
+export enum CompositionAttesterMode {
     Legal = "legal",
     Official = "official",
     Personal = "personal",

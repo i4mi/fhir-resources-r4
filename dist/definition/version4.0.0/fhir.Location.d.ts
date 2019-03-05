@@ -105,7 +105,7 @@ export interface Location {
      * Indicates whether a resource instance represents a specific location or a  of
      * locations.
      */
-    mode?: Mode;
+    mode?: LocationMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -237,7 +237,7 @@ export interface LocationHoursOfOperation {
  * Indicates whether a resource instance represents a specific location or a class of
  * locations.
  */
-export declare enum Mode {
+export declare enum LocationMode {
     Instance = "instance",
     Kind = "kind"
 }

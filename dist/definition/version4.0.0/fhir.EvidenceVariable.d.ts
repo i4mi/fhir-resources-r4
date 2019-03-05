@@ -3,67 +3,67 @@ export interface EvidenceVariable {
     /**
      * Extensions for approvalDate
      */
-    _approvalDate?: any[] | boolean | Element | number | number | null | string;
+    _approvalDate?: Element;
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastReviewDate
      */
-    _lastReviewDate?: any[] | boolean | Element | number | number | null | string;
+    _lastReviewDate?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for shortTitle
      */
-    _shortTitle?: any[] | boolean | Element | number | number | null | string;
+    _shortTitle?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for subtitle
      */
-    _subtitle?: any[] | boolean | Element | number | number | null | string;
+    _subtitle?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * The date on which the resource content was approved by the publisher. Approval happens
      * once when the content is officially approved for usage.
@@ -73,22 +73,22 @@ export interface EvidenceVariable {
      * An individiual or organization primarily involved in the creation and maintenance of the
      * content.
      */
-    author?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    author?: ContactDetail[];
     /**
      * A characteristic that defines the members of the evidence element. Multiple
      * characteristics are applied with "and" semantics.
      */
-    characteristic: Array<any[] | boolean | EvidenceVariableCharacteristic | number | number | null | string>;
+    characteristic?: EvidenceVariableCharacteristic[];
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | EvidenceVariable | number | null | string>;
+    contained?: EvidenceVariable[];
     /**
      * A copyright statement relating to the evidence variable and/or its contents. Copyright
      * statements are generally legal restrictions on the use and publishing of the evidence
@@ -110,17 +110,17 @@ export interface EvidenceVariable {
     /**
      * An individual or organization primarily responsible for internal coherence of the content.
      */
-    editor?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    editor?: ContactDetail[];
     /**
      * The period during which the evidence variable content was or is planned to be in active
      * use.
      */
-    effectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    effectivePeriod?: Period;
     /**
      * An individual or organization responsible for officially endorsing the content for use in
      * some setting.
      */
-    endorser?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    endorser?: ContactDetail[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -128,7 +128,7 @@ export interface EvidenceVariable {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -139,7 +139,7 @@ export interface EvidenceVariable {
      * represented in other formats, or referenced in a specification, model, design or an
      * instance.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -149,7 +149,7 @@ export interface EvidenceVariable {
     /**
      * A legal or geographic region in which the evidence variable is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -164,7 +164,7 @@ export interface EvidenceVariable {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -178,7 +178,7 @@ export interface EvidenceVariable {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the evidence variable. This name should be usable as
      * an identifier for the module by machine processing applications such as code generation.
@@ -187,7 +187,7 @@ export interface EvidenceVariable {
     /**
      * A human-readable string to clarify or explain concepts about the resource.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * The name of the organization or individual that published the evidence variable.
      */
@@ -196,16 +196,16 @@ export interface EvidenceVariable {
      * Related artifacts such as additional documentation, justification, or bibliographic
      * references.
      */
-    relatedArtifact?: Array<any[] | boolean | RelatedArtifact | number | number | null | string>;
+    relatedArtifact?: RelatedArtifact[];
     /**
      * This is a EvidenceVariable resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * An individual or organization primarily responsible for review of some aspect of the
      * content.
      */
-    reviewer?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    reviewer?: ContactDetail[];
     /**
      * The short title provides an alternate title for use in informal descriptive contexts
      * where the full, formal title is not necessary.
@@ -214,7 +214,7 @@ export interface EvidenceVariable {
     /**
      * The status of this evidence variable. Enables tracking the life-cycle of the content.
      */
-    status?: FhirEvidenceVariableStatus;
+    status?: EvidenceVariableStatus;
     /**
      * An explanatory or alternate title for the EvidenceVariable giving additional information
      * about its content.
@@ -227,7 +227,7 @@ export interface EvidenceVariable {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the evidence variable.
      */
@@ -237,11 +237,11 @@ export interface EvidenceVariable {
      * high-level categorization grouping types of EvidenceVariables that can be useful for
      * filtering and searching.
      */
-    topic?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    topic?: CodeableConcept[];
     /**
      * The type of evidence element, a population, an exposure, or an outcome.
      */
-    type?: FhirEvidenceVariableType;
+    type?: EvidenceVariableType;
     /**
      * An absolute URI that is used to identify this evidence variable when it is referenced in
      * a specification, model, design or an instance; also called its canonical identifier. This
@@ -257,7 +257,7 @@ export interface EvidenceVariable {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate evidence variable instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the evidence variable when it is
      * referenced in a specification, model, design or instance. This is an arbitrary value
@@ -271,27 +271,31 @@ export interface EvidenceVariable {
      */
     version?: string;
 }
+/**
+ * The EvidenceVariable resource describes a "PICO" element that knowledge (evidence,
+ * assertion, recommendation) is about.
+ */
 export interface EvidenceVariableCharacteristic {
     /**
      * Extensions for definitionCanonical
      */
-    _definitionCanonical?: any[] | boolean | Element | number | number | null | string;
+    _definitionCanonical?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for exclude
      */
-    _exclude?: any[] | boolean | Element | number | number | null | string;
+    _exclude?: Element;
     /**
      * Extensions for groupMeasure
      */
-    _groupMeasure?: any[] | boolean | Element | number | number | null | string;
+    _groupMeasure?: Element;
     /**
      * Extensions for participantEffectiveDateTime
      */
-    _participantEffectiveDateTime?: any[] | boolean | Element | number | number | null | string;
+    _participantEffectiveDateTime?: Element;
     /**
      * Define members of the evidence element using Codes (such as condition, medication, or
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
@@ -303,31 +307,31 @@ export interface EvidenceVariableCharacteristic {
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
      * DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    definitionCodeableConcept?: CodeableConcept;
     /**
      * Define members of the evidence element using Codes (such as condition, medication, or
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
      * DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionDataRequirement?: any[] | boolean | DataRequirement | number | number | null | string;
+    definitionDataRequirement?: DataRequirement;
     /**
      * Define members of the evidence element using Codes (such as condition, medication, or
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
      * DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionExpression?: any[] | boolean | Expression | number | number | null | string;
+    definitionExpression?: Expression;
     /**
      * Define members of the evidence element using Codes (such as condition, medication, or
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
      * DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionReference?: any[] | boolean | Reference | number | number | null | string;
+    definitionReference?: Reference;
     /**
      * Define members of the evidence element using Codes (such as condition, medication, or
      * observation), Expressions ( using an expression language such as FHIRPath or CQL) or
      * DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionTriggerDefinition?: any[] | boolean | TriggerDefinition | number | number | null | string;
+    definitionTriggerDefinition?: TriggerDefinition;
     /**
      * A short, natural language description of the characteristic that could be used to
      * communicate the criteria to an end-user.
@@ -344,7 +348,7 @@ export interface EvidenceVariableCharacteristic {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Indicates how elements are aggregated within the study effective period.
      */
@@ -367,7 +371,7 @@ export interface EvidenceVariableCharacteristic {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates what effective period the study covers.
      */
@@ -375,24 +379,24 @@ export interface EvidenceVariableCharacteristic {
     /**
      * Indicates what effective period the study covers.
      */
-    participantEffectiveDuration?: any[] | boolean | Duration | number | number | null | string;
+    participantEffectiveDuration?: Duration;
     /**
      * Indicates what effective period the study covers.
      */
-    participantEffectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    participantEffectivePeriod?: Period;
     /**
      * Indicates what effective period the study covers.
      */
-    participantEffectiveTiming?: any[] | boolean | Timing | number | number | null | string;
+    participantEffectiveTiming?: Timing;
     /**
      * Indicates duration from the participant's study entry.
      */
-    timeFromStart?: any[] | boolean | Duration | number | number | null | string;
+    timeFromStart?: Duration;
     /**
      * Use UsageContext to define the members of the population, such as Age Ranges, Genders,
      * Settings.
      */
-    usageContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    usageContext?: UsageContext[];
 }
 /**
  * Indicates how elements are aggregated within the study effective period.
@@ -408,7 +412,7 @@ export declare enum GroupMeasure {
 /**
  * The status of this evidence variable. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirEvidenceVariableStatus {
+export declare enum EvidenceVariableStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",
@@ -417,7 +421,7 @@ export declare enum FhirEvidenceVariableStatus {
 /**
  * The type of evidence element, a population, an exposure, or an outcome.
  */
-export declare enum FhirEvidenceVariableType {
+export declare enum EvidenceVariableType {
     Continuous = "continuous",
     Descriptive = "descriptive",
     Dichotomous = "dichotomous"

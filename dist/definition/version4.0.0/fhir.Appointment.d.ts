@@ -3,62 +3,62 @@ export interface Appointment {
     /**
      * Extensions for comment
      */
-    _comment?: any[] | boolean | Element | number | number | null | string;
+    _comment?: Element;
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for minutesDuration
      */
-    _minutesDuration?: any[] | boolean | Element | number | number | null | string;
+    _minutesDuration?: Element;
     /**
      * Extensions for patientInstruction
      */
-    _patientInstruction?: any[] | boolean | Element | number | number | null | string;
+    _patientInstruction?: Element;
     /**
      * Extensions for priority
      */
-    _priority?: any[] | boolean | Element | number | number | null | string;
+    _priority?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * The style of appointment or patient that has been booked in the slot (not service type).
      */
-    appointmentType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    appointmentType?: CodeableConcept;
     /**
      * The service request this appointment is allocated to assess (e.g. incoming referral or
      * procedure request).
      */
-    basedOn?: Array<any[] | boolean | Reference | number | number | null | string>;
+    basedOn?: Reference[];
     /**
      * The coded reason for the appointment being cancelled. This is often used in
      * reporting/billing/futher processing to determine if further actions are required, or
      * specific fees apply.
      */
-    cancelationReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    cancelationReason?: CodeableConcept;
     /**
      * Additional comments about the appointment.
      */
@@ -68,7 +68,7 @@ export interface Appointment {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Appointment | number | null | string>;
+    contained?: Appointment[];
     /**
      * The date that this appointment was initially created. This could be different to the
      * meta.lastModified value on the initial entry, as this could have been before the resource
@@ -93,7 +93,7 @@ export interface Appointment {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -104,7 +104,7 @@ export interface Appointment {
      * business processes and/or used to refer to it when a direct URL reference to the resource
      * itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -120,7 +120,7 @@ export interface Appointment {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * Number of minutes that the appointment is to take. This can be less than the duration
      * between the start and end times.  For example, where the actual time of appointment is
@@ -143,11 +143,11 @@ export interface Appointment {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * List of participants involved in the appointment.
      */
-    participant: Array<any[] | boolean | AppointmentParticipant | number | number | null | string>;
+    participant?: AppointmentParticipant[];
     /**
      * While Appointment.comment contains information for internal use,
      * Appointment.patientInstructions is used to capture patient facing information about the
@@ -164,14 +164,14 @@ export interface Appointment {
      * The coded reason that this appointment is being scheduled. This is more clinical than
      * administrative.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Reason the appointment has been scheduled to take place, as specified using information
      * from another resource. When the patient arrives and the encounter begins it may be used
      * as the admission diagnosis. The indication will typically be a Condition (with other
      * resources referenced in the evidence.detail), or a Procedure.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * A set of date ranges (potentially including times) that the appointment is preferred to
      * be scheduled within.
@@ -180,28 +180,28 @@ export interface Appointment {
      * appointment to fill and populate the start/end times for the actual allocated time.
      * However, in other situations the duration may be calculated by the scheduling system.
      */
-    requestedPeriod?: Array<any[] | boolean | Period | number | number | null | string>;
+    requestedPeriod?: Period[];
     /**
      * This is a Appointment resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A broad categorization of the service that is to be performed during this appointment.
      */
-    serviceCategory?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    serviceCategory?: CodeableConcept[];
     /**
      * The specific service that is to be performed during this appointment.
      */
-    serviceType?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    serviceType?: CodeableConcept[];
     /**
      * The slots from the participants' schedules that will be filled by the appointment.
      */
-    slot?: Array<any[] | boolean | Reference | number | number | null | string>;
+    slot?: Reference[];
     /**
      * The specialty of a practitioner that would be required to perform the service requested
      * in this appointment.
      */
-    specialty?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    specialty?: CodeableConcept[];
     /**
      * Date/Time that the appointment is to take place.
      */
@@ -211,11 +211,11 @@ export interface Appointment {
      * participation status which indicates their involvement in the process, however this
      * status indicates the shared status.
      */
-    status?: FhirAppointmentStatus;
+    status?: AppointmentStatus;
     /**
      * Additional information to support the appointment provided when making the appointment.
      */
-    supportingInformation?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInformation?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -223,21 +223,25 @@ export interface Appointment {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
+/**
+ * A booking of a healthcare event among patient(s), practitioner(s), related person(s)
+ * and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
+ */
 export interface AppointmentParticipant {
     /**
      * Extensions for required
      */
-    _required?: any[] | boolean | Element | number | number | null | string;
+    _required?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * A Person, Location/HealthcareService or Device that is participating in the appointment.
      */
-    actor?: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -245,7 +249,7 @@ export interface AppointmentParticipant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -264,11 +268,11 @@ export interface AppointmentParticipant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Participation period of the actor.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Whether this participant is required to be present at the meeting. This covers a use-case
      * where two doctors need to meet to discuss the results for a specific patient, and the
@@ -282,7 +286,7 @@ export interface AppointmentParticipant {
     /**
      * Role of participant in the appointment.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
 }
 /**
  * Whether this participant is required to be present at the meeting. This covers a use-case
@@ -308,7 +312,7 @@ export declare enum AppointmentParticipantStatus {
  * participation status which indicates their involvement in the process, however this
  * status indicates the shared status.
  */
-export declare enum FhirAppointmentStatus {
+export declare enum AppointmentStatus {
     Arrived = "arrived",
     Booked = "booked",
     Cancelled = "cancelled",

@@ -127,7 +127,7 @@ export interface CoverageEligibilityResponse {
     /**
      * The outcome of the request processing.
      */
-    outcome?: Outcome;
+    outcome?: CoverageEligibilityResponseOutcome;
     /**
      * The party who is the beneficiary of the supplied coverage and for whom eligibility is
      * sought.
@@ -144,7 +144,7 @@ export interface CoverageEligibilityResponse {
      * and return of coverages for the patient; and/or validation that the specified coverage is
      * in-force at the date/period specified or 'now' if not specified.
      */
-    purpose?: Purpose[];
+    purpose?: CoverageEligibilityResponsePurpose[];
     /**
      * Reference to the original request resource.
      */
@@ -474,14 +474,14 @@ export interface CoverageEligibilityResponseBenefit {
 /**
  * The outcome of the request processing.
  */
-export enum Outcome {
+export enum CoverageEligibilityResponseOutcome {
     Complete = "complete",
     Error = "error",
     Partial = "partial",
     Queued = "queued",
 }
 
-export enum Purpose {
+export enum CoverageEligibilityResponsePurpose {
     AuthRequirements = "auth-requirements",
     Benefits = "benefits",
     Discovery = "discovery",

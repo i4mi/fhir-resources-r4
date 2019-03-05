@@ -3,73 +3,73 @@ export interface Device {
     /**
      * Extensions for distinctIdentifier
      */
-    _distinctIdentifier?: any[] | boolean | Element | number | number | null | string;
+    _distinctIdentifier?: Element;
     /**
      * Extensions for expirationDate
      */
-    _expirationDate?: any[] | boolean | Element | number | number | null | string;
+    _expirationDate?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lotNumber
      */
-    _lotNumber?: any[] | boolean | Element | number | number | null | string;
+    _lotNumber?: Element;
     /**
      * Extensions for manufactureDate
      */
-    _manufactureDate?: any[] | boolean | Element | number | number | null | string;
+    _manufactureDate?: Element;
     /**
      * Extensions for manufacturer
      */
-    _manufacturer?: any[] | boolean | Element | number | number | null | string;
+    _manufacturer?: Element;
     /**
      * Extensions for modelNumber
      */
-    _modelNumber?: any[] | boolean | Element | number | number | null | string;
+    _modelNumber?: Element;
     /**
      * Extensions for partNumber
      */
-    _partNumber?: any[] | boolean | Element | number | number | null | string;
+    _partNumber?: Element;
     /**
      * Extensions for serialNumber
      */
-    _serialNumber?: any[] | boolean | Element | number | number | null | string;
+    _serialNumber?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Contact details for an organization or a particular human that is responsible for the
      * device.
      */
-    contact?: Array<any[] | boolean | ContactPoint | number | number | null | string>;
+    contact?: ContactPoint[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Device | number | null | string>;
+    contained?: Device[];
     /**
      * The reference to the definition for the device.
      */
-    definition?: any[] | boolean | Reference | number | number | null | string;
+    definition?: Reference;
     /**
      * This represents the manufacturer's name of the device as provided by the device, from a
      * UDI label, or by a person describing the Device.  This typically would be used when a
      * person provides the name(s) or when the device represents one of the names available from
      * DeviceDefinition.
      */
-    deviceName?: Array<any[] | boolean | DeviceDeviceName | number | number | null | string>;
+    deviceName?: DeviceDeviceName[];
     /**
      * The distinct identification string as required by regulation for a human cell, tissue, or
      * cellular and tissue-based product.
@@ -87,7 +87,7 @@ export interface Device {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -97,7 +97,7 @@ export interface Device {
      * Unique instance identifiers assigned to a device by manufacturers other organizations or
      * owners.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -111,7 +111,7 @@ export interface Device {
     /**
      * The place where the device can be found.
      */
-    location?: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * Lot number assigned by the manufacturer.
      */
@@ -129,7 +129,7 @@ export interface Device {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * The model number for the device.
      */
@@ -147,21 +147,21 @@ export interface Device {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Descriptive information, usage information or implantation information that is not
      * captured in an existing element.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * An organization that is responsible for the provision and ongoing maintenance of the
      * device.
      */
-    owner?: any[] | boolean | Reference | number | number | null | string;
+    owner?: Reference;
     /**
      * The parent device.
      */
-    parent?: any[] | boolean | Reference | number | number | null | string;
+    parent?: Reference;
     /**
      * The part number of the device.
      */
@@ -169,21 +169,21 @@ export interface Device {
     /**
      * Patient information, If the device is affixed to a person.
      */
-    patient?: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * The actual configuration settings of a device as it actually operates, e.g., regulation
      * status, time properties.
      */
-    property?: Array<any[] | boolean | DeviceProperty | number | number | null | string>;
+    property?: DeviceProperty[];
     /**
      * This is a Device resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Provides additional safety characteristics about a medical device.  For example devices
      * containing latex.
      */
-    safety?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    safety?: CodeableConcept[];
     /**
      * The serial number assigned by the organization when the device was manufactured.
      */
@@ -192,15 +192,15 @@ export interface Device {
      * The capabilities supported on a  device, the standards to which the device conforms for a
      * particular purpose, and used for the communication.
      */
-    specialization?: Array<any[] | boolean | DeviceSpecialization | number | number | null | string>;
+    specialization?: DeviceSpecialization[];
     /**
      * Status of the Device availability.
      */
-    status?: FhirDeviceStatus;
+    status?: DeviceStatus;
     /**
      * Reason for the dtatus of the Device availability.
      */
-    statusReason?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    statusReason?: CodeableConcept[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -208,17 +208,17 @@ export interface Device {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The kind or type of device.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Unique device identifier (UDI) assigned to device label or package.  Note that the Device
      * may include multiple udiCarriers as it either may include just the udiCarrier for the
      * jurisdiction it is sold, or for multiple jurisdictions it could have been sold.
      */
-    udiCarrier?: Array<any[] | boolean | DeviceUdiCarrier | number | number | null | string>;
+    udiCarrier?: DeviceUdiCarrier[];
     /**
      * A network address on which the device may be contacted directly.
      */
@@ -226,17 +226,22 @@ export interface Device {
     /**
      * The actual design of the device or software version running on the device.
      */
-    version?: Array<any[] | boolean | DeviceVersion | number | number | null | string>;
+    version?: DeviceVersion[];
 }
+/**
+ * A type of a manufactured item that is used in the provision of healthcare without being
+ * substantially changed through that activity. The device may be a medical or non-medical
+ * device.
+ */
 export interface DeviceDeviceName {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -244,7 +249,7 @@ export interface DeviceDeviceName {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -263,7 +268,7 @@ export interface DeviceDeviceName {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The name of the device.
      */
@@ -286,6 +291,11 @@ export declare enum DeviceDeviceNameType {
     UdiLabelName = "udi-label-name",
     UserFriendlyName = "user-friendly-name"
 }
+/**
+ * A type of a manufactured item that is used in the provision of healthcare without being
+ * substantially changed through that activity. The device may be a medical or non-medical
+ * device.
+ */
 export interface DeviceProperty {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -294,7 +304,7 @@ export interface DeviceProperty {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -313,25 +323,30 @@ export interface DeviceProperty {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Code that specifies the property DeviceDefinitionPropetyCode (Extensible).
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * Property value as a code, e.g., NTP4 (synced to NTP).
      */
-    valueCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    valueCode?: CodeableConcept[];
     /**
      * Property value as a quantity.
      */
-    valueQuantity?: Array<any[] | boolean | Quantity | number | number | null | string>;
+    valueQuantity?: Quantity[];
 }
+/**
+ * A type of a manufactured item that is used in the provision of healthcare without being
+ * substantially changed through that activity. The device may be a medical or non-medical
+ * device.
+ */
 export interface DeviceSpecialization {
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -339,7 +354,7 @@ export interface DeviceSpecialization {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -358,11 +373,11 @@ export interface DeviceSpecialization {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The standard that is used to operate and communicate.
      */
-    systemType: any[] | boolean | CodeableConcept | number | number | null | string;
+    systemType?: CodeableConcept;
     /**
      * The version of the standard that is used to operate and communicate.
      */
@@ -371,37 +386,42 @@ export interface DeviceSpecialization {
 /**
  * Status of the Device availability.
  */
-export declare enum FhirDeviceStatus {
+export declare enum DeviceStatus {
     Active = "active",
     EnteredInError = "entered-in-error",
     Inactive = "inactive",
     Unknown = "unknown"
 }
+/**
+ * A type of a manufactured item that is used in the provision of healthcare without being
+ * substantially changed through that activity. The device may be a medical or non-medical
+ * device.
+ */
 export interface DeviceUdiCarrier {
     /**
      * Extensions for carrierAIDC
      */
-    _carrierAIDC?: any[] | boolean | Element | number | number | null | string;
+    _carrierAIDC?: Element;
     /**
      * Extensions for carrierHRF
      */
-    _carrierHRF?: any[] | boolean | Element | number | number | null | string;
+    _carrierHRF?: Element;
     /**
      * Extensions for deviceIdentifier
      */
-    _deviceIdentifier?: any[] | boolean | Element | number | number | null | string;
+    _deviceIdentifier?: Element;
     /**
      * Extensions for entryType
      */
-    _entryType?: any[] | boolean | Element | number | number | null | string;
+    _entryType?: Element;
     /**
      * Extensions for issuer
      */
-    _issuer?: any[] | boolean | Element | number | number | null | string;
+    _issuer?: Element;
     /**
      * Extensions for jurisdiction
      */
-    _jurisdiction?: any[] | boolean | Element | number | number | null | string;
+    _jurisdiction?: Element;
     /**
      * The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology
      * representation of the barcode string as printed on the packaging of the device - e.g., a
@@ -430,7 +450,7 @@ export interface DeviceUdiCarrier {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -469,7 +489,7 @@ export interface DeviceUdiCarrier {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 /**
  * A coded entry to indicate how the data was entered.
@@ -478,19 +498,24 @@ export declare enum EntryType {
     Barcode = "barcode",
     Card = "card",
     Manual = "manual",
-    RFID = "rfid",
+    Rfid = "rfid",
     SelfReported = "self-reported",
     Unknown = "unknown"
 }
+/**
+ * A type of a manufactured item that is used in the provision of healthcare without being
+ * substantially changed through that activity. The device may be a medical or non-medical
+ * device.
+ */
 export interface DeviceVersion {
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A single component of the device version.
      */
-    component?: any[] | boolean | Identifier | number | number | null | string;
+    component?: Identifier;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -498,7 +523,7 @@ export interface DeviceVersion {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -517,11 +542,11 @@ export interface DeviceVersion {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The type of the device version.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The version text.
      */

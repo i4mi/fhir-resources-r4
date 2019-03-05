@@ -600,7 +600,7 @@ export interface ConceptMapUnmapped {
      * changed), use a fixed code (a default code), or alternatively, a reference to a different
      * concept map can be provided (by canonical URL).
      */
-    mode?: Mode;
+    mode?: ConceptMapUnmappedMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -629,7 +629,7 @@ export interface ConceptMapUnmapped {
  * changed), use a fixed code (a default code), or alternatively, a reference to a different
  * concept map can be provided (by canonical URL).
  */
-export enum Mode {
+export enum ConceptMapUnmappedMode {
     Fixed = "fixed",
     OtherMap = "other-map",
     Provided = "provided",

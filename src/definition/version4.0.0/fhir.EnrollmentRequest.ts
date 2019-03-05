@@ -1,50 +1,43 @@
-import { Element,
-         Reference, 
-         Extension,
-         Identifier,
-         Meta,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirEnrollmentRequest } from "./file";
-//
-//   const fhirEnrollmentRequest = Convert.toFhirEnrollmentRequest(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    Extension,
+    Identifier,
+    Meta,
+    Narrative
+} from "./fhir._";
 
 export interface EnrollmentRequest {
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Patient Resource.
      */
-    candidate?: any[] | boolean | Reference | number | number | null | string;
+    candidate?: Reference;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | EnrollmentRequest | number | null | string>;
+    contained?: EnrollmentRequest[];
     /**
      * Reference to the program or plan identification, underwriter or payor.
      */
-    coverage?: any[] | boolean | Reference | number | number | null | string;
+    coverage?: Reference;
     /**
      * The date when this resource was created.
      */
@@ -56,7 +49,7 @@ export interface EnrollmentRequest {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -65,7 +58,7 @@ export interface EnrollmentRequest {
     /**
      * The Response business identifier.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -75,7 +68,7 @@ export interface EnrollmentRequest {
     /**
      * The Insurer who is target  of the request.
      */
-    insurer?: any[] | boolean | Reference | number | number | null | string;
+    insurer?: Reference;
     /**
      * The base language in which the resource is written.
      */
@@ -85,7 +78,7 @@ export interface EnrollmentRequest {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -99,15 +92,15 @@ export interface EnrollmentRequest {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    provider?: any[] | boolean | Reference | number | number | null | string;
+    provider?: Reference;
     /**
      * This is a EnrollmentRequest resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status of the resource instance.
      */
@@ -119,5 +112,5 @@ export interface EnrollmentRequest {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }

@@ -38,7 +38,7 @@ export interface DeviceMetric {
      * Indicates the category of the observation generation process. A DeviceMetric can be for
      * example a setting, measurement, or calculation.
      */
-    category?: Category;
+    category?: DeviceMetricCategory;
     /**
      * Describes the color representation for the metric. This is often used to aid clinicians
      * to track and identify parameter types by color. In practice, consider a Patient Monitor
@@ -231,7 +231,7 @@ export enum DeviceMetricCalibrationType {
  * Indicates the category of the observation generation process. A DeviceMetric can be for
  * example a setting, measurement, or calculation.
  */
-export enum Category {
+export enum DeviceMetricCategory {
     Calculation = "calculation",
     Measurement = "measurement",
     Setting = "setting",

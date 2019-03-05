@@ -63,7 +63,7 @@ export interface CompartmentDefinition {
     /**
      * Which compartment this definition describes.
      */
-    code?: Code;
+    code?: CompartmentDefinitionCode;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
@@ -204,7 +204,7 @@ export interface CompartmentDefinition {
 /**
  * Which compartment this definition describes.
  */
-export enum Code {
+export enum CompartmentDefinitionCode {
     Device = "Device",
     Encounter = "Encounter",
     Patient = "Patient",

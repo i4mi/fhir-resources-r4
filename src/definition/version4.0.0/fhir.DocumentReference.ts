@@ -308,7 +308,7 @@ export interface DocumentReferenceRelatesTo {
     /**
      * The type of relationship that this document has with anther document.
      */
-    code?: Code;
+    code?: DocumentReferenceRelatesToCode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -345,7 +345,7 @@ export interface DocumentReferenceRelatesTo {
 /**
  * The type of relationship that this document has with anther document.
  */
-export enum Code {
+export enum DocumentReferenceRelatesToCode {
     Appends = "appends",
     Replaces = "replaces",
     Signs = "signs",

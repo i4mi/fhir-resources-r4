@@ -89,7 +89,7 @@ export interface List {
      * another source, or whether it is a prepared list where items may be marked as added,
      * modified or deleted.
      */
-    mode?: Mode;
+    mode?: ListMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -202,7 +202,7 @@ export interface ListEntry {
  * another source, or whether it is a prepared list where items may be marked as added,
  * modified or deleted.
  */
-export declare enum Mode {
+export declare enum ListMode {
     Changes = "changes",
     Snapshot = "snapshot",
     Working = "working"

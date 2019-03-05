@@ -1,122 +1,115 @@
-import { Element,
-         ContactDetail, 
-         CodeableConcept,
-         Period,
-         Extension,
-         Identifier,
-         Meta,
-         RelatedArtifact,
-         Reference,
-         Narrative,
-         UsageContext,
-         Expression} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirMeasure } from "./file";
-//
-//   const fhirMeasure = Convert.toFhirMeasure(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    ContactDetail,
+    CodeableConcept,
+    Period,
+    Extension,
+    Identifier,
+    Meta,
+    RelatedArtifact,
+    Reference,
+    Narrative,
+    UsageContext,
+    Expression
+} from "./fhir._";
 
 export interface Measure {
     /**
      * Extensions for approvalDate
      */
-    _approvalDate?: any[] | boolean | Element | number | number | null | string;
+    _approvalDate?: Element;
     /**
      * Extensions for clinicalRecommendationStatement
      */
-    _clinicalRecommendationStatement?: any[] | boolean | Element | number | number | null | string;
+    _clinicalRecommendationStatement?: Element;
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for definition
      */
-    _definition?: Array<any[] | boolean | Element | number | number | null | string>;
+    _definition?: Element[];
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for disclaimer
      */
-    _disclaimer?: any[] | boolean | Element | number | number | null | string;
+    _disclaimer?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for guidance
      */
-    _guidance?: any[] | boolean | Element | number | number | null | string;
+    _guidance?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastReviewDate
      */
-    _lastReviewDate?: any[] | boolean | Element | number | number | null | string;
+    _lastReviewDate?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: any[] | boolean | Element | number | number | null | string;
+    _purpose?: Element;
     /**
      * Extensions for rateAggregation
      */
-    _rateAggregation?: any[] | boolean | Element | number | number | null | string;
+    _rateAggregation?: Element;
     /**
      * Extensions for rationale
      */
-    _rationale?: any[] | boolean | Element | number | number | null | string;
+    _rationale?: Element;
     /**
      * Extensions for riskAdjustment
      */
-    _riskAdjustment?: any[] | boolean | Element | number | number | null | string;
+    _riskAdjustment?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for subtitle
      */
-    _subtitle?: any[] | boolean | Element | number | number | null | string;
+    _subtitle?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for usage
      */
-    _usage?: any[] | boolean | Element | number | number | null | string;
+    _usage?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * The date on which the resource content was approved by the publisher. Approval happens
      * once when the content is officially approved for usage.
@@ -126,7 +119,7 @@ export interface Measure {
      * An individiual or organization primarily involved in the creation and maintenance of the
      * content.
      */
-    author?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    author?: ContactDetail[];
     /**
      * Provides a summary of relevant clinical guidelines or other clinical recommendations
      * supporting the measure.
@@ -136,17 +129,17 @@ export interface Measure {
      * If this is a composite measure, the scoring method used to combine the component measures
      * to determine the composite score.
      */
-    compositeScoring?: any[] | boolean | CodeableConcept | number | number | null | string;
+    compositeScoring?: CodeableConcept;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Measure | number | null | string>;
+    contained?: Measure[];
     /**
      * A copyright statement relating to the measure and/or its contents. Copyright statements
      * are generally legal restrictions on the use and publishing of the measure.
@@ -174,16 +167,16 @@ export interface Measure {
     /**
      * An individual or organization primarily responsible for internal coherence of the content.
      */
-    editor?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    editor?: ContactDetail[];
     /**
      * The period during which the measure content was or is planned to be in active use.
      */
-    effectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    effectivePeriod?: Period;
     /**
      * An individual or organization responsible for officially endorsing the content for use in
      * some setting.
      */
-    endorser?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    endorser?: ContactDetail[];
     /**
      * A Boolean value to indicate that this measure is authored for testing purposes (or
      * education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -196,11 +189,11 @@ export interface Measure {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A group of population criteria for the measure.
      */
-    group?: Array<any[] | boolean | MeasureGroup | number | number | null | string>;
+    group?: MeasureGroup[];
     /**
      * Additional guidance for the measure including how it can be used in a clinical context,
      * and the intent of the measure.
@@ -215,7 +208,7 @@ export interface Measure {
      * A formal identifier that is used to identify this measure when it is represented in other
      * formats, or referenced in a specification, model, design or an instance.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -227,11 +220,11 @@ export interface Measure {
      * higher score indicates better quality OR a lower score indicates better quality OR
      * quality is within a range).
      */
-    improvementNotation?: any[] | boolean | CodeableConcept | number | number | null | string;
+    improvementNotation?: CodeableConcept;
     /**
      * A legal or geographic region in which the measure is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -250,7 +243,7 @@ export interface Measure {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -264,7 +257,7 @@ export interface Measure {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the measure. This name should be usable as an
      * identifier for the module by machine processing applications such as code generation.
@@ -292,16 +285,16 @@ export interface Measure {
      * Related artifacts such as additional documentation, justification, or bibliographic
      * references.
      */
-    relatedArtifact?: Array<any[] | boolean | RelatedArtifact | number | number | null | string>;
+    relatedArtifact?: RelatedArtifact[];
     /**
      * This is a Measure resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * An individual or organization primarily responsible for review of some aspect of the
      * content.
      */
-    reviewer?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    reviewer?: ContactDetail[];
     /**
      * A description of the risk adjustment factors that may impact the resulting score for the
      * measure and how they may be accounted for when computing and reporting measure results.
@@ -312,21 +305,21 @@ export interface Measure {
      * continuous-variable, and cohort. The value set is extensible, allowing additional measure
      * scoring types to be represented.
      */
-    scoring?: any[] | boolean | CodeableConcept | number | number | null | string;
+    scoring?: CodeableConcept;
     /**
      * The status of this measure. Enables tracking the life-cycle of the content.
      */
-    status?: FhirMeasureStatus;
+    status?: MeasureStatus;
     /**
      * The intended subjects for the measure. If this element is not provided, a Patient subject
      * is assumed, but the subject of the measure can be anything.
      */
-    subjectCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    subjectCodeableConcept?: CodeableConcept;
     /**
      * The intended subjects for the measure. If this element is not provided, a Patient subject
      * is assumed, but the subject of the measure can be anything.
      */
-    subjectReference?: any[] | boolean | Reference | number | number | null | string;
+    subjectReference?: Reference;
     /**
      * An explanatory or alternate title for the measure giving additional information about its
      * content.
@@ -336,7 +329,7 @@ export interface Measure {
      * The supplemental data criteria for the measure report, specified as either the name of a
      * valid CQL expression within a referenced library, or a valid FHIR Resource Path.
      */
-    supplementalData?: Array<any[] | boolean | MeasureSupplementalData | number | number | null | string>;
+    supplementalData?: MeasureSupplementalData[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -344,7 +337,7 @@ export interface Measure {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the measure.
      */
@@ -353,12 +346,12 @@ export interface Measure {
      * Descriptive topics related to the content of the measure. Topics provide a high-level
      * categorization grouping types of measures that can be useful for filtering and searching.
      */
-    topic?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    topic?: CodeableConcept[];
     /**
      * Indicates whether the measure is used to examine a process, an outcome over time, a
      * patient-reported outcome, or a structure measure such as utilization.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
     /**
      * An absolute URI that is used to identify this measure when it is referenced in a
      * specification, model, design or an instance; also called its canonical identifier. This
@@ -378,7 +371,7 @@ export interface Measure {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate measure instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the measure when it is referenced
      * in a specification, model, design or instance. This is an arbitrary value managed by the
@@ -393,17 +386,20 @@ export interface Measure {
     version?: string;
 }
 
+/**
+ * The Measure resource provides the definition of a quality measure.
+ */
 export interface MeasureGroup {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Indicates a meaning for the group. This can be as simple as a unique identifier, or it
      * can establish meaning in a broader context by drawing from a terminology, allowing groups
      * to be correlated across measures.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * The human readable description of this population group.
      */
@@ -415,7 +411,7 @@ export interface MeasureGroup {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -434,32 +430,35 @@ export interface MeasureGroup {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A population criteria for the measure.
      */
-    population?: Array<any[] | boolean | MeasurePopulation | number | number | null | string>;
+    population?: MeasurePopulation[];
     /**
      * The stratifier criteria for the measure report, specified as either the name of a valid
      * CQL expression defined within a referenced library or a valid FHIR Resource Path.
      */
-    stratifier?: Array<any[] | boolean | MeasureStratifier | number | number | null | string>;
+    stratifier?: MeasureStratifier[];
 }
 
+/**
+ * The Measure resource provides the definition of a quality measure.
+ */
 export interface MeasurePopulation {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * The type of population criteria.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * An expression that specifies the criteria for the population, typically the name of an
      * expression in a library.
      */
-    criteria: any[] | boolean | Expression | number | number | null | string;
+    criteria?: Expression;
     /**
      * The human readable description of this population criteria.
      */
@@ -471,7 +470,7 @@ export interface MeasurePopulation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -490,32 +489,35 @@ export interface MeasurePopulation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * The Measure resource provides the definition of a quality measure.
+ */
 export interface MeasureStratifier {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or
      * it can establish meaning in a broader context by drawing from a terminology, allowing
      * stratifiers to be correlated across measures.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * A component of the stratifier criteria for the measure report, specified as either the
      * name of a valid CQL expression defined within a referenced library or a valid FHIR
      * Resource Path.
      */
-    component?: Array<any[] | boolean | MeasureComponent | number | number | null | string>;
+    component?: MeasureComponent[];
     /**
      * An expression that specifies the criteria for the stratifier. This is typically the name
      * of an expression defined within a referenced library, but it may also be a path to a
      * stratifier element.
      */
-    criteria?: any[] | boolean | Expression | number | number | null | string;
+    criteria?: Expression;
     /**
      * The human readable description of this stratifier criteria.
      */
@@ -527,7 +529,7 @@ export interface MeasureStratifier {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -546,26 +548,29 @@ export interface MeasureStratifier {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * The Measure resource provides the definition of a quality measure.
+ */
 export interface MeasureComponent {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Indicates a meaning for the stratifier component. This can be as simple as a unique
      * identifier, or it can establish meaning in a broader context by drawing from a
      * terminology, allowing stratifiers to be correlated across measures.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * An expression that specifies the criteria for this component of the stratifier. This is
      * typically the name of an expression defined within a referenced library, but it may also
      * be a path to a stratifier element.
      */
-    criteria: any[] | boolean | Expression | number | number | null | string;
+    criteria?: Expression;
     /**
      * The human readable description of this stratifier criteria component.
      */
@@ -577,7 +582,7 @@ export interface MeasureComponent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -596,36 +601,39 @@ export interface MeasureComponent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
 /**
  * The status of this measure. Enables tracking the life-cycle of the content.
  */
-export enum FhirMeasureStatus {
+export enum MeasureStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",
     Unknown = "unknown",
 }
 
+/**
+ * The Measure resource provides the definition of a quality measure.
+ */
 export interface MeasureSupplementalData {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Indicates a meaning for the supplemental data. This can be as simple as a unique
      * identifier, or it can establish meaning in a broader context by drawing from a
      * terminology, allowing supplemental data to be correlated across measures.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * The criteria for the supplemental data. This is typically the name of a valid expression
      * defined within a referenced library, but it may also be a path to a specific data
      * element. The criteria defines the data to be returned for this element.
      */
-    criteria: any[] | boolean | Expression | number | number | null | string;
+    criteria?: Expression;
     /**
      * The human readable description of this supplemental data.
      */
@@ -637,7 +645,7 @@ export interface MeasureSupplementalData {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -656,12 +664,12 @@ export interface MeasureSupplementalData {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An indicator of the intended usage for the supplemental data element. Supplemental data
      * indicates the data is additional information requested to augment the measure
      * information. Risk adjustment factor indicates the data is additional information used to
      * calculate risk adjustment factors when applying a risk model to the measure calculation.
      */
-    usage?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    usage?: CodeableConcept[];
 }

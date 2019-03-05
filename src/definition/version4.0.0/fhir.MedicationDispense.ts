@@ -1,87 +1,80 @@
-import { Element,
-         Reference, 
-         CodeableConcept,
-         Quantity,
-         Dosage,
-         Extension,
-         Identifier,
-         Meta,
-         Annotation,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirMedicationDispense } from "./file";
-//
-//   const fhirMedicationDispense = Convert.toFhirMedicationDispense(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    CodeableConcept,
+    Quantity,
+    Dosage,
+    Extension,
+    Identifier,
+    Meta,
+    Annotation,
+    Narrative
+} from "./fhir._";
 
 export interface MedicationDispense {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for whenHandedOver
      */
-    _whenHandedOver?: any[] | boolean | Element | number | number | null | string;
+    _whenHandedOver?: Element;
     /**
      * Extensions for whenPrepared
      */
-    _whenPrepared?: any[] | boolean | Element | number | number | null | string;
+    _whenPrepared?: Element;
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    authorizingPrescription?: Array<any[] | boolean | Reference | number | number | null | string>;
+    authorizingPrescription?: Reference[];
     /**
      * Indicates the type of medication dispense (for example, where the medication is expected
      * to be consumed or administered (i.e. inpatient or outpatient)).
      */
-    category?: any[] | boolean | CodeableConcept | number | number | null | string;
+    category?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | MedicationDispense | number | null | string>;
+    contained?: MedicationDispense[];
     /**
      * The encounter or episode of care that establishes the context for this event.
      */
-    context?: any[] | boolean | Reference | number | number | null | string;
+    context?: Reference;
     /**
      * The amount of medication expressed as a timing amount.
      */
-    daysSupply?: any[] | boolean | Quantity | number | number | null | string;
+    daysSupply?: Quantity;
     /**
      * Identification of the facility/location where the medication was shipped to, as part of
      * the dispense event.
      */
-    destination?: any[] | boolean | Reference | number | number | null | string;
+    destination?: Reference;
     /**
      * Indicates an actual or potential clinical issue with or between one or more active or
      * proposed clinical actions for a patient; e.g. drug-drug interaction, duplicate therapy,
      * dosage alert etc.
      */
-    detectedIssue?: Array<any[] | boolean | Reference | number | number | null | string>;
+    detectedIssue?: Reference[];
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    dosageInstruction?: Array<any[] | boolean | Dosage | number | number | null | string>;
+    dosageInstruction?: Dosage[];
     /**
      * A summary of the events of interest that have occurred, such as when the dispense was
      * verified.
      */
-    eventHistory?: Array<any[] | boolean | Reference | number | number | null | string>;
+    eventHistory?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -89,7 +82,7 @@ export interface MedicationDispense {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -102,7 +95,7 @@ export interface MedicationDispense {
      * performer or other systems and remain constant as the resource is updated and propagates
      * from server to server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -116,25 +109,25 @@ export interface MedicationDispense {
     /**
      * The principal physical location where the dispense was performed.
      */
-    location?: any[] | boolean | Reference | number | number | null | string;
+    location?: Reference;
     /**
      * Identifies the medication being administered. This is either a link to a resource
      * representing the details of the medication or a simple attribute carrying a code that
      * identifies the medication from a known list of medications.
      */
-    medicationCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * Identifies the medication being administered. This is either a link to a resource
      * representing the details of the medication or a simple attribute carrying a code that
      * identifies the medication from a known list of medications.
      */
-    medicationReference?: any[] | boolean | Reference | number | number | null | string;
+    medicationReference?: Reference;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -148,32 +141,32 @@ export interface MedicationDispense {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Extra information about the dispense that could not be conveyed in the other attributes.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * The procedure that trigger the dispense.
      */
-    partOf?: Array<any[] | boolean | Reference | number | number | null | string>;
+    partOf?: Reference[];
     /**
      * Indicates who or what performed the event.
      */
-    performer?: Array<any[] | boolean | MedicationDispensePerformer | number | number | null | string>;
+    performer?: MedicationDispensePerformer[];
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
      */
-    quantity?: any[] | boolean | Quantity | number | number | null | string;
+    quantity?: Quantity;
     /**
      * Identifies the person who picked up the medication.  This will usually be a patient or
      * their caregiver, but some cases exist where it can be a healthcare professional.
      */
-    receiver?: Array<any[] | boolean | Reference | number | number | null | string>;
+    receiver?: Reference[];
     /**
      * This is a MedicationDispense resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A code specifying the state of the set of dispense events.
      */
@@ -181,27 +174,27 @@ export interface MedicationDispense {
     /**
      * Indicates the reason why a dispense was not performed.
      */
-    statusReasonCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    statusReasonCodeableConcept?: CodeableConcept;
     /**
      * Indicates the reason why a dispense was not performed.
      */
-    statusReasonReference?: any[] | boolean | Reference | number | number | null | string;
+    statusReasonReference?: Reference;
     /**
      * A link to a resource representing the person or the group to whom the medication will be
      * given.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * Indicates whether or not substitution was made as part of the dispense.  In some cases,
      * substitution will be expected but does not happen, in other cases substitution is not
      * expected but does happen.  This block explains what substitution did or did not happen
      * and why.  If nothing is specified, substitution was not done.
      */
-    substitution?: any[] | boolean | MedicationDispenseSubstitution | number | number | null | string;
+    substitution?: MedicationDispenseSubstitution;
     /**
      * Additional information that supports the medication being dispensed.
      */
-    supportingInformation?: Array<any[] | boolean | Reference | number | number | null | string>;
+    supportingInformation?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -209,12 +202,12 @@ export interface MedicationDispense {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Indicates the type of dispensing event that is performed. For example, Trial Fill,
      * Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The time the dispensed product was provided to the patient or their representative.
      */
@@ -225,12 +218,18 @@ export interface MedicationDispense {
     whenPrepared?: string;
 }
 
+/**
+ * Indicates that a medication product is to be or has been dispensed for a named
+ * person/patient.  This includes a description of the medication product (supply) provided
+ * and the instructions for administering the medication.  The medication dispense is the
+ * result of a pharmacy system responding to a medication order.
+ */
 export interface MedicationDispensePerformer {
     /**
      * The device, practitioner, etc. who performed the action.  It should be assumed that the
      * actor is the dispenser of the medication.
      */
-    actor: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -238,12 +237,12 @@ export interface MedicationDispensePerformer {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Distinguishes the type of performer in the dispense.  For example, date enterer,
      * packager, final checker.
      */
-    function?: any[] | boolean | CodeableConcept | number | number | null | string;
+    function?: CodeableConcept;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -262,14 +261,25 @@ export interface MedicationDispensePerformer {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
+/**
+ * Indicates whether or not substitution was made as part of the dispense.  In some cases,
+ * substitution will be expected but does not happen, in other cases substitution is not
+ * expected but does happen.  This block explains what substitution did or did not happen
+ * and why.  If nothing is specified, substitution was not done.
+ *
+ * Indicates that a medication product is to be or has been dispensed for a named
+ * person/patient.  This includes a description of the medication product (supply) provided
+ * and the instructions for administering the medication.  The medication dispense is the
+ * result of a pharmacy system responding to a medication order.
+ */
 export interface MedicationDispenseSubstitution {
     /**
      * Extensions for wasSubstituted
      */
-    _wasSubstituted?: any[] | boolean | Element | number | number | null | string;
+    _wasSubstituted?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -277,7 +287,7 @@ export interface MedicationDispenseSubstitution {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -296,20 +306,20 @@ export interface MedicationDispenseSubstitution {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Indicates the reason for the substitution (or lack of substitution) from what was
      * prescribed.
      */
-    reason?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reason?: CodeableConcept[];
     /**
      * The person or organization that has primary responsibility for the substitution.
      */
-    responsibleParty?: Array<any[] | boolean | Reference | number | number | null | string>;
+    responsibleParty?: Reference[];
     /**
      * A code signifying whether a different drug was dispensed from what was prescribed.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * True if the dispenser dispensed a different drug or product from what was prescribed.
      */

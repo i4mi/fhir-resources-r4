@@ -157,6 +157,15 @@ __export(__webpack_require__(53));
 __export(__webpack_require__(54));
 __export(__webpack_require__(55));
 __export(__webpack_require__(56));
+__export(__webpack_require__(57));
+__export(__webpack_require__(58));
+__export(__webpack_require__(59));
+__export(__webpack_require__(60));
+__export(__webpack_require__(61));
+__export(__webpack_require__(62));
+__export(__webpack_require__(63));
+__export(__webpack_require__(64));
+__export(__webpack_require__(65));
 
 
 /***/ }),
@@ -169,7 +178,9 @@ __export(__webpack_require__(56));
 //https://webpack.js.org/guides/typescript/
 //https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c
 Object.defineProperty(exports, "__esModule", { value: true });
-//SETUP TESTS WITH JEST!
+/**
+ * EXPORTS OF I4MI Resources
+ */
 var bundle_1 = __webpack_require__(2);
 exports.I4MIBundle = bundle_1.I4MIBundle;
 /**
@@ -2565,6 +2576,273 @@ var InvoiceStatus;
     InvoiceStatus["EnteredInError"] = "entered-in-error";
     InvoiceStatus["Issued"] = "issued";
 })(InvoiceStatus = exports.InvoiceStatus || (exports.InvoiceStatus = {}));
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The status of this library. Enables tracking the life-cycle of the content.
+ */
+var LibraryStatus;
+(function (LibraryStatus) {
+    LibraryStatus["Active"] = "active";
+    LibraryStatus["Draft"] = "draft";
+    LibraryStatus["Retired"] = "retired";
+    LibraryStatus["Unknown"] = "unknown";
+})(LibraryStatus = exports.LibraryStatus || (exports.LibraryStatus = {}));
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Distinguishes which item is "source of truth" (if any) and which items are no longer
+ * considered to be current representations.
+ */
+var LinkageItemType;
+(function (LinkageItemType) {
+    LinkageItemType["Alternate"] = "alternate";
+    LinkageItemType["Historical"] = "historical";
+    LinkageItemType["Source"] = "source";
+})(LinkageItemType = exports.LinkageItemType || (exports.LinkageItemType = {}));
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * How this list was prepared - whether it is a working list that is suitable for being
+ * maintained on an ongoing basis, or if it represents a snapshot of a list of items from
+ * another source, or whether it is a prepared list where items may be marked as added,
+ * modified or deleted.
+ */
+var ListMode;
+(function (ListMode) {
+    ListMode["Changes"] = "changes";
+    ListMode["Snapshot"] = "snapshot";
+    ListMode["Working"] = "working";
+})(ListMode = exports.ListMode || (exports.ListMode = {}));
+/**
+ * Indicates the current state of this list.
+ */
+var ListStatus;
+(function (ListStatus) {
+    ListStatus["Current"] = "current";
+    ListStatus["EnteredInError"] = "entered-in-error";
+    ListStatus["Retired"] = "retired";
+})(ListStatus = exports.ListStatus || (exports.ListStatus = {}));
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Indicates whether a resource instance represents a specific location or a class of
+ * locations.
+ */
+var LocationMode;
+(function (LocationMode) {
+    LocationMode["Instance"] = "instance";
+    LocationMode["Kind"] = "kind";
+})(LocationMode = exports.LocationMode || (exports.LocationMode = {}));
+/**
+ * The status property covers the general availability of the resource, not the current
+ * value which may be covered by the operationStatus, or by a schedule/slots if they are
+ * configured for the location.
+ */
+var LocationStatus;
+(function (LocationStatus) {
+    LocationStatus["Active"] = "active";
+    LocationStatus["Inactive"] = "inactive";
+    LocationStatus["Suspended"] = "suspended";
+})(LocationStatus = exports.LocationStatus || (exports.LocationStatus = {}));
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The status of this measure. Enables tracking the life-cycle of the content.
+ */
+var MeasureStatus;
+(function (MeasureStatus) {
+    MeasureStatus["Active"] = "active";
+    MeasureStatus["Draft"] = "draft";
+    MeasureStatus["Retired"] = "retired";
+    MeasureStatus["Unknown"] = "unknown";
+})(MeasureStatus = exports.MeasureStatus || (exports.MeasureStatus = {}));
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The MeasureReport status. No data will be available until the MeasureReport status is
+ * complete.
+ */
+var MeasureReportStatus;
+(function (MeasureReportStatus) {
+    MeasureReportStatus["Complete"] = "complete";
+    MeasureReportStatus["Error"] = "error";
+    MeasureReportStatus["Pending"] = "pending";
+})(MeasureReportStatus = exports.MeasureReportStatus || (exports.MeasureReportStatus = {}));
+/**
+ * The type of measure report. This may be an individual report, which provides the score
+ * for the measure for an individual member of the population; a subject-listing, which
+ * returns the list of members that meet the various criteria in the measure; a summary
+ * report, which returns a population count for each of the criteria in the measure; or a
+ * data-collection, which enables the MeasureReport to be used to exchange the
+ * data-of-interest for a quality measure.
+ */
+var MeasureReportType;
+(function (MeasureReportType) {
+    MeasureReportType["DataCollection"] = "data-collection";
+    MeasureReportType["Individual"] = "individual";
+    MeasureReportType["SubjectList"] = "subject-list";
+    MeasureReportType["Summary"] = "summary";
+})(MeasureReportType = exports.MeasureReportType || (exports.MeasureReportType = {}));
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The impact of the content of the message.
+ */
+var MessageDefinitionCategory;
+(function (MessageDefinitionCategory) {
+    MessageDefinitionCategory["Consequence"] = "consequence";
+    MessageDefinitionCategory["Currency"] = "currency";
+    MessageDefinitionCategory["Notification"] = "notification";
+})(MessageDefinitionCategory = exports.MessageDefinitionCategory || (exports.MessageDefinitionCategory = {}));
+/**
+ * Declare at a message definition level whether a response is required or only upon error
+ * or success, or never.
+ */
+var ResponseRequired;
+(function (ResponseRequired) {
+    ResponseRequired["Always"] = "always";
+    ResponseRequired["Never"] = "never";
+    ResponseRequired["OnError"] = "on-error";
+    ResponseRequired["OnSuccess"] = "on-success";
+})(ResponseRequired = exports.ResponseRequired || (exports.ResponseRequired = {}));
+/**
+ * The status of this message definition. Enables tracking the life-cycle of the content.
+ */
+var MessageDefinitionStatus;
+(function (MessageDefinitionStatus) {
+    MessageDefinitionStatus["Active"] = "active";
+    MessageDefinitionStatus["Draft"] = "draft";
+    MessageDefinitionStatus["Retired"] = "retired";
+    MessageDefinitionStatus["Unknown"] = "unknown";
+})(MessageDefinitionStatus = exports.MessageDefinitionStatus || (exports.MessageDefinitionStatus = {}));
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Code that identifies the type of response to the message - whether it was successful or
+ * not, and whether it should be resent or not.
+ */
+var MessageHeaderResponseCode;
+(function (MessageHeaderResponseCode) {
+    MessageHeaderResponseCode["FatalError"] = "fatal-error";
+    MessageHeaderResponseCode["Ok"] = "ok";
+    MessageHeaderResponseCode["TransientError"] = "transient-error";
+})(MessageHeaderResponseCode = exports.MessageHeaderResponseCode || (exports.MessageHeaderResponseCode = {}));
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * INDEL / SNP / Undefined variant.
+ */
+var MolecularSequenceQualityType;
+(function (MolecularSequenceQualityType) {
+    MolecularSequenceQualityType["Indel"] = "indel";
+    MolecularSequenceQualityType["Snp"] = "snp";
+    MolecularSequenceQualityType["Unknown"] = "unknown";
+})(MolecularSequenceQualityType = exports.MolecularSequenceQualityType || (exports.MolecularSequenceQualityType = {}));
+/**
+ * A relative reference to a DNA strand based on gene orientation. The strand that contains
+ * the open reading frame of the gene is the "sense" strand, and the opposite complementary
+ * strand is the "antisense" strand.
+ */
+var Orientation;
+(function (Orientation) {
+    Orientation["Antisense"] = "antisense";
+    Orientation["Sense"] = "sense";
+})(Orientation = exports.Orientation || (exports.Orientation = {}));
+/**
+ * An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the
+ * short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long
+ * arm.
+ */
+var Strand;
+(function (Strand) {
+    Strand["Crick"] = "crick";
+    Strand["Watson"] = "watson";
+})(Strand = exports.Strand || (exports.Strand = {}));
+/**
+ * Click and see / RESTful API / Need login to see / RESTful API with authentication / Other
+ * ways to see resource.
+ */
+var MolecularSequenceRepositoryType;
+(function (MolecularSequenceRepositoryType) {
+    MolecularSequenceRepositoryType["Directlink"] = "directlink";
+    MolecularSequenceRepositoryType["Login"] = "login";
+    MolecularSequenceRepositoryType["Oauth"] = "oauth";
+    MolecularSequenceRepositoryType["Openapi"] = "openapi";
+    MolecularSequenceRepositoryType["Other"] = "other";
+})(MolecularSequenceRepositoryType = exports.MolecularSequenceRepositoryType || (exports.MolecularSequenceRepositoryType = {}));
+/**
+ * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
+ */
+var MolecularSequenceType;
+(function (MolecularSequenceType) {
+    MolecularSequenceType["Aa"] = "aa";
+    MolecularSequenceType["Dna"] = "dna";
+    MolecularSequenceType["Rna"] = "rna";
+})(MolecularSequenceType = exports.MolecularSequenceType || (exports.MolecularSequenceType = {}));
 
 
 /***/ })

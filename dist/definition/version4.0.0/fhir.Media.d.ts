@@ -3,62 +3,62 @@ export interface Media {
     /**
      * Extensions for createdDateTime
      */
-    _createdDateTime?: any[] | boolean | Element | number | number | null | string;
+    _createdDateTime?: Element;
     /**
      * Extensions for deviceName
      */
-    _deviceName?: any[] | boolean | Element | number | number | null | string;
+    _deviceName?: Element;
     /**
      * Extensions for duration
      */
-    _duration?: any[] | boolean | Element | number | number | null | string;
+    _duration?: Element;
     /**
      * Extensions for frames
      */
-    _frames?: any[] | boolean | Element | number | number | null | string;
+    _frames?: Element;
     /**
      * Extensions for height
      */
-    _height?: any[] | boolean | Element | number | number | null | string;
+    _height?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for issued
      */
-    _issued?: any[] | boolean | Element | number | number | null | string;
+    _issued?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for width
      */
-    _width?: any[] | boolean | Element | number | number | null | string;
+    _width?: Element;
     /**
      * A procedure that is fulfilled in whole or in part by the creation of this media.
      */
-    basedOn?: Array<any[] | boolean | Reference | number | number | null | string>;
+    basedOn?: Reference[];
     /**
      * Indicates the site on the subject's body where the observation was made (i.e. the target
      * site).
      */
-    bodySite?: any[] | boolean | CodeableConcept | number | number | null | string;
+    bodySite?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Media | number | null | string>;
+    contained?: Media[];
     /**
      * The actual content of the media - inline or by direct reference to the media source file.
      */
-    content: any[] | boolean | Attachment | number | number | null | string;
+    content?: Attachment;
     /**
      * The date and time(s) at which the media was collected.
      */
@@ -66,11 +66,11 @@ export interface Media {
     /**
      * The date and time(s) at which the media was collected.
      */
-    createdPeriod?: any[] | boolean | Period | number | number | null | string;
+    createdPeriod?: Period;
     /**
      * The device used to collect the media.
      */
-    device?: any[] | boolean | Reference | number | number | null | string;
+    device?: Reference;
     /**
      * The name of the device / manufacturer of the device  that was used to make the recording.
      */
@@ -82,7 +82,7 @@ export interface Media {
     /**
      * The encounter that establishes the context for this media.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -90,7 +90,7 @@ export interface Media {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The number of frames in a photo. This is used with a multi-page fax, or an imaging
      * acquisition context that takes multiple slices in a single image, or an animated gif. If
@@ -112,7 +112,7 @@ export interface Media {
      * itself, identifiers for the context of its collection (e.g. series ids) and context ids
      * such as accession numbers or other workflow identifiers.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -133,13 +133,13 @@ export interface Media {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * Details of the type of the media - usually, how it was acquired (what type of device). If
      * images sourced from a DICOM system, are wrapped in a Media resource, then this is the
      * modality.
      */
-    modality?: any[] | boolean | CodeableConcept | number | number | null | string;
+    modality?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -153,27 +153,27 @@ export interface Media {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Comments made about the media by the performer, subject or other participants.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * The person who administered the collection of the image.
      */
-    operator?: any[] | boolean | Reference | number | number | null | string;
+    operator?: Reference;
     /**
      * A larger event of which this particular event is a component or step.
      */
-    partOf?: Array<any[] | boolean | Reference | number | number | null | string>;
+    partOf?: Reference[];
     /**
      * Describes why the event occurred in coded or textual form.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * This is a Media resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The current state of the {{title}}.
      */
@@ -181,7 +181,7 @@ export interface Media {
     /**
      * Who/What this Media is a record of.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -189,16 +189,16 @@ export interface Media {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A code that classifies whether the media is an image, video or audio recording or some
      * other media category.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The name of the imaging view e.g. Lateral or Antero-posterior (AP).
      */
-    view?: any[] | boolean | CodeableConcept | number | number | null | string;
+    view?: CodeableConcept;
     /**
      * Width of the image in pixels (photo/video).
      */

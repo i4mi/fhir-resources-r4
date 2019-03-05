@@ -1,52 +1,45 @@
-import { Element,
-         Reference, 
-         Extension,
-         Identifier,
-         Meta,
-         Quantity,
-         Narrative,
-         CodeableConcept} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirMolecularSequence } from "./file";
-//
-//   const fhirMolecularSequence = Convert.toFhirMolecularSequence(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Reference,
+    Extension,
+    Identifier,
+    Meta,
+    Quantity,
+    Narrative,
+    CodeableConcept
+} from "./fhir._";
 
 export interface MolecularSequence {
     /**
      * Extensions for coordinateSystem
      */
-    _coordinateSystem?: any[] | boolean | Element | number | number | null | string;
+    _coordinateSystem?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for observedSeq
      */
-    _observedSeq?: any[] | boolean | Element | number | number | null | string;
+    _observedSeq?: Element;
     /**
      * Extensions for readCoverage
      */
-    _readCoverage?: any[] | boolean | Element | number | number | null | string;
+    _readCoverage?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | MolecularSequence | number | null | string>;
+    contained?: MolecularSequence[];
     /**
      * Whether the sequence is numbered starting at 0 (0-based numbering or coordinates,
      * inclusive start, exclusive end) or starting at 1 (1-based numbering, inclusive start and
@@ -56,7 +49,7 @@ export interface MolecularSequence {
     /**
      * The method for sequencing, for example, chip information.
      */
-    device?: any[] | boolean | Reference | number | number | null | string;
+    device?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -64,7 +57,7 @@ export interface MolecularSequence {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -73,7 +66,7 @@ export interface MolecularSequence {
     /**
      * A unique identifier for this particular sequence instance. This is a FHIR-defined id.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -89,7 +82,7 @@ export interface MolecularSequence {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -103,7 +96,7 @@ export interface MolecularSequence {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Sequence that was observed. It is the result marked by referenceSeq along with variant
      * records on referenceSeq. This shall start from referenceSeq.windowStart and end by
@@ -113,25 +106,25 @@ export interface MolecularSequence {
     /**
      * The patient whose sequencing results are described by this resource.
      */
-    patient?: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * The organization or lab that should be responsible for this result.
      */
-    performer?: any[] | boolean | Reference | number | number | null | string;
+    performer?: Reference;
     /**
      * Pointer to next atomic sequence which at most contains one variant.
      */
-    pointer?: Array<any[] | boolean | Reference | number | number | null | string>;
+    pointer?: Reference[];
     /**
      * An experimental feature attribute that defines the quality of the feature in a
      * quantitative way, such as a phred quality score
      * ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
      */
-    quality?: Array<any[] | boolean | MolecularSequenceQuality | number | number | null | string>;
+    quality?: MolecularSequenceQuality[];
     /**
      * The number of copies of the sequence of interest. (RNASeq).
      */
-    quantity?: any[] | boolean | Quantity | number | number | null | string;
+    quantity?: Quantity;
     /**
      * Coverage (read depth or depth) is the average number of reads representing a given
      * nucleotide in the reconstructed sequence.
@@ -141,24 +134,24 @@ export interface MolecularSequence {
      * A sequence that is used as a reference to describe variants that are present in a
      * sequence analyzed.
      */
-    referenceSeq?: any[] | boolean | MolecularSequenceReferenceSeq | number | number | null | string;
+    referenceSeq?: MolecularSequenceReferenceSeq;
     /**
      * Configurations of the external repository. The repository shall store target's
      * observedSeq or records related with target's observedSeq.
      */
-    repository?: Array<any[] | boolean | MolecularSequenceRepository | number | number | null | string>;
+    repository?: MolecularSequenceRepository[];
     /**
      * This is a MolecularSequence resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Specimen used for sequencing.
      */
-    specimen?: any[] | boolean | Reference | number | number | null | string;
+    specimen?: Reference;
     /**
      * Information about chromosome structure variation.
      */
-    structureVariant?: Array<any[] | boolean | MolecularSequenceStructureVariant | number | number | null | string>;
+    structureVariant?: MolecularSequenceStructureVariant[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -166,11 +159,11 @@ export interface MolecularSequence {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
      */
-    type?: FhirMolecularSequenceType;
+    type?: MolecularSequenceType;
     /**
      * The definition of variant here originates from Sequence ontology
      * ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This
@@ -178,54 +171,57 @@ export interface MolecularSequence {
      * insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation
      * with the assist of CIGAR string.
      */
-    variant?: Array<any[] | boolean | MolecularSequenceVariant | number | number | null | string>;
+    variant?: MolecularSequenceVariant[];
 }
 
+/**
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceQuality {
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for fScore
      */
-    _fScore?: any[] | boolean | Element | number | number | null | string;
+    _fScore?: Element;
     /**
      * Extensions for gtFP
      */
-    _gtFP?: any[] | boolean | Element | number | number | null | string;
+    _gtFP?: Element;
     /**
      * Extensions for precision
      */
-    _precision?: any[] | boolean | Element | number | number | null | string;
+    _precision?: Element;
     /**
      * Extensions for queryFP
      */
-    _queryFP?: any[] | boolean | Element | number | number | null | string;
+    _queryFP?: Element;
     /**
      * Extensions for queryTP
      */
-    _queryTP?: any[] | boolean | Element | number | number | null | string;
+    _queryTP?: Element;
     /**
      * Extensions for recall
      */
-    _recall?: any[] | boolean | Element | number | number | null | string;
+    _recall?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Extensions for truthFN
      */
-    _truthFN?: any[] | boolean | Element | number | number | null | string;
+    _truthFN?: Element;
     /**
      * Extensions for truthTP
      */
-    _truthTP?: any[] | boolean | Element | number | number | null | string;
+    _truthTP?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * End position of the sequence. If the coordinate system is 0-based then end is exclusive
      * and does not include the last position. If the coordinate system is 1-base, then end is
@@ -239,7 +235,7 @@ export interface MolecularSequenceQuality {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Harmonic mean of Recall and Precision, computed as: 2 * precision * recall / (precision +
      * recall).
@@ -258,7 +254,7 @@ export interface MolecularSequenceQuality {
     /**
      * Which method is used to get sequence quality.
      */
-    method?: any[] | boolean | CodeableConcept | number | number | null | string;
+    method?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -272,7 +268,7 @@ export interface MolecularSequenceQuality {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * QUERY.TP / (QUERY.TP + QUERY.FP).
      */
@@ -297,16 +293,16 @@ export interface MolecularSequenceQuality {
     /**
      * Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff.
      */
-    roc?: any[] | boolean | MolecularSequenceRoc | number | number | null | string;
+    roc?: MolecularSequenceRoc;
     /**
      * The score of an experimentally derived feature such as a p-value
      * ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).
      */
-    score?: any[] | boolean | Quantity | number | number | null | string;
+    score?: Quantity;
     /**
      * Gold standard sequence used for comparing against.
      */
-    standardSequence?: any[] | boolean | CodeableConcept | number | number | null | string;
+    standardSequence?: CodeableConcept;
     /**
      * Start position of the sequence. If the coordinate system is either 0-based or 1-based,
      * then start position is inclusive.
@@ -332,35 +328,40 @@ export interface MolecularSequenceQuality {
     type?: MolecularSequenceQualityType;
 }
 
+/**
+ * Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff.
+ *
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceRoc {
     /**
      * Extensions for fMeasure
      */
-    _fMeasure?: Array<any[] | boolean | Element | number | number | null | string>;
+    _fMeasure?: Element[];
     /**
      * Extensions for numFN
      */
-    _numFN?: Array<any[] | boolean | Element | number | number | null | string>;
+    _numFN?: Element[];
     /**
      * Extensions for numFP
      */
-    _numFP?: Array<any[] | boolean | Element | number | number | null | string>;
+    _numFP?: Element[];
     /**
      * Extensions for numTP
      */
-    _numTP?: Array<any[] | boolean | Element | number | number | null | string>;
+    _numTP?: Element[];
     /**
      * Extensions for precision
      */
-    _precision?: Array<any[] | boolean | Element | number | number | null | string>;
+    _precision?: Element[];
     /**
      * Extensions for score
      */
-    _score?: Array<any[] | boolean | Element | number | number | null | string>;
+    _score?: Element[];
     /**
      * Extensions for sensitivity
      */
-    _sensitivity?: Array<any[] | boolean | Element | number | number | null | string>;
+    _sensitivity?: Element[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -368,7 +369,7 @@ export interface MolecularSequenceRoc {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Calculated fScore if the GQ score threshold was set to "score" field value.
      */
@@ -391,7 +392,7 @@ export interface MolecularSequenceRoc {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The number of false negatives if the GQ score threshold was set to "score" field value.
      */
@@ -427,37 +428,43 @@ export enum MolecularSequenceQualityType {
     Unknown = "unknown",
 }
 
+/**
+ * A sequence that is used as a reference to describe variants that are present in a
+ * sequence analyzed.
+ *
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceReferenceSeq {
     /**
      * Extensions for genomeBuild
      */
-    _genomeBuild?: any[] | boolean | Element | number | number | null | string;
+    _genomeBuild?: Element;
     /**
      * Extensions for orientation
      */
-    _orientation?: any[] | boolean | Element | number | number | null | string;
+    _orientation?: Element;
     /**
      * Extensions for referenceSeqString
      */
-    _referenceSeqString?: any[] | boolean | Element | number | number | null | string;
+    _referenceSeqString?: Element;
     /**
      * Extensions for strand
      */
-    _strand?: any[] | boolean | Element | number | number | null | string;
+    _strand?: Element;
     /**
      * Extensions for windowEnd
      */
-    _windowEnd?: any[] | boolean | Element | number | number | null | string;
+    _windowEnd?: Element;
     /**
      * Extensions for windowStart
      */
-    _windowStart?: any[] | boolean | Element | number | number | null | string;
+    _windowStart?: Element;
     /**
      * Structural unit composed of a nucleic acid molecule which controls its own replication
      * through the interaction of specific proteins at one or more origins of replication
      * ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).
      */
-    chromosome?: any[] | boolean | CodeableConcept | number | number | null | string;
+    chromosome?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -465,7 +472,7 @@ export interface MolecularSequenceReferenceSeq {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'.
      * Version number must be included if a versioned release of a primary build was used.
@@ -489,7 +496,7 @@ export interface MolecularSequenceReferenceSeq {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A relative reference to a DNA strand based on gene orientation. The strand that contains
      * the open reading frame of the gene is the "sense" strand, and the opposite complementary
@@ -502,11 +509,11 @@ export interface MolecularSequenceReferenceSeq {
      * sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid
      * sequences.
      */
-    referenceSeqId?: any[] | boolean | CodeableConcept | number | number | null | string;
+    referenceSeqId?: CodeableConcept;
     /**
      * A pointer to another MolecularSequence entity as reference sequence.
      */
-    referenceSeqPointer?: any[] | boolean | Reference | number | number | null | string;
+    referenceSeqPointer?: Reference;
     /**
      * A string like "ACGT".
      */
@@ -550,31 +557,34 @@ export enum Strand {
     Watson = "watson",
 }
 
+/**
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceRepository {
     /**
      * Extensions for datasetId
      */
-    _datasetId?: any[] | boolean | Element | number | number | null | string;
+    _datasetId?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for readsetId
      */
-    _readsetId?: any[] | boolean | Element | number | number | null | string;
+    _readsetId?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for variantsetId
      */
-    _variantsetId?: any[] | boolean | Element | number | number | null | string;
+    _variantsetId?: Element;
     /**
      * Id of the variant in this external repository. The server will understand how to use this
      * id to call for more info about datasets in external repository.
@@ -587,7 +597,7 @@ export interface MolecularSequenceRepository {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -606,7 +616,7 @@ export interface MolecularSequenceRepository {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * URI of an external repository which contains further details about the genetics data.
      */
@@ -643,15 +653,18 @@ export enum MolecularSequenceRepositoryType {
     Other = "other",
 }
 
+/**
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceStructureVariant {
     /**
      * Extensions for exact
      */
-    _exact?: any[] | boolean | Element | number | number | null | string;
+    _exact?: Element;
     /**
      * Extensions for length
      */
-    _length?: any[] | boolean | Element | number | number | null | string;
+    _length?: Element;
     /**
      * Used to indicate if the outer and inner start-end values have the same meaning.
      */
@@ -663,7 +676,7 @@ export interface MolecularSequenceStructureVariant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -672,7 +685,7 @@ export interface MolecularSequenceStructureVariant {
     /**
      * Structural variant inner.
      */
-    inner?: any[] | boolean | MolecularSequenceInner | number | number | null | string;
+    inner?: MolecularSequenceInner;
     /**
      * Length of the variant chromosome.
      */
@@ -690,26 +703,31 @@ export interface MolecularSequenceStructureVariant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Structural variant outer.
      */
-    outer?: any[] | boolean | MolecularSequenceOuter | number | number | null | string;
+    outer?: MolecularSequenceOuter;
     /**
      * Information about chromosome structure variation DNA change type.
      */
-    variantType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    variantType?: CodeableConcept;
 }
 
+/**
+ * Structural variant inner.
+ *
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceInner {
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Structural variant inner end. If the coordinate system is 0-based then end is exclusive
      * and does not include the last position. If the coordinate system is 1-base, then end is
@@ -723,7 +741,7 @@ export interface MolecularSequenceInner {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -742,7 +760,7 @@ export interface MolecularSequenceInner {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Structural variant inner start. If the coordinate system is either 0-based or 1-based,
      * then start position is inclusive.
@@ -750,15 +768,20 @@ export interface MolecularSequenceInner {
     start?: number;
 }
 
+/**
+ * Structural variant outer.
+ *
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceOuter {
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Structural variant outer end. If the coordinate system is 0-based then end is exclusive
      * and does not include the last position. If the coordinate system is 1-base, then end is
@@ -772,7 +795,7 @@ export interface MolecularSequenceOuter {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -791,7 +814,7 @@ export interface MolecularSequenceOuter {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Structural variant outer start. If the coordinate system is either 0-based or 1-based,
      * then start position is inclusive.
@@ -802,33 +825,36 @@ export interface MolecularSequenceOuter {
 /**
  * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
  */
-export enum FhirMolecularSequenceType {
+export enum MolecularSequenceType {
     Aa = "aa",
     Dna = "dna",
     Rna = "rna",
 }
 
+/**
+ * Raw data describing a biological sequence.
+ */
 export interface MolecularSequenceVariant {
     /**
      * Extensions for cigar
      */
-    _cigar?: any[] | boolean | Element | number | number | null | string;
+    _cigar?: Element;
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for observedAllele
      */
-    _observedAllele?: any[] | boolean | Element | number | number | null | string;
+    _observedAllele?: Element;
     /**
      * Extensions for referenceAllele
      */
-    _referenceAllele?: any[] | boolean | Element | number | number | null | string;
+    _referenceAllele?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Extended CIGAR string for aligning the sequence with reference bases. See detailed
      * documentation
@@ -848,7 +874,7 @@ export interface MolecularSequenceVariant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -867,7 +893,7 @@ export interface MolecularSequenceVariant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An allele is one of a set of coexisting sequence variants of a gene
      * ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).
@@ -894,5 +920,5 @@ export interface MolecularSequenceVariant {
     /**
      * A pointer to an Observation containing variant information.
      */
-    variantPointer?: any[] | boolean | Reference | number | number | null | string;
+    variantPointer?: Reference;
 }

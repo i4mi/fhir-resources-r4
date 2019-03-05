@@ -1,52 +1,45 @@
-import { Element,
-         CodeableConcept, 
-         Quantity,
-         Extension,
-         Meta,
-         Reference,
-         Narrative,
-         Range} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirMedicinalProductIndication } from "./file";
-//
-//   const fhirMedicinalProductIndication = Convert.toFhirMedicinalProductIndication(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    CodeableConcept,
+    Quantity,
+    Extension,
+    Meta,
+    Reference,
+    Narrative,
+    Population
+} from "./fhir._";
 
 export interface MedicinalProductIndication {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Comorbidity (concurrent condition) or co-infection as part of the indication.
      */
-    comorbidity?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    comorbidity?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | MedicinalProductIndication | number | null | string>;
+    contained?: MedicinalProductIndication[];
     /**
      * The status of the disease or symptom for which the indication applies.
      */
-    diseaseStatus?: any[] | boolean | CodeableConcept | number | number | null | string;
+    diseaseStatus?: CodeableConcept;
     /**
      * The disease, symptom or procedure that is the indication for treatment.
      */
-    diseaseSymptomProcedure?: any[] | boolean | CodeableConcept | number | number | null | string;
+    diseaseSymptomProcedure?: CodeableConcept;
     /**
      * Timing or duration information as part of the indication.
      */
-    duration?: any[] | boolean | Quantity | number | number | null | string;
+    duration?: Quantity;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -54,7 +47,7 @@ export interface MedicinalProductIndication {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -69,7 +62,7 @@ export interface MedicinalProductIndication {
     /**
      * The intended effect, aim or strategy to be achieved by the indication.
      */
-    intendedEffect?: any[] | boolean | CodeableConcept | number | number | null | string;
+    intendedEffect?: CodeableConcept;
     /**
      * The base language in which the resource is written.
      */
@@ -79,7 +72,7 @@ export interface MedicinalProductIndication {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -93,24 +86,24 @@ export interface MedicinalProductIndication {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Information about the use of the medicinal product in relation to other therapies
      * described as part of the indication.
      */
-    otherTherapy?: Array<any[] | boolean | MedicinalProductIndicationOtherTherapy | number | number | null | string>;
+    otherTherapy?: MedicinalProductIndicationOtherTherapy[];
     /**
      * The population group to which this applies.
      */
-    population?: Array<any[] | boolean | Population | number | number | null | string>;
+    population?: Population[];
     /**
      * This is a MedicinalProductIndication resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The medication for which this is an indication.
      */
-    subject?: Array<any[] | boolean | Reference | number | number | null | string>;
+    subject?: Reference[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -118,13 +111,16 @@ export interface MedicinalProductIndication {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Describe the undesirable effects of the medicinal product.
      */
-    undesirableEffect?: Array<any[] | boolean | Reference | number | number | null | string>;
+    undesirableEffect?: Reference[];
 }
 
+/**
+ * Indication for the Medicinal Product.
+ */
 export interface MedicinalProductIndicationOtherTherapy {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -133,7 +129,7 @@ export interface MedicinalProductIndicationOtherTherapy {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -143,12 +139,12 @@ export interface MedicinalProductIndicationOtherTherapy {
      * Reference to a specific medication (active substance, medicinal product or class of
      * products) as part of an indication or contraindication.
      */
-    medicationCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * Reference to a specific medication (active substance, medicinal product or class of
      * products) as part of an indication or contraindication.
      */
-    medicationReference?: any[] | boolean | Reference | number | number | null | string;
+    medicationReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -162,60 +158,10 @@ export interface MedicinalProductIndicationOtherTherapy {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The type of relationship between the medicinal product indication or contraindication and
      * another therapy.
      */
-    therapyRelationshipType: any[] | boolean | CodeableConcept | number | number | null | string;
-}
-
-export interface Population {
-    /**
-     * The age of the specific population.
-     */
-    ageCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
-    /**
-     * The age of the specific population.
-     */
-    ageRange?: any[] | boolean | Range | number | number | null | string;
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element. To make the use of extensions safe and manageable, there is a strict set
-     * of governance  applied to the definition and use of extensions. Though any implementer
-     * can define an extension, there is a set of requirements that SHALL be met as part of the
-     * definition of the extension.
-     */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
-    /**
-     * The gender of the specific population.
-     */
-    gender?: any[] | boolean | CodeableConcept | number | number | null | string;
-    /**
-     * Unique id for the element within a resource (for internal references). This may be any
-     * string value that does not contain spaces.
-     */
-    id?: string;
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element and that modifies the understanding of the element in which it is
-     * contained and/or the understanding of the containing element's descendants. Usually
-     * modifier elements provide negation or qualification. To make the use of extensions safe
-     * and manageable, there is a strict set of governance applied to the definition and use of
-     * extensions. Though any implementer can define an extension, there is a set of
-     * requirements that SHALL be met as part of the definition of the extension. Applications
-     * processing a resource are required to check for modifier extensions.
-     *
-     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
-     * DomainResource (including cannot change the meaning of modifierExtension itself).
-     */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
-    /**
-     * The existing physiological conditions of the specific population to which this applies.
-     */
-    physiologicalCondition?: any[] | boolean | CodeableConcept | number | number | null | string;
-    /**
-     * Race of the specific population.
-     */
-    race?: any[] | boolean | CodeableConcept | number | number | null | string;
+    therapyRelationshipType?: CodeableConcept;
 }

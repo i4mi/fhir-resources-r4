@@ -3,27 +3,27 @@ export interface MessageHeader {
     /**
      * Extensions for eventUri
      */
-    _eventUri?: any[] | boolean | Element | number | number | null | string;
+    _eventUri?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * The logical author of the message - the person or device that decided the described event
      * should happen. When there is more than one candidate, pick the most proximal to the
      * MessageHeader. Can provide other authors in extensions.
      */
-    author?: any[] | boolean | Reference | number | number | null | string;
+    author?: Reference;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | MessageHeader | number | null | string>;
+    contained?: MessageHeader[];
     /**
      * Permanent link to the MessageDefinition for this message.
      */
@@ -31,20 +31,20 @@ export interface MessageHeader {
     /**
      * The destination application which the message is intended for.
      */
-    destination?: Array<any[] | boolean | MessageHeaderDestination | number | number | null | string>;
+    destination?: MessageHeaderDestination[];
     /**
      * The person or device that performed the data entry leading to this message. When there is
      * more than one candidate, pick the most proximal to the message. Can provide other
      * enterers in extensions.
      */
-    enterer?: any[] | boolean | Reference | number | number | null | string;
+    enterer?: Reference;
     /**
      * Code that identifies the event this message represents and connects it with its
      * definition. Events defined as part of the FHIR specification have the system value
      * "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the
      * EventDefinition.
      */
-    eventCoding?: any[] | boolean | Coding | number | number | null | string;
+    eventCoding?: Coding;
     /**
      * Code that identifies the event this message represents and connects it with its
      * definition. Events defined as part of the FHIR specification have the system value
@@ -59,11 +59,11 @@ export interface MessageHeader {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The actual data of the message - a reference to the root/focus class of the event.
      */
-    focus?: Array<any[] | boolean | Reference | number | number | null | string>;
+    focus?: Reference[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -84,7 +84,7 @@ export interface MessageHeader {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -98,35 +98,35 @@ export interface MessageHeader {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Coded indication of the cause for the event - indicates  a reason for the occurrence of
      * the event that is a focus of this message.
      */
-    reason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    reason?: CodeableConcept;
     /**
      * This is a MessageHeader resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Information about the message that this message is a response to.  Only present if this
      * message is a response.
      */
-    response?: any[] | boolean | MessageHeaderResponse | number | number | null | string;
+    response?: MessageHeaderResponse;
     /**
      * The person or organization that accepts overall responsibility for the contents of the
      * message. The implication is that the message event happened under the policies of the
      * responsible party.
      */
-    responsible?: any[] | boolean | Reference | number | number | null | string;
+    responsible?: Reference;
     /**
      * Identifies the sending system to allow the use of a trust relationship.
      */
-    sender?: any[] | boolean | Reference | number | number | null | string;
+    sender?: Reference;
     /**
      * The source application from which this message originated.
      */
-    source: any[] | boolean | MessageHeaderSource | number | number | null | string;
+    source?: MessageHeaderSource;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -134,17 +134,23 @@ export interface MessageHeader {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
+/**
+ * The header for a message exchange that is either requesting or responding to an action.
+ * The reference(s) that are the subject of the action as well as other information related
+ * to the action are typically transmitted in a bundle in which the MessageHeader resource
+ * instance is the first resource in the bundle.
+ */
 export interface MessageHeaderDestination {
     /**
      * Extensions for endpoint
      */
-    _endpoint?: any[] | boolean | Element | number | number | null | string;
+    _endpoint?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Indicates where the message should be routed to.
      */
@@ -156,7 +162,7 @@ export interface MessageHeaderDestination {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -175,7 +181,7 @@ export interface MessageHeaderDestination {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Human-readable name for the target system.
      */
@@ -184,31 +190,40 @@ export interface MessageHeaderDestination {
      * Allows data conveyed by a message to be addressed to a particular person or department
      * when routing to a specific application isn't sufficient.
      */
-    receiver?: any[] | boolean | Reference | number | number | null | string;
+    receiver?: Reference;
     /**
      * Identifies the target end system in situations where the initial message transmission is
      * to an intermediary system.
      */
-    target?: any[] | boolean | Reference | number | number | null | string;
+    target?: Reference;
 }
+/**
+ * Information about the message that this message is a response to.  Only present if this
+ * message is a response.
+ *
+ * The header for a message exchange that is either requesting or responding to an action.
+ * The reference(s) that are the subject of the action as well as other information related
+ * to the action are typically transmitted in a bundle in which the MessageHeader resource
+ * instance is the first resource in the bundle.
+ */
 export interface MessageHeaderResponse {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for identifier
      */
-    _identifier?: any[] | boolean | Element | number | number | null | string;
+    _identifier?: Element;
     /**
      * Code that identifies the type of response to the message - whether it was successful or
      * not, and whether it should be resent or not.
      */
-    code?: Code;
+    code?: MessageHeaderResponseCode;
     /**
      * Full details of any issues found in the message.
      */
-    details?: any[] | boolean | Reference | number | number | null | string;
+    details?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -216,7 +231,7 @@ export interface MessageHeaderResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -239,39 +254,47 @@ export interface MessageHeaderResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 /**
  * Code that identifies the type of response to the message - whether it was successful or
  * not, and whether it should be resent or not.
  */
-export declare enum Code {
+export declare enum MessageHeaderResponseCode {
     FatalError = "fatal-error",
     Ok = "ok",
     TransientError = "transient-error"
 }
+/**
+ * The source application from which this message originated.
+ *
+ * The header for a message exchange that is either requesting or responding to an action.
+ * The reference(s) that are the subject of the action as well as other information related
+ * to the action are typically transmitted in a bundle in which the MessageHeader resource
+ * instance is the first resource in the bundle.
+ */
 export interface MessageHeaderSource {
     /**
      * Extensions for endpoint
      */
-    _endpoint?: any[] | boolean | Element | number | number | null | string;
+    _endpoint?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for software
      */
-    _software?: any[] | boolean | Element | number | number | null | string;
+    _software?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * An e-mail, phone, website or other contact point to use to resolve issues with message
      * communications.
      */
-    contact?: any[] | boolean | ContactPoint | number | number | null | string;
+    contact?: ContactPoint;
     /**
      * Identifies the routing target to send acknowledgements to.
      */
@@ -283,7 +306,7 @@ export interface MessageHeaderSource {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -302,7 +325,7 @@ export interface MessageHeaderSource {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Human-readable name for the source system.
      */

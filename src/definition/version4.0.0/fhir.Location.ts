@@ -1,60 +1,53 @@
-import { Element,
-         Address, 
-         Reference,
-         Extension,
-         Identifier,
-         Meta,
-         Coding,
-         CodeableConcept,
-         ContactPoint,
-         Narrative} from "./fhir._";
-
-// To parse this data:
-//
-//   import { Convert, FhirLocation } from "./file";
-//
-//   const fhirLocation = Convert.toFhirLocation(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
+import {
+    Element,
+    Address,
+    Reference,
+    Extension,
+    Identifier,
+    Meta,
+    Coding,
+    CodeableConcept,
+    ContactPoint,
+    Narrative
+} from "./fhir._";
 
 export interface Location {
     /**
      * Extensions for alias
      */
-    _alias?: Array<any[] | boolean | Element | number | number | null | string>;
+    _alias?: Element[];
     /**
      * Extensions for availabilityExceptions
      */
-    _availabilityExceptions?: any[] | boolean | Element | number | number | null | string;
+    _availabilityExceptions?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Physical location.
      */
-    address?: any[] | boolean | Address | number | number | null | string;
+    address?: Address;
     /**
      * A list of alternate names that the location is known as, or was known as, in the past.
      */
@@ -70,7 +63,7 @@ export interface Location {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Location | number | null | string>;
+    contained?: Location[];
     /**
      * Description of the Location, which helps in finding or referencing the place.
      */
@@ -78,7 +71,7 @@ export interface Location {
     /**
      * Technical endpoints providing access to services operated for the location.
      */
-    endpoint?: Array<any[] | boolean | Reference | number | number | null | string>;
+    endpoint?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -86,11 +79,11 @@ export interface Location {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * What days/times during a week is this location usually open.
      */
-    hoursOfOperation?: Array<any[] | boolean | LocationHoursOfOperation | number | number | null | string>;
+    hoursOfOperation?: LocationHoursOfOperation[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -99,7 +92,7 @@ export interface Location {
     /**
      * Unique code or number identifying the location to its users.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -113,18 +106,18 @@ export interface Location {
     /**
      * The organization responsible for the provisioning and upkeep of the location.
      */
-    managingOrganization?: any[] | boolean | Reference | number | number | null | string;
+    managingOrganization?: Reference;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
-     * Indicates whether a resource instance represents a specific location or a  of
+     * Indicates whether a resource instance represents a specific location or a class of
      * locations.
      */
-    mode?: Mode;
+    mode?: LocationMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -138,7 +131,7 @@ export interface Location {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Name of the location as used by humans. Does not need to be unique.
      */
@@ -149,35 +142,35 @@ export interface Location {
      * covers concepts such as contamination, housekeeping, and other activities like
      * maintenance.
      */
-    operationalStatus?: any[] | boolean | Coding | number | number | null | string;
+    operationalStatus?: Coding;
     /**
      * Another Location of which this Location is physically a part of.
      */
-    partOf?: any[] | boolean | Reference | number | number | null | string;
+    partOf?: Reference;
     /**
      * Physical form of the location, e.g. building, room, vehicle, road.
      */
-    physicalType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    physicalType?: CodeableConcept;
     /**
      * The absolute geographic location of the Location, expressed using the WGS84 datum (This
      * is the same co-ordinate system used in KML).
      */
-    position?: any[] | boolean | LocationPosition | number | number | null | string;
+    position?: LocationPosition;
     /**
      * This is a Location resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status property covers the general availability of the resource, not the current
      * value which may be covered by the operationStatus, or by a schedule/slots if they are
      * configured for the location.
      */
-    status?: FhirLocationStatus;
+    status?: LocationStatus;
     /**
      * The contact details of communication devices available at the location. This can include
      * phone numbers, fax numbers, mobile numbers, email addresses and web sites.
      */
-    telecom?: Array<any[] | boolean | ContactPoint | number | number | null | string>;
+    telecom?: ContactPoint[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -185,30 +178,34 @@ export interface Location {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Indicates the type of function performed at the location.
      */
-    type?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    type?: CodeableConcept[];
 }
 
+/**
+ * Details and position information for a physical place where services are provided and
+ * resources and participants may be stored, found, contained, or accommodated.
+ */
 export interface LocationHoursOfOperation {
     /**
      * Extensions for allDay
      */
-    _allDay?: any[] | boolean | Element | number | number | null | string;
+    _allDay?: Element;
     /**
      * Extensions for closingTime
      */
-    _closingTime?: any[] | boolean | Element | number | number | null | string;
+    _closingTime?: Element;
     /**
      * Extensions for daysOfWeek
      */
-    _daysOfWeek?: Array<any[] | boolean | Element | number | number | null | string>;
+    _daysOfWeek?: Element[];
     /**
      * Extensions for openingTime
      */
-    _openingTime?: any[] | boolean | Element | number | number | null | string;
+    _openingTime?: Element;
     /**
      * The Location is open all day.
      */
@@ -228,7 +225,7 @@ export interface LocationHoursOfOperation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -247,7 +244,7 @@ export interface LocationHoursOfOperation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Time that the Location opens.
      */
@@ -258,24 +255,31 @@ export interface LocationHoursOfOperation {
  * Indicates whether a resource instance represents a specific location or a class of
  * locations.
  */
-export enum Mode {
+export enum LocationMode {
     Instance = "instance",
     Kind = "kind",
 }
 
+/**
+ * The absolute geographic location of the Location, expressed using the WGS84 datum (This
+ * is the same co-ordinate system used in KML).
+ *
+ * Details and position information for a physical place where services are provided and
+ * resources and participants may be stored, found, contained, or accommodated.
+ */
 export interface LocationPosition {
     /**
      * Extensions for altitude
      */
-    _altitude?: any[] | boolean | Element | number | number | null | string;
+    _altitude?: Element;
     /**
      * Extensions for latitude
      */
-    _latitude?: any[] | boolean | Element | number | number | null | string;
+    _latitude?: Element;
     /**
      * Extensions for longitude
      */
-    _longitude?: any[] | boolean | Element | number | number | null | string;
+    _longitude?: Element;
     /**
      * Altitude. The value domain and the interpretation are the same as for the text of the
      * altitude element in KML (see notes below).
@@ -288,7 +292,7 @@ export interface LocationPosition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -317,7 +321,7 @@ export interface LocationPosition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 
 /**
@@ -325,7 +329,7 @@ export interface LocationPosition {
  * value which may be covered by the operationStatus, or by a schedule/slots if they are
  * configured for the location.
  */
-export enum FhirLocationStatus {
+export enum LocationStatus {
     Active = "active",
     Inactive = "inactive",
     Suspended = "suspended",

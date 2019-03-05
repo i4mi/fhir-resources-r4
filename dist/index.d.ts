@@ -1,3 +1,6 @@
+/**
+ * EXPORTS OF I4MI Resources
+ */
 export { I4MIBundle, I4MIInterfaceToMapResource } from './resource/version4.0.0/bundle';
 /**
  * This function exports you the library for the given fhir version

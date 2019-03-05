@@ -1,4 +1,4 @@
-import { Element, ContactPoint, Extension, Identifier, CodeableConcept, Reference, Meta, Annotation, Quantity, Narrative, Attachment } from "./fhir._";
+import { Element, ContactPoint, Extension, Identifier, CodeableConcept, Reference, Meta, Annotation, Quantity, Narrative, ProdCharacteristic, ProductShelfLife } from "./fhir._";
 export interface DeviceDefinition {
     /**
      * Extensions for implicitRules
@@ -348,113 +348,6 @@ export interface DeviceDefinitionMaterial {
     substance?: CodeableConcept;
 }
 /**
- * Dimensions, color etc.
- *
- * The marketing status describes the date when a medicinal product is actually put on the
- * market or the date as of which it is no longer available.
- */
-export interface ProdCharacteristic {
-    /**
-     * Extensions for color
-     */
-    _color?: Element[];
-    /**
-     * Extensions for imprint
-     */
-    _imprint?: Element[];
-    /**
-     * Extensions for shape
-     */
-    _shape?: Element;
-    /**
-     * Where applicable, the color can be specified An appropriate controlled vocabulary shall
-     * be used The term and the term identifier shall be used.
-     */
-    color?: string[];
-    /**
-     * Where applicable, the depth can be specified using a numerical value and its unit of
-     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
-     * the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    depth?: Quantity;
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element. To make the use of extensions safe and manageable, there is a strict set
-     * of governance  applied to the definition and use of extensions. Though any implementer
-     * can define an extension, there is a set of requirements that SHALL be met as part of the
-     * definition of the extension.
-     */
-    extension?: Extension[];
-    /**
-     * Where applicable, the external diameter can be specified using a numerical value and its
-     * unit of measurement The unit of measurement shall be specified in accordance with ISO
-     * 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    externalDiameter?: Quantity;
-    /**
-     * Where applicable, the height can be specified using a numerical value and its unit of
-     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
-     * the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    height?: Quantity;
-    /**
-     * Unique id for the element within a resource (for internal references). This may be any
-     * string value that does not contain spaces.
-     */
-    id?: string;
-    /**
-     * Where applicable, the image can be provided The format of the image attachment shall be
-     * specified by regional implementations.
-     */
-    image?: Attachment[];
-    /**
-     * Where applicable, the imprint can be specified as text.
-     */
-    imprint?: string[];
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element and that modifies the understanding of the element in which it is
-     * contained and/or the understanding of the containing element's descendants. Usually
-     * modifier elements provide negation or qualification. To make the use of extensions safe
-     * and manageable, there is a strict set of governance applied to the definition and use of
-     * extensions. Though any implementer can define an extension, there is a set of
-     * requirements that SHALL be met as part of the definition of the extension. Applications
-     * processing a resource are required to check for modifier extensions.
-     *
-     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
-     * DomainResource (including cannot change the meaning of modifierExtension itself).
-     */
-    modifierExtension?: Extension[];
-    /**
-     * Where applicable, the nominal volume can be specified using a numerical value and its
-     * unit of measurement The unit of measurement shall be specified in accordance with ISO
-     * 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    nominalVolume?: Quantity;
-    /**
-     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall
-     * be used The term and the term identifier shall be used.
-     */
-    scoring?: CodeableConcept;
-    /**
-     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall
-     * be used The term and the term identifier shall be used.
-     */
-    shape?: string;
-    /**
-     * Where applicable, the weight can be specified using a numerical value and its unit of
-     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
-     * the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    weight?: Quantity;
-    /**
-     * Where applicable, the width can be specified using a numerical value and its unit of
-     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
-     * the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    width?: Quantity;
-}
-/**
  * The characteristics, operational status and capabilities of a medical-related component
  * of a medical device.
  */
@@ -498,63 +391,6 @@ export interface DeviceDefinitionProperty {
      * Property value as a quantity.
      */
     valueQuantity?: Quantity[];
-}
-/**
- * The shelf-life and storage information for a medicinal product item or container can be
- * described using this class.
- */
-export interface ProductShelfLife {
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element. To make the use of extensions safe and manageable, there is a strict set
-     * of governance  applied to the definition and use of extensions. Though any implementer
-     * can define an extension, there is a set of requirements that SHALL be met as part of the
-     * definition of the extension.
-     */
-    extension?: Extension[];
-    /**
-     * Unique id for the element within a resource (for internal references). This may be any
-     * string value that does not contain spaces.
-     */
-    id?: string;
-    /**
-     * Unique identifier for the packaged Medicinal Product.
-     */
-    identifier?: Identifier;
-    /**
-     * May be used to represent additional information that is not part of the basic definition
-     * of the element and that modifies the understanding of the element in which it is
-     * contained and/or the understanding of the containing element's descendants. Usually
-     * modifier elements provide negation or qualification. To make the use of extensions safe
-     * and manageable, there is a strict set of governance applied to the definition and use of
-     * extensions. Though any implementer can define an extension, there is a set of
-     * requirements that SHALL be met as part of the definition of the extension. Applications
-     * processing a resource are required to check for modifier extensions.
-     *
-     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
-     * DomainResource (including cannot change the meaning of modifierExtension itself).
-     */
-    modifierExtension?: Extension[];
-    /**
-     * The shelf life time period can be specified using a numerical value for the period of
-     * time and its unit of time measurement The unit of measurement shall be specified in
-     * accordance with ISO 11240 and the resulting terminology The symbol and the symbol
-     * identifier shall be used.
-     */
-    period?: Quantity;
-    /**
-     * Special precautions for storage, if any, can be specified using an appropriate controlled
-     * vocabulary The controlled term and the controlled term identifier shall be specified.
-     */
-    specialPrecautionsForStorage?: CodeableConcept[];
-    /**
-     * This describes the shelf life, taking into account various scenarios such as shelf life
-     * of the packaged Medicinal Product itself, shelf life after transformation where necessary
-     * and shelf life after the first opening of a bottle, etc. The shelf life type shall be
-     * specified using an appropriate controlled vocabulary The controlled term and the
-     * controlled term identifier shall be specified.
-     */
-    type?: CodeableConcept;
 }
 /**
  * The characteristics, operational status and capabilities of a medical-related component

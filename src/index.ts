@@ -5,7 +5,7 @@
 /**
  * EXPORTS OF I4MI Resources
  */
-export { I4MIBundle, I4MIInterfaceToMapResource } from './resource/version4.0.0/bundle';
+export { I4MIBundle, I4MIInterfaceToMapResource } from './i4mi_resources/v4.0.0/bundle';
 
 /**
  * This function exports you the library for the given fhir version
@@ -16,13 +16,16 @@ export { I4MIBundle, I4MIInterfaceToMapResource } from './resource/version4.0.0/
 export function getResources(version?: SupportedFhirVersions) {
     if (typeof version === 'undefined') {
         console.log(`No version given. Exports latest (${SupportedFhirVersions.latest}) supported fhir version.`);
-        return import('./definition/version4.0.0');
+        // let importFunction = function() {
+        //     import('./definition/version4.0.0')
+        // }
+        return import('./definition/v4.0.0');
     }
 
     switch (version) {
         case SupportedFhirVersions.V4_0_0:
             console.log('dynamic export R4');
-            return import('./definition/version4.0.0');
+            //return import('./definition/version4.0.0/');
         case SupportedFhirVersions.V3_0_1:
             console.log('dynamic export STU3');
             return 'NOT_IMPLEMENTED_YET';

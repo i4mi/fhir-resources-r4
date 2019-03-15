@@ -1,7 +1,7 @@
 import { I4MIBundle, I4MIInterfaceToMapResource } from '../src';
-import { BundleType, Method } from '../src/definition/version4.0.0/fhir.Bundle';
-import { Observation } from '../src/definition/version4.0.0/fhir.Observation';
-import { CodeableConcept } from '../src/definition/version4.0.0/fhir._'  
+import { BundleType, Method } from '../src/definition/v4.0.0/fhir.Bundle';
+import { Observation } from '../src/definition/v4.0.0/fhir.Observation';
+import { CodeableConcept } from '../src/definition/v4.0.0/fhir._'  
 
 test('CreateBundle', () => {
     let bundleType: BundleType = BundleType.Transaction;

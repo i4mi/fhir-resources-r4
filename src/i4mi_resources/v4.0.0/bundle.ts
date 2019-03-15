@@ -1,4 +1,4 @@
-import { BundleType, Bundle, Method, BundleEntry } from "../../definition/version4.0.0/fhir.Bundle";
+import { BundleType, Bundle, Method, BundleEntry } from "../../definition/v4.0.0/fhir.Bundle";
 import { Guid } from "guid-typescript";
 
 export interface I4MIInterfaceToMapResource {

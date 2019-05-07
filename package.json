@@ -1,8 +1,9 @@
 {
   "name": "@i4mi/fhir",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "FHIR resources definitions + API methods",
-  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc"
@@ -22,7 +23,7 @@
     "api"
   ],
   "author": "Stefan Iseli, Dick Chavez @ Institute for Medical Informatics (I4MI) - Bern University of Applied Science (BFH)",
-  "license": "Apache Version 2.0",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "jest": "^24.8.0",

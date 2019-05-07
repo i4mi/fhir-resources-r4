@@ -1,12 +1,10 @@
 {
     "compilerOptions": {
-      "target": "es5",
-      "lib":["es6", "dom"],
+      "target": "es2015",
       "module": "commonjs",
       "declaration": true,
-      "sourceMap": true,
-      "strict": true,
-      "typeRoots": ["./node_modules/@types"]
+      "outDir": "./dist",
+      "strict": true
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist", "**/__tests__/*"]

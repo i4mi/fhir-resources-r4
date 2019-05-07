@@ -6,13 +6,13 @@
  * EXPORTS OF I4MI Resources
  */
 export { I4MIBundle, I4MIInterfaceToMapResource } from './i4mi_resources/v4.0.0/bundle';
-
+export * from './apiMethods/apiMethods';
 /**
  * This function exports you the library for the given fhir version
  * The supported fhir versions are given in the SupportedFhirVersion enum type
  * If no version is given, it will always take the latest
  * @param version Version for fhir resources to export
- */
+ *//*
 export function getResources(version?: SupportedFhirVersions) {
     if (typeof version === 'undefined') {
         console.log(`No version given. Exports latest (${SupportedFhirVersions.latest}) supported fhir version.`);
@@ -36,4 +36,4 @@ export enum SupportedFhirVersions {
     latest = 'V4_0_0',
     V4_0_0 = 'V4_0_0',
     V3_0_1 = 'V3_0_1'
-}
+}*/

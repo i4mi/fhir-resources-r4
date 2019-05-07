@@ -3,41 +3,41 @@ export interface Composition {
     /**
      * Extensions for confidentiality
      */
-    _confidentiality?: any[] | boolean | Element | number | number | null | string;
+    _confidentiality?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * A participant who has attested to the accuracy of the composition/document.
      */
-    attester?: Array<any[] | boolean | CompositionAttester | number | number | null | string>;
+    attester?: CompositionAttester[];
     /**
      * Identifies who is responsible for the information in the composition, not necessarily who
      * typed it in.
      */
-    author: Array<any[] | boolean | Reference | number | number | null | string>;
+    author?: Reference[];
     /**
      * A categorization for the type of the composition - helps for indexing and searching. This
      * may be implied by or derived from the code specified in the Composition Type.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * The code specifying the level of confidentiality of the Composition.
      */
@@ -47,12 +47,12 @@ export interface Composition {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Composition | number | null | string>;
+    contained?: Composition[];
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and
      * access to the composition/document information.
      */
-    custodian?: any[] | boolean | Reference | number | number | null | string;
+    custodian?: Reference;
     /**
      * The composition editing time, when the composition was last logically changed by the
      * author.
@@ -61,11 +61,11 @@ export interface Composition {
     /**
      * Describes the clinical encounter or type of care this documentation is associated with.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * The clinical service, such as a colonoscopy or an appendectomy, being documented.
      */
-    event?: Array<any[] | boolean | CompositionEvent | number | number | null | string>;
+    event?: CompositionEvent[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -73,7 +73,7 @@ export interface Composition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -83,7 +83,7 @@ export interface Composition {
      * A version-independent identifier for the Composition. This identifier stays constant as
      * the composition is changed over time.
      */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
+    identifier?: Identifier;
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -99,7 +99,7 @@ export interface Composition {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -113,31 +113,31 @@ export interface Composition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Relationships that this composition has with other compositions or documents that already
      * exist.
      */
-    relatesTo?: Array<any[] | boolean | CompositionRelatesTo | number | number | null | string>;
+    relatesTo?: CompositionRelatesTo[];
     /**
      * This is a Composition resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The root of the sections that make up the composition.
      */
-    section?: Array<any[] | boolean | CompositionSection | number | number | null | string>;
+    section?: CompositionSection[];
     /**
      * The workflow/clinical status of this composition. The status is a marker for the clinical
      * standing of the document.
      */
-    status?: FhirCompositionStatus;
+    status?: CompositionStatus;
     /**
      * Who or what the composition is about. The composition can be about a person, (patient or
      * healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as
      * a document about a herd of livestock, or a set of patients that share a common exposure).
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -145,7 +145,7 @@ export interface Composition {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Official human-readable label for the composition.
      */
@@ -154,17 +154,27 @@ export interface Composition {
      * Specifies the particular kind of composition (e.g. History and Physical, Discharge
      * Summary, Progress Note). This usually equates to the purpose of making the composition.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * A set of healthcare-related information that is assembled together into a single logical
+ * package that provides a single coherent statement of meaning, establishes its own context
+ * and that has clinical attestation with regard to who is making the statement. A
+ * Composition defines the structure and narrative content necessary for a document.
+ * However, a Composition alone does not constitute a document. Rather, the Composition must
+ * be the first entry in a Bundle where Bundle.type=document, and any other resources
+ * referenced from Composition must be included as subsequent entries in the Bundle (for
+ * example Patient, Practitioner, Encounter, etc.).
+ */
 export interface CompositionAttester {
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * Extensions for time
      */
-    _time?: any[] | boolean | Element | number | number | null | string;
+    _time?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -172,7 +182,7 @@ export interface CompositionAttester {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -181,7 +191,7 @@ export interface CompositionAttester {
     /**
      * The type of attestation the authenticator offers.
      */
-    mode?: Mode;
+    mode?: CompositionAttesterMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -195,11 +205,11 @@ export interface CompositionAttester {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Who attested the composition in the specified way.
      */
-    party?: any[] | boolean | Reference | number | number | null | string;
+    party?: Reference;
     /**
      * When the composition was attested by the party.
      */
@@ -208,12 +218,22 @@ export interface CompositionAttester {
 /**
  * The type of attestation the authenticator offers.
  */
-export declare enum Mode {
+export declare enum CompositionAttesterMode {
     Legal = "legal",
     Official = "official",
     Personal = "personal",
     Professional = "professional"
 }
+/**
+ * A set of healthcare-related information that is assembled together into a single logical
+ * package that provides a single coherent statement of meaning, establishes its own context
+ * and that has clinical attestation with regard to who is making the statement. A
+ * Composition defines the structure and narrative content necessary for a document.
+ * However, a Composition alone does not constitute a document. Rather, the Composition must
+ * be the first entry in a Bundle where Bundle.type=document, and any other resources
+ * referenced from Composition must be included as subsequent entries in the Bundle (for
+ * example Patient, Practitioner, Encounter, etc.).
+ */
 export interface CompositionEvent {
     /**
      * This list of codes represents the main clinical acts, such as a colonoscopy or an
@@ -221,12 +241,12 @@ export interface CompositionEvent {
      * such as a "History and Physical Report" in which the procedure being documented is
      * necessarily a "History and Physical" act.
      */
-    code?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    code?: CodeableConcept[];
     /**
      * The description and/or reference of the event(s) being documented. For example, this
      * could be used to document such a colonoscopy or an appendectomy.
      */
-    detail?: Array<any[] | boolean | Reference | number | number | null | string>;
+    detail?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -234,7 +254,7 @@ export interface CompositionEvent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -253,19 +273,29 @@ export interface CompositionEvent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The period of time covered by the documentation. There is no assertion that the
      * documentation is a complete representation for this period, only that it documents events
      * during this time.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
 }
+/**
+ * A set of healthcare-related information that is assembled together into a single logical
+ * package that provides a single coherent statement of meaning, establishes its own context
+ * and that has clinical attestation with regard to who is making the statement. A
+ * Composition defines the structure and narrative content necessary for a document.
+ * However, a Composition alone does not constitute a document. Rather, the Composition must
+ * be the first entry in a Bundle where Bundle.type=document, and any other resources
+ * referenced from Composition must be included as subsequent entries in the Bundle (for
+ * example Patient, Practitioner, Encounter, etc.).
+ */
 export interface CompositionRelatesTo {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * The type of relationship that this composition has with anther composition or document.
      */
@@ -277,7 +307,7 @@ export interface CompositionRelatesTo {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -296,44 +326,54 @@ export interface CompositionRelatesTo {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The target composition/document of this relationship.
      */
-    targetIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    targetIdentifier?: Identifier;
     /**
      * The target composition/document of this relationship.
      */
-    targetReference?: any[] | boolean | Reference | number | number | null | string;
+    targetReference?: Reference;
 }
+/**
+ * A set of healthcare-related information that is assembled together into a single logical
+ * package that provides a single coherent statement of meaning, establishes its own context
+ * and that has clinical attestation with regard to who is making the statement. A
+ * Composition defines the structure and narrative content necessary for a document.
+ * However, a Composition alone does not constitute a document. Rather, the Composition must
+ * be the first entry in a Bundle where Bundle.type=document, and any other resources
+ * referenced from Composition must be included as subsequent entries in the Bundle (for
+ * example Patient, Practitioner, Encounter, etc.).
+ */
 export interface CompositionSection {
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Identifies who is responsible for the information in this section, not necessarily who
      * typed it in.
      */
-    author?: Array<any[] | boolean | Reference | number | number | null | string>;
+    author?: Reference[];
     /**
      * A code identifying the kind of content contained within the section. This must be
      * consistent with the section title.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * If the section is empty, why the list is empty. An empty section typically has some text
      * explaining the empty reason.
      */
-    emptyReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    emptyReason?: CodeableConcept;
     /**
      * A reference to the actual resource from which the narrative in the section is derived.
      */
-    entry?: Array<any[] | boolean | Reference | number | number | null | string>;
+    entry?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -341,7 +381,7 @@ export interface CompositionSection {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The actual focus of the section when it is not the subject of the composition, but
      * instead represents something or someone associated with the subject such as (for a
@@ -351,7 +391,7 @@ export interface CompositionSection {
      * resources where the logical subject (patient, subject, focus, etc.) matches the section
      * focus, or the resources have no logical subject (few resources).
      */
-    focus?: any[] | boolean | Reference | number | number | null | string;
+    focus?: Reference;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -377,22 +417,22 @@ export interface CompositionSection {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Specifies the order applied to the items in the section entries.
      */
-    orderedBy?: any[] | boolean | CodeableConcept | number | number | null | string;
+    orderedBy?: CodeableConcept;
     /**
      * A nested sub-section within this section.
      */
-    section?: Array<any[] | boolean | CompositionSection | number | number | null | string>;
+    section?: CompositionSection[];
     /**
      * A human-readable narrative that contains the attested content of the section, used to
      * represent the content of the resource to a human. The narrative need not encode all the
      * structured data, but is required to contain sufficient detail to make it "clinically
      * safe" for a human to just read the narrative.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The label for this particular section.  This will be part of the rendered content for the
      * document, and is often used to build a table of contents.
@@ -403,7 +443,7 @@ export interface CompositionSection {
  * The workflow/clinical status of this composition. The status is a marker for the clinical
  * standing of the document.
  */
-export declare enum FhirCompositionStatus {
+export declare enum CompositionStatus {
     Amended = "amended",
     EnteredInError = "entered-in-error",
     Final = "final",

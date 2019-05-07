@@ -1,8 +1,25 @@
-export interface UsageContext {
+/**
+ * The marketing status describes the date when a medicinal product is actually put on the
+ * market or the date as of which it is no longer available.
+ */
+export interface MarketingStatus {
     /**
-     * A code that identifies the type of context being specified by this usage context.
+     * Extensions for restoreDate
      */
-    code: any[] | boolean | Coding | number | number | null | string;
+    _restoreDate?: Element;
+    /**
+     * The country in which the marketing authorisation has been granted shall be specified It
+     * should be specified using the ISO 3166 ‑ 1 alpha-2 code elements.
+     */
+    country?: CodeableConcept;
+    /**
+     * The date when the Medicinal Product is placed on the market by the Marketing
+     * Authorisation Holder (or where applicable, the manufacturer/distributor) in a country
+     * and/or jurisdiction shall be provided A complete date consisting of day, month and year
+     * shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to
+     * the release of the Medicinal Product into the distribution chain.
+     */
+    dateRange?: Period;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -10,7 +27,285 @@ export interface UsageContext {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
+    /**
+     * Unique id for the element within a resource (for internal references). This may be any
+     * string value that does not contain spaces.
+     */
+    id?: string;
+    /**
+     * Where a Medicines Regulatory Agency has granted a marketing authorisation for which
+     * specific provisions within a jurisdiction apply, the jurisdiction can be specified using
+     * an appropriate controlled terminology The controlled term and the controlled term
+     * identifier shall be specified.
+     */
+    jurisdiction?: CodeableConcept;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element and that modifies the understanding of the element in which it is
+     * contained and/or the understanding of the containing element's descendants. Usually
+     * modifier elements provide negation or qualification. To make the use of extensions safe
+     * and manageable, there is a strict set of governance applied to the definition and use of
+     * extensions. Though any implementer can define an extension, there is a set of
+     * requirements that SHALL be met as part of the definition of the extension. Applications
+     * processing a resource are required to check for modifier extensions.
+     *
+     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
+     * DomainResource (including cannot change the meaning of modifierExtension itself).
+     */
+    modifierExtension?: Extension[];
+    /**
+     * The date when the Medicinal Product is placed on the market by the Marketing
+     * Authorisation Holder (or where applicable, the manufacturer/distributor) in a country
+     * and/or jurisdiction shall be provided A complete date consisting of day, month and year
+     * shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to
+     * the release of the Medicinal Product into the distribution chain.
+     */
+    restoreDate?: string;
+    /**
+     * This attribute provides information on the status of the marketing of the medicinal
+     * product See ISO/TS 20443 for more information and examples.
+     */
+    status?: CodeableConcept;
+}
+/**
+ * The shelf-life and storage information for a medicinal product item or container can be
+ * described using this class.
+ */
+export interface ProductShelfLife {
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element. To make the use of extensions safe and manageable, there is a strict set
+     * of governance  applied to the definition and use of extensions. Though any implementer
+     * can define an extension, there is a set of requirements that SHALL be met as part of the
+     * definition of the extension.
+     */
+    extension?: Extension[];
+    /**
+     * Unique id for the element within a resource (for internal references). This may be any
+     * string value that does not contain spaces.
+     */
+    id?: string;
+    /**
+     * Unique identifier for the packaged Medicinal Product.
+     */
+    identifier?: Identifier;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element and that modifies the understanding of the element in which it is
+     * contained and/or the understanding of the containing element's descendants. Usually
+     * modifier elements provide negation or qualification. To make the use of extensions safe
+     * and manageable, there is a strict set of governance applied to the definition and use of
+     * extensions. Though any implementer can define an extension, there is a set of
+     * requirements that SHALL be met as part of the definition of the extension. Applications
+     * processing a resource are required to check for modifier extensions.
+     *
+     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
+     * DomainResource (including cannot change the meaning of modifierExtension itself).
+     */
+    modifierExtension?: Extension[];
+    /**
+     * The shelf life time period can be specified using a numerical value for the period of
+     * time and its unit of time measurement The unit of measurement shall be specified in
+     * accordance with ISO 11240 and the resulting terminology The symbol and the symbol
+     * identifier shall be used.
+     */
+    period?: Quantity;
+    /**
+     * Special precautions for storage, if any, can be specified using an appropriate controlled
+     * vocabulary The controlled term and the controlled term identifier shall be specified.
+     */
+    specialPrecautionsForStorage?: CodeableConcept[];
+    /**
+     * This describes the shelf life, taking into account various scenarios such as shelf life
+     * of the packaged Medicinal Product itself, shelf life after transformation where necessary
+     * and shelf life after the first opening of a bottle, etc. The shelf life type shall be
+     * specified using an appropriate controlled vocabulary The controlled term and the
+     * controlled term identifier shall be specified.
+     */
+    type?: CodeableConcept;
+}
+/**
+ * Dimensions, color etc.
+ *
+ * The marketing status describes the date when a medicinal product is actually put on the
+ * market or the date as of which it is no longer available.
+ */
+export interface ProdCharacteristic {
+    /**
+     * Extensions for color
+     */
+    _color?: Element[];
+    /**
+     * Extensions for imprint
+     */
+    _imprint?: Element[];
+    /**
+     * Extensions for shape
+     */
+    _shape?: Element;
+    /**
+     * Where applicable, the color can be specified An appropriate controlled vocabulary shall
+     * be used The term and the term identifier shall be used.
+     */
+    color?: string[];
+    /**
+     * Where applicable, the depth can be specified using a numerical value and its unit of
+     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
+     * the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    depth?: Quantity;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element. To make the use of extensions safe and manageable, there is a strict set
+     * of governance  applied to the definition and use of extensions. Though any implementer
+     * can define an extension, there is a set of requirements that SHALL be met as part of the
+     * definition of the extension.
+     */
+    extension?: Extension[];
+    /**
+     * Where applicable, the external diameter can be specified using a numerical value and its
+     * unit of measurement The unit of measurement shall be specified in accordance with ISO
+     * 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    externalDiameter?: Quantity;
+    /**
+     * Where applicable, the height can be specified using a numerical value and its unit of
+     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
+     * the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    height?: Quantity;
+    /**
+     * Unique id for the element within a resource (for internal references). This may be any
+     * string value that does not contain spaces.
+     */
+    id?: string;
+    /**
+     * Where applicable, the image can be provided The format of the image attachment shall be
+     * specified by regional implementations.
+     */
+    image?: Attachment[];
+    /**
+     * Where applicable, the imprint can be specified as text.
+     */
+    imprint?: string[];
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element and that modifies the understanding of the element in which it is
+     * contained and/or the understanding of the containing element's descendants. Usually
+     * modifier elements provide negation or qualification. To make the use of extensions safe
+     * and manageable, there is a strict set of governance applied to the definition and use of
+     * extensions. Though any implementer can define an extension, there is a set of
+     * requirements that SHALL be met as part of the definition of the extension. Applications
+     * processing a resource are required to check for modifier extensions.
+     *
+     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
+     * DomainResource (including cannot change the meaning of modifierExtension itself).
+     */
+    modifierExtension?: Extension[];
+    /**
+     * Where applicable, the nominal volume can be specified using a numerical value and its
+     * unit of measurement The unit of measurement shall be specified in accordance with ISO
+     * 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    nominalVolume?: Quantity;
+    /**
+     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall
+     * be used The term and the term identifier shall be used.
+     */
+    scoring?: CodeableConcept;
+    /**
+     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall
+     * be used The term and the term identifier shall be used.
+     */
+    shape?: string;
+    /**
+     * Where applicable, the weight can be specified using a numerical value and its unit of
+     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
+     * the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    weight?: Quantity;
+    /**
+     * Where applicable, the width can be specified using a numerical value and its unit of
+     * measurement The unit of measurement shall be specified in accordance with ISO 11240 and
+     * the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    width?: Quantity;
+}
+/**
+ * A populatioof people with some set of grouping criteria.
+ */
+export interface Population {
+    /**
+     * The age of the specific population.
+     */
+    ageCodeableConcept?: CodeableConcept;
+    /**
+     * The age of the specific population.
+     */
+    ageRange?: Range;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element. To make the use of extensions safe and manageable, there is a strict set
+     * of governance  applied to the definition and use of extensions. Though any implementer
+     * can define an extension, there is a set of requirements that SHALL be met as part of the
+     * definition of the extension.
+     */
+    extension?: Extension[];
+    /**
+     * The gender of the specific population.
+     */
+    gender?: CodeableConcept;
+    /**
+     * Unique id for the element within a resource (for internal references). This may be any
+     * string value that does not contain spaces.
+     */
+    id?: string;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element and that modifies the understanding of the element in which it is
+     * contained and/or the understanding of the containing element's descendants. Usually
+     * modifier elements provide negation or qualification. To make the use of extensions safe
+     * and manageable, there is a strict set of governance applied to the definition and use of
+     * extensions. Though any implementer can define an extension, there is a set of
+     * requirements that SHALL be met as part of the definition of the extension. Applications
+     * processing a resource are required to check for modifier extensions.
+     *
+     * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
+     * DomainResource (including cannot change the meaning of modifierExtension itself).
+     */
+    modifierExtension?: Extension[];
+    /**
+     * The existing physiological conditions of the specific population to which this applies.
+     */
+    physiologicalCondition?: CodeableConcept;
+    /**
+     * Race of the specific population.
+     */
+    race?: CodeableConcept;
+}
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or
+ * categorize an artifact. This metadata can either be specific to the applicable population
+ * (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting,
+ * provider of care).
+ */
+export interface UsageContext {
+    /**
+     * A code that identifies the type of context being specified by this usage context.
+     */
+    code?: Coding;
+    /**
+     * May be used to represent additional information that is not part of the basic definition
+     * of the element. To make the use of extensions safe and manageable, there is a strict set
+     * of governance  applied to the definition and use of extensions. Though any implementer
+     * can define an extension, there is a set of requirements that SHALL be met as part of the
+     * definition of the extension.
+     */
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -20,50 +315,57 @@ export interface UsageContext {
      * A value that defines the context specified in this context of use. The interpretation of
      * the value is defined by the code.
      */
-    valueCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * A value that defines the context specified in this context of use. The interpretation of
      * the value is defined by the code.
      */
-    valueQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    valueQuantity?: Quantity;
     /**
      * A value that defines the context specified in this context of use. The interpretation of
      * the value is defined by the code.
      */
-    valueRange?: any[] | boolean | Range | number | number | null | string;
+    valueRange?: Range;
     /**
      * A value that defines the context specified in this context of use. The interpretation of
      * the value is defined by the code.
      */
-    valueReference?: any[] | boolean | Reference | number | number | null | string;
+    valueReference?: Reference;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A description of a triggering event. Triggering events can be named events, data events,
+ * or periodic, as determined by the type element.
+ */
 export interface TriggerDefinition {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for timingDate
      */
-    _timingDate?: any[] | boolean | Element | number | number | null | string;
+    _timingDate?: Element;
     /**
      * Extensions for timingDateTime
      */
-    _timingDateTime?: any[] | boolean | Element | number | number | null | string;
+    _timingDateTime?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * A boolean-valued expression that is evaluated in the context of the container of the
      * trigger definition and returns whether or not the trigger fires.
      */
-    condition?: any[] | boolean | Expression | number | number | null | string;
+    condition?: Expression;
     /**
      * The triggering data of the event (if this is a data trigger). If more than one data is
      * requirement is specified, then all the data requirements must be true.
      */
-    data?: Array<any[] | boolean | DataRequirement | number | number | null | string>;
+    data?: DataRequirement[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -71,7 +373,7 @@ export interface TriggerDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -94,33 +396,42 @@ export interface TriggerDefinition {
     /**
      * The timing of the event (if this is a periodic trigger).
      */
-    timingReference?: any[] | boolean | Reference | number | number | null | string;
+    timingReference?: Reference;
     /**
      * The timing of the event (if this is a periodic trigger).
      */
-    timingTiming?: any[] | boolean | Timing | number | number | null | string;
+    timingTiming?: Timing;
     /**
      * The type of triggering event.
      */
     type?: TriggerDefinitionType;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A signature along with supporting context. The signature may be a digital signature that
+ * is cryptographic in nature, or some other signature acceptable to the domain. This other
+ * signature may be as simple as a graphical image representing a hand-written signature, or
+ * a signature ceremony Different signature approaches have different utilities.
+ */
 export interface Signature {
     /**
      * Extensions for data
      */
-    _data?: any[] | boolean | Element | number | number | null | string;
+    _data?: Element;
     /**
      * Extensions for sigFormat
      */
-    _sigFormat?: any[] | boolean | Element | number | number | null | string;
+    _sigFormat?: Element;
     /**
      * Extensions for targetFormat
      */
-    _targetFormat?: any[] | boolean | Element | number | number | null | string;
+    _targetFormat?: Element;
     /**
      * Extensions for when
      */
-    _when?: any[] | boolean | Element | number | number | null | string;
+    _when?: Element;
     /**
      * The base64 encoding of the Signature content. When signature is not recorded
      * electronically this element would be empty.
@@ -133,7 +444,7 @@ export interface Signature {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -143,7 +454,7 @@ export interface Signature {
      * A reference to an application-usable description of the identity that is represented by
      * the signature.
      */
-    onBehalfOf?: any[] | boolean | Reference | number | number | null | string;
+    onBehalfOf?: Reference;
     /**
      * A mime type that indicates the technical format of the signature. Important mime types
      * are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for
@@ -160,7 +471,7 @@ export interface Signature {
      * included as part of the signature information and can be used when determining
      * accountability for various actions concerning the document.
      */
-    type: Array<any[] | boolean | Coding | number | number | null | string>;
+    type?: Coding[];
     /**
      * When the digital signature was signed.
      */
@@ -169,33 +480,40 @@ export interface Signature {
      * A reference to an application-usable description of the identity that signed  (e.g. the
      * signature used their private key).
      */
-    who: any[] | boolean | Reference | number | number | null | string;
+    who?: Reference;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A series of measurements taken by a device, with upper and lower limits. There may be
+ * more than one dimension in the data.
+ */
 export interface SampledData {
     /**
      * Extensions for data
      */
-    _data?: any[] | boolean | Element | number | number | null | string;
+    _data?: Element;
     /**
      * Extensions for dimensions
      */
-    _dimensions?: any[] | boolean | Element | number | number | null | string;
+    _dimensions?: Element;
     /**
      * Extensions for factor
      */
-    _factor?: any[] | boolean | Element | number | number | null | string;
+    _factor?: Element;
     /**
      * Extensions for lowerLimit
      */
-    _lowerLimit?: any[] | boolean | Element | number | number | null | string;
+    _lowerLimit?: Element;
     /**
      * Extensions for period
      */
-    _period?: any[] | boolean | Element | number | number | null | string;
+    _period?: Element;
     /**
      * Extensions for upperLimit
      */
-    _upperLimit?: any[] | boolean | Element | number | number | null | string;
+    _upperLimit?: Element;
     /**
      * A series of data points which are decimal values separated by a single space (character
      * u20). The special values "E" (error), "L" (below detection limit) and "U" (above
@@ -215,7 +533,7 @@ export interface SampledData {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * A correction factor that is applied to the sampled data points before they are added to
      * the origin.
@@ -235,7 +553,7 @@ export interface SampledData {
      * The base quantity that a measured value of zero represents. In addition, this provides
      * the units of the entire measurement series.
      */
-    origin: any[] | boolean | Quantity | number | number | null | string;
+    origin?: Quantity;
     /**
      * The length of time between sampling times, measured in milliseconds.
      */
@@ -246,27 +564,34 @@ export interface SampledData {
      */
     upperLimit?: number;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * Related artifacts such as additional documentation, justification, or bibliographic
+ * references.
+ */
 export interface RelatedArtifact {
     /**
      * Extensions for citation
      */
-    _citation?: any[] | boolean | Element | number | number | null | string;
+    _citation?: Element;
     /**
      * Extensions for display
      */
-    _display?: any[] | boolean | Element | number | number | null | string;
+    _display?: Element;
     /**
      * Extensions for label
      */
-    _label?: any[] | boolean | Element | number | number | null | string;
+    _label?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * A bibliographic citation for the related artifact. This text SHOULD be formatted
      * according to an accepted citation format.
@@ -281,7 +606,7 @@ export interface RelatedArtifact {
      * The document being referenced, represented as an attachment. This is exclusive with the
      * resource element.
      */
-    document?: any[] | boolean | Attachment | number | number | null | string;
+    document?: Attachment;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -289,7 +614,7 @@ export interface RelatedArtifact {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -313,31 +638,39 @@ export interface RelatedArtifact {
      */
     url?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * The parameters to the module. This collection specifies both the input and output
+ * parameters. Input parameters are provided by the caller as part of the $evaluate
+ * operation. Output parameters are included in the GuidanceResponse.
+ */
 export interface ParameterDefinition {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for max
      */
-    _max?: any[] | boolean | Element | number | number | null | string;
+    _max?: Element;
     /**
      * Extensions for min
      */
-    _min?: any[] | boolean | Element | number | number | null | string;
+    _min?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * A brief discussion of what the parameter is for and how it is used by the module.
      */
@@ -349,7 +682,7 @@ export interface ParameterDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -383,15 +716,21 @@ export interface ParameterDefinition {
      */
     use?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * An amount of economic utility in some recognized currency.
+ */
 export interface Money {
     /**
      * Extensions for currency
      */
-    _currency?: any[] | boolean | Element | number | number | null | string;
+    _currency?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * ISO 4217 Currency Code.
      */
@@ -403,7 +742,7 @@ export interface Money {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -414,31 +753,37 @@ export interface Money {
      */
     value?: number;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A human's name with the ability to identify parts and usage.
+ */
 export interface HumanName {
     /**
      * Extensions for family
      */
-    _family?: any[] | boolean | Element | number | number | null | string;
+    _family?: Element;
     /**
      * Extensions for given
      */
-    _given?: Array<any[] | boolean | Element | number | number | null | string>;
+    _given?: Element[];
     /**
      * Extensions for prefix
      */
-    _prefix?: Array<any[] | boolean | Element | number | number | null | string>;
+    _prefix?: Element[];
     /**
      * Extensions for suffix
      */
-    _suffix?: Array<any[] | boolean | Element | number | number | null | string>;
+    _suffix?: Element[];
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -446,7 +791,7 @@ export interface HumanName {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the
      * family name of a son is the first name of his father.
@@ -464,7 +809,7 @@ export interface HumanName {
     /**
      * Indicates the period of time when this name was valid for the named person.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Part of the name that is acquired as a title due to academic, legal, employment or
      * nobility status, etc. and that appears at the start of the name.
@@ -485,27 +830,38 @@ export interface HumanName {
      */
     use?: HumanNameUse;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A expression that is evaluated in a specified context and returns a value. The context of
+ * use of the expression must specify the context in which the expression is evaluated, and
+ * how the result of the expression is used.
+ *
+ * A boolean-valued expression that is evaluated in the context of the container of the
+ * trigger definition and returns whether or not the trigger fires.
+ */
 export interface Expression {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for expression
      */
-    _expression?: any[] | boolean | Element | number | number | null | string;
+    _expression?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for reference
      */
-    _reference?: any[] | boolean | Element | number | number | null | string;
+    _reference?: Element;
     /**
      * A brief, natural language description of the condition that effectively communicates the
      * intended semantics.
@@ -522,7 +878,7 @@ export interface Expression {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -542,78 +898,87 @@ export interface Expression {
      */
     reference?: string;
 }
+/**
+ * A set of rules that describe when the event is scheduled.
+ *
+ * Specifies an event that may occur multiple times. Timing schedules are used to record
+ * when things are planned, expected or requested to occur. The most common usage is in
+ * dosage instructions for medications. They are also used when planning care of various
+ * kinds, and may be used for reporting the schedule to which past regular activities were
+ * carried out.
+ */
 export interface TimingRepeat {
     /**
      * Extensions for count
      */
-    _count?: any[] | boolean | Element | number | number | null | string;
+    _count?: Element;
     /**
      * Extensions for countMax
      */
-    _countMax?: any[] | boolean | Element | number | number | null | string;
+    _countMax?: Element;
     /**
      * Extensions for dayOfWeek
      */
-    _dayOfWeek?: Array<any[] | boolean | Element | number | number | null | string>;
+    _dayOfWeek?: Element[];
     /**
      * Extensions for duration
      */
-    _duration?: any[] | boolean | Element | number | number | null | string;
+    _duration?: Element;
     /**
      * Extensions for durationMax
      */
-    _durationMax?: any[] | boolean | Element | number | number | null | string;
+    _durationMax?: Element;
     /**
      * Extensions for durationUnit
      */
-    _durationUnit?: any[] | boolean | Element | number | number | null | string;
+    _durationUnit?: Element;
     /**
      * Extensions for frequency
      */
-    _frequency?: any[] | boolean | Element | number | number | null | string;
+    _frequency?: Element;
     /**
      * Extensions for frequencyMax
      */
-    _frequencyMax?: any[] | boolean | Element | number | number | null | string;
+    _frequencyMax?: Element;
     /**
      * Extensions for offset
      */
-    _offset?: any[] | boolean | Element | number | number | null | string;
+    _offset?: Element;
     /**
      * Extensions for period
      */
-    _period?: any[] | boolean | Element | number | number | null | string;
+    _period?: Element;
     /**
      * Extensions for periodMax
      */
-    _periodMax?: any[] | boolean | Element | number | number | null | string;
+    _periodMax?: Element;
     /**
      * Extensions for periodUnit
      */
-    _periodUnit?: any[] | boolean | Element | number | number | null | string;
+    _periodUnit?: Element;
     /**
      * Extensions for timeOfDay
      */
-    _timeOfDay?: Array<any[] | boolean | Element | number | number | null | string>;
+    _timeOfDay?: Element[];
     /**
      * Extensions for when
      */
-    _when?: Array<any[] | boolean | Element | number | number | null | string>;
+    _when?: Element[];
     /**
      * Either a duration for the length of the timing schedule, a range of possible length, or
      * outer bounds for start and/or end limits of the timing schedule.
      */
-    boundsDuration?: any[] | boolean | Duration | number | number | null | string;
+    boundsDuration?: Duration;
     /**
      * Either a duration for the length of the timing schedule, a range of possible length, or
      * outer bounds for start and/or end limits of the timing schedule.
      */
-    boundsPeriod?: any[] | boolean | Period | number | number | null | string;
+    boundsPeriod?: Period;
     /**
      * Either a duration for the length of the timing schedule, a range of possible length, or
      * outer bounds for start and/or end limits of the timing schedule.
      */
-    boundsRange?: any[] | boolean | Range | number | number | null | string;
+    boundsRange?: Range;
     /**
      * A total count of the desired number of repetitions across the duration of the entire
      * timing specification. If countMax is present, this element indicates the lower bound of
@@ -651,7 +1016,7 @@ export interface TimingRepeat {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The number of times to repeat the action within the specified period. If frequencyMax is
      * present, this element indicates the lower bound of the allowed range of the frequency.
@@ -680,7 +1045,7 @@ export interface TimingRepeat {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The number of minutes from the event. If the event code does not indicate whether the
      * minutes is before or after the event, then the offset is assumed to be after the event.
@@ -711,11 +1076,25 @@ export interface TimingRepeat {
      */
     when?: When[];
 }
+/**
+ * When medication should be administered.
+ *
+ * Specifies an event that may occur multiple times. Timing schedules are used to record
+ * when things are planned, expected or requested to occur. The most common usage is in
+ * dosage instructions for medications. They are also used when planning care of various
+ * kinds, and may be used for reporting the schedule to which past regular activities were
+ * carried out.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * The timing of the event (if this is a periodic trigger).
+ */
 export interface Timing {
     /**
      * Extensions for event
      */
-    _event?: Array<any[] | boolean | Element | number | number | null | string>;
+    _event?: Element[];
     /**
      * A code for the timing schedule (or just text in code.text). Some codes such as BID are
      * ubiquitous, but many institutions define their own additional codes. If a code is
@@ -724,7 +1103,7 @@ export interface Timing {
      * Timing, with the exception that .repeat.bounds still applies over the code (and is not
      * contained in the code).
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * Identifies specific times when the event occurs.
      */
@@ -736,7 +1115,7 @@ export interface Timing {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -755,17 +1134,27 @@ export interface Timing {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A set of rules that describe when the event is scheduled.
      */
-    repeat?: any[] | boolean | TimingRepeat | number | number | null | string;
+    repeat?: TimingRepeat;
 }
+/**
+ * Amount of medication per unit of time.
+ *
+ * A relationship of two Quantity values - expressed as a numerator and a denominator.
+ *
+ * Upper limit on medication per unit of time.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ */
 export interface Ratio {
     /**
      * The value of the denominator.
      */
-    denominator?: any[] | boolean | Quantity | number | number | null | string;
+    denominator?: Quantity;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -773,7 +1162,7 @@ export interface Ratio {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -782,8 +1171,24 @@ export interface Ratio {
     /**
      * The value of the numerator.
      */
-    numerator?: any[] | boolean | Quantity | number | number | null | string;
+    numerator?: Quantity;
 }
+/**
+ * Amount of medication per dose.
+ *
+ * A set of ordered Quantities defined by a low and high limit.
+ *
+ * Amount of medication per unit of time.
+ *
+ * Either a duration for the length of the timing schedule, a range of possible length, or
+ * outer bounds for start and/or end limits of the timing schedule.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A value that defines the context specified in this context of use. The interpretation of
+ * the value is defined by the code.
+ */
 export interface Range {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -792,11 +1197,11 @@ export interface Range {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The high limit. The boundary is inclusive.
      */
-    high?: any[] | boolean | Quantity | number | number | null | string;
+    high?: Quantity;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -805,29 +1210,59 @@ export interface Range {
     /**
      * The low limit. The boundary is inclusive.
      */
-    low?: any[] | boolean | Quantity | number | number | null | string;
+    low?: Quantity;
 }
+/**
+ * Amount of medication per dose.
+ *
+ * A measured amount (or an amount that can potentially be measured). Note that measured
+ * amounts include amounts that are not precisely quantified, including amounts involving
+ * arbitrary units and floating currencies.
+ *
+ * The high limit. The boundary is inclusive.
+ *
+ * The low limit. The boundary is inclusive.
+ *
+ * Amount of medication per unit of time.
+ *
+ * The value of the denominator.
+ *
+ * The value of the numerator.
+ *
+ * Upper limit on medication per administration.
+ *
+ * Upper limit on medication per lifetime of the patient.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * The base quantity that a measured value of zero represents. In addition, this provides
+ * the units of the entire measurement series.
+ *
+ * A value that defines the context specified in this context of use. The interpretation of
+ * the value is defined by the code.
+ */
 export interface Quantity {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for comparator
      */
-    _comparator?: any[] | boolean | Element | number | number | null | string;
+    _comparator?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for unit
      */
-    _unit?: any[] | boolean | Element | number | number | null | string;
+    _unit?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A computer processable form of the unit in some unit representation system.
      */
@@ -845,7 +1280,7 @@ export interface Quantity {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -865,15 +1300,18 @@ export interface Quantity {
      */
     value?: number;
 }
+/**
+ * Indicates how the medication is/was taken or should be taken by the patient.
+ */
 export interface DosageDoseAndRate {
     /**
      * Amount of medication per dose.
      */
-    doseQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    doseQuantity?: Quantity;
     /**
      * Amount of medication per dose.
      */
-    doseRange?: any[] | boolean | Range | number | number | null | string;
+    doseRange?: Range;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -881,7 +1319,7 @@ export interface DosageDoseAndRate {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -900,48 +1338,54 @@ export interface DosageDoseAndRate {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Amount of medication per unit of time.
      */
-    rateQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    rateQuantity?: Quantity;
     /**
      * Amount of medication per unit of time.
      */
-    rateRange?: any[] | boolean | Range | number | number | null | string;
+    rateRange?: Range;
     /**
      * Amount of medication per unit of time.
      */
-    rateRatio?: any[] | boolean | Ratio | number | number | null | string;
+    rateRatio?: Ratio;
     /**
      * The kind of dose or rate specified, for example, ordered or calculated.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * Indicates how the medication is/was taken or should be taken by the patient.
+ */
 export interface Dosage {
     /**
      * Extensions for asNeededBoolean
      */
-    _asNeededBoolean?: any[] | boolean | Element | number | number | null | string;
+    _asNeededBoolean?: Element;
     /**
      * Extensions for patientInstruction
      */
-    _patientInstruction?: any[] | boolean | Element | number | number | null | string;
+    _patientInstruction?: Element;
     /**
      * Extensions for sequence
      */
-    _sequence?: any[] | boolean | Element | number | number | null | string;
+    _sequence?: Element;
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Supplemental instructions to the patient on how to take the medication  (e.g. "with
      * meals" or"take half to one hour before food") or warnings for the patient about the
      * medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or
      * sunlamps").
      */
-    additionalInstruction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    additionalInstruction?: CodeableConcept[];
     /**
      * Indicates whether the Medication is only taken when needed within a specific dosing
      * schedule (Boolean option), or it indicates the precondition for taking the Medication
@@ -953,11 +1397,11 @@ export interface Dosage {
      * schedule (Boolean option), or it indicates the precondition for taking the Medication
      * (CodeableConcept).
      */
-    asNeededCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    asNeededCodeableConcept?: CodeableConcept;
     /**
      * The amount of medication administered.
      */
-    doseAndRate?: Array<any[] | boolean | DosageDoseAndRate | number | number | null | string>;
+    doseAndRate?: DosageDoseAndRate[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -965,7 +1409,7 @@ export interface Dosage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -974,19 +1418,19 @@ export interface Dosage {
     /**
      * Upper limit on medication per administration.
      */
-    maxDosePerAdministration?: any[] | boolean | Quantity | number | number | null | string;
+    maxDosePerAdministration?: Quantity;
     /**
      * Upper limit on medication per lifetime of the patient.
      */
-    maxDosePerLifetime?: any[] | boolean | Quantity | number | number | null | string;
+    maxDosePerLifetime?: Quantity;
     /**
      * Upper limit on medication per unit of time.
      */
-    maxDosePerPeriod?: any[] | boolean | Ratio | number | number | null | string;
+    maxDosePerPeriod?: Ratio;
     /**
      * Technique for administering medication.
      */
-    method?: any[] | boolean | CodeableConcept | number | number | null | string;
+    method?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -1000,7 +1444,7 @@ export interface Dosage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Instructions in terms that are understood by the patient or consumer.
      */
@@ -1008,7 +1452,7 @@ export interface Dosage {
     /**
      * How drug should enter body.
      */
-    route?: any[] | boolean | CodeableConcept | number | number | null | string;
+    route?: CodeableConcept;
     /**
      * Indicates the order in which the dosage instructions should be applied or interpreted.
      */
@@ -1016,7 +1460,7 @@ export interface Dosage {
     /**
      * Body site to administer to.
      */
-    site?: any[] | boolean | CodeableConcept | number | number | null | string;
+    site?: CodeableConcept;
     /**
      * Free text dosage instructions e.g. SIG.
      */
@@ -1024,29 +1468,35 @@ export interface Dosage {
     /**
      * When medication should be administered.
      */
-    timing?: any[] | boolean | Timing | number | number | null | string;
+    timing?: Timing;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A length - a value with a unit that is a physical distance.
+ */
 export interface Distance {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for comparator
      */
-    _comparator?: any[] | boolean | Element | number | number | null | string;
+    _comparator?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for unit
      */
-    _unit?: any[] | boolean | Element | number | number | null | string;
+    _unit?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A computer processable form of the unit in some unit representation system.
      */
@@ -1064,7 +1514,7 @@ export interface Distance {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1084,15 +1534,19 @@ export interface Distance {
      */
     value?: number;
 }
+/**
+ * Describes a required data item for evaluation in terms of the type of data, and optional
+ * code or date-based filters of the data.
+ */
 export interface DataRequirementSort {
     /**
      * Extensions for direction
      */
-    _direction?: any[] | boolean | Element | number | number | null | string;
+    _direction?: Element;
     /**
      * Extensions for path
      */
-    _path?: any[] | boolean | Element | number | number | null | string;
+    _path?: Element;
     /**
      * The direction of the sort, ascending or descending.
      */
@@ -1104,7 +1558,7 @@ export interface DataRequirementSort {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1123,7 +1577,7 @@ export interface DataRequirementSort {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The attribute of the sort. The specified path must be resolvable from the type of the
      * required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as
@@ -1132,27 +1586,42 @@ export interface DataRequirementSort {
      */
     path?: string;
 }
+/**
+ * The value of the filter. If period is specified, the filter will return only those data
+ * items that fall within the bounds determined by the Period, inclusive of the period
+ * boundaries. If dateTime is specified, the filter will return only those data items that
+ * are equal to the specified dateTime. If a Duration is specified, the filter will return
+ * only those data items that fall within Duration before now.
+ *
+ * A length of time.
+ *
+ * Either a duration for the length of the timing schedule, a range of possible length, or
+ * outer bounds for start and/or end limits of the timing schedule.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ */
 export interface Duration {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for comparator
      */
-    _comparator?: any[] | boolean | Element | number | number | null | string;
+    _comparator?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for unit
      */
-    _unit?: any[] | boolean | Element | number | number | null | string;
+    _unit?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A computer processable form of the unit in some unit representation system.
      */
@@ -1170,7 +1639,7 @@ export interface Duration {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1190,19 +1659,23 @@ export interface Duration {
      */
     value?: number;
 }
+/**
+ * Describes a required data item for evaluation in terms of the type of data, and optional
+ * code or date-based filters of the data.
+ */
 export interface DataRequirementDateFilter {
     /**
      * Extensions for path
      */
-    _path?: any[] | boolean | Element | number | number | null | string;
+    _path?: Element;
     /**
      * Extensions for searchParam
      */
-    _searchParam?: any[] | boolean | Element | number | number | null | string;
+    _searchParam?: Element;
     /**
      * Extensions for valueDateTime
      */
-    _valueDateTime?: any[] | boolean | Element | number | number | null | string;
+    _valueDateTime?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1210,7 +1683,7 @@ export interface DataRequirementDateFilter {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1229,7 +1702,7 @@ export interface DataRequirementDateFilter {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The date-valued attribute of the filter. The specified path SHALL be a FHIRPath
      * resolveable on the specified type of the DataRequirement, and SHALL consist only of
@@ -1261,7 +1734,7 @@ export interface DataRequirementDateFilter {
      * are equal to the specified dateTime. If a Duration is specified, the filter will return
      * only those data items that fall within Duration before now.
      */
-    valueDuration?: any[] | boolean | Duration | number | number | null | string;
+    valueDuration?: Duration;
     /**
      * The value of the filter. If period is specified, the filter will return only those data
      * items that fall within the bounds determined by the Period, inclusive of the period
@@ -1269,24 +1742,28 @@ export interface DataRequirementDateFilter {
      * are equal to the specified dateTime. If a Duration is specified, the filter will return
      * only those data items that fall within Duration before now.
      */
-    valuePeriod?: any[] | boolean | Period | number | number | null | string;
+    valuePeriod?: Period;
 }
+/**
+ * Describes a required data item for evaluation in terms of the type of data, and optional
+ * code or date-based filters of the data.
+ */
 export interface DataRequirementCodeFilter {
     /**
      * Extensions for path
      */
-    _path?: any[] | boolean | Element | number | number | null | string;
+    _path?: Element;
     /**
      * Extensions for searchParam
      */
-    _searchParam?: any[] | boolean | Element | number | number | null | string;
+    _searchParam?: Element;
     /**
      * The codes for the code filter. If values are given, the filter will return only those
      * data items for which the code-valued attribute specified by the path has a value that is
      * one of the specified codes. If codes are specified in addition to a value set, the filter
      * returns items matching a code in the value set or one of the specified codes.
      */
-    code?: Array<any[] | boolean | Coding | number | number | null | string>;
+    code?: Coding[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1294,7 +1771,7 @@ export interface DataRequirementCodeFilter {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1313,7 +1790,7 @@ export interface DataRequirementCodeFilter {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The code-valued attribute of the filter. The specified path SHALL be a FHIRPath
      * resolveable on the specified type of the DataRequirement, and SHALL consist only of
@@ -1336,31 +1813,38 @@ export interface DataRequirementCodeFilter {
      */
     valueSet?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * Describes a required data item for evaluation in terms of the type of data, and optional
+ * code or date-based filters of the data.
+ */
 export interface DataRequirement {
     /**
      * Extensions for limit
      */
-    _limit?: any[] | boolean | Element | number | number | null | string;
+    _limit?: Element;
     /**
      * Extensions for mustSupport
      */
-    _mustSupport?: Array<any[] | boolean | Element | number | number | null | string>;
+    _mustSupport?: Element[];
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Code filters specify additional constraints on the data, specifying the value set of
      * interest for a particular element of the data. Each code filter defines an additional
      * constraint on the data, i.e. code filters are AND'ed, not OR'ed.
      */
-    codeFilter?: Array<any[] | boolean | DataRequirementCodeFilter | number | number | null | string>;
+    codeFilter?: DataRequirementCodeFilter[];
     /**
      * Date filters specify additional constraints on the data in terms of the applicable date
      * range for specific elements. Each date filter specifies an additional constraint on the
      * data, i.e. date filters are AND'ed, not OR'ed.
      */
-    dateFilter?: Array<any[] | boolean | DataRequirementDateFilter | number | number | null | string>;
+    dateFilter?: DataRequirementDateFilter[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1368,7 +1852,7 @@ export interface DataRequirement {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1397,44 +1881,52 @@ export interface DataRequirement {
     /**
      * Specifies the order of the results to be returned.
      */
-    sort?: Array<any[] | boolean | DataRequirementSort | number | number | null | string>;
+    sort?: DataRequirementSort[];
     /**
      * The intended subjects of the data requirement. If this element is not provided, a Patient
      * subject is assumed.
      */
-    subjectCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    subjectCodeableConcept?: CodeableConcept;
     /**
      * The intended subjects of the data requirement. If this element is not provided, a Patient
      * subject is assumed.
      */
-    subjectReference?: any[] | boolean | Reference | number | number | null | string;
+    subjectReference?: Reference;
     /**
      * The type of the required data, specified as the type name of a resource. For profiles,
      * this value is set to the type of the base resource of the profile.
      */
     type?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A measured amount (or an amount that can potentially be measured). Note that measured
+ * amounts include amounts that are not precisely quantified, including amounts involving
+ * arbitrary units and floating currencies.
+ */
 export interface Count {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for comparator
      */
-    _comparator?: any[] | boolean | Element | number | number | null | string;
+    _comparator?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for unit
      */
-    _unit?: any[] | boolean | Element | number | number | null | string;
+    _unit?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A computer processable form of the unit in some unit representation system.
      */
@@ -1452,7 +1944,7 @@ export interface Count {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1472,19 +1964,26 @@ export interface Count {
      */
     value?: number;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A contributor to the content of a knowledge asset, including authors, editors, reviewers,
+ * and endorsers.
+ */
 export interface Contributor {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Contact details to assist a user in finding and communicating with the contributor.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1492,7 +1991,7 @@ export interface Contributor {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1507,23 +2006,30 @@ export interface Contributor {
      */
     type?: ContributorType;
 }
+/**
+ * Details for all kinds of technology mediated contact points for a person or organization,
+ * including telephone, email, etc.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ */
 export interface ContactPoint {
     /**
      * Extensions for rank
      */
-    _rank?: any[] | boolean | Element | number | number | null | string;
+    _rank?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1531,7 +2037,7 @@ export interface ContactPoint {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1540,7 +2046,7 @@ export interface ContactPoint {
     /**
      * Time period when the contact point was/is in use.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Specifies a preferred order in which to use a set of contacts. ContactPoints with lower
      * rank values are more preferred than those with higher rank values.
@@ -1561,11 +2067,17 @@ export interface ContactPoint {
      */
     value?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * Specifies contact information for a person or organization.
+ */
 export interface ContactDetail {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1573,7 +2085,7 @@ export interface ContactDetail {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1586,41 +2098,50 @@ export interface ContactDetail {
     /**
      * The contact details for the individual (if a name was provided) or the organization.
      */
-    telecom?: Array<any[] | boolean | ContactPoint | number | number | null | string>;
+    telecom?: ContactPoint[];
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * For referring to data content defined in other formats.
+ *
+ * The document being referenced, represented as an attachment. This is exclusive with the
+ * resource element.
+ */
 export interface Attachment {
     /**
      * Extensions for contentType
      */
-    _contentType?: any[] | boolean | Element | number | number | null | string;
+    _contentType?: Element;
     /**
      * Extensions for creation
      */
-    _creation?: any[] | boolean | Element | number | number | null | string;
+    _creation?: Element;
     /**
      * Extensions for data
      */
-    _data?: any[] | boolean | Element | number | number | null | string;
+    _data?: Element;
     /**
      * Extensions for hash
      */
-    _hash?: any[] | boolean | Element | number | number | null | string;
+    _hash?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for size
      */
-    _size?: any[] | boolean | Element | number | number | null | string;
+    _size?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Identifies the type of the data in the attachment and allows a method to be chosen to
      * interpret or render the data. Includes mime type parameters such as charset where
@@ -1642,7 +2163,7 @@ export interface Attachment {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The calculated hash of the data using SHA-1. Represented using base64.
      */
@@ -1670,27 +2191,35 @@ export interface Attachment {
      */
     url?: string;
 }
+/**
+ * A reference to a code defined by a terminology system.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A code that identifies the type of context being specified by this usage context.
+ */
 export interface Coding {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for display
      */
-    _display?: any[] | boolean | Element | number | number | null | string;
+    _display?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for userSelected
      */
-    _userSelected?: any[] | boolean | Element | number | number | null | string;
+    _userSelected?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * A symbol in syntax defined by the system. The symbol may be a predefined code or an
      * expression in a syntax defined by the coding system (e.g. post-coordination).
@@ -1708,7 +2237,7 @@ export interface Coding {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1731,15 +2260,52 @@ export interface Coding {
      */
     version?: string;
 }
+/**
+ * A coded type for the identifier that can be used to determine which identifier to use for
+ * a specific purpose.
+ *
+ * A concept that may be defined by a formal reference to a terminology or ontology or may
+ * be provided by text.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * The intended subjects of the data requirement. If this element is not provided, a Patient
+ * subject is assumed.
+ *
+ * Indicates whether the Medication is only taken when needed within a specific dosing
+ * schedule (Boolean option), or it indicates the precondition for taking the Medication
+ * (CodeableConcept).
+ *
+ * The kind of dose or rate specified, for example, ordered or calculated.
+ *
+ * Technique for administering medication.
+ *
+ * How drug should enter body.
+ *
+ * Body site to administer to.
+ *
+ * A code for the timing schedule (or just text in code.text). Some codes such as BID are
+ * ubiquitous, but many institutions define their own additional codes. If a code is
+ * provided, the code is understood to be a complete statement of whatever is specified in
+ * the structured timing data, and either the code or the data may be used to interpret the
+ * Timing, with the exception that .repeat.bounds still applies over the code (and is not
+ * contained in the code).
+ *
+ * A value that defines the context specified in this context of use. The interpretation of
+ * the value is defined by the code.
+ *
+ * Categorizes the account for reporting and searching purposes.
+ */
 export interface CodeableConcept {
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * A reference to a code defined by a terminology system.
      */
-    coding?: Array<any[] | boolean | Coding | number | number | null | string>;
+    coding?: Coding[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1747,7 +2313,7 @@ export interface CodeableConcept {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1759,23 +2325,39 @@ export interface CodeableConcept {
      */
     text?: string;
 }
+/**
+ * An identifier for the target resource. This is used when there is no way to reference the
+ * other resource directly, either because the entity it represents is not available through
+ * a FHIR server, or because there is no way for the author of the resource to convert a
+ * known identifier to an actual location. There is no requirement that a
+ * Reference.identifier point to something that is actually exposed as a FHIR instance, but
+ * it SHALL point to a business concept that would be expected to be exposed as a FHIR
+ * instance, and that instance would need to be of a FHIR resource type allowed by the
+ * reference.
+ *
+ * An identifier - identifies some entity uniquely and unambiguously. Typically this is used
+ * for business identifiers.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ */
 export interface Identifier {
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * Organization that issued/manages the identifier.
      */
-    assigner?: any[] | boolean | Reference | number | number | null | string;
+    assigner?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1783,7 +2365,7 @@ export interface Identifier {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1792,7 +2374,7 @@ export interface Identifier {
     /**
      * Time period during which identifier is/was valid for use.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Establishes the namespace for the value - that is, a URL that describes a set values that
      * are unique.
@@ -1802,7 +2384,7 @@ export interface Identifier {
      * A coded type for the identifier that can be used to determine which identifier to use for
      * a specific purpose.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The purpose of this identifier.
      */
@@ -1813,19 +2395,56 @@ export interface Identifier {
      */
     value?: string;
 }
+/**
+ * The individual responsible for making the annotation.
+ *
+ * A reference from one resource to another.
+ *
+ * Organization that issued/manages the identifier.
+ *
+ * The intended subjects of the data requirement. If this element is not provided, a Patient
+ * subject is assumed.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A reference to an application-usable description of the identity that is represented by
+ * the signature.
+ *
+ * A reference to an application-usable description of the identity that signed  (e.g. the
+ * signature used their private key).
+ *
+ * The timing of the event (if this is a periodic trigger).
+ *
+ * A value that defines the context specified in this context of use. The interpretation of
+ * the value is defined by the code.
+ *
+ * The party(s) that contribute to payment (or part of) of the charges applied to this
+ * account (including self-pay).
+ *
+ * A coverage may only be responsible for specific types of charges, and the sequence of the
+ * coverages in the account could be important when processing billing.
+ *
+ * The entity who is responsible.
+ *
+ * Indicates the service area, hospital, department, etc. with responsibility for managing
+ * the Account.
+ *
+ * Reference to a parent Account.
+ */
 export interface Reference {
     /**
      * Extensions for display
      */
-    _display?: any[] | boolean | Element | number | number | null | string;
+    _display?: Element;
     /**
      * Extensions for reference
      */
-    _reference?: any[] | boolean | Element | number | number | null | string;
+    _reference?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Plain text narrative that identifies the resource in addition to the resource reference.
      */
@@ -1837,7 +2456,7 @@ export interface Reference {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1853,7 +2472,7 @@ export interface Reference {
      * instance, and that instance would need to be of a FHIR resource type allowed by the
      * reference.
      */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
+    identifier?: Identifier;
     /**
      * A reference to a location at which the other resource is found. The reference may be a
      * relative reference, in which case it is relative to the service base URL, or an absolute
@@ -1876,23 +2495,29 @@ export interface Reference {
      */
     type?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A  text note which also  contains information about who made the statement and when.
+ */
 export interface Annotation {
     /**
      * Extensions for authorString
      */
-    _authorString?: any[] | boolean | Element | number | number | null | string;
+    _authorString?: Element;
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Extensions for time
      */
-    _time?: any[] | boolean | Element | number | number | null | string;
+    _time?: Element;
     /**
      * The individual responsible for making the annotation.
      */
-    authorReference?: any[] | boolean | Reference | number | number | null | string;
+    authorReference?: Reference;
     /**
      * The individual responsible for making the annotation.
      */
@@ -1904,7 +2529,7 @@ export interface Annotation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1919,27 +2544,33 @@ export interface Annotation {
      */
     time?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * A duration of time during which an organism (or a process) has existed.
+ */
 export interface Age {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for comparator
      */
-    _comparator?: any[] | boolean | Element | number | number | null | string;
+    _comparator?: Element;
     /**
      * Extensions for system
      */
-    _system?: any[] | boolean | Element | number | number | null | string;
+    _system?: Element;
     /**
      * Extensions for unit
      */
-    _unit?: any[] | boolean | Element | number | number | null | string;
+    _unit?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * A computer processable form of the unit in some unit representation system.
      */
@@ -1957,7 +2588,7 @@ export interface Age {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1977,15 +2608,42 @@ export interface Age {
      */
     value?: number;
 }
+/**
+ * Time period when address was/is in use.
+ *
+ * A time period defined by a start and end date and optionally time.
+ *
+ * Time period during which identifier is/was valid for use.
+ *
+ * Time period when the contact point was/is in use.
+ *
+ * The value of the filter. If period is specified, the filter will return only those data
+ * items that fall within the bounds determined by the Period, inclusive of the period
+ * boundaries. If dateTime is specified, the filter will return only those data items that
+ * are equal to the specified dateTime. If a Duration is specified, the filter will return
+ * only those data items that fall within Duration before now.
+ *
+ * Either a duration for the length of the timing schedule, a range of possible length, or
+ * outer bounds for start and/or end limits of the timing schedule.
+ *
+ * Indicates the period of time when this name was valid for the named person.
+ *
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * The timeframe during which the guarantor accepts responsibility for the account.
+ *
+ * The date range of services associated with this account.
+ */
 export interface Period {
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * The end of the period. If the end of the period is missing, it means no end was known or
      * planned at the time the instance was created. The start may be in the past, and the end
@@ -1999,7 +2657,7 @@ export interface Period {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2010,43 +2668,52 @@ export interface Period {
      */
     start?: string;
 }
+/**
+ * Value of extension - must be one of a constrained set of the data types (see
+ * [Extensibility](extensibility.html) for a list).
+ *
+ * An address expressed using postal conventions (as opposed to GPS or other location
+ * definition formats).  This data type may be used to convey addresses for use in
+ * delivering mail as well as for visiting locations which might not be valid for mail
+ * delivery.  There are a variety of postal address formats defined around the world.
+ */
 export interface Address {
     /**
      * Extensions for city
      */
-    _city?: any[] | boolean | Element | number | number | null | string;
+    _city?: Element;
     /**
      * Extensions for country
      */
-    _country?: any[] | boolean | Element | number | number | null | string;
+    _country?: Element;
     /**
      * Extensions for district
      */
-    _district?: any[] | boolean | Element | number | number | null | string;
+    _district?: Element;
     /**
      * Extensions for line
      */
-    _line?: Array<any[] | boolean | Element | number | number | null | string>;
+    _line?: Element[];
     /**
      * Extensions for postalCode
      */
-    _postalCode?: any[] | boolean | Element | number | number | null | string;
+    _postalCode?: Element;
     /**
      * Extensions for state
      */
-    _state?: any[] | boolean | Element | number | number | null | string;
+    _state?: Element;
     /**
      * Extensions for text
      */
-    _text?: any[] | boolean | Element | number | number | null | string;
+    _text?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * The name of the city, town, suburb, village or other community or delivery center.
      */
@@ -2066,7 +2733,7 @@ export interface Address {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2080,7 +2747,7 @@ export interface Address {
     /**
      * Time period when address was/is in use.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * A postal code designating a region defined by the postal service.
      */
@@ -2105,87 +2772,90 @@ export interface Address {
      */
     use?: AddressUse;
 }
+/**
+ * Optional Extension Element - found in all resources.
+ */
 export interface Extension {
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for valueBase64Binary
      */
-    _valueBase64Binary?: any[] | boolean | Element | number | number | null | string;
+    _valueBase64Binary?: Element;
     /**
      * Extensions for valueBoolean
      */
-    _valueBoolean?: any[] | boolean | Element | number | number | null | string;
+    _valueBoolean?: Element;
     /**
      * Extensions for valueCanonical
      */
-    _valueCanonical?: any[] | boolean | Element | number | number | null | string;
+    _valueCanonical?: Element;
     /**
      * Extensions for valueCode
      */
-    _valueCode?: any[] | boolean | Element | number | number | null | string;
+    _valueCode?: Element;
     /**
      * Extensions for valueDate
      */
-    _valueDate?: any[] | boolean | Element | number | number | null | string;
+    _valueDate?: Element;
     /**
      * Extensions for valueDateTime
      */
-    _valueDateTime?: any[] | boolean | Element | number | number | null | string;
+    _valueDateTime?: Element;
     /**
      * Extensions for valueDecimal
      */
-    _valueDecimal?: any[] | boolean | Element | number | number | null | string;
+    _valueDecimal?: Element;
     /**
      * Extensions for valueId
      */
-    _valueId?: any[] | boolean | Element | number | number | null | string;
+    _valueId?: Element;
     /**
      * Extensions for valueInstant
      */
-    _valueInstant?: any[] | boolean | Element | number | number | null | string;
+    _valueInstant?: Element;
     /**
      * Extensions for valueInteger
      */
-    _valueInteger?: any[] | boolean | Element | number | number | null | string;
+    _valueInteger?: Element;
     /**
      * Extensions for valueMarkdown
      */
-    _valueMarkdown?: any[] | boolean | Element | number | number | null | string;
+    _valueMarkdown?: Element;
     /**
      * Extensions for valueOid
      */
-    _valueOid?: any[] | boolean | Element | number | number | null | string;
+    _valueOid?: Element;
     /**
      * Extensions for valuePositiveInt
      */
-    _valuePositiveInt?: any[] | boolean | Element | number | number | null | string;
+    _valuePositiveInt?: Element;
     /**
      * Extensions for valueString
      */
-    _valueString?: any[] | boolean | Element | number | number | null | string;
+    _valueString?: Element;
     /**
      * Extensions for valueTime
      */
-    _valueTime?: any[] | boolean | Element | number | number | null | string;
+    _valueTime?: Element;
     /**
      * Extensions for valueUnsignedInt
      */
-    _valueUnsignedInt?: any[] | boolean | Element | number | number | null | string;
+    _valueUnsignedInt?: Element;
     /**
      * Extensions for valueUri
      */
-    _valueUri?: any[] | boolean | Element | number | number | null | string;
+    _valueUri?: Element;
     /**
      * Extensions for valueUrl
      */
-    _valueUrl?: any[] | boolean | Element | number | number | null | string;
+    _valueUrl?: Element;
     /**
      * Extensions for valueUuid
      */
-    _valueUuid?: any[] | boolean | Element | number | number | null | string;
+    _valueUuid?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -2193,7 +2863,7 @@ export interface Extension {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2207,22 +2877,22 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueAddress?: any[] | boolean | Address | number | number | null | string;
+    valueAddress?: Address;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueAge?: any[] | boolean | Age | number | number | null | string;
+    valueAge?: Age;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueAnnotation?: any[] | boolean | Annotation | number | number | null | string;
+    valueAnnotation?: Annotation;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    valueAttachment?: Attachment;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2247,37 +2917,37 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueCoding?: any[] | boolean | Coding | number | number | null | string;
+    valueCoding?: Coding;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueContactDetail?: any[] | boolean | ContactDetail | number | number | null | string;
+    valueContactDetail?: ContactDetail;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueContactPoint?: any[] | boolean | ContactPoint | number | number | null | string;
+    valueContactPoint?: ContactPoint;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueContributor?: any[] | boolean | Contributor | number | number | null | string;
+    valueContributor?: Contributor;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueCount?: any[] | boolean | Count | number | number | null | string;
+    valueCount?: Count;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueDataRequirement?: any[] | boolean | DataRequirement | number | number | null | string;
+    valueDataRequirement?: DataRequirement;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2297,27 +2967,27 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueDistance?: any[] | boolean | Distance | number | number | null | string;
+    valueDistance?: Distance;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueDosage?: any[] | boolean | Dosage | number | number | null | string;
+    valueDosage?: Dosage;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueDuration?: any[] | boolean | Duration | number | number | null | string;
+    valueDuration?: Duration;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueExpression?: any[] | boolean | Expression | number | number | null | string;
+    valueExpression?: Expression;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueHumanName?: any[] | boolean | HumanName | number | number | null | string;
+    valueHumanName?: HumanName;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2327,7 +2997,7 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    valueIdentifier?: Identifier;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2347,7 +3017,7 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueMoney?: any[] | boolean | Money | number | number | null | string;
+    valueMoney?: Money;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2357,12 +3027,12 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueParameterDefinition?: any[] | boolean | ParameterDefinition | number | number | null | string;
+    valueParameterDefinition?: ParameterDefinition;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valuePeriod?: any[] | boolean | Period | number | number | null | string;
+    valuePeriod?: Period;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2372,37 +3042,37 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    valueQuantity?: Quantity;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueRange?: any[] | boolean | Range | number | number | null | string;
+    valueRange?: Range;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueRatio?: any[] | boolean | Ratio | number | number | null | string;
+    valueRatio?: Ratio;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueReference?: any[] | boolean | Reference | number | number | null | string;
+    valueReference?: Reference;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueRelatedArtifact?: any[] | boolean | RelatedArtifact | number | number | null | string;
+    valueRelatedArtifact?: RelatedArtifact;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueSampledData?: any[] | boolean | SampledData | number | number | null | string;
+    valueSampledData?: SampledData;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueSignature?: any[] | boolean | Signature | number | number | null | string;
+    valueSignature?: Signature;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2417,12 +3087,12 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueTiming?: any[] | boolean | Timing | number | number | null | string;
+    valueTiming?: Timing;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueTriggerDefinition?: any[] | boolean | TriggerDefinition | number | number | null | string;
+    valueTriggerDefinition?: TriggerDefinition;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
@@ -2442,13 +3112,202 @@ export interface Extension {
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
-    valueUsageContext?: any[] | boolean | UsageContext | number | number | null | string;
+    valueUsageContext?: UsageContext;
     /**
      * Value of extension - must be one of a constrained set of the data types (see
      * [Extensibility](extensibility.html) for a list).
      */
     valueUuid?: string;
 }
+/**
+ * Extensions for description
+ *
+ * Base definition for all elements in a resource.
+ *
+ * Extensions for url
+ *
+ * Extensions for valueBase64Binary
+ *
+ * Extensions for valueBoolean
+ *
+ * Extensions for valueCanonical
+ *
+ * Extensions for valueCode
+ *
+ * Extensions for valueDate
+ *
+ * Extensions for valueDateTime
+ *
+ * Extensions for valueDecimal
+ *
+ * Extensions for valueId
+ *
+ * Extensions for valueInstant
+ *
+ * Extensions for valueInteger
+ *
+ * Extensions for valueMarkdown
+ *
+ * Extensions for valueOid
+ *
+ * Extensions for valuePositiveInt
+ *
+ * Extensions for valueString
+ *
+ * Extensions for valueTime
+ *
+ * Extensions for valueUnsignedInt
+ *
+ * Extensions for valueUri
+ *
+ * Extensions for valueUrl
+ *
+ * Extensions for valueUuid
+ *
+ * Extensions for city
+ *
+ * Extensions for country
+ *
+ * Extensions for district
+ *
+ * Extensions for postalCode
+ *
+ * Extensions for state
+ *
+ * Extensions for text
+ *
+ * Extensions for type
+ *
+ * Extensions for use
+ *
+ * Extensions for end
+ *
+ * Extensions for start
+ *
+ * Extensions for code
+ *
+ * Extensions for comparator
+ *
+ * Extensions for system
+ *
+ * Extensions for unit
+ *
+ * Extensions for value
+ *
+ * Extensions for authorString
+ *
+ * Extensions for time
+ *
+ * Extensions for display
+ *
+ * Extensions for reference
+ *
+ * Extensions for userSelected
+ *
+ * Extensions for version
+ *
+ * Extensions for contentType
+ *
+ * Extensions for creation
+ *
+ * Extensions for data
+ *
+ * Extensions for hash
+ *
+ * Extensions for language
+ *
+ * Extensions for size
+ *
+ * Extensions for title
+ *
+ * Extensions for name
+ *
+ * Extensions for rank
+ *
+ * Extensions for limit
+ *
+ * Extensions for path
+ *
+ * Extensions for searchParam
+ *
+ * Extensions for direction
+ *
+ * Extensions for asNeededBoolean
+ *
+ * Extensions for patientInstruction
+ *
+ * Extensions for sequence
+ *
+ * Extensions for count
+ *
+ * Extensions for countMax
+ *
+ * Extensions for duration
+ *
+ * Extensions for durationMax
+ *
+ * Extensions for durationUnit
+ *
+ * Extensions for frequency
+ *
+ * Extensions for frequencyMax
+ *
+ * Extensions for offset
+ *
+ * Extensions for period
+ *
+ * Extensions for periodMax
+ *
+ * Extensions for periodUnit
+ *
+ * Extensions for expression
+ *
+ * Extensions for family
+ *
+ * Extensions for currency
+ *
+ * Extensions for documentation
+ *
+ * Extensions for max
+ *
+ * Extensions for min
+ *
+ * Extensions for citation
+ *
+ * Extensions for label
+ *
+ * Extensions for dimensions
+ *
+ * Extensions for factor
+ *
+ * Extensions for lowerLimit
+ *
+ * Extensions for upperLimit
+ *
+ * Extensions for sigFormat
+ *
+ * Extensions for targetFormat
+ *
+ * Extensions for when
+ *
+ * Extensions for timingDate
+ *
+ * Extensions for timingDateTime
+ *
+ * Extensions for implicitRules
+ *
+ * Extensions for status
+ *
+ * Extensions for priority
+ *
+ * Extensions for onHold
+ *
+ * Extensions for lastUpdated
+ *
+ * Extensions for source
+ *
+ * Extensions for versionId
+ */
 export interface Element {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -2457,7 +3316,7 @@ export interface Element {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2589,8 +3448,8 @@ export declare enum System {
     Other = "other",
     Pager = "pager",
     Phone = "phone",
-    SMS = "sms",
-    URL = "url"
+    Sms = "sms",
+    Url = "url"
 }
 /**
  * Identifies the purpose for the contact point.
@@ -2631,19 +3490,28 @@ export declare enum AddressUse {
     Temp = "temp",
     Work = "work"
 }
+/**
+ * The metadata about the resource. This is content that is maintained by the
+ * infrastructure. Changes to the content might not always be associated with version
+ * changes to the resource.
+ *
+ * The metadata about a resource. This is content in the resource that is maintained by the
+ * infrastructure. Changes to the content might not always be associated with version
+ * changes to the resource.
+ */
 export interface Meta {
     /**
      * Extensions for lastUpdated
      */
-    _lastUpdated?: any[] | boolean | Element | number | number | null | string;
+    _lastUpdated?: Element;
     /**
      * Extensions for source
      */
-    _source?: any[] | boolean | Element | number | number | null | string;
+    _source?: Element;
     /**
      * Extensions for versionId
      */
-    _versionId?: any[] | boolean | Element | number | number | null | string;
+    _versionId?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -2651,7 +3519,7 @@ export interface Meta {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2670,7 +3538,7 @@ export interface Meta {
      * Security labels applied to this resource. These tags connect specific resources to the
      * overall security policy and infrastructure.
      */
-    security?: Array<any[] | boolean | Coding | number | number | null | string>;
+    security?: Coding[];
     /**
      * A uri that identifies the source system of the resource. This provides a minimal amount
      * of [[[Provenance]]] information that can be used to track or differentiate the source of
@@ -2683,22 +3551,32 @@ export interface Meta {
      * resources to process and workflow, and applications are not required to consider the tags
      * when interpreting the meaning of a resource.
      */
-    tag?: Array<any[] | boolean | Coding | number | number | null | string>;
+    tag?: Coding[];
     /**
      * The version specific identifier, as it appears in the version portion of the URL. This
      * value changes when the resource is created, updated, or deleted.
      */
     versionId?: string;
 }
+/**
+ * A human-readable narrative that contains a summary of the resource and can be used to
+ * represent the content of the resource to a human. The narrative need not encode all the
+ * structured data, but is required to contain sufficient detail to make it "clinically
+ * safe" for a human to just read the narrative. Resource definitions may define what
+ * content should be represented in the narrative to ensure clinical safety.
+ *
+ * A human-readable summary of the resource conveying the essential clinical and business
+ * information for the resource.
+ */
 export interface Narrative {
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * The actual narrative content, a stripped down version of XHTML.
      */
-    div: any;
+    div?: any;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -2706,7 +3584,7 @@ export interface Narrative {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -2716,13 +3594,13 @@ export interface Narrative {
      * The status of the narrative - whether it's entirely generated (from just the defined data
      * or the extensions too), or whether a human authored it and it may contain additional data.
      */
-    status?: NarrativeStatus;
+    status?: Status;
 }
 /**
  * The status of the narrative - whether it's entirely generated (from just the defined data
  * or the extensions too), or whether a human authored it and it may contain additional data.
  */
-export declare enum NarrativeStatus {
+export declare enum Status {
     Additional = "additional",
     Empty = "empty",
     Extensions = "extensions",

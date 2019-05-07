@@ -1,23 +1,23 @@
 import { I4MIBundle, I4MIInterfaceToMapResource } from '../src';
-import { FhirBundleType, Method } from '../src/definition/version4.0.0/fhir.Bundle';
-import { Observation } from '../src/definition/version4.0.0/fhir.Observation';
-import { CodeableConcept } from '../src/definition/version4.0.0/fhir._'  
+import { BundleType, Method } from '../src/definition/v4.0.0/fhir.Bundle';
+import { Observation } from '../src/definition/v4.0.0/fhir.Observation';
+import { CodeableConcept } from '../src/definition/v4.0.0/fhir._'  
 
 test('CreateBundle', () => {
-    let bundleType: FhirBundleType = FhirBundleType.Transaction;
+    let bundleType: BundleType = BundleType.Transaction;
     let bundle = new I4MIBundle(bundleType);
         
     expect(bundle.type).toBe(bundleType);
 });
 
 test('AddEntryToBundle', () => {
-    let bundleType: FhirBundleType = FhirBundleType.Transaction;
+    let bundleType: BundleType = BundleType.Transaction;
     let bundle = new I4MIBundle(bundleType);
     
     expect(bundle.type).toBe(bundleType);
     
     let observationCode: CodeableConcept = {
-        coding: ['CodeX'],
+        coding: [ {code: 'CodeX' }],
         text: 'CodeX'
     }
 
@@ -51,13 +51,13 @@ test('AddEntryToBundle', () => {
 
 
 test('AddEntryWithIdToBundle', () => {
-    let bundleType: FhirBundleType = FhirBundleType.Transaction;
+    let bundleType: BundleType = BundleType.Transaction;
     let bundle = new I4MIBundle(bundleType);
     
     expect(bundle.type).toBe(bundleType);
     
     let observationCode: CodeableConcept = {
-        coding: ['CodeX'],
+        coding: [ {code: 'CodeX' }],
         text: 'CodeX'
     }
 
@@ -79,13 +79,13 @@ test('AddEntryWithIdToBundle', () => {
 
 
 test('AddEntryAlreadyDefinedIdToBundle', () => {
-    let bundleType: FhirBundleType = FhirBundleType.Transaction;
+    let bundleType: BundleType = BundleType.Transaction;
     let bundle = new I4MIBundle(bundleType);
     
     expect(bundle.type).toBe(bundleType);
     
     let observationCode: CodeableConcept = {
-        coding: ['CodeX'],
+        coding: [ {code: 'CodeX' }],
         text: 'CodeX'
     }
 
@@ -129,13 +129,13 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
 });
 
 test('RemoveEntryFromBundle', () => {
-    let bundleType: FhirBundleType = FhirBundleType.Transaction;
+    let bundleType: BundleType = BundleType.Transaction;
     let bundle = new I4MIBundle(bundleType);
     
     expect(bundle.type).toBe(bundleType);
     
     let observationCode: CodeableConcept = {
-        coding: ['CodeX'],
+        coding: [ {code: 'CodeX' }],
         text: 'CodeX'
     }
 

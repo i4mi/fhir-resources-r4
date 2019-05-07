@@ -3,42 +3,42 @@ export interface DocumentManifest {
     /**
      * Extensions for created
      */
-    _created?: any[] | boolean | Element | number | number | null | string;
+    _created?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for source
      */
-    _source?: any[] | boolean | Element | number | number | null | string;
+    _source?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Identifies who is the author of the manifest. Manifest author is not necessarly the
      * author of the references included.
      */
-    author?: Array<any[] | boolean | Reference | number | number | null | string>;
+    author?: Reference[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | DocumentManifest | number | null | string>;
+    contained?: DocumentManifest[];
     /**
      * The list of Resources that consist of the parts of this manifest.
      */
-    content: Array<any[] | boolean | Reference | number | number | null | string>;
+    content?: Reference[];
     /**
      * When the document manifest was created for submission to the server (not necessarily the
      * same thing as the actual resource last modified time, since it may be modified,
@@ -56,7 +56,7 @@ export interface DocumentManifest {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -66,7 +66,7 @@ export interface DocumentManifest {
      * Other identifiers associated with the document manifest, including version independent
      * identifiers.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -81,13 +81,13 @@ export interface DocumentManifest {
      * A single identifier that uniquely identifies this manifest. Principally used to refer to
      * the manifest in non-FHIR contexts.
      */
-    masterIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    masterIdentifier?: Identifier;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -101,19 +101,19 @@ export interface DocumentManifest {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A patient, practitioner, or organization for which this set of documents is intended.
      */
-    recipient?: Array<any[] | boolean | Reference | number | number | null | string>;
+    recipient?: Reference[];
     /**
      * Related identifiers or resources associated with the DocumentManifest.
      */
-    related?: Array<any[] | boolean | DocumentManifestRelated | number | number | null | string>;
+    related?: DocumentManifestRelated[];
     /**
      * This is a DocumentManifest resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Identifies the source system, application, or software that produced the document
      * manifest.
@@ -122,7 +122,7 @@ export interface DocumentManifest {
     /**
      * The status of this document manifest.
      */
-    status?: FhirDocumentManifestStatus;
+    status?: DocumentManifestStatus;
     /**
      * Who or what the set of documents is about. The documents can be about a person, (patient
      * or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as
@@ -130,7 +130,7 @@ export interface DocumentManifest {
      * exposure). If the documents cross more than one subject, then more than one subject is
      * allowed here (unusual use case).
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -138,13 +138,17 @@ export interface DocumentManifest {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The code specifying the type of clinical activity that resulted in placing the associated
      * content into the DocumentManifest.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * A collection of documents compiled for a purpose together with metadata that applies to
+ * the collection.
+ */
 export interface DocumentManifestRelated {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -153,7 +157,7 @@ export interface DocumentManifestRelated {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -163,7 +167,7 @@ export interface DocumentManifestRelated {
      * Related identifier to this DocumentManifest.  For example, Order numbers, accession
      * numbers, XDW workflow numbers.
      */
-    identifier?: any[] | boolean | Identifier | number | number | null | string;
+    identifier?: Identifier;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -177,17 +181,17 @@ export interface DocumentManifestRelated {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Related Resource to this DocumentManifest. For example, Order, ServiceRequest,
      * Procedure, EligibilityRequest, etc.
      */
-    ref?: any[] | boolean | Reference | number | number | null | string;
+    ref?: Reference;
 }
 /**
  * The status of this document manifest.
  */
-export declare enum FhirDocumentManifestStatus {
+export declare enum DocumentManifestStatus {
     Current = "current",
     EnteredInError = "entered-in-error",
     Superseded = "superseded"

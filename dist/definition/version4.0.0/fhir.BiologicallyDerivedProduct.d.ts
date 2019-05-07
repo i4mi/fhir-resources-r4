@@ -3,33 +3,33 @@ export interface BiologicallyDerivedProduct {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for productCategory
      */
-    _productCategory?: any[] | boolean | Element | number | number | null | string;
+    _productCategory?: Element;
     /**
      * Extensions for quantity
      */
-    _quantity?: any[] | boolean | Element | number | number | null | string;
+    _quantity?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * How this product was collected.
      */
-    collection?: any[] | boolean | BiologicallyDerivedProductCollection | number | number | null | string;
+    collection?: BiologicallyDerivedProductCollection;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | BiologicallyDerivedProduct | number | null | string>;
+    contained?: BiologicallyDerivedProduct[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -37,7 +37,7 @@ export interface BiologicallyDerivedProduct {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -49,7 +49,7 @@ export interface BiologicallyDerivedProduct {
      * to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed
      * documentation).
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -65,13 +65,13 @@ export interface BiologicallyDerivedProduct {
      * example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make
      * it more suitable for infusion.
      */
-    manipulation?: any[] | boolean | BiologicallyDerivedProductManipulation | number | number | null | string;
+    manipulation?: BiologicallyDerivedProductManipulation;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -85,17 +85,17 @@ export interface BiologicallyDerivedProduct {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Parent product (if any).
      */
-    parent?: Array<any[] | boolean | Reference | number | number | null | string>;
+    parent?: Reference[];
     /**
      * Any processing of the product during collection that does not change the fundamental
      * nature of the product. For example adding anti-coagulants during the collection of
      * Peripheral Blood Stem Cells.
      */
-    processing?: Array<any[] | boolean | BiologicallyDerivedProductProcessing | number | number | null | string>;
+    processing?: BiologicallyDerivedProductProcessing[];
     /**
      * Broad category of this product.
      */
@@ -103,7 +103,7 @@ export interface BiologicallyDerivedProduct {
     /**
      * A code that identifies the kind of this biologically derived product (SNOMED Ctcode).
      */
-    productCode?: any[] | boolean | CodeableConcept | number | number | null | string;
+    productCode?: CodeableConcept;
     /**
      * Number of discrete units within this product.
      */
@@ -111,19 +111,19 @@ export interface BiologicallyDerivedProduct {
     /**
      * Procedure request to obtain this biologically derived product.
      */
-    request?: Array<any[] | boolean | Reference | number | number | null | string>;
+    request?: Reference[];
     /**
      * This is a BiologicallyDerivedProduct resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Whether the product is currently available.
      */
-    status?: FhirBiologicallyDerivedProductStatus;
+    status?: BiologicallyDerivedProductStatus;
     /**
      * Product storage.
      */
-    storage?: Array<any[] | boolean | BiologicallyDerivedProductStorage | number | number | null | string>;
+    storage?: BiologicallyDerivedProductStorage[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -131,13 +131,20 @@ export interface BiologicallyDerivedProduct {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
+/**
+ * How this product was collected.
+ *
+ * A material substance originating from a biological entity intended to be transplanted or
+ * infused
+ * into another (possibly the same) biological entity.
+ */
 export interface BiologicallyDerivedProductCollection {
     /**
      * Extensions for collectedDateTime
      */
-    _collectedDateTime?: any[] | boolean | Element | number | number | null | string;
+    _collectedDateTime?: Element;
     /**
      * Time of product collection.
      */
@@ -145,11 +152,11 @@ export interface BiologicallyDerivedProductCollection {
     /**
      * Time of product collection.
      */
-    collectedPeriod?: any[] | boolean | Period | number | number | null | string;
+    collectedPeriod?: Period;
     /**
      * Healthcare professional who is performing the collection.
      */
-    collector?: any[] | boolean | Reference | number | number | null | string;
+    collector?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -157,7 +164,7 @@ export interface BiologicallyDerivedProductCollection {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -176,22 +183,31 @@ export interface BiologicallyDerivedProductCollection {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The patient or entity, such as a hospital or vendor in the case of a
      * processed/manipulated/manufactured product, providing the product.
      */
-    source?: any[] | boolean | Reference | number | number | null | string;
+    source?: Reference;
 }
+/**
+ * Any manipulation of product post-collection that is intended to alter the product.  For
+ * example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make
+ * it more suitable for infusion.
+ *
+ * A material substance originating from a biological entity intended to be transplanted or
+ * infused
+ * into another (possibly the same) biological entity.
+ */
 export interface BiologicallyDerivedProductManipulation {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for timeDateTime
      */
-    _timeDateTime?: any[] | boolean | Element | number | number | null | string;
+    _timeDateTime?: Element;
     /**
      * Description of manipulation.
      */
@@ -203,7 +219,7 @@ export interface BiologicallyDerivedProductManipulation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -222,7 +238,7 @@ export interface BiologicallyDerivedProductManipulation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Time of manipulation.
      */
@@ -230,21 +246,26 @@ export interface BiologicallyDerivedProductManipulation {
     /**
      * Time of manipulation.
      */
-    timePeriod?: any[] | boolean | Period | number | number | null | string;
+    timePeriod?: Period;
 }
+/**
+ * A material substance originating from a biological entity intended to be transplanted or
+ * infused
+ * into another (possibly the same) biological entity.
+ */
 export interface BiologicallyDerivedProductProcessing {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for timeDateTime
      */
-    _timeDateTime?: any[] | boolean | Element | number | number | null | string;
+    _timeDateTime?: Element;
     /**
      * Substance added during processing.
      */
-    additive?: any[] | boolean | Reference | number | number | null | string;
+    additive?: Reference;
     /**
      * Description of of processing.
      */
@@ -256,7 +277,7 @@ export interface BiologicallyDerivedProductProcessing {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -275,11 +296,11 @@ export interface BiologicallyDerivedProductProcessing {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Procesing code.
      */
-    procedure?: any[] | boolean | CodeableConcept | number | number | null | string;
+    procedure?: CodeableConcept;
     /**
      * Time of processing.
      */
@@ -287,7 +308,7 @@ export interface BiologicallyDerivedProductProcessing {
     /**
      * Time of processing.
      */
-    timePeriod?: any[] | boolean | Period | number | number | null | string;
+    timePeriod?: Period;
 }
 /**
  * Broad category of this product.
@@ -302,23 +323,28 @@ export declare enum ProductCategory {
 /**
  * Whether the product is currently available.
  */
-export declare enum FhirBiologicallyDerivedProductStatus {
+export declare enum BiologicallyDerivedProductStatus {
     Available = "available",
     Unavailable = "unavailable"
 }
+/**
+ * A material substance originating from a biological entity intended to be transplanted or
+ * infused
+ * into another (possibly the same) biological entity.
+ */
 export interface BiologicallyDerivedProductStorage {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for scale
      */
-    _scale?: any[] | boolean | Element | number | number | null | string;
+    _scale?: Element;
     /**
      * Extensions for temperature
      */
-    _temperature?: any[] | boolean | Element | number | number | null | string;
+    _temperature?: Element;
     /**
      * Description of storage.
      */
@@ -326,7 +352,7 @@ export interface BiologicallyDerivedProductStorage {
     /**
      * Storage timeperiod.
      */
-    duration?: any[] | boolean | Period | number | number | null | string;
+    duration?: Period;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -334,7 +360,7 @@ export interface BiologicallyDerivedProductStorage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -353,7 +379,7 @@ export interface BiologicallyDerivedProductStorage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Temperature scale used.
      */

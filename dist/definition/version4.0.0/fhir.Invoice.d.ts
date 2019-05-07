@@ -3,31 +3,31 @@ export interface Invoice {
     /**
      * Extensions for cancelledReason
      */
-    _cancelledReason?: any[] | boolean | Element | number | number | null | string;
+    _cancelledReason?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for paymentTerms
      */
-    _paymentTerms?: any[] | boolean | Element | number | number | null | string;
+    _paymentTerms?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Account which is supposed to be balanced with this Invoice.
      */
-    account?: any[] | boolean | Reference | number | number | null | string;
+    account?: Reference;
     /**
      * In case of Invoice cancellation a reason must be given (entered in error, superseded by
      * corrected invoice etc.).
@@ -38,7 +38,7 @@ export interface Invoice {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Invoice | number | null | string>;
+    contained?: Invoice[];
     /**
      * Date/time(s) of when this Invoice was posted.
      */
@@ -50,7 +50,7 @@ export interface Invoice {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -60,7 +60,7 @@ export interface Invoice {
      * Identifier of this Invoice, often used for reference in correspondence about this invoice
      * or for tracking of payments.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -70,7 +70,7 @@ export interface Invoice {
     /**
      * The organizationissuing the Invoice.
      */
-    issuer?: any[] | boolean | Reference | number | number | null | string;
+    issuer?: Reference;
     /**
      * The base language in which the resource is written.
      */
@@ -79,13 +79,13 @@ export interface Invoice {
      * Each line item represents one charge for goods and services rendered. Details such as
      * date, code and amount are found in the referenced ChargeItem resource.
      */
-    lineItem?: Array<any[] | boolean | InvoiceLineItem | number | number | null | string>;
+    lineItem?: InvoiceLineItem[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -99,15 +99,15 @@ export interface Invoice {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Comments made about the invoice by the issuer, subject, or other participants.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Indicates who or what performed or participated in the charged service.
      */
-    participant?: Array<any[] | boolean | InvoiceParticipant | number | number | null | string>;
+    participant?: InvoiceParticipant[];
     /**
      * Payment details such as banking details, period of payment, deductibles, methods of
      * payment.
@@ -116,20 +116,20 @@ export interface Invoice {
     /**
      * The individual or Organization responsible for balancing of this invoice.
      */
-    recipient?: any[] | boolean | Reference | number | number | null | string;
+    recipient?: Reference;
     /**
      * This is a Invoice resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The current state of the Invoice.
      */
-    status?: FhirInvoiceStatus;
+    status?: InvoiceStatus;
     /**
      * The individual or set of individuals receiving the goods and services billed in this
      * invoice.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -137,45 +137,49 @@ export interface Invoice {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Invoice total, tax included.
      */
-    totalGross?: any[] | boolean | Money | number | number | null | string;
+    totalGross?: Money;
     /**
      * Invoice total , taxes excluded.
      */
-    totalNet?: any[] | boolean | Money | number | number | null | string;
+    totalNet?: Money;
     /**
      * The total amount for the Invoice may be calculated as the sum of the line items with
      * surcharges/deductions that apply in certain conditions.  The priceComponent element can
      * be used to offer transparency to the recipient of the Invoice of how the total price was
      * calculated.
      */
-    totalPriceComponent?: Array<any[] | boolean | InvoicePriceComponent | number | number | null | string>;
+    totalPriceComponent?: InvoicePriceComponent[];
     /**
      * Type of Invoice depending on domain, realm an usage (e.g. internal/external, dental,
      * preliminary).
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * Invoice containing collected ChargeItems from an Account with calculated individual and
+ * total price for Billing purpose.
+ */
 export interface InvoiceLineItem {
     /**
      * Extensions for sequence
      */
-    _sequence?: any[] | boolean | Element | number | number | null | string;
+    _sequence?: Element;
     /**
      * The ChargeItem contains information such as the billing code, date, amount etc. If no
      * further details are required for the lineItem, inline billing codes can be added using
      * the CodeableConcept data type instead of the Reference.
      */
-    chargeItemCodeableConcept?: any[] | boolean | CodeableConcept | number | number | null | string;
+    chargeItemCodeableConcept?: CodeableConcept;
     /**
      * The ChargeItem contains information such as the billing code, date, amount etc. If no
      * further details are required for the lineItem, inline billing codes can be added using
      * the CodeableConcept data type instead of the Reference.
      */
-    chargeItemReference?: any[] | boolean | Reference | number | number | null | string;
+    chargeItemReference?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -183,7 +187,7 @@ export interface InvoiceLineItem {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -202,7 +206,7 @@ export interface InvoiceLineItem {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The price for a ChargeItem may be calculated as a base price with surcharges/deductions
      * that apply in certain conditions. A ChargeItemDefinition resource that defines the
@@ -210,30 +214,34 @@ export interface InvoiceLineItem {
      * development. The priceComponent element can be used to offer transparency to the
      * recipient of the Invoice as to how the prices have been calculated.
      */
-    priceComponent?: Array<any[] | boolean | InvoicePriceComponent | number | number | null | string>;
+    priceComponent?: InvoicePriceComponent[];
     /**
      * Sequence in which the items appear on the invoice.
      */
     sequence?: number;
 }
+/**
+ * Invoice containing collected ChargeItems from an Account with calculated individual and
+ * total price for Billing purpose.
+ */
 export interface InvoicePriceComponent {
     /**
      * Extensions for factor
      */
-    _factor?: any[] | boolean | Element | number | number | null | string;
+    _factor?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * The amount calculated for this component.
      */
-    amount?: any[] | boolean | Money | number | number | null | string;
+    amount?: Money;
     /**
      * A code that identifies the component. Codes may be used to differentiate between kinds of
      * taxes, surcharges, discounts etc.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -241,7 +249,7 @@ export interface InvoicePriceComponent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The factor that has been applied on the base price for calculating this component.
      */
@@ -264,7 +272,7 @@ export interface InvoicePriceComponent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * This code identifies the type of the component.
      */
@@ -281,11 +289,15 @@ export declare enum InvoicePriceComponentType {
     Surcharge = "surcharge",
     Tax = "tax"
 }
+/**
+ * Invoice containing collected ChargeItems from an Account with calculated individual and
+ * total price for Billing purpose.
+ */
 export interface InvoiceParticipant {
     /**
      * The device, practitioner, etc. who performed or participated in the service.
      */
-    actor: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -293,7 +305,7 @@ export interface InvoiceParticipant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -312,18 +324,18 @@ export interface InvoiceParticipant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice
      * has been created automatically, the Participant may be a billing engine or another kind
      * of device.
      */
-    role?: any[] | boolean | CodeableConcept | number | number | null | string;
+    role?: CodeableConcept;
 }
 /**
  * The current state of the Invoice.
  */
-export declare enum FhirInvoiceStatus {
+export declare enum InvoiceStatus {
     Balanced = "balanced",
     Cancelled = "cancelled",
     Draft = "draft",

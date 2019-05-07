@@ -3,59 +3,59 @@ export interface Coverage {
     /**
      * Extensions for dependent
      */
-    _dependent?: any[] | boolean | Element | number | number | null | string;
+    _dependent?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for network
      */
-    _network?: any[] | boolean | Element | number | number | null | string;
+    _network?: Element;
     /**
      * Extensions for order
      */
-    _order?: any[] | boolean | Element | number | number | null | string;
+    _order?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for subrogation
      */
-    _subrogation?: any[] | boolean | Element | number | number | null | string;
+    _subrogation?: Element;
     /**
      * Extensions for subscriberId
      */
-    _subscriberId?: any[] | boolean | Element | number | number | null | string;
+    _subscriberId?: Element;
     /**
      * The party who benefits from the insurance coverage; the patient when products and/or
      * services are provided.
      */
-    beneficiary: any[] | boolean | Reference | number | number | null | string;
+    beneficiary?: Reference;
     /**
      * A suite of underwriter specific classifiers.
      */
-    class?: Array<any[] | boolean | CoverageClass | number | number | null | string>;
+    class?: CoverageClass[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Coverage | number | null | string>;
+    contained?: Coverage[];
     /**
      * The policy(s) which constitute this insurance coverage.
      */
-    contract?: Array<any[] | boolean | Reference | number | number | null | string>;
+    contract?: Reference[];
     /**
      * A suite of codes indicating the cost category and associated amount which have been
      * detailed in the policy and may have been  included on the health card.
      */
-    costToBeneficiary?: Array<any[] | boolean | CoverageCostToBeneficiary | number | number | null | string>;
+    costToBeneficiary?: CoverageCostToBeneficiary[];
     /**
      * A unique identifier for a dependent under the coverage.
      */
@@ -67,7 +67,7 @@ export interface Coverage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -76,7 +76,7 @@ export interface Coverage {
     /**
      * A unique identifier assigned to this coverage.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -92,7 +92,7 @@ export interface Coverage {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -106,7 +106,7 @@ export interface Coverage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The insurer-specific identifier for the insurer-defined network of providers to which the
      * beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise
@@ -124,25 +124,25 @@ export interface Coverage {
      * The program or plan underwriter or payor including both insurance and non-insurance
      * agreements, such as patient-pay agreements.
      */
-    payor: Array<any[] | boolean | Reference | number | number | null | string>;
+    payor?: Reference[];
     /**
      * Time period during which the coverage is in force. A missing start date indicates the
      * start date isn't known, a missing end date means the coverage is continuing to be in
      * force.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * The party who 'owns' the insurance policy.
      */
-    policyHolder?: any[] | boolean | Reference | number | number | null | string;
+    policyHolder?: Reference;
     /**
      * The relationship of beneficiary (patient) to the subscriber.
      */
-    relationship?: any[] | boolean | CodeableConcept | number | number | null | string;
+    relationship?: CodeableConcept;
     /**
      * This is a Coverage resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status of the resource instance.
      */
@@ -156,7 +156,7 @@ export interface Coverage {
      * The party who has signed-up for or 'owns' the contractual relationship to the policy or
      * to whom the benefit of the policy for services rendered to them or their family is due.
      */
-    subscriber?: any[] | boolean | Reference | number | number | null | string;
+    subscriber?: Reference;
     /**
      * The insurer assigned ID for the Subscriber.
      */
@@ -168,22 +168,26 @@ export interface Coverage {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The type of coverage: social program, medical plan, accident coverage (workers
      * compensation, auto), group health or payment by an individual or organization.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * Financial instrument which may be used to reimburse or pay for health care products and
+ * services. Includes both insurance and self-payment.
+ */
 export interface CoverageClass {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for value
      */
-    _value?: any[] | boolean | Element | number | number | null | string;
+    _value?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -191,7 +195,7 @@ export interface CoverageClass {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -210,7 +214,7 @@ export interface CoverageClass {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A short description for the class.
      */
@@ -220,18 +224,22 @@ export interface CoverageClass {
      * optional name is provided, for example may be used to identify a class of coverage or
      * employer group, Policy, Plan.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The alphanumeric string value associated with the insurer issued label.
      */
     value?: string;
 }
+/**
+ * Financial instrument which may be used to reimburse or pay for health care products and
+ * services. Includes both insurance and self-payment.
+ */
 export interface CoverageCostToBeneficiary {
     /**
      * A suite of codes indicating exceptions or reductions to patient costs and their effective
      * periods.
      */
-    exception?: Array<any[] | boolean | CoverageException | number | number | null | string>;
+    exception?: CoverageException[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -239,7 +247,7 @@ export interface CoverageCostToBeneficiary {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -258,20 +266,24 @@ export interface CoverageCostToBeneficiary {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The category of patient centric costs associated with treatment.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
     /**
      * The amount due from the patient for the cost category.
      */
-    valueMoney?: any[] | boolean | Money | number | number | null | string;
+    valueMoney?: Money;
     /**
      * The amount due from the patient for the cost category.
      */
-    valueQuantity?: any[] | boolean | Quantity | number | number | null | string;
+    valueQuantity?: Quantity;
 }
+/**
+ * Financial instrument which may be used to reimburse or pay for health care products and
+ * services. Includes both insurance and self-payment.
+ */
 export interface CoverageException {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -280,7 +292,7 @@ export interface CoverageException {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -299,13 +311,13 @@ export interface CoverageException {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The timeframe during when the exception is in force.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * The code for the specific exception.
      */
-    type: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }

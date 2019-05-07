@@ -3,35 +3,35 @@ export interface CareTeam {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Identifies what kind of team.  This is to support differentiation between multiple
      * co-existing teams, such as care plan team, episode of care team, longitudinal care team.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CareTeam | number | null | string>;
+    contained?: CareTeam[];
     /**
      * The Encounter during which this CareTeam was created or to which the creation of this
      * record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -39,7 +39,7 @@ export interface CareTeam {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -49,7 +49,7 @@ export interface CareTeam {
      * Business identifiers assigned to this care team by the performer or other systems which
      * remain constant as the resource is updated and propagates from server to server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -63,13 +63,13 @@ export interface CareTeam {
     /**
      * The organization responsible for the care team.
      */
-    managingOrganization?: Array<any[] | boolean | Reference | number | number | null | string>;
+    managingOrganization?: Reference[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -83,7 +83,7 @@ export interface CareTeam {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A label for human use intended to distinguish like teams.  E.g. the "red" vs. "green"
      * trauma teams.
@@ -92,39 +92,39 @@ export interface CareTeam {
     /**
      * Comments made about the CareTeam.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Identifies all people and organizations who are expected to be involved in the care team.
      */
-    participant?: Array<any[] | boolean | CareTeamParticipant | number | number | null | string>;
+    participant?: CareTeamParticipant[];
     /**
      * Indicates when the team did (or is intended to) come into effect and end.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Describes why the care team exists.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Condition(s) that this care team addresses.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * This is a CareTeam resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Indicates the current state of the care team.
      */
-    status?: FhirCareTeamStatus;
+    status?: CareTeamStatus;
     /**
      * Identifies the patient or group whose intended care is handled by the team.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A central contact detail for the care team (that applies to all members).
      */
-    telecom?: Array<any[] | boolean | ContactPoint | number | number | null | string>;
+    telecom?: ContactPoint[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -132,8 +132,12 @@ export interface CareTeam {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }
+/**
+ * The Care Team includes all the people and organizations who plan to participate in the
+ * coordination and delivery of care for a patient.
+ */
 export interface CareTeamParticipant {
     /**
      * May be used to represent additional information that is not part of the basic definition
@@ -142,7 +146,7 @@ export interface CareTeamParticipant {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -152,7 +156,7 @@ export interface CareTeamParticipant {
      * The specific person or organization who is participating/expected to participate in the
      * care team.
      */
-    member?: any[] | boolean | Reference | number | number | null | string;
+    member?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -166,26 +170,26 @@ export interface CareTeamParticipant {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The organization of the practitioner.
      */
-    onBehalfOf?: any[] | boolean | Reference | number | number | null | string;
+    onBehalfOf?: Reference;
     /**
      * Indicates when the specific member or organization did (or is intended to) come into
      * effect and end.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * Indicates specific responsibility of an individual within the care team, such as "Primary
      * care physician", "Trained social worker counselor", "Caregiver", etc.
      */
-    role?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    role?: CodeableConcept[];
 }
 /**
  * Indicates the current state of the care team.
  */
-export declare enum FhirCareTeamStatus {
+export declare enum CareTeamStatus {
     Active = "active",
     EnteredInError = "entered-in-error",
     Inactive = "inactive",

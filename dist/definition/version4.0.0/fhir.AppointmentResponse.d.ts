@@ -1,37 +1,37 @@
-import { Element, Reference, Extension, Identifier, Meta, CodeableConcept, Narrative } from "./fhir._";
+import { Reference, Element, Extension, Identifier, Meta, CodeableConcept, Narrative } from "./fhir._";
 export interface AppointmentResponse {
     /**
      * Extensions for comment
      */
-    _comment?: any[] | boolean | Element | number | number | null | string;
+    _comment?: Element;
     /**
      * Extensions for end
      */
-    _end?: any[] | boolean | Element | number | number | null | string;
+    _end?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for participantStatus
      */
-    _participantStatus?: any[] | boolean | Element | number | number | null | string;
+    _participantStatus?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * A Person, Location, HealthcareService, or Device that is participating in the appointment.
      */
-    actor?: any[] | boolean | Reference | number | number | null | string;
+    actor?: Reference;
     /**
      * Appointment that this response is replying to.
      */
-    appointment: any[] | boolean | Reference | number | number | null | string;
+    appointment?: Reference;
     /**
      * Additional comments about the appointment.
      */
@@ -41,7 +41,7 @@ export interface AppointmentResponse {
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | AppointmentResponse | number | null | string>;
+    contained?: AppointmentResponse[];
     /**
      * This may be either the same as the appointment request to confirm the details of the
      * appointment, or alternately a new time to request a re-negotiation of the end time.
@@ -54,7 +54,7 @@ export interface AppointmentResponse {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -65,7 +65,7 @@ export interface AppointmentResponse {
      * defined by business processes and/ or used to refer to it when a direct URL reference to
      * the resource itself is not appropriate.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -81,7 +81,7 @@ export interface AppointmentResponse {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -95,7 +95,7 @@ export interface AppointmentResponse {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Participation status of the participant. When the status is declined or tentative if the
      * start/end times are different to the appointment, then these times should be interpreted
@@ -106,11 +106,11 @@ export interface AppointmentResponse {
     /**
      * Role of participant in the appointment.
      */
-    participantType?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    participantType?: CodeableConcept[];
     /**
      * This is a AppointmentResponse resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Date/Time that the appointment is to take place, or requested new start time.
      */
@@ -122,5 +122,5 @@ export interface AppointmentResponse {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
 }

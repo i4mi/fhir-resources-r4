@@ -3,69 +3,69 @@ export interface CompartmentDefinition {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: any[] | boolean | Element | number | number | null | string;
+    _purpose?: Element;
     /**
      * Extensions for search
      */
-    _search?: any[] | boolean | Element | number | number | null | string;
+    _search?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Which compartment this definition describes.
      */
-    code?: Code;
+    code?: CompartmentDefinitionCode;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CompartmentDefinition | number | null | string>;
+    contained?: CompartmentDefinition[];
     /**
      * The date  (and optionally time) when the compartment definition was published. The date
      * must change when the business version changes and it must change if the status code
@@ -91,7 +91,7 @@ export interface CompartmentDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -112,7 +112,7 @@ export interface CompartmentDefinition {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -126,7 +126,7 @@ export interface CompartmentDefinition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the compartment definition. This name should be
      * usable as an identifier for the module by machine processing applications such as code
@@ -145,11 +145,11 @@ export interface CompartmentDefinition {
     /**
      * Information about how a resource is related to the compartment.
      */
-    resource?: Array<any[] | boolean | CompartmentDefinitionResource | number | number | null | string>;
+    resource?: CompartmentDefinitionResource[];
     /**
      * This is a CompartmentDefinition resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * Whether the search syntax is supported,.
      */
@@ -157,7 +157,7 @@ export interface CompartmentDefinition {
     /**
      * The status of this compartment definition. Enables tracking the life-cycle of the content.
      */
-    status?: FhirCompartmentDefinitionStatus;
+    status?: CompartmentDefinitionStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -165,7 +165,7 @@ export interface CompartmentDefinition {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * An absolute URI that is used to identify this compartment definition when it is
      * referenced in a specification, model, design or an instance; also called its canonical
@@ -181,7 +181,7 @@ export interface CompartmentDefinition {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate compartment definition instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the compartment definition when
      * it is referenced in a specification, model, design or instance. This is an arbitrary
@@ -195,26 +195,29 @@ export interface CompartmentDefinition {
 /**
  * Which compartment this definition describes.
  */
-export declare enum Code {
+export declare enum CompartmentDefinitionCode {
     Device = "Device",
     Encounter = "Encounter",
     Patient = "Patient",
     Practitioner = "Practitioner",
     RelatedPerson = "RelatedPerson"
 }
+/**
+ * A compartment definition that defines how resources are accessed on a server.
+ */
 export interface CompartmentDefinitionResource {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for param
      */
-    _param?: Array<any[] | boolean | Element | number | number | null | string>;
+    _param?: Element[];
     /**
      * The name of a resource supported by the server.
      */
@@ -230,7 +233,7 @@ export interface CompartmentDefinitionResource {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -249,7 +252,7 @@ export interface CompartmentDefinitionResource {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The name of a search parameter that represents the link to the compartment. More than one
      * may be listed because a resource may be linked to a compartment in more than one way,.
@@ -259,7 +262,7 @@ export interface CompartmentDefinitionResource {
 /**
  * The status of this compartment definition. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirCompartmentDefinitionStatus {
+export declare enum CompartmentDefinitionStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

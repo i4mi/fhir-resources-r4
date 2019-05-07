@@ -3,81 +3,81 @@ export interface CapabilityStatement {
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for fhirVersion
      */
-    _fhirVersion?: any[] | boolean | Element | number | number | null | string;
+    _fhirVersion?: Element;
     /**
      * Extensions for format
      */
-    _format?: Array<any[] | boolean | Element | number | number | null | string>;
+    _format?: Element[];
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for kind
      */
-    _kind?: any[] | boolean | Element | number | number | null | string;
+    _kind?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for patchFormat
      */
-    _patchFormat?: Array<any[] | boolean | Element | number | number | null | string>;
+    _patchFormat?: Element[];
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: any[] | boolean | Element | number | number | null | string;
+    _purpose?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | CapabilityStatement | number | null | string>;
+    contained?: CapabilityStatement[];
     /**
      * A copyright statement relating to the capability statement and/or its contents. Copyright
      * statements are generally legal restrictions on the use and publishing of the capability
@@ -101,7 +101,7 @@ export interface CapabilityStatement {
     /**
      * A document definition.
      */
-    document?: Array<any[] | boolean | CapabilityStatementDocument | number | number | null | string>;
+    document?: CapabilityStatementDocument[];
     /**
      * A Boolean value to indicate that this capability statement is authored for testing
      * purposes (or education/evaluation/marketing) and is not intended to be used for genuine
@@ -115,13 +115,13 @@ export interface CapabilityStatement {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The version of the FHIR specification that this CapabilityStatement describes (which
      * SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no
      * default value.
      */
-    fhirVersion?: FhirVersion;
+    fhirVersion?: CapabilityStatementFhirVersion;
     /**
      * A list of the formats supported by this implementation using their content types.
      */
@@ -136,7 +136,7 @@ export interface CapabilityStatement {
      * statement - i.e. a particular installation, rather than the capabilities of a software
      * program.
      */
-    implementation?: any[] | boolean | CapabilityStatementImplementation | number | number | null | string;
+    implementation?: CapabilityStatementImplementation;
     /**
      * A list of implementation guides that the server does (or should) support in their
      * entirety.
@@ -166,10 +166,10 @@ export interface CapabilityStatement {
     /**
      * A legal or geographic region in which the capability statement is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The way that this statement is intended to be used, to describe an actual running
-     * instance of software, a particular product (kind, not instance of software) or a  of
+     * instance of software, a particular product (kind, not instance of software) or a class of
      * implementation (e.g. a desired purchase).
      */
     kind?: Kind;
@@ -180,13 +180,13 @@ export interface CapabilityStatement {
     /**
      * A description of the messaging capabilities of the solution.
      */
-    messaging?: Array<any[] | boolean | CapabilityStatementMessaging | number | number | null | string>;
+    messaging?: CapabilityStatementMessaging[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -200,7 +200,7 @@ export interface CapabilityStatement {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the capability statement. This name should be usable
      * as an identifier for the module by machine processing applications such as code
@@ -223,21 +223,21 @@ export interface CapabilityStatement {
     /**
      * This is a CapabilityStatement resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    rest?: Array<any[] | boolean | CapabilityStatementREST | number | number | null | string>;
+    rest?: CapabilityStatementRest[];
     /**
      * Software that is covered by this capability statement.  It is used when the capability
      * statement describes the capabilities of a particular software version, independent of an
      * installation.
      */
-    software?: any[] | boolean | CapabilityStatementSoftware | number | number | null | string;
+    software?: CapabilityStatementSoftware;
     /**
      * The status of this capability statement. Enables tracking the life-cycle of the content.
      */
-    status?: FhirCapabilityStatementStatus;
+    status?: CapabilityStatementStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -245,7 +245,7 @@ export interface CapabilityStatement {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the capability statement.
      */
@@ -265,7 +265,7 @@ export interface CapabilityStatement {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate capability statement instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the capability statement when it
      * is referenced in a specification, model, design or instance. This is an arbitrary value
@@ -275,15 +275,20 @@ export interface CapabilityStatement {
      */
     version?: string;
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementDocument {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * A description of how the application supports or uses the specified document profile.
      * For example, when documents are created, what action is taken with consumed documents,
@@ -297,7 +302,7 @@ export interface CapabilityStatementDocument {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -320,12 +325,12 @@ export interface CapabilityStatementDocument {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A profile on the document Bundle that constrains which resources are present, and their
      * contents.
      */
-    profile: string;
+    profile?: string;
 }
 /**
  * Mode of this document declaration - whether an application is a producer or consumer.
@@ -339,7 +344,7 @@ export declare enum CapabilityStatementDocumentMode {
  * SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no
  * default value.
  */
-export declare enum FhirVersion {
+export declare enum CapabilityStatementFhirVersion {
     The001 = "0.01",
     The005 = "0.05",
     The006 = "0.06",
@@ -362,20 +367,29 @@ export declare enum FhirVersion {
     The350 = "3.5.0",
     The400 = "4.0.0"
 }
+/**
+ * Identifies a specific implementation instance that is described by the capability
+ * statement - i.e. a particular installation, rather than the capabilities of a software
+ * program.
+ *
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementImplementation {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * The organization responsible for the management of the instance and oversight of the data
      * on the server at the specified URL.
      */
-    custodian?: any[] | boolean | Reference | number | number | null | string;
+    custodian?: Reference;
     /**
      * Information about the specific installation that this capability statement relates to.
      */
@@ -387,7 +401,7 @@ export interface CapabilityStatementImplementation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -406,7 +420,7 @@ export interface CapabilityStatementImplementation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * An absolute base URL for the implementation.  This forms the base for REST interfaces as
      * well as the mailbox and document interfaces.
@@ -415,7 +429,7 @@ export interface CapabilityStatementImplementation {
 }
 /**
  * The way that this statement is intended to be used, to describe an actual running
- * instance of software, a particular product (kind, not instance of software) or a  of
+ * instance of software, a particular product (kind, not instance of software) or a class of
  * implementation (e.g. a desired purchase).
  */
 export declare enum Kind {
@@ -423,15 +437,20 @@ export declare enum Kind {
     Instance = "instance",
     Requirements = "requirements"
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementMessaging {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for reliableCache
      */
-    _reliableCache?: any[] | boolean | Element | number | number | null | string;
+    _reliableCache?: Element;
     /**
      * Documentation about the system's messaging capabilities for this endpoint not otherwise
      * documented by the capability statement.  For example, the process for becoming an
@@ -441,7 +460,7 @@ export interface CapabilityStatementMessaging {
     /**
      * An endpoint (network accessible address) to which messages and/or replies are to be sent.
      */
-    endpoint?: Array<any[] | boolean | CapabilityStatementEndpoint | number | number | null | string>;
+    endpoint?: CapabilityStatementEndpoint[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -449,7 +468,7 @@ export interface CapabilityStatementMessaging {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -468,7 +487,7 @@ export interface CapabilityStatementMessaging {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long
      * the cache length on the receiver should be (if a sender).
@@ -477,13 +496,18 @@ export interface CapabilityStatementMessaging {
     /**
      * References to message definitions for messages this system can send or receive.
      */
-    supportedMessage?: Array<any[] | boolean | CapabilityStatementSupportedMessage | number | number | null | string>;
+    supportedMessage?: CapabilityStatementSupportedMessage[];
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementEndpoint {
     /**
      * Extensions for address
      */
-    _address?: any[] | boolean | Element | number | number | null | string;
+    _address?: Element;
     /**
      * The network address of the endpoint. For solutions that do not use network addresses for
      * routing, it can be just an identifier.
@@ -496,7 +520,7 @@ export interface CapabilityStatementEndpoint {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -515,22 +539,27 @@ export interface CapabilityStatementEndpoint {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A list of the messaging transport protocol(s) identifiers, supported by this endpoint.
      */
-    protocol: any[] | boolean | Coding | number | number | null | string;
+    protocol?: Coding;
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementSupportedMessage {
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * Points to a message definition that identifies the messaging event, message structure,
      * allowed responses, etc.
      */
-    definition: string;
+    definition?: string;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -538,7 +567,7 @@ export interface CapabilityStatementSupportedMessage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -561,7 +590,7 @@ export interface CapabilityStatementSupportedMessage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 /**
  * The mode of this event declaration - whether application is sender or receiver.
@@ -570,15 +599,20 @@ export declare enum CapabilityStatementSupportedMessageMode {
     Receiver = "receiver",
     Sender = "sender"
 }
-export interface CapabilityStatementREST {
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
+export interface CapabilityStatementRest {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for mode
      */
-    _mode?: any[] | boolean | Element | number | number | null | string;
+    _mode?: Element;
     /**
      * An absolute URI which is a reference to the definition of a compartment that the system
      * supports. The reference is to a CompartmentDefinition resource by its canonical URL .
@@ -596,7 +630,7 @@ export interface CapabilityStatementREST {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -605,12 +639,12 @@ export interface CapabilityStatementREST {
     /**
      * A specification of restful operations supported by the system.
      */
-    interaction?: Array<any[] | boolean | CapabilityStatementInteraction1 | number | number | null | string>;
+    interaction?: CapabilityStatementInteraction1[];
     /**
      * Identifies whether this portion of the statement is describing the ability to initiate or
      * receive restful operations.
      */
-    mode?: CapabilityStatementRESTMode;
+    mode?: CapabilityStatementRestMode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -624,37 +658,42 @@ export interface CapabilityStatementREST {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Definition of an operation or a named query together with its parameters and their
      * meaning and type.
      */
-    operation?: Array<any[] | boolean | CapabilityStatementOperation | number | number | null | string>;
+    operation?: CapabilityStatementOperation[];
     /**
      * A specification of the restful capabilities of the solution for a specific resource type.
      */
-    resource?: Array<any[] | boolean | CapabilityStatementResource | number | number | null | string>;
+    resource?: CapabilityStatementResource[];
     /**
      * Search parameters that are supported for searching all resources for implementations to
      * support and/or make use of - either references to ones defined in the specification, or
      * additional ones defined for/by the implementation.
      */
-    searchParam?: Array<any[] | boolean | CapabilityStatementSearchParam | number | number | null | string>;
+    searchParam?: CapabilityStatementSearchParam[];
     /**
      * Information about security implementation from an interface perspective - what a client
      * needs to know.
      */
-    security?: any[] | boolean | CapabilityStatementSecurity | number | number | null | string;
+    security?: CapabilityStatementSecurity;
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementInteraction1 {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * A coded identifier of the operation, supported by the system.
      */
@@ -671,7 +710,7 @@ export interface CapabilityStatementInteraction1 {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -690,7 +729,7 @@ export interface CapabilityStatementInteraction1 {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 /**
  * A coded identifier of the operation, supported by the system.
@@ -705,19 +744,24 @@ export declare enum CapabilityStatementInteraction1Code {
  * Identifies whether this portion of the statement is describing the ability to initiate or
  * receive restful operations.
  */
-export declare enum CapabilityStatementRESTMode {
+export declare enum CapabilityStatementRestMode {
     Client = "client",
     Server = "server"
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementOperation {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Where the formal definition can be found. If a server references the base definition of
      * an Operation (i.e. from the specification itself such as
@@ -727,7 +771,7 @@ export interface CapabilityStatementOperation {
      * of the original OperationDefinition.  The custom definition would describe the specific
      * subset of functionality supported.
      */
-    definition: string;
+    definition?: string;
     /**
      * Documentation that describes anything special about the operation behavior, possibly
      * detailing different behavior for system, type and instance-level invocation of the
@@ -741,7 +785,7 @@ export interface CapabilityStatementOperation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -760,7 +804,7 @@ export interface CapabilityStatementOperation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The name of the operation or query. For an operation, this is the name  prefixed with $
      * and used in the URL. For a query, this is the name used in the _query parameter when the
@@ -768,55 +812,60 @@ export interface CapabilityStatementOperation {
      */
     name?: string;
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementResource {
     /**
      * Extensions for conditionalCreate
      */
-    _conditionalCreate?: any[] | boolean | Element | number | number | null | string;
+    _conditionalCreate?: Element;
     /**
      * Extensions for conditionalDelete
      */
-    _conditionalDelete?: any[] | boolean | Element | number | number | null | string;
+    _conditionalDelete?: Element;
     /**
      * Extensions for conditionalRead
      */
-    _conditionalRead?: any[] | boolean | Element | number | number | null | string;
+    _conditionalRead?: Element;
     /**
      * Extensions for conditionalUpdate
      */
-    _conditionalUpdate?: any[] | boolean | Element | number | number | null | string;
+    _conditionalUpdate?: Element;
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for readHistory
      */
-    _readHistory?: any[] | boolean | Element | number | number | null | string;
+    _readHistory?: Element;
     /**
      * Extensions for referencePolicy
      */
-    _referencePolicy?: Array<any[] | boolean | Element | number | number | null | string>;
+    _referencePolicy?: Element[];
     /**
      * Extensions for searchInclude
      */
-    _searchInclude?: Array<any[] | boolean | Element | number | number | null | string>;
+    _searchInclude?: Element[];
     /**
      * Extensions for searchRevInclude
      */
-    _searchRevInclude?: Array<any[] | boolean | Element | number | number | null | string>;
+    _searchRevInclude?: Element[];
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Extensions for updateCreate
      */
-    _updateCreate?: any[] | boolean | Element | number | number | null | string;
+    _updateCreate?: Element;
     /**
      * Extensions for versioning
      */
-    _versioning?: any[] | boolean | Element | number | number | null | string;
+    _versioning?: Element;
     /**
      * A flag that indicates that the server supports conditional create.
      */
@@ -844,7 +893,7 @@ export interface CapabilityStatementResource {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -853,7 +902,7 @@ export interface CapabilityStatementResource {
     /**
      * Identifies a restful operation supported by the solution.
      */
-    interaction?: Array<any[] | boolean | CapabilityStatementInteraction | number | number | null | string>;
+    interaction?: CapabilityStatementInteraction[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -867,13 +916,13 @@ export interface CapabilityStatementResource {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Definition of an operation or a named query together with its parameters and their
      * meaning and type. Consult the definition of the operation for details about how to invoke
      * the operation, and the parameters.
      */
-    operation?: Array<any[] | boolean | CapabilityStatementOperation | number | number | null | string>;
+    operation?: CapabilityStatementOperation[];
     /**
      * A specification of the profile that describes the solution's overall support for the
      * resource, including any constraints on cardinality, bindings, lengths or other
@@ -898,7 +947,7 @@ export interface CapabilityStatementResource {
      * to ones defined in the specification, or additional ones defined for/by the
      * implementation.
      */
-    searchParam?: Array<any[] | boolean | CapabilityStatementSearchParam | number | number | null | string>;
+    searchParam?: CapabilityStatementSearchParam[];
     /**
      * A list of _revinclude (reverse include) values supported by the server.
      */
@@ -949,15 +998,20 @@ export declare enum ConditionalRead {
     NotMatch = "not-match",
     NotSupported = "not-supported"
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementInteraction {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Coded identifier of the operation, supported by the system resource.
      */
@@ -975,7 +1029,7 @@ export interface CapabilityStatementInteraction {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -994,7 +1048,7 @@ export interface CapabilityStatementInteraction {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
 /**
  * Coded identifier of the operation, supported by the system resource.
@@ -1017,19 +1071,24 @@ export declare enum ReferencePolicy {
     Logical = "logical",
     Resolves = "resolves"
 }
+/**
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementSearchParam {
     /**
      * Extensions for documentation
      */
-    _documentation?: any[] | boolean | Element | number | number | null | string;
+    _documentation?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * An absolute URI that is a formal reference to where this parameter was first defined, so
      * that a client can be confident of the meaning of the search parameter (a reference to
@@ -1050,7 +1109,7 @@ export interface CapabilityStatementSearchParam {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1069,7 +1128,7 @@ export interface CapabilityStatementSearchParam {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The name of the search parameter used in the interface.
      */
@@ -1091,7 +1150,7 @@ export declare enum CapabilityStatementSearchParamType {
     Special = "special",
     String = "string",
     Token = "token",
-    URI = "uri"
+    Uri = "uri"
 }
 /**
  * This field is set to no-version to specify that the system does not support (server) or
@@ -1105,15 +1164,23 @@ export declare enum Versioning {
     Versioned = "versioned",
     VersionedUpdate = "versioned-update"
 }
+/**
+ * Information about security implementation from an interface perspective - what a client
+ * needs to know.
+ *
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementSecurity {
     /**
      * Extensions for cors
      */
-    _cors?: any[] | boolean | Element | number | number | null | string;
+    _cors?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Server adds CORS headers when responding to requests - this enables Javascript
      * applications to use the server.
@@ -1130,7 +1197,7 @@ export interface CapabilityStatementSecurity {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1149,25 +1216,34 @@ export interface CapabilityStatementSecurity {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Types of security services that are supported/required by the system.
      */
-    service?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    service?: CodeableConcept[];
 }
+/**
+ * Software that is covered by this capability statement.  It is used when the capability
+ * statement describes the capabilities of a particular software version, independent of an
+ * installation.
+ *
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a
+ * particular version of FHIR that may be used as a statement of actual server functionality
+ * or a statement of required or desired server implementation.
+ */
 export interface CapabilityStatementSoftware {
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for releaseDate
      */
-    _releaseDate?: any[] | boolean | Element | number | number | null | string;
+    _releaseDate?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -1175,7 +1251,7 @@ export interface CapabilityStatementSoftware {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -1194,7 +1270,7 @@ export interface CapabilityStatementSoftware {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Name the software is known by.
      */
@@ -1211,7 +1287,7 @@ export interface CapabilityStatementSoftware {
 /**
  * The status of this capability statement. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirCapabilityStatementStatus {
+export declare enum CapabilityStatementStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

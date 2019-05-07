@@ -3,61 +3,61 @@ export interface ExampleScenario {
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: any[] | boolean | Element | number | number | null | string;
+    _purpose?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Actor participating in the resource.
      */
-    actor?: Array<any[] | boolean | ExampleScenarioActor | number | number | null | string>;
+    actor?: ExampleScenarioActor[];
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | ExampleScenario | number | null | string>;
+    contained?: ExampleScenario[];
     /**
      * A copyright statement relating to the example scenario and/or its contents. Copyright
      * statements are generally legal restrictions on the use and publishing of the example
@@ -83,7 +83,7 @@ export interface ExampleScenario {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -93,7 +93,7 @@ export interface ExampleScenario {
      * A formal identifier that is used to identify this example scenario when it is represented
      * in other formats, or referenced in a specification, model, design or an instance.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -103,11 +103,11 @@ export interface ExampleScenario {
     /**
      * Each resource and each version that is present in the workflow.
      */
-    instance?: Array<any[] | boolean | ExampleScenarioInstance | number | number | null | string>;
+    instance?: ExampleScenarioInstance[];
     /**
      * A legal or geographic region in which the example scenario is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -117,7 +117,7 @@ export interface ExampleScenario {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -131,7 +131,7 @@ export interface ExampleScenario {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the example scenario. This name should be usable as
      * an identifier for the module by machine processing applications such as code generation.
@@ -140,7 +140,7 @@ export interface ExampleScenario {
     /**
      * Each major process - a group of operations.
      */
-    process?: Array<any[] | boolean | ExampleScenarioProcess | number | number | null | string>;
+    process?: ExampleScenarioProcess[];
     /**
      * The name of the organization or individual that published the example scenario.
      */
@@ -153,11 +153,11 @@ export interface ExampleScenario {
     /**
      * This is a ExampleScenario resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The status of this example scenario. Enables tracking the life-cycle of the content.
      */
-    status?: FhirExampleScenarioStatus;
+    status?: ExampleScenarioStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -165,7 +165,7 @@ export interface ExampleScenario {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * An absolute URI that is used to identify this example scenario when it is referenced in a
      * specification, model, design or an instance; also called its canonical identifier. This
@@ -181,7 +181,7 @@ export interface ExampleScenario {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate example scenario instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the example scenario when it is
      * referenced in a specification, model, design or instance. This is an arbitrary value
@@ -195,23 +195,26 @@ export interface ExampleScenario {
      */
     workflow?: string[];
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioActor {
     /**
      * Extensions for actorId
      */
-    _actorId?: any[] | boolean | Element | number | number | null | string;
+    _actorId?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * ID or acronym of actor.
      */
@@ -227,7 +230,7 @@ export interface ExampleScenarioActor {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -246,7 +249,7 @@ export interface ExampleScenarioActor {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The name of the actor as shown in the page.
      */
@@ -263,27 +266,30 @@ export declare enum ExampleScenarioActorType {
     Entity = "entity",
     Person = "person"
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioInstance {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for resourceId
      */
-    _resourceId?: any[] | boolean | Element | number | number | null | string;
+    _resourceId?: Element;
     /**
      * Extensions for resourceType
      */
-    _resourceType?: any[] | boolean | Element | number | number | null | string;
+    _resourceType?: Element;
     /**
      * Resources contained in the instance (e.g. the observations contained in a bundle).
      */
-    containedInstance?: Array<any[] | boolean | ExampleScenarioContainedInstance | number | number | null | string>;
+    containedInstance?: ExampleScenarioContainedInstance[];
     /**
      * Human-friendly description of the resource instance.
      */
@@ -295,7 +301,7 @@ export interface ExampleScenarioInstance {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -314,7 +320,7 @@ export interface ExampleScenarioInstance {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A short name for the resource instance.
      */
@@ -330,17 +336,24 @@ export interface ExampleScenarioInstance {
     /**
      * A specific version of the resource.
      */
-    version?: Array<any[] | boolean | ExampleScenarioVersion | number | number | null | string>;
+    version?: ExampleScenarioVersion[];
 }
+/**
+ * Example of workflow instance.
+ *
+ * Each resource instance used by the initiator.
+ *
+ * Each resource instance used by the responder.
+ */
 export interface ExampleScenarioContainedInstance {
     /**
      * Extensions for resourceId
      */
-    _resourceId?: any[] | boolean | Element | number | number | null | string;
+    _resourceId?: Element;
     /**
      * Extensions for versionId
      */
-    _versionId?: any[] | boolean | Element | number | number | null | string;
+    _versionId?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -348,7 +361,7 @@ export interface ExampleScenarioContainedInstance {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -367,7 +380,7 @@ export interface ExampleScenarioContainedInstance {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Each resource contained in the instance.
      */
@@ -377,15 +390,18 @@ export interface ExampleScenarioContainedInstance {
      */
     versionId?: string;
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioVersion {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for versionId
      */
-    _versionId?: any[] | boolean | Element | number | number | null | string;
+    _versionId?: Element;
     /**
      * The description of the resource version.
      */
@@ -397,7 +413,7 @@ export interface ExampleScenarioVersion {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -416,21 +432,24 @@ export interface ExampleScenarioVersion {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The identifier of a specific version of a resource.
      */
     versionId?: string;
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioAlternative {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * A human-readable description of the alternative explaining when the alternative should
      * occur rather than the base step.
@@ -443,7 +462,7 @@ export interface ExampleScenarioAlternative {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -462,27 +481,30 @@ export interface ExampleScenarioAlternative {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * What happens in each alternative option.
      */
-    step?: Array<any[] | boolean | ExampleScenarioStep | number | number | null | string>;
+    step?: ExampleScenarioStep[];
     /**
      * The label to display for the alternative that gives a sense of the circumstance in which
      * the alternative should be invoked.
      */
     title?: string;
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioStep {
     /**
      * Extensions for pause
      */
-    _pause?: any[] | boolean | Element | number | number | null | string;
+    _pause?: Element;
     /**
      * Indicates an alternative step that can be taken instead of the operations on the base
      * step in exceptional/atypical circumstances.
      */
-    alternative?: Array<any[] | boolean | ExampleScenarioAlternative | number | number | null | string>;
+    alternative?: ExampleScenarioAlternative[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -490,7 +512,7 @@ export interface ExampleScenarioStep {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -509,11 +531,11 @@ export interface ExampleScenarioStep {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Each interaction or action.
      */
-    operation?: any[] | boolean | ExampleScenarioOperation | number | number | null | string;
+    operation?: ExampleScenarioOperation;
     /**
      * If there is a pause in the flow.
      */
@@ -521,25 +543,28 @@ export interface ExampleScenarioStep {
     /**
      * Nested process.
      */
-    process?: Array<any[] | boolean | ExampleScenarioProcess | number | number | null | string>;
+    process?: ExampleScenarioProcess[];
 }
+/**
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioProcess {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for postConditions
      */
-    _postConditions?: any[] | boolean | Element | number | number | null | string;
+    _postConditions?: Element;
     /**
      * Extensions for preConditions
      */
-    _preConditions?: any[] | boolean | Element | number | number | null | string;
+    _preConditions?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * A longer description of the group of operations.
      */
@@ -551,7 +576,7 @@ export interface ExampleScenarioProcess {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -570,7 +595,7 @@ export interface ExampleScenarioProcess {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Description of final status after the process ends.
      */
@@ -582,45 +607,50 @@ export interface ExampleScenarioProcess {
     /**
      * Each step of the process.
      */
-    step?: Array<any[] | boolean | ExampleScenarioStep | number | number | null | string>;
+    step?: ExampleScenarioStep[];
     /**
      * The diagram title of the group of operations.
      */
     title?: string;
 }
+/**
+ * Each interaction or action.
+ *
+ * Example of workflow instance.
+ */
 export interface ExampleScenarioOperation {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for initiator
      */
-    _initiator?: any[] | boolean | Element | number | number | null | string;
+    _initiator?: Element;
     /**
      * Extensions for initiatorActive
      */
-    _initiatorActive?: any[] | boolean | Element | number | number | null | string;
+    _initiatorActive?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for number
      */
-    _number?: any[] | boolean | Element | number | number | null | string;
+    _number?: Element;
     /**
      * Extensions for receiver
      */
-    _receiver?: any[] | boolean | Element | number | number | null | string;
+    _receiver?: Element;
     /**
      * Extensions for receiverActive
      */
-    _receiverActive?: any[] | boolean | Element | number | number | null | string;
+    _receiverActive?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * A comment to be inserted in the diagram.
      */
@@ -632,7 +662,7 @@ export interface ExampleScenarioOperation {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -659,7 +689,7 @@ export interface ExampleScenarioOperation {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The human-friendly name of the interaction.
      */
@@ -679,11 +709,11 @@ export interface ExampleScenarioOperation {
     /**
      * Each resource instance used by the initiator.
      */
-    request?: any[] | boolean | ExampleScenarioContainedInstance | number | number | null | string;
+    request?: ExampleScenarioContainedInstance;
     /**
      * Each resource instance used by the responder.
      */
-    response?: any[] | boolean | ExampleScenarioContainedInstance | number | number | null | string;
+    response?: ExampleScenarioContainedInstance;
     /**
      * The type of operation - CRUD.
      */
@@ -692,7 +722,7 @@ export interface ExampleScenarioOperation {
 /**
  * The status of this example scenario. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirExampleScenarioStatus {
+export declare enum ExampleScenarioStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

@@ -3,37 +3,37 @@ export interface Condition {
     /**
      * Extensions for abatementDateTime
      */
-    _abatementDateTime?: any[] | boolean | Element | number | number | null | string;
+    _abatementDateTime?: Element;
     /**
      * Extensions for abatementString
      */
-    _abatementString?: any[] | boolean | Element | number | number | null | string;
+    _abatementString?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for onsetDateTime
      */
-    _onsetDateTime?: any[] | boolean | Element | number | number | null | string;
+    _onsetDateTime?: Element;
     /**
      * Extensions for onsetString
      */
-    _onsetString?: any[] | boolean | Element | number | number | null | string;
+    _onsetString?: Element;
     /**
      * Extensions for recordedDate
      */
-    _recordedDate?: any[] | boolean | Element | number | number | null | string;
+    _recordedDate?: Element;
     /**
      * The date or estimated date that the condition resolved or went into remission. This is
      * called "abatement" because of the many overloaded connotations associated with
      * "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    abatementAge?: any[] | boolean | Age | number | number | null | string;
+    abatementAge?: Age;
     /**
      * The date or estimated date that the condition resolved or went into remission. This is
      * called "abatement" because of the many overloaded connotations associated with
@@ -45,13 +45,13 @@ export interface Condition {
      * called "abatement" because of the many overloaded connotations associated with
      * "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    abatementPeriod?: any[] | boolean | Period | number | number | null | string;
+    abatementPeriod?: Period;
     /**
      * The date or estimated date that the condition resolved or went into remission. This is
      * called "abatement" because of the many overloaded connotations associated with
      * "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    abatementRange?: any[] | boolean | Range | number | number | null | string;
+    abatementRange?: Range;
     /**
      * The date or estimated date that the condition resolved or went into remission. This is
      * called "abatement" because of the many overloaded connotations associated with
@@ -61,39 +61,39 @@ export interface Condition {
     /**
      * Individual who is making the condition statement.
      */
-    asserter?: any[] | boolean | Reference | number | number | null | string;
+    asserter?: Reference;
     /**
      * The anatomical location where this condition manifests itself.
      */
-    bodySite?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    bodySite?: CodeableConcept[];
     /**
      * A category assigned to the condition.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * The clinical status of the condition.
      */
-    clinicalStatus?: any[] | boolean | CodeableConcept | number | number | null | string;
+    clinicalStatus?: CodeableConcept;
     /**
      * Identification of the condition, problem or diagnosis.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Condition | number | null | string>;
+    contained?: Condition[];
     /**
      * The Encounter during which this Condition was created or to which the creation of this
      * record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * Supporting evidence / manifestations that are the basis of the Condition's verification
      * status, such as evidence that confirmed or refuted the condition.
      */
-    evidence?: Array<any[] | boolean | ConditionEvidence | number | number | null | string>;
+    evidence?: ConditionEvidence[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -101,7 +101,7 @@ export interface Condition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -111,7 +111,7 @@ export interface Condition {
      * Business identifiers assigned to this condition by the performer or other systems which
      * remain constant as the resource is updated and propagates from server to server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -127,7 +127,7 @@ export interface Condition {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -141,17 +141,17 @@ export interface Condition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for
      * description of the Condition, its diagnosis and prognosis.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the
      * clinician.
      */
-    onsetAge?: any[] | boolean | Age | number | number | null | string;
+    onsetAge?: Age;
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the
      * clinician.
@@ -161,12 +161,12 @@ export interface Condition {
      * Estimated or actual date or date-time  the condition began, in the opinion of the
      * clinician.
      */
-    onsetPeriod?: any[] | boolean | Period | number | number | null | string;
+    onsetPeriod?: Period;
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the
      * clinician.
      */
-    onsetRange?: any[] | boolean | Range | number | number | null | string;
+    onsetRange?: Range;
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the
      * clinician.
@@ -180,23 +180,23 @@ export interface Condition {
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
-    recorder?: any[] | boolean | Reference | number | number | null | string;
+    recorder?: Reference;
     /**
      * This is a Condition resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A subjective assessment of the severity of the condition as evaluated by the clinician.
      */
-    severity?: any[] | boolean | CodeableConcept | number | number | null | string;
+    severity?: CodeableConcept;
     /**
      * Clinical stage or grade of a condition. May include formal severity assessments.
      */
-    stage?: Array<any[] | boolean | ConditionStage | number | number | null | string>;
+    stage?: ConditionStage[];
     /**
      * Indicates the patient or group who the condition record is associated with.
      */
-    subject: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -204,21 +204,25 @@ export interface Condition {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * The verification status to support the clinical status of the condition.
      */
-    verificationStatus?: any[] | boolean | CodeableConcept | number | number | null | string;
+    verificationStatus?: CodeableConcept;
 }
+/**
+ * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical
+ * concept that has risen to a level of concern.
+ */
 export interface ConditionEvidence {
     /**
      * A manifestation or symptom that led to the recording of this condition.
      */
-    code?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    code?: CodeableConcept[];
     /**
      * Links to other relevant information, including pathology reports.
      */
-    detail?: Array<any[] | boolean | Reference | number | number | null | string>;
+    detail?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -226,7 +230,7 @@ export interface ConditionEvidence {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -245,13 +249,17 @@ export interface ConditionEvidence {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical
+ * concept that has risen to a level of concern.
+ */
 export interface ConditionStage {
     /**
      * Reference to a formal record of the evidence on which the staging assessment is based.
      */
-    assessment?: Array<any[] | boolean | Reference | number | number | null | string>;
+    assessment?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -259,7 +267,7 @@ export interface ConditionStage {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -278,14 +286,14 @@ export interface ConditionStage {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A simple summary of the stage such as "Stage 3". The determination of the stage is
      * disease-specific.
      */
-    summary?: any[] | boolean | CodeableConcept | number | number | null | string;
+    summary?: CodeableConcept;
     /**
      * The kind of staging, such as pathological or clinical staging.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }

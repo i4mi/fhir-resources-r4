@@ -3,29 +3,29 @@ export interface MedicinalProductPharmaceutical {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * The administrable dose form, after necessary reconstitution.
      */
-    administrableDoseForm: any[] | boolean | CodeableConcept | number | number | null | string;
+    administrableDoseForm?: CodeableConcept;
     /**
      * Characteristics e.g. a products onset of action.
      */
-    characteristics?: Array<any[] | boolean | MedicinalProductPharmaceuticalCharacteristics | number | number | null | string>;
+    characteristics?: MedicinalProductPharmaceuticalCharacteristics[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | MedicinalProductPharmaceutical | number | null | string>;
+    contained?: MedicinalProductPharmaceutical[];
     /**
      * Accompanying device.
      */
-    device?: Array<any[] | boolean | Reference | number | number | null | string>;
+    device?: Reference[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -33,7 +33,7 @@ export interface MedicinalProductPharmaceutical {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -42,7 +42,7 @@ export interface MedicinalProductPharmaceutical {
     /**
      * An identifier for the pharmaceutical medicinal product.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -52,7 +52,7 @@ export interface MedicinalProductPharmaceutical {
     /**
      * Ingredient.
      */
-    ingredient?: Array<any[] | boolean | Reference | number | number | null | string>;
+    ingredient?: Reference[];
     /**
      * The base language in which the resource is written.
      */
@@ -62,7 +62,7 @@ export interface MedicinalProductPharmaceutical {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -76,15 +76,15 @@ export interface MedicinalProductPharmaceutical {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * This is a MedicinalProductPharmaceutical resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The path by which the pharmaceutical product is taken into or makes contact with the body.
      */
-    routeOfAdministration: Array<any[] | boolean | MedicinalProductPharmaceuticalRouteOfAdministration | number | number | null | string>;
+    routeOfAdministration?: MedicinalProductPharmaceuticalRouteOfAdministration[];
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -92,17 +92,20 @@ export interface MedicinalProductPharmaceutical {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Todo.
      */
-    unitOfPresentation?: any[] | boolean | CodeableConcept | number | number | null | string;
+    unitOfPresentation?: CodeableConcept;
 }
+/**
+ * A pharmaceutical product described in terms of its composition and dose form.
+ */
 export interface MedicinalProductPharmaceuticalCharacteristics {
     /**
      * A coded characteristic.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -110,7 +113,7 @@ export interface MedicinalProductPharmaceuticalCharacteristics {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -129,17 +132,20 @@ export interface MedicinalProductPharmaceuticalCharacteristics {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The status of characteristic e.g. assigned or pending.
      */
-    status?: any[] | boolean | CodeableConcept | number | number | null | string;
+    status?: CodeableConcept;
 }
+/**
+ * A pharmaceutical product described in terms of its composition and dose form.
+ */
 export interface MedicinalProductPharmaceuticalRouteOfAdministration {
     /**
      * Coded expression for the route.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -147,12 +153,12 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The first dose (dose quantity) administered in humans can be specified, for a product
      * under investigation, using a numerical value and its unit of measurement.
      */
-    firstDose?: any[] | boolean | Quantity | number | number | null | string;
+    firstDose?: Quantity;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -163,22 +169,22 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration {
      * period) that can be administered as per the protocol referenced in the clinical trial
      * authorisation.
      */
-    maxDosePerDay?: any[] | boolean | Quantity | number | number | null | string;
+    maxDosePerDay?: Quantity;
     /**
      * The maximum dose per treatment period that can be administered as per the protocol
      * referenced in the clinical trial authorisation.
      */
-    maxDosePerTreatmentPeriod?: any[] | boolean | Ratio | number | number | null | string;
+    maxDosePerTreatmentPeriod?: Ratio;
     /**
      * The maximum single dose that can be administered as per the protocol of a clinical trial
      * can be specified using a numerical value and its unit of measurement.
      */
-    maxSingleDose?: any[] | boolean | Quantity | number | number | null | string;
+    maxSingleDose?: Quantity;
     /**
      * The maximum treatment period during which an Investigational Medicinal Product can be
      * administered as per the protocol referenced in the clinical trial authorisation.
      */
-    maxTreatmentPeriod?: any[] | boolean | Duration | number | number | null | string;
+    maxTreatmentPeriod?: Duration;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -192,17 +198,20 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A species for which this route applies.
      */
-    targetSpecies?: Array<any[] | boolean | MedicinalProductPharmaceuticalTargetSpecies | number | number | null | string>;
+    targetSpecies?: MedicinalProductPharmaceuticalTargetSpecies[];
 }
+/**
+ * A pharmaceutical product described in terms of its composition and dose form.
+ */
 export interface MedicinalProductPharmaceuticalTargetSpecies {
     /**
      * Coded expression for the species.
      */
-    code: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -210,7 +219,7 @@ export interface MedicinalProductPharmaceuticalTargetSpecies {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -229,17 +238,20 @@ export interface MedicinalProductPharmaceuticalTargetSpecies {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A species specific time during which consumption of animal product is not appropriate.
      */
-    withdrawalPeriod?: Array<any[] | boolean | MedicinalProductPharmaceuticalWithdrawalPeriod | number | number | null | string>;
+    withdrawalPeriod?: MedicinalProductPharmaceuticalWithdrawalPeriod[];
 }
+/**
+ * A pharmaceutical product described in terms of its composition and dose form.
+ */
 export interface MedicinalProductPharmaceuticalWithdrawalPeriod {
     /**
      * Extensions for supportingInformation
      */
-    _supportingInformation?: any[] | boolean | Element | number | number | null | string;
+    _supportingInformation?: Element;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -247,7 +259,7 @@ export interface MedicinalProductPharmaceuticalWithdrawalPeriod {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -266,7 +278,7 @@ export interface MedicinalProductPharmaceuticalWithdrawalPeriod {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Extra information about the withdrawal period.
      */
@@ -275,9 +287,9 @@ export interface MedicinalProductPharmaceuticalWithdrawalPeriod {
      * Coded expression for the type of tissue for which the withdrawal period applues, e.g.
      * meat, milk.
      */
-    tissue: any[] | boolean | CodeableConcept | number | number | null | string;
+    tissue?: CodeableConcept;
     /**
      * A value for the time.
      */
-    value: any[] | boolean | Quantity | number | number | null | string;
+    value?: Quantity;
 }

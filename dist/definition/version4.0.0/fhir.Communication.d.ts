@@ -3,55 +3,55 @@ export interface Communication {
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for instantiatesUri
      */
-    _instantiatesUri?: Array<any[] | boolean | Element | number | number | null | string>;
+    _instantiatesUri?: Element[];
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for priority
      */
-    _priority?: any[] | boolean | Element | number | number | null | string;
+    _priority?: Element;
     /**
      * Extensions for received
      */
-    _received?: any[] | boolean | Element | number | number | null | string;
+    _received?: Element;
     /**
      * Extensions for sent
      */
-    _sent?: any[] | boolean | Element | number | number | null | string;
+    _sent?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Other resources that pertain to this communication and to which this communication should
      * be associated.
      */
-    about?: Array<any[] | boolean | Reference | number | number | null | string>;
+    about?: Reference[];
     /**
      * An order, proposal or plan fulfilled in whole or in part by this Communication.
      */
-    basedOn?: Array<any[] | boolean | Reference | number | number | null | string>;
+    basedOn?: Reference[];
     /**
      * The type of message conveyed such as alert, notification, reminder, instruction, etc.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | Communication | number | null | string>;
+    contained?: Communication[];
     /**
      * The Encounter during which this Communication was created or to which the creation of
      * this record is tightly associated.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -59,7 +59,7 @@ export interface Communication {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -69,7 +69,7 @@ export interface Communication {
      * Business identifiers assigned to this communication by the performer or other systems
      * which remain constant as the resource is updated and propagates from server to server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -79,7 +79,7 @@ export interface Communication {
     /**
      * Prior communication that this communication is in response to.
      */
-    inResponseTo?: Array<any[] | boolean | Reference | number | number | null | string>;
+    inResponseTo?: Reference[];
     /**
      * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that
      * is adhered to in whole or in part by this Communication.
@@ -97,13 +97,13 @@ export interface Communication {
     /**
      * A channel that was used for this communication (e.g. email, fax).
      */
-    medium?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    medium?: CodeableConcept[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -117,20 +117,20 @@ export interface Communication {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Additional notes or commentary about the communication by the sender, receiver or other
      * interested parties.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Part of this action.
      */
-    partOf?: Array<any[] | boolean | Reference | number | number | null | string>;
+    partOf?: Reference[];
     /**
      * Text, attachment(s), or resource(s) that was communicated to the recipient.
      */
-    payload?: Array<any[] | boolean | CommunicationPayload | number | number | null | string>;
+    payload?: CommunicationPayload[];
     /**
      * Characterizes how quickly the planned or in progress communication must be addressed.
      * Includes concepts such as stat, urgent, routine.
@@ -139,11 +139,11 @@ export interface Communication {
     /**
      * The reason or justification for the communication.
      */
-    reasonCode?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    reasonCode?: CodeableConcept[];
     /**
      * Indicates another resource whose existence justifies this communication.
      */
-    reasonReference?: Array<any[] | boolean | Reference | number | number | null | string>;
+    reasonReference?: Reference[];
     /**
      * The time when this communication arrived at the destination.
      */
@@ -156,16 +156,16 @@ export interface Communication {
      * (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed
      * received by a particular time).
      */
-    recipient?: Array<any[] | boolean | Reference | number | number | null | string>;
+    recipient?: Reference[];
     /**
      * This is a Communication resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The entity (e.g. person, organization, clinical information system, or device) which was
      * the source of the communication.
      */
-    sender?: any[] | boolean | Reference | number | number | null | string;
+    sender?: Reference;
     /**
      * The time when this communication was sent.
      */
@@ -177,11 +177,11 @@ export interface Communication {
     /**
      * Captures the reason for the current state of the Communication.
      */
-    statusReason?: any[] | boolean | CodeableConcept | number | number | null | string;
+    statusReason?: CodeableConcept;
     /**
      * The patient or group that was the focus of this communication.
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -189,27 +189,32 @@ export interface Communication {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Description of the purpose/content, similar to a subject line in an email.
      */
-    topic?: any[] | boolean | CodeableConcept | number | number | null | string;
+    topic?: CodeableConcept;
 }
+/**
+ * An occurrence of information being transmitted; e.g. an alert that was sent to a
+ * responsible provider, a public health agency that was notified about a reportable
+ * condition.
+ */
 export interface CommunicationPayload {
     /**
      * Extensions for contentString
      */
-    _contentString?: any[] | boolean | Element | number | number | null | string;
+    _contentString?: Element;
     /**
      * A communicated content (or for multi-part communications, one portion of the
      * communication).
      */
-    contentAttachment?: any[] | boolean | Attachment | number | number | null | string;
+    contentAttachment?: Attachment;
     /**
      * A communicated content (or for multi-part communications, one portion of the
      * communication).
      */
-    contentReference?: any[] | boolean | Reference | number | number | null | string;
+    contentReference?: Reference;
     /**
      * A communicated content (or for multi-part communications, one portion of the
      * communication).
@@ -222,7 +227,7 @@ export interface CommunicationPayload {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -241,5 +246,5 @@ export interface CommunicationPayload {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }

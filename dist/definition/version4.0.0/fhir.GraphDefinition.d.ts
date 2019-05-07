@@ -3,61 +3,61 @@ export interface GraphDefinition {
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for name
      */
-    _name?: any[] | boolean | Element | number | number | null | string;
+    _name?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for purpose
      */
-    _purpose?: any[] | boolean | Element | number | number | null | string;
+    _purpose?: Element;
     /**
      * Extensions for start
      */
-    _start?: any[] | boolean | Element | number | number | null | string;
+    _start?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | GraphDefinition | number | null | string>;
+    contained?: GraphDefinition[];
     /**
      * The date  (and optionally time) when the graph definition was published. The date must
      * change when the business version changes and it must change if the status code changes.
@@ -82,7 +82,7 @@ export interface GraphDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -97,7 +97,7 @@ export interface GraphDefinition {
     /**
      * A legal or geographic region in which the graph definition is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -105,13 +105,13 @@ export interface GraphDefinition {
     /**
      * Links this graph makes rules about.
      */
-    link?: Array<any[] | boolean | GraphDefinitionLink | number | number | null | string>;
+    link?: GraphDefinitionLink[];
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -125,7 +125,7 @@ export interface GraphDefinition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A natural language name identifying the graph definition. This name should be usable as
      * an identifier for the module by machine processing applications such as code generation.
@@ -146,7 +146,7 @@ export interface GraphDefinition {
     /**
      * This is a GraphDefinition resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The type of FHIR resource at which instances of this graph start.
      */
@@ -154,7 +154,7 @@ export interface GraphDefinition {
     /**
      * The status of this graph definition. Enables tracking the life-cycle of the content.
      */
-    status?: FhirGraphDefinitionStatus;
+    status?: GraphDefinitionStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -162,7 +162,7 @@ export interface GraphDefinition {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * An absolute URI that is used to identify this graph definition when it is referenced in a
      * specification, model, design or an instance; also called its canonical identifier. This
@@ -178,7 +178,7 @@ export interface GraphDefinition {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate graph definition instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the graph definition when it is
      * referenced in a specification, model, design or instance. This is an arbitrary value
@@ -188,19 +188,24 @@ export interface GraphDefinition {
      */
     version?: string;
 }
+/**
+ * A formal computable definition of a graph of resources - that is, a coherent set of
+ * resources that form a graph by following references. The Graph Definition resource
+ * defines a set and makes rules about the set.
+ */
 export interface GraphDefinitionTarget {
     /**
      * Extensions for params
      */
-    _params?: any[] | boolean | Element | number | number | null | string;
+    _params?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * Compartment Consistency Rules.
      */
-    compartment?: Array<any[] | boolean | GraphDefinitionCompartment | number | number | null | string>;
+    compartment?: GraphDefinitionCompartment[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -208,7 +213,7 @@ export interface GraphDefinitionTarget {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -217,7 +222,7 @@ export interface GraphDefinitionTarget {
     /**
      * Additional links from target resource.
      */
-    link?: Array<any[] | boolean | GraphDefinitionLink | number | number | null | string>;
+    link?: GraphDefinitionLink[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -231,7 +236,7 @@ export interface GraphDefinitionTarget {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A set of parameters to look up.
      */
@@ -245,27 +250,32 @@ export interface GraphDefinitionTarget {
      */
     type?: string;
 }
+/**
+ * A formal computable definition of a graph of resources - that is, a coherent set of
+ * resources that form a graph by following references. The Graph Definition resource
+ * defines a set and makes rules about the set.
+ */
 export interface GraphDefinitionLink {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for max
      */
-    _max?: any[] | boolean | Element | number | number | null | string;
+    _max?: Element;
     /**
      * Extensions for min
      */
-    _min?: any[] | boolean | Element | number | number | null | string;
+    _min?: Element;
     /**
      * Extensions for path
      */
-    _path?: any[] | boolean | Element | number | number | null | string;
+    _path?: Element;
     /**
      * Extensions for sliceName
      */
-    _sliceName?: any[] | boolean | Element | number | number | null | string;
+    _sliceName?: Element;
     /**
      * Information about why this link is of interest in this graph definition.
      */
@@ -277,7 +287,7 @@ export interface GraphDefinitionLink {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -304,7 +314,7 @@ export interface GraphDefinitionLink {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A FHIR expression that identifies one of FHIR References to other resources.
      */
@@ -316,29 +326,34 @@ export interface GraphDefinitionLink {
     /**
      * Potential target for the link.
      */
-    target?: Array<any[] | boolean | GraphDefinitionTarget | number | number | null | string>;
+    target?: GraphDefinitionTarget[];
 }
+/**
+ * A formal computable definition of a graph of resources - that is, a coherent set of
+ * resources that form a graph by following references. The Graph Definition resource
+ * defines a set and makes rules about the set.
+ */
 export interface GraphDefinitionCompartment {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for expression
      */
-    _expression?: any[] | boolean | Element | number | number | null | string;
+    _expression?: Element;
     /**
      * Extensions for rule
      */
-    _rule?: any[] | boolean | Element | number | number | null | string;
+    _rule?: Element;
     /**
      * Extensions for use
      */
-    _use?: any[] | boolean | Element | number | number | null | string;
+    _use?: Element;
     /**
      * Identifies the compartment.
      */
@@ -358,7 +373,7 @@ export interface GraphDefinitionCompartment {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -377,7 +392,7 @@ export interface GraphDefinitionCompartment {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * identical | matching | different | no-rule | custom.
      */
@@ -408,7 +423,7 @@ export declare enum GraphDefinitionCompartmentUse {
 /**
  * The status of this graph definition. Enables tracking the life-cycle of the content.
  */
-export declare enum FhirGraphDefinitionStatus {
+export declare enum GraphDefinitionStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

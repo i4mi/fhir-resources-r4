@@ -3,57 +3,57 @@ export interface AllergyIntolerance {
     /**
      * Extensions for category
      */
-    _category?: Array<any[] | boolean | Element | number | number | null | string>;
+    _category?: Element[];
     /**
      * Extensions for criticality
      */
-    _criticality?: any[] | boolean | Element | number | number | null | string;
+    _criticality?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastOccurrence
      */
-    _lastOccurrence?: any[] | boolean | Element | number | number | null | string;
+    _lastOccurrence?: Element;
     /**
      * Extensions for onsetDateTime
      */
-    _onsetDateTime?: any[] | boolean | Element | number | number | null | string;
+    _onsetDateTime?: Element;
     /**
      * Extensions for onsetString
      */
-    _onsetString?: any[] | boolean | Element | number | number | null | string;
+    _onsetString?: Element;
     /**
      * Extensions for recordedDate
      */
-    _recordedDate?: any[] | boolean | Element | number | number | null | string;
+    _recordedDate?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * The source of the information about the allergy that is recorded.
      */
-    asserter?: any[] | boolean | Reference | number | number | null | string;
+    asserter?: Reference;
     /**
      * Category of the identified substance.
      */
-    category?: Category[];
+    category?: AllergyIntoleranceCategory[];
     /**
      * The clinical status of the allergy or intolerance.
      */
-    clinicalStatus?: any[] | boolean | CodeableConcept | number | number | null | string;
+    clinicalStatus?: CodeableConcept;
     /**
      * Code for an allergy or intolerance statement (either a positive or a negated/excluded
      * statement).  This may be a code for a substance or pharmaceutical product that is
      * considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or
      * intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific
-     * substance or  (e.g., "No latex allergy") or a general or categorical negated
+     * substance or class (e.g., "No latex allergy") or a general or categorical negated
      * statement (e.g.,  "No known allergy", "No known drug allergies").  Note: the substance
      * for a specific reaction may be different from the substance identified as the cause of
      * the risk, but it must be consistent with it. For instance, it may be a more specific
@@ -64,13 +64,13 @@ export interface AllergyIntolerance {
      * AllergyIntolerance.code, then the receiving system should ignore
      * AllergyIntolerance.reaction.substance.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | AllergyIntolerance | number | null | string>;
+    contained?: AllergyIntolerance[];
     /**
      * Estimate of the potential clinical harm, or seriousness, of the reaction to the
      * identified substance.
@@ -79,7 +79,7 @@ export interface AllergyIntolerance {
     /**
      * The encounter when the allergy or intolerance was asserted.
      */
-    encounter?: any[] | boolean | Reference | number | number | null | string;
+    encounter?: Reference;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource. To make the use of extensions safe and manageable, there is a strict set
@@ -87,7 +87,7 @@ export interface AllergyIntolerance {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -98,7 +98,7 @@ export interface AllergyIntolerance {
      * systems which remain constant as the resource is updated and propagates from server to
      * server.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -118,7 +118,7 @@ export interface AllergyIntolerance {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -132,16 +132,16 @@ export interface AllergyIntolerance {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Additional narrative about the propensity for the Adverse Reaction, not captured in other
      * fields.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
      */
-    onsetAge?: any[] | boolean | Age | number | number | null | string;
+    onsetAge?: Age;
     /**
      * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
      */
@@ -149,11 +149,11 @@ export interface AllergyIntolerance {
     /**
      * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
      */
-    onsetPeriod?: any[] | boolean | Period | number | number | null | string;
+    onsetPeriod?: Period;
     /**
      * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
      */
-    onsetRange?: any[] | boolean | Range | number | number | null | string;
+    onsetRange?: Range;
     /**
      * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
      */
@@ -161,11 +161,11 @@ export interface AllergyIntolerance {
     /**
      * The patient who has the allergy or intolerance.
      */
-    patient: any[] | boolean | Reference | number | number | null | string;
+    patient?: Reference;
     /**
      * Details about each adverse reaction event linked to exposure to the identified substance.
      */
-    reaction?: Array<any[] | boolean | AllergyIntoleranceReaction | number | number | null | string>;
+    reaction?: AllergyIntoleranceReaction[];
     /**
      * The recordedDate represents when this particular AllergyIntolerance record was created in
      * the system, which is often a system-generated date.
@@ -174,11 +174,11 @@ export interface AllergyIntolerance {
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
-    recorder?: any[] | boolean | Reference | number | number | null | string;
+    recorder?: Reference;
     /**
      * This is a AllergyIntolerance resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -186,18 +186,18 @@ export interface AllergyIntolerance {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Identification of the underlying physiological mechanism for the reaction risk.
      */
-    type?: FhirSchemaAllergyIntoleranceType;
+    type?: AllergyIntoleranceType;
     /**
      * Assertion about certainty associated with the propensity, or potential risk, of a
      * reaction to the identified substance (including pharmaceutical product).
      */
-    verificationStatus?: any[] | boolean | CodeableConcept | number | number | null | string;
+    verificationStatus?: CodeableConcept;
 }
-export declare enum Category {
+export declare enum AllergyIntoleranceCategory {
     Biologic = "biologic",
     Environment = "environment",
     Food = "food",
@@ -212,19 +212,23 @@ export declare enum Criticality {
     Low = "low",
     UnableToAssess = "unable-to-assess"
 }
+/**
+ * Risk of harmful or undesirable, physiological response which is unique to an individual
+ * and associated with exposure to a substance.
+ */
 export interface AllergyIntoleranceReaction {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for onset
      */
-    _onset?: any[] | boolean | Element | number | number | null | string;
+    _onset?: Element;
     /**
      * Extensions for severity
      */
-    _severity?: any[] | boolean | Element | number | number | null | string;
+    _severity?: Element;
     /**
      * Text description about the reaction as a whole, including details of the manifestation if
      * required.
@@ -233,7 +237,7 @@ export interface AllergyIntoleranceReaction {
     /**
      * Identification of the route by which the subject was exposed to the substance.
      */
-    exposureRoute?: any[] | boolean | CodeableConcept | number | number | null | string;
+    exposureRoute?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -241,7 +245,7 @@ export interface AllergyIntoleranceReaction {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -251,7 +255,7 @@ export interface AllergyIntoleranceReaction {
      * Clinical symptoms and/or signs that are observed or associated with the adverse reaction
      * event.
      */
-    manifestation: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    manifestation?: CodeableConcept[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element and that modifies the understanding of the element in which it is
@@ -265,11 +269,11 @@ export interface AllergyIntoleranceReaction {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Additional text about the adverse reaction event not captured in other fields.
      */
-    note?: Array<any[] | boolean | Annotation | number | number | null | string>;
+    note?: Annotation[];
     /**
      * Record of the date and/or time of the onset of the Reaction.
      */
@@ -278,7 +282,7 @@ export interface AllergyIntoleranceReaction {
      * Clinical assessment of the severity of the reaction event as a whole, potentially
      * considering multiple different manifestations.
      */
-    severity?: Severity;
+    severity?: AllergyIntoleranceSeverity;
     /**
      * Identification of the specific substance (or pharmaceutical product) considered to be
      * responsible for the Adverse Reaction event. Note: the substance for a specific reaction
@@ -290,13 +294,13 @@ export interface AllergyIntoleranceReaction {
      * within the semantic scope of AllergyIntolerance.code, then the receiving system should
      * ignore AllergyIntolerance.reaction.substance.
      */
-    substance?: any[] | boolean | CodeableConcept | number | number | null | string;
+    substance?: CodeableConcept;
 }
 /**
  * Clinical assessment of the severity of the reaction event as a whole, potentially
  * considering multiple different manifestations.
  */
-export declare enum Severity {
+export declare enum AllergyIntoleranceSeverity {
     Mild = "mild",
     Moderate = "moderate",
     Severe = "severe"
@@ -304,7 +308,7 @@ export declare enum Severity {
 /**
  * Identification of the underlying physiological mechanism for the reaction risk.
  */
-export declare enum FhirSchemaAllergyIntoleranceType {
+export declare enum AllergyIntoleranceType {
     Allergy = "allergy",
     Intolerance = "intolerance"
 }

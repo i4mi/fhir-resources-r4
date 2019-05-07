@@ -3,60 +3,60 @@ export interface DocumentReference {
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for docStatus
      */
-    _docStatus?: any[] | boolean | Element | number | number | null | string;
+    _docStatus?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Which person or organization authenticates that this document is valid.
      */
-    authenticator?: any[] | boolean | Reference | number | number | null | string;
+    authenticator?: Reference;
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    author?: Array<any[] | boolean | Reference | number | number | null | string>;
+    author?: Reference[];
     /**
      * A categorization for the type of document referenced - helps for indexing and searching.
      * This may be implied by or derived from the code specified in the DocumentReference.type.
      */
-    category?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    category?: CodeableConcept[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | DocumentReference | number | null | string>;
+    contained?: DocumentReference[];
     /**
      * The document and format referenced. There may be multiple content element repetitions,
      * each with a different format.
      */
-    content: Array<any[] | boolean | DocumentReferenceContent | number | number | null | string>;
+    content?: DocumentReferenceContent[];
     /**
      * The clinical context in which the document was prepared.
      */
-    context?: any[] | boolean | DocumentReferenceContext | number | number | null | string;
+    context?: DocumentReferenceContext;
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and
      * access to the document.
      */
-    custodian?: any[] | boolean | Reference | number | number | null | string;
+    custodian?: Reference;
     /**
      * When the document reference was created.
      */
@@ -76,7 +76,7 @@ export interface DocumentReference {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -85,7 +85,7 @@ export interface DocumentReference {
     /**
      * Other identifiers associated with the document, including version independent identifiers.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -101,13 +101,13 @@ export interface DocumentReference {
      * specific to this version of the document. This unique identifier may be used elsewhere to
      * identify this version of the document.
      */
-    masterIdentifier?: any[] | boolean | Identifier | number | number | null | string;
+    masterIdentifier?: Identifier;
     /**
      * The metadata about the resource. This is content that is maintained by the
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -121,33 +121,33 @@ export interface DocumentReference {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * Relationships that this document has with other document references that already exist.
      */
-    relatesTo?: Array<any[] | boolean | DocumentReferenceRelatesTo | number | number | null | string>;
+    relatesTo?: DocumentReferenceRelatesTo[];
     /**
      * This is a DocumentReference resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * A set of Security-Tag codes specifying the level of privacy/security of the Document.
      * Note that DocumentReference.meta.security contains the security labels of the "reference"
      * to the document, while DocumentReference.securityLabel contains a snapshot of the
      * security labels on the document the reference refers to.
      */
-    securityLabel?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    securityLabel?: CodeableConcept[];
     /**
      * The status of this document reference.
      */
-    status?: FhirDocumentReferenceStatus;
+    status?: DocumentReferenceStatus;
     /**
      * Who or what the document is about. The document can be about a person, (patient or
      * healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as
      * a document about a herd of farm animals, or a set of patients that share a common
      * exposure).
      */
-    subject?: any[] | boolean | Reference | number | number | null | string;
+    subject?: Reference;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -155,20 +155,26 @@ export interface DocumentReference {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * Specifies the particular kind of document referenced  (e.g. History and Physical,
      * Discharge Summary, Progress Note). This usually equates to the purpose of making the
      * document referenced.
      */
-    type?: any[] | boolean | CodeableConcept | number | number | null | string;
+    type?: CodeableConcept;
 }
+/**
+ * A reference to a document of any kind for any purpose. Provides metadata about the
+ * document so that the document can be discovered and managed. The scope of a document is
+ * any seralized object with a mime-type, so includes formal patient centric documents
+ * (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
+ */
 export interface DocumentReferenceContent {
     /**
      * The document or URL of the document along with critical metadata to prove content has
      * integrity.
      */
-    attachment: any[] | boolean | Attachment | number | number | null | string;
+    attachment?: Attachment;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -176,12 +182,12 @@ export interface DocumentReferenceContent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * An identifier of the document encoding, structure, and template that the document
      * conforms to beyond the base format indicated in the mimeType.
      */
-    format?: any[] | boolean | Coding | number | number | null | string;
+    format?: Coding;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -200,21 +206,29 @@ export interface DocumentReferenceContent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * The clinical context in which the document was prepared.
+ *
+ * A reference to a document of any kind for any purpose. Provides metadata about the
+ * document so that the document can be discovered and managed. The scope of a document is
+ * any seralized object with a mime-type, so includes formal patient centric documents
+ * (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
+ */
 export interface DocumentReferenceContext {
     /**
      * Describes the clinical encounter or type of care that the document content is associated
      * with.
      */
-    encounter?: Array<any[] | boolean | Reference | number | number | null | string>;
+    encounter?: Reference[];
     /**
      * This list of codes represents the main clinical acts, such as a colonoscopy or an
      * appendectomy, being documented. In some cases, the event is inherent in the type Code,
      * such as a "History and Physical Report" in which the procedure being documented is
      * necessarily a "History and Physical" act.
      */
-    event?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    event?: CodeableConcept[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -222,11 +236,11 @@ export interface DocumentReferenceContext {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The kind of facility where the patient was seen.
      */
-    facilityType?: any[] | boolean | CodeableConcept | number | number | null | string;
+    facilityType?: CodeableConcept;
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -245,35 +259,41 @@ export interface DocumentReferenceContext {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The time period over which the service that is described by the document was provided.
      */
-    period?: any[] | boolean | Period | number | number | null | string;
+    period?: Period;
     /**
      * This property may convey specifics about the practice setting where the content was
      * created, often reflecting the clinical specialty.
      */
-    practiceSetting?: any[] | boolean | CodeableConcept | number | number | null | string;
+    practiceSetting?: CodeableConcept;
     /**
      * Related identifiers or resources associated with the DocumentReference.
      */
-    related?: Array<any[] | boolean | Reference | number | number | null | string>;
+    related?: Reference[];
     /**
      * The Patient Information as known when the document was published. May be a reference to a
      * version specific, or contained.
      */
-    sourcePatientInfo?: any[] | boolean | Reference | number | number | null | string;
+    sourcePatientInfo?: Reference;
 }
+/**
+ * A reference to a document of any kind for any purpose. Provides metadata about the
+ * document so that the document can be discovered and managed. The scope of a document is
+ * any seralized object with a mime-type, so includes formal patient centric documents
+ * (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
+ */
 export interface DocumentReferenceRelatesTo {
     /**
      * Extensions for code
      */
-    _code?: any[] | boolean | Element | number | number | null | string;
+    _code?: Element;
     /**
      * The type of relationship that this document has with anther document.
      */
-    code?: Code;
+    code?: DocumentReferenceRelatesToCode;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -281,7 +301,7 @@ export interface DocumentReferenceRelatesTo {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -300,16 +320,16 @@ export interface DocumentReferenceRelatesTo {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The target document of this relationship.
      */
-    target: any[] | boolean | Reference | number | number | null | string;
+    target?: Reference;
 }
 /**
  * The type of relationship that this document has with anther document.
  */
-export declare enum Code {
+export declare enum DocumentReferenceRelatesToCode {
     Appends = "appends",
     Replaces = "replaces",
     Signs = "signs",
@@ -318,7 +338,7 @@ export declare enum Code {
 /**
  * The status of this document reference.
  */
-export declare enum FhirDocumentReferenceStatus {
+export declare enum DocumentReferenceStatus {
     Current = "current",
     EnteredInError = "entered-in-error",
     Superseded = "superseded"

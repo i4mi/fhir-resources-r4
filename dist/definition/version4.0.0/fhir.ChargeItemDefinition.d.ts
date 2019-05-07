@@ -3,63 +3,63 @@ export interface ChargeItemDefinition {
     /**
      * Extensions for approvalDate
      */
-    _approvalDate?: any[] | boolean | Element | number | number | null | string;
+    _approvalDate?: Element;
     /**
      * Extensions for copyright
      */
-    _copyright?: any[] | boolean | Element | number | number | null | string;
+    _copyright?: Element;
     /**
      * Extensions for date
      */
-    _date?: any[] | boolean | Element | number | number | null | string;
+    _date?: Element;
     /**
      * Extensions for derivedFromUri
      */
-    _derivedFromUri?: Array<any[] | boolean | Element | number | number | null | string>;
+    _derivedFromUri?: Element[];
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for experimental
      */
-    _experimental?: any[] | boolean | Element | number | number | null | string;
+    _experimental?: Element;
     /**
      * Extensions for implicitRules
      */
-    _implicitRules?: any[] | boolean | Element | number | number | null | string;
+    _implicitRules?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * Extensions for lastReviewDate
      */
-    _lastReviewDate?: any[] | boolean | Element | number | number | null | string;
+    _lastReviewDate?: Element;
     /**
      * Extensions for publisher
      */
-    _publisher?: any[] | boolean | Element | number | number | null | string;
+    _publisher?: Element;
     /**
      * Extensions for status
      */
-    _status?: any[] | boolean | Element | number | number | null | string;
+    _status?: Element;
     /**
      * Extensions for title
      */
-    _title?: any[] | boolean | Element | number | number | null | string;
+    _title?: Element;
     /**
      * Extensions for url
      */
-    _url?: any[] | boolean | Element | number | number | null | string;
+    _url?: Element;
     /**
      * Extensions for version
      */
-    _version?: any[] | boolean | Element | number | number | null | string;
+    _version?: Element;
     /**
      * Expressions that describe applicability criteria for the billing code.
      */
-    applicability?: Array<any[] | boolean | ChargeItemDefinitionApplicability | number | number | null | string>;
+    applicability?: ChargeItemDefinitionApplicability[];
     /**
      * The date on which the resource content was approved by the publisher. Approval happens
      * once when the content is officially approved for usage.
@@ -68,17 +68,17 @@ export interface ChargeItemDefinition {
     /**
      * The defined billing details in this resource pertain to the given billing code.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    contact?: Array<any[] | boolean | ContactDetail | number | number | null | string>;
+    contact?: ContactDetail[];
     /**
      * These resources do not have an independent existence apart from the resource that
      * contains them - they cannot be identified independently, and nor can they have their own
      * independent transaction scope.
      */
-    contained?: Array<any[] | boolean | ChargeItemDefinition | number | null | string>;
+    contained?: ChargeItemDefinition[];
     /**
      * A copyright statement relating to the charge item definition and/or its contents.
      * Copyright statements are generally legal restrictions on the use and publishing of the
@@ -106,7 +106,7 @@ export interface ChargeItemDefinition {
      * The period during which the charge item definition content was or is planned to be in
      * active use.
      */
-    effectivePeriod?: any[] | boolean | Period | number | number | null | string;
+    effectivePeriod?: Period;
     /**
      * A Boolean value to indicate that this charge item definition is authored for testing
      * purposes (or education/evaluation/marketing) and is not intended to be used for genuine
@@ -120,7 +120,7 @@ export interface ChargeItemDefinition {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this
      * value never changes.
@@ -131,7 +131,7 @@ export interface ChargeItemDefinition {
      * represented in other formats, or referenced in a specification, model, design or an
      * instance.
      */
-    identifier?: Array<any[] | boolean | Identifier | number | number | null | string>;
+    identifier?: Identifier[];
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and
      * which must be understood when processing the content. Often, this is a reference to an
@@ -141,11 +141,11 @@ export interface ChargeItemDefinition {
     /**
      * The defined billing details in this resource pertain to the given product instance(s).
      */
-    instance?: Array<any[] | boolean | Reference | number | number | null | string>;
+    instance?: Reference[];
     /**
      * A legal or geographic region in which the charge item definition is intended to be used.
      */
-    jurisdiction?: Array<any[] | boolean | CodeableConcept | number | number | null | string>;
+    jurisdiction?: CodeableConcept[];
     /**
      * The base language in which the resource is written.
      */
@@ -160,7 +160,7 @@ export interface ChargeItemDefinition {
      * infrastructure. Changes to the content might not always be associated with version
      * changes to the resource.
      */
-    meta?: any[] | boolean | Meta | number | number | null | string;
+    meta?: Meta;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the resource and that modifies the understanding of the element that contains it
@@ -174,7 +174,7 @@ export interface ChargeItemDefinition {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * A larger definition of which this particular definition is a component or step.
      */
@@ -183,7 +183,7 @@ export interface ChargeItemDefinition {
      * Group of properties which are applicable under the same conditions. If no applicability
      * rules are established for the group, then all properties always apply.
      */
-    propertyGroup?: Array<any[] | boolean | ChargeItemDefinitionPropertyGroup | number | number | null | string>;
+    propertyGroup?: ChargeItemDefinitionPropertyGroup[];
     /**
      * The name of the organization or individual that published the charge item definition.
      */
@@ -196,11 +196,11 @@ export interface ChargeItemDefinition {
     /**
      * This is a ChargeItemDefinition resource
      */
-    resourceType: any;
+    resourceType?: any;
     /**
      * The current state of the ChargeItemDefinition.
      */
-    status?: FhirChargeItemDefinitionStatus;
+    status?: ChargeItemDefinitionStatus;
     /**
      * A human-readable narrative that contains a summary of the resource and can be used to
      * represent the content of the resource to a human. The narrative need not encode all the
@@ -208,7 +208,7 @@ export interface ChargeItemDefinition {
      * safe" for a human to just read the narrative. Resource definitions may define what
      * content should be represented in the narrative to ensure clinical safety.
      */
-    text?: any[] | boolean | Narrative | number | number | null | string;
+    text?: Narrative;
     /**
      * A short, descriptive, user-friendly title for the charge item definition.
      */
@@ -228,7 +228,7 @@ export interface ChargeItemDefinition {
      * to specific programs (insurance plans, studies, ...) and may be used to assist with
      * indexing and searching for appropriate charge item definition instances.
      */
-    useContext?: Array<any[] | boolean | UsageContext | number | number | null | string>;
+    useContext?: UsageContext[];
     /**
      * The identifier that is used to identify this version of the charge item definition when
      * it is referenced in a specification, model, design or instance. This is an arbitrary
@@ -242,19 +242,25 @@ export interface ChargeItemDefinition {
      */
     version?: string;
 }
+/**
+ * The ChargeItemDefinition resource provides the properties that apply to the (billing)
+ * codes necessary to calculate costs and prices. The properties may differ largely
+ * depending on type and realm, therefore this resource gives only a rough structure and
+ * requires profiling for each type of billing code system.
+ */
 export interface ChargeItemDefinitionApplicability {
     /**
      * Extensions for description
      */
-    _description?: any[] | boolean | Element | number | number | null | string;
+    _description?: Element;
     /**
      * Extensions for expression
      */
-    _expression?: any[] | boolean | Element | number | number | null | string;
+    _expression?: Element;
     /**
      * Extensions for language
      */
-    _language?: any[] | boolean | Element | number | number | null | string;
+    _language?: Element;
     /**
      * A brief, natural language description of the condition that effectively communicates the
      * intended semantics.
@@ -273,7 +279,7 @@ export interface ChargeItemDefinitionApplicability {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -297,13 +303,19 @@ export interface ChargeItemDefinitionApplicability {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
 }
+/**
+ * The ChargeItemDefinition resource provides the properties that apply to the (billing)
+ * codes necessary to calculate costs and prices. The properties may differ largely
+ * depending on type and realm, therefore this resource gives only a rough structure and
+ * requires profiling for each type of billing code system.
+ */
 export interface ChargeItemDefinitionPropertyGroup {
     /**
      * Expressions that describe applicability criteria for the priceComponent.
      */
-    applicability?: Array<any[] | boolean | ChargeItemDefinitionApplicability | number | number | null | string>;
+    applicability?: ChargeItemDefinitionApplicability[];
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -311,7 +323,7 @@ export interface ChargeItemDefinitionPropertyGroup {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * Unique id for the element within a resource (for internal references). This may be any
      * string value that does not contain spaces.
@@ -330,7 +342,7 @@ export interface ChargeItemDefinitionPropertyGroup {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * The price for a ChargeItem may be calculated as a base price with surcharges/deductions
      * that apply in certain conditions. A ChargeItemDefinition resource that defines the
@@ -338,26 +350,32 @@ export interface ChargeItemDefinitionPropertyGroup {
      * development. The priceComponent element can be used to offer transparency to the
      * recipient of the Invoice of how the prices have been calculated.
      */
-    priceComponent?: Array<any[] | boolean | ChargeItemDefinitionPriceComponent | number | number | null | string>;
+    priceComponent?: ChargeItemDefinitionPriceComponent[];
 }
+/**
+ * The ChargeItemDefinition resource provides the properties that apply to the (billing)
+ * codes necessary to calculate costs and prices. The properties may differ largely
+ * depending on type and realm, therefore this resource gives only a rough structure and
+ * requires profiling for each type of billing code system.
+ */
 export interface ChargeItemDefinitionPriceComponent {
     /**
      * Extensions for factor
      */
-    _factor?: any[] | boolean | Element | number | number | null | string;
+    _factor?: Element;
     /**
      * Extensions for type
      */
-    _type?: any[] | boolean | Element | number | number | null | string;
+    _type?: Element;
     /**
      * The amount calculated for this component.
      */
-    amount?: any[] | boolean | Money | number | number | null | string;
+    amount?: Money;
     /**
      * A code that identifies the component. Codes may be used to differentiate between kinds of
      * taxes, surcharges, discounts etc.
      */
-    code?: any[] | boolean | CodeableConcept | number | number | null | string;
+    code?: CodeableConcept;
     /**
      * May be used to represent additional information that is not part of the basic definition
      * of the element. To make the use of extensions safe and manageable, there is a strict set
@@ -365,7 +383,7 @@ export interface ChargeItemDefinitionPriceComponent {
      * can define an extension, there is a set of requirements that SHALL be met as part of the
      * definition of the extension.
      */
-    extension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    extension?: Extension[];
     /**
      * The factor that has been applied on the base price for calculating this component.
      */
@@ -388,7 +406,7 @@ export interface ChargeItemDefinitionPriceComponent {
      * Modifier extensions SHALL NOT change the meaning of any elements on Resource or
      * DomainResource (including cannot change the meaning of modifierExtension itself).
      */
-    modifierExtension?: Array<any[] | boolean | Extension | number | number | null | string>;
+    modifierExtension?: Extension[];
     /**
      * This code identifies the type of the component.
      */
@@ -397,7 +415,7 @@ export interface ChargeItemDefinitionPriceComponent {
 /**
  * The current state of the ChargeItemDefinition.
  */
-export declare enum FhirChargeItemDefinitionStatus {
+export declare enum ChargeItemDefinitionStatus {
     Active = "active",
     Draft = "draft",
     Retired = "retired",

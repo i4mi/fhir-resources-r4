@@ -95,7 +95,7 @@ export class ApiMethods {
      */
     read(resourceType: string, id: string, vid?: string, config?: ApiConfig) : Promise<ApiCallResponse> {
         let args:ApiCallArgs = this.init(HttpMethod.GET, config);
-        args.url += ('/' + resourceType + '/' + id + (!vid?"/_history/" + vid : ""));
+        args.url += ('/' + resourceType + '/' + id + (vid?"/_history/" + vid : ""));
 
         if (!args.headers){
             args.headers = { 

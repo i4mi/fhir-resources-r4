@@ -1,4 +1,7 @@
-// Created by Insitut for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
+/**
+ * Created by Insitut for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
+ * https://www.i4mi.ti.bfh.ch
+ */
 
 export = fhir;
 
@@ -3351,12 +3354,12 @@ This is labeled as "Is Modifier" because applications should not use a retired v
 		 * Individual responsible for the annotation
 		 * The individual responsible for making the annotation.
 		 */
-		authorstring?: string;
+		authorString?: string;
 
 		/**
-		 * Extension for authorstring
+		 * Extension for authorString
 		 **/
-		_authorstring?: Element;
+		_authorString?: Element;
 
 		/**
 		 * When the annotation was made
@@ -3722,12 +3725,12 @@ This is labeled as "Is Modifier" because applications should not use a retired v
 		 * Valueset for the filter
 		 * The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
 		 */
-		valueSetstring?: string;
+		valueSetString?: string;
 
 		/**
-		 * Extension for valueSetstring
+		 * Extension for valueSetString
 		 **/
-		_valueSetstring?: Element;
+		_valueSetString?: Element;
 
 		/**
 		 * Valueset for the filter
@@ -3780,12 +3783,12 @@ This is labeled as "Is Modifier" because applications should not use a retired v
 		 * The value of the filter, as a Period, DateTime, or Duration value
 		 * The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration from now.
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * The value of the filter, as a Period, DateTime, or Duration value
@@ -3916,12 +3919,12 @@ This is labeled as "Is Modifier" because applications should not use a retired v
 		 * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 		 * Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".
 		 */
-		asNeededboolean?: boolean;
+		asNeededBoolean?: boolean;
 
 		/**
-		 * Extension for asNeededboolean
+		 * Extension for asNeededBoolean
 		 **/
-		_asNeededboolean?: Element;
+		_asNeededBoolean?: Element;
 
 		/**
 		 * Take "as needed" (for x)
@@ -4230,177 +4233,177 @@ This is labeled as "Is Modifier" because applications should not use a retired v
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuebase64Binary: base64Binary;
+		valueBase64Binary: base64Binary;
 
 		/**
-		 * Extension for valuebase64Binary
+		 * Extension for valueBase64Binary
 		 **/
-		_valuebase64Binary?: Element;
+		_valueBase64Binary?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuecode: code;
+		valueCode: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuedate: date;
+		valueDate: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuedateTime: dateTime;
+		valueDateTime: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuedecimal: decimal;
+		valueDecimal: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueid: id;
+		valueId: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueinstant: instant;
+		valueInstant: instant;
 
 		/**
-		 * Extension for valueinstant
+		 * Extension for valueInstant
 		 **/
-		_valueinstant?: Element;
+		_valueInstant?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuemarkdown: markdown;
+		valueMarkdown: markdown;
 
 		/**
-		 * Extension for valuemarkdown
+		 * Extension for valueMarkdown
 		 **/
-		_valuemarkdown?: Element;
+		_valueMarkdown?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueoid: oid;
+		valueOid: oid;
 
 		/**
-		 * Extension for valueoid
+		 * Extension for valueOid
 		 **/
-		_valueoid?: Element;
+		_valueOid?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuepositiveInt: positiveInt;
+		valuePositiveInt: positiveInt;
 
 		/**
-		 * Extension for valuepositiveInt
+		 * Extension for valuePositiveInt
 		 **/
-		_valuepositiveInt?: Element;
+		_valuePositiveInt?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valuetime: time;
+		valueTime: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueunsignedInt: unsignedInt;
+		valueUnsignedInt: unsignedInt;
 
 		/**
-		 * Extension for valueunsignedInt
+		 * Extension for valueUnsignedInt
 		 **/
-		_valueunsignedInt?: Element;
+		_valueUnsignedInt?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
 		 * The actual value for the element, which must be one of the types allowed for this element.
 		 */
-		valueuri: uri;
+		valueUri: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Value of Example (one of allowed types)
@@ -4652,12 +4655,12 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.
 		 * For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not.
 		 */
-		valueSeturi?: uri;
+		valueSetUri?: uri;
 
 		/**
-		 * Extension for valueSeturi
+		 * Extension for valueSetUri
 		 **/
-		_valueSeturi?: Element;
+		_valueSetUri?: Element;
 
 		/**
 		 * Source of value set
@@ -4894,192 +4897,192 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuebase64Binary?: base64Binary;
+		defaultValueBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for defaultValuebase64Binary
+		 * Extension for defaultValueBase64Binary
 		 **/
-		_defaultValuebase64Binary?: Element;
+		_defaultValueBase64Binary?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueboolean?: boolean;
+		defaultValueBoolean?: boolean;
 
 		/**
-		 * Extension for defaultValueboolean
+		 * Extension for defaultValueBoolean
 		 **/
-		_defaultValueboolean?: Element;
+		_defaultValueBoolean?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuecode?: code;
+		defaultValueCode?: code;
 
 		/**
-		 * Extension for defaultValuecode
+		 * Extension for defaultValueCode
 		 **/
-		_defaultValuecode?: Element;
+		_defaultValueCode?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuedate?: date;
+		defaultValueDate?: date;
 
 		/**
-		 * Extension for defaultValuedate
+		 * Extension for defaultValueDate
 		 **/
-		_defaultValuedate?: Element;
+		_defaultValueDate?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuedateTime?: dateTime;
+		defaultValueDateTime?: dateTime;
 
 		/**
-		 * Extension for defaultValuedateTime
+		 * Extension for defaultValueDateTime
 		 **/
-		_defaultValuedateTime?: Element;
+		_defaultValueDateTime?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuedecimal?: decimal;
+		defaultValueDecimal?: decimal;
 
 		/**
-		 * Extension for defaultValuedecimal
+		 * Extension for defaultValueDecimal
 		 **/
-		_defaultValuedecimal?: Element;
+		_defaultValueDecimal?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueid?: id;
+		defaultValueId?: id;
 
 		/**
-		 * Extension for defaultValueid
+		 * Extension for defaultValueId
 		 **/
-		_defaultValueid?: Element;
+		_defaultValueId?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueinstant?: instant;
+		defaultValueInstant?: instant;
 
 		/**
-		 * Extension for defaultValueinstant
+		 * Extension for defaultValueInstant
 		 **/
-		_defaultValueinstant?: Element;
+		_defaultValueInstant?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueinteger?: integer;
+		defaultValueInteger?: integer;
 
 		/**
-		 * Extension for defaultValueinteger
+		 * Extension for defaultValueInteger
 		 **/
-		_defaultValueinteger?: Element;
+		_defaultValueInteger?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuemarkdown?: markdown;
+		defaultValueMarkdown?: markdown;
 
 		/**
-		 * Extension for defaultValuemarkdown
+		 * Extension for defaultValueMarkdown
 		 **/
-		_defaultValuemarkdown?: Element;
+		_defaultValueMarkdown?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueoid?: oid;
+		defaultValueOid?: oid;
 
 		/**
-		 * Extension for defaultValueoid
+		 * Extension for defaultValueOid
 		 **/
-		_defaultValueoid?: Element;
+		_defaultValueOid?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuepositiveInt?: positiveInt;
+		defaultValuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for defaultValuepositiveInt
+		 * Extension for defaultValuePositiveInt
 		 **/
-		_defaultValuepositiveInt?: Element;
+		_defaultValuePositiveInt?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuestring?: string;
+		defaultValueString?: string;
 
 		/**
-		 * Extension for defaultValuestring
+		 * Extension for defaultValueString
 		 **/
-		_defaultValuestring?: Element;
+		_defaultValueString?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValuetime?: time;
+		defaultValueTime?: time;
 
 		/**
-		 * Extension for defaultValuetime
+		 * Extension for defaultValueTime
 		 **/
-		_defaultValuetime?: Element;
+		_defaultValueTime?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueunsignedInt?: unsignedInt;
+		defaultValueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for defaultValueunsignedInt
+		 * Extension for defaultValueUnsignedInt
 		 **/
-		_defaultValueunsignedInt?: Element;
+		_defaultValueUnsignedInt?: Element;
 
 		/**
 		 * Specified value if missing from instance
 		 * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
 		 * Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
 		 */
-		defaultValueuri?: uri;
+		defaultValueUri?: uri;
 
 		/**
-		 * Extension for defaultValueuri
+		 * Extension for defaultValueUri
 		 **/
-		_defaultValueuri?: Element;
+		_defaultValueUri?: Element;
 
 		/**
 		 * Specified value if missing from instance
@@ -5264,192 +5267,192 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedbase64Binary?: base64Binary;
+		fixedBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for fixedbase64Binary
+		 * Extension for fixedBase64Binary
 		 **/
-		_fixedbase64Binary?: Element;
+		_fixedBase64Binary?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedboolean?: boolean;
+		fixedBoolean?: boolean;
 
 		/**
-		 * Extension for fixedboolean
+		 * Extension for fixedBoolean
 		 **/
-		_fixedboolean?: Element;
+		_fixedBoolean?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedcode?: code;
+		fixedCode?: code;
 
 		/**
-		 * Extension for fixedcode
+		 * Extension for fixedCode
 		 **/
-		_fixedcode?: Element;
+		_fixedCode?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixeddate?: date;
+		fixedDate?: date;
 
 		/**
-		 * Extension for fixeddate
+		 * Extension for fixedDate
 		 **/
-		_fixeddate?: Element;
+		_fixedDate?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixeddateTime?: dateTime;
+		fixedDateTime?: dateTime;
 
 		/**
-		 * Extension for fixeddateTime
+		 * Extension for fixedDateTime
 		 **/
-		_fixeddateTime?: Element;
+		_fixedDateTime?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixeddecimal?: decimal;
+		fixedDecimal?: decimal;
 
 		/**
-		 * Extension for fixeddecimal
+		 * Extension for fixedDecimal
 		 **/
-		_fixeddecimal?: Element;
+		_fixedDecimal?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedid?: id;
+		fixedId?: id;
 
 		/**
-		 * Extension for fixedid
+		 * Extension for fixedId
 		 **/
-		_fixedid?: Element;
+		_fixedId?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedinstant?: instant;
+		fixedInstant?: instant;
 
 		/**
-		 * Extension for fixedinstant
+		 * Extension for fixedInstant
 		 **/
-		_fixedinstant?: Element;
+		_fixedInstant?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedinteger?: integer;
+		fixedInteger?: integer;
 
 		/**
-		 * Extension for fixedinteger
+		 * Extension for fixedInteger
 		 **/
-		_fixedinteger?: Element;
+		_fixedInteger?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedmarkdown?: markdown;
+		fixedMarkdown?: markdown;
 
 		/**
-		 * Extension for fixedmarkdown
+		 * Extension for fixedMarkdown
 		 **/
-		_fixedmarkdown?: Element;
+		_fixedMarkdown?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedoid?: oid;
+		fixedOid?: oid;
 
 		/**
-		 * Extension for fixedoid
+		 * Extension for fixedOid
 		 **/
-		_fixedoid?: Element;
+		_fixedOid?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedpositiveInt?: positiveInt;
+		fixedPositiveInt?: positiveInt;
 
 		/**
-		 * Extension for fixedpositiveInt
+		 * Extension for fixedPositiveInt
 		 **/
-		_fixedpositiveInt?: Element;
+		_fixedPositiveInt?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedstring?: string;
+		fixedString?: string;
 
 		/**
-		 * Extension for fixedstring
+		 * Extension for fixedString
 		 **/
-		_fixedstring?: Element;
+		_fixedString?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedtime?: time;
+		fixedTime?: time;
 
 		/**
-		 * Extension for fixedtime
+		 * Extension for fixedTime
 		 **/
-		_fixedtime?: Element;
+		_fixedTime?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixedunsignedInt?: unsignedInt;
+		fixedUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for fixedunsignedInt
+		 * Extension for fixedUnsignedInt
 		 **/
-		_fixedunsignedInt?: Element;
+		_fixedUnsignedInt?: Element;
 
 		/**
 		 * Value must be exactly this
 		 * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
 		 * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
 		 */
-		fixeduri?: uri;
+		fixedUri?: uri;
 
 		/**
-		 * Extension for fixeduri
+		 * Extension for fixedUri
 		 **/
-		_fixeduri?: Element;
+		_fixedUri?: Element;
 
 		/**
 		 * Value must be exactly this
@@ -5610,192 +5613,192 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternbase64Binary?: base64Binary;
+		patternBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for patternbase64Binary
+		 * Extension for patternBase64Binary
 		 **/
-		_patternbase64Binary?: Element;
+		_patternBase64Binary?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternboolean?: boolean;
+		patternBoolean?: boolean;
 
 		/**
-		 * Extension for patternboolean
+		 * Extension for patternBoolean
 		 **/
-		_patternboolean?: Element;
+		_patternBoolean?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterncode?: code;
+		patternCode?: code;
 
 		/**
-		 * Extension for patterncode
+		 * Extension for patternCode
 		 **/
-		_patterncode?: Element;
+		_patternCode?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterndate?: date;
+		patternDate?: date;
 
 		/**
-		 * Extension for patterndate
+		 * Extension for patternDate
 		 **/
-		_patterndate?: Element;
+		_patternDate?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterndateTime?: dateTime;
+		patternDateTime?: dateTime;
 
 		/**
-		 * Extension for patterndateTime
+		 * Extension for patternDateTime
 		 **/
-		_patterndateTime?: Element;
+		_patternDateTime?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterndecimal?: decimal;
+		patternDecimal?: decimal;
 
 		/**
-		 * Extension for patterndecimal
+		 * Extension for patternDecimal
 		 **/
-		_patterndecimal?: Element;
+		_patternDecimal?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternid?: id;
+		patternId?: id;
 
 		/**
-		 * Extension for patternid
+		 * Extension for patternId
 		 **/
-		_patternid?: Element;
+		_patternId?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterninstant?: instant;
+		patternInstant?: instant;
 
 		/**
-		 * Extension for patterninstant
+		 * Extension for patternInstant
 		 **/
-		_patterninstant?: Element;
+		_patternInstant?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterninteger?: integer;
+		patternInteger?: integer;
 
 		/**
-		 * Extension for patterninteger
+		 * Extension for patternInteger
 		 **/
-		_patterninteger?: Element;
+		_patternInteger?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternmarkdown?: markdown;
+		patternMarkdown?: markdown;
 
 		/**
-		 * Extension for patternmarkdown
+		 * Extension for patternMarkdown
 		 **/
-		_patternmarkdown?: Element;
+		_patternMarkdown?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternoid?: oid;
+		patternOid?: oid;
 
 		/**
-		 * Extension for patternoid
+		 * Extension for patternOid
 		 **/
-		_patternoid?: Element;
+		_patternOid?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternpositiveInt?: positiveInt;
+		patternPositiveInt?: positiveInt;
 
 		/**
-		 * Extension for patternpositiveInt
+		 * Extension for patternPositiveInt
 		 **/
-		_patternpositiveInt?: Element;
+		_patternPositiveInt?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternstring?: string;
+		patternString?: string;
 
 		/**
-		 * Extension for patternstring
+		 * Extension for patternString
 		 **/
-		_patternstring?: Element;
+		_patternString?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patterntime?: time;
+		patternTime?: time;
 
 		/**
-		 * Extension for patterntime
+		 * Extension for patternTime
 		 **/
-		_patterntime?: Element;
+		_patternTime?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternunsignedInt?: unsignedInt;
+		patternUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for patternunsignedInt
+		 * Extension for patternUnsignedInt
 		 **/
-		_patternunsignedInt?: Element;
+		_patternUnsignedInt?: Element;
 
 		/**
 		 * Value must have at least these property values
 		 * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
 		 * Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
 		 */
-		patternuri?: uri;
+		patternUri?: uri;
 
 		/**
-		 * Extension for patternuri
+		 * Extension for patternUri
 		 **/
-		_patternuri?: Element;
+		_patternUri?: Element;
 
 		/**
 		 * Value must have at least these property values
@@ -5963,96 +5966,96 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValuedate?: date;
+		minValueDate?: date;
 
 		/**
-		 * Extension for minValuedate
+		 * Extension for minValueDate
 		 **/
-		_minValuedate?: Element;
+		_minValueDate?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValuedateTime?: dateTime;
+		minValueDateTime?: dateTime;
 
 		/**
-		 * Extension for minValuedateTime
+		 * Extension for minValueDateTime
 		 **/
-		_minValuedateTime?: Element;
+		_minValueDateTime?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValueinstant?: instant;
+		minValueInstant?: instant;
 
 		/**
-		 * Extension for minValueinstant
+		 * Extension for minValueInstant
 		 **/
-		_minValueinstant?: Element;
+		_minValueInstant?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValuetime?: time;
+		minValueTime?: time;
 
 		/**
-		 * Extension for minValuetime
+		 * Extension for minValueTime
 		 **/
-		_minValuetime?: Element;
+		_minValueTime?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValuedecimal?: decimal;
+		minValueDecimal?: decimal;
 
 		/**
-		 * Extension for minValuedecimal
+		 * Extension for minValueDecimal
 		 **/
-		_minValuedecimal?: Element;
+		_minValueDecimal?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValueinteger?: integer;
+		minValueInteger?: integer;
 
 		/**
-		 * Extension for minValueinteger
+		 * Extension for minValueInteger
 		 **/
-		_minValueinteger?: Element;
+		_minValueInteger?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValuepositiveInt?: positiveInt;
+		minValuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for minValuepositiveInt
+		 * Extension for minValuePositiveInt
 		 **/
-		_minValuepositiveInt?: Element;
+		_minValuePositiveInt?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
 		 * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
 		 */
-		minValueunsignedInt?: unsignedInt;
+		minValueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for minValueunsignedInt
+		 * Extension for minValueUnsignedInt
 		 **/
-		_minValueunsignedInt?: Element;
+		_minValueUnsignedInt?: Element;
 
 		/**
 		 * Minimum Allowed Value (for some types)
@@ -6066,96 +6069,96 @@ Note: we are considering deprecating the xpath element. Implementer feedback is 
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValuedate?: date;
+		maxValueDate?: date;
 
 		/**
-		 * Extension for maxValuedate
+		 * Extension for maxValueDate
 		 **/
-		_maxValuedate?: Element;
+		_maxValueDate?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValuedateTime?: dateTime;
+		maxValueDateTime?: dateTime;
 
 		/**
-		 * Extension for maxValuedateTime
+		 * Extension for maxValueDateTime
 		 **/
-		_maxValuedateTime?: Element;
+		_maxValueDateTime?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValueinstant?: instant;
+		maxValueInstant?: instant;
 
 		/**
-		 * Extension for maxValueinstant
+		 * Extension for maxValueInstant
 		 **/
-		_maxValueinstant?: Element;
+		_maxValueInstant?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValuetime?: time;
+		maxValueTime?: time;
 
 		/**
-		 * Extension for maxValuetime
+		 * Extension for maxValueTime
 		 **/
-		_maxValuetime?: Element;
+		_maxValueTime?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValuedecimal?: decimal;
+		maxValueDecimal?: decimal;
 
 		/**
-		 * Extension for maxValuedecimal
+		 * Extension for maxValueDecimal
 		 **/
-		_maxValuedecimal?: Element;
+		_maxValueDecimal?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValueinteger?: integer;
+		maxValueInteger?: integer;
 
 		/**
-		 * Extension for maxValueinteger
+		 * Extension for maxValueInteger
 		 **/
-		_maxValueinteger?: Element;
+		_maxValueInteger?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValuepositiveInt?: positiveInt;
+		maxValuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for maxValuepositiveInt
+		 * Extension for maxValuePositiveInt
 		 **/
-		_maxValuepositiveInt?: Element;
+		_maxValuePositiveInt?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
 		 * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
 		 * Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
 		 */
-		maxValueunsignedInt?: unsignedInt;
+		maxValueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for maxValueunsignedInt
+		 * Extension for maxValueUnsignedInt
 		 **/
-		_maxValueunsignedInt?: Element;
+		_maxValueUnsignedInt?: Element;
 
 		/**
 		 * Maximum Allowed Value (for some types)
@@ -6271,177 +6274,177 @@ Note that an element that has the property IsModifier is not necessarily a "key"
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuebase64Binary?: base64Binary;
+		valueBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for valuebase64Binary
+		 * Extension for valueBase64Binary
 		 **/
-		_valuebase64Binary?: Element;
+		_valueBase64Binary?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueboolean?: boolean;
+		valueBoolean?: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuecode?: code;
+		valueCode?: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuedate?: date;
+		valueDate?: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuedecimal?: decimal;
+		valueDecimal?: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueid?: id;
+		valueId?: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueinstant?: instant;
+		valueInstant?: instant;
 
 		/**
-		 * Extension for valueinstant
+		 * Extension for valueInstant
 		 **/
-		_valueinstant?: Element;
+		_valueInstant?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueinteger?: integer;
+		valueInteger?: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuemarkdown?: markdown;
+		valueMarkdown?: markdown;
 
 		/**
-		 * Extension for valuemarkdown
+		 * Extension for valueMarkdown
 		 **/
-		_valuemarkdown?: Element;
+		_valueMarkdown?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueoid?: oid;
+		valueOid?: oid;
 
 		/**
-		 * Extension for valueoid
+		 * Extension for valueOid
 		 **/
-		_valueoid?: Element;
+		_valueOid?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuepositiveInt?: positiveInt;
+		valuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for valuepositiveInt
+		 * Extension for valuePositiveInt
 		 **/
-		_valuepositiveInt?: Element;
+		_valuePositiveInt?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valuetime?: time;
+		valueTime?: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueunsignedInt?: unsignedInt;
+		valueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for valueunsignedInt
+		 * Extension for valueUnsignedInt
 		 **/
-		_valueunsignedInt?: Element;
+		_valueUnsignedInt?: Element;
 
 		/**
 		 * Value of extension
 		 * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
 		 */
-		valueuri?: uri;
+		valueUri?: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Value of extension
@@ -7229,12 +7232,12 @@ Applications converting a logical reference to a literal reference may choose to
 		 * A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).
 		 * This should agree with the information in the signature.
 		 */
-		whouri: uri;
+		whoUri: uri;
 
 		/**
-		 * Extension for whouri
+		 * Extension for whoUri
 		 **/
-		_whouri?: Element;
+		_whoUri?: Element;
 
 		/**
 		 * Who signed
@@ -7248,12 +7251,12 @@ Applications converting a logical reference to a literal reference may choose to
 		 * A reference to an application-usable description of the identity that is represented by the signature.
 		 * The party that can't sign. For example a child.
 		 */
-		onBehalfOfuri?: uri;
+		onBehalfOfUri?: uri;
 
 		/**
-		 * Extension for onBehalfOfuri
+		 * Extension for onBehalfOfUri
 		 **/
-		_onBehalfOfuri?: Element;
+		_onBehalfOfUri?: Element;
 
 		/**
 		 * The party represented
@@ -7539,23 +7542,23 @@ Applications converting a logical reference to a literal reference may choose to
 		 * Timing of the event
 		 * The timing of the event (if this is a period trigger).
 		 */
-		eventTimingdate?: date;
+		eventTimingDate?: date;
 
 		/**
-		 * Extension for eventTimingdate
+		 * Extension for eventTimingDate
 		 **/
-		_eventTimingdate?: Element;
+		_eventTimingDate?: Element;
 
 		/**
 		 * Timing of the event
 		 * The timing of the event (if this is a period trigger).
 		 */
-		eventTimingdateTime?: dateTime;
+		eventTimingDateTime?: dateTime;
 
 		/**
-		 * Extension for eventTimingdateTime
+		 * Extension for eventTimingDateTime
 		 **/
-		_eventTimingdateTime?: Element;
+		_eventTimingDateTime?: Element;
 
 		/**
 		 * Triggering data of the event
@@ -8081,12 +8084,12 @@ This is labeled as "Is Modifier" because applications should not use a retired a
 		 * When activity is to occur
 		 * The period, timing or frequency upon which the described activity is to occur.
 		 */
-		timingdateTime?: dateTime;
+		timingDateTime?: dateTime;
 
 		/**
-		 * Extension for timingdateTime
+		 * Extension for timingDateTime
 		 **/
-		_timingdateTime?: Element;
+		_timingDateTime?: Element;
 
 		/**
 		 * When activity is to occur
@@ -8467,12 +8470,12 @@ The 'substanceExposureRisk' extension is available as a structured and more flex
 		 * When allergy or intolerance was identified
 		 * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
 		 */
-		onsetdateTime?: dateTime;
+		onsetDateTime?: dateTime;
 
 		/**
-		 * Extension for onsetdateTime
+		 * Extension for onsetDateTime
 		 **/
-		_onsetdateTime?: Element;
+		_onsetDateTime?: Element;
 
 		/**
 		 * When allergy or intolerance was identified
@@ -8496,12 +8499,12 @@ The 'substanceExposureRisk' extension is available as a structured and more flex
 		 * When allergy or intolerance was identified
 		 * Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
 		 */
-		onsetstring?: string;
+		onsetString?: string;
 
 		/**
-		 * Extension for onsetstring
+		 * Extension for onsetString
 		 **/
-		_onsetstring?: Element;
+		_onsetString?: Element;
 
 		/**
 		 * Date record was believed accurate
@@ -10677,12 +10680,12 @@ The unknown code is not to be used to convey other statuses.  The unknown code s
 		 * When activity is to occur
 		 * The period, timing or frequency upon which the described activity is to occur.
 		 */
-		scheduledstring?: string;
+		scheduledString?: string;
 
 		/**
-		 * Extension for scheduledstring
+		 * Extension for scheduledString
 		 **/
-		_scheduledstring?: Element;
+		_scheduledString?: Element;
 
 		/**
 		 * Where it should happen
@@ -11128,12 +11131,12 @@ This element is labeled as a modifier because the status contains the code enter
 		 * Date/time(s) or duration when the charged service was applied.
 		 * The list of types may be constrained as appropriate for the type of charge item.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When the charged service was applied
@@ -11399,12 +11402,12 @@ This element is labeled as a modifier because the status contains the code enter
 		 * When it occurred
 		 * The date when or period to which this information refers.
 		 */
-		timingdate?: date;
+		timingDate?: date;
 
 		/**
-		 * Extension for timingdate
+		 * Extension for timingDate
 		 **/
-		_timingdate?: Element;
+		_timingDate?: Element;
 
 		/**
 		 * When it occurred
@@ -11416,12 +11419,12 @@ This element is labeled as a modifier because the status contains the code enter
 		 * Additional Data or supporting information
 		 * Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Additional Data or supporting information
@@ -11901,12 +11904,12 @@ see information codes
 		 * Date or dates of Service
 		 * The date or dates when the enclosed suite of services were performed or completed.
 		 */
-		serviceddate?: date;
+		servicedDate?: date;
 
 		/**
-		 * Extension for serviceddate
+		 * Extension for servicedDate
 		 **/
-		_serviceddate?: Element;
+		_servicedDate?: Element;
 
 		/**
 		 * Date or dates of Service
@@ -12925,12 +12928,12 @@ see information codes
 		 * The point in time or period over which the subject was assessed.
 		 * This SHOULD be accurate to at least the minute, though some assessments only have a known date.
 		 */
-		effectivedateTime?: dateTime;
+		effectiveDateTime?: dateTime;
 
 		/**
-		 * Extension for effectivedateTime
+		 * Extension for effectiveDateTime
 		 **/
-		_effectivedateTime?: Element;
+		_effectiveDateTime?: Element;
 
 		/**
 		 * Time of assessment
@@ -13186,12 +13189,12 @@ see information codes
 		 * Value of the property for this concept
 		 * The value of this property.
 		 */
-		valuecode: code;
+		valueCode: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * Value of the property for this concept
@@ -13203,45 +13206,45 @@ see information codes
 		 * Value of the property for this concept
 		 * The value of this property.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Value of the property for this concept
 		 * The value of this property.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Value of the property for this concept
 		 * The value of this property.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Value of the property for this concept
 		 * The value of this property.
 		 */
-		valuedateTime: dateTime;
+		valueDateTime: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 	}
 
 	/**
@@ -13567,12 +13570,12 @@ This is labeled as "Is Modifier" because applications should not use a retired c
 		 * Message part content
 		 * A communicated content (or for multi-part communications, one portion of the communication).
 		 */
-		contentstring: string;
+		contentString: string;
 
 		/**
-		 * Extension for contentstring
+		 * Extension for contentString
 		 **/
-		_contentstring?: Element;
+		_contentString?: Element;
 
 		/**
 		 * Message part content
@@ -13744,12 +13747,12 @@ This is labeled as "Is Modifier" because applications should not use a retired c
 		 * Message part content
 		 * The communicated content (or for multi-part communications, one portion of the communication).
 		 */
-		contentstring: string;
+		contentString: string;
 
 		/**
-		 * Extension for contentstring
+		 * Extension for contentString
 		 **/
-		_contentstring?: Element;
+		_contentString?: Element;
 
 		/**
 		 * Message part content
@@ -13880,12 +13883,12 @@ This is labeled as "Is Modifier" because applications should not use a retired c
 		 * When scheduled
 		 * The time when this communication is to occur.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When scheduled
@@ -14852,12 +14855,12 @@ This is labeled as "Is Modifier" because applications should not use a retired c
 		 * The source value set that specifies the concepts that are being mapped.
 		 * Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map.
 		 */
-		sourceuri?: uri;
+		sourceUri?: uri;
 
 		/**
-		 * Extension for sourceuri
+		 * Extension for sourceUri
 		 **/
-		_sourceuri?: Element;
+		_sourceUri?: Element;
 
 		/**
 		 * Identifies the source of the concepts which are being mapped
@@ -14871,12 +14874,12 @@ This is labeled as "Is Modifier" because applications should not use a retired c
 		 * The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
 		 * Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map.
 		 */
-		targeturi?: uri;
+		targetUri?: uri;
 
 		/**
-		 * Extension for targeturi
+		 * Extension for targetUri
 		 **/
-		_targeturi?: Element;
+		_targetUri?: Element;
 
 		/**
 		 * Provides context to the mappings
@@ -15004,12 +15007,12 @@ This element is labeled as a modifier because the status contains the code refut
 		 * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
 		 * Age is generally used when the patient reports an age at which the Condition began to occur.
 		 */
-		onsetdateTime?: dateTime;
+		onsetDateTime?: dateTime;
 
 		/**
-		 * Extension for onsetdateTime
+		 * Extension for onsetDateTime
 		 **/
-		_onsetdateTime?: Element;
+		_onsetDateTime?: Element;
 
 		/**
 		 * Estimated or actual date,  date-time, or age
@@ -15037,24 +15040,24 @@ This element is labeled as a modifier because the status contains the code refut
 		 * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
 		 * Age is generally used when the patient reports an age at which the Condition began to occur.
 		 */
-		onsetstring?: string;
+		onsetString?: string;
 
 		/**
-		 * Extension for onsetstring
+		 * Extension for onsetString
 		 **/
-		_onsetstring?: Element;
+		_onsetString?: Element;
 
 		/**
 		 * If/when in resolution/remission
 		 * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
 		 * There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.
 		 */
-		abatementdateTime?: dateTime;
+		abatementDateTime?: dateTime;
 
 		/**
-		 * Extension for abatementdateTime
+		 * Extension for abatementDateTime
 		 **/
-		_abatementdateTime?: Element;
+		_abatementDateTime?: Element;
 
 		/**
 		 * If/when in resolution/remission
@@ -15068,12 +15071,12 @@ This element is labeled as a modifier because the status contains the code refut
 		 * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
 		 * There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.
 		 */
-		abatementboolean?: boolean;
+		abatementBoolean?: boolean;
 
 		/**
-		 * Extension for abatementboolean
+		 * Extension for abatementBoolean
 		 **/
-		_abatementboolean?: Element;
+		_abatementBoolean?: Element;
 
 		/**
 		 * If/when in resolution/remission
@@ -15094,12 +15097,12 @@ This element is labeled as a modifier because the status contains the code refut
 		 * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
 		 * There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.
 		 */
-		abatementstring?: string;
+		abatementString?: string;
 
 		/**
-		 * Extension for abatementstring
+		 * Extension for abatementString
 		 **/
-		_abatementstring?: Element;
+		_abatementString?: Element;
 
 		/**
 		 * Date record was believed accurate
@@ -17168,12 +17171,12 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
 		 * Desired time or schedule for use
 		 * The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * Desired time or schedule for use
@@ -17299,12 +17302,12 @@ This element is labeled as a modifier because the status contains the codes that
 		 * How often  the device was used
 		 * How often the device was used.
 		 */
-		timingdateTime?: dateTime;
+		timingDateTime?: dateTime;
 
 		/**
-		 * Extension for timingdateTime
+		 * Extension for timingDateTime
 		 **/
-		_timingdateTime?: Element;
+		_timingDateTime?: Element;
 
 		/**
 		 * When statement was recorded
@@ -17452,12 +17455,12 @@ This element is labeled as a modifier because the status contains the codes that
 		 * The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
 		 * If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
 		 */
-		effectivedateTime?: dateTime;
+		effectiveDateTime?: dateTime;
 
 		/**
-		 * Extension for effectivedateTime
+		 * Extension for effectiveDateTime
 		 **/
-		_effectivedateTime?: Element;
+		_effectiveDateTime?: Element;
 
 		/**
 		 * Clinically relevant time/time-period for report
@@ -18005,12 +18008,12 @@ This element is labeled as a modifier because the status contains the codes that
 		 * Estimated date or dates of Service
 		 * The date or dates when the enclosed suite of services were performed or completed.
 		 */
-		serviceddate?: date;
+		servicedDate?: date;
 
 		/**
-		 * Extension for serviceddate
+		 * Extension for servicedDate
 		 **/
-		_serviceddate?: Element;
+		_servicedDate?: Element;
 
 		/**
 		 * Estimated date or dates of Service
@@ -18106,23 +18109,23 @@ This element is labeled as a modifier because the status contains the codes that
 		 * Benefits allowed
 		 * Benefits allowed.
 		 */
-		allowedunsignedInt?: unsignedInt;
+		allowedUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for allowedunsignedInt
+		 * Extension for allowedUnsignedInt
 		 **/
-		_allowedunsignedInt?: Element;
+		_allowedUnsignedInt?: Element;
 
 		/**
 		 * Benefits allowed
 		 * Benefits allowed.
 		 */
-		allowedstring?: string;
+		allowedString?: string;
 
 		/**
-		 * Extension for allowedstring
+		 * Extension for allowedString
 		 **/
-		_allowedstring?: Element;
+		_allowedString?: Element;
 
 		/**
 		 * Benefits allowed
@@ -18134,12 +18137,12 @@ This element is labeled as a modifier because the status contains the codes that
 		 * Benefits used
 		 * Benefits used.
 		 */
-		usedunsignedInt?: unsignedInt;
+		usedUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for usedunsignedInt
+		 * Extension for usedUnsignedInt
 		 **/
-		_usedunsignedInt?: Element;
+		_usedUnsignedInt?: Element;
 
 		/**
 		 * Benefits used
@@ -19571,12 +19574,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * When it occurred
 		 * The date when or period to which this information refers.
 		 */
-		timingdate?: date;
+		timingDate?: date;
 
 		/**
-		 * Extension for timingdate
+		 * Extension for timingDate
 		 **/
-		_timingdate?: Element;
+		_timingDate?: Element;
 
 		/**
 		 * When it occurred
@@ -19588,12 +19591,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Additional Data or supporting information
 		 * Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Additional Data or supporting information
@@ -20162,12 +20165,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Date or dates of Service
 		 * The date or dates when the enclosed suite of services were performed or completed.
 		 */
-		serviceddate?: date;
+		servicedDate?: date;
 
 		/**
-		 * Extension for serviceddate
+		 * Extension for servicedDate
 		 **/
-		_serviceddate?: Element;
+		_servicedDate?: Element;
 
 		/**
 		 * Date or dates of Service
@@ -20500,23 +20503,23 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Benefits allowed
 		 * Benefits allowed.
 		 */
-		allowedunsignedInt?: unsignedInt;
+		allowedUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for allowedunsignedInt
+		 * Extension for allowedUnsignedInt
 		 **/
-		_allowedunsignedInt?: Element;
+		_allowedUnsignedInt?: Element;
 
 		/**
 		 * Benefits allowed
 		 * Benefits allowed.
 		 */
-		allowedstring?: string;
+		allowedString?: string;
 
 		/**
-		 * Extension for allowedstring
+		 * Extension for allowedString
 		 **/
-		_allowedstring?: Element;
+		_allowedString?: Element;
 
 		/**
 		 * Benefits allowed
@@ -20528,12 +20531,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Benefits used
 		 * Benefits used.
 		 */
-		usedunsignedInt?: unsignedInt;
+		usedUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for usedunsignedInt
+		 * Extension for usedUnsignedInt
 		 **/
-		_usedunsignedInt?: Element;
+		_usedUnsignedInt?: Element;
 
 		/**
 		 * Benefits used
@@ -20919,12 +20922,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * When condition first manifested
 		 * Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
 		 */
-		onsetstring?: string;
+		onsetString?: string;
 
 		/**
-		 * Extension for onsetstring
+		 * Extension for onsetString
 		 **/
-		_onsetstring?: Element;
+		_onsetString?: Element;
 
 		/**
 		 * Extra information about condition
@@ -21028,23 +21031,23 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * (approximate) date of birth
 		 * The actual or approximate date of birth of the relative.
 		 */
-		borndate?: date;
+		bornDate?: date;
 
 		/**
-		 * Extension for borndate
+		 * Extension for bornDate
 		 **/
-		_borndate?: Element;
+		_bornDate?: Element;
 
 		/**
 		 * (approximate) date of birth
 		 * The actual or approximate date of birth of the relative.
 		 */
-		bornstring?: string;
+		bornString?: string;
 
 		/**
-		 * Extension for bornstring
+		 * Extension for bornString
 		 **/
-		_bornstring?: Element;
+		_bornString?: Element;
 
 		/**
 		 * (approximate) age
@@ -21065,12 +21068,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * The age of the relative at the time the family member history is recorded.
 		 * use estimatedAge to indicate whether the age is actual or not.
 		 */
-		agestring?: string;
+		ageString?: string;
 
 		/**
-		 * Extension for agestring
+		 * Extension for ageString
 		 **/
-		_agestring?: Element;
+		_ageString?: Element;
 
 		/**
 		 * Age is estimated?
@@ -21088,12 +21091,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Dead? How old/when?
 		 * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
 		 */
-		deceasedboolean?: boolean;
+		deceasedBoolean?: boolean;
 
 		/**
-		 * Extension for deceasedboolean
+		 * Extension for deceasedBoolean
 		 **/
-		_deceasedboolean?: Element;
+		_deceasedBoolean?: Element;
 
 		/**
 		 * Dead? How old/when?
@@ -21111,23 +21114,23 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Dead? How old/when?
 		 * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
 		 */
-		deceaseddate?: date;
+		deceasedDate?: date;
 
 		/**
-		 * Extension for deceaseddate
+		 * Extension for deceasedDate
 		 **/
-		_deceaseddate?: Element;
+		_deceasedDate?: Element;
 
 		/**
 		 * Dead? How old/when?
 		 * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
 		 */
-		deceasedstring?: string;
+		deceasedString?: string;
 
 		/**
-		 * Extension for deceasedstring
+		 * Extension for deceasedString
 		 **/
-		_deceasedstring?: Element;
+		_deceasedString?: Element;
 
 		/**
 		 * Why was family member history performed?
@@ -21248,12 +21251,12 @@ This is labeled as "Is Modifier" because applications should not use a retired e
 		 * Reach goal on or before
 		 * Indicates either the date or the duration after start by which the goal should be met.
 		 */
-		duedate?: date;
+		dueDate?: date;
 
 		/**
-		 * Extension for duedate
+		 * Extension for dueDate
 		 **/
-		_duedate?: Element;
+		_dueDate?: Element;
 
 		/**
 		 * Reach goal on or before
@@ -21314,12 +21317,12 @@ The ordinal extension on Coding can be used to convey a numerically comparable r
 		 * When goal pursuit begins
 		 * The date or event after which the goal should begin being pursued.
 		 */
-		startdate?: date;
+		startDate?: date;
 
 		/**
-		 * Extension for startdate
+		 * Extension for startDate
 		 **/
-		_startdate?: Element;
+		_startDate?: Element;
 
 		/**
 		 * When goal pursuit begins
@@ -21734,12 +21737,12 @@ This is labeled as "Is Modifier" because applications should not use a retired g
 		 * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
 		 * For Range, it means members of the group have a value that falls somewhere within the specified range.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Value held by characteristic
@@ -23302,12 +23305,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * Where this resource is found.
 		 * Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it.
 		 */
-		sourceuri: uri;
+		sourceUri: uri;
 
 		/**
-		 * Extension for sourceuri
+		 * Extension for sourceUri
 		 **/
-		_sourceuri?: Element;
+		_sourceUri?: Element;
 
 		/**
 		 * Location of the resource
@@ -25082,12 +25085,12 @@ This is labeled as "Is Modifier" because applications should not use a retired m
 		 * When Media was collected
 		 * The date and time(s) at which the media was collected.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When Media was collected
@@ -25526,12 +25529,12 @@ The dosage instructions should reflect the dosage of the medication that was adm
 		 * Start and end time of administration
 		 * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
 		 */
-		effectivedateTime: dateTime;
+		effectiveDateTime: dateTime;
 
 		/**
-		 * Extension for effectivedateTime
+		 * Extension for effectiveDateTime
 		 **/
-		_effectivedateTime?: Element;
+		_effectiveDateTime?: Element;
 
 		/**
 		 * Start and end time of administration
@@ -26194,12 +26197,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
 		 * This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the "end" date will be omitted.
 		 */
-		effectivedateTime?: dateTime;
+		effectiveDateTime?: dateTime;
 
 		/**
-		 * Extension for effectivedateTime
+		 * Extension for effectiveDateTime
 		 **/
-		_effectivedateTime?: Element;
+		_effectiveDateTime?: Element;
 
 		/**
 		 * The date/time or interval when the medication was taken
@@ -27421,12 +27424,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * The information determined as a result of making the observation, if the information has a simple value.
 		 * Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is "'value' + the type name" with a capital on the first letter of the type).
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Actual component result
@@ -27461,24 +27464,24 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * The information determined as a result of making the observation, if the information has a simple value.
 		 * Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is "'value' + the type name" with a capital on the first letter of the type).
 		 */
-		valuetime?: time;
+		valueTime?: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Actual component result
 		 * The information determined as a result of making the observation, if the information has a simple value.
 		 * Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is "'value' + the type name" with a capital on the first letter of the type).
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Actual component result
@@ -27569,12 +27572,12 @@ If the target of the observation is different than the subject, the general exte
 		 * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
 		 * At least a date should be present unless this observation is a historical report.
 		 */
-		effectivedateTime?: dateTime;
+		effectiveDateTime?: dateTime;
 
 		/**
-		 * Extension for effectivedateTime
+		 * Extension for effectiveDateTime
 		 **/
-		_effectivedateTime?: Element;
+		_effectiveDateTime?: Element;
 
 		/**
 		 * Clinically relevant time/time-period for observation
@@ -27629,12 +27632,12 @@ If the data element is usually coded or if the type associated with the Observat
 
 If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Actual result
@@ -27644,12 +27647,12 @@ If the data element is usually coded or if the type associated with the Observat
 
 If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
 		 */
-		valueboolean?: boolean;
+		valueBoolean?: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Actual result
@@ -27699,12 +27702,12 @@ If the data element is usually coded or if the type associated with the Observat
 
 If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
 		 */
-		valuetime?: time;
+		valueTime?: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Actual result
@@ -27714,12 +27717,12 @@ If the data element is usually coded or if the type associated with the Observat
 
 If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Actual result
@@ -27823,12 +27826,12 @@ If the data element is usually coded or if the type associated with the Observat
 		 * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
 		 * For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not.
 		 */
-		valueSeturi: uri;
+		valueSetUri: uri;
 
 		/**
-		 * Extension for valueSeturi
+		 * Extension for valueSetUri
 		 **/
-		_valueSeturi?: Element;
+		_valueSetUri?: Element;
 
 		/**
 		 * Source of value set
@@ -28436,177 +28439,177 @@ We expect that some jurisdictions will profile this optionality to be a single c
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuebase64Binary?: base64Binary;
+		valueBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for valuebase64Binary
+		 * Extension for valueBase64Binary
 		 **/
-		_valuebase64Binary?: Element;
+		_valueBase64Binary?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueboolean?: boolean;
+		valueBoolean?: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuecode?: code;
+		valueCode?: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuedate?: date;
+		valueDate?: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuedecimal?: decimal;
+		valueDecimal?: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueid?: id;
+		valueId?: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueinstant?: instant;
+		valueInstant?: instant;
 
 		/**
-		 * Extension for valueinstant
+		 * Extension for valueInstant
 		 **/
-		_valueinstant?: Element;
+		_valueInstant?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueinteger?: integer;
+		valueInteger?: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuemarkdown?: markdown;
+		valueMarkdown?: markdown;
 
 		/**
-		 * Extension for valuemarkdown
+		 * Extension for valueMarkdown
 		 **/
-		_valuemarkdown?: Element;
+		_valueMarkdown?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueoid?: oid;
+		valueOid?: oid;
 
 		/**
-		 * Extension for valueoid
+		 * Extension for valueOid
 		 **/
-		_valueoid?: Element;
+		_valueOid?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuepositiveInt?: positiveInt;
+		valuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for valuepositiveInt
+		 * Extension for valuePositiveInt
 		 **/
-		_valuepositiveInt?: Element;
+		_valuePositiveInt?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valuetime?: time;
+		valueTime?: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueunsignedInt?: unsignedInt;
+		valueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for valueunsignedInt
+		 * Extension for valueUnsignedInt
 		 **/
-		_valueunsignedInt?: Element;
+		_valueUnsignedInt?: Element;
 
 		/**
 		 * If parameter is a data type
 		 * If the parameter is a data type.
 		 */
-		valueuri?: uri;
+		valueUri?: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * If parameter is a data type
@@ -28963,12 +28966,12 @@ This element is labeled as a modifier because when the patient record is marked 
 
 This element is labeled as a modifier because once a patient is marked as deceased, the actions that are appropriate to perform on the patient may be significantly different.
 		 */
-		deceasedboolean?: boolean;
+		deceasedBoolean?: boolean;
 
 		/**
-		 * Extension for deceasedboolean
+		 * Extension for deceasedBoolean
 		 **/
-		_deceasedboolean?: Element;
+		_deceasedBoolean?: Element;
 
 		/**
 		 * Indicates if the individual is deceased or not
@@ -28977,12 +28980,12 @@ This element is labeled as a modifier because once a patient is marked as deceas
 
 This element is labeled as a modifier because once a patient is marked as deceased, the actions that are appropriate to perform on the patient may be significantly different.
 		 */
-		deceaseddateTime?: dateTime;
+		deceasedDateTime?: dateTime;
 
 		/**
-		 * Extension for deceaseddateTime
+		 * Extension for deceasedDateTime
 		 **/
-		_deceaseddateTime?: Element;
+		_deceasedDateTime?: Element;
 
 		/**
 		 * Addresses for the individual
@@ -29004,12 +29007,12 @@ This element is labeled as a modifier because once a patient is marked as deceas
 E.g. The middle birth in tripplets would be valueInteger=2 and the third born would have valueInteger=3
 If a bool value was provided for this tripplets examle, then all 3 patient records would have valueBool=true (the ordering is not indicated).
 		 */
-		multipleBirthboolean?: boolean;
+		multipleBirthBoolean?: boolean;
 
 		/**
-		 * Extension for multipleBirthboolean
+		 * Extension for multipleBirthBoolean
 		 **/
-		_multipleBirthboolean?: Element;
+		_multipleBirthBoolean?: Element;
 
 		/**
 		 * Whether patient is part of a multiple birth
@@ -29018,12 +29021,12 @@ If a bool value was provided for this tripplets examle, then all 3 patient recor
 E.g. The middle birth in tripplets would be valueInteger=2 and the third born would have valueInteger=3
 If a bool value was provided for this tripplets examle, then all 3 patient records would have valueBool=true (the ordering is not indicated).
 		 */
-		multipleBirthinteger?: integer;
+		multipleBirthInteger?: integer;
 
 		/**
-		 * Extension for multipleBirthinteger
+		 * Extension for multipleBirthInteger
 		 **/
-		_multipleBirthinteger?: Element;
+		_multipleBirthInteger?: Element;
 
 		/**
 		 * Image of the patient
@@ -29796,12 +29799,12 @@ This element is labelled as a modifier because it may not be the main Patient re
 		 * When the action should take place
 		 * An optional value describing when the action should be performed.
 		 */
-		timingdateTime?: dateTime;
+		timingDateTime?: dateTime;
 
 		/**
-		 * Extension for timingdateTime
+		 * Extension for timingDateTime
 		 **/
-		_timingdateTime?: Element;
+		_timingDateTime?: Element;
 
 		/**
 		 * When the action should take place
@@ -30580,12 +30583,12 @@ This element is labeled as a modifier because it indicates that a procedure didn
 		 * Date/Period the procedure was performed
 		 * The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
 		 */
-		performeddateTime?: dateTime;
+		performedDateTime?: dateTime;
 
 		/**
-		 * Extension for performeddateTime
+		 * Extension for performedDateTime
 		 **/
-		_performeddateTime?: Element;
+		_performedDateTime?: Element;
 
 		/**
 		 * Date/Period the procedure was performed
@@ -30806,12 +30809,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * When procedure should occur
 		 * The date/time at which the diagnostic testing should occur.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When procedure should occur
@@ -30829,12 +30832,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * Preconditions for procedure or diagnostic
 		 * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.
 		 */
-		asNeededboolean?: boolean;
+		asNeededBoolean?: boolean;
 
 		/**
-		 * Extension for asNeededboolean
+		 * Extension for asNeededBoolean
 		 **/
-		_asNeededboolean?: Element;
+		_asNeededBoolean?: Element;
 
 		/**
 		 * Preconditions for procedure or diagnostic
@@ -31203,12 +31206,12 @@ All Provenances should have some historical version of this Request as their sub
 		 * Who participated
 		 * The individual, device or organization that participated in the event.
 		 */
-		whouri: uri;
+		whoUri: uri;
 
 		/**
-		 * Extension for whouri
+		 * Extension for whoUri
 		 **/
-		_whouri?: Element;
+		_whoUri?: Element;
 
 		/**
 		 * Who participated
@@ -31220,12 +31223,12 @@ All Provenances should have some historical version of this Request as their sub
 		 * Who the agent is representing
 		 * The individual, device, or organization for whom the change was made.
 		 */
-		onBehalfOfuri?: uri;
+		onBehalfOfUri?: uri;
 
 		/**
-		 * Extension for onBehalfOfuri
+		 * Extension for onBehalfOfUri
 		 **/
-		_onBehalfOfuri?: Element;
+		_onBehalfOfUri?: Element;
 
 		/**
 		 * Who the agent is representing
@@ -31258,12 +31261,12 @@ All Provenances should have some historical version of this Request as their sub
 		 * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
 		 * Identity may be a reference to a resource or to something else, depending on the type.
 		 */
-		whaturi: uri;
+		whatUri: uri;
 
 		/**
-		 * Extension for whaturi
+		 * Extension for whatUri
 		 **/
-		_whaturi?: Element;
+		_whatUri?: Element;
 
 		/**
 		 * Identity of entity
@@ -31413,12 +31416,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerboolean?: boolean;
+		answerBoolean?: boolean;
 
 		/**
-		 * Extension for answerboolean
+		 * Extension for answerBoolean
 		 **/
-		_answerboolean?: Element;
+		_answerBoolean?: Element;
 
 		/**
 		 * Value question must have
@@ -31429,12 +31432,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerdecimal?: decimal;
+		answerDecimal?: decimal;
 
 		/**
-		 * Extension for answerdecimal
+		 * Extension for answerDecimal
 		 **/
-		_answerdecimal?: Element;
+		_answerDecimal?: Element;
 
 		/**
 		 * Value question must have
@@ -31445,12 +31448,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerinteger?: integer;
+		answerInteger?: integer;
 
 		/**
-		 * Extension for answerinteger
+		 * Extension for answerInteger
 		 **/
-		_answerinteger?: Element;
+		_answerInteger?: Element;
 
 		/**
 		 * Value question must have
@@ -31461,12 +31464,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerdate?: date;
+		answerDate?: date;
 
 		/**
-		 * Extension for answerdate
+		 * Extension for answerDate
 		 **/
-		_answerdate?: Element;
+		_answerDate?: Element;
 
 		/**
 		 * Value question must have
@@ -31477,12 +31480,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerdateTime?: dateTime;
+		answerDateTime?: dateTime;
 
 		/**
-		 * Extension for answerdateTime
+		 * Extension for answerDateTime
 		 **/
-		_answerdateTime?: Element;
+		_answerDateTime?: Element;
 
 		/**
 		 * Value question must have
@@ -31493,12 +31496,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answertime?: time;
+		answerTime?: time;
 
 		/**
-		 * Extension for answertime
+		 * Extension for answerTime
 		 **/
-		_answertime?: Element;
+		_answerTime?: Element;
 
 		/**
 		 * Value question must have
@@ -31509,12 +31512,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answerstring?: string;
+		answerString?: string;
 
 		/**
-		 * Extension for answerstring
+		 * Extension for answerString
 		 **/
-		_answerstring?: Element;
+		_answerString?: Element;
 
 		/**
 		 * Value question must have
@@ -31525,12 +31528,12 @@ Components not specified in the answer do not need to match.  For example, if en
 
 The dataType of this element must be the same as the data type of the question being referenced.
 		 */
-		answeruri?: uri;
+		answerUri?: uri;
 
 		/**
-		 * Extension for answeruri
+		 * Extension for answerUri
 		 **/
-		_answeruri?: Element;
+		_answerUri?: Element;
 
 		/**
 		 * Value question must have
@@ -31589,48 +31592,48 @@ The dataType of this element must be the same as the data type of the question b
 		 * A potential answer that's allowed as the answer to this question.
 		 * The data type of the value must agree with the item.type.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Answer value
 		 * A potential answer that's allowed as the answer to this question.
 		 * The data type of the value must agree with the item.type.
 		 */
-		valuedate: date;
+		valueDate: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Answer value
 		 * A potential answer that's allowed as the answer to this question.
 		 * The data type of the value must agree with the item.type.
 		 */
-		valuetime: time;
+		valueTime: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Answer value
 		 * A potential answer that's allowed as the answer to this question.
 		 * The data type of the value must agree with the item.type.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Answer value
@@ -31799,12 +31802,12 @@ This element is a modifier because if enableWhen is present for an item, "requir
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialboolean?: boolean;
+		initialBoolean?: boolean;
 
 		/**
-		 * Extension for initialboolean
+		 * Extension for initialBoolean
 		 **/
-		_initialboolean?: Element;
+		_initialBoolean?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31813,12 +31816,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialdecimal?: decimal;
+		initialDecimal?: decimal;
 
 		/**
-		 * Extension for initialdecimal
+		 * Extension for initialDecimal
 		 **/
-		_initialdecimal?: Element;
+		_initialDecimal?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31827,12 +31830,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialinteger?: integer;
+		initialInteger?: integer;
 
 		/**
-		 * Extension for initialinteger
+		 * Extension for initialInteger
 		 **/
-		_initialinteger?: Element;
+		_initialInteger?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31841,12 +31844,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialdate?: date;
+		initialDate?: date;
 
 		/**
-		 * Extension for initialdate
+		 * Extension for initialDate
 		 **/
-		_initialdate?: Element;
+		_initialDate?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31855,12 +31858,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialdateTime?: dateTime;
+		initialDateTime?: dateTime;
 
 		/**
-		 * Extension for initialdateTime
+		 * Extension for initialDateTime
 		 **/
-		_initialdateTime?: Element;
+		_initialDateTime?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31869,12 +31872,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialtime?: time;
+		initialTime?: time;
 
 		/**
-		 * Extension for initialtime
+		 * Extension for initialTime
 		 **/
-		_initialtime?: Element;
+		_initialTime?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31883,12 +31886,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialstring?: string;
+		initialString?: string;
 
 		/**
-		 * Extension for initialstring
+		 * Extension for initialString
 		 **/
-		_initialstring?: Element;
+		_initialString?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -31897,12 +31900,12 @@ The data type of initial[x] must agree with the item.type.
 
 The data type of initial[x] must agree with the item.type.
 		 */
-		initialuri?: uri;
+		initialUri?: uri;
 
 		/**
-		 * Extension for initialuri
+		 * Extension for initialUri
 		 **/
-		_initialuri?: Element;
+		_initialUri?: Element;
 
 		/**
 		 * Default value when item is first rendered
@@ -32178,96 +32181,96 @@ This is labeled as "Is Modifier" because applications should not use a retired q
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valueboolean?: boolean;
+		valueBoolean?: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valuedecimal?: decimal;
+		valueDecimal?: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valueinteger?: integer;
+		valueInteger?: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valuedate?: date;
+		valueDate?: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valuedateTime?: dateTime;
+		valueDateTime?: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valuetime?: time;
+		valueTime?: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Single-valued answer to the question
 		 * The answer (or one of the answers) provided by the respondent to the question.
 		 * More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
 		 */
-		valueuri?: uri;
+		valueUri?: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Single-valued answer to the question
@@ -32567,12 +32570,12 @@ This element is optional to allow for systems that may not know the value, howev
 		 * The period of time within which the services identified in the referral/transfer of care is specified or required to occur.
 		 * When the occurrenceDateTime is used, then it is indicating that the requested service must happen before the specified date.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When the service(s) requested in the referral should occur
@@ -32901,12 +32904,12 @@ This element is optional to allow for systems that may not know the value, howev
 		 * When the action should take place
 		 * An optional value describing when the action should be performed.
 		 */
-		timingdateTime?: dateTime;
+		timingDateTime?: dateTime;
 
 		/**
-		 * Extension for timingdateTime
+		 * Extension for timingDateTime
 		 **/
-		_timingdateTime?: Element;
+		_timingDateTime?: Element;
 
 		/**
 		 * When the action should take place
@@ -33347,6 +33350,15 @@ This element is optional to allow for systems that may not know the value, howev
 	 * This is the base resource type for everything.
 	 */
 	interface Resource {
+		/**
+		 * The type of the resource.
+		 */
+		resourceType?: string;
+
+		/**
+		 * Extension for 'resourceType'.
+		 */
+		_resourceType?: Element;
 
 		/**
 		 * Logical id of this artifact
@@ -33411,12 +33423,12 @@ This element is labelled as a modifier because the implicit rules may provide ad
 		 * How likely is the outcome (in the specified timeframe).
 		 * If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100).
 		 */
-		probabilitydecimal?: decimal;
+		probabilityDecimal?: decimal;
 
 		/**
-		 * Extension for probabilitydecimal
+		 * Extension for probabilityDecimal
 		 **/
-		_probabilitydecimal?: Element;
+		_probabilityDecimal?: Element;
 
 		/**
 		 * Likelihood of specified outcome
@@ -33526,12 +33538,12 @@ This element is labelled as a modifier because the implicit rules may provide ad
 		 * When was assessment made?
 		 * The date (and possibly time) the risk assessment was performed.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When was assessment made?
@@ -34757,12 +34769,12 @@ This is labeled as "Is Modifier" because applications should not use a retired s
 		 * Collection time
 		 * Time when specimen was collected from subject - the physiologically relevant time.
 		 */
-		collecteddateTime?: dateTime;
+		collectedDateTime?: dateTime;
 
 		/**
-		 * Extension for collecteddateTime
+		 * Extension for collectedDateTime
 		 **/
-		_collecteddateTime?: Element;
+		_collectedDateTime?: Element;
 
 		/**
 		 * Collection time
@@ -34823,12 +34835,12 @@ This is labeled as "Is Modifier" because applications should not use a retired s
 		 * Date and time of specimen processing
 		 * A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
 		 */
-		timedateTime?: dateTime;
+		timeDateTime?: dateTime;
 
 		/**
-		 * Extension for timedateTime
+		 * Extension for timeDateTime
 		 **/
-		_timedateTime?: Element;
+		_timeDateTime?: Element;
 
 		/**
 		 * Date and time of specimen processing
@@ -35487,192 +35499,192 @@ If the definition is a constraint, then it can not define new elements, it can o
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuebase64Binary?: base64Binary;
+		defaultValueBase64Binary?: base64Binary;
 
 		/**
-		 * Extension for defaultValuebase64Binary
+		 * Extension for defaultValueBase64Binary
 		 **/
-		_defaultValuebase64Binary?: Element;
+		_defaultValueBase64Binary?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueboolean?: boolean;
+		defaultValueBoolean?: boolean;
 
 		/**
-		 * Extension for defaultValueboolean
+		 * Extension for defaultValueBoolean
 		 **/
-		_defaultValueboolean?: Element;
+		_defaultValueBoolean?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuecode?: code;
+		defaultValueCode?: code;
 
 		/**
-		 * Extension for defaultValuecode
+		 * Extension for defaultValueCode
 		 **/
-		_defaultValuecode?: Element;
+		_defaultValueCode?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuedate?: date;
+		defaultValueDate?: date;
 
 		/**
-		 * Extension for defaultValuedate
+		 * Extension for defaultValueDate
 		 **/
-		_defaultValuedate?: Element;
+		_defaultValueDate?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuedateTime?: dateTime;
+		defaultValueDateTime?: dateTime;
 
 		/**
-		 * Extension for defaultValuedateTime
+		 * Extension for defaultValueDateTime
 		 **/
-		_defaultValuedateTime?: Element;
+		_defaultValueDateTime?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuedecimal?: decimal;
+		defaultValueDecimal?: decimal;
 
 		/**
-		 * Extension for defaultValuedecimal
+		 * Extension for defaultValueDecimal
 		 **/
-		_defaultValuedecimal?: Element;
+		_defaultValueDecimal?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueid?: id;
+		defaultValueId?: id;
 
 		/**
-		 * Extension for defaultValueid
+		 * Extension for defaultValueId
 		 **/
-		_defaultValueid?: Element;
+		_defaultValueId?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueinstant?: instant;
+		defaultValueInstant?: instant;
 
 		/**
-		 * Extension for defaultValueinstant
+		 * Extension for defaultValueInstant
 		 **/
-		_defaultValueinstant?: Element;
+		_defaultValueInstant?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueinteger?: integer;
+		defaultValueInteger?: integer;
 
 		/**
-		 * Extension for defaultValueinteger
+		 * Extension for defaultValueInteger
 		 **/
-		_defaultValueinteger?: Element;
+		_defaultValueInteger?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuemarkdown?: markdown;
+		defaultValueMarkdown?: markdown;
 
 		/**
-		 * Extension for defaultValuemarkdown
+		 * Extension for defaultValueMarkdown
 		 **/
-		_defaultValuemarkdown?: Element;
+		_defaultValueMarkdown?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueoid?: oid;
+		defaultValueOid?: oid;
 
 		/**
-		 * Extension for defaultValueoid
+		 * Extension for defaultValueOid
 		 **/
-		_defaultValueoid?: Element;
+		_defaultValueOid?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuepositiveInt?: positiveInt;
+		defaultValuePositiveInt?: positiveInt;
 
 		/**
-		 * Extension for defaultValuepositiveInt
+		 * Extension for defaultValuePositiveInt
 		 **/
-		_defaultValuepositiveInt?: Element;
+		_defaultValuePositiveInt?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuestring?: string;
+		defaultValueString?: string;
 
 		/**
-		 * Extension for defaultValuestring
+		 * Extension for defaultValueString
 		 **/
-		_defaultValuestring?: Element;
+		_defaultValueString?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValuetime?: time;
+		defaultValueTime?: time;
 
 		/**
-		 * Extension for defaultValuetime
+		 * Extension for defaultValueTime
 		 **/
-		_defaultValuetime?: Element;
+		_defaultValueTime?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueunsignedInt?: unsignedInt;
+		defaultValueUnsignedInt?: unsignedInt;
 
 		/**
-		 * Extension for defaultValueunsignedInt
+		 * Extension for defaultValueUnsignedInt
 		 **/
-		_defaultValueunsignedInt?: Element;
+		_defaultValueUnsignedInt?: Element;
 
 		/**
 		 * Default value if no value exists
 		 * A value to use if there is no existing value in the source object.
 		 * If there's a default value on an item that can repeat, it will only be used once.
 		 */
-		defaultValueuri?: uri;
+		defaultValueUri?: uri;
 
 		/**
-		 * Extension for defaultValueuri
+		 * Extension for defaultValueUri
 		 **/
-		_defaultValueuri?: Element;
+		_defaultValueUri?: Element;
 
 		/**
 		 * Default value if no value exists
@@ -35889,56 +35901,56 @@ If the definition is a constraint, then it can not define new elements, it can o
 		 * Parameter value - variable or literal
 		 * Parameter value - variable or literal.
 		 */
-		valueid: id;
+		valueId: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * Parameter value - variable or literal
 		 * Parameter value - variable or literal.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Parameter value - variable or literal
 		 * Parameter value - variable or literal.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Parameter value - variable or literal
 		 * Parameter value - variable or literal.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Parameter value - variable or literal
 		 * Parameter value - variable or literal.
 		 */
-		valuedecimal: decimal;
+		valueDecimal: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 	}
 
 	/**
@@ -36669,12 +36681,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * The date or time(s) the activity occurred.
 		 * [The list of types may be constrained as appropriate for the type of event].
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When event occurred
@@ -36797,12 +36809,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * When the request should be fulfilled
 		 * When the request should be fulfilled.
 		 */
-		occurrencedateTime?: dateTime;
+		occurrenceDateTime?: dateTime;
 
 		/**
-		 * Extension for occurrencedateTime
+		 * Extension for occurrenceDateTime
 		 **/
-		_occurrencedateTime?: Element;
+		_occurrenceDateTime?: Element;
 
 		/**
 		 * When the request should be fulfilled
@@ -36931,177 +36943,177 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuebase64Binary: base64Binary;
+		valueBase64Binary: base64Binary;
 
 		/**
-		 * Extension for valuebase64Binary
+		 * Extension for valueBase64Binary
 		 **/
-		_valuebase64Binary?: Element;
+		_valueBase64Binary?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuecode: code;
+		valueCode: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuedate: date;
+		valueDate: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuedateTime: dateTime;
+		valueDateTime: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuedecimal: decimal;
+		valueDecimal: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueid: id;
+		valueId: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueinstant: instant;
+		valueInstant: instant;
 
 		/**
-		 * Extension for valueinstant
+		 * Extension for valueInstant
 		 **/
-		_valueinstant?: Element;
+		_valueInstant?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuemarkdown: markdown;
+		valueMarkdown: markdown;
 
 		/**
-		 * Extension for valuemarkdown
+		 * Extension for valueMarkdown
 		 **/
-		_valuemarkdown?: Element;
+		_valueMarkdown?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueoid: oid;
+		valueOid: oid;
 
 		/**
-		 * Extension for valueoid
+		 * Extension for valueOid
 		 **/
-		_valueoid?: Element;
+		_valueOid?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuepositiveInt: positiveInt;
+		valuePositiveInt: positiveInt;
 
 		/**
-		 * Extension for valuepositiveInt
+		 * Extension for valuePositiveInt
 		 **/
-		_valuepositiveInt?: Element;
+		_valuePositiveInt?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valuetime: time;
+		valueTime: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueunsignedInt: unsignedInt;
+		valueUnsignedInt: unsignedInt;
 
 		/**
-		 * Extension for valueunsignedInt
+		 * Extension for valueUnsignedInt
 		 **/
-		_valueunsignedInt?: Element;
+		_valueUnsignedInt?: Element;
 
 		/**
 		 * Content to use in performing the task
 		 * The value of the input parameter as a basic type.
 		 */
-		valueuri: uri;
+		valueUri: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Content to use in performing the task
@@ -37252,177 +37264,177 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuebase64Binary: base64Binary;
+		valueBase64Binary: base64Binary;
 
 		/**
-		 * Extension for valuebase64Binary
+		 * Extension for valueBase64Binary
 		 **/
-		_valuebase64Binary?: Element;
+		_valueBase64Binary?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueboolean: boolean;
+		valueBoolean: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuecode: code;
+		valueCode: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuedate: date;
+		valueDate: date;
 
 		/**
-		 * Extension for valuedate
+		 * Extension for valueDate
 		 **/
-		_valuedate?: Element;
+		_valueDate?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuedateTime: dateTime;
+		valueDateTime: dateTime;
 
 		/**
-		 * Extension for valuedateTime
+		 * Extension for valueDateTime
 		 **/
-		_valuedateTime?: Element;
+		_valueDateTime?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuedecimal: decimal;
+		valueDecimal: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueid: id;
+		valueId: id;
 
 		/**
-		 * Extension for valueid
+		 * Extension for valueId
 		 **/
-		_valueid?: Element;
+		_valueId?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueinstant: instant;
+		valueInstant: instant;
 
 		/**
-		 * Extension for valueinstant
+		 * Extension for valueInstant
 		 **/
-		_valueinstant?: Element;
+		_valueInstant?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueinteger: integer;
+		valueInteger: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuemarkdown: markdown;
+		valueMarkdown: markdown;
 
 		/**
-		 * Extension for valuemarkdown
+		 * Extension for valueMarkdown
 		 **/
-		_valuemarkdown?: Element;
+		_valueMarkdown?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueoid: oid;
+		valueOid: oid;
 
 		/**
-		 * Extension for valueoid
+		 * Extension for valueOid
 		 **/
-		_valueoid?: Element;
+		_valueOid?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuepositiveInt: positiveInt;
+		valuePositiveInt: positiveInt;
 
 		/**
-		 * Extension for valuepositiveInt
+		 * Extension for valuePositiveInt
 		 **/
-		_valuepositiveInt?: Element;
+		_valuePositiveInt?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuestring: string;
+		valueString: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valuetime: time;
+		valueTime: time;
 
 		/**
-		 * Extension for valuetime
+		 * Extension for valueTime
 		 **/
-		_valuetime?: Element;
+		_valueTime?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueunsignedInt: unsignedInt;
+		valueUnsignedInt: unsignedInt;
 
 		/**
-		 * Extension for valueunsignedInt
+		 * Extension for valueUnsignedInt
 		 **/
-		_valueunsignedInt?: Element;
+		_valueUnsignedInt?: Element;
 
 		/**
 		 * Result of output
 		 * The value of the Output parameter as a basic type.
 		 */
-		valueuri: uri;
+		valueUri: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Result of output
@@ -37573,12 +37585,12 @@ This element is labeled as a modifier because the status contains codes that mar
 		 * Formal definition of task
 		 * A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
 		 */
-		definitionuri?: uri;
+		definitionUri?: uri;
 
 		/**
-		 * Extension for definitionuri
+		 * Extension for definitionUri
 		 **/
-		_definitionuri?: Element;
+		_definitionUri?: Element;
 
 		/**
 		 * Formal definition of task
@@ -39756,67 +39768,67 @@ This is labeled as "Is Modifier" because applications should not use a retired t
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valuestring?: string;
+		valueString?: string;
 
 		/**
-		 * Extension for valuestring
+		 * Extension for valueString
 		 **/
-		_valuestring?: Element;
+		_valueString?: Element;
 
 		/**
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valueboolean?: boolean;
+		valueBoolean?: boolean;
 
 		/**
-		 * Extension for valueboolean
+		 * Extension for valueBoolean
 		 **/
-		_valueboolean?: Element;
+		_valueBoolean?: Element;
 
 		/**
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valueinteger?: integer;
+		valueInteger?: integer;
 
 		/**
-		 * Extension for valueinteger
+		 * Extension for valueInteger
 		 **/
-		_valueinteger?: Element;
+		_valueInteger?: Element;
 
 		/**
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valuedecimal?: decimal;
+		valueDecimal?: decimal;
 
 		/**
-		 * Extension for valuedecimal
+		 * Extension for valueDecimal
 		 **/
-		_valuedecimal?: Element;
+		_valueDecimal?: Element;
 
 		/**
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valueuri?: uri;
+		valueUri?: uri;
 
 		/**
-		 * Extension for valueuri
+		 * Extension for valueUri
 		 **/
-		_valueuri?: Element;
+		_valueUri?: Element;
 
 		/**
 		 * Value of the named parameter
 		 * The value of the parameter.
 		 */
-		valuecode?: code;
+		valueCode?: code;
 
 		/**
-		 * Extension for valuecode
+		 * Extension for valueCode
 		 **/
-		_valuecode?: Element;
+		_valueCode?: Element;
 	}
 
 	/**

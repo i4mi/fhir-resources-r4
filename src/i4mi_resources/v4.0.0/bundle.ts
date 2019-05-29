@@ -1,4 +1,4 @@
-import { BundleType, Bundle, Method, BundleEntry } from "../../definition/v4.0.0/fhir.Bundle";
+import { BundleBundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../../definition/v4.0.0";
 import { Guid } from "guid-typescript";
 
 export interface I4MIInterfaceToMapResource {
@@ -8,10 +8,10 @@ export interface I4MIInterfaceToMapResource {
 export class I4MIBundle implements Bundle {
     resourceType = 'Bundle';
 
-    type!: BundleType;
+    type!: BundleBundleType;
     entry!: Array<BundleEntry>;
 
-    constructor(type: BundleType) {
+    constructor(type: BundleBundleType) {
         this.type = type;
     }
 
@@ -22,7 +22,7 @@ export class I4MIBundle implements Bundle {
      * @param resource A fhir resource. Note that is has to be a valid resource!
      * @returns the added bundle entry
      */
-    addEntry(method: Method, resourceType: string, resource: any): BundleEntry {
+    addEntry(method: BundleHTTPVerb, resourceType: string, resource: any): BundleEntry {
 
         let id: string;
 

@@ -1183,7 +1183,11 @@ This is labeled as "Is Modifier" because applications should not use a retired d
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+		AMENDED = 'amended',
+		CORRECTED = 'corrected',
+		CANCELLED = 'cancelled',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1203,7 +1207,10 @@ This is labeled as "Is Modifier" because applications should not use a retired d
 	enum DeviceUDIEntryType {
 		BARCODE = 'barcode',
 		RFID = 'rfid',
-		MANUAL = 'manual'
+		MANUAL = 'manual',
+		CARD = 'card',
+		SELF_REPORTED = 'self-reported',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1319,7 +1326,10 @@ This element is labeled as a modifier because the status contains the codes that
 	enum DeviceUseStatementDeviceUseStatementStatus {
 		ACTIVE = 'active',
 		COMPLETED = 'completed',
-		ENTERED_IN_ERROR = 'entered-in-error'
+		ENTERED_IN_ERROR = 'entered-in-error',
+		INTENDED = 'intended',
+		STOPPED = 'stopped',
+		ON_HOLD = 'on-hold'
 	}
 
 	/**
@@ -1331,7 +1341,13 @@ This element is labeled as a modifier because the status contains the codes that
 		REGISTERED = 'registered',
 		PARTIAL = 'partial',
 		PRELIMINARY = 'preliminary',
-		FINAL = 'final'
+		FINAL = 'final',
+		amended = 'amended',
+		COORECTED = 'corrected',
+		APPENDED = 'appended',
+		CANCELLED = 'cancelled',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1420,7 +1436,9 @@ This element is labeled as a modifier because the status contains codes that mar
 		IN_PROGRESS = 'in-progress',
 		ONLEAVE = 'onleave',
 		FINISHED = 'finished',
-		CANCELLED = 'cancelled'
+		CANCELLED = 'cancelled',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -2022,7 +2040,11 @@ This element is labeled as a modifier because the status contains codes that mar
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+		AMENDED = 'amended',
+		CORRECTED = 'corrected',
+		CANCELLED = 'cancelled',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -2348,7 +2370,12 @@ This element is labeled as a modifier because the status contains codes that mar
 	enum ProcedureRequestProcedureRequestIntent {
 		PROPOSAL = 'proposal',
 		PLAN = 'plan',
-		ORDER = 'order'
+		ORDER = 'order',
+		ORIGINAL_ORDER = 'original-order',
+		REFLEX_ORDER = 'reflex-order',
+		FILLER_ORDER = 'filler-order',
+		INSTANCE_ORDER = 'instance-order',
+		OPTION = 'option'
 	}
 
 	/**
@@ -2430,11 +2457,21 @@ This is labeled as "Is Modifier" because applications should not use a retired q
 	enum QuestionnaireQuestionnaireItemType {
 		GROUP = 'group',
 		DISPLAY = 'display',
+		QUESTION = 'question',
 		BOOLEAN = 'boolean',
 		DECIMAL = 'decimal',
 		INTEGER = 'integer',
 		DATE = 'date',
-		DATETIME = 'dateTime'
+		DATETIME = 'dateTime',
+		TIME = 'time',
+		STRING = 'string',
+		TEXT = 'text',
+		URL = 'url',
+		CHOICE = 'choice',
+		OPEN_CHOICE = 'open-choice',
+		ATTACHMENT = 'attachment',
+		REFERENCE = 'reference',
+		QUANTITY = 'quantity'
 	}
 
 	/**
@@ -2633,11 +2670,15 @@ This is labeled as "Is Modifier" because applications should not use a retired q
 	 * registered | preliminary | final | amended +
 	 * The status of the RiskAssessment, using the same statuses as an Observation.
 	 */
-	enum RiskAssessmentRiskAssessmentStatus {
+	enum RiskAssessmentRiskAssessmentStatus {			
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+		AMENDED = 'amended',
+		CORRECTED = 'corrected',
+		CANCELLED = 'cancelled',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -2911,7 +2952,22 @@ This is labeled as "Is Modifier" because applications should not use a retired s
 	 */
 	enum StructureMapStructureMapTransform {
 		CREATE = 'create',
-		COPY = 'copy'
+		COPY = 'copy',
+		TRUNCATE = 'truncate',
+		ESCAPE = 'escape',
+		CAST = 'cast', 
+		APPEND = 'append', 
+		TRANSLATE = 'translate', 
+		REFERENCE = 'reference',
+		DATEOP = 'dateOp',
+		UUID = 'uuid',
+		POINTER = 'pointer',
+		EVALUATE = 'evaluate',
+		CC = 'cc', 
+		C = 'c', 
+		QTY = 'qty', 
+		ID = 'id', 
+		CP = 'cp'
 	}
 
 	/**
@@ -2970,7 +3026,11 @@ This element is labeled as a modifier because the status contains codes that mar
 	enum SupplyRequestSupplyRequestStatus {
 		DRAFT = 'draft',
 		ACTIVE = 'active',
-		SUSPENDED = 'suspended'
+		SUSPENDED = 'suspended',
+		CANCELLED = 'cancelled',
+		COMPLETED = 'completed',
+		ENTERED_IN_ERROR = 'entered-in-error',
+		UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -3013,7 +3073,12 @@ In most cases, Tasks will have an intent of "order".
 	enum TaskTaskIntent {
 		PROPOSAL = 'proposal',
 		PLAN = 'plan',
-		ORDER = 'order'
+		ORDER = 'order',
+		ORIGINAL_ORDER = 'original-order',
+		REFLEX_ORDER = 'reflex-order',
+		FILLER_ORDER = 'filler-order',
+		INSTANCE_ORDER = 'instance-order',
+		OPTION = 'option'
 	}
 
 	/**

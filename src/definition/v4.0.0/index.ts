@@ -505,7 +505,7 @@ declare module fhir {
 	}
 
 	/**
-	 * mild | moderate | severe (of event as a whole)
+	 * mild | moderate | severe 
 	 * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
 	 * It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.
 	 */
@@ -1312,7 +1312,11 @@ Some reporting work flows require that the original narrative of a final documen
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+        AMENDED  = 'amended',
+        CORRECTED = 'corrected',
+        CANCELLED = 'cancelled',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1332,7 +1336,10 @@ Some reporting work flows require that the original narrative of a final documen
 	enum DeviceUDIEntryType {
 		BARCODE = 'barcode',
 		RFID = 'rfid',
-		MANUAL = 'manual'
+        MANUAL  = 'manual',
+        CARD = 'card',
+        SELF_REPORTED = 'self-reported',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1470,7 +1477,10 @@ This element is labeled as a modifier because the status contains the codes that
 	enum DeviceUseStatementDeviceUseStatementStatus {
 		ACTIVE = 'active',
 		COMPLETED = 'completed',
-		ENTERED_IN_ERROR = 'entered-in-error'
+        ENTERED_IN_ERROR  = 'entered-in-error',
+        INTENDED = 'intended',
+        STOPPED = 'stopped',
+        ON_HOLD = 'on-hold'
 	}
 
 	/**
@@ -1481,7 +1491,13 @@ This element is labeled as a modifier because the status contains the codes that
 		REGISTERED = 'registered',
 		PARTIAL = 'partial',
 		PRELIMINARY = 'preliminary',
-		FINAL = 'final'
+        FINAL  = 'final',
+        AMENDED = 'amended',
+        CORRECTED = 'corrected',
+        APPENDED = 'appended',
+        CANCELLED = 'cancelled',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -1566,7 +1582,9 @@ This element is labeled as a modifier because the status contains the codes that
 		IN_PROGRESS = 'in-progress',
 		ONLEAVE = 'onleave',
 		FINISHED = 'finished',
-		CANCELLED = 'cancelled'
+        CANCELLED  = 'cancelled',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -2406,7 +2424,11 @@ This element is labeled as a modifier because the status contains codes that mar
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+        AMENDED  = 'amended',
+        CORRECTED = 'corrected',
+        CANCELLED = 'cancelled',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -2798,12 +2820,22 @@ This element is labeled as a modifier because the status contains codes that mar
 	 */
 	enum QuestionnaireQuestionnaireItemType {
 		GROUP = 'group',
-		DISPLAY = 'display',
+        DISPLAY = 'display',
+        QUESTION = 'question',
 		BOOLEAN = 'boolean',
 		DECIMAL = 'decimal',
 		INTEGER = 'integer',
 		DATE = 'date',
-		DATETIME = 'dateTime'
+        DATETIME  = 'dateTime',
+        TIME = 'time',
+        STRING = 'string',
+        TEXT = 'text',
+        URL = 'url',
+        CHOICE = 'choice',
+        OPEN_CHOICE = 'open-choise',
+        ATTACHMENT = 'attachment',
+        REFERENCE = 'reference',
+        QUANTITY = 'quantity'
 	}
 
 	/**
@@ -3070,7 +3102,11 @@ This element is labeled as a modifier because the status contains codes that mar
 		REGISTERED = 'registered',
 		PRELIMINARY = 'preliminary',
 		FINAL = 'final',
-		AMENDED = 'amended'
+        AMENDED  = 'amended',
+        CORRECTED = 'corrected',
+        CANCELLED = 'cancelled',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -3183,7 +3219,13 @@ This element is labeled as a modifier because the status contains codes that mar
 	enum ServiceRequestServiceRequestIntent {
 		PROPOSAL = 'proposal',
 		PLAN = 'plan',
-		ORDER = 'order'
+        ORDER  = 'order',
+        DIRECTIVE = 'directive',
+        ORIGINAL_ORDER = 'original-order',
+        REFLEX_ORDER = 'reflex-order',
+        FILLER_ORDER = 'filler-order',
+        INSTANCE_ORDER = 'instance-order',
+        OPTION = 'option'
 	}
 
 	/**
@@ -3354,8 +3396,23 @@ This element is labeled as a modifier because the status contains codes that mar
 	 */
 	enum StructureMapStructureMapTransform {
 		CREATE = 'create',
-		COPY = 'copy'
-	}
+        COPY  = 'copy',
+        TRUNCATE = 'truncate',
+        ESCAPE = 'escape',
+        CAST = 'cast',
+        APPEND = 'append',
+        TRANSLATE = 'translate',
+        REFERENCE = 'reference',
+        DATE_OP = 'dateOp',
+        UUID = 'uuid',
+        POINTER = 'pointer',
+        EVALUATE = 'evaluate',
+        CC = 'cc',
+        C = 'c',
+        QTY = 'qty',
+        ID = 'id',
+        CP = 'cp'
+    	}
 
 	/**
 	 * requested | active | error | off
@@ -3412,7 +3469,11 @@ This element is labeled as a modifier because the status contains codes that mar
 	enum SupplyRequestSupplyRequestStatus {
 		DRAFT = 'draft',
 		ACTIVE = 'active',
-		SUSPENDED = 'suspended'
+        SUSPENDED  = 'suspended',
+        CANCELLED = 'cancelled',
+        COMPLETED = 'completed',
+        ENTERED_IN_ERROR = 'entered-in-error',
+        UNKNOWN = 'unknown'
 	}
 
 	/**
@@ -3434,16 +3495,16 @@ This element is labeled as a modifier because the status contains codes that mar
 		DRAFT = 'draft',
 		REQUESTED = 'requested',
 		RECEIVED = 'received',
-		ACCEPTED = 'accepted',
-		REJECTED = 'rejected',
-		READY = 'ready',
-		CANCELLED = 'cancelled',
-		IN_PROGRESS = 'in-progress',
-		ON_HOLD = 'on-hold',
-		FAILED = 'failed',
-		COMPLETED = 'completed',
-		ENTERED_IN_ERROR = 'entered-in-error'
-	}
+        ACCEPTED = 'accepted',
+        REJECTED = 'rejected',
+        READY = 'ready',
+        CANCELLED = 'cancelled',
+        IN_PROGRESS = 'in-progress',
+        ON_HOLD = 'on-hold',
+        FAILED = 'failed',
+        COMPLETED = 'completed',
+        ENTERED_IN_ERROR = 'entered-in-error'
+    }
 
 	/**
 	 * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option

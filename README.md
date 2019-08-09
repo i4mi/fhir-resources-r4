@@ -16,6 +16,8 @@ This library supports the following fhir versions:
 - STU 3
 - R4
 
+_NOTE:_ This library will get splited for every version, so we can implement the i4mi smart types.
+
 How do I select the resource from a specific Version?
 Just import resources from the path with the version you want.  
 For FHIR STU3:  

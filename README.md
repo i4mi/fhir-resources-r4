@@ -12,9 +12,53 @@ npm i @i4mi/fhir
 ```
 
 ## Select fhir version
+This library supports the following fhir versions:
+- STU 3
+- R4
 
+How do I select the resource from a specific Version?
+Just import resources from the path with the version you want.  
+For FHIR STU3:  
+```
+import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir/dist/definition/v3.0.1';
+```
 
 ## Create api calls
+How do I create api calls?  
+Import statement for using all implemented api methods  
+```
+import { ApiMethods, apiCall, ApiCallResponse } from '@i4mi/fhir';
+```
+
+Then create a method, which returns the initialized `ApiMethods` class. We recomment doing this in a service. You need a valid access token, the token type and the url to the fhir server. For example:
+- ACCESS_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImp0aSI6IjRlMjI4YTllLWZmMTMtNDgzNy1iOWFkLTI3NzcxYjM1YWIzNyIsImlhdCI6MTU2NTM1ODc0OCwiZXhwIjoxNTY1MzYyMzQ5fQ.CAfKTeRuGWQxzFuJM7hrB2z4sHuYplP1uXm_B_zkfjM'
+- TOKEN_TYPE = 'Bearer'
+- FHIR_SERVER_URL = https://your-url.coop
+
+Then create the function. It should look something like this:
+```typescript
+/**
+ * Inits the api method class
+ */
+private getAPI(): ApiMethods {
+  return new ApiMethods({
+    access_token: ACCESS_TOKEN,
+    authorization_type: TOKEN_TYPE,
+    base_url: FHIR_SERVER_URL + '/fhir'});
+}
+```
+__IMPORTANT:__ When the token has changed, you have to re-init the `ApiMethods` class.
+
+Now in the service you created, you can call this function and assign the apimehtods instance to a member.
+```typescript
+/**
+ * Execute init of API mehtods
+ */
+initApiMethods() {
+  this.apiMethods = this.getAPI();
+}
+```
+
 
 
 # Contribution & dev guide
@@ -26,7 +70,7 @@ to generate a new build in './dist/'
 npm run build
 ```
 
-# deploy
+## deploy
 
 update version in package.json
 then

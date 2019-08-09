@@ -49,7 +49,7 @@ private getAPI(): ApiMethods {
 ```
 __IMPORTANT:__ When the token has changed, you have to re-init the `ApiMethods` class.
 
-Now in the service you created, you can call this function and assign the apimehtods instance to a member.
+In the now created service, implement a function which assigns the `ApiMethods` instance to a member.
 ```typescript
 /**
  * Execute init of API mehtods
@@ -59,6 +59,7 @@ initApiMethods() {
 }
 ```
 
+The now assigned instance `this.apiMethods` can be used to execute `create`, `update`, `read` and `search`. These methods are implemented according the smart on fhir implementation guidelines.
 
 
 # Contribution & dev guide

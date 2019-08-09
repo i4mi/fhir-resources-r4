@@ -8,28 +8,24 @@ Created by the Institute of Medical Informatics (I4MI)
 
 Install with
 ```
-npm i @i4mi/fhir
+npm i @i4mi/fhir_r4
 ```
 
 ## Select fhir version
 This library supports the following fhir versions:
-- STU 3
 - R4
 
-_NOTE:_ This library will get splited for every version, so we can implement the i4mi smart types.
-
 How do I select the resource from a specific Version?
-Just import resources from the path with the version you want.  
-For FHIR STU3:  
+Just import resources from the path: 
 ```
-import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir/dist/definition/v3.0.1';
+import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4/dist/definition/';
 ```
 
 ## Create api calls
 How do I create api calls?  
 Import statement for using all implemented api methods  
 ```
-import { ApiMethods, apiCall, ApiCallResponse } from '@i4mi/fhir';
+import { ApiMethods, apiCall, ApiCallResponse } from '@i4mi/fhir_r4';
 ```
 
 Then create a method, which returns the initialized `ApiMethods` class. We recomment doing this in a service. You need a valid access token, the token type and the url to the fhir server. For example:

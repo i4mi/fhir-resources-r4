@@ -1,6 +1,6 @@
 {
   "name": "@i4mi/fhir_r4",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FHIR resources definitions + API methods",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/i4mi/fhir-resources.ts.git"
+    "url": "https://github.com/i4mi/fhir-resources-r4.git"
   },
   "bugs": {
-    "url": "https://github.com/i4mi/fhir-resources.ts/issues"
+    "url": "https://github.com/i4mi/fhir-resources-r4/issues"
   },
-  "homepage": "https://github.com/i4mi/fhir-resources.ts",
+  "homepage": "https://github.com/i4mi/fhir-resources-r4",
   "keywords": [
     "fhir",
     "resources",

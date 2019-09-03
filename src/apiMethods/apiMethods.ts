@@ -68,11 +68,11 @@ export class ApiMethods {
      * @param config Optional - the configurations for the request
      */
     update(resource: any, config?: ApiConfig) : Promise<ApiCallResponse> {
-        let args:ApiCallArgs = this.init(HttpMethod.POST, config);
+        let args:ApiCallArgs = this.init(HttpMethod.PUT, config);
         args.url += ('/' + resource.resourceType + '/' + resource.id);
 
         if (!args.headers){
-            args.headers = { 
+            args.headers = {
                 "Prefer": "return=representation",
                 "Content-Type": "application/json+fhir;charset=utf-8"
             };

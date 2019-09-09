@@ -25,14 +25,14 @@ class ApiMethods {
         if (!args.headers) {
             args.headers = {
                 "Prefer": "return=representation",
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Content-Type": "application/fhir+json;fhirVersion=4.0"
             };
         }
         else {
             if (!args.headers.Prefer)
                 args.headers.Prefer = "return=representation";
             if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+                args.headers["Content-Type"] = "application/fhir+json;fhirVersion=4.0";
         }
         args.payload = resource;
         return apiCall(args);
@@ -48,14 +48,14 @@ class ApiMethods {
         if (!args.headers) {
             args.headers = {
                 "Prefer": "return=representation",
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Content-Type": "application/fhir+json;fhirVersion=4.0"
             };
         }
         else {
             if (!args.headers.Prefer)
                 args.headers.Prefer = "return=representation";
             if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+                args.headers["Content-Type"] = "application/fhir+json;fhirVersion=4.0";
         }
         args.payload = resource;
         return apiCall(args);
@@ -72,12 +72,12 @@ class ApiMethods {
         args.url += ('/' + resourceType + '/' + id + (vid ? "/_history/" + vid : ""));
         if (!args.headers) {
             args.headers = {
-                "Accept": "application/json+fhir;charset=utf-8"
+                "Accept": "application/fhir+json;fhirVersion=4.0"
             };
         }
         else {
             if (!args.headers["Accept"])
-                args.headers["Accept"] = "application/json+fhir;charset=utf-8";
+                args.headers["Accept"] = "application/fhir+json;fhirVersion=4.0";
         }
         return apiCall(args);
     }
@@ -95,12 +95,12 @@ class ApiMethods {
         }
         if (!args.headers) {
             args.headers = {
-                "Accept": "application/json+fhir;charset=utf-8"
+                "Accept": "application/fhir+json;fhirVersion=4.0"
             };
         }
         else {
             if (!args.headers["Accept"])
-                args.headers["Accept"] = "application/json+fhir;charset=utf-8";
+                args.headers["Accept"] = "application/fhir+json;fhirVersion=4.0";
         }
         if (params) {
             args.url += "?";

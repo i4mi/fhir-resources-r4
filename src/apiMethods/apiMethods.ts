@@ -99,10 +99,10 @@ export class ApiMethods {
 
         if (!args.headers){
             args.headers = { 
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": "application/json+fhir;charset=utf-8"
             };
         } else {
-            if (!args.headers["Content-Type"]) args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"]) args.headers["Accept"] = "application/json+fhir;charset=utf-8";
         }
 
         return apiCall(args);
@@ -124,10 +124,10 @@ export class ApiMethods {
 
         if (!args.headers){
             args.headers = { 
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": "application/json+fhir;charset=utf-8"
             };
         } else {
-            if (!args.headers["Content-Type"]) args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"]) args.headers["Accept"] = "application/json+fhir;charset=utf-8";
         }
 
         if (params) {

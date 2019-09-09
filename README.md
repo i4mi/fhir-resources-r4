@@ -1,6 +1,6 @@
 <img src="https://siot.net/upload/resources/bfh.png" width="500px">
 
-# I4MI - fhir-resources.ts
+# I4MI - fhir-resources-r4.ts
 FHIR resources definitions  
 Created by the Institute of Medical Informatics (I4MI)
 

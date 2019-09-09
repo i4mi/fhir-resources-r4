@@ -43,7 +43,7 @@ class ApiMethods {
      * @param config Optional - the configurations for the request
      */
     update(resource, config) {
-        let args = this.init(HttpMethod.POST, config);
+        let args = this.init(HttpMethod.PUT, config);
         args.url += ('/' + resource.resourceType + '/' + resource.id);
         if (!args.headers) {
             args.headers = {
@@ -72,12 +72,12 @@ class ApiMethods {
         args.url += ('/' + resourceType + '/' + id + (vid ? "/_history/" + vid : ""));
         if (!args.headers) {
             args.headers = {
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": "application/json+fhir;charset=utf-8"
             };
         }
         else {
-            if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"])
+                args.headers["Accept"] = "application/json+fhir;charset=utf-8";
         }
         return apiCall(args);
     }
@@ -95,12 +95,12 @@ class ApiMethods {
         }
         if (!args.headers) {
             args.headers = {
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": "application/json+fhir;charset=utf-8"
             };
         }
         else {
-            if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"])
+                args.headers["Accept"] = "application/json+fhir;charset=utf-8";
         }
         if (params) {
             args.url += "?";

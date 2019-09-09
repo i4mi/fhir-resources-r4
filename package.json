@@ -1,6 +1,6 @@
 {
   "name": "@i4mi/fhir_r4",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "FHIR resources definitions + API methods",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/i4mi/fhir-resources.ts.git"
+    "url": "https://github.com/i4mi/fhir-resources-r4.git"
   },
   "bugs": {
-    "url": "https://github.com/i4mi/fhir-resources.ts/issues"
+    "url": "https://github.com/i4mi/fhir-resources-r4/issues"
   },
-  "homepage": "https://github.com/i4mi/fhir-resources.ts",
+  "homepage": "https://github.com/i4mi/fhir-resources-r4",
   "keywords": [
     "fhir",
     "resources",
     "i4mi",
     "api"
   ],
-  "author": "Stefan Iseli, Dick Chavez @ Institute for Medical Informatics (I4MI) - Bern University of Applied Science (BFH)",
+  "author": "Stefan Iseli, Dick Chavez, Gabriel Hess @ Institute for Medical Informatics (I4MI) - Bern University of Applied Science (BFH)",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^24.0.12",

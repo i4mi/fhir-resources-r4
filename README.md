@@ -59,6 +59,11 @@ initApiMethods() {
 
 The now assigned instance `this.apiMethods` can be used to execute `create`, `update`, `read` and `search`. These methods are implemented according the smart on fhir implementation guidelines.
 
+__IMPORTANT:__ Check the allowed content type (header) of your target server. If it is different than the default "application/fhir+json;fhirVersion=4.0", call `differentiateContentType([YOUR_TYPE])` BEFORE sending any request. For example:  
+```typescript
+this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
+```
+
 
 # Contribution & dev guide
 

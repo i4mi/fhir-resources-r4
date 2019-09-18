@@ -18,7 +18,7 @@ This library supports the following fhir versions:
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
-import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4/dist/definition/';
+import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4';
 ```
 
 ## Create api calls

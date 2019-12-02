@@ -1,8 +1,8 @@
-<img src="https://siot.net/upload/resources/bfh.png" width="500px">
+# I4MI on FHIR® - fhir-resources-r4.ts
+FHIR® resources, inheritance and type definitions.  
+Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
+<img src="https://siot.net/upload/resources/bfh.png" width="250px" />
 
-# I4MI - fhir-resources-r4.ts
-FHIR resources definitions  
-Created by the Institute of Medical Informatics (I4MI)
 
 # Usage guide
 
@@ -81,3 +81,6 @@ then
 ```
 npm publish --access public
 ```
+
+----
+FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR trademark does not constitute endorsement of this product by HL7.

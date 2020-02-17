@@ -11,15 +11,56 @@ Install with
 npm i @i4mi/fhir_r4
 ```
 
-## Select fhir version
-This library supports the following fhir versions:
+## Supported fhir version
 - R4
 
+## Use with NodeJS
+If you want to use this library in a node project which does not run on any browser, you need to install further dependencies.
+
+1. Install XMLHttpRequest:
+```
+npm i xmlhttprequest
+```
+
+2. Set global var
+```
+global['XMLHttpRequest'] = require("xmlhttprequest").XMLHttpRequest;
+```
+or
+```
+const XMLHttpRequestLib = require("xmlhttprequest").XMLHttpRequest;
+global['XMLHttpRequest'] = XMLHttpRequestLib;
+```
+
+3. You're up to go
+
+## Using resources
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
 import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4';
 ```
+
+Then you can use them as types or implement them.
+
+Use as Type:
+```
+let patient: Patient = {
+    resourceType: 'Patient'
+    ...
+}
+```
+
+Implement
+```
+export class MyPatient implements Patient {
+    resourceType = 'Patient';
+
+    ...
+}
+```
+
+_NOTE:_ You always have to set the `resourceType`!
 
 ## Create api calls
 How do I create api calls?  
@@ -63,6 +104,37 @@ __IMPORTANT:__ Check the allowed content type (header) of your target server. If
 ```typescript
 this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
 ```
+
+### Other examples (search, create, etc.)
+Search:
+```
+myStaticPatientSearch() {
+    this.apiMethods.search({ _id: 1 }, 'Patient')
+        .then((response) => {
+            console.log(response);
+        });
+}
+```
+Create:
+```
+myStaticPatientCreate() {
+    const myPatient: Patient = {
+        resourceType: 'Patient',
+        name: {
+            given: [
+                'Hans'
+            ],
+            family: 'Muster'
+        }
+    }
+
+    this.apiMethods.create(myPatient, 'Patient').then(
+        (response) => {
+            console.log(response);
+        });
+}
+```
+
 
 
 # Contribution & dev guide

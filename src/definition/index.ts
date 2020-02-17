@@ -4862,7 +4862,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueBase64Binary: base64Binary;
+    valueBase64Binary?: base64Binary;
 
     /**
      * Extension for valueBase64Binary
@@ -4873,7 +4873,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
 
     /**
      * Extension for valueBoolean
@@ -4884,7 +4884,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueCanonical: canonical;
+    valueCanonical?: canonical;
 
     /**
      * Extension for valueCanonical
@@ -4895,7 +4895,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueCode: code;
+    valueCode?: code;
 
     /**
      * Extension for valueCode
@@ -4906,7 +4906,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDate: date;
+    valueDate?: date;
 
     /**
      * Extension for valueDate
@@ -4917,7 +4917,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
 
     /**
      * Extension for valueDateTime
@@ -4928,7 +4928,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
 
     /**
      * Extension for valueDecimal
@@ -4939,7 +4939,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueId: id;
+    valueId?: id;
 
     /**
      * Extension for valueId
@@ -4950,7 +4950,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueInstant: instant;
+    valueInstant?: instant;
 
     /**
      * Extension for valueInstant
@@ -4961,7 +4961,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
 
     /**
      * Extension for valueInteger
@@ -4972,7 +4972,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueMarkdown: markdown;
+    valueMarkdown?: markdown;
 
     /**
      * Extension for valueMarkdown
@@ -4983,7 +4983,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueOid: oid;
+    valueOid?: oid;
 
     /**
      * Extension for valueOid
@@ -4994,7 +4994,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valuePositiveInt: positiveInt;
+    valuePositiveInt?: positiveInt;
 
     /**
      * Extension for valuePositiveInt
@@ -5005,7 +5005,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueString: string;
+    valueString?: string;
 
     /**
      * Extension for valueString
@@ -5016,7 +5016,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueTime: time;
+    valueTime?: time;
 
     /**
      * Extension for valueTime
@@ -5027,7 +5027,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueUnsignedInt: unsignedInt;
+    valueUnsignedInt?: unsignedInt;
 
     /**
      * Extension for valueUnsignedInt
@@ -5038,7 +5038,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueUri: uri;
+    valueUri?: uri;
 
     /**
      * Extension for valueUri
@@ -5049,7 +5049,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueUrl: url;
+    valueUrl?: url;
 
     /**
      * Extension for valueUrl
@@ -5060,7 +5060,7 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueUuid: uuid;
+    valueUuid?: uuid;
 
     /**
      * Extension for valueUuid
@@ -5071,181 +5071,181 @@ export interface ElementDefinitionExample extends Element {
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueAddress: Address;
+    valueAddress?: Address;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueAge: Age;
+    valueAge?: Age;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueAnnotation: Annotation;
+    valueAnnotation?: Annotation;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueAttachment: Attachment;
+    valueAttachment?: Attachment;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueCodeableConcept: CodeableConcept;
+    valueCodeableConcept?: CodeableConcept;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueContactPoint: ContactPoint;
+    valueContactPoint?: ContactPoint;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueCount: Count;
+    valueCount?: Count;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDistance: Distance;
+    valueDistance?: Distance;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDuration: Duration;
+    valueDuration?: Duration;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueHumanName: HumanName;
+    valueHumanName?: HumanName;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueIdentifier: Identifier;
+    valueIdentifier?: Identifier;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueMoney: Money;
+    valueMoney?: Money;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valuePeriod: Period;
+    valuePeriod?: Period;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueRange: Range;
+    valueRange?: Range;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueRatio: Ratio;
+    valueRatio?: Ratio;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueSampledData: SampledData;
+    valueSampledData?: SampledData;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueSignature: Signature;
+    valueSignature?: Signature;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueTiming: Timing;
+    valueTiming?: Timing;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueContactDetail: ContactDetail;
+    valueContactDetail?: ContactDetail;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueContributor: Contributor;
+    valueContributor?: Contributor;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDataRequirement: DataRequirement;
+    valueDataRequirement?: DataRequirement;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueExpression: Expression;
+    valueExpression?: Expression;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueParameterDefinition: ParameterDefinition;
+    valueParameterDefinition?: ParameterDefinition;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueRelatedArtifact: RelatedArtifact;
+    valueRelatedArtifact?: RelatedArtifact;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueTriggerDefinition: TriggerDefinition;
+    valueTriggerDefinition?: TriggerDefinition;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueUsageContext: UsageContext;
+    valueUsageContext?: UsageContext;
 
     /**
      * Value of Example (one of allowed types)
      * The actual value for the element, which must be one of the types allowed for this element.
      */
-    valueDosage: Dosage;
+    valueDosage?: Dosage;
 }
 
 /**

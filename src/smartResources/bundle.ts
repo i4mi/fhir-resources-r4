@@ -37,7 +37,7 @@ export class I4MIBundle implements Bundle {
         // check if id of resource is already set
         if (typeof resource.id !== 'undefined') {
             // now using already given id
-            console.warn(`Entry id already given. Now using ${resource.id} as id`);
+            console.log(`Entry id already given. Now using ${resource.id} as id`);
             id = resource.id;
 
             // check if there already is an entry with given id

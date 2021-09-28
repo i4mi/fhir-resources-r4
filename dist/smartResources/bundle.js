@@ -24,7 +24,7 @@ class I4MIBundle {
         // check if id of resource is already set
         if (typeof resource.id !== 'undefined') {
             // now using already given id
-            console.log(`Entry id is provided, using ${resource.id} as id`);
+            console.log(`Entry id is provided for resource (${resource.id}), using this as id.`);
             id = resource.id;
             // check if there already is an entry with given id
             if (this.idAlreadyExistsInBundle(id)) {

@@ -2485,7 +2485,7 @@ export declare enum QuestionnaireItemType {
     TEXT = "text",
     URL = "url",
     CHOICE = "choice",
-    OPEN_CHOICE = "open-choise",
+    OPEN_CHOICE = "open-choice",
     ATTACHMENT = "attachment",
     REFERENCE = "reference",
     QUANTITY = "quantity"

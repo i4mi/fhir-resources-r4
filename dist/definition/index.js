@@ -2708,7 +2708,7 @@ var QuestionnaireItemType;
     QuestionnaireItemType["TEXT"] = "text";
     QuestionnaireItemType["URL"] = "url";
     QuestionnaireItemType["CHOICE"] = "choice";
-    QuestionnaireItemType["OPEN_CHOICE"] = "open-choise";
+    QuestionnaireItemType["OPEN_CHOICE"] = "open-choice";
     QuestionnaireItemType["ATTACHMENT"] = "attachment";
     QuestionnaireItemType["REFERENCE"] = "reference";
     QuestionnaireItemType["QUANTITY"] = "quantity";

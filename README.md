@@ -13,7 +13,7 @@ npm i @i4mi/fhir_r4
 
 ## Select fhir version
 This library supports the following fhir versions:
-- R4
+- R4 (v4.0.1)
 
 How do I select the resource from a specific Version?
 Just import resources from the path: 

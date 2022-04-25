@@ -120,25 +120,6 @@ class ApiMethods {
         }
         return apiCall(args);
     }
-    /**
-     * process message
-     * @param message the fhir message (is a Bundle)
-     * @param config optional: the configurations for the request
-     */
-    processMessage(message) {
-        let args = this.init(HttpMethod.POST);
-        args.url += '$process-message';
-        if (!args.headers) {
-            args.headers = {
-                "Content-Type": "application/json+fhir;charset=utf-8"
-            };
-        }
-        else {
-            if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
-        }
-        return apiCall(args);
-    }
     // TODO:
     delete() {
         throw "NOT IMPLEMENTED";
@@ -170,6 +151,7 @@ class ApiMethods {
                 };
             }
         }
+        // Add default values for Headers
         return args;
     }
 }

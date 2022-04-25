@@ -1,4 +1,4 @@
-import { BundleBundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
 import { Guid } from "guid-typescript";
 
 export interface I4MIInterfaceToMapResource {
@@ -8,10 +8,10 @@ export interface I4MIInterfaceToMapResource {
 export class I4MIBundle implements Bundle {
     resourceType = 'Bundle';
 
-    type!: BundleBundleType;
+    type!: BundleType;
     entry!: Array<BundleEntry>;
 
-    constructor(type: BundleBundleType) {
+    constructor(type: BundleType) {
         this.type = type;
     }
 

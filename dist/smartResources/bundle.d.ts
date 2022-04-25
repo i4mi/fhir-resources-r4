@@ -1,12 +1,12 @@
-import { BundleBundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
 export interface I4MIInterfaceToMapResource {
     [key: string]: any;
 }
 export declare class I4MIBundle implements Bundle {
     resourceType: string;
-    type: BundleBundleType;
+    type: BundleType;
     entry: Array<BundleEntry>;
-    constructor(type: BundleBundleType);
+    constructor(type: BundleType);
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry

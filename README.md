@@ -1,8 +1,8 @@
-<img src="https://siot.net/upload/resources/bfh.png" width="500px">
+# I4MI on FHIR® - fhir-resources-r4.ts
+FHIR® resources, inheritance and type definitions.  
+Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
+<img src="https://siot.net/upload/resources/bfh.png" width="250px" />
 
-# I4MI - fhir-resources.ts
-FHIR resources definitions  
-Created by the Institute of Medical Informatics (I4MI)
 
 # Usage guide
 
@@ -15,11 +15,53 @@ npm i @i4mi/fhir_r4
 This library supports the following fhir versions:
 - R4 (v4.0.1)
 
+## Use with NodeJS
+If you want to use this library in a node project which does not run on any browser, you need to install further dependencies.
+
+1. Install XMLHttpRequest:
+```
+npm i xmlhttprequest
+```
+
+2. Set global var
+```
+global['XMLHttpRequest'] = require("xmlhttprequest").XMLHttpRequest;
+```
+or
+```
+const XMLHttpRequestLib = require("xmlhttprequest").XMLHttpRequest;
+global['XMLHttpRequest'] = XMLHttpRequestLib;
+```
+
+3. You're up to go
+
+## Using resources
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
-import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4/dist/definition/';
+import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4';
 ```
+
+Then you can use them as types or implement them.
+
+Use as Type:
+```
+let patient: Patient = {
+    resourceType: 'Patient'
+    ...
+}
+```
+
+Implement
+```
+export class MyPatient implements Patient {
+    resourceType = 'Patient';
+
+    ...
+}
+```
+
+_NOTE:_ You always have to set the `resourceType`!
 
 ## Create api calls
 How do I create api calls?  
@@ -59,6 +101,42 @@ initApiMethods() {
 
 The now assigned instance `this.apiMethods` can be used to execute `create`, `update`, `read` and `search`. These methods are implemented according the smart on fhir implementation guidelines.
 
+__IMPORTANT:__ Check the allowed content type (header) of your target server. If it is different than the default "application/fhir+json;fhirVersion=4.0", call `differentiateContentType([YOUR_TYPE])` BEFORE sending any request. For example:  
+```typescript
+this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
+```
+
+### Other examples (search, create, etc.)
+Search:
+```
+myStaticPatientSearch() {
+    this.apiMethods.search({ _id: 1 }, 'Patient')
+        .then((response) => {
+            console.log(response);
+        });
+}
+```
+Create:
+```
+myStaticPatientCreate() {
+    const myPatient: Patient = {
+        resourceType: 'Patient',
+        name: {
+            given: [
+                'Hans'
+            ],
+            family: 'Muster'
+        }
+    }
+
+    this.apiMethods.create(myPatient, 'Patient').then(
+        (response) => {
+            console.log(response);
+        });
+}
+```
+
+
 
 # Contribution & dev guide
 
@@ -76,3 +154,6 @@ then
 ```
 npm publish --access public
 ```
+
+----
+FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR trademark does not constitute endorsement of this product by HL7.

@@ -10,7 +10,17 @@ var HttpMethod;
 ;
 class ApiMethods {
     constructor(config) {
+        this._content_type = "application/fhir+json;fhirVersion=4.0";
         this._config = config ? config : { base_url: "" };
+    }
+    /**
+     * change the content type to your type
+     * the content type is used as "Content-Type" header in CREATE and UPDATE
+     * the content type is used as "Accept" header in SEARCH and READ
+     * @param ct content type if not "application/fhir+json;fhirVersion=4.0"
+     */
+    differentiateContentType(ct) {
+        this._content_type = ct;
     }
     /**
      * create a new record
@@ -25,14 +35,14 @@ class ApiMethods {
         if (!args.headers) {
             args.headers = {
                 "Prefer": "return=representation",
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Content-Type": this._content_type
             };
         }
         else {
             if (!args.headers.Prefer)
                 args.headers.Prefer = "return=representation";
             if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+                args.headers["Content-Type"] = this._content_type;
         }
         args.payload = resource;
         return apiCall(args);
@@ -48,14 +58,14 @@ class ApiMethods {
         if (!args.headers) {
             args.headers = {
                 "Prefer": "return=representation",
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Content-Type": this._content_type
             };
         }
         else {
             if (!args.headers.Prefer)
                 args.headers.Prefer = "return=representation";
             if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+                args.headers["Content-Type"] = this._content_type;
         }
         args.payload = resource;
         return apiCall(args);
@@ -72,12 +82,12 @@ class ApiMethods {
         args.url += ('/' + resourceType + '/' + id + (vid ? "/_history/" + vid : ""));
         if (!args.headers) {
             args.headers = {
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": this._content_type
             };
         }
         else {
-            if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"])
+                args.headers["Accept"] = this._content_type;
         }
         return apiCall(args);
     }
@@ -95,12 +105,12 @@ class ApiMethods {
         }
         if (!args.headers) {
             args.headers = {
-                "Content-Type": "application/json+fhir;charset=utf-8"
+                "Accept": this._content_type
             };
         }
         else {
-            if (!args.headers["Content-Type"])
-                args.headers["Content-Type"] = "application/json+fhir;charset=utf-8";
+            if (!args.headers["Accept"])
+                args.headers["Accept"] = this._content_type;
         }
         if (params) {
             args.url += "?";

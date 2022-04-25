@@ -1,7 +1,7 @@
 "use strict";
 /**
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
- * File generated on 2022-04-25T11:37:00.175Z
+ * File generated on 2022-04-25T12:38:54.708Z
  * https://www.i4mi.ti.bfh.ch
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -3574,54 +3574,6 @@ var VisionPrescriptionVisionBase;
     VisionPrescriptionVisionBase["OUT"] = "out";
 })(VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionBase || (exports.VisionPrescriptionVisionBase = {}));
 /**
- * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
- * The status of the diagnostic report.
- */
-var DiagnosticReportStatus;
-(function (DiagnosticReportStatus) {
-    DiagnosticReportStatus["REGISTERED"] = "registered";
-    DiagnosticReportStatus["PARTIAL"] = "partial";
-    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
-    DiagnosticReportStatus["FINAL"] = "final";
-    DiagnosticReportStatus["AMENDED"] = "amended";
-    DiagnosticReportStatus["CORRECTED"] = "corrected";
-    DiagnosticReportStatus["APPENDED"] = "appended";
-    DiagnosticReportStatus["CANCELLED"] = "cancelled";
-    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DiagnosticReportStatus["UNKNOWN"] = "unknown";
-})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-var DetectedIssueStatus;
-(function (DetectedIssueStatus) {
-    DetectedIssueStatus["REGISTERED"] = "registered";
-    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
-    DetectedIssueStatus["FINAL"] = "final";
-    DetectedIssueStatus["AMENDED"] = "amended";
-    DetectedIssueStatus["CORRECTED"] = "corrected";
-    DetectedIssueStatus["CANCELLED"] = "cancelled";
-    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DetectedIssueStatus["UNKNOWN"] = "unknown";
-})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-var RiskAssessmentStatus;
-(function (RiskAssessmentStatus) {
-    RiskAssessmentStatus["REGISTERED"] = "registered";
-    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
-    RiskAssessmentStatus["FINAL"] = "final";
-    RiskAssessmentStatus["AMENDED"] = "amended";
-    RiskAssessmentStatus["CORRECTED"] = "corrected";
-    RiskAssessmentStatus["CANCELLED"] = "cancelled";
-    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    RiskAssessmentStatus["UNKNOWN"] = "unknown";
-})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
-/**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
@@ -3638,21 +3590,21 @@ var EncounterStatus;
     EncounterStatus["UNKNOWN"] = "unknown";
 })(EncounterStatus = exports.EncounterStatus || (exports.EncounterStatus = {}));
 /**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
  */
-var ObservationStatus;
-(function (ObservationStatus) {
-    ObservationStatus["REGISTERED"] = "registered";
-    ObservationStatus["PRELIMINARY"] = "preliminary";
-    ObservationStatus["FINAL"] = "final";
-    ObservationStatus["AMENDED"] = "amended";
-    ObservationStatus["CORRECTED"] = "corrected";
-    ObservationStatus["CANCELLED"] = "cancelled";
-    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ObservationStatus["UNKNOWN"] = "unknown";
-})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+var DeviceUseStatementStatus;
+(function (DeviceUseStatementStatus) {
+    DeviceUseStatementStatus["ACTIVE"] = "active";
+    DeviceUseStatementStatus["COMPLETED"] = "completed";
+    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DeviceUseStatementStatus["INTENDED"] = "intended";
+    DeviceUseStatementStatus["STOPPED"] = "stopped";
+    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
+})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
 /**
  * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
  * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
@@ -3698,35 +3650,6 @@ var TaskStatus;
     TaskStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(TaskStatus = exports.TaskStatus || (exports.TaskStatus = {}));
 /**
- * active | completed | entered-in-error | intended | stopped | on-hold
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
- */
-var DeviceUseStatementStatus;
-(function (DeviceUseStatementStatus) {
-    DeviceUseStatementStatus["ACTIVE"] = "active";
-    DeviceUseStatementStatus["COMPLETED"] = "completed";
-    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DeviceUseStatementStatus["INTENDED"] = "intended";
-    DeviceUseStatementStatus["STOPPED"] = "stopped";
-    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
-})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
-/**
- * barcode | rfid | manual | card | self-reported | unknown
- * A coded entry to indicate how the data was entered.
- */
-var DeviceUDIEntryType;
-(function (DeviceUDIEntryType) {
-    DeviceUDIEntryType["BARCODE"] = "barcode";
-    DeviceUDIEntryType["RFID"] = "rfid";
-    DeviceUDIEntryType["MANUAL"] = "manual";
-    DeviceUDIEntryType["CARD"] = "card";
-    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
-    DeviceUDIEntryType["UNKNOWN"] = "unknown";
-})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));
-/**
  * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
  * How the data is copied / created.
  */
@@ -3751,6 +3674,70 @@ var StructureMapTransform;
     StructureMapTransform["CP"] = "cp";
 })(StructureMapTransform = exports.StructureMapTransform || (exports.StructureMapTransform = {}));
 /**
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
+ */
+var DiagnosticReportStatus;
+(function (DiagnosticReportStatus) {
+    DiagnosticReportStatus["REGISTERED"] = "registered";
+    DiagnosticReportStatus["PARTIAL"] = "partial";
+    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
+    DiagnosticReportStatus["FINAL"] = "final";
+    DiagnosticReportStatus["AMENDED"] = "amended";
+    DiagnosticReportStatus["CORRECTED"] = "corrected";
+    DiagnosticReportStatus["APPENDED"] = "appended";
+    DiagnosticReportStatus["CANCELLED"] = "cancelled";
+    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DiagnosticReportStatus["UNKNOWN"] = "unknown";
+})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ */
+var ObservationStatus;
+(function (ObservationStatus) {
+    ObservationStatus["REGISTERED"] = "registered";
+    ObservationStatus["PRELIMINARY"] = "preliminary";
+    ObservationStatus["FINAL"] = "final";
+    ObservationStatus["AMENDED"] = "amended";
+    ObservationStatus["CORRECTED"] = "corrected";
+    ObservationStatus["CANCELLED"] = "cancelled";
+    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    ObservationStatus["UNKNOWN"] = "unknown";
+})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
+ */
+var RiskAssessmentStatus;
+(function (RiskAssessmentStatus) {
+    RiskAssessmentStatus["REGISTERED"] = "registered";
+    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
+    RiskAssessmentStatus["FINAL"] = "final";
+    RiskAssessmentStatus["AMENDED"] = "amended";
+    RiskAssessmentStatus["CORRECTED"] = "corrected";
+    RiskAssessmentStatus["CANCELLED"] = "cancelled";
+    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    RiskAssessmentStatus["UNKNOWN"] = "unknown";
+})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+ */
+var DetectedIssueStatus;
+(function (DetectedIssueStatus) {
+    DetectedIssueStatus["REGISTERED"] = "registered";
+    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
+    DetectedIssueStatus["FINAL"] = "final";
+    DetectedIssueStatus["AMENDED"] = "amended";
+    DetectedIssueStatus["CORRECTED"] = "corrected";
+    DetectedIssueStatus["CANCELLED"] = "cancelled";
+    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DetectedIssueStatus["UNKNOWN"] = "unknown";
+})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
+/**
  * draft | active | suspended | cancelled | completed | entered-in-error | unknown
  * Status of the supply request.
  */
@@ -3764,3 +3751,16 @@ var SupplyRequestStatus;
     SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     SupplyRequestStatus["UNKNOWN"] = "unknown";
 })(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
+/**
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
+ */
+var DeviceUDIEntryType;
+(function (DeviceUDIEntryType) {
+    DeviceUDIEntryType["BARCODE"] = "barcode";
+    DeviceUDIEntryType["RFID"] = "rfid";
+    DeviceUDIEntryType["MANUAL"] = "manual";
+    DeviceUDIEntryType["CARD"] = "card";
+    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
+    DeviceUDIEntryType["UNKNOWN"] = "unknown";
+})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));

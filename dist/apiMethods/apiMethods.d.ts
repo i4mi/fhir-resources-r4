@@ -24,7 +24,15 @@ export interface ApiConfig {
 }
 export declare class ApiMethods {
     private _config;
+    private _content_type;
     constructor(config?: ApiConfig);
+    /**
+     * change the content type to your type
+     * the content type is used as "Content-Type" header in CREATE and UPDATE
+     * the content type is used as "Accept" header in SEARCH and READ
+     * @param ct content type if not "application/fhir+json;fhirVersion=4.0"
+     */
+    differentiateContentType(ct: string): void;
     /**
      * create a new record
      * @param resource the resource to create

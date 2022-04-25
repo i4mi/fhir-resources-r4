@@ -1,6 +1,6 @@
 /**
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
- * File generated on 2022-04-25T11:37:00.175Z
+ * File generated on 2022-04-25T12:38:54.708Z
  * https://www.i4mi.ti.bfh.ch
  */
 /**
@@ -3383,51 +3383,6 @@ export declare enum VisionPrescriptionVisionBase {
     OUT = "out"
 }
 /**
- * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
- * The status of the diagnostic report.
- */
-export declare enum DiagnosticReportStatus {
-    REGISTERED = "registered",
-    PARTIAL = "partial",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    APPENDED = "appended",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-export declare enum DetectedIssueStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-export declare enum RiskAssessmentStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
@@ -3443,19 +3398,19 @@ export declare enum EncounterStatus {
     UNKNOWN = "unknown"
 }
 /**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
  */
-export declare enum ObservationStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
+export declare enum DeviceUseStatementStatus {
+    ACTIVE = "active",
+    COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
+    INTENDED = "intended",
+    STOPPED = "stopped",
+    ON_HOLD = "on-hold"
 }
 /**
  * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
@@ -3500,33 +3455,6 @@ export declare enum TaskStatus {
     ENTERED_IN_ERROR = "entered-in-error"
 }
 /**
- * active | completed | entered-in-error | intended | stopped | on-hold
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
- */
-export declare enum DeviceUseStatementStatus {
-    ACTIVE = "active",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error",
-    INTENDED = "intended",
-    STOPPED = "stopped",
-    ON_HOLD = "on-hold"
-}
-/**
- * barcode | rfid | manual | card | self-reported | unknown
- * A coded entry to indicate how the data was entered.
- */
-export declare enum DeviceUDIEntryType {
-    BARCODE = "barcode",
-    RFID = "rfid",
-    MANUAL = "manual",
-    CARD = "card",
-    SELF_REPORTED = "self-reported",
-    UNKNOWN = "unknown"
-}
-/**
  * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
  * How the data is copied / created.
  */
@@ -3550,6 +3478,66 @@ export declare enum StructureMapTransform {
     CP = "cp"
 }
 /**
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
+ */
+export declare enum DiagnosticReportStatus {
+    REGISTERED = "registered",
+    PARTIAL = "partial",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    APPENDED = "appended",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ */
+export declare enum ObservationStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
+ */
+export declare enum RiskAssessmentStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+ */
+export declare enum DetectedIssueStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
  * draft | active | suspended | cancelled | completed | entered-in-error | unknown
  * Status of the supply request.
  */
@@ -3560,6 +3548,18 @@ export declare enum SupplyRequestStatus {
     CANCELLED = "cancelled",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
+ */
+export declare enum DeviceUDIEntryType {
+    BARCODE = "barcode",
+    RFID = "rfid",
+    MANUAL = "manual",
+    CARD = "card",
+    SELF_REPORTED = "self-reported",
     UNKNOWN = "unknown"
 }
 /**

@@ -22,7 +22,7 @@
     "i4mi",
     "api"
   ],
-  "author": "Stefan Iseli, Dick Chavez @ Institute for Medical Informatics (I4MI) - Bern University of Applied Science (BFH)",
+  "author": "Stefan Iseli, Dick Chavez, Gabriel Hess @ Institute for Medical Informatics (I4MI) - Bern University of Applied Science (BFH)",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^24.0.12",

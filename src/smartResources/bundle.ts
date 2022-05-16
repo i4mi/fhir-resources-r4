@@ -1,4 +1,4 @@
-import { Bundle, BundleEntry, BundleType, BundleHTTPVerb } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
 import { Guid } from "guid-typescript";
 
 export interface I4MIInterfaceToMapResource {

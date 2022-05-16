@@ -11,8 +11,9 @@ Install with
 npm i @i4mi/fhir_r4
 ```
 
-## Supported fhir version
-- R4
+## Select fhir version
+This library supports the following fhir versions:
+- R4 (v4.0.1)
 
 ## Use with NodeJS
 If you want to use this library in a node project which does not run on any browser, you need to install further dependencies.

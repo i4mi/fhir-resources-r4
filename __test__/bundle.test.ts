@@ -1,21 +1,21 @@
 import { I4MIBundle, I4MIInterfaceToMapResource } from '../src';
-import { BundleBundleType, BundleHTTPVerb, ObservationObservationStatus } from '../src/definition/v4.0.0';
-import { Observation } from '../src/definition/v4.0.0';
-import { CodeableConcept } from '../src/definition/v4.0.0';  
+import { BundleBundleType, BundleHTTPVerb, ObservationObservationStatus } from '../src/definition/';
+import { Observation } from '../src/definition/';
+import { CodeableConcept } from '../src/definition/';
 
 test('CreateBundle', () => {
     let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
-        
+
     expect(bundle.type).toBe(bundleType);
 });
 
 test('AddEntryToBundle', () => {
     let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
-    
+
     expect(bundle.type).toBe(bundleType);
-    
+
     let observationCode: CodeableConcept = {
         coding: [ {code: 'CodeX' }],
         text: 'CodeX'
@@ -55,9 +55,9 @@ test('AddEntryToBundle', () => {
 test('AddEntryWithIdToBundle', () => {
     let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
-    
+
     expect(bundle.type).toBe(bundleType);
-    
+
     let observationCode: CodeableConcept = {
         coding: [ {code: 'CodeX' }],
         text: 'CodeX'
@@ -84,9 +84,9 @@ test('AddEntryWithIdToBundle', () => {
 test('AddEntryAlreadyDefinedIdToBundle', () => {
     let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
-    
+
     expect(bundle.type).toBe(bundleType);
-    
+
     let observationCode: CodeableConcept = {
         coding: [ {code: 'CodeX' }],
         text: 'CodeX'
@@ -137,9 +137,9 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
 test('RemoveEntryFromBundle', () => {
     let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
-    
+
     expect(bundle.type).toBe(bundleType);
-    
+
     let observationCode: CodeableConcept = {
         coding: [ {code: 'CodeX' }],
         text: 'CodeX'

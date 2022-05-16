@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
+ * File generated on 2022-04-25T12:38:54.708Z
+ * https://www.i4mi.ti.bfh.ch
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * home | work | temp | old | billing - purpose of this address
@@ -306,14 +311,20 @@ var ActivityDefinitionPublicationStatus;
     ActivityDefinitionPublicationStatus["UNKNOWN"] = "unknown";
 })(ActivityDefinitionPublicationStatus = exports.ActivityDefinitionPublicationStatus || (exports.ActivityDefinitionPublicationStatus = {}));
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain.
  */
 var ActivityDefinitionRequestIntent;
 (function (ActivityDefinitionRequestIntent) {
     ActivityDefinitionRequestIntent["PROPOSAL"] = "proposal";
     ActivityDefinitionRequestIntent["PLAN"] = "plan";
+    ActivityDefinitionRequestIntent["DIRECTIVE"] = "directive";
     ActivityDefinitionRequestIntent["ORDER"] = "order";
+    ActivityDefinitionRequestIntent["ORIGINAL_ORDER"] = "original-order";
+    ActivityDefinitionRequestIntent["REFLEX_ORDER"] = "reflex-order";
+    ActivityDefinitionRequestIntent["FILLER_ORDER"] = "filler-order";
+    ActivityDefinitionRequestIntent["INSTANCE_ORDER"] = "instance-order";
+    ActivityDefinitionRequestIntent["OPTION"] = "option";
 })(ActivityDefinitionRequestIntent = exports.ActivityDefinitionRequestIntent || (exports.ActivityDefinitionRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
@@ -380,7 +391,7 @@ var AllergyIntoleranceCriticality;
     AllergyIntoleranceCriticality["UNABLE_TO_ASSESS"] = "unable-to-assess";
 })(AllergyIntoleranceCriticality = exports.AllergyIntoleranceCriticality || (exports.AllergyIntoleranceCriticality = {}));
 /**
- * mild | moderate | severe
+ * mild | moderate | severe (of event as a whole)
  * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
  * It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.
  */
@@ -396,7 +407,7 @@ var AllergyIntoleranceSeverity;
  * If the Appointment's status is "cancelled" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid.
-    */
+ */
 var AppointmentStatus;
 (function (AppointmentStatus) {
     AppointmentStatus["PROPOSED"] = "proposed";
@@ -432,7 +443,7 @@ var AppointmentParticipationStatus;
     AppointmentParticipationStatus["NEEDS_ACTION"] = "needs-action";
 })(AppointmentParticipationStatus = exports.AppointmentParticipationStatus || (exports.AppointmentParticipationStatus = {}));
 /**
- * accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
+ * accepted | declined | tentative | needs-action
  * Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
  * This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid.
  */
@@ -441,10 +452,7 @@ var AppointmentResponseParticipantStatus;
     AppointmentResponseParticipantStatus["ACCEPTED"] = "accepted";
     AppointmentResponseParticipantStatus["DECLINED"] = "declined";
     AppointmentResponseParticipantStatus["TENTATIVE"] = "tentative";
-    AppointmentResponseParticipantStatus["IN_PROCESS"] = "in-process";
-    AppointmentResponseParticipantStatus["COMPLETED"] = "completed";
     AppointmentResponseParticipantStatus["NEEDS_ACTION"] = "needs-action";
-    AppointmentResponseParticipantStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(AppointmentResponseParticipantStatus = exports.AppointmentResponseParticipantStatus || (exports.AppointmentResponseParticipantStatus = {}));
 /**
  * organ | tissue | fluid | cells | biologicalAgent
@@ -658,20 +666,20 @@ var CapabilityStatementDocumentMode;
     CapabilityStatementDocumentMode["CONSUMER"] = "consumer";
 })(CapabilityStatementDocumentMode = exports.CapabilityStatementDocumentMode || (exports.CapabilityStatementDocumentMode = {}));
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled | unknown
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
  * The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
-    */
+ */
 var CarePlanStatus;
 (function (CarePlanStatus) {
     CarePlanStatus["DRAFT"] = "draft";
     CarePlanStatus["ACTIVE"] = "active";
-    CarePlanStatus["SUSPENDED"] = "suspended";
+    CarePlanStatus["ON_HOLD"] = "on-hold";
+    CarePlanStatus["REVOKED"] = "revoked";
     CarePlanStatus["COMPLETED"] = "completed";
     CarePlanStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    CarePlanStatus["CANCELLED"] = "cancelled";
     CarePlanStatus["UNKNOWN"] = "unknown";
 })(CarePlanStatus = exports.CarePlanStatus || (exports.CarePlanStatus = {}));
 /**
@@ -687,11 +695,26 @@ var CarePlanIntent;
     CarePlanIntent["OPTION"] = "option";
 })(CarePlanIntent = exports.CarePlanIntent || (exports.CarePlanIntent = {}));
 /**
+ * Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription
+ * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
+ */
+var CarePlanActivityKind;
+(function (CarePlanActivityKind) {
+    CarePlanActivityKind["APPOINTMENT"] = "Appointment";
+    CarePlanActivityKind["COMMUNICATIONREQUEST"] = "CommunicationRequest";
+    CarePlanActivityKind["DEVICEREQUEST"] = "DeviceRequest";
+    CarePlanActivityKind["MEDICATIONREQUEST"] = "MedicationRequest";
+    CarePlanActivityKind["NUTRITIONORDER"] = "NutritionOrder";
+    CarePlanActivityKind["TASK"] = "Task";
+    CarePlanActivityKind["SERVICEREQUEST"] = "ServiceRequest";
+    CarePlanActivityKind["VISIONPRESCRIPTION"] = "VisionPrescription";
+})(CarePlanActivityKind = exports.CarePlanActivityKind || (exports.CarePlanActivityKind = {}));
+/**
  * not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error
  * Identifies what progress is being made for the specific activity.
  * Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that "status" is only as current as the plan was most recently updated.
 The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity.
-    */
+ */
 var CarePlanActivityStatus;
 (function (CarePlanActivityStatus) {
     CarePlanActivityStatus["NOT_STARTED"] = "not-started";
@@ -743,7 +766,7 @@ var CatalogEntryRelationType;
  * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid.
-    */
+ */
 var ChargeItemStatus;
 (function (ChargeItemStatus) {
     ChargeItemStatus["PLANNED"] = "planned";
@@ -846,13 +869,13 @@ var ClaimResponseNoteType;
     ClaimResponseNoteType["PRINTOPER"] = "printoper";
 })(ClaimResponseNoteType = exports.ClaimResponseNoteType || (exports.ClaimResponseNoteType = {}));
 /**
- * draft | completed | entered-in-error
+ * in-progress | completed | entered-in-error
  * Identifies the workflow status of the assessment.
  * This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid.
  */
 var ClinicalImpressionStatus;
 (function (ClinicalImpressionStatus) {
-    ClinicalImpressionStatus["DRAFT"] = "draft";
+    ClinicalImpressionStatus["IN_PROGRESS"] = "in-progress";
     ClinicalImpressionStatus["COMPLETED"] = "completed";
     ClinicalImpressionStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(ClinicalImpressionStatus = exports.ClinicalImpressionStatus || (exports.ClinicalImpressionStatus = {}));
@@ -893,6 +916,22 @@ var CodeSystemContentMode;
     CodeSystemContentMode["SUPPLEMENT"] = "supplement";
 })(CodeSystemContentMode = exports.CodeSystemContentMode || (exports.CodeSystemContentMode = {}));
 /**
+ * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
+ * A list of operators that can be used with the filter.
+ */
+var CodeSystemFilterOperator;
+(function (CodeSystemFilterOperator) {
+    CodeSystemFilterOperator["E"] = "=";
+    CodeSystemFilterOperator["IS_A"] = "is-a";
+    CodeSystemFilterOperator["DESCENDENT_OF"] = "descendent-of";
+    CodeSystemFilterOperator["IS_NOT_A"] = "is-not-a";
+    CodeSystemFilterOperator["REGEX"] = "regex";
+    CodeSystemFilterOperator["IN"] = "in";
+    CodeSystemFilterOperator["NOT_IN"] = "not-in";
+    CodeSystemFilterOperator["GENERALIZES"] = "generalizes";
+    CodeSystemFilterOperator["EXISTS"] = "exists";
+})(CodeSystemFilterOperator = exports.CodeSystemFilterOperator || (exports.CodeSystemFilterOperator = {}));
+/**
  * code | Coding | string | integer | boolean | dateTime | decimal
  * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
  */
@@ -907,7 +946,7 @@ var CodeSystemPropertyType;
     CodeSystemPropertyType["DECIMAL"] = "decimal";
 })(CodeSystemPropertyType = exports.CodeSystemPropertyType || (exports.CodeSystemPropertyType = {}));
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The status of the transmission.
  * This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid.
  */
@@ -916,25 +955,49 @@ var CommunicationStatus;
     CommunicationStatus["PREPARATION"] = "preparation";
     CommunicationStatus["IN_PROGRESS"] = "in-progress";
     CommunicationStatus["NOT_DONE"] = "not-done";
-    CommunicationStatus["SUSPENDED"] = "suspended";
-    CommunicationStatus["ABORTED"] = "aborted";
+    CommunicationStatus["ON_HOLD"] = "on-hold";
+    CommunicationStatus["STOPPED"] = "stopped";
     CommunicationStatus["COMPLETED"] = "completed";
     CommunicationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    CommunicationStatus["UNKNOWN"] = "unknown";
 })(CommunicationStatus = exports.CommunicationStatus || (exports.CommunicationStatus = {}));
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * routine | urgent | asap | stat
+ * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+ * Used to prioritize workflow (such as which communication to read first) when the communication is planned or in progress.
+ */
+var CommunicationPriority;
+(function (CommunicationPriority) {
+    CommunicationPriority["ROUTINE"] = "routine";
+    CommunicationPriority["URGENT"] = "urgent";
+    CommunicationPriority["ASAP"] = "asap";
+    CommunicationPriority["STAT"] = "stat";
+})(CommunicationPriority = exports.CommunicationPriority || (exports.CommunicationPriority = {}));
+/**
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the proposal or order.
  */
 var CommunicationRequestStatus;
 (function (CommunicationRequestStatus) {
     CommunicationRequestStatus["DRAFT"] = "draft";
     CommunicationRequestStatus["ACTIVE"] = "active";
-    CommunicationRequestStatus["SUSPENDED"] = "suspended";
-    CommunicationRequestStatus["CANCELLED"] = "cancelled";
+    CommunicationRequestStatus["ON_HOLD"] = "on-hold";
+    CommunicationRequestStatus["REVOKED"] = "revoked";
     CommunicationRequestStatus["COMPLETED"] = "completed";
     CommunicationRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     CommunicationRequestStatus["UNKNOWN"] = "unknown";
 })(CommunicationRequestStatus = exports.CommunicationRequestStatus || (exports.CommunicationRequestStatus = {}));
+/**
+ * routine | urgent | asap | stat
+ * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+ */
+var CommunicationRequestCommunicationPriority;
+(function (CommunicationRequestCommunicationPriority) {
+    CommunicationRequestCommunicationPriority["ROUTINE"] = "routine";
+    CommunicationRequestCommunicationPriority["URGENT"] = "urgent";
+    CommunicationRequestCommunicationPriority["ASAP"] = "asap";
+    CommunicationRequestCommunicationPriority["STAT"] = "stat";
+})(CommunicationRequestCommunicationPriority = exports.CommunicationRequestCommunicationPriority || (exports.CommunicationRequestCommunicationPriority = {}));
 /**
  * draft | active | retired | unknown
  * The status of this compartment definition. Enables tracking the life-cycle of the content.
@@ -966,7 +1029,7 @@ var CompartmentDefinitionCompartmentType;
  * If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.
 
 Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
-    */
+ */
 var CompositionStatus;
 (function (CompositionStatus) {
     CompositionStatus["PRELIMINARY"] = "preliminary";
@@ -1083,30 +1146,49 @@ var ConsentDataMeaning;
     ConsentDataMeaning["AUTHOREDBY"] = "authoredby";
 })(ConsentDataMeaning = exports.ConsentDataMeaning || (exports.ConsentDataMeaning = {}));
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
  * The status of the resource instance.
  * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
  */
 var ContractStatus;
 (function (ContractStatus) {
-    ContractStatus["DRAFT"] = "draft";
-    ContractStatus["ACTIVE"] = "active";
-    ContractStatus["SUSPENDED"] = "suspended";
+    ContractStatus["AMENDED"] = "amended";
+    ContractStatus["APPENDED"] = "appended";
     ContractStatus["CANCELLED"] = "cancelled";
-    ContractStatus["COMPLETED"] = "completed";
+    ContractStatus["DISPUTED"] = "disputed";
     ContractStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ContractStatus["UNKNOWN"] = "unknown";
+    ContractStatus["EXECUTABLE"] = "executable";
+    ContractStatus["EXECUTED"] = "executed";
+    ContractStatus["NEGOTIABLE"] = "negotiable";
+    ContractStatus["OFFERED"] = "offered";
+    ContractStatus["POLICY"] = "policy";
+    ContractStatus["REJECTED"] = "rejected";
+    ContractStatus["RENEWED"] = "renewed";
+    ContractStatus["REVOKED"] = "revoked";
+    ContractStatus["RESOLVED"] = "resolved";
+    ContractStatus["TERMINATED"] = "terminated";
 })(ContractStatus = exports.ContractStatus || (exports.ContractStatus = {}));
 /**
- * draft | active | retired | unknown
- * draft | active | retired | unknown.
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated.
  */
 var ContractPublicationStatus;
 (function (ContractPublicationStatus) {
-    ContractPublicationStatus["DRAFT"] = "draft";
-    ContractPublicationStatus["ACTIVE"] = "active";
-    ContractPublicationStatus["RETIRED"] = "retired";
-    ContractPublicationStatus["UNKNOWN"] = "unknown";
+    ContractPublicationStatus["AMENDED"] = "amended";
+    ContractPublicationStatus["APPENDED"] = "appended";
+    ContractPublicationStatus["CANCELLED"] = "cancelled";
+    ContractPublicationStatus["DISPUTED"] = "disputed";
+    ContractPublicationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    ContractPublicationStatus["EXECUTABLE"] = "executable";
+    ContractPublicationStatus["EXECUTED"] = "executed";
+    ContractPublicationStatus["NEGOTIABLE"] = "negotiable";
+    ContractPublicationStatus["OFFERED"] = "offered";
+    ContractPublicationStatus["POLICY"] = "policy";
+    ContractPublicationStatus["REJECTED"] = "rejected";
+    ContractPublicationStatus["RENEWED"] = "renewed";
+    ContractPublicationStatus["REVOKED"] = "revoked";
+    ContractPublicationStatus["RESOLVED"] = "resolved";
+    ContractPublicationStatus["TERMINATED"] = "terminated";
 })(ContractPublicationStatus = exports.ContractPublicationStatus || (exports.ContractPublicationStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
@@ -1179,22 +1261,6 @@ var CoverageEligibilityResponseRemittanceOutcome;
     CoverageEligibilityResponseRemittanceOutcome["PARTIAL"] = "partial";
 })(CoverageEligibilityResponseRemittanceOutcome = exports.CoverageEligibilityResponseRemittanceOutcome || (exports.CoverageEligibilityResponseRemittanceOutcome = {}));
 /**
- * registered | preliminary | final | amended +
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-var DetectedIssueStatus;
-(function (DetectedIssueStatus) {
-    DetectedIssueStatus["REGISTERED"] = "registered";
-    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
-    DetectedIssueStatus["FINAL"] = "final";
-    DetectedIssueStatus["AMENDED"] = "amended";
-    DetectedIssueStatus["CORRECTED"] = "corrected";
-    DetectedIssueStatus["CANCELLED"] = "cancelled";
-    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DetectedIssueStatus["UNKNOWN"] = "unknown";
-})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
-/**
  * high | moderate | low
  * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
  */
@@ -1204,19 +1270,6 @@ var DetectedIssueSeverity;
     DetectedIssueSeverity["MODERATE"] = "moderate";
     DetectedIssueSeverity["LOW"] = "low";
 })(DetectedIssueSeverity = exports.DetectedIssueSeverity || (exports.DetectedIssueSeverity = {}));
-/**
- * barcode | rfid | manual +
- * A coded entry to indicate how the data was entered.
- */
-var DeviceUDIEntryType;
-(function (DeviceUDIEntryType) {
-    DeviceUDIEntryType["BARCODE"] = "barcode";
-    DeviceUDIEntryType["RFID"] = "rfid";
-    DeviceUDIEntryType["MANUAL"] = "manual";
-    DeviceUDIEntryType["CARD"] = "card";
-    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
-    DeviceUDIEntryType["UNKNOWN"] = "unknown";
-})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));
 /**
  * active | inactive | entered-in-error | unknown
  * Status of the Device availability.
@@ -1233,21 +1286,21 @@ var DeviceFHIRDeviceStatus;
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
 UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName.
-    */
-var DeviceDeviceNameType;
-(function (DeviceDeviceNameType) {
-    DeviceDeviceNameType["UDI_LABEL_NAME"] = "udi-label-name";
-    DeviceDeviceNameType["USER_FRIENDLY_NAME"] = "user-friendly-name";
-    DeviceDeviceNameType["PATIENT_REPORTED_NAME"] = "patient-reported-name";
-    DeviceDeviceNameType["MANUFACTURER_NAME"] = "manufacturer-name";
-    DeviceDeviceNameType["MODEL_NAME"] = "model-name";
-    DeviceDeviceNameType["OTHER"] = "other";
-})(DeviceDeviceNameType = exports.DeviceDeviceNameType || (exports.DeviceDeviceNameType = {}));
+ */
+var DeviceNameType;
+(function (DeviceNameType) {
+    DeviceNameType["UDI_LABEL_NAME"] = "udi-label-name";
+    DeviceNameType["USER_FRIENDLY_NAME"] = "user-friendly-name";
+    DeviceNameType["PATIENT_REPORTED_NAME"] = "patient-reported-name";
+    DeviceNameType["MANUFACTURER_NAME"] = "manufacturer-name";
+    DeviceNameType["MODEL_NAME"] = "model-name";
+    DeviceNameType["OTHER"] = "other";
+})(DeviceNameType = exports.DeviceNameType || (exports.DeviceNameType = {}));
 /**
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
 UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName.
-    */
+ */
 var DeviceDefinitionDeviceNameType;
 (function (DeviceDefinitionDeviceNameType) {
     DeviceDefinitionDeviceNameType["UDI_LABEL_NAME"] = "udi-label-name";
@@ -1317,7 +1370,7 @@ var DeviceMetricCalibrationState;
     DeviceMetricCalibrationState["UNSPECIFIED"] = "unspecified";
 })(DeviceMetricCalibrationState = exports.DeviceMetricCalibrationState || (exports.DeviceMetricCalibrationState = {}));
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the request.
  * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid.
  */
@@ -1325,56 +1378,39 @@ var DeviceRequestStatus;
 (function (DeviceRequestStatus) {
     DeviceRequestStatus["DRAFT"] = "draft";
     DeviceRequestStatus["ACTIVE"] = "active";
-    DeviceRequestStatus["SUSPENDED"] = "suspended";
+    DeviceRequestStatus["ON_HOLD"] = "on-hold";
+    DeviceRequestStatus["REVOKED"] = "revoked";
     DeviceRequestStatus["COMPLETED"] = "completed";
     DeviceRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DeviceRequestStatus["CANCELLED"] = "cancelled";
+    DeviceRequestStatus["UNKNOWN"] = "unknown";
 })(DeviceRequestStatus = exports.DeviceRequestStatus || (exports.DeviceRequestStatus = {}));
 /**
- * proposal | plan | original-order | encoded | reflex-order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
  */
 var DeviceRequestRequestIntent;
 (function (DeviceRequestRequestIntent) {
     DeviceRequestRequestIntent["PROPOSAL"] = "proposal";
     DeviceRequestRequestIntent["PLAN"] = "plan";
+    DeviceRequestRequestIntent["DIRECTIVE"] = "directive";
+    DeviceRequestRequestIntent["ORDER"] = "order";
     DeviceRequestRequestIntent["ORIGINAL_ORDER"] = "original-order";
-    DeviceRequestRequestIntent["ENCODED"] = "encoded";
     DeviceRequestRequestIntent["REFLEX_ORDER"] = "reflex-order";
+    DeviceRequestRequestIntent["FILLER_ORDER"] = "filler-order";
+    DeviceRequestRequestIntent["INSTANCE_ORDER"] = "instance-order";
+    DeviceRequestRequestIntent["OPTION"] = "option";
 })(DeviceRequestRequestIntent = exports.DeviceRequestRequestIntent || (exports.DeviceRequestRequestIntent = {}));
 /**
- * active | completed | entered-in-error +
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
-    */
-var DeviceUseStatementStatus;
-(function (DeviceUseStatementStatus) {
-    DeviceUseStatementStatus["ACTIVE"] = "active";
-    DeviceUseStatementStatus["COMPLETED"] = "completed";
-    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DeviceUseStatementStatus["INTENDED"] = "intended";
-    DeviceUseStatementStatus["STOPPED"] = "stopped";
-    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
-})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
-/**
- * registered | partial | preliminary | final +
- * The status of the diagnostic report.
+ * routine | urgent | asap | stat
+ * Indicates how quickly the {{title}} should be addressed with respect to other requests.
  */
-var DiagnosticReportStatus;
-(function (DiagnosticReportStatus) {
-    DiagnosticReportStatus["REGISTERED"] = "registered";
-    DiagnosticReportStatus["PARTIAL"] = "partial";
-    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
-    DiagnosticReportStatus["FINAL"] = "final";
-    DiagnosticReportStatus["AMENDED"] = "amended";
-    DiagnosticReportStatus["CORRECTED"] = "corrected";
-    DiagnosticReportStatus["APPENDED"] = "appended";
-    DiagnosticReportStatus["CANCELLED"] = "cancelled";
-    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DiagnosticReportStatus["UNKNOWN"] = "unknown";
-})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
+var DeviceRequestRequestPriority;
+(function (DeviceRequestRequestPriority) {
+    DeviceRequestRequestPriority["ROUTINE"] = "routine";
+    DeviceRequestRequestPriority["URGENT"] = "urgent";
+    DeviceRequestRequestPriority["ASAP"] = "asap";
+    DeviceRequestRequestPriority["STAT"] = "stat";
+})(DeviceRequestRequestPriority = exports.DeviceRequestRequestPriority || (exports.DeviceRequestRequestPriority = {}));
 /**
  * current | superseded | entered-in-error
  * The status of this document manifest.
@@ -1392,7 +1428,7 @@ var DocumentManifestDocumentReferenceStatus;
  * This is the status of the DocumentReference object, which might be independent from the docStatus element.
 
 This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
-    */
+ */
 var DocumentReferenceStatus;
 (function (DocumentReferenceStatus) {
     DocumentReferenceStatus["CURRENT"] = "current";
@@ -1400,7 +1436,7 @@ var DocumentReferenceStatus;
     DocumentReferenceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(DocumentReferenceStatus = exports.DocumentReferenceStatus || (exports.DocumentReferenceStatus = {}));
 /**
- * preliminary | final | appended | amended | entered-in-error
+ * preliminary | final | amended | entered-in-error
  * The status of the underlying document.
  * The document that is pointed to might be in various lifecycle states.
  */
@@ -1408,7 +1444,6 @@ var DocumentReferenceReferredDocumentStatus;
 (function (DocumentReferenceReferredDocumentStatus) {
     DocumentReferenceReferredDocumentStatus["PRELIMINARY"] = "preliminary";
     DocumentReferenceReferredDocumentStatus["FINAL"] = "final";
-    DocumentReferenceReferredDocumentStatus["APPENDED"] = "appended";
     DocumentReferenceReferredDocumentStatus["AMENDED"] = "amended";
     DocumentReferenceReferredDocumentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(DocumentReferenceReferredDocumentStatus = exports.DocumentReferenceReferredDocumentStatus || (exports.DocumentReferenceReferredDocumentStatus = {}));
@@ -1445,23 +1480,6 @@ var EffectEvidenceSynthesisExposureState;
     EffectEvidenceSynthesisExposureState["EXPOSURE"] = "exposure";
     EffectEvidenceSynthesisExposureState["EXPOSURE_ALTERNATIVE"] = "exposure-alternative";
 })(EffectEvidenceSynthesisExposureState = exports.EffectEvidenceSynthesisExposureState || (exports.EffectEvidenceSynthesisExposureState = {}));
-/**
- * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
- * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
- * Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes).
- */
-var EncounterStatus;
-(function (EncounterStatus) {
-    EncounterStatus["PLANNED"] = "planned";
-    EncounterStatus["ARRIVED"] = "arrived";
-    EncounterStatus["TRIAGED"] = "triaged";
-    EncounterStatus["IN_PROGRESS"] = "in-progress";
-    EncounterStatus["ONLEAVE"] = "onleave";
-    EncounterStatus["FINISHED"] = "finished";
-    EncounterStatus["CANCELLED"] = "cancelled";
-    EncounterStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    EncounterStatus["UNKNOWN"] = "unknown";
-})(EncounterStatus = exports.EncounterStatus || (exports.EncounterStatus = {}));
 /**
  * planned | active | reserved | completed
  * The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
@@ -1725,6 +1743,18 @@ var GraphDefinitionGraphCompartmentUse;
     GraphDefinitionGraphCompartmentUse["REQUIREMENT"] = "requirement";
 })(GraphDefinitionGraphCompartmentUse = exports.GraphDefinitionGraphCompartmentUse || (exports.GraphDefinitionGraphCompartmentUse = {}));
 /**
+ * Patient | Encounter | RelatedPerson | Practitioner | Device
+ * Identifies the compartment.
+ */
+var GraphDefinitionCompartmentCode;
+(function (GraphDefinitionCompartmentCode) {
+    GraphDefinitionCompartmentCode["PATIENT"] = "Patient";
+    GraphDefinitionCompartmentCode["ENCOUNTER"] = "Encounter";
+    GraphDefinitionCompartmentCode["RELATEDPERSON"] = "RelatedPerson";
+    GraphDefinitionCompartmentCode["PRACTITIONER"] = "Practitioner";
+    GraphDefinitionCompartmentCode["DEVICE"] = "Device";
+})(GraphDefinitionCompartmentCode = exports.GraphDefinitionCompartmentCode || (exports.GraphDefinitionCompartmentCode = {}));
+/**
  * identical | matching | different | custom
  * identical | matching | different | no-rule | custom.
  */
@@ -1782,14 +1812,14 @@ var HealthcareServiceDaysOfWeek;
  * The current state of the ImagingStudy.
  * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
  */
-var ImagingStudyImagingStudyStatus;
-(function (ImagingStudyImagingStudyStatus) {
-    ImagingStudyImagingStudyStatus["REGISTERED"] = "registered";
-    ImagingStudyImagingStudyStatus["AVAILABLE"] = "available";
-    ImagingStudyImagingStudyStatus["CANCELLED"] = "cancelled";
-    ImagingStudyImagingStudyStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ImagingStudyImagingStudyStatus["UNKNOWN"] = "unknown";
-})(ImagingStudyImagingStudyStatus = exports.ImagingStudyImagingStudyStatus || (exports.ImagingStudyImagingStudyStatus = {}));
+var ImagingStudyStatus;
+(function (ImagingStudyStatus) {
+    ImagingStudyStatus["REGISTERED"] = "registered";
+    ImagingStudyStatus["AVAILABLE"] = "available";
+    ImagingStudyStatus["CANCELLED"] = "cancelled";
+    ImagingStudyStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    ImagingStudyStatus["UNKNOWN"] = "unknown";
+})(ImagingStudyStatus = exports.ImagingStudyStatus || (exports.ImagingStudyStatus = {}));
 /**
  * completed | entered-in-error | not-done
  * Indicates the current status of the immunization event.
@@ -2000,19 +2030,19 @@ var MeasureReportType;
     MeasureReportType["DATA_COLLECTION"] = "data-collection";
 })(MeasureReportType = exports.MeasureReportType || (exports.MeasureReportType = {}));
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The current state of the {{title}}.
  * A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation
 
 Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
-    */
+ */
 var MediaStatus;
 (function (MediaStatus) {
     MediaStatus["PREPARATION"] = "preparation";
     MediaStatus["IN_PROGRESS"] = "in-progress";
     MediaStatus["NOT_DONE"] = "not-done";
-    MediaStatus["SUSPENDED"] = "suspended";
-    MediaStatus["ABORTED"] = "aborted";
+    MediaStatus["ON_HOLD"] = "on-hold";
+    MediaStatus["STOPPED"] = "stopped";
     MediaStatus["COMPLETED"] = "completed";
     MediaStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     MediaStatus["UNKNOWN"] = "unknown";
@@ -2044,7 +2074,7 @@ var MedicationAdministrationStatus;
     MedicationAdministrationStatus["UNKNOWN"] = "unknown";
 })(MedicationAdministrationStatus = exports.MedicationAdministrationStatus || (exports.MedicationAdministrationStatus = {}));
 /**
- * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | unknown
+ * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown
  * A code specifying the state of the set of dispense events.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
@@ -2057,6 +2087,7 @@ var MedicationDispenseStatus;
     MedicationDispenseStatus["COMPLETED"] = "completed";
     MedicationDispenseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     MedicationDispenseStatus["STOPPED"] = "stopped";
+    MedicationDispenseStatus["DECLINED"] = "declined";
     MedicationDispenseStatus["UNKNOWN"] = "unknown";
 })(MedicationDispenseStatus = exports.MedicationDispenseStatus || (exports.MedicationDispenseStatus = {}));
 /**
@@ -2087,20 +2118,22 @@ var MedicationRequestStatus;
     MedicationRequestStatus["UNKNOWN"] = "unknown";
 })(MedicationRequestStatus = exports.MedicationRequestStatus || (exports.MedicationRequestStatus = {}));
 /**
- * proposal | plan | order | original-order | instance-order | option
+ * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, or an original order.
  * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
 
 An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
 
 This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-    */
+ */
 var MedicationRequestIntent;
 (function (MedicationRequestIntent) {
     MedicationRequestIntent["PROPOSAL"] = "proposal";
     MedicationRequestIntent["PLAN"] = "plan";
     MedicationRequestIntent["ORDER"] = "order";
     MedicationRequestIntent["ORIGINAL_ORDER"] = "original-order";
+    MedicationRequestIntent["REFLEX_ORDER"] = "reflex-order";
+    MedicationRequestIntent["FILLER_ORDER"] = "filler-order";
     MedicationRequestIntent["INSTANCE_ORDER"] = "instance-order";
     MedicationRequestIntent["OPTION"] = "option";
 })(MedicationRequestIntent = exports.MedicationRequestIntent || (exports.MedicationRequestIntent = {}));
@@ -2121,7 +2154,7 @@ var MedicationRequestPriority;
  * MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 var MedicationStatementStatus;
 (function (MedicationStatementStatus) {
     MedicationStatementStatus["ACTIVE"] = "active";
@@ -2263,49 +2296,37 @@ var NamingSystemIdentifierType;
     NamingSystemIdentifierType["OTHER"] = "other";
 })(NamingSystemIdentifierType = exports.NamingSystemIdentifierType || (exports.NamingSystemIdentifierType = {}));
 /**
- * proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The workflow status of the nutrition order/request.
  * Typically the system placing the order sets the status to "requested". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
 var NutritionOrderStatus;
 (function (NutritionOrderStatus) {
-    NutritionOrderStatus["PROPOSED"] = "proposed";
     NutritionOrderStatus["DRAFT"] = "draft";
-    NutritionOrderStatus["PLANNED"] = "planned";
-    NutritionOrderStatus["REQUESTED"] = "requested";
     NutritionOrderStatus["ACTIVE"] = "active";
     NutritionOrderStatus["ON_HOLD"] = "on-hold";
+    NutritionOrderStatus["REVOKED"] = "revoked";
     NutritionOrderStatus["COMPLETED"] = "completed";
-    NutritionOrderStatus["CANCELLED"] = "cancelled";
     NutritionOrderStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    NutritionOrderStatus["UNKNOWN"] = "unknown";
 })(NutritionOrderStatus = exports.NutritionOrderStatus || (exports.NutritionOrderStatus = {}));
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
  * When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to "proposal, plan or order".  Can have multiple codes that map to one of these.  E.g. "original order", "encoded order", "reflex order" would all map to "order".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
  */
-var NutritiionOrderIntent;
-(function (NutritiionOrderIntent) {
-    NutritiionOrderIntent["PROPOSAL"] = "proposal";
-    NutritiionOrderIntent["PLAN"] = "plan";
-    NutritiionOrderIntent["ORDER"] = "order";
-})(NutritiionOrderIntent = exports.NutritiionOrderIntent || (exports.NutritiionOrderIntent = {}));
-/**
- * registered | preliminary | final | amended +
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
- */
-var ObservationStatus;
-(function (ObservationStatus) {
-    ObservationStatus["REGISTERED"] = "registered";
-    ObservationStatus["PRELIMINARY"] = "preliminary";
-    ObservationStatus["FINAL"] = "final";
-    ObservationStatus["AMENDED"] = "amended";
-    ObservationStatus["CORRECTED"] = "corrected";
-    ObservationStatus["CANCELLED"] = "cancelled";
-    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ObservationStatus["UNKNOWN"] = "unknown";
-})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+var NutritionOrderNutritiionOrderIntent;
+(function (NutritionOrderNutritiionOrderIntent) {
+    NutritionOrderNutritiionOrderIntent["PROPOSAL"] = "proposal";
+    NutritionOrderNutritiionOrderIntent["PLAN"] = "plan";
+    NutritionOrderNutritiionOrderIntent["DIRECTIVE"] = "directive";
+    NutritionOrderNutritiionOrderIntent["ORDER"] = "order";
+    NutritionOrderNutritiionOrderIntent["ORIGINAL_ORDER"] = "original-order";
+    NutritionOrderNutritiionOrderIntent["REFLEX_ORDER"] = "reflex-order";
+    NutritionOrderNutritiionOrderIntent["FILLER_ORDER"] = "filler-order";
+    NutritionOrderNutritiionOrderIntent["INSTANCE_ORDER"] = "instance-order";
+    NutritionOrderNutritiionOrderIntent["OPTION"] = "option";
+})(NutritionOrderNutritiionOrderIntent = exports.NutritionOrderNutritiionOrderIntent || (exports.NutritionOrderNutritiionOrderIntent = {}));
 /**
  * Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period
  * The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
@@ -2457,13 +2478,13 @@ var PaymentNoticeStatus;
  * The status of the resource instance.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
-var PaymentReconciliationPaymentReconciliationStatus;
-(function (PaymentReconciliationPaymentReconciliationStatus) {
-    PaymentReconciliationPaymentReconciliationStatus["ACTIVE"] = "active";
-    PaymentReconciliationPaymentReconciliationStatus["CANCELLED"] = "cancelled";
-    PaymentReconciliationPaymentReconciliationStatus["DRAFT"] = "draft";
-    PaymentReconciliationPaymentReconciliationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(PaymentReconciliationPaymentReconciliationStatus = exports.PaymentReconciliationPaymentReconciliationStatus || (exports.PaymentReconciliationPaymentReconciliationStatus = {}));
+var PaymentReconciliationStatus;
+(function (PaymentReconciliationStatus) {
+    PaymentReconciliationStatus["ACTIVE"] = "active";
+    PaymentReconciliationStatus["CANCELLED"] = "cancelled";
+    PaymentReconciliationStatus["DRAFT"] = "draft";
+    PaymentReconciliationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+})(PaymentReconciliationStatus = exports.PaymentReconciliationStatus || (exports.PaymentReconciliationStatus = {}));
 /**
  * queued | complete | error | partial
  * The outcome of a request for a reconciliation.
@@ -2647,19 +2668,19 @@ var PractitionerRoleDaysOfWeek;
     PractitionerRoleDaysOfWeek["SUN"] = "sun";
 })(PractitionerRoleDaysOfWeek = exports.PractitionerRoleDaysOfWeek || (exports.PractitionerRoleDaysOfWeek = {}));
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.
  * The "unknown" code is not to be used to convey other statuses.  The "unknown" code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 var ProcedureStatus;
 (function (ProcedureStatus) {
     ProcedureStatus["PREPARATION"] = "preparation";
     ProcedureStatus["IN_PROGRESS"] = "in-progress";
     ProcedureStatus["NOT_DONE"] = "not-done";
-    ProcedureStatus["SUSPENDED"] = "suspended";
-    ProcedureStatus["ABORTED"] = "aborted";
+    ProcedureStatus["ON_HOLD"] = "on-hold";
+    ProcedureStatus["STOPPED"] = "stopped";
     ProcedureStatus["COMPLETED"] = "completed";
     ProcedureStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ProcedureStatus["UNKNOWN"] = "unknown";
@@ -2688,31 +2709,6 @@ var QuestionnairePublicationStatus;
     QuestionnairePublicationStatus["RETIRED"] = "retired";
     QuestionnairePublicationStatus["UNKNOWN"] = "unknown";
 })(QuestionnairePublicationStatus = exports.QuestionnairePublicationStatus || (exports.QuestionnairePublicationStatus = {}));
-/**
- * group | display | boolean | decimal | integer | date | dateTime +
- * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
- * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
- */
-var QuestionnaireItemType;
-(function (QuestionnaireItemType) {
-    QuestionnaireItemType["GROUP"] = "group";
-    QuestionnaireItemType["DISPLAY"] = "display";
-    QuestionnaireItemType["QUESTION"] = "question";
-    QuestionnaireItemType["BOOLEAN"] = "boolean";
-    QuestionnaireItemType["DECIMAL"] = "decimal";
-    QuestionnaireItemType["INTEGER"] = "integer";
-    QuestionnaireItemType["DATE"] = "date";
-    QuestionnaireItemType["DATETIME"] = "dateTime";
-    QuestionnaireItemType["TIME"] = "time";
-    QuestionnaireItemType["STRING"] = "string";
-    QuestionnaireItemType["TEXT"] = "text";
-    QuestionnaireItemType["URL"] = "url";
-    QuestionnaireItemType["CHOICE"] = "choice";
-    QuestionnaireItemType["OPEN_CHOICE"] = "open-choice";
-    QuestionnaireItemType["ATTACHMENT"] = "attachment";
-    QuestionnaireItemType["REFERENCE"] = "reference";
-    QuestionnaireItemType["QUANTITY"] = "quantity";
-})(QuestionnaireItemType = exports.QuestionnaireItemType || (exports.QuestionnaireItemType = {}));
 /**
  * exists | = | != | > | < | >= | <=
  * Specifies the criteria by which the question is enabled.
@@ -2762,28 +2758,34 @@ var RelatedPersonAdministrativeGender;
     RelatedPersonAdministrativeGender["UNKNOWN"] = "unknown";
 })(RelatedPersonAdministrativeGender = exports.RelatedPersonAdministrativeGender || (exports.RelatedPersonAdministrativeGender = {}));
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
  */
 var RequestGroupRequestStatus;
 (function (RequestGroupRequestStatus) {
     RequestGroupRequestStatus["DRAFT"] = "draft";
     RequestGroupRequestStatus["ACTIVE"] = "active";
-    RequestGroupRequestStatus["SUSPENDED"] = "suspended";
-    RequestGroupRequestStatus["CANCELLED"] = "cancelled";
+    RequestGroupRequestStatus["ON_HOLD"] = "on-hold";
+    RequestGroupRequestStatus["REVOKED"] = "revoked";
     RequestGroupRequestStatus["COMPLETED"] = "completed";
     RequestGroupRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     RequestGroupRequestStatus["UNKNOWN"] = "unknown";
 })(RequestGroupRequestStatus = exports.RequestGroupRequestStatus || (exports.RequestGroupRequestStatus = {}));
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
  */
 var RequestGroupRequestIntent;
 (function (RequestGroupRequestIntent) {
     RequestGroupRequestIntent["PROPOSAL"] = "proposal";
     RequestGroupRequestIntent["PLAN"] = "plan";
+    RequestGroupRequestIntent["DIRECTIVE"] = "directive";
     RequestGroupRequestIntent["ORDER"] = "order";
+    RequestGroupRequestIntent["ORIGINAL_ORDER"] = "original-order";
+    RequestGroupRequestIntent["REFLEX_ORDER"] = "reflex-order";
+    RequestGroupRequestIntent["FILLER_ORDER"] = "filler-order";
+    RequestGroupRequestIntent["INSTANCE_ORDER"] = "instance-order";
+    RequestGroupRequestIntent["OPTION"] = "option";
 })(RequestGroupRequestIntent = exports.RequestGroupRequestIntent || (exports.RequestGroupRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
@@ -2970,21 +2972,6 @@ var ResearchSubjectStatus;
     ResearchSubjectStatus["WITHDRAWN"] = "withdrawn";
 })(ResearchSubjectStatus = exports.ResearchSubjectStatus || (exports.ResearchSubjectStatus = {}));
 /**
- * registered | preliminary | final | amended +
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-var RiskAssessmentStatus;
-(function (RiskAssessmentStatus) {
-    RiskAssessmentStatus["REGISTERED"] = "registered";
-    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
-    RiskAssessmentStatus["FINAL"] = "final";
-    RiskAssessmentStatus["AMENDED"] = "amended";
-    RiskAssessmentStatus["CORRECTED"] = "corrected";
-    RiskAssessmentStatus["CANCELLED"] = "cancelled";
-    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    RiskAssessmentStatus["UNKNOWN"] = "unknown";
-})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
-/**
  * draft | active | retired | unknown
  * The status of this risk evidence synthesis. Enables tracking the life-cycle of the content.
  * Allows filtering of risk evidence synthesiss that are appropriate for use versus not.
@@ -3012,18 +2999,18 @@ var SearchParameterPublicationStatus;
  * number | date | string | token | reference | composite | quantity | uri | special
  * The type of value that a search parameter may contain, and how the content is interpreted.
  */
-var SearchParamType;
-(function (SearchParamType) {
-    SearchParamType["NUMBER"] = "number";
-    SearchParamType["DATE"] = "date";
-    SearchParamType["STRING"] = "string";
-    SearchParamType["TOKEN"] = "token";
-    SearchParamType["REFERENCE"] = "reference";
-    SearchParamType["COMPOSITE"] = "composite";
-    SearchParamType["QUANTITY"] = "quantity";
-    SearchParamType["URI"] = "uri";
-    SearchParamType["SPECIAL"] = "special";
-})(SearchParamType = exports.SearchParamType || (exports.SearchParamType = {}));
+var SearchParameterSearchParamType;
+(function (SearchParameterSearchParamType) {
+    SearchParameterSearchParamType["NUMBER"] = "number";
+    SearchParameterSearchParamType["DATE"] = "date";
+    SearchParameterSearchParamType["STRING"] = "string";
+    SearchParameterSearchParamType["TOKEN"] = "token";
+    SearchParameterSearchParamType["REFERENCE"] = "reference";
+    SearchParameterSearchParamType["COMPOSITE"] = "composite";
+    SearchParameterSearchParamType["QUANTITY"] = "quantity";
+    SearchParameterSearchParamType["URI"] = "uri";
+    SearchParameterSearchParamType["SPECIAL"] = "special";
+})(SearchParameterSearchParamType = exports.SearchParameterSearchParamType || (exports.SearchParameterSearchParamType = {}));
 /**
  * normal | phonetic | nearby | distance | other
  * How the search parameter relates to the set of elements returned by evaluating the xpath query.
@@ -3073,7 +3060,7 @@ var SearchParameterSearchModifierCode;
     SearchParameterSearchModifierCode["OFTYPE"] = "ofType";
 })(SearchParameterSearchModifierCode = exports.SearchParameterSearchModifierCode || (exports.SearchParameterSearchModifierCode = {}));
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the order.
  * The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.
  */
@@ -3081,13 +3068,14 @@ var ServiceRequestStatus;
 (function (ServiceRequestStatus) {
     ServiceRequestStatus["DRAFT"] = "draft";
     ServiceRequestStatus["ACTIVE"] = "active";
-    ServiceRequestStatus["SUSPENDED"] = "suspended";
+    ServiceRequestStatus["ON_HOLD"] = "on-hold";
+    ServiceRequestStatus["REVOKED"] = "revoked";
     ServiceRequestStatus["COMPLETED"] = "completed";
     ServiceRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ServiceRequestStatus["CANCELLED"] = "cancelled";
+    ServiceRequestStatus["UNKNOWN"] = "unknown";
 })(ServiceRequestStatus = exports.ServiceRequestStatus || (exports.ServiceRequestStatus = {}));
 /**
- * proposal | plan | order +
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
  * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
  */
@@ -3095,8 +3083,8 @@ var ServiceRequestIntent;
 (function (ServiceRequestIntent) {
     ServiceRequestIntent["PROPOSAL"] = "proposal";
     ServiceRequestIntent["PLAN"] = "plan";
-    ServiceRequestIntent["ORDER"] = "order";
     ServiceRequestIntent["DIRECTIVE"] = "directive";
+    ServiceRequestIntent["ORDER"] = "order";
     ServiceRequestIntent["ORIGINAL_ORDER"] = "original-order";
     ServiceRequestIntent["REFLEX_ORDER"] = "reflex-order";
     ServiceRequestIntent["FILLER_ORDER"] = "filler-order";
@@ -3131,13 +3119,13 @@ var SlotStatus;
  * The availability of the specimen.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
-var SpecimenSpecimenStatus;
-(function (SpecimenSpecimenStatus) {
-    SpecimenSpecimenStatus["AVAILABLE"] = "available";
-    SpecimenSpecimenStatus["UNAVAILABLE"] = "unavailable";
-    SpecimenSpecimenStatus["UNSATISFACTORY"] = "unsatisfactory";
-    SpecimenSpecimenStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(SpecimenSpecimenStatus = exports.SpecimenSpecimenStatus || (exports.SpecimenSpecimenStatus = {}));
+var SpecimenStatus;
+(function (SpecimenStatus) {
+    SpecimenStatus["AVAILABLE"] = "available";
+    SpecimenStatus["UNAVAILABLE"] = "unavailable";
+    SpecimenStatus["UNSATISFACTORY"] = "unsatisfactory";
+    SpecimenStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+})(SpecimenStatus = exports.SpecimenStatus || (exports.SpecimenStatus = {}));
 /**
  * preferred | alternate
  * The preference for this type of conditioned specimen.
@@ -3266,36 +3254,12 @@ var StructureMapTargetListMode;
     StructureMapTargetListMode["COLLATE"] = "collate";
 })(StructureMapTargetListMode = exports.StructureMapTargetListMode || (exports.StructureMapTargetListMode = {}));
 /**
- * create | copy +
- * How the data is copied / created.
- */
-var StructureMapTransform;
-(function (StructureMapTransform) {
-    StructureMapTransform["CREATE"] = "create";
-    StructureMapTransform["COPY"] = "copy";
-    StructureMapTransform["TRUNCATE"] = "truncate";
-    StructureMapTransform["ESCAPE"] = "escape";
-    StructureMapTransform["CAST"] = "cast";
-    StructureMapTransform["APPEND"] = "append";
-    StructureMapTransform["TRANSLATE"] = "translate";
-    StructureMapTransform["REFERENCE"] = "reference";
-    StructureMapTransform["DATE_OP"] = "dateOp";
-    StructureMapTransform["UUID"] = "uuid";
-    StructureMapTransform["POINTER"] = "pointer";
-    StructureMapTransform["EVALUATE"] = "evaluate";
-    StructureMapTransform["CC"] = "cc";
-    StructureMapTransform["C"] = "c";
-    StructureMapTransform["QTY"] = "qty";
-    StructureMapTransform["ID"] = "id";
-    StructureMapTransform["CP"] = "cp";
-})(StructureMapTransform = exports.StructureMapTransform || (exports.StructureMapTransform = {}));
-/**
  * requested | active | error | off
  * The status of the subscription, which marks the server state for managing the subscription.
  * A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 var SubscriptionStatus;
 (function (SubscriptionStatus) {
     SubscriptionStatus["REQUESTED"] = "requested";
@@ -3338,20 +3302,6 @@ var SupplyDeliveryStatus;
     SupplyDeliveryStatus["ENTERED_IN_ERROR"] = "entered-in-error";
 })(SupplyDeliveryStatus = exports.SupplyDeliveryStatus || (exports.SupplyDeliveryStatus = {}));
 /**
- * draft | active | suspended +
- * Status of the supply request.
- */
-var SupplyRequestStatus;
-(function (SupplyRequestStatus) {
-    SupplyRequestStatus["DRAFT"] = "draft";
-    SupplyRequestStatus["ACTIVE"] = "active";
-    SupplyRequestStatus["SUSPENDED"] = "suspended";
-    SupplyRequestStatus["CANCELLED"] = "cancelled";
-    SupplyRequestStatus["COMPLETED"] = "completed";
-    SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    SupplyRequestStatus["UNKNOWN"] = "unknown";
-})(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
-/**
  * routine | urgent | asap | stat
  * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
  */
@@ -3363,31 +3313,12 @@ var SupplyRequestRequestPriority;
     SupplyRequestRequestPriority["STAT"] = "stat";
 })(SupplyRequestRequestPriority = exports.SupplyRequestRequestPriority || (exports.SupplyRequestRequestPriority = {}));
 /**
- * draft | requested | received | accepted | +
- * The current status of the task.
- */
-var TaskStatus;
-(function (TaskStatus) {
-    TaskStatus["DRAFT"] = "draft";
-    TaskStatus["REQUESTED"] = "requested";
-    TaskStatus["RECEIVED"] = "received";
-    TaskStatus["ACCEPTED"] = "accepted";
-    TaskStatus["REJECTED"] = "rejected";
-    TaskStatus["READY"] = "ready";
-    TaskStatus["CANCELLED"] = "cancelled";
-    TaskStatus["IN_PROGRESS"] = "in-progress";
-    TaskStatus["ON_HOLD"] = "on-hold";
-    TaskStatus["FAILED"] = "failed";
-    TaskStatus["COMPLETED"] = "completed";
-    TaskStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(TaskStatus = exports.TaskStatus || (exports.TaskStatus = {}));
-/**
  * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
  * This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
 
 In most cases, Tasks will have an intent of "order".
-    */
+ */
 var TaskIntent;
 (function (TaskIntent) {
     TaskIntent["UNKNOWN"] = "unknown";
@@ -3449,7 +3380,7 @@ var TerminologyCapabilitiesCodeSearchSupport;
  * The status represents where the execution is currently within the test script execution life cycle.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 var TestReportStatus;
 (function (TestReportStatus) {
     TestReportStatus["COMPLETED"] = "completed";
@@ -3642,3 +3573,194 @@ var VisionPrescriptionVisionBase;
     VisionPrescriptionVisionBase["IN"] = "in";
     VisionPrescriptionVisionBase["OUT"] = "out";
 })(VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionBase || (exports.VisionPrescriptionVisionBase = {}));
+/**
+ * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
+ * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
+ */
+var EncounterStatus;
+(function (EncounterStatus) {
+    EncounterStatus["PLANNED"] = "planned";
+    EncounterStatus["ARRIVED"] = "arrived";
+    EncounterStatus["TRIAGED"] = "triaged";
+    EncounterStatus["IN_PROGRESS"] = "in-progress";
+    EncounterStatus["ONLEAVE"] = "onleave";
+    EncounterStatus["FINISHED"] = "finished";
+    EncounterStatus["CANCELLED"] = "cancelled";
+    EncounterStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    EncounterStatus["UNKNOWN"] = "unknown";
+})(EncounterStatus = exports.EncounterStatus || (exports.EncounterStatus = {}));
+/**
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ */
+var DeviceUseStatementStatus;
+(function (DeviceUseStatementStatus) {
+    DeviceUseStatementStatus["ACTIVE"] = "active";
+    DeviceUseStatementStatus["COMPLETED"] = "completed";
+    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DeviceUseStatementStatus["INTENDED"] = "intended";
+    DeviceUseStatementStatus["STOPPED"] = "stopped";
+    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
+})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
+/**
+ * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
+ * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
+ * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
+ */
+var QuestionnaireItemType;
+(function (QuestionnaireItemType) {
+    QuestionnaireItemType["GROUP"] = "group";
+    QuestionnaireItemType["DISPLAY"] = "display";
+    QuestionnaireItemType["QUESTION"] = "question";
+    QuestionnaireItemType["BOOLEAN"] = "boolean";
+    QuestionnaireItemType["DECIMAL"] = "decimal";
+    QuestionnaireItemType["INTEGER"] = "integer";
+    QuestionnaireItemType["DATE"] = "date";
+    QuestionnaireItemType["DATETIME"] = "dateTime";
+    QuestionnaireItemType["TIME"] = "time";
+    QuestionnaireItemType["STRING"] = "string";
+    QuestionnaireItemType["TEXT"] = "text";
+    QuestionnaireItemType["URL"] = "url";
+    QuestionnaireItemType["CHOICE"] = "choice";
+    QuestionnaireItemType["OPEN_CHOICE"] = "open-choice";
+    QuestionnaireItemType["ATTACHMENT"] = "attachment";
+    QuestionnaireItemType["REFERENCE"] = "reference";
+    QuestionnaireItemType["QUANTITY"] = "quantity";
+})(QuestionnaireItemType = exports.QuestionnaireItemType || (exports.QuestionnaireItemType = {}));
+/**
+ * draft | requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed | entered-in-error
+ * The current status of the task.
+ */
+var TaskStatus;
+(function (TaskStatus) {
+    TaskStatus["DRAFT"] = "draft";
+    TaskStatus["REQUESTED"] = "requested";
+    TaskStatus["RECEIVED"] = "received";
+    TaskStatus["ACCEPTED"] = "accepted";
+    TaskStatus["REJECTED"] = "rejected";
+    TaskStatus["READY"] = "ready";
+    TaskStatus["CANCELLED"] = "cancelled";
+    TaskStatus["IN_PROGRESS"] = "in-progress";
+    TaskStatus["ON_HOLD"] = "on-hold";
+    TaskStatus["FAILED"] = "failed";
+    TaskStatus["COMPLETED"] = "completed";
+    TaskStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+})(TaskStatus = exports.TaskStatus || (exports.TaskStatus = {}));
+/**
+ * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
+ * How the data is copied / created.
+ */
+var StructureMapTransform;
+(function (StructureMapTransform) {
+    StructureMapTransform["CREATE"] = "create";
+    StructureMapTransform["COPY"] = "copy";
+    StructureMapTransform["TRUNCATE"] = "truncate";
+    StructureMapTransform["ESCAPE"] = "escape";
+    StructureMapTransform["CAST"] = "cast";
+    StructureMapTransform["APPEND"] = "append";
+    StructureMapTransform["TRANSLATE"] = "translate";
+    StructureMapTransform["REFERENCE"] = "reference";
+    StructureMapTransform["DATEOP"] = "dateOp";
+    StructureMapTransform["UUID"] = "uuid";
+    StructureMapTransform["POINTER"] = "pointer";
+    StructureMapTransform["EVALUATE"] = "evaluate";
+    StructureMapTransform["CC"] = "cc";
+    StructureMapTransform["C"] = "c";
+    StructureMapTransform["QTY"] = "qty";
+    StructureMapTransform["ID"] = "id";
+    StructureMapTransform["CP"] = "cp";
+})(StructureMapTransform = exports.StructureMapTransform || (exports.StructureMapTransform = {}));
+/**
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
+ */
+var DiagnosticReportStatus;
+(function (DiagnosticReportStatus) {
+    DiagnosticReportStatus["REGISTERED"] = "registered";
+    DiagnosticReportStatus["PARTIAL"] = "partial";
+    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
+    DiagnosticReportStatus["FINAL"] = "final";
+    DiagnosticReportStatus["AMENDED"] = "amended";
+    DiagnosticReportStatus["CORRECTED"] = "corrected";
+    DiagnosticReportStatus["APPENDED"] = "appended";
+    DiagnosticReportStatus["CANCELLED"] = "cancelled";
+    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DiagnosticReportStatus["UNKNOWN"] = "unknown";
+})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ */
+var ObservationStatus;
+(function (ObservationStatus) {
+    ObservationStatus["REGISTERED"] = "registered";
+    ObservationStatus["PRELIMINARY"] = "preliminary";
+    ObservationStatus["FINAL"] = "final";
+    ObservationStatus["AMENDED"] = "amended";
+    ObservationStatus["CORRECTED"] = "corrected";
+    ObservationStatus["CANCELLED"] = "cancelled";
+    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    ObservationStatus["UNKNOWN"] = "unknown";
+})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
+ */
+var RiskAssessmentStatus;
+(function (RiskAssessmentStatus) {
+    RiskAssessmentStatus["REGISTERED"] = "registered";
+    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
+    RiskAssessmentStatus["FINAL"] = "final";
+    RiskAssessmentStatus["AMENDED"] = "amended";
+    RiskAssessmentStatus["CORRECTED"] = "corrected";
+    RiskAssessmentStatus["CANCELLED"] = "cancelled";
+    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    RiskAssessmentStatus["UNKNOWN"] = "unknown";
+})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+ */
+var DetectedIssueStatus;
+(function (DetectedIssueStatus) {
+    DetectedIssueStatus["REGISTERED"] = "registered";
+    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
+    DetectedIssueStatus["FINAL"] = "final";
+    DetectedIssueStatus["AMENDED"] = "amended";
+    DetectedIssueStatus["CORRECTED"] = "corrected";
+    DetectedIssueStatus["CANCELLED"] = "cancelled";
+    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DetectedIssueStatus["UNKNOWN"] = "unknown";
+})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
+/**
+ * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * Status of the supply request.
+ */
+var SupplyRequestStatus;
+(function (SupplyRequestStatus) {
+    SupplyRequestStatus["DRAFT"] = "draft";
+    SupplyRequestStatus["ACTIVE"] = "active";
+    SupplyRequestStatus["SUSPENDED"] = "suspended";
+    SupplyRequestStatus["CANCELLED"] = "cancelled";
+    SupplyRequestStatus["COMPLETED"] = "completed";
+    SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    SupplyRequestStatus["UNKNOWN"] = "unknown";
+})(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
+/**
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
+ */
+var DeviceUDIEntryType;
+(function (DeviceUDIEntryType) {
+    DeviceUDIEntryType["BARCODE"] = "barcode";
+    DeviceUDIEntryType["RFID"] = "rfid";
+    DeviceUDIEntryType["MANUAL"] = "manual";
+    DeviceUDIEntryType["CARD"] = "card";
+    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
+    DeviceUDIEntryType["UNKNOWN"] = "unknown";
+})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));

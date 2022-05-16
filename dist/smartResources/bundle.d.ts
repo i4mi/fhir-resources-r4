@@ -1,4 +1,4 @@
-import { Bundle, BundleEntry, BundleType, BundleHTTPVerb } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
 export interface I4MIInterfaceToMapResource {
     [key: string]: any;
 }

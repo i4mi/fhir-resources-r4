@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.I4MIBundle = void 0;
 const guid_typescript_1 = require("guid-typescript");
 class I4MIBundle {
     constructor(type) {

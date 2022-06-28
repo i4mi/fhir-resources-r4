@@ -1,17 +1,17 @@
 import { I4MIBundle, I4MIInterfaceToMapResource } from '../src';
-import { BundleBundleType, BundleHTTPVerb, ObservationObservationStatus } from '../src/definition/';
+import { BundleType, BundleHTTPVerb, ObservationStatus } from '../src/definition/';
 import { Observation } from '../src/definition/';
 import { CodeableConcept } from '../src/definition/';
 
 test('CreateBundle', () => {
-    let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
+    let bundleType: BundleType = BundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
 
     expect(bundle.type).toBe(bundleType);
 });
 
 test('AddEntryToBundle', () => {
-    let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
+    let bundleType: BundleType = BundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
 
     expect(bundle.type).toBe(bundleType);
@@ -22,14 +22,14 @@ test('AddEntryToBundle', () => {
     }
 
     let observationOne: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 1
     }
 
     let observationTwo: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 2
@@ -53,7 +53,7 @@ test('AddEntryToBundle', () => {
 
 
 test('AddEntryWithIdToBundle', () => {
-    let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
+    let bundleType: BundleType = BundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
 
     expect(bundle.type).toBe(bundleType);
@@ -64,7 +64,7 @@ test('AddEntryWithIdToBundle', () => {
     }
 
     let observationOne: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 1,
@@ -82,7 +82,7 @@ test('AddEntryWithIdToBundle', () => {
 
 
 test('AddEntryAlreadyDefinedIdToBundle', () => {
-    let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
+    let bundleType: BundleType = BundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
 
     expect(bundle.type).toBe(bundleType);
@@ -93,21 +93,21 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
     }
 
     let observationOne: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 1
     }
 
     let observationTwo: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 2
     }
 
     let observationThree: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 3
@@ -135,7 +135,7 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
 });
 
 test('RemoveEntryFromBundle', () => {
-    let bundleType: BundleBundleType = BundleBundleType.TRANSACTION;
+    let bundleType: BundleType = BundleType.TRANSACTION;
     let bundle = new I4MIBundle(bundleType);
 
     expect(bundle.type).toBe(bundleType);
@@ -146,21 +146,21 @@ test('RemoveEntryFromBundle', () => {
     }
 
     let observationOne: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 1
     }
 
     let observationTwo: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 2
     }
 
     let observationThree: Observation = {
-        status: ObservationObservationStatus.PRELIMINARY,
+        status: ObservationStatus.PRELIMINARY,
         resourceType: 'Observation',
         code: observationCode,
         valueInteger: 3

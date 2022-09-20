@@ -18,11 +18,10 @@ export class I4MIBundle implements Bundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param resourceType Resource type of bundle entry
      * @param resource A fhir resource. Note that is has to be a valid resource!
      * @returns the added bundle entry
      */
-    addEntry(method: BundleHTTPVerb, resourceType: string, resource: any): BundleEntry {
+    addEntry(method: BundleHTTPVerb, resource: any): BundleEntry {
 
         let id: string;
 
@@ -44,16 +43,17 @@ export class I4MIBundle implements Bundle {
             if (this.idAlreadyExistsInBundle(id)) {
                 throw Error(`An entry with the id ${resource.id} already exists in bundle`);
             }
+        } else {
+            // Set relative id to entry
+            resource.id = id;
         }
 
-        // Set relative id to entry
-        resource.id = id;
 
         // adding bundle entry of resource with method and resource type
         let bundleEntry: BundleEntry = {
             request: {
                 method: method,
-                url: resourceType
+                url: resource.resourceType
             },
             resource: resource
         };

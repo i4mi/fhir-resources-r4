@@ -1,4 +1,4 @@
-import { Extension } from "../definition";
+import { Extension, Element} from "../definition";
 
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
@@ -8,6 +8,10 @@ export interface I18NStrings {
     [lang: string]: string
 }
 
+export interface ExtensionElement extends Element {
+    extension: Extension[]
+}
+
 /**
  * Creates a internationalization extension object for assigning to text fields, according to
  * specification in http://hl7.org/fhir/R4B/extension-translation.html.
@@ -15,7 +19,7 @@ export interface I18NStrings {
  * @returns         A javascript object containing the extensions for an extensible property of a FHIR resource.
  * @see http://hl7.org/fhir/R4B/extension-translation.html
  */
-export function writeI18N(strings: I18NStrings): {extension: Extension[]} {
+export function writeI18N(strings: I18NStrings): ExtensionElement {
     const i18nExtensions = new Array<Extension>();
     Object.keys(strings).forEach(language => {
         i18nExtensions.push(
@@ -48,22 +52,22 @@ export function writeI18N(strings: I18NStrings): {extension: Extension[]} {
  *                  element is malformed.
  * @see http://hl7.org/fhir/R4B/extension-translation.html
  */
-export function readI18N(element: {extension: Extension[]}, lang: string): string | undefined {
-    const translationExtension = element.extension.find((extension) => extension.url && extension.url === TRANSLATION_URL);
-    if (!translationExtension || !translationExtension.extension) return undefined;
-    const languageExtension = translationExtension.extension.find((extension) => {
-        const languageIndex = extension.extension?.findIndex((subExtension) => subExtension.url && subExtension.url === LANG_URL);
-        return languageIndex && languageIndex > -1;
-    })
-    if (!languageExtension || !languageExtension.extension) return undefined;
-    return languageExtension.extension.find(extension => extension.url && extension.url === CONTENT_URL)?.valueString;
-}
+export function readI18N(element: Element, lang: string): string | undefined {
+    if (!element.extension) return undefined;
 
-// TODO: test & document
-export function createI18NStrings(key: string, languages: string[], translator: (key: string, language: string) => string): I18NStrings {
-    const returnObject: I18NStrings = {};
-    languages.map(language => {
-        returnObject[language] = translator(key, language);
+    const translationExtension = element.extension.find((extension) => {
+        if (extension.url === TRANSLATION_URL) {
+            return (
+                extension.extension &&
+                extension.extension?.findIndex((extension) => {
+                    return extension.url === LANG_URL && extension.valueCode === lang;
+                }) > -1
+            );
+        } else {
+            return false;
+        }
     });
-    return returnObject;
+    return translationExtension?.extension?.find((extension) => {
+        return extension.url === CONTENT_URL;
+    })?.valueString;
 }

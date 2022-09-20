@@ -136,6 +136,33 @@ myStaticPatientCreate() {
 }
 ```
 
+# Smart resources and utils
+This library also provides some smart resources and utils to make your life with FHIR® easier.
+## I4MIBundle
+This smart resource represents a Bundle, and lets you add and remove entries.
+First, the Bundle has to be initialized by calling `const myBundle = new I4MIBundle(type)`, where type is the BundleType needed.
+
+After initializing the Bundle, you can add an entry by calling `myBundle.addEntry(verb, entry)`, where verb is the BundleHTTPVerb for the entry, and entry the resource you want to add to the Bundle. Contrary to earlier versions of the library, it is not necessary anymore to explicitly specify the resourceType.
+
+For removing an entry from the resource, you can call `myBundle.removeEntry(id)`, where id is the id of the resource in the entry.
+
+## Internationalization (I18N)
+FHIR® supports I18N with extensions. Any text / string element can have an extensible sibling with an leading underscore, that contains the internationalization strings (e.g. if a resource has a `resource.title` element, the corresponding extensible element would be `resource._title`).
+
+With `readI18N()` and `writeI18N()`, this library provides two functions that help with interacting with this translation extensions.
+
+`readI18N(resource._title, 'en')` allows you to read the translation string for a given element and language (in this case, the resource title in english.) If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
+
+`writeI18N(translations)` allows you to comfortably write wellformed I18N extensions to a resource element. The 'translations' argument is a key/value pair of the languages and I18N string you want to write, as in the following example:
+
+``` typescript
+const translations = {
+    en: 'This is the title.',
+    fr: 'Voici le titre.',
+    de: 'Dies ist der Titel.'
+};
+resource._title = writeI18N(translations);
+```
 
 
 # Contribution & dev guide
@@ -156,4 +183,4 @@ npm publish --access public
 ```
 
 ----
-FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR trademark does not constitute endorsement of this product by HL7.
+FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR® trademark does not constitute endorsement of this product by HL7.

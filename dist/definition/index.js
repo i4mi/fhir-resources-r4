@@ -1,7 +1,7 @@
 "use strict";
 /**
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
- * File generated on 2022-04-25T12:38:54.708Z
+ * File generated on 2022-11-01T13:49:11.646Z
  * https://www.i4mi.ti.bfh.ch
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -10,7 +10,7 @@ exports.CoverageEligibilityResponseEligibilityResponsePurpose = exports.Coverage
 exports.ImplementationGuidePublicationStatus = exports.ImmunizationEvaluationStatus = exports.ImmunizationStatus = exports.ImagingStudyStatus = exports.HealthcareServiceDaysOfWeek = exports.GuidanceResponseStatus = exports.GroupType = exports.GraphDefinitionGraphCompartmentRule = exports.GraphDefinitionCompartmentCode = exports.GraphDefinitionGraphCompartmentUse = exports.GraphDefinitionPublicationStatus = exports.GoalLifecycleStatus = exports.FlagStatus = exports.FamilyMemberHistoryFamilyHistoryStatus = exports.ExplanationOfBenefitNoteType = exports.ExplanationOfBenefitRemittanceOutcome = exports.ExplanationOfBenefitUse = exports.ExplanationOfBenefitStatus = exports.ExampleScenarioActorType = exports.ExampleScenarioPublicationStatus = exports.EvidenceVariableGroupMeasure = exports.EvidenceVariableType = exports.EvidenceVariablePublicationStatus = exports.EvidencePublicationStatus = exports.EventDefinitionPublicationStatus = exports.EpisodeOfCareStatus = exports.EnrollmentResponseRemittanceOutcome = exports.EnrollmentResponseStatus = exports.EnrollmentRequestStatus = exports.EndpointStatus = exports.EncounterLocationStatus = exports.EffectEvidenceSynthesisExposureState = exports.EffectEvidenceSynthesisPublicationStatus = exports.DocumentReferenceDocumentRelationshipType = exports.DocumentReferenceReferredDocumentStatus = exports.DocumentReferenceStatus = exports.DocumentManifestDocumentReferenceStatus = exports.DeviceRequestRequestPriority = exports.DeviceRequestRequestIntent = exports.DeviceRequestStatus = exports.DeviceMetricCalibrationState = exports.DeviceMetricCalibrationType = exports.DeviceMetricCategory = exports.DeviceMetricColor = exports.DeviceMetricOperationalStatus = exports.DeviceDefinitionDeviceNameType = exports.DeviceNameType = exports.DeviceFHIRDeviceStatus = exports.DetectedIssueSeverity = exports.CoverageEligibilityResponseRemittanceOutcome = void 0;
 exports.PaymentNoticeStatus = exports.PatientLinkType = exports.PatientAdministrativeGender = exports.OperationOutcomeIssueSeverity = exports.OperationDefinitionBindingStrength = exports.OperationDefinitionSearchParamType = exports.OperationDefinitionOperationParameterUse = exports.OperationDefinitionOperationKind = exports.OperationDefinitionPublicationStatus = exports.ObservationDefinitionAdministrativeGender = exports.ObservationDefinitionObservationRangeCategory = exports.ObservationDefinitionObservationDataType = exports.NutritionOrderNutritiionOrderIntent = exports.NutritionOrderStatus = exports.NamingSystemIdentifierType = exports.NamingSystemType = exports.NamingSystemPublicationStatus = exports.MolecularSequencerepositoryType = exports.MolecularSequencequalityType = exports.MolecularSequencestrandType = exports.MolecularSequenceorientationType = exports.MolecularSequencesequenceType = exports.MessageHeaderResponseType = exports.MessageDefinitionmessageheader_response_request = exports.MessageDefinitionMessageSignificanceCategory = exports.MessageDefinitionPublicationStatus = exports.MedicationStatementStatus = exports.MedicationRequestPriority = exports.MedicationRequestIntent = exports.MedicationRequestStatus = exports.MedicationKnowledgeStatus = exports.MedicationDispenseStatus = exports.MedicationAdministrationStatus = exports.MedicationStatus = exports.MediaStatus = exports.MeasureReportType = exports.MeasureReportStatus = exports.MeasurePublicationStatus = exports.LocationDaysOfWeek = exports.LocationMode = exports.LocationStatus = exports.ListMode = exports.ListStatus = exports.LinkageType = exports.LibraryPublicationStatus = exports.InvoicePriceComponentType = exports.InvoiceStatus = exports.InsurancePlanPublicationStatus = exports.ImplementationGuideGuideParameterCode = exports.ImplementationGuideGuidePageGeneration = void 0;
 exports.ServiceRequestPriority = exports.ServiceRequestIntent = exports.ServiceRequestStatus = exports.SearchParameterSearchModifierCode = exports.SearchParameterSearchComparator = exports.SearchParameterXPathUsageType = exports.SearchParameterSearchParamType = exports.SearchParameterPublicationStatus = exports.RiskEvidenceSynthesisPublicationStatus = exports.ResearchSubjectStatus = exports.ResearchStudyStatus = exports.ResearchElementDefinitionGroupMeasure = exports.ResearchElementDefinitionVariableType = exports.ResearchElementDefinitionResearchElementType = exports.ResearchElementDefinitionPublicationStatus = exports.ResearchDefinitionPublicationStatus = exports.RequestGroupActionCardinalityBehavior = exports.RequestGroupActionPrecheckBehavior = exports.RequestGroupActionRequiredBehavior = exports.RequestGroupActionSelectionBehavior = exports.RequestGroupActionGroupingBehavior = exports.RequestGroupActionRelationshipType = exports.RequestGroupActionConditionKind = exports.RequestGroupRequestPriority = exports.RequestGroupRequestIntent = exports.RequestGroupRequestStatus = exports.RelatedPersonAdministrativeGender = exports.QuestionnaireResponseStatus = exports.QuestionnaireEnableWhenBehavior = exports.QuestionnaireItemOperator = exports.QuestionnairePublicationStatus = exports.ProvenanceEntityRole = exports.ProcedureStatus = exports.PractitionerRoleDaysOfWeek = exports.PractitionerAdministrativeGender = exports.PlanDefinitionActionCardinalityBehavior = exports.PlanDefinitionActionPrecheckBehavior = exports.PlanDefinitionActionRequiredBehavior = exports.PlanDefinitionActionSelectionBehavior = exports.PlanDefinitionActionGroupingBehavior = exports.PlanDefinitionActionParticipantType = exports.PlanDefinitionActionRelationshipType = exports.PlanDefinitionActionConditionKind = exports.PlanDefinitionRequestPriority = exports.PlanDefinitionPublicationStatus = exports.PersonIdentityAssuranceLevel = exports.PersonAdministrativeGender = exports.PaymentReconciliationNoteType = exports.PaymentReconciliationRemittanceOutcome = exports.PaymentReconciliationStatus = void 0;
-exports.DeviceUDIEntryType = exports.SupplyRequestStatus = exports.DetectedIssueStatus = exports.RiskAssessmentStatus = exports.ObservationStatus = exports.DiagnosticReportStatus = exports.StructureMapTransform = exports.TaskStatus = exports.QuestionnaireItemType = exports.DeviceUseStatementStatus = exports.EncounterStatus = exports.VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionEyes = exports.VisionPrescriptionVisionStatus = exports.VerificationResultstatus = exports.ValueSetFilterOperator = exports.ValueSetPublicationStatus = exports.TestScriptAssertionResponseTypes = exports.TestScriptAssertionOperatorType = exports.TestScriptAssertionDirectionType = exports.TestScriptRequestMethodCode = exports.TestScriptPublicationStatus = exports.TestReportActionResult = exports.TestReportParticipantType = exports.TestReportResult = exports.TestReportStatus = exports.TerminologyCapabilitiesCodeSearchSupport = exports.TerminologyCapabilitiesCapabilityStatementKind = exports.TerminologyCapabilitiesPublicationStatus = exports.TaskPriority = exports.TaskIntent = exports.SupplyRequestRequestPriority = exports.SupplyDeliveryStatus = exports.SubstanceFHIRSubstanceStatus = exports.SubscriptionChannelType = exports.SubscriptionStatus = exports.StructureMapTargetListMode = exports.StructureMapContextType = exports.StructureMapSourceListMode = exports.StructureMapInputMode = exports.StructureMapGroupTypeMode = exports.StructureMapModelMode = exports.StructureMapPublicationStatus = exports.StructureDefinitionTypeDerivationRule = exports.StructureDefinitionExtensionContextType = exports.StructureDefinitionKind = exports.StructureDefinitionPublicationStatus = exports.SpecimenDefinitionSpecimenContainedPreference = exports.SpecimenStatus = exports.SlotStatus = void 0;
+exports.StructureMapTransform = exports.TaskStatus = exports.DeviceUseStatementStatus = exports.SupplyRequestStatus = exports.RiskAssessmentStatus = exports.QuestionnaireItemType = exports.DeviceUDIEntryType = exports.EncounterStatus = exports.DiagnosticReportStatus = exports.ObservationStatus = exports.DetectedIssueStatus = exports.VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionEyes = exports.VisionPrescriptionVisionStatus = exports.VerificationResultstatus = exports.ValueSetFilterOperator = exports.ValueSetPublicationStatus = exports.TestScriptAssertionResponseTypes = exports.TestScriptAssertionOperatorType = exports.TestScriptAssertionDirectionType = exports.TestScriptRequestMethodCode = exports.TestScriptPublicationStatus = exports.TestReportActionResult = exports.TestReportParticipantType = exports.TestReportResult = exports.TestReportStatus = exports.TerminologyCapabilitiesCodeSearchSupport = exports.TerminologyCapabilitiesCapabilityStatementKind = exports.TerminologyCapabilitiesPublicationStatus = exports.TaskPriority = exports.TaskIntent = exports.SupplyRequestRequestPriority = exports.SupplyDeliveryStatus = exports.SubstanceFHIRSubstanceStatus = exports.SubscriptionChannelType = exports.SubscriptionStatus = exports.StructureMapTargetListMode = exports.StructureMapContextType = exports.StructureMapSourceListMode = exports.StructureMapInputMode = exports.StructureMapGroupTypeMode = exports.StructureMapModelMode = exports.StructureMapPublicationStatus = exports.StructureDefinitionTypeDerivationRule = exports.StructureDefinitionExtensionContextType = exports.StructureDefinitionKind = exports.StructureDefinitionPublicationStatus = exports.SpecimenDefinitionSpecimenContainedPreference = exports.SpecimenStatus = exports.SlotStatus = void 0;
 /**
  * home | work | temp | old | billing - purpose of this address
  * The purpose of this address.
@@ -3580,6 +3580,55 @@ var VisionPrescriptionVisionBase;
     VisionPrescriptionVisionBase["OUT"] = "out";
 })(VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionBase || (exports.VisionPrescriptionVisionBase = {}));
 /**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+ */
+var DetectedIssueStatus;
+(function (DetectedIssueStatus) {
+    DetectedIssueStatus["REGISTERED"] = "registered";
+    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
+    DetectedIssueStatus["FINAL"] = "final";
+    DetectedIssueStatus["AMENDED"] = "amended";
+    DetectedIssueStatus["CORRECTED"] = "corrected";
+    DetectedIssueStatus["CANCELLED"] = "cancelled";
+    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DetectedIssueStatus["UNKNOWN"] = "unknown";
+})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ */
+var ObservationStatus;
+(function (ObservationStatus) {
+    ObservationStatus["REGISTERED"] = "registered";
+    ObservationStatus["PRELIMINARY"] = "preliminary";
+    ObservationStatus["FINAL"] = "final";
+    ObservationStatus["AMENDED"] = "amended";
+    ObservationStatus["CORRECTED"] = "corrected";
+    ObservationStatus["CANCELLED"] = "cancelled";
+    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    ObservationStatus["UNKNOWN"] = "unknown";
+})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+/**
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
+ */
+var DiagnosticReportStatus;
+(function (DiagnosticReportStatus) {
+    DiagnosticReportStatus["REGISTERED"] = "registered";
+    DiagnosticReportStatus["PARTIAL"] = "partial";
+    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
+    DiagnosticReportStatus["FINAL"] = "final";
+    DiagnosticReportStatus["AMENDED"] = "amended";
+    DiagnosticReportStatus["CORRECTED"] = "corrected";
+    DiagnosticReportStatus["APPENDED"] = "appended";
+    DiagnosticReportStatus["CANCELLED"] = "cancelled";
+    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DiagnosticReportStatus["UNKNOWN"] = "unknown";
+})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
+/**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
@@ -3596,21 +3645,18 @@ var EncounterStatus;
     EncounterStatus["UNKNOWN"] = "unknown";
 })(EncounterStatus = exports.EncounterStatus || (exports.EncounterStatus = {}));
 /**
- * active | completed | entered-in-error | intended | stopped | on-hold
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
  */
-var DeviceUseStatementStatus;
-(function (DeviceUseStatementStatus) {
-    DeviceUseStatementStatus["ACTIVE"] = "active";
-    DeviceUseStatementStatus["COMPLETED"] = "completed";
-    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DeviceUseStatementStatus["INTENDED"] = "intended";
-    DeviceUseStatementStatus["STOPPED"] = "stopped";
-    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
-})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
+var DeviceUDIEntryType;
+(function (DeviceUDIEntryType) {
+    DeviceUDIEntryType["BARCODE"] = "barcode";
+    DeviceUDIEntryType["RFID"] = "rfid";
+    DeviceUDIEntryType["MANUAL"] = "manual";
+    DeviceUDIEntryType["CARD"] = "card";
+    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
+    DeviceUDIEntryType["UNKNOWN"] = "unknown";
+})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));
 /**
  * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
  * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
@@ -3636,6 +3682,51 @@ var QuestionnaireItemType;
     QuestionnaireItemType["REFERENCE"] = "reference";
     QuestionnaireItemType["QUANTITY"] = "quantity";
 })(QuestionnaireItemType = exports.QuestionnaireItemType || (exports.QuestionnaireItemType = {}));
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
+ */
+var RiskAssessmentStatus;
+(function (RiskAssessmentStatus) {
+    RiskAssessmentStatus["REGISTERED"] = "registered";
+    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
+    RiskAssessmentStatus["FINAL"] = "final";
+    RiskAssessmentStatus["AMENDED"] = "amended";
+    RiskAssessmentStatus["CORRECTED"] = "corrected";
+    RiskAssessmentStatus["CANCELLED"] = "cancelled";
+    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    RiskAssessmentStatus["UNKNOWN"] = "unknown";
+})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
+/**
+ * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * Status of the supply request.
+ */
+var SupplyRequestStatus;
+(function (SupplyRequestStatus) {
+    SupplyRequestStatus["DRAFT"] = "draft";
+    SupplyRequestStatus["ACTIVE"] = "active";
+    SupplyRequestStatus["SUSPENDED"] = "suspended";
+    SupplyRequestStatus["CANCELLED"] = "cancelled";
+    SupplyRequestStatus["COMPLETED"] = "completed";
+    SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    SupplyRequestStatus["UNKNOWN"] = "unknown";
+})(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
+/**
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ */
+var DeviceUseStatementStatus;
+(function (DeviceUseStatementStatus) {
+    DeviceUseStatementStatus["ACTIVE"] = "active";
+    DeviceUseStatementStatus["COMPLETED"] = "completed";
+    DeviceUseStatementStatus["ENTERED_IN_ERROR"] = "entered-in-error";
+    DeviceUseStatementStatus["INTENDED"] = "intended";
+    DeviceUseStatementStatus["STOPPED"] = "stopped";
+    DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
+})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
 /**
  * draft | requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed | entered-in-error
  * The current status of the task.
@@ -3679,94 +3770,3 @@ var StructureMapTransform;
     StructureMapTransform["ID"] = "id";
     StructureMapTransform["CP"] = "cp";
 })(StructureMapTransform = exports.StructureMapTransform || (exports.StructureMapTransform = {}));
-/**
- * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
- * The status of the diagnostic report.
- */
-var DiagnosticReportStatus;
-(function (DiagnosticReportStatus) {
-    DiagnosticReportStatus["REGISTERED"] = "registered";
-    DiagnosticReportStatus["PARTIAL"] = "partial";
-    DiagnosticReportStatus["PRELIMINARY"] = "preliminary";
-    DiagnosticReportStatus["FINAL"] = "final";
-    DiagnosticReportStatus["AMENDED"] = "amended";
-    DiagnosticReportStatus["CORRECTED"] = "corrected";
-    DiagnosticReportStatus["APPENDED"] = "appended";
-    DiagnosticReportStatus["CANCELLED"] = "cancelled";
-    DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DiagnosticReportStatus["UNKNOWN"] = "unknown";
-})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
- */
-var ObservationStatus;
-(function (ObservationStatus) {
-    ObservationStatus["REGISTERED"] = "registered";
-    ObservationStatus["PRELIMINARY"] = "preliminary";
-    ObservationStatus["FINAL"] = "final";
-    ObservationStatus["AMENDED"] = "amended";
-    ObservationStatus["CORRECTED"] = "corrected";
-    ObservationStatus["CANCELLED"] = "cancelled";
-    ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    ObservationStatus["UNKNOWN"] = "unknown";
-})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-var RiskAssessmentStatus;
-(function (RiskAssessmentStatus) {
-    RiskAssessmentStatus["REGISTERED"] = "registered";
-    RiskAssessmentStatus["PRELIMINARY"] = "preliminary";
-    RiskAssessmentStatus["FINAL"] = "final";
-    RiskAssessmentStatus["AMENDED"] = "amended";
-    RiskAssessmentStatus["CORRECTED"] = "corrected";
-    RiskAssessmentStatus["CANCELLED"] = "cancelled";
-    RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    RiskAssessmentStatus["UNKNOWN"] = "unknown";
-})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-var DetectedIssueStatus;
-(function (DetectedIssueStatus) {
-    DetectedIssueStatus["REGISTERED"] = "registered";
-    DetectedIssueStatus["PRELIMINARY"] = "preliminary";
-    DetectedIssueStatus["FINAL"] = "final";
-    DetectedIssueStatus["AMENDED"] = "amended";
-    DetectedIssueStatus["CORRECTED"] = "corrected";
-    DetectedIssueStatus["CANCELLED"] = "cancelled";
-    DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    DetectedIssueStatus["UNKNOWN"] = "unknown";
-})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
-/**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
- * Status of the supply request.
- */
-var SupplyRequestStatus;
-(function (SupplyRequestStatus) {
-    SupplyRequestStatus["DRAFT"] = "draft";
-    SupplyRequestStatus["ACTIVE"] = "active";
-    SupplyRequestStatus["SUSPENDED"] = "suspended";
-    SupplyRequestStatus["CANCELLED"] = "cancelled";
-    SupplyRequestStatus["COMPLETED"] = "completed";
-    SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-    SupplyRequestStatus["UNKNOWN"] = "unknown";
-})(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
-/**
- * barcode | rfid | manual | card | self-reported | unknown
- * A coded entry to indicate how the data was entered.
- */
-var DeviceUDIEntryType;
-(function (DeviceUDIEntryType) {
-    DeviceUDIEntryType["BARCODE"] = "barcode";
-    DeviceUDIEntryType["RFID"] = "rfid";
-    DeviceUDIEntryType["MANUAL"] = "manual";
-    DeviceUDIEntryType["CARD"] = "card";
-    DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
-    DeviceUDIEntryType["UNKNOWN"] = "unknown";
-})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));

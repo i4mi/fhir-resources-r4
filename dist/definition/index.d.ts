@@ -1,6 +1,6 @@
 /**
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
- * File generated on 2022-04-25T12:38:54.708Z
+ * File generated on 2022-11-01T13:49:11.646Z
  * https://www.i4mi.ti.bfh.ch
  */
 /**
@@ -70,7 +70,7 @@ export declare type oid = string;
  * Primitive Type positiveInt
  * An integer with a value that is positive (e.g. >0)
  */
-export declare type positiveInt = string;
+export declare type positiveInt = number;
 /**
  * Primitive Type time
  * A time during the day, with no date specified
@@ -80,7 +80,7 @@ export declare type time = string;
  * Primitive Type unsignedInt
  * An integer with a value that is not negative (e.g. >= 0)
  */
-export declare type unsignedInt = string;
+export declare type unsignedInt = number;
 /**
  * Primitive Type uri
  * see http://en.wikipedia.org/wiki/Uniform_resource_identifier
@@ -3383,6 +3383,52 @@ export declare enum VisionPrescriptionVisionBase {
     OUT = "out"
 }
 /**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+ */
+export declare enum DetectedIssueStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+ */
+export declare enum ObservationStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
+ */
+export declare enum DiagnosticReportStatus {
+    REGISTERED = "registered",
+    PARTIAL = "partial",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    APPENDED = "appended",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
@@ -3398,19 +3444,16 @@ export declare enum EncounterStatus {
     UNKNOWN = "unknown"
 }
 /**
- * active | completed | entered-in-error | intended | stopped | on-hold
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
  */
-export declare enum DeviceUseStatementStatus {
-    ACTIVE = "active",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error",
-    INTENDED = "intended",
-    STOPPED = "stopped",
-    ON_HOLD = "on-hold"
+export declare enum DeviceUDIEntryType {
+    BARCODE = "barcode",
+    RFID = "rfid",
+    MANUAL = "manual",
+    CARD = "card",
+    SELF_REPORTED = "self-reported",
+    UNKNOWN = "unknown"
 }
 /**
  * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
@@ -3435,6 +3478,48 @@ export declare enum QuestionnaireItemType {
     ATTACHMENT = "attachment",
     REFERENCE = "reference",
     QUANTITY = "quantity"
+}
+/**
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
+ */
+export declare enum RiskAssessmentStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * Status of the supply request.
+ */
+export declare enum SupplyRequestStatus {
+    DRAFT = "draft",
+    ACTIVE = "active",
+    SUSPENDED = "suspended",
+    CANCELLED = "cancelled",
+    COMPLETED = "completed",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
+/**
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ */
+export declare enum DeviceUseStatementStatus {
+    ACTIVE = "active",
+    COMPLETED = "completed",
+    ENTERED_IN_ERROR = "entered-in-error",
+    INTENDED = "intended",
+    STOPPED = "stopped",
+    ON_HOLD = "on-hold"
 }
 /**
  * draft | requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed | entered-in-error
@@ -3476,91 +3561,6 @@ export declare enum StructureMapTransform {
     QTY = "qty",
     ID = "id",
     CP = "cp"
-}
-/**
- * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
- * The status of the diagnostic report.
- */
-export declare enum DiagnosticReportStatus {
-    REGISTERED = "registered",
-    PARTIAL = "partial",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    APPENDED = "appended",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
- */
-export declare enum ObservationStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-export declare enum RiskAssessmentStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-export declare enum DetectedIssueStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
- * Status of the supply request.
- */
-export declare enum SupplyRequestStatus {
-    DRAFT = "draft",
-    ACTIVE = "active",
-    SUSPENDED = "suspended",
-    CANCELLED = "cancelled",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
- * barcode | rfid | manual | card | self-reported | unknown
- * A coded entry to indicate how the data was entered.
- */
-export declare enum DeviceUDIEntryType {
-    BARCODE = "barcode",
-    RFID = "rfid",
-    MANUAL = "manual",
-    CARD = "card",
-    SELF_REPORTED = "self-reported",
-    UNKNOWN = "unknown"
 }
 /**
  * A duration of time during which an organism (or a process) has existed
@@ -8718,6 +8718,10 @@ export interface AccountGuarantor extends BackboneElement {
  */
 export interface Account extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Account';
+    /**
      * Account number
      * Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).
      */
@@ -8832,6 +8836,10 @@ export interface ActivityDefinitionDynamicValue extends BackboneElement {
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
 export interface ActivityDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ActivityDefinition';
     /**
      * Canonical identifier for this activity definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers.
@@ -9260,6 +9268,10 @@ export interface AdverseEventSuspectEntity extends BackboneElement {
  */
 export interface AdverseEvent extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'AdverseEvent';
+    /**
      * Business identifier for the event
      * Business identifiers assigned to this adverse event by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -9438,6 +9450,10 @@ export interface AllergyIntoleranceReaction extends BackboneElement {
  */
 export interface AllergyIntolerance extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'AllergyIntolerance';
+    /**
      * External ids for this item
      * Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -9611,6 +9627,10 @@ This value SHALL be the same when creating an AppointmentResponse so that they c
  */
 export interface Appointment extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Appointment';
+    /**
      * External Ids for this item
      * This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
@@ -9772,6 +9792,10 @@ This element is labeled as a modifier because the status contains the code enter
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
 export interface AppointmentResponse extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'AppointmentResponse';
     /**
      * External Ids for this item
      * This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.
@@ -10080,6 +10104,10 @@ export interface AuditEventEntity extends BackboneElement {
  */
 export interface AuditEvent extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'AuditEvent';
+    /**
      * Type/identifier of event
      * Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function.
      */
@@ -10165,6 +10193,10 @@ For example, an activity may be initiated by one user for other users or involve
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
 export interface Basic extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Basic';
     /**
      * Business identifier
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
@@ -10375,6 +10407,10 @@ into another (possibly the same) biological entity.
  */
 export interface BiologicallyDerivedProduct extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'BiologicallyDerivedProduct';
+    /**
      * External ids for this item
      * This records identifiers associated with this biologically derived product instance that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
@@ -10440,6 +10476,10 @@ export interface BiologicallyDerivedProduct extends DomainResource {
  * Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
 export interface BodyStructure extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'BodyStructure';
     /**
      * Bodystructure identifier
      * Identifier for this instance of the anatomical structure.
@@ -11304,6 +11344,10 @@ export interface CapabilityStatementDocument extends BackboneElement {
  */
 export interface CapabilityStatement extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CapabilityStatement';
+    /**
      * Canonical identifier for this capability statement, represented as a URI (globally unique)
      * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -11704,6 +11748,10 @@ The goal should be visible when the resource referenced by CarePlan.activity.ref
  */
 export interface CarePlan extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CarePlan';
+    /**
      * External Ids for this plan
      * Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -11891,6 +11939,10 @@ Member is optional because some participants may be known only by their role, pa
  */
 export interface CareTeam extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CareTeam';
+    /**
      * External Ids for this team
      * Business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -11987,6 +12039,10 @@ export interface CatalogEntryRelatedEntry extends BackboneElement {
  * Catalog entries are wrappers that contextualize items included in a catalog.
  */
 export interface CatalogEntry extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CatalogEntry';
     /**
      * Unique identifier of the catalog item
      * Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.
@@ -12087,6 +12143,10 @@ export interface ChargeItemPerformer extends BackboneElement {
  * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
  */
 export interface ChargeItem extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ChargeItem';
     /**
      * Business Identifier for item
      * Identifiers assigned to this event performer or other systems.
@@ -12363,6 +12423,10 @@ export interface ChargeItemDefinitionPropertyGroup extends BackboneElement {
  * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
  */
 export interface ChargeItemDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ChargeItemDefinition';
     /**
      * Canonical identifier for this charge item definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this charge item definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this charge item definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the charge item definition is stored on different servers.
@@ -13225,6 +13289,10 @@ export interface ClaimItem extends BackboneElement {
  */
 export interface Claim extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Claim';
+    /**
      * Business Identifier for claim
      * A unique identifier assigned to this claim.
      */
@@ -13957,6 +14025,10 @@ export interface ClaimResponseError extends BackboneElement {
  */
 export interface ClaimResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ClaimResponse';
+    /**
      * Business Identifier for a claim response
      * A unique identifier assigned to this claim response.
      */
@@ -14164,6 +14236,10 @@ export interface ClinicalImpressionFinding extends BackboneElement {
  * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
  */
 export interface ClinicalImpression extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ClinicalImpression';
     /**
      * Business identifier
      * Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -14541,6 +14617,10 @@ export interface CodeSystemConcept extends BackboneElement {
  */
 export interface CodeSystem extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CodeSystem';
+    /**
      * Canonical identifier for this code system, represented as a URI (globally unique) (Coding.system)
      * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this code system is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the code system is stored on different servers. This is used in [Coding](datatypes.html#Coding).system.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -14796,6 +14876,10 @@ export interface CommunicationPayload extends BackboneElement {
  */
 export interface Communication extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Communication';
+    /**
      * Unique identifier
      * Business identifiers assigned to this communication by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -14968,6 +15052,10 @@ export interface CommunicationRequestPayload extends BackboneElement {
  * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
  */
 export interface CommunicationRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CommunicationRequest';
     /**
      * Unique identifier
      * Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -15145,6 +15233,10 @@ export interface CompartmentDefinitionResource extends BackboneElement {
  * In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content.
  */
 export interface CompartmentDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CompartmentDefinition';
     /**
      * Canonical identifier for this compartment definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers.
@@ -15418,6 +15510,10 @@ If the section has content (instead of sub-sections), the section.code does not 
  * While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical.
  */
 export interface Composition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Composition';
     /**
      * Version-independent identifier for the Composition
      * A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time.
@@ -15750,6 +15846,10 @@ export interface ConceptMapGroup extends BackboneElement {
  */
 export interface ConceptMap extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ConceptMap';
+    /**
      * Canonical identifier for this concept map, represented as a URI (globally unique)
      * An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -15972,6 +16072,10 @@ export interface ConditionEvidence extends BackboneElement {
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  */
 export interface Condition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Condition';
     /**
      * External Ids for this condition
      * Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -16296,6 +16400,10 @@ export interface ConsentProvision extends BackboneElement {
  * Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives.
  */
 export interface Consent extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Consent';
     /**
      * Identifier for this record (external references)
      * Unique identifier for this copy of the Consent Statement.
@@ -17203,6 +17311,10 @@ export interface ContractRule extends BackboneElement {
  */
 export interface Contract extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Contract';
+    /**
      * Contract number
      * Unique identifier for this Contract or a derivative that references a Source Contract.
      */
@@ -17503,6 +17615,10 @@ export interface CoverageCostToBeneficiary extends BackboneElement {
  */
 export interface Coverage extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Coverage';
+    /**
      * Business Identifier for the coverage
      * A unique identifier assigned to this coverage.
      * The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant.
@@ -17765,6 +17881,10 @@ export interface CoverageEligibilityRequestItem extends BackboneElement {
  * The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
  */
 export interface CoverageEligibilityRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CoverageEligibilityRequest';
     /**
      * Business Identifier for coverage eligiblity request
      * A unique identifier assigned to this coverage eligiblity request.
@@ -18061,6 +18181,10 @@ export interface CoverageEligibilityResponseError extends BackboneElement {
  */
 export interface CoverageEligibilityResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CoverageEligibilityResponse';
+    /**
      * Business Identifier for coverage eligiblity request
      * A unique identifier assigned to this coverage eligiblity request.
      */
@@ -18210,6 +18334,10 @@ export interface DetectedIssueMitigation extends BackboneElement {
  * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
  */
 export interface DetectedIssue extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DetectedIssue';
     /**
      * Unique id for the detected issue
      * Business identifier associated with the detected issue record.
@@ -18450,6 +18578,10 @@ export interface DeviceProperty extends BackboneElement {
  * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
  */
 export interface Device extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Device';
     /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
@@ -18776,6 +18908,10 @@ export interface DeviceDefinitionMaterial extends BackboneElement {
  */
 export interface DeviceDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceDefinition';
+    /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID.
      */
@@ -18945,6 +19081,10 @@ export interface DeviceMetricCalibration extends BackboneElement {
  */
 export interface DeviceMetric extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceMetric';
+    /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.
      * For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to the unique identifier of the device.
@@ -19042,6 +19182,10 @@ export interface DeviceRequestParameter extends BackboneElement {
  * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
  */
 export interface DeviceRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceRequest';
     /**
      * External Request identifier
      * Identifiers assigned to this order by the orderer or by the receiver.
@@ -19206,6 +19350,10 @@ All Provenances should have some historical version of this Request as their sub
  */
 export interface DeviceUseStatement extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceUseStatement';
+    /**
      * External identifier for this record
      * An external identifier for this statement such as an IRI.
      */
@@ -19320,6 +19468,10 @@ export interface DiagnosticReportMedia extends BackboneElement {
  * This is intended to capture a single report and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
  */
 export interface DiagnosticReport extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DiagnosticReport';
     /**
      * Business identifier for report
      * Identifiers assigned to this report by the performer or other systems.
@@ -19465,6 +19617,10 @@ export interface DocumentManifestRelated extends BackboneElement {
  * A collection of documents compiled for a purpose together with metadata that applies to the collection.
  */
 export interface DocumentManifest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DocumentManifest';
     /**
      * Unique Identifier for the set of documents
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
@@ -19632,6 +19788,10 @@ export interface DocumentReferenceContext extends BackboneElement {
  * Usually, this is used for documents other than those defined by FHIR.
  */
 export interface DocumentReference extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DocumentReference';
     /**
      * Master Version Specific Identifier
      * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.
@@ -19962,6 +20122,10 @@ export interface EffectEvidenceSynthesisCertainty extends BackboneElement {
  * The EffectEvidenceSynthesis resource describes the difference in an outcome between exposures states in a population where the effect estimate is derived from a combination of research studies.
  */
 export interface EffectEvidenceSynthesis extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EffectEvidenceSynthesis';
     /**
      * Canonical identifier for this effect evidence synthesis, represented as a URI (globally unique)
      * An absolute URI that is used to identify this effect evidence synthesis when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this effect evidence synthesis is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the effect evidence synthesis is stored on different servers.
@@ -20361,6 +20525,10 @@ There may be many levels in the hierachy, and this may only pic specific levels 
  */
 export interface Encounter extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Encounter';
+    /**
      * Identifier(s) by which this encounter is known
      * Identifier(s) by which this encounter is known.
      */
@@ -20498,6 +20666,10 @@ Refer to the Notes section in the Patient resource for further details.
  */
 export interface Endpoint extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Endpoint';
+    /**
      * Identifies this endpoint across multiple systems
      * Identifier for the organization that is used to identify the endpoint across multiple disparate systems.
      */
@@ -20588,6 +20760,10 @@ and not "https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.6
  */
 export interface EnrollmentRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EnrollmentRequest';
+    /**
      * Business Identifier
      * The Response business identifier.
      */
@@ -20633,6 +20809,10 @@ export interface EnrollmentRequest extends DomainResource {
  * This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
  */
 export interface EnrollmentResponse extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EnrollmentResponse';
     /**
      * Business Identifier
      * The Response business identifier.
@@ -20730,6 +20910,10 @@ export interface EpisodeOfCareDiagnosis extends BackboneElement {
  */
 export interface EpisodeOfCare extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EpisodeOfCare';
+    /**
      * Business Identifier(s) relevant for this EpisodeOfCare
      * The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes.
      */
@@ -20798,6 +20982,10 @@ export interface EpisodeOfCare extends DomainResource {
  * The EventDefinition resource provides a reusable description of when a particular event can occur.
  */
 export interface EventDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EventDefinition';
     /**
      * Canonical identifier for this event definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this event definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this event definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the event definition is stored on different servers.
@@ -21027,6 +21215,10 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  * The Evidence resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
  */
 export interface Evidence extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Evidence';
     /**
      * Canonical identifier for this evidence, represented as a URI (globally unique)
      * An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this evidence is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence is stored on different servers.
@@ -21340,6 +21532,10 @@ export interface EvidenceVariableCharacteristic extends BackboneElement {
  * PICO stands for Population (the population within which exposures are being compared), Intervention (the conditional state or exposure state being described for its effect on outcomes), Comparison (the alternative conditional state or alternative exposure state being compared against), and Outcome (the result or effect of the intervention in the population).
  */
 export interface EvidenceVariable extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EvidenceVariable';
     /**
      * Canonical identifier for this evidence variable, represented as a URI (globally unique)
      * An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers.
@@ -21885,6 +22081,10 @@ export interface ExampleScenarioProcess extends BackboneElement {
  * Example of workflow instance.
  */
 export interface ExampleScenario extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ExampleScenario';
     /**
      * Canonical identifier for this example scenario, represented as a URI (globally unique)
      * An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers.
@@ -23208,6 +23408,10 @@ export interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
  */
 export interface ExplanationOfBenefit extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ExplanationOfBenefit';
+    /**
      * Business Identifier for the resource
      * A unique identifier assigned to this explanation of benefit.
      */
@@ -23521,6 +23725,10 @@ export interface FamilyMemberHistoryCondition extends BackboneElement {
  */
 export interface FamilyMemberHistory extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'FamilyMemberHistory';
+    /**
      * External Id(s) for this record
      * Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -23711,6 +23919,10 @@ export interface FamilyMemberHistory extends DomainResource {
  */
 export interface Flag extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Flag';
+    /**
      * Business identifier
      * Business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -23842,6 +24054,10 @@ export interface GoalTarget extends BackboneElement {
  * Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
  */
 export interface Goal extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Goal';
     /**
      * External Ids for this goal
      * Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -24100,6 +24316,10 @@ export interface GraphDefinitionLink extends BackboneElement {
  */
 export interface GraphDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'GraphDefinition';
+    /**
      * Canonical identifier for this graph definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -24325,6 +24545,10 @@ export interface GroupMember extends BackboneElement {
  */
 export interface Group extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Group';
+    /**
      * Unique id
      * A unique business identifier for this group.
      */
@@ -24401,6 +24625,10 @@ export interface Group extends DomainResource {
  * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  */
 export interface GuidanceResponse extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'GuidanceResponse';
     /**
      * The identifier of the request associated with this response, if any
      * The identifier of the request associated with this response. If an identifier was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.
@@ -24588,6 +24816,10 @@ export interface HealthcareServiceNotAvailable extends BackboneElement {
  * The details of a healthcare service available at a location.
  */
 export interface HealthcareService extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'HealthcareService';
     /**
      * External identifiers for this item
      * External identifiers for this item.
@@ -24896,6 +25128,10 @@ export interface ImagingStudySeries extends BackboneElement {
  */
 export interface ImagingStudy extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ImagingStudy';
+    /**
      * Identifiers for the whole study
      * Identifiers for the ImagingStudy such as DICOM Study Instance UID, and Accession Number.
      * See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. Accession Number should use ACSN Identifier type.
@@ -25177,6 +25413,10 @@ export interface ImmunizationProtocolApplied extends BackboneElement {
  */
 export interface Immunization extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Immunization';
+    /**
      * Business identifier
      * A unique identifier assigned to this immunization record.
      */
@@ -25363,6 +25603,10 @@ export interface Immunization extends DomainResource {
  * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
  */
 export interface ImmunizationEvaluation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ImmunizationEvaluation';
     /**
      * Business identifier
      * A unique identifier assigned to this immunization evaluation record.
@@ -25600,6 +25844,10 @@ export interface ImmunizationRecommendationRecommendation extends BackboneElemen
  * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  */
 export interface ImmunizationRecommendation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ImmunizationRecommendation';
     /**
      * Business identifier
      * A unique identifier assigned to this particular recommendation record.
@@ -26053,6 +26301,10 @@ export interface ImplementationGuideManifest extends BackboneElement {
  */
 export interface ImplementationGuide extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ImplementationGuide';
+    /**
      * Canonical identifier for this implementation guide, represented as a URI (globally unique)
      * An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -26448,6 +26700,10 @@ export interface InsurancePlanPlan extends BackboneElement {
  */
 export interface InsurancePlan extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'InsurancePlan';
+    /**
      * Business Identifier for Product
      * Business identifiers assigned to this health insurance product which remain constant as the resource is updated and propagates from server to server.
      */
@@ -26614,6 +26870,10 @@ export interface InvoiceLineItem extends BackboneElement {
  */
 export interface Invoice extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Invoice';
+    /**
      * Business Identifier for item
      * Identifier of this Invoice, often used for reference in correspondence about this invoice or for tracking of payments.
      */
@@ -26718,6 +26978,10 @@ export interface Invoice extends DomainResource {
  * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
 export interface Library extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Library';
     /**
      * Canonical identifier for this library, represented as a URI (globally unique)
      * An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers.
@@ -26979,6 +27243,10 @@ export interface LinkageItem extends BackboneElement {
  */
 export interface Linkage extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Linkage';
+    /**
      * Whether this linkage assertion is active or not
      * Indicates whether the asserted set of linkages are considered to be "in effect".
      * If false, any asserted linkages should not be considered current/relevant/applicable.
@@ -27041,6 +27309,10 @@ export interface ListEntry extends BackboneElement {
  * A list is a curated collection of resources.
  */
 export interface List extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'List';
     /**
      * Business identifier
      * Identifier for the List assigned for business purposes outside the context of FHIR.
@@ -27203,6 +27475,10 @@ export interface LocationHoursOfOperation extends BackboneElement {
  * Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
  */
 export interface Location extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Location';
     /**
      * Unique code or number identifying the location to its users
      * Unique code or number identifying the location to its users.
@@ -27462,6 +27738,10 @@ export interface MeasureSupplementalData extends BackboneElement {
  * The Measure resource provides the definition of a quality measure.
  */
 export interface Measure extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Measure';
     /**
      * Canonical identifier for this measure, represented as a URI (globally unique)
      * An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers.
@@ -27928,6 +28208,10 @@ export interface MeasureReportGroup extends BackboneElement {
  */
 export interface MeasureReport extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MeasureReport';
+    /**
      * Additional identifier for the MeasureReport
      * A formal identifier that is used to identify this MeasureReport when it is represented in other formats or referenced in a specification, model, design or an instance.
      * Typically, this is used for identifiers that can go in an HL7 V3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use.
@@ -28000,6 +28284,10 @@ export interface MeasureReport extends DomainResource {
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
 export interface Media extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Media';
     /**
      * Identifier(s) for the image
      * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.
@@ -28223,6 +28511,10 @@ export interface MedicationBatch extends BackboneElement {
  */
 export interface Medication extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Medication';
+    /**
      * Business identifier for this medication
      * Business identifier for this medication.
      * The serial number could be included as an identifier.
@@ -28341,6 +28633,10 @@ The dosage instructions should reflect the dosage of the medication that was adm
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
 export interface MedicationAdministration extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationAdministration';
     /**
      * External identifier
      * Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
@@ -28513,6 +28809,10 @@ export interface MedicationDispenseSubstitution extends BackboneElement {
  * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
  */
 export interface MedicationDispense extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationDispense';
     /**
      * External identifier
      * Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
@@ -29012,6 +29312,10 @@ export interface MedicationKnowledgeKinetics extends BackboneElement {
  */
 export interface MedicationKnowledge extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationKnowledge';
+    /**
      * Code that identifies this medication
      * A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
      * Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: "A coding may be marked as a "userSelected" if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
@@ -29232,6 +29536,10 @@ export interface MedicationRequestSubstitution extends BackboneElement {
  * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
  */
 export interface MedicationRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationRequest';
     /**
      * External ids for this request
      * Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
@@ -29461,6 +29769,10 @@ Status=Completed + NotTaken=F = Taken in past
 Status=In Error + NotTaken=N/A = In Error.
  */
 export interface MedicationStatement extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationStatement';
     /**
      * External identifier
      * Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
@@ -29740,6 +30052,10 @@ export interface MedicinalProductSpecialDesignation extends BackboneElement {
  */
 export interface MedicinalProduct extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProduct';
+    /**
      * Business identifier for this product. Could be an MPID
      * Business identifier for this product. Could be an MPID.
      */
@@ -29916,6 +30232,10 @@ export interface MedicinalProductAuthorizationProcedure extends BackboneElement 
  */
 export interface MedicinalProductAuthorization extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductAuthorization';
+    /**
      * Business identifier for the marketing authorization, as assigned by a regulator
      * Business identifier for the marketing authorization, as assigned by a regulator.
      */
@@ -30039,6 +30359,10 @@ export interface MedicinalProductContraindicationOtherTherapy extends BackboneEl
  */
 export interface MedicinalProductContraindication extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductContraindication';
+    /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
      */
@@ -30100,6 +30424,10 @@ export interface MedicinalProductIndicationOtherTherapy extends BackboneElement 
  * Indication for the Medicinal Product.
  */
 export interface MedicinalProductIndication extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductIndication';
     /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
@@ -30274,6 +30602,10 @@ export interface MedicinalProductIngredientSubstance extends BackboneElement {
  */
 export interface MedicinalProductIngredient extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductIngredient';
+    /**
      * Identifier for the ingredient
      * The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
      */
@@ -30330,6 +30662,10 @@ export interface MedicinalProductInteractionInteractant extends BackboneElement 
  */
 export interface MedicinalProductInteraction extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductInteraction';
+    /**
      * The medication for which this is a described interaction
      * The medication for which this is a described interaction.
      */
@@ -30374,6 +30710,10 @@ export interface MedicinalProductInteraction extends DomainResource {
  * The manufactured item as contained in the packaged medicinal product.
  */
 export interface MedicinalProductManufactured extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductManufactured';
     /**
      * Dose form as manufactured and before any transformation into the pharmaceutical product
      * Dose form as manufactured and before any transformation into the pharmaceutical product.
@@ -30497,6 +30837,10 @@ export interface MedicinalProductPackagedPackageItem extends BackboneElement {
  * A medicinal product in a container or package.
  */
 export interface MedicinalProductPackaged extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductPackaged';
     /**
      * Unique identifier
      * Unique identifier.
@@ -30651,6 +30995,10 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration extends Bac
  */
 export interface MedicinalProductPharmaceutical extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductPharmaceutical';
+    /**
      * An identifier for the pharmaceutical medicinal product
      * An identifier for the pharmaceutical medicinal product.
      */
@@ -30691,6 +31039,10 @@ export interface MedicinalProductPharmaceutical extends DomainResource {
  * Describe the undesirable effects of the medicinal product.
  */
 export interface MedicinalProductUndesirableEffect extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductUndesirableEffect';
     /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
@@ -30792,6 +31144,10 @@ export interface MessageDefinitionAllowedResponse extends BackboneElement {
  * This would be a MIF-level artifact.
  */
 export interface MessageDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MessageDefinition';
     /**
      * Business Identifier for a given MessageDefinition
      * The business identifier that is used to reference the MessageDefinition and *is* expected to be consistent from server to server.
@@ -31115,6 +31471,10 @@ export interface MessageHeaderResponse extends BackboneElement {
  * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
 export interface MessageHeader extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MessageHeader';
     /**
      * Code for the event this message represents or link to event definition
      * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the EventDefinition.
@@ -31654,6 +32014,10 @@ export interface MolecularSequenceStructureVariant extends BackboneElement {
  */
 export interface MolecularSequence extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MolecularSequence';
+    /**
      * Unique ID for this particular sequence. This is a FHIR-defined id
      * A unique identifier for this particular sequence instance. This is a FHIR-defined id.
      */
@@ -31799,6 +32163,10 @@ export interface NamingSystemUniqueId extends BackboneElement {
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
 export interface NamingSystem extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'NamingSystem';
     /**
      * Name for this naming system (computer friendly)
      * A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.
@@ -32116,6 +32484,10 @@ export interface NutritionOrderEnteralFormula extends BackboneElement {
  */
 export interface NutritionOrder extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'NutritionOrder';
+    /**
      * Identifiers assigned to this order
      * Identifiers assigned to this order by the order sender or by the order receiver.
      * The Identifier.type element can be to indicate filler vs. placer if needed.  This is explained in further detail [here](servicerequest.html#notes).
@@ -32394,6 +32766,10 @@ The alternate way is to use the value element for actual observations and use th
  * Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc.
  */
 export interface Observation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Observation';
     /**
      * Business Identifier for observation
      * A unique identifier assigned to this observation.
@@ -32743,6 +33119,10 @@ export interface ObservationDefinitionQualifiedInterval extends BackboneElement 
  */
 export interface ObservationDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ObservationDefinition';
+    /**
      * Category of observation
      * A code that classifies the general type of observation.
      * This element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used for one instance of ObservationDefinition. The level of granularity is defined by the category concepts in the value set.
@@ -32988,6 +33368,10 @@ export interface OperationDefinitionOverload extends BackboneElement {
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 export interface OperationDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'OperationDefinition';
     /**
      * Canonical identifier for this operation definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers.
@@ -33290,6 +33674,10 @@ For resource issues, this will be a simple XPath limited to element names, repet
  */
 export interface OperationOutcome extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'OperationOutcome';
+    /**
      * A single issue associated with the action
      * An error, warning, or information message that results from a system action.
      */
@@ -33327,6 +33715,10 @@ export interface OrganizationContact extends BackboneElement {
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
  */
 export interface Organization extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Organization';
     /**
      * Identifies this organization  across multiple systems
      * Identifier for the organization that is used to identify the organization across multiple disparate systems.
@@ -33408,6 +33800,10 @@ We expect that some jurisdictions will profile this optionality to be a single c
  * Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.
  */
 export interface OrganizationAffiliation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'OrganizationAffiliation';
     /**
      * Business identifiers that are specific to this role
      * Business identifiers that are specific to this role.
@@ -33929,6 +34325,10 @@ export interface PatientLink extends BackboneElement {
  */
 export interface Patient extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Patient';
+    /**
      * An identifier for this patient
      * An identifier for this patient.
      */
@@ -34075,6 +34475,10 @@ Jurisdictions may decide that they can profile this down to 1 if desired, or 1 p
  * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
  */
 export interface PaymentNotice extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'PaymentNotice';
     /**
      * Business Identifier for the payment noctice
      * A unique identifier assigned to this payment notice.
@@ -34233,6 +34637,10 @@ export interface PaymentReconciliationProcessNote extends BackboneElement {
  */
 export interface PaymentReconciliation extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'PaymentReconciliation';
+    /**
      * Business Identifier for a payment reconciliation
      * A unique identifier assigned to this payment reconciliation.
      */
@@ -34347,6 +34755,10 @@ export interface PersonLink extends BackboneElement {
  * The Person resource does justice to person registries that keep track of persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare).
  */
 export interface Person extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Person';
     /**
      * A human identifier for this person
      * Identifier for a person within a particular scope.
@@ -34805,6 +35217,10 @@ In addition, because the subject needs to be resolved during realization, use of
  */
 export interface PlanDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'PlanDefinition';
+    /**
      * Canonical identifier for this plan definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this plan definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the plan definition is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -35080,6 +35496,10 @@ export interface PractitionerQualification extends BackboneElement {
  */
 export interface Practitioner extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Practitioner';
+    /**
      * An identifier for the person as this agent
      * An identifier that applies to this person in this role.
      */
@@ -35219,6 +35639,10 @@ export interface PractitionerRoleNotAvailable extends BackboneElement {
  */
 export interface PractitionerRole extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'PractitionerRole';
+    /**
      * Business Identifiers that are specific to a role/location
      * Business Identifiers that are specific to a role/location.
      */
@@ -35342,6 +35766,10 @@ export interface ProcedureFocalDevice extends BackboneElement {
  * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
  */
 export interface Procedure extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Procedure';
     /**
      * External Identifiers for this procedure
      * Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server.
@@ -35601,6 +36029,10 @@ export interface ProvenanceEntity extends BackboneElement {
  * Some parties may be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance.
  */
 export interface Provenance extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Provenance';
     /**
      * Target Reference(s) (usually version specific)
      * The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
@@ -36112,6 +36544,10 @@ The resulting QuestionnaireResponse will be populated the same way regardless of
  */
 export interface Questionnaire extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Questionnaire';
+    /**
      * Canonical identifier for this questionnaire, represented as a URI (globally unique)
      * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers.
      * The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.
@@ -36468,6 +36904,10 @@ There is no need for this element if the item pointed to by the linkId has a def
  */
 export interface QuestionnaireResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'QuestionnaireResponse';
+    /**
      * Unique id for this set of answers
      * A business identifier assigned to a particular completed (or partially completed) questionnaire.
      */
@@ -36570,6 +37010,10 @@ export interface RelatedPersonCommunication extends BackboneElement {
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
 export interface RelatedPerson extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'RelatedPerson';
     /**
      * A human identifier for this person
      * Identifier for a person within a particular scope.
@@ -36845,6 +37289,10 @@ export interface RequestGroupAction extends BackboneElement {
  */
 export interface RequestGroup extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'RequestGroup';
+    /**
      * Business identifier
      * Allows a service to provide a unique, business identifier for the request.
      */
@@ -36955,6 +37403,10 @@ export interface RequestGroup extends DomainResource {
  * The ResearchDefinition resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
  */
 export interface ResearchDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchDefinition';
     /**
      * Canonical identifier for this research definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this research definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this research definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the research definition is stored on different servers.
@@ -37366,6 +37818,10 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
  */
 export interface ResearchElementDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchElementDefinition';
+    /**
      * Canonical identifier for this research element definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this research element definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this research element definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the research element definition is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -37685,6 +38141,10 @@ export interface ResearchStudyObjective extends BackboneElement {
  */
 export interface ResearchStudy extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchStudy';
+    /**
      * Business Identifier for study
      * Identifiers assigned to this research study by the sponsor or other systems.
      */
@@ -37821,6 +38281,10 @@ export interface ResearchStudy extends DomainResource {
  */
 export interface ResearchSubject extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchSubject';
+    /**
      * Business Identifier for research subject in a study
      * Identifiers assigned to this research subject for a study.
      */
@@ -37877,7 +38341,7 @@ export interface Resource {
     /**
      * The type of the resource.
      */
-    resourceType?: string;
+    resourceType: string;
     /**
      * Extension for 'resourceType'.
      */
@@ -37986,6 +38450,10 @@ export interface RiskAssessmentPrediction extends BackboneElement {
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
  */
 export interface RiskAssessment extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'RiskAssessment';
     /**
      * Unique identifier for the assessment
      * Business identifier assigned to the risk assessment.
@@ -38262,6 +38730,10 @@ export interface RiskEvidenceSynthesisCertainty extends BackboneElement {
  */
 export interface RiskEvidenceSynthesis extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'RiskEvidenceSynthesis';
+    /**
      * Canonical identifier for this risk evidence synthesis, represented as a URI (globally unique)
      * An absolute URI that is used to identify this risk evidence synthesis when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this risk evidence synthesis is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the risk evidence synthesis is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -38483,6 +38955,10 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  */
 export interface Schedule extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Schedule';
+    /**
      * External Ids for this item
      * External Ids for this item.
      */
@@ -38564,6 +39040,10 @@ export interface SearchParameterComponent extends BackboneElement {
  * In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content.
  */
 export interface SearchParameter extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SearchParameter';
     /**
      * Canonical identifier for this search parameter, represented as a URI (globally unique)
      * An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers.
@@ -38791,6 +39271,10 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
  */
 export interface ServiceRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ServiceRequest';
     /**
      * Identifiers assigned to this order
      * Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
@@ -39037,6 +39521,10 @@ All Provenances should have some historical version of this Request as their sub
  */
 export interface Slot extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Slot';
+    /**
      * External Ids for this item
      * External Ids for this item.
      */
@@ -39255,6 +39743,10 @@ export interface SpecimenContainer extends BackboneElement {
  * A sample to be used for analysis.
  */
 export interface Specimen extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Specimen';
     /**
      * External Identifier
      * Id for specimen.
@@ -39499,6 +39991,10 @@ export interface SpecimenDefinitionTypeTested extends BackboneElement {
  */
 export interface SpecimenDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SpecimenDefinition';
+    /**
      * Business identifier of a kind of specimen
      * A business identifier associated with the kind of specimen.
      */
@@ -39624,6 +40120,10 @@ export interface StructureDefinitionDifferential extends BackboneElement {
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
  */
 export interface StructureDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'StructureDefinition';
     /**
      * Canonical identifier for this structure definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure definition is stored on different servers.
@@ -40636,6 +41136,10 @@ export interface StructureMapGroup extends BackboneElement {
  */
 export interface StructureMap extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'StructureMap';
+    /**
      * Canonical identifier for this structure map, represented as a URI (globally unique)
      * An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -40836,6 +41340,10 @@ export interface SubscriptionChannel extends BackboneElement {
  */
 export interface Subscription extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Subscription';
+    /**
      * Contact details for source (e.g. troubleshooting)
      * Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.
      */
@@ -40943,6 +41451,10 @@ export interface SubstanceIngredient extends BackboneElement {
  * A homogeneous material with a definite composition.
  */
 export interface Substance extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Substance';
     /**
      * Unique identifier
      * Unique identifier for the substance.
@@ -41116,6 +41628,10 @@ export interface SubstanceNucleicAcidSubunit extends BackboneElement {
  * Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
  */
 export interface SubstanceNucleicAcid extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceNucleicAcid';
     /**
      * The type of the sequence shall be specified based on a controlled vocabulary
      * The type of the sequence shall be specified based on a controlled vocabulary.
@@ -41312,6 +41828,10 @@ export interface SubstancePolymerRepeat extends BackboneElement {
  */
 export interface SubstancePolymer extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstancePolymer';
+    /**
      * Todo
      * Todo.
      */
@@ -41417,6 +41937,10 @@ export interface SubstanceProteinSubunit extends BackboneElement {
  * A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators.
  */
 export interface SubstanceProtein extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceProtein';
     /**
      * The SubstanceProtein descriptive elements will only be used when a complete or partial amino acid sequence is available or derivable from a nucleic acid sequence
      * The SubstanceProtein descriptive elements will only be used when a complete or partial amino acid sequence is available or derivable from a nucleic acid sequence.
@@ -41579,6 +42103,10 @@ export interface SubstanceReferenceInformationTarget extends BackboneElement {
  * Todo.
  */
 export interface SubstanceReferenceInformation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceReferenceInformation';
     /**
      * Todo
      * Todo.
@@ -41793,6 +42321,10 @@ export interface SubstanceSourceMaterialPartDescription extends BackboneElement 
  * Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex.
  */
 export interface SubstanceSourceMaterial extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceSourceMaterial';
     /**
      * General high level classification of the source material specific to the origin of the material
      * General high level classification of the source material specific to the origin of the material.
@@ -42317,6 +42849,10 @@ export interface SubstanceSpecificationRelationship extends BackboneElement {
  */
 export interface SubstanceSpecification extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceSpecification';
+    /**
      * Identifier by which this substance is known
      * Identifier by which this substance is known.
      */
@@ -42447,6 +42983,10 @@ export interface SupplyDeliverySuppliedItem extends BackboneElement {
  */
 export interface SupplyDelivery extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SupplyDelivery';
+    /**
      * External identifier
      * Identifier for the supply delivery event that is used to identify it across multiple disparate systems.
      * This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems.
@@ -42568,6 +43108,10 @@ export interface SupplyRequestParameter extends BackboneElement {
  * A record of a request for a medication, substance or device used in the healthcare setting.
  */
 export interface SupplyRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SupplyRequest';
     /**
      * Business Identifier for SupplyRequest
      * Business identifiers assigned to this SupplyRequest by the author and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server.
@@ -43377,6 +43921,10 @@ export interface TaskOutput extends BackboneElement {
  */
 export interface Task extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Task';
+    /**
      * Task Instance Identifier
      * The business identifier for this task.
      */
@@ -43847,6 +44395,10 @@ export interface TerminologyCapabilitiesClosure extends BackboneElement {
  */
 export interface TerminologyCapabilities extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'TerminologyCapabilities';
+    /**
      * Canonical identifier for this terminology capabilities, represented as a URI (globally unique)
      * An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -44222,6 +44774,10 @@ export interface TestReportTeardown extends BackboneElement {
  * A summary of information based on the results of executing a TestScript.
  */
 export interface TestReport extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'TestReport';
     /**
      * External identifier
      * Identifier for the TestScript assigned for external purposes outside the context of FHIR.
@@ -45094,6 +45650,10 @@ export interface TestScriptTeardown extends BackboneElement {
  */
 export interface TestScript extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'TestScript';
+    /**
      * Canonical identifier for this test script, represented as a URI (globally unique)
      * An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -45683,6 +46243,10 @@ export interface ValueSetExpansion extends BackboneElement {
  */
 export interface ValueSet extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ValueSet';
+    /**
      * Canonical identifier for this value set, represented as a URI (globally unique)
      * An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -45974,6 +46538,10 @@ export interface VerificationResultValidator extends BackboneElement {
  */
 export interface VerificationResult extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'VerificationResult';
+    /**
      * A resource that was validated
      * A resource that was validated.
      */
@@ -46201,6 +46769,10 @@ Often insurance will not cover a lens with power between +75 and -75.
  * An authorization for the provision of glasses and/or contact lenses to a patient.
  */
 export interface VisionPrescription extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'VisionPrescription';
     /**
      * Business Identifier for vision prescription
      * A unique identifier assigned to this vision prescription.

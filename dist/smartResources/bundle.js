@@ -10,11 +10,10 @@ class I4MIBundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param resourceType Resource type of bundle entry
      * @param resource A fhir resource. Note that is has to be a valid resource!
      * @returns the added bundle entry
      */
-    addEntry(method, resourceType, resource) {
+    addEntry(method, resource) {
         let id;
         // Generate id
         id = this.generateId();
@@ -32,13 +31,15 @@ class I4MIBundle {
                 throw Error(`An entry with the id ${resource.id} already exists in bundle`);
             }
         }
-        // Set relative id to entry
-        resource.id = id;
+        else {
+            // Set relative id to entry
+            resource.id = id;
+        }
         // adding bundle entry of resource with method and resource type
         let bundleEntry = {
             request: {
                 method: method,
-                url: resourceType
+                url: resource.resourceType
             },
             resource: resource
         };

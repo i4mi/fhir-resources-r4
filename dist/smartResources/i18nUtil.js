@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readI18N = exports.writeI18N = void 0;
+exports.getAllI18N = exports.readI18N = exports.writeI18N = void 0;
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
 const CONTENT_URL = 'content';
@@ -63,3 +63,26 @@ function readI18N(element, lang) {
     })) === null || _b === void 0 ? void 0 : _b.valueString;
 }
 exports.readI18N = readI18N;
+/**
+ * Reads all available i18n strings from a given extension element. The element needs to have
+ * the structure as defined in http://hl7.org/fhir/R4B/extension-translation.html
+ * @param element   the element formed like defined in http://hl7.org/fhir/R4B/extension-translation.html
+ * @returns         a key/value pair object with all available i18n strings as value and their respective
+ *                  language as key
+ * @see http://hl7.org/fhir/R4B/extension-translation.html
+ */
+function getAllI18N(element) {
+    var _a;
+    const i18n = {};
+    const translationExtensions = (_a = element.extension) === null || _a === void 0 ? void 0 : _a.filter(ext => ext.url === TRANSLATION_URL);
+    translationExtensions === null || translationExtensions === void 0 ? void 0 : translationExtensions.map(te => {
+        var _a, _b, _c, _d;
+        const lang = (_b = (_a = te.extension) === null || _a === void 0 ? void 0 : _a.find(ext => ext.url === LANG_URL)) === null || _b === void 0 ? void 0 : _b.valueCode;
+        const str = (_d = (_c = te.extension) === null || _c === void 0 ? void 0 : _c.find(ext => ext.url === CONTENT_URL)) === null || _d === void 0 ? void 0 : _d.valueString;
+        if (lang && str) {
+            i18n[lang] = str;
+        }
+    });
+    return i18n;
+}
+exports.getAllI18N = getAllI18N;

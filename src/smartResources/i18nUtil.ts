@@ -71,3 +71,24 @@ export function readI18N(element: Element, lang: string): string | undefined {
         return extension.url === CONTENT_URL;
     })?.valueString;
 }
+
+/**
+ * Reads all available i18n strings from a given extension element. The element needs to have  
+ * the structure as defined in http://hl7.org/fhir/R4B/extension-translation.html
+ * @param element   the element formed like defined in http://hl7.org/fhir/R4B/extension-translation.html
+ * @returns         a key/value pair object with all available i18n strings as value and their respective 
+ *                  language as key
+ * @see http://hl7.org/fhir/R4B/extension-translation.html
+ */
+export function getAllI18N(element: Element): {[lang:string]: string} {
+    const i18n: {[lang:string]: string} = {};
+    const translationExtensions = element.extension?.filter(ext => ext.url === TRANSLATION_URL);
+    translationExtensions?.map(te => {
+        const lang = te.extension?.find(ext => ext.url === LANG_URL)?.valueCode;
+        const str = te.extension?.find(ext => ext.url === CONTENT_URL)?.valueString;
+        if (lang && str) {
+            i18n[lang] = str; 
+        }
+    });
+    return i18n;
+}

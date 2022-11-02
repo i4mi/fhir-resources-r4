@@ -149,9 +149,11 @@ For removing an entry from the resource, you can call `myBundle.removeEntry(id)`
 ## Internationalization (I18N)
 FHIR® supports I18N with extensions. Any text / string element can have an extensible sibling with an leading underscore, that contains the internationalization strings (e.g. if a resource has a `resource.title` element, the corresponding extensible element would be `resource._title`).
 
-With `readI18N()` and `writeI18N()`, this library provides two functions that help with interacting with this translation extensions.
+With `readI18N()`, `getAllI18N()` and `writeI18N()`, this library provides functions that help with interacting with this translation extensions.
 
-`readI18N(resource._title, 'en')` allows you to read the translation string for a given element and language (in this case, the resource title in english.) If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
+`readI18N(resource._title, 'en')` allows you to read the translation string for a given element and language (in this case, the resource title in english). If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
+
+`getAllI18N(resource._title)` allows you to get all available translation strings for a given element. If the element does not have a well formed I18N extension or no language is available, an empty object `{}`is returned (and you have to fall back on the normal `resource.title` element).
 
 `writeI18N(translations)` allows you to comfortably write wellformed I18N extensions to a resource element. The 'translations' argument is a key/value pair of the languages and I18N string you want to write, as in the following example:
 

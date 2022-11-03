@@ -4,38 +4,36 @@ Generated from the FHIR® definition json by the Institute of Medical Informatic
 <img src="https://siot.net/upload/resources/bfh.png" width="250px" />
 
 
-# Usage guide
+# 1 Breaking changes in version 2.0.0
+If you're upgrading from version 1.x.x, you may encounter some breaking changes. These are relatively easy to fix though:
+## 1.1 I4MIBundle.addEntry()
+The `addEntry()` method of the I4MIBundle smart resource doesn't need the resourceType as an argument anymore (since it is implicit with the actual resource as an argument). This changes the way you call the method. You just have to remove the second argument from every call of addEntry():
+**Version 1.x.x** (Example):
+```typescript
+myBundle.addEntry(BundleHTTPVerb.POST, 'Observation', myObservationResource);
+```
+becomes 
+**Version 2.0.0** (Example):
+```typescript
+myBundle.addEntry(BundleHTTPVerb.POST, myObservationResource);
+```
+Note, that also the resource you want to add to the I4MIBundle now needs to be actually of type `Resource` (or any type inheriting from Resource), and can not be `any` anymore.
+
+## 1.2 Resources have fixed resourceType now
+In older versions, the resourceType property of every Resource was from type `string` and was not mandatory. This meant that you could have e.g. an Observation resource with no resourceType property at all or with `resourceType = 'Patient'`. This is no longer possible with Version 2.0.0, the resourceType of an Observation resource has to be `Observation`.
+
+# 2 Usage guide
 
 Install with
 ```
 npm i @i4mi/fhir_r4
 ```
 
-## Select fhir version
+## 2.1 Select fhir version
 This library supports the following fhir versions:
 - R4 (v4.0.1)
 
-## Use with NodeJS
-If you want to use this library in a node project which does not run on any browser, you need to install further dependencies.
-
-1. Install XMLHttpRequest:
-```
-npm i xmlhttprequest
-```
-
-2. Set global var
-```
-global['XMLHttpRequest'] = require("xmlhttprequest").XMLHttpRequest;
-```
-or
-```
-const XMLHttpRequestLib = require("xmlhttprequest").XMLHttpRequest;
-global['XMLHttpRequest'] = XMLHttpRequestLib;
-```
-
-3. You're up to go
-
-## Using resources
+## 2.2 Using resources
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
@@ -63,7 +61,7 @@ export class MyPatient implements Patient {
 
 _NOTE:_ You always have to set the `resourceType`!
 
-## Create api calls
+## 2.3 Create api calls
 How do I create api calls?  
 Import statement for using all implemented api methods  
 ```
@@ -106,7 +104,7 @@ __IMPORTANT:__ Check the allowed content type (header) of your target server. If
 this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
 ```
 
-### Other examples (search, create, etc.)
+### 2.3.1 Other examples (search, create, etc.)
 Search:
 ```
 myStaticPatientSearch() {
@@ -136,9 +134,9 @@ myStaticPatientCreate() {
 }
 ```
 
-# Smart resources and utils
+# 3 Smart resources and utils
 This library also provides some smart resources and utils to make your life with FHIR® easier.
-## I4MIBundle
+## 3.1 I4MIBundle
 This smart resource represents a Bundle, and lets you add and remove entries.
 First, the Bundle has to be initialized by calling `const myBundle = new I4MIBundle(type)`, where type is the BundleType needed.
 
@@ -146,7 +144,7 @@ After initializing the Bundle, you can add an entry by calling `myBundle.addEntr
 
 For removing an entry from the resource, you can call `myBundle.removeEntry(id)`, where id is the id of the resource in the entry.
 
-## Internationalization (I18N)
+## 3.2 Internationalization (I18N)
 FHIR® supports I18N with extensions. Any text / string element can have an extensible sibling with an leading underscore, that contains the internationalization strings (e.g. if a resource has a `resource.title` element, the corresponding extensible element would be `resource._title`).
 
 With `readI18N()`, `getAllI18N()` and `writeI18N()`, this library provides functions that help with interacting with this translation extensions.
@@ -167,16 +165,16 @@ resource._title = writeI18N(translations);
 ```
 
 
-# Contribution & dev guide
+# 4 Contribution & dev guide
 
-## build
+## 4.1 build
 
 to generate a new build in './dist/' 
 ```
 npm run build
 ```
 
-## deploy
+## 4.2 deploy
 
 update version in package.json
 then

@@ -1,4 +1,4 @@
-import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry, Resource } from "../definition";
 export interface I4MIInterfaceToMapResource {
     [key: string]: any;
 }
@@ -10,10 +10,10 @@ export declare class I4MIBundle implements Bundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param resource A fhir resource. Note that is has to be a valid resource!
+     * @param resource A FHIR resource. Note that it has to be a valid resource!
      * @returns the added bundle entry
      */
-    addEntry(method: BundleHTTPVerb, resource: any): BundleEntry;
+    addEntry(method: BundleHTTPVerb, resource: Resource): BundleEntry;
     /**
      * Removes an entry with the id x from the bundle
      * @param id Id of entry to remove

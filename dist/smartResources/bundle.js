@@ -10,21 +10,17 @@ class I4MIBundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param resource A fhir resource. Note that is has to be a valid resource!
+     * @param resource A FHIR resource. Note that it has to be a valid resource!
      * @returns the added bundle entry
      */
     addEntry(method, resource) {
-        let id;
-        // Generate id
-        id = this.generateId();
+        let id = this.generateId();
         // create entry array if still undefined
         if (typeof this.entry === 'undefined') {
             this.entry = [];
         }
         // check if id of resource is already set
         if (typeof resource.id !== 'undefined') {
-            // now using already given id
-            console.log(`Entry id is provided for resource (${resource.id}), using this as id.`);
             id = resource.id;
             // check if there already is an entry with given id
             if (this.idAlreadyExistsInBundle(id)) {

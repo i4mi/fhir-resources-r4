@@ -1,4 +1,4 @@
-import { BundleType, Bundle, BundleHTTPVerb, BundleEntry } from "../definition";
+import { BundleType, Bundle, BundleHTTPVerb, BundleEntry, Resource } from "../definition";
 import { Guid } from "guid-typescript";
 
 export interface I4MIInterfaceToMapResource {
@@ -18,16 +18,11 @@ export class I4MIBundle implements Bundle {
     /**
      * Add resource to bundle as BundleEntry
      * @param method Request method of bundle entry
-     * @param resourceType Resource type of bundle entry
-     * @param resource A fhir resource. Note that is has to be a valid resource!
+     * @param resource A FHIR resource. Note that it has to be a valid resource!
      * @returns the added bundle entry
      */
-    addEntry(method: BundleHTTPVerb, resourceType: string, resource: any): BundleEntry {
-
-        let id: string;
-
-        // Generate id
-        id = this.generateId();
+    addEntry(method: BundleHTTPVerb, resource: Resource): BundleEntry {
+        let id = this.generateId();
 
         // create entry array if still undefined
         if (typeof this.entry === 'undefined') {
@@ -36,24 +31,23 @@ export class I4MIBundle implements Bundle {
 
         // check if id of resource is already set
         if (typeof resource.id !== 'undefined') {
-            // now using already given id
-            console.log(`Entry id is provided for resource (${resource.id}), using this as id.`);
             id = resource.id;
 
             // check if there already is an entry with given id
             if (this.idAlreadyExistsInBundle(id)) {
                 throw Error(`An entry with the id ${resource.id} already exists in bundle`);
             }
+        } else {
+            // Set relative id to entry
+            resource.id = id;
         }
 
-        // Set relative id to entry
-        resource.id = id;
 
         // adding bundle entry of resource with method and resource type
         let bundleEntry: BundleEntry = {
             request: {
                 method: method,
-                url: resourceType
+                url: resource.resourceType
             },
             resource: resource
         };

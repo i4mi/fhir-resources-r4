@@ -1,4 +1,109 @@
 /**
+ * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
+ * File generated on 2022-11-01T13:49:11.646Z
+ * https://www.i4mi.ti.bfh.ch
+ */
+/**
+ * Primitive Type base64Binary
+ * A stream of bytes, base64 encoded
+ * A stream of bytes
+ */
+export declare type base64Binary = string;
+/**
+ * Primitive Type canonical
+ * see [Canonical References](references.html#canonical)
+ * A URI that is a reference to a canonical URL on a FHIR resource
+ */
+export declare type canonical = string;
+/**
+ * Primitive Type code
+ * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+ */
+export declare type code = string;
+/**
+ * Primitive Type date
+ * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
+ */
+export declare type date = string;
+/**
+ * Primitive Type dateTime
+ * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+ */
+export declare type dateTime = string;
+/**
+ * Primitive Type decimal
+ * Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)
+ * A rational number with implicit precision
+ */
+export declare type decimal = number;
+/**
+ * Primitive Type id
+ * RFC 4122
+ * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+ */
+export declare type id = string;
+/**
+ * Primitive Type instant
+ * Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. Time zone is always required
+ * An instant in time - known at least to the second
+ */
+export declare type instant = string;
+/**
+ * Primitive Type integer
+ * 32 bit number; for values larger than this, use decimal
+ * A whole number
+ */
+export declare type integer = number;
+/**
+ * Primitive Type markdown
+ * Systems are not required to have markdown support, so the text should be readable without markdown processing. The markdown syntax is GFM - see https://github.github.com/gfm/
+ * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+ */
+export declare type markdown = string;
+/**
+ * Primitive Type oid
+ * RFC 3001. See also ISO/IEC 8824:1990 €
+ * An OID represented as a URI
+ */
+export declare type oid = string;
+/**
+ * Primitive Type positiveInt
+ * An integer with a value that is positive (e.g. >0)
+ */
+export declare type positiveInt = number;
+/**
+ * Primitive Type time
+ * A time during the day, with no date specified
+ */
+export declare type time = string;
+/**
+ * Primitive Type unsignedInt
+ * An integer with a value that is not negative (e.g. >= 0)
+ */
+export declare type unsignedInt = number;
+/**
+ * Primitive Type uri
+ * see http://en.wikipedia.org/wiki/Uniform_resource_identifier
+ * String of characters used to identify a name or a resource
+ */
+export declare type uri = string;
+/**
+ * Primitive Type url
+ * A URI that is a literal reference
+ */
+export declare type url = string;
+/**
+ * Primitive Type uuid
+ * See The Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A.
+ * A UUID, represented as a URI
+ */
+export declare type uuid = string;
+/**
+ * Primitive Type xhtml
+ * XHTML
+ */
+export declare type xhtml = string;
+/**
  * home | work | temp | old | billing - purpose of this address
  * The purpose of this address.
  * Applications can assume that an address is current unless it explicitly says that it is temporary or old.
@@ -279,13 +384,19 @@ export declare enum ActivityDefinitionPublicationStatus {
     UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain.
  */
 export declare enum ActivityDefinitionRequestIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
-    ORDER = "order"
+    DIRECTIVE = "directive",
+    ORDER = "order",
+    ORIGINAL_ORDER = "original-order",
+    REFLEX_ORDER = "reflex-order",
+    FILLER_ORDER = "filler-order",
+    INSTANCE_ORDER = "instance-order",
+    OPTION = "option"
 }
 /**
  * routine | urgent | asap | stat
@@ -346,7 +457,7 @@ export declare enum AllergyIntoleranceCriticality {
     UNABLE_TO_ASSESS = "unable-to-assess"
 }
 /**
- * mild | moderate | severe
+ * mild | moderate | severe (of event as a whole)
  * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
  * It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.
  */
@@ -361,7 +472,7 @@ export declare enum AllergyIntoleranceSeverity {
  * If the Appointment's status is "cancelled" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid.
-    */
+ */
 export declare enum AppointmentStatus {
     PROPOSED = "proposed",
     PENDING = "pending",
@@ -394,7 +505,7 @@ export declare enum AppointmentParticipationStatus {
     NEEDS_ACTION = "needs-action"
 }
 /**
- * accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
+ * accepted | declined | tentative | needs-action
  * Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
  * This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid.
  */
@@ -402,10 +513,7 @@ export declare enum AppointmentResponseParticipantStatus {
     ACCEPTED = "accepted",
     DECLINED = "declined",
     TENTATIVE = "tentative",
-    IN_PROCESS = "in-process",
-    COMPLETED = "completed",
-    NEEDS_ACTION = "needs-action",
-    ENTERED_IN_ERROR = "entered-in-error"
+    NEEDS_ACTION = "needs-action"
 }
 /**
  * organ | tissue | fluid | cells | biologicalAgent
@@ -601,19 +709,19 @@ export declare enum CapabilityStatementDocumentMode {
     CONSUMER = "consumer"
 }
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled | unknown
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
  * The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
-    */
+ */
 export declare enum CarePlanStatus {
     DRAFT = "draft",
     ACTIVE = "active",
-    SUSPENDED = "suspended",
+    ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
-    CANCELLED = "cancelled",
     UNKNOWN = "unknown"
 }
 /**
@@ -628,11 +736,25 @@ export declare enum CarePlanIntent {
     OPTION = "option"
 }
 /**
+ * Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription
+ * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
+ */
+export declare enum CarePlanActivityKind {
+    APPOINTMENT = "Appointment",
+    COMMUNICATIONREQUEST = "CommunicationRequest",
+    DEVICEREQUEST = "DeviceRequest",
+    MEDICATIONREQUEST = "MedicationRequest",
+    NUTRITIONORDER = "NutritionOrder",
+    TASK = "Task",
+    SERVICEREQUEST = "ServiceRequest",
+    VISIONPRESCRIPTION = "VisionPrescription"
+}
+/**
  * not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error
  * Identifies what progress is being made for the specific activity.
  * Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that "status" is only as current as the plan was most recently updated.
 The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity.
-    */
+ */
 export declare enum CarePlanActivityStatus {
     NOT_STARTED = "not-started",
     SCHEDULED = "scheduled",
@@ -680,7 +802,7 @@ export declare enum CatalogEntryRelationType {
  * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
 
 This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid.
-    */
+ */
 export declare enum ChargeItemStatus {
     PLANNED = "planned",
     BILLABLE = "billable",
@@ -774,12 +896,12 @@ export declare enum ClaimResponseNoteType {
     PRINTOPER = "printoper"
 }
 /**
- * draft | completed | entered-in-error
+ * in-progress | completed | entered-in-error
  * Identifies the workflow status of the assessment.
  * This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid.
  */
 export declare enum ClinicalImpressionStatus {
-    DRAFT = "draft",
+    IN_PROGRESS = "in-progress",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error"
 }
@@ -817,6 +939,21 @@ export declare enum CodeSystemContentMode {
     SUPPLEMENT = "supplement"
 }
 /**
+ * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
+ * A list of operators that can be used with the filter.
+ */
+export declare enum CodeSystemFilterOperator {
+    E = "=",
+    IS_A = "is-a",
+    DESCENDENT_OF = "descendent-of",
+    IS_NOT_A = "is-not-a",
+    REGEX = "regex",
+    IN = "in",
+    NOT_IN = "not-in",
+    GENERALIZES = "generalizes",
+    EXISTS = "exists"
+}
+/**
  * code | Coding | string | integer | boolean | dateTime | decimal
  * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
  */
@@ -830,7 +967,7 @@ export declare enum CodeSystemPropertyType {
     DECIMAL = "decimal"
 }
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The status of the transmission.
  * This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid.
  */
@@ -838,23 +975,45 @@ export declare enum CommunicationStatus {
     PREPARATION = "preparation",
     IN_PROGRESS = "in-progress",
     NOT_DONE = "not-done",
-    SUSPENDED = "suspended",
-    ABORTED = "aborted",
+    ON_HOLD = "on-hold",
+    STOPPED = "stopped",
     COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error"
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
 }
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * routine | urgent | asap | stat
+ * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+ * Used to prioritize workflow (such as which communication to read first) when the communication is planned or in progress.
+ */
+export declare enum CommunicationPriority {
+    ROUTINE = "routine",
+    URGENT = "urgent",
+    ASAP = "asap",
+    STAT = "stat"
+}
+/**
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the proposal or order.
  */
 export declare enum CommunicationRequestStatus {
     DRAFT = "draft",
     ACTIVE = "active",
-    SUSPENDED = "suspended",
-    CANCELLED = "cancelled",
+    ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
     UNKNOWN = "unknown"
+}
+/**
+ * routine | urgent | asap | stat
+ * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+ */
+export declare enum CommunicationRequestCommunicationPriority {
+    ROUTINE = "routine",
+    URGENT = "urgent",
+    ASAP = "asap",
+    STAT = "stat"
 }
 /**
  * draft | active | retired | unknown
@@ -885,7 +1044,7 @@ export declare enum CompartmentDefinitionCompartmentType {
  * If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.
 
 Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
-    */
+ */
 export declare enum CompositionStatus {
     PRELIMINARY = "preliminary",
     FINAL = "final",
@@ -992,28 +1151,47 @@ export declare enum ConsentDataMeaning {
     AUTHOREDBY = "authoredby"
 }
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
  * The status of the resource instance.
  * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
  */
 export declare enum ContractStatus {
-    DRAFT = "draft",
-    ACTIVE = "active",
-    SUSPENDED = "suspended",
+    AMENDED = "amended",
+    APPENDED = "appended",
     CANCELLED = "cancelled",
-    COMPLETED = "completed",
+    DISPUTED = "disputed",
     ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
+    EXECUTABLE = "executable",
+    EXECUTED = "executed",
+    NEGOTIABLE = "negotiable",
+    OFFERED = "offered",
+    POLICY = "policy",
+    REJECTED = "rejected",
+    RENEWED = "renewed",
+    REVOKED = "revoked",
+    RESOLVED = "resolved",
+    TERMINATED = "terminated"
 }
 /**
- * draft | active | retired | unknown
- * draft | active | retired | unknown.
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated.
  */
 export declare enum ContractPublicationStatus {
-    DRAFT = "draft",
-    ACTIVE = "active",
-    RETIRED = "retired",
-    UNKNOWN = "unknown"
+    AMENDED = "amended",
+    APPENDED = "appended",
+    CANCELLED = "cancelled",
+    DISPUTED = "disputed",
+    ENTERED_IN_ERROR = "entered-in-error",
+    EXECUTABLE = "executable",
+    EXECUTED = "executed",
+    NEGOTIABLE = "negotiable",
+    OFFERED = "offered",
+    POLICY = "policy",
+    REJECTED = "rejected",
+    RENEWED = "renewed",
+    REVOKED = "revoked",
+    RESOLVED = "resolved",
+    TERMINATED = "terminated"
 }
 /**
  * active | cancelled | draft | entered-in-error
@@ -1080,21 +1258,6 @@ export declare enum CoverageEligibilityResponseRemittanceOutcome {
     PARTIAL = "partial"
 }
 /**
- * registered | preliminary | final | amended +
- * Indicates the status of the detected issue.
- * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
- */
-export declare enum DetectedIssueStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
  * high | moderate | low
  * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
  */
@@ -1102,18 +1265,6 @@ export declare enum DetectedIssueSeverity {
     HIGH = "high",
     MODERATE = "moderate",
     LOW = "low"
-}
-/**
- * barcode | rfid | manual +
- * A coded entry to indicate how the data was entered.
- */
-export declare enum DeviceUDIEntryType {
-    BARCODE = "barcode",
-    RFID = "rfid",
-    MANUAL = "manual",
-    CARD = "card",
-    SELF_REPORTED = "self-reported",
-    UNKNOWN = "unknown"
 }
 /**
  * active | inactive | entered-in-error | unknown
@@ -1130,8 +1281,8 @@ export declare enum DeviceFHIRDeviceStatus {
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
 UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName.
-    */
-export declare enum DeviceDeviceNameType {
+ */
+export declare enum DeviceNameType {
     UDI_LABEL_NAME = "udi-label-name",
     USER_FRIENDLY_NAME = "user-friendly-name",
     PATIENT_REPORTED_NAME = "patient-reported-name",
@@ -1143,7 +1294,7 @@ export declare enum DeviceDeviceNameType {
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
 UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName.
-    */
+ */
 export declare enum DeviceDefinitionDeviceNameType {
     UDI_LABEL_NAME = "udi-label-name",
     USER_FRIENDLY_NAME = "user-friendly-name",
@@ -1207,59 +1358,43 @@ export declare enum DeviceMetricCalibrationState {
     UNSPECIFIED = "unspecified"
 }
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the request.
  * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid.
  */
 export declare enum DeviceRequestStatus {
     DRAFT = "draft",
     ACTIVE = "active",
-    SUSPENDED = "suspended",
+    ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
-    CANCELLED = "cancelled"
+    UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | original-order | encoded | reflex-order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
  */
 export declare enum DeviceRequestRequestIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
+    DIRECTIVE = "directive",
+    ORDER = "order",
     ORIGINAL_ORDER = "original-order",
-    ENCODED = "encoded",
-    REFLEX_ORDER = "reflex-order"
+    REFLEX_ORDER = "reflex-order",
+    FILLER_ORDER = "filler-order",
+    INSTANCE_ORDER = "instance-order",
+    OPTION = "option"
 }
 /**
- * active | completed | entered-in-error +
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
-    */
-export declare enum DeviceUseStatementStatus {
-    ACTIVE = "active",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error",
-    INTENDED = "intended",
-    STOPPED = "stopped",
-    ON_HOLD = "on-hold"
-}
-/**
- * registered | partial | preliminary | final +
- * The status of the diagnostic report.
+ * routine | urgent | asap | stat
+ * Indicates how quickly the {{title}} should be addressed with respect to other requests.
  */
-export declare enum DiagnosticReportStatus {
-    REGISTERED = "registered",
-    PARTIAL = "partial",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    APPENDED = "appended",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
+export declare enum DeviceRequestRequestPriority {
+    ROUTINE = "routine",
+    URGENT = "urgent",
+    ASAP = "asap",
+    STAT = "stat"
 }
 /**
  * current | superseded | entered-in-error
@@ -1277,21 +1412,20 @@ export declare enum DocumentManifestDocumentReferenceStatus {
  * This is the status of the DocumentReference object, which might be independent from the docStatus element.
 
 This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
-    */
+ */
 export declare enum DocumentReferenceStatus {
     CURRENT = "current",
     SUPERSEDED = "superseded",
     ENTERED_IN_ERROR = "entered-in-error"
 }
 /**
- * preliminary | final | appended | amended | entered-in-error
+ * preliminary | final | amended | entered-in-error
  * The status of the underlying document.
  * The document that is pointed to might be in various lifecycle states.
  */
 export declare enum DocumentReferenceReferredDocumentStatus {
     PRELIMINARY = "preliminary",
     FINAL = "final",
-    APPENDED = "appended",
     AMENDED = "amended",
     ENTERED_IN_ERROR = "entered-in-error"
 }
@@ -1324,22 +1458,6 @@ export declare enum EffectEvidenceSynthesisPublicationStatus {
 export declare enum EffectEvidenceSynthesisExposureState {
     EXPOSURE = "exposure",
     EXPOSURE_ALTERNATIVE = "exposure-alternative"
-}
-/**
- * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
- * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
- * Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes).
- */
-export declare enum EncounterStatus {
-    PLANNED = "planned",
-    ARRIVED = "arrived",
-    TRIAGED = "triaged",
-    IN_PROGRESS = "in-progress",
-    ONLEAVE = "onleave",
-    FINISHED = "finished",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
 }
 /**
  * planned | active | reserved | completed
@@ -1582,6 +1700,17 @@ export declare enum GraphDefinitionGraphCompartmentUse {
     REQUIREMENT = "requirement"
 }
 /**
+ * Patient | Encounter | RelatedPerson | Practitioner | Device
+ * Identifies the compartment.
+ */
+export declare enum GraphDefinitionCompartmentCode {
+    PATIENT = "Patient",
+    ENCOUNTER = "Encounter",
+    RELATEDPERSON = "RelatedPerson",
+    PRACTITIONER = "Practitioner",
+    DEVICE = "Device"
+}
+/**
  * identical | matching | different | custom
  * identical | matching | different | no-rule | custom.
  */
@@ -1635,7 +1764,7 @@ export declare enum HealthcareServiceDaysOfWeek {
  * The current state of the ImagingStudy.
  * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
  */
-export declare enum ImagingStudyImagingStudyStatus {
+export declare enum ImagingStudyStatus {
     REGISTERED = "registered",
     AVAILABLE = "available",
     CANCELLED = "cancelled",
@@ -1834,18 +1963,18 @@ export declare enum MeasureReportType {
     DATA_COLLECTION = "data-collection"
 }
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The current state of the {{title}}.
  * A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation
 
 Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
-    */
+ */
 export declare enum MediaStatus {
     PREPARATION = "preparation",
     IN_PROGRESS = "in-progress",
     NOT_DONE = "not-done",
-    SUSPENDED = "suspended",
-    ABORTED = "aborted",
+    ON_HOLD = "on-hold",
+    STOPPED = "stopped",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
     UNKNOWN = "unknown"
@@ -1875,7 +2004,7 @@ export declare enum MedicationAdministrationStatus {
     UNKNOWN = "unknown"
 }
 /**
- * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | unknown
+ * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown
  * A code specifying the state of the set of dispense events.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
@@ -1887,6 +2016,7 @@ export declare enum MedicationDispenseStatus {
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
     STOPPED = "stopped",
+    DECLINED = "declined",
     UNKNOWN = "unknown"
 }
 /**
@@ -1915,19 +2045,21 @@ export declare enum MedicationRequestStatus {
     UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | order | original-order | instance-order | option
+ * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, or an original order.
  * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
 
 An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
 
 This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-    */
+ */
 export declare enum MedicationRequestIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
     ORDER = "order",
     ORIGINAL_ORDER = "original-order",
+    REFLEX_ORDER = "reflex-order",
+    FILLER_ORDER = "filler-order",
     INSTANCE_ORDER = "instance-order",
     OPTION = "option"
 }
@@ -1947,7 +2079,7 @@ export declare enum MedicationRequestPriority {
  * MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 export declare enum MedicationStatementStatus {
     ACTIVE = "active",
     COMPLETED = "completed",
@@ -2076,45 +2208,34 @@ export declare enum NamingSystemIdentifierType {
     OTHER = "other"
 }
 /**
- * proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The workflow status of the nutrition order/request.
  * Typically the system placing the order sets the status to "requested". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
 export declare enum NutritionOrderStatus {
-    PROPOSED = "proposed",
     DRAFT = "draft",
-    PLANNED = "planned",
-    REQUESTED = "requested",
     ACTIVE = "active",
     ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error"
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
  * When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to "proposal, plan or order".  Can have multiple codes that map to one of these.  E.g. "original order", "encoded order", "reflex order" would all map to "order".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
  */
-export declare enum NutritiionOrderIntent {
+export declare enum NutritionOrderNutritiionOrderIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
-    ORDER = "order"
-}
-/**
- * registered | preliminary | final | amended +
- * The status of the result value.
- * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
- */
-export declare enum ObservationStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
+    DIRECTIVE = "directive",
+    ORDER = "order",
+    ORIGINAL_ORDER = "original-order",
+    REFLEX_ORDER = "reflex-order",
+    FILLER_ORDER = "filler-order",
+    INSTANCE_ORDER = "instance-order",
+    OPTION = "option"
 }
 /**
  * Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period
@@ -2255,7 +2376,7 @@ export declare enum PaymentNoticeStatus {
  * The status of the resource instance.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
-export declare enum PaymentReconciliationPaymentReconciliationStatus {
+export declare enum PaymentReconciliationStatus {
     ACTIVE = "active",
     CANCELLED = "cancelled",
     DRAFT = "draft",
@@ -2428,18 +2549,18 @@ export declare enum PractitionerRoleDaysOfWeek {
     SUN = "sun"
 }
 /**
- * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
+ * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.
  * The "unknown" code is not to be used to convey other statuses.  The "unknown" code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 export declare enum ProcedureStatus {
     PREPARATION = "preparation",
     IN_PROGRESS = "in-progress",
     NOT_DONE = "not-done",
-    SUSPENDED = "suspended",
-    ABORTED = "aborted",
+    ON_HOLD = "on-hold",
+    STOPPED = "stopped",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
     UNKNOWN = "unknown"
@@ -2465,30 +2586,6 @@ export declare enum QuestionnairePublicationStatus {
     ACTIVE = "active",
     RETIRED = "retired",
     UNKNOWN = "unknown"
-}
-/**
- * group | display | boolean | decimal | integer | date | dateTime +
- * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
- * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
- */
-export declare enum QuestionnaireItemType {
-    GROUP = "group",
-    DISPLAY = "display",
-    QUESTION = "question",
-    BOOLEAN = "boolean",
-    DECIMAL = "decimal",
-    INTEGER = "integer",
-    DATE = "date",
-    DATETIME = "dateTime",
-    TIME = "time",
-    STRING = "string",
-    TEXT = "text",
-    URL = "url",
-    CHOICE = "choice",
-    OPEN_CHOICE = "open-choice",
-    ATTACHMENT = "attachment",
-    REFERENCE = "reference",
-    QUANTITY = "quantity"
 }
 /**
  * exists | = | != | > | < | >= | <=
@@ -2535,26 +2632,32 @@ export declare enum RelatedPersonAdministrativeGender {
     UNKNOWN = "unknown"
 }
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
  */
 export declare enum RequestGroupRequestStatus {
     DRAFT = "draft",
     ACTIVE = "active",
-    SUSPENDED = "suspended",
-    CANCELLED = "cancelled",
+    ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
     UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | order
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
  */
 export declare enum RequestGroupRequestIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
-    ORDER = "order"
+    DIRECTIVE = "directive",
+    ORDER = "order",
+    ORIGINAL_ORDER = "original-order",
+    REFLEX_ORDER = "reflex-order",
+    FILLER_ORDER = "filler-order",
+    INSTANCE_ORDER = "instance-order",
+    OPTION = "option"
 }
 /**
  * routine | urgent | asap | stat
@@ -2726,20 +2829,6 @@ export declare enum ResearchSubjectStatus {
     WITHDRAWN = "withdrawn"
 }
 /**
- * registered | preliminary | final | amended +
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-export declare enum RiskAssessmentStatus {
-    REGISTERED = "registered",
-    PRELIMINARY = "preliminary",
-    FINAL = "final",
-    AMENDED = "amended",
-    CORRECTED = "corrected",
-    CANCELLED = "cancelled",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
  * draft | active | retired | unknown
  * The status of this risk evidence synthesis. Enables tracking the life-cycle of the content.
  * Allows filtering of risk evidence synthesiss that are appropriate for use versus not.
@@ -2765,7 +2854,7 @@ export declare enum SearchParameterPublicationStatus {
  * number | date | string | token | reference | composite | quantity | uri | special
  * The type of value that a search parameter may contain, and how the content is interpreted.
  */
-export declare enum SearchParamType {
+export declare enum SearchParameterSearchParamType {
     NUMBER = "number",
     DATE = "date",
     STRING = "string",
@@ -2822,28 +2911,29 @@ export declare enum SearchParameterSearchModifierCode {
     OFTYPE = "ofType"
 }
 /**
- * draft | active | suspended | completed | entered-in-error | cancelled
+ * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the order.
  * The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.
  */
 export declare enum ServiceRequestStatus {
     DRAFT = "draft",
     ACTIVE = "active",
-    SUSPENDED = "suspended",
+    ON_HOLD = "on-hold",
+    REVOKED = "revoked",
     COMPLETED = "completed",
     ENTERED_IN_ERROR = "entered-in-error",
-    CANCELLED = "cancelled"
+    UNKNOWN = "unknown"
 }
 /**
- * proposal | plan | order +
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
  * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
  */
 export declare enum ServiceRequestIntent {
     PROPOSAL = "proposal",
     PLAN = "plan",
-    ORDER = "order",
     DIRECTIVE = "directive",
+    ORDER = "order",
     ORIGINAL_ORDER = "original-order",
     REFLEX_ORDER = "reflex-order",
     FILLER_ORDER = "filler-order",
@@ -2876,7 +2966,7 @@ export declare enum SlotStatus {
  * The availability of the specimen.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
-export declare enum SpecimenSpecimenStatus {
+export declare enum SpecimenStatus {
     AVAILABLE = "available",
     UNAVAILABLE = "unavailable",
     UNSATISFACTORY = "unsatisfactory",
@@ -2998,35 +3088,12 @@ export declare enum StructureMapTargetListMode {
     COLLATE = "collate"
 }
 /**
- * create | copy +
- * How the data is copied / created.
- */
-export declare enum StructureMapTransform {
-    CREATE = "create",
-    COPY = "copy",
-    TRUNCATE = "truncate",
-    ESCAPE = "escape",
-    CAST = "cast",
-    APPEND = "append",
-    TRANSLATE = "translate",
-    REFERENCE = "reference",
-    DATE_OP = "dateOp",
-    UUID = "uuid",
-    POINTER = "pointer",
-    EVALUATE = "evaluate",
-    CC = "cc",
-    C = "c",
-    QTY = "qty",
-    ID = "id",
-    CP = "cp"
-}
-/**
  * requested | active | error | off
  * The status of the subscription, which marks the server state for managing the subscription.
  * A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 export declare enum SubscriptionStatus {
     REQUESTED = "requested",
     ACTIVE = "active",
@@ -3065,19 +3132,6 @@ export declare enum SupplyDeliveryStatus {
     ENTERED_IN_ERROR = "entered-in-error"
 }
 /**
- * draft | active | suspended +
- * Status of the supply request.
- */
-export declare enum SupplyRequestStatus {
-    DRAFT = "draft",
-    ACTIVE = "active",
-    SUSPENDED = "suspended",
-    CANCELLED = "cancelled",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error",
-    UNKNOWN = "unknown"
-}
-/**
  * routine | urgent | asap | stat
  * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
  */
@@ -3088,30 +3142,12 @@ export declare enum SupplyRequestRequestPriority {
     STAT = "stat"
 }
 /**
- * draft | requested | received | accepted | +
- * The current status of the task.
- */
-export declare enum TaskStatus {
-    DRAFT = "draft",
-    REQUESTED = "requested",
-    RECEIVED = "received",
-    ACCEPTED = "accepted",
-    REJECTED = "rejected",
-    READY = "ready",
-    CANCELLED = "cancelled",
-    IN_PROGRESS = "in-progress",
-    ON_HOLD = "on-hold",
-    FAILED = "failed",
-    COMPLETED = "completed",
-    ENTERED_IN_ERROR = "entered-in-error"
-}
-/**
  * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
  * This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
 
 In most cases, Tasks will have an intent of "order".
-    */
+ */
 export declare enum TaskIntent {
     UNKNOWN = "unknown",
     PROPOSAL = "proposal",
@@ -3168,7 +3204,7 @@ export declare enum TerminologyCapabilitiesCodeSearchSupport {
  * The status represents where the execution is currently within the test script execution life cycle.
 
 This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-    */
+ */
 export declare enum TestReportStatus {
     COMPLETED = "completed",
     IN_PROGRESS = "in-progress",
@@ -3347,204 +3383,215 @@ export declare enum VisionPrescriptionVisionBase {
     OUT = "out"
 }
 /**
- * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
- * https://www.i4mi.ti.bfh.ch
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * Indicates the status of the detected issue.
+ * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
  */
+export declare enum DetectedIssueStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type base64Binary
- * A stream of bytes, base64 encoded
- * A stream of bytes
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the result value.
+ * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
  */
-export declare type base64Binary = string;
+export declare enum ObservationStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type canonical
- * see [Canonical References](references.html#canonical)
- * A URI that is a reference to a canonical URL on a FHIR resource
+ * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
+ * The status of the diagnostic report.
  */
-export declare type canonical = string;
+export declare enum DiagnosticReportStatus {
+    REGISTERED = "registered",
+    PARTIAL = "partial",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    APPENDED = "appended",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type code
- * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+ * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
+ * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
  */
-export declare type code = string;
+export declare enum EncounterStatus {
+    PLANNED = "planned",
+    ARRIVED = "arrived",
+    TRIAGED = "triaged",
+    IN_PROGRESS = "in-progress",
+    ONLEAVE = "onleave",
+    FINISHED = "finished",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type date
- * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
+ * barcode | rfid | manual | card | self-reported | unknown
+ * A coded entry to indicate how the data was entered.
  */
-export declare type date = string;
+export declare enum DeviceUDIEntryType {
+    BARCODE = "barcode",
+    RFID = "rfid",
+    MANUAL = "manual",
+    CARD = "card",
+    SELF_REPORTED = "self-reported",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type dateTime
- * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+ * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
+ * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
+ * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
  */
-export declare type dateTime = string;
+export declare enum QuestionnaireItemType {
+    GROUP = "group",
+    DISPLAY = "display",
+    QUESTION = "question",
+    BOOLEAN = "boolean",
+    DECIMAL = "decimal",
+    INTEGER = "integer",
+    DATE = "date",
+    DATETIME = "dateTime",
+    TIME = "time",
+    STRING = "string",
+    TEXT = "text",
+    URL = "url",
+    CHOICE = "choice",
+    OPEN_CHOICE = "open-choice",
+    ATTACHMENT = "attachment",
+    REFERENCE = "reference",
+    QUANTITY = "quantity"
+}
 /**
- * Primitive Type decimal
- * Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)
- * A rational number with implicit precision
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
  */
-export declare type decimal = number;
+export declare enum RiskAssessmentStatus {
+    REGISTERED = "registered",
+    PRELIMINARY = "preliminary",
+    FINAL = "final",
+    AMENDED = "amended",
+    CORRECTED = "corrected",
+    CANCELLED = "cancelled",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type id
- * RFC 4122
- * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+ * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * Status of the supply request.
  */
-export declare type id = string;
+export declare enum SupplyRequestStatus {
+    DRAFT = "draft",
+    ACTIVE = "active",
+    SUSPENDED = "suspended",
+    CANCELLED = "cancelled",
+    COMPLETED = "completed",
+    ENTERED_IN_ERROR = "entered-in-error",
+    UNKNOWN = "unknown"
+}
 /**
- * Primitive Type instant
- * Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. Time zone is always required
- * An instant in time - known at least to the second
+ * active | completed | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
  */
-export declare type instant = string;
+export declare enum DeviceUseStatementStatus {
+    ACTIVE = "active",
+    COMPLETED = "completed",
+    ENTERED_IN_ERROR = "entered-in-error",
+    INTENDED = "intended",
+    STOPPED = "stopped",
+    ON_HOLD = "on-hold"
+}
 /**
- * Primitive Type integer
- * 32 bit number; for values larger than this, use decimal
- * A whole number
+ * draft | requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed | entered-in-error
+ * The current status of the task.
  */
-export declare type integer = number;
+export declare enum TaskStatus {
+    DRAFT = "draft",
+    REQUESTED = "requested",
+    RECEIVED = "received",
+    ACCEPTED = "accepted",
+    REJECTED = "rejected",
+    READY = "ready",
+    CANCELLED = "cancelled",
+    IN_PROGRESS = "in-progress",
+    ON_HOLD = "on-hold",
+    FAILED = "failed",
+    COMPLETED = "completed",
+    ENTERED_IN_ERROR = "entered-in-error"
+}
 /**
- * Primitive Type markdown
- * Systems are not required to have markdown support, so the text should be readable without markdown processing. The markdown syntax is GFM - see https://github.github.com/gfm/
- * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+ * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
+ * How the data is copied / created.
  */
-export declare type markdown = string;
-/**
- * Primitive Type oid
- * RFC 3001. See also ISO/IEC 8824:1990 €
- * An OID represented as a URI
- */
-export declare type oid = string;
-/**
- * Primitive Type positiveInt
- * An integer with a value that is positive (e.g. >0)
- */
-export declare type positiveInt = number;
-/**
- * Primitive Type time
- * A time during the day, with no date specified
- */
-export declare type time = string;
-/**
- * Primitive Type unsignedInt
- * An integer with a value that is not negative (e.g. >= 0)
- */
-export declare type unsignedInt = number;
-/**
- * Primitive Type uri
- * see http://en.wikipedia.org/wiki/Uniform_resource_identifier
- * String of characters used to identify a name or a resource
- */
-export declare type uri = string;
-/**
- * Primitive Type url
- * A URI that is a literal reference
- */
-export declare type url = string;
-/**
- * Primitive Type uuid
- * See The Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A.
- * A UUID, represented as a URI
- */
-export declare type uuid = string;
-/**
- * Primitive Type xhtml
- * XHTML
- */
-export declare type xhtml = string;
-/**
- * An address expressed using postal conventions (as opposed to GPS or other location definition formats)
- * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
- * Note: address is intended to describe postal addresses for administrative purposes, not to describe absolute geographical coordinates.  Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource).
- */
-export interface Address extends Element {
-    /**
-     * home | work | temp | old | billing - purpose of this address
-     * The purpose of this address.
-     * Applications can assume that an address is current unless it explicitly says that it is temporary or old.
-     */
-    use?: AddressUse;
-    /**
-     * postal | physical | both
-     * Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
-     * The definition of Address states that "address is intended to describe postal addresses, not physical locations". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource).
-     */
-    type?: AddressType;
-    /**
-     * Text representation of the address
-     * Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.
-     * Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part.
-     */
-    text?: string;
-    /**
-     * Extension for text
-     **/
-    _text?: Element;
-    /**
-     * Street name, number, direction & P.O. Box etc.
-     * This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.
-     */
-    line?: string[];
-    /**
-     * Extension for line
-     **/
-    _line?: Element[];
-    /**
-     * Name of city, town etc.
-     * The name of the city, town, suburb, village or other community or delivery center.
-     */
-    city?: string;
-    /**
-     * Extension for city
-     **/
-    _city?: Element;
-    /**
-     * District name (aka county)
-     * The name of the administrative area (county).
-     * District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead.
-     */
-    district?: string;
-    /**
-     * Extension for district
-     **/
-    _district?: Element;
-    /**
-     * Sub-unit of country (abbreviations ok)
-     * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).
-     */
-    state?: string;
-    /**
-     * Extension for state
-     **/
-    _state?: Element;
-    /**
-     * Postal code for area
-     * A postal code designating a region defined by the postal service.
-     */
-    postalCode?: string;
-    /**
-     * Extension for postalCode
-     **/
-    _postalCode?: Element;
-    /**
-     * Country (e.g. can be ISO 3166 2 or 3 letter code)
-     * Country - a nation as commonly understood or generally accepted.
-     * ISO 3166 3 letter codes can be used in place of a human readable country name.
-     */
-    country?: string;
-    /**
-     * Extension for country
-     **/
-    _country?: Element;
-    /**
-     * Time period when address was/is in use
-     * Time period when address was/is in use.
-     */
-    period?: Period;
+export declare enum StructureMapTransform {
+    CREATE = "create",
+    COPY = "copy",
+    TRUNCATE = "truncate",
+    ESCAPE = "escape",
+    CAST = "cast",
+    APPEND = "append",
+    TRANSLATE = "translate",
+    REFERENCE = "reference",
+    DATEOP = "dateOp",
+    UUID = "uuid",
+    POINTER = "pointer",
+    EVALUATE = "evaluate",
+    CC = "cc",
+    C = "c",
+    QTY = "qty",
+    ID = "id",
+    CP = "cp"
 }
 /**
  * A duration of time during which an organism (or a process) has existed
  * A duration of time during which an organism (or a process) has existed.
  */
 export interface Age extends Quantity {
+}
+/**
+ * A measured or measurable amount
+ * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
+ * The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator.
+ */
+export interface Count extends Quantity {
+}
+/**
+ * A length - a value with a unit that is a physical distance
+ * A length - a value with a unit that is a physical distance.
+ */
+export interface Distance extends Quantity {
+}
+/**
+ * A length of time
+ * A length of time.
+ */
+export interface Duration extends Quantity {
+}
+/**
+ * An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)
+ * There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = "urn:iso:std:iso:4217" - currency).
+ */
+export interface MoneyQuantity extends Quantity {
 }
 /**
  * Text node with attribution
@@ -3784,15 +3831,1210 @@ export interface ContactDetail extends Element {
     telecom?: ContactPoint[];
 }
 /**
+ * Amount of medication administered
+ * The amount of medication administered.
+ */
+export interface DosageDoseAndRate extends Element {
+    /**
+     * The kind of dose or rate specified
+     * The kind of dose or rate specified, for example, ordered or calculated.
+     */
+    type?: CodeableConcept;
+    /**
+     * Amount of medication per dose
+     * Amount of medication per dose.
+     * Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
+     */
+    doseRange?: Range;
+    /**
+     * Amount of medication per dose
+     * Amount of medication per dose.
+     * Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
+     */
+    doseQuantity?: Quantity;
+    /**
+     * Amount of medication per unit of time
+     * Amount of medication per unit of time.
+     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+     */
+    rateRatio?: Ratio;
+    /**
+     * Amount of medication per unit of time
+     * Amount of medication per unit of time.
+     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+     */
+    rateRange?: Range;
+    /**
+     * Amount of medication per unit of time
+     * Amount of medication per unit of time.
+     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+     */
+    rateQuantity?: Quantity;
+}
+/**
+ * How the medication is/was taken or should be taken
+ * Indicates how the medication is/was taken or should be taken by the patient.
+ */
+export interface Dosage extends BackboneElement {
+    /**
+     * The order of the dosage instructions
+     * Indicates the order in which the dosage instructions should be applied or interpreted.
+     */
+    sequence?: integer;
+    /**
+     * Extension for sequence
+     **/
+    _sequence?: Element;
+    /**
+     * Free text dosage instructions e.g. SIG
+     * Free text dosage instructions e.g. SIG.
+     */
+    text?: string;
+    /**
+     * Extension for text
+     **/
+    _text?: Element;
+    /**
+     * Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"
+     * Supplemental instructions to the patient on how to take the medication  (e.g. "with meals" or"take half to one hour before food") or warnings for the patient about the medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or sunlamps").
+     * Information about administration or preparation of the medication (e.g. "infuse as rapidly as possibly via intraperitoneal port" or "immediately following drug x") should be populated in dosage.text.
+     */
+    additionalInstruction?: CodeableConcept[];
+    /**
+     * Patient or consumer oriented instructions
+     * Instructions in terms that are understood by the patient or consumer.
+     */
+    patientInstruction?: string;
+    /**
+     * Extension for patientInstruction
+     **/
+    _patientInstruction?: Element;
+    /**
+     * When medication should be administered
+     * When medication should be administered.
+     * This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing.
+     */
+    timing?: Timing;
+    /**
+     * Take "as needed" (for x)
+     * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
+     * Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".
+     */
+    asNeededBoolean?: boolean;
+    /**
+     * Extension for asNeededBoolean
+     **/
+    _asNeededBoolean?: Element;
+    /**
+     * Take "as needed" (for x)
+     * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
+     * Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".
+     */
+    asNeededCodeableConcept?: CodeableConcept;
+    /**
+     * Body site to administer to
+     * Body site to administer to.
+     * If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both.
+     */
+    site?: CodeableConcept;
+    /**
+     * How drug should enter body
+     * How drug should enter body.
+     */
+    route?: CodeableConcept;
+    /**
+     * Technique for administering medication
+     * Technique for administering medication.
+     * Terminologies used often pre-coordinate this term with the route and or form of administration.
+     */
+    method?: CodeableConcept;
+    /**
+     * Amount of medication administered
+     * The amount of medication administered.
+     */
+    doseAndRate?: DosageDoseAndRate[];
+    /**
+     * Upper limit on medication per unit of time
+     * Upper limit on medication per unit of time.
+     * This is intended for use as an adjunct to the dosage when there is an upper cap.  For example "2 tablets every 4 hours to a maximum of 8/day".
+     */
+    maxDosePerPeriod?: Ratio;
+    /**
+     * Upper limit on medication per administration
+     * Upper limit on medication per administration.
+     * This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
+     */
+    maxDosePerAdministration?: Quantity;
+    /**
+     * Upper limit on medication per lifetime of the patient
+     * Upper limit on medication per lifetime of the patient.
+     */
+    maxDosePerLifetime?: Quantity;
+}
+/**
+ * Base for all elements
+ * Base definition for all elements in a resource.
+ */
+export interface Element {
+    /**
+     * Unique id for inter-element referencing
+     * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
+     */
+    id?: string;
+    /**
+     * Extension for id
+     **/
+    _id?: Element;
+    /**
+     * Additional content defined by implementations
+     * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
+     * There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
+     */
+    extension?: Extension[];
+}
+/**
+ * Optional Extensions Element
+ * Optional Extension Element - found in all resources.
+ */
+export interface Extension extends Element {
+    /**
+     * identifies the meaning of the extension
+     * Source of the definition for the extension code - a logical name or a URL.
+     * The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.
+     */
+    url: string;
+    /**
+     * Extension for url
+     **/
+    _url?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueBase64Binary?: base64Binary;
+    /**
+     * Extension for valueBase64Binary
+     **/
+    _valueBase64Binary?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueBoolean?: boolean;
+    /**
+     * Extension for valueBoolean
+     **/
+    _valueBoolean?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueCanonical?: canonical;
+    /**
+     * Extension for valueCanonical
+     **/
+    _valueCanonical?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueCode?: code;
+    /**
+     * Extension for valueCode
+     **/
+    _valueCode?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDate?: date;
+    /**
+     * Extension for valueDate
+     **/
+    _valueDate?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDateTime?: dateTime;
+    /**
+     * Extension for valueDateTime
+     **/
+    _valueDateTime?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDecimal?: decimal;
+    /**
+     * Extension for valueDecimal
+     **/
+    _valueDecimal?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueId?: id;
+    /**
+     * Extension for valueId
+     **/
+    _valueId?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueInstant?: instant;
+    /**
+     * Extension for valueInstant
+     **/
+    _valueInstant?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueInteger?: integer;
+    /**
+     * Extension for valueInteger
+     **/
+    _valueInteger?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueMarkdown?: markdown;
+    /**
+     * Extension for valueMarkdown
+     **/
+    _valueMarkdown?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueOid?: oid;
+    /**
+     * Extension for valueOid
+     **/
+    _valueOid?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valuePositiveInt?: positiveInt;
+    /**
+     * Extension for valuePositiveInt
+     **/
+    _valuePositiveInt?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueString?: string;
+    /**
+     * Extension for valueString
+     **/
+    _valueString?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueTime?: time;
+    /**
+     * Extension for valueTime
+     **/
+    _valueTime?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueUnsignedInt?: unsignedInt;
+    /**
+     * Extension for valueUnsignedInt
+     **/
+    _valueUnsignedInt?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueUri?: uri;
+    /**
+     * Extension for valueUri
+     **/
+    _valueUri?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueUrl?: url;
+    /**
+     * Extension for valueUrl
+     **/
+    _valueUrl?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueUuid?: uuid;
+    /**
+     * Extension for valueUuid
+     **/
+    _valueUuid?: Element;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueAddress?: Address;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueAge?: Age;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueAnnotation?: Annotation;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueAttachment?: Attachment;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueCodeableConcept?: CodeableConcept;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueCoding?: Coding;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueContactPoint?: ContactPoint;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueCount?: Count;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDistance?: Distance;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDuration?: Duration;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueHumanName?: HumanName;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueIdentifier?: Identifier;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueMoney?: Money;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valuePeriod?: Period;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueQuantity?: Quantity;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueRange?: Range;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueRatio?: Ratio;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueReference?: Reference;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueSampledData?: SampledData;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueSignature?: Signature;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueTiming?: Timing;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueContactDetail?: ContactDetail;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueContributor?: Contributor;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDataRequirement?: DataRequirement;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueExpression?: Expression;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueParameterDefinition?: ParameterDefinition;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueRelatedArtifact?: RelatedArtifact;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueTriggerDefinition?: TriggerDefinition;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueUsageContext?: UsageContext;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueDosage?: Dosage;
+    /**
+     * Value of extension
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+     */
+    valueMeta?: Meta;
+}
+/**
+ * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available
+ * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
+ */
+export interface MarketingStatus extends BackboneElement {
+    /**
+     * The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements
+     * The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements.
+     */
+    country: CodeableConcept;
+    /**
+     * Where a Medicines Regulatory Agency has granted a marketing authorisation for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified
+     * Where a Medicines Regulatory Agency has granted a marketing authorisation for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified.
+     */
+    jurisdiction?: CodeableConcept;
+    /**
+     * This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples
+     * This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples.
+     */
+    status: CodeableConcept;
+    /**
+     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
+     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain.
+     */
+    dateRange: Period;
+    /**
+     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
+     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain.
+     */
+    restoreDate?: dateTime;
+    /**
+     * Extension for restoreDate
+     **/
+    _restoreDate?: Element;
+}
+/**
+ * Metadata about a resource
+ * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
+ */
+export interface Meta extends Element {
+    /**
+     * Version specific identifier
+     * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
+     * The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes.
+     */
+    versionId?: id;
+    /**
+     * Extension for versionId
+     **/
+    _versionId?: Element;
+    /**
+     * When the resource version last changed
+     * When the resource last changed - e.g. when the version changed.
+     * This value is always populated except when the resource is first being created. The server / resource manager sets this value; what a client provides is irrelevant. This is equivalent to the HTTP Last-Modified and SHOULD have the same value on a [read](http.html#read) interaction.
+     */
+    lastUpdated?: instant;
+    /**
+     * Extension for lastUpdated
+     **/
+    _lastUpdated?: Element;
+    /**
+     * Identifies where the resource comes from
+     * A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
+     * In the provenance resource, this corresponds to Provenance.entity.what[x]. The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used.
+
+This element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL.
+     */
+    source?: uri;
+    /**
+     * Extension for source
+     **/
+    _source?: Element;
+    /**
+     * Profiles this resource claims to conform to
+     * A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition-definitions.html#StructureDefinition.url).
+     * It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set.
+     */
+    profile?: canonical[];
+    /**
+     * Extension for profile
+     **/
+    _profile?: Element[];
+    /**
+     * Security Labels applied to this resource
+     * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
+     * The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored.
+     */
+    security?: Coding[];
+    /**
+     * Tags applied to this resource
+     * Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
+     * The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored.
+     */
+    tag?: Coding[];
+}
+/**
+ * An amount of economic utility in some recognized currency
+ * An amount of economic utility in some recognized currency.
+ */
+export interface Money extends Element {
+    /**
+     * Numerical value (with implicit precision)
+     * Numerical value (with implicit precision).
+     * Monetary values have their own rules for handling precision (refer to standard accounting text books).
+     */
+    value?: decimal;
+    /**
+     * Extension for value
+     **/
+    _value?: Element;
+    /**
+     * ISO 4217 Currency Code
+     * ISO 4217 Currency Code.
+     */
+    currency?: code;
+    /**
+     * Extension for currency
+     **/
+    _currency?: Element;
+}
+/**
+ * Time range defined by start and end date/time
+ * A time period defined by a start and end date and optionally time.
+ * A Period specifies a range of time; the context of use will specify whether the entire range applies (e.g. "the patient was an inpatient of the hospital for this time range") or one value from the range applies (e.g. "give to the patient between these two times").
+
+Period is not used for a duration (a measure of elapsed time). See [Duration](datatypes.html#Duration).
+ */
+export interface Period extends Element {
+    /**
+     * Starting time with inclusive boundary
+     * The start of the period. The boundary is inclusive.
+     * If the low element is missing, the meaning is that the low boundary is not known.
+     */
+    start?: dateTime;
+    /**
+     * Extension for start
+     **/
+    _start?: Element;
+    /**
+     * End time with inclusive boundary, if not ongoing
+     * The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
+     * The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03.
+     */
+    end?: dateTime;
+    /**
+     * Extension for end
+     **/
+    _end?: Element;
+}
+/**
+ * A definition of a set of people that apply to some clinically related context, for example people contraindicated for a certain medication
+ * A populatioof people with some set of grouping criteria.
+ */
+export interface Population extends BackboneElement {
+    /**
+     * The age of the specific population
+     * The age of the specific population.
+     */
+    ageRange?: Range;
+    /**
+     * The age of the specific population
+     * The age of the specific population.
+     */
+    ageCodeableConcept?: CodeableConcept;
+    /**
+     * The gender of the specific population
+     * The gender of the specific population.
+     */
+    gender?: CodeableConcept;
+    /**
+     * Race of the specific population
+     * Race of the specific population.
+     */
+    race?: CodeableConcept;
+    /**
+     * The existing physiological conditions of the specific population to which this applies
+     * The existing physiological conditions of the specific population to which this applies.
+     */
+    physiologicalCondition?: CodeableConcept;
+}
+/**
+ * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available
+ * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
+ */
+export interface ProdCharacteristic extends BackboneElement {
+    /**
+     * Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    height?: Quantity;
+    /**
+     * Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    width?: Quantity;
+    /**
+     * Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    depth?: Quantity;
+    /**
+     * Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    weight?: Quantity;
+    /**
+     * Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    nominalVolume?: Quantity;
+    /**
+     * Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    externalDiameter?: Quantity;
+    /**
+     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
+     */
+    shape?: string;
+    /**
+     * Extension for shape
+     **/
+    _shape?: Element;
+    /**
+     * Where applicable, the color can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+     * Where applicable, the color can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
+     */
+    color?: string[];
+    /**
+     * Extension for color
+     **/
+    _color?: Element[];
+    /**
+     * Where applicable, the imprint can be specified as text
+     * Where applicable, the imprint can be specified as text.
+     */
+    imprint?: string[];
+    /**
+     * Extension for imprint
+     **/
+    _imprint?: Element[];
+    /**
+     * Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations
+     * Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations.
+     */
+    image?: Attachment[];
+    /**
+     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
+     */
+    scoring?: CodeableConcept;
+}
+/**
+ * The shelf-life and storage information for a medicinal product item or container can be described using this class
+ * The shelf-life and storage information for a medicinal product item or container can be described using this class.
+ */
+export interface ProductShelfLife extends BackboneElement {
+    /**
+     * Unique identifier for the packaged Medicinal Product
+     * Unique identifier for the packaged Medicinal Product.
+     */
+    identifier?: Identifier;
+    /**
+     * This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+     * This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified.
+     */
+    type: CodeableConcept;
+    /**
+     * The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+     * The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
+     */
+    period: Quantity;
+    /**
+     * Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+     * Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified.
+     */
+    specialPrecautionsForStorage?: CodeableConcept[];
+}
+/**
+ * Set of values bounded by low and high
+ * A set of ordered Quantities defined by a low and high limit.
+ * The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3.
+ */
+export interface Range extends Element {
+    /**
+     * Low limit
+     * The low limit. The boundary is inclusive.
+     * If the low element is missing, the low boundary is not known.
+     */
+    low?: Quantity;
+    /**
+     * High limit
+     * The high limit. The boundary is inclusive.
+     * If the high element is missing, the high boundary is not known.
+     */
+    high?: Quantity;
+}
+/**
+ * A ratio of two Quantity values - a numerator and a denominator
+ * A relationship of two Quantity values - expressed as a numerator and a denominator.
+ * The Ratio datatype should only be used to express a relationship of two numbers if the relationship cannot be suitably expressed using a Quantity and a common unit.  Where the denominator value is known to be fixed to "1", Quantity should be used instead of Ratio.
+ */
+export interface Ratio extends Element {
+    /**
+     * Numerator value
+     * The value of the numerator.
+     */
+    numerator?: Quantity;
+    /**
+     * Denominator value
+     * The value of the denominator.
+     */
+    denominator?: Quantity;
+}
+/**
+ * A reference from one resource to another
+ * A reference from one resource to another.
+ * References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL and looking it up in a local registry/repository.
+ */
+export interface Reference extends Element {
+    /**
+     * Literal reference, Relative, internal or absolute URL
+     * A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
+     * Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure "/[type]/[id]" then it should be assumed that the reference is to a FHIR RESTful server.
+     */
+    reference?: string;
+    /**
+     * Extension for reference
+     **/
+    _reference?: Element;
+    /**
+     * Type the reference refers to (e.g. "Patient")
+     * The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.
+
+The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. "Patient" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).
+     * This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.
+     */
+    type?: uri;
+    /**
+     * Extension for type
+     **/
+    _type?: Element;
+    /**
+     * Logical reference, when literal reference is not known
+     * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
+     * When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy.
+
+When both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference
+
+Applications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.
+
+Reference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).
+     */
+    identifier?: Identifier;
+    /**
+     * Text alternative for the resource
+     * Plain text narrative that identifies the resource in addition to the resource reference.
+     * This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.
+     */
+    display?: string;
+    /**
+     * Extension for display
+     **/
+    _display?: Element;
+}
+/**
+ * A series of measurements taken by a device
+ * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
+ * The data is not interpretable without at least origin, period, and dimensions, but these are optional to allow a separation between the template of measurement and the actual measurement, such as between DeviceCapabilities and DeviceLog.  When providing a summary view (for example with Observation.value[x]) SampledData should be represented with a brief display text such as "Sampled Data".
+ */
+export interface SampledData extends Element {
+    /**
+     * Zero value and units
+     * The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.
+     */
+    origin: Quantity;
+    /**
+     * Number of milliseconds between samples
+     * The length of time between sampling times, measured in milliseconds.
+     * This is usually a whole number.
+     */
+    period: decimal;
+    /**
+     * Extension for period
+     **/
+    _period?: Element;
+    /**
+     * Multiply data by this before adding to origin
+     * A correction factor that is applied to the sampled data points before they are added to the origin.
+     */
+    factor?: decimal;
+    /**
+     * Extension for factor
+     **/
+    _factor?: Element;
+    /**
+     * Lower limit of detection
+     * The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+     */
+    lowerLimit?: decimal;
+    /**
+     * Extension for lowerLimit
+     **/
+    _lowerLimit?: Element;
+    /**
+     * Upper limit of detection
+     * The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+     */
+    upperLimit?: decimal;
+    /**
+     * Extension for upperLimit
+     **/
+    _upperLimit?: Element;
+    /**
+     * Number of sample points at each time point
+     * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
+     * If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data).
+     */
+    dimensions: positiveInt;
+    /**
+     * Extension for dimensions
+     **/
+    _dimensions?: Element;
+    /**
+     * Decimal values with spaces, or "E" | "U" | "L"
+     * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
+     * Data may be missing if it is omitted for summarization purposes. In general, data is required for any actual use of a SampledData.
+     */
+    data?: string;
+    /**
+     * Extension for data
+     **/
+    _data?: Element;
+}
+/**
+ * A Signature - XML DigSig, JWS, Graphical image of signature, etc.
+ * A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
+ * The elements of the Signature Resource are for ease of access of these elements. For digital signatures (Xml DigSig, JWS), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form.
+ */
+export interface Signature extends Element {
+    /**
+     * Indication of the reason the entity signed the object(s)
+     * An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
+     * Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;.
+     */
+    type: Coding[];
+    /**
+     * When the signature was created
+     * When the digital signature was signed.
+     * This should agree with the information in the signature.
+     */
+    when: instant;
+    /**
+     * Extension for when
+     **/
+    _when?: Element;
+    /**
+     * Who signed
+     * A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).
+     * This should agree with the information in the signature.
+     */
+    who: Reference;
+    /**
+     * The party represented
+     * A reference to an application-usable description of the identity that is represented by the signature.
+     * The party that can't sign. For example a child.
+     */
+    onBehalfOf?: Reference;
+    /**
+     * The technical format of the signed resources
+     * A mime type that indicates the technical format of the target resources signed by the signature.
+     * "xml", "json" and "ttl" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
+     */
+    targetFormat?: code;
+    /**
+     * Extension for targetFormat
+     **/
+    _targetFormat?: Element;
+    /**
+     * The technical format of the signature
+     * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
+     */
+    sigFormat?: code;
+    /**
+     * Extension for sigFormat
+     **/
+    _sigFormat?: Element;
+    /**
+     * The actual signature content (XML DigSig. JWS, picture, etc.)
+     * The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
+     * Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) "Detached Signature" form.
+     */
+    data?: base64Binary;
+    /**
+     * Extension for data
+     **/
+    _data?: Element;
+}
+/**
+ * A fixed quantity (no comparator)
+ * The comparator is not used on a SimpleQuantity
+ */
+export interface SimpleQuantity extends Quantity {
+    /**
+     * Not allowed to be used in this context
+     */
+    comparator?: undefined;
+}
+/**
+ * Reference range of possible or expected values
+ * Reference range of possible or expected values.
+ */
+export interface SubstanceAmountReferenceRange extends Element {
+    /**
+     * Lower limit possible or expected
+     * Lower limit possible or expected.
+     */
+    lowLimit?: Quantity;
+    /**
+     * Upper limit possible or expected
+     * Upper limit possible or expected.
+     */
+    highLimit?: Quantity;
+}
+/**
+ * Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID
+ * Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.
+ */
+export interface SubstanceAmount extends BackboneElement {
+    /**
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
+     */
+    amountQuantity?: Quantity;
+    /**
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
+     */
+    amountRange?: Range;
+    /**
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
+     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
+     */
+    amountString?: string;
+    /**
+     * Extension for amountString
+     **/
+    _amountString?: Element;
+    /**
+     * Most elements that require a quantitative value will also have a field called amount type. Amount type should always be specified because the actual value of the amount is often dependent on it. EXAMPLE: In capturing the actual relative amounts of substances or molecular fragments it is essential to indicate whether the amount refers to a mole ratio or weight ratio. For any given element an effort should be made to use same the amount type for all related definitional elements
+     * Most elements that require a quantitative value will also have a field called amount type. Amount type should always be specified because the actual value of the amount is often dependent on it. EXAMPLE: In capturing the actual relative amounts of substances or molecular fragments it is essential to indicate whether the amount refers to a mole ratio or weight ratio. For any given element an effort should be made to use same the amount type for all related definitional elements.
+     */
+    amountType?: CodeableConcept;
+    /**
+     * A textual comment on a numeric value
+     * A textual comment on a numeric value.
+     */
+    amountText?: string;
+    /**
+     * Extension for amountText
+     **/
+    _amountText?: Element;
+    /**
+     * Reference range of possible or expected values
+     * Reference range of possible or expected values.
+     */
+    referenceRange?: SubstanceAmountReferenceRange;
+}
+/**
+ * Describes the context of use for a conformance or knowledge resource
+ * Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
+ */
+export interface UsageContext extends Element {
+    /**
+     * Type of context being specified
+     * A code that identifies the type of context being specified by this usage context.
+     */
+    code: Coding;
+    /**
+     * Value that defines the context
+     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
+     */
+    valueCodeableConcept?: CodeableConcept;
+    /**
+     * Value that defines the context
+     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
+     */
+    valueQuantity?: Quantity;
+    /**
+     * Value that defines the context
+     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
+     */
+    valueRange?: Range;
+    /**
+     * Value that defines the context
+     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
+     */
+    valueReference?: Reference;
+}
+/**
+ * An address expressed using postal conventions (as opposed to GPS or other location definition formats)
+ * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
+ * Note: address is intended to describe postal addresses for administrative purposes, not to describe absolute geographical coordinates.  Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource).
+ */
+export interface Address extends Element {
+    /**
+     * Text representation of the address
+     * Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.
+     * Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part.
+     */
+    text?: string;
+    /**
+     * Extension for text
+     **/
+    _text?: Element;
+    /**
+     * Street name, number, direction & P.O. Box etc.
+     * This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.
+     */
+    line?: string[];
+    /**
+     * Extension for line
+     **/
+    _line?: Element[];
+    /**
+     * Name of city, town etc.
+     * The name of the city, town, suburb, village or other community or delivery center.
+     */
+    city?: string;
+    /**
+     * Extension for city
+     **/
+    _city?: Element;
+    /**
+     * District name (aka county)
+     * The name of the administrative area (county).
+     * District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead.
+     */
+    district?: string;
+    /**
+     * Extension for district
+     **/
+    _district?: Element;
+    /**
+     * Sub-unit of country (abbreviations ok)
+     * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).
+     */
+    state?: string;
+    /**
+     * Extension for state
+     **/
+    _state?: Element;
+    /**
+     * Postal code for area
+     * A postal code designating a region defined by the postal service.
+     */
+    postalCode?: string;
+    /**
+     * Extension for postalCode
+     **/
+    _postalCode?: Element;
+    /**
+     * Country (e.g. can be ISO 3166 2 or 3 letter code)
+     * Country - a nation as commonly understood or generally accepted.
+     * ISO 3166 3 letter codes can be used in place of a human readable country name.
+     */
+    country?: string;
+    /**
+     * Extension for country
+     **/
+    _country?: Element;
+    /**
+     * Time period when address was/is in use
+     * Time period when address was/is in use.
+     */
+    period?: Period;
+    /**
+     * home | work | temp | old | billing - purpose of this address
+     * The purpose of this address.
+     * Applications can assume that an address is current unless it explicitly says that it is temporary or old.
+     */
+    use?: AddressUse;
+    /**
+     * postal | physical | both
+     * Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
+     * The definition of Address states that "address is intended to describe postal addresses, not physical locations". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource).
+     */
+    type?: AddressType;
+}
+/**
  * Details of a Technology mediated contact point (phone, fax, email, etc.)
  * Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
  */
 export interface ContactPoint extends Element {
-    /**
-     * phone | fax | email | pager | url | sms | other
-     * Telecommunications form for contact point - what communications system is required to make use of the contact.
-     */
-    system?: ContactPointSystem;
     /**
      * The actual contact point details
      * The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
@@ -3803,12 +5045,6 @@ export interface ContactPoint extends Element {
      * Extension for value
      **/
     _value?: Element;
-    /**
-     * home | work | temp | old | mobile - purpose of this contact point
-     * Identifies the purpose for the contact point.
-     * Applications can assume that a contact is current unless it explicitly says that it is temporary or old.
-     */
-    use?: ContactPointUse;
     /**
      * Specify preferred order of use (1 = highest)
      * Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.
@@ -3824,17 +5060,23 @@ export interface ContactPoint extends Element {
      * Time period when the contact point was/is in use.
      */
     period?: Period;
+    /**
+     * phone | fax | email | pager | url | sms | other
+     * Telecommunications form for contact point - what communications system is required to make use of the contact.
+     */
+    system?: ContactPointSystem;
+    /**
+     * home | work | temp | old | mobile - purpose of this contact point
+     * Identifies the purpose for the contact point.
+     * Applications can assume that a contact is current unless it explicitly says that it is temporary or old.
+     */
+    use?: ContactPointUse;
 }
 /**
  * Contributor information
  * A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers.
  */
 export interface Contributor extends Element {
-    /**
-     * author | editor | reviewer | endorser
-     * The type of contributor.
-     */
-    type: ContributorType;
     /**
      * Who contributed the content
      * The name of the individual or organization responsible for the contribution.
@@ -3849,13 +5091,11 @@ export interface Contributor extends Element {
      * Contact details to assist a user in finding and communicating with the contributor.
      */
     contact?: ContactDetail[];
-}
-/**
- * A measured or measurable amount
- * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
- * The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator.
- */
-export interface Count extends Quantity {
+    /**
+     * author | editor | reviewer | endorser
+     * The type of contributor.
+     */
+    type: ContributorType;
 }
 /**
  * What codes are expected
@@ -4035,192 +5275,11 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     sort?: DataRequirementSort[];
 }
 /**
- * A length - a value with a unit that is a physical distance
- * A length - a value with a unit that is a physical distance.
- */
-export interface Distance extends Quantity {
-}
-/**
- * Amount of medication administered
- * The amount of medication administered.
- */
-export interface DosageDoseAndRate extends Element {
-    /**
-     * The kind of dose or rate specified
-     * The kind of dose or rate specified, for example, ordered or calculated.
-     */
-    type?: CodeableConcept;
-    /**
-     * Amount of medication per dose
-     * Amount of medication per dose.
-     * Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
-     */
-    doseRange?: Range;
-    /**
-     * Amount of medication per dose
-     * Amount of medication per dose.
-     * Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
-     */
-    doseQuantity?: Quantity;
-    /**
-     * Amount of medication per unit of time
-     * Amount of medication per unit of time.
-     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
-
-It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
-     */
-    rateRatio?: Ratio;
-    /**
-     * Amount of medication per unit of time
-     * Amount of medication per unit of time.
-     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
-
-It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
-     */
-    rateRange?: Range;
-    /**
-     * Amount of medication per unit of time
-     * Amount of medication per unit of time.
-     * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
-
-It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammer where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
-     */
-    rateQuantity?: Quantity;
-}
-/**
- * How the medication is/was taken or should be taken
- * Indicates how the medication is/was taken or should be taken by the patient.
- */
-export interface Dosage extends BackboneElement {
-    /**
-     * The order of the dosage instructions
-     * Indicates the order in which the dosage instructions should be applied or interpreted.
-     */
-    sequence?: integer;
-    /**
-     * Extension for sequence
-     **/
-    _sequence?: Element;
-    /**
-     * Free text dosage instructions e.g. SIG
-     * Free text dosage instructions e.g. SIG.
-     */
-    text?: string;
-    /**
-     * Extension for text
-     **/
-    _text?: Element;
-    /**
-     * Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"
-     * Supplemental instructions to the patient on how to take the medication  (e.g. "with meals" or"take half to one hour before food") or warnings for the patient about the medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or sunlamps").
-     * Information about administration or preparation of the medication (e.g. "infuse as rapidly as possibly via intraperitoneal port" or "immediately following drug x") should be populated in dosage.text.
-     */
-    additionalInstruction?: CodeableConcept[];
-    /**
-     * Patient or consumer oriented instructions
-     * Instructions in terms that are understood by the patient or consumer.
-     */
-    patientInstruction?: string;
-    /**
-     * Extension for patientInstruction
-     **/
-    _patientInstruction?: Element;
-    /**
-     * When medication should be administered
-     * When medication should be administered.
-     * This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing.
-     */
-    timing?: Timing;
-    /**
-     * Take "as needed" (for x)
-     * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
-     * Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".
-     */
-    asNeededBoolean?: boolean;
-    /**
-     * Extension for asNeededBoolean
-     **/
-    _asNeededBoolean?: Element;
-    /**
-     * Take "as needed" (for x)
-     * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
-     * Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not "prn" or "as needed".
-     */
-    asNeededCodeableConcept?: CodeableConcept;
-    /**
-     * Body site to administer to
-     * Body site to administer to.
-     * If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both.
-     */
-    site?: CodeableConcept;
-    /**
-     * How drug should enter body
-     * How drug should enter body.
-     */
-    route?: CodeableConcept;
-    /**
-     * Technique for administering medication
-     * Technique for administering medication.
-     * Terminologies used often pre-coordinate this term with the route and or form of administration.
-     */
-    method?: CodeableConcept;
-    /**
-     * Amount of medication administered
-     * The amount of medication administered.
-     */
-    doseAndRate?: DosageDoseAndRate[];
-    /**
-     * Upper limit on medication per unit of time
-     * Upper limit on medication per unit of time.
-     * This is intended for use as an adjunct to the dosage when there is an upper cap.  For example "2 tablets every 4 hours to a maximum of 8/day".
-     */
-    maxDosePerPeriod?: Ratio;
-    /**
-     * Upper limit on medication per administration
-     * Upper limit on medication per administration.
-     * This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
-     */
-    maxDosePerAdministration?: Quantity;
-    /**
-     * Upper limit on medication per lifetime of the patient
-     * Upper limit on medication per lifetime of the patient.
-     */
-    maxDosePerLifetime?: Quantity;
-}
-/**
- * A length of time
- * A length of time.
- */
-export interface Duration extends Quantity {
-}
-/**
- * Base for all elements
- * Base definition for all elements in a resource.
- */
-export interface Element {
-    /**
-     * Unique id for inter-element referencing
-     * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
-     */
-    id?: id;
-    /**
-     * Additional content defined by implementations
-     * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
-     * There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.
-     */
-    extension?: Extension[];
-}
-/**
  * Element values that are used to distinguish the slices
  * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
  * If there is no discriminator, the content is hard to process, so this should be avoided.
  */
 export interface ElementDefinitionSlicingDiscriminator extends Element {
-    /**
-     * value | exists | pattern | type | profile
-     * How the element value is interpreted when discrimination is evaluated.
-     */
-    type: ElementDefinitionDiscriminatorType;
     /**
      * Path to element value
      * A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
@@ -4231,6 +5290,11 @@ export interface ElementDefinitionSlicingDiscriminator extends Element {
      * Extension for path
      **/
     _path?: Element;
+    /**
+     * value | exists | pattern | type | profile
+     * How the element value is interpreted when discrimination is evaluated.
+     */
+    type: ElementDefinitionDiscriminatorType;
 }
 /**
  * This element is sliced - slices follow
@@ -4691,6 +5755,11 @@ export interface ElementDefinitionExample extends Element {
      * The actual value for the element, which must be one of the types allowed for this element.
      */
     valueDosage?: Dosage;
+    /**
+     * Value of Example (one of allowed types)
+     * The actual value for the element, which must be one of the types allowed for this element.
+     */
+    valueMeta?: Meta;
 }
 /**
  * Condition that must evaluate to true
@@ -4717,12 +5786,6 @@ export interface ElementDefinitionConstraint extends Element {
      * Extension for requirements
      **/
     _requirements?: Element;
-    /**
-     * error | warning
-     * Identifies the impact constraint violation has on the conformance of the instance.
-     * This allows constraints to be asserted as "shall" (error) and "should" (warning).
-     */
-    severity: ElementDefinitionConstraintSeverity;
     /**
      * Human description of constraint
      * Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
@@ -4763,6 +5826,12 @@ export interface ElementDefinitionConstraint extends Element {
      * Extension for source
      **/
     _source?: Element;
+    /**
+     * error | warning
+     * Identifies the impact constraint violation has on the conformance of the instance.
+     * This allows constraints to be asserted as "shall" (error) and "should" (warning).
+     */
+    severity: ElementDefinitionConstraintSeverity;
 }
 /**
  * ValueSet details if this is coded
@@ -4770,12 +5839,6 @@ export interface ElementDefinitionConstraint extends Element {
  * For a CodeableConcept, when no codes are allowed - only text, use a binding of strength "required" with a description explaining that no coded values are allowed and what sort of information to put in the "text" element.
  */
 export interface ElementDefinitionBinding extends Element {
-    /**
-     * required | extensible | preferred | example
-     * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-     * For further discussion, see [Using Terminologies](terminologies.html).
-     */
-    strength: ElementDefinitionBindingStrength;
     /**
      * Human explanation of the value set
      * Describes the intended use of this particular set of codes.
@@ -4795,6 +5858,12 @@ export interface ElementDefinitionBinding extends Element {
      * Extension for valueSet
      **/
     _valueSet?: Element;
+    /**
+     * required | extensible | preferred | example
+     * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+     * For further discussion, see [Using Terminologies](terminologies.html).
+     */
+    strength: ElementDefinitionBindingStrength;
 }
 /**
  * Map element to another set of definitions
@@ -4855,12 +5924,6 @@ export interface ElementDefinition extends BackboneElement {
      * Extension for path
      **/
     _path?: Element;
-    /**
-     * xmlAttr | xmlText | typeAttr | cdaText | xhtml
-     * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
-     * In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.).
-     */
-    representation?: ElementDefinitionPropertyRepresentation[];
     /**
      * Name for this particular element (in a set of slices)
      * The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
@@ -5461,6 +6524,14 @@ No default values are ever defined in the FHIR specification, nor can they be de
      */
     defaultValueDosage?: Dosage;
     /**
+     * Specified value if missing from instance
+     * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+     * Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed, or changed in constraints on content models. Defining default values creates many difficulties in implementation (e.g. when is a value missing?). For these reasons, default values are (and should be) used extremely sparingly.
+
+No default values are ever defined in the FHIR specification, nor can they be defined in constraints ("profiles") on data types or resources. This element only exists so that default values may be defined in logical models.
+     */
+    defaultValueMeta?: Meta;
+    /**
      * Implicit meaning when this element is missing
      * The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing').
      * Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope.
@@ -5850,6 +6921,12 @@ No default values are ever defined in the FHIR specification, nor can they be de
      * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
      */
     fixedDosage?: Dosage;
+    /**
+     * Value must be exactly this
+     * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+     * This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.
+     */
+    fixedMeta?: Meta;
     /**
      * Value must have at least these property values
      * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.
@@ -6711,6 +7788,22 @@ When pattern[x] is used to constrain a complex object, it means that each proper
      */
     patternDosage?: Dosage;
     /**
+     * Value must have at least these property values
+     * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.
+
+When pattern[x] is used to constrain a primitive, it means that the value provided in the pattern[x] must match the instance value exactly.
+
+When pattern[x] is used to constrain an array, it means that each element provided in the pattern[x] array must (recursively) match at least one element from the instance array.
+
+When pattern[x] is used to constrain a complex object, it means that each property in the pattern must be present in the complex object, and its value must recursively match -- i.e.,
+
+1. If primitive: it must match exactly the pattern value
+2. If a complex object: it must match (recursively) the pattern value
+3. If an array: it must match (recursively) the pattern value.
+     * Mostly used for fixing values of CodeableConcept. In general, pattern[x] is not intended for use with primitive types, where is has the same meaning as fixed[x].
+     */
+    patternMeta?: Meta;
+    /**
      * Example value (as defined for type)
      * A sample value for this element demonstrating the type of information that would typically be found in the element.
      * Examples will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
@@ -6964,6 +8057,12 @@ When pattern[x] is used to constrain a complex object, it means that each proper
      * Mappings are not necessarily specific enough for safe translation.
      */
     mapping?: ElementDefinitionMapping[];
+    /**
+     * xmlAttr | xmlText | typeAttr | cdaText | xhtml
+     * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
+     * In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.).
+     */
+    representation?: ElementDefinitionPropertyRepresentation[];
 }
 /**
  * An expression that can be used to generate a value
@@ -6989,11 +8088,6 @@ export interface Expression extends Element {
      **/
     _name?: Element;
     /**
-     * text/cql | text/fhirpath | application/x-fhir-query | etc.
-     * The media type of the language for the expression.
-     */
-    language: Expressionundefined;
-    /**
      * Expression in specified language
      * An expression in the specified language that returns a value.
      */
@@ -7012,339 +8106,11 @@ export interface Expression extends Element {
      * Extension for reference
      **/
     _reference?: Element;
-}
-/**
- * Optional Extensions Element
- * Optional Extension Element - found in all resources.
- */
-export interface Extension extends Element {
     /**
-     * identifies the meaning of the extension
-     * Source of the definition for the extension code - a logical name or a URL.
-     * The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.
+     * text/cql | text/fhirpath | application/x-fhir-query | etc.
+     * The media type of the language for the expression.
      */
-    url: uri;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueBase64Binary?: base64Binary;
-    /**
-     * Extension for valueBase64Binary
-     **/
-    _valueBase64Binary?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueBoolean?: boolean;
-    /**
-     * Extension for valueBoolean
-     **/
-    _valueBoolean?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueCanonical?: canonical;
-    /**
-     * Extension for valueCanonical
-     **/
-    _valueCanonical?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueCode?: code;
-    /**
-     * Extension for valueCode
-     **/
-    _valueCode?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDate?: date;
-    /**
-     * Extension for valueDate
-     **/
-    _valueDate?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDateTime?: dateTime;
-    /**
-     * Extension for valueDateTime
-     **/
-    _valueDateTime?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDecimal?: decimal;
-    /**
-     * Extension for valueDecimal
-     **/
-    _valueDecimal?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueId?: id;
-    /**
-     * Extension for valueId
-     **/
-    _valueId?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueInstant?: instant;
-    /**
-     * Extension for valueInstant
-     **/
-    _valueInstant?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueInteger?: integer;
-    /**
-     * Extension for valueInteger
-     **/
-    _valueInteger?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueMarkdown?: markdown;
-    /**
-     * Extension for valueMarkdown
-     **/
-    _valueMarkdown?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueOid?: oid;
-    /**
-     * Extension for valueOid
-     **/
-    _valueOid?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valuePositiveInt?: positiveInt;
-    /**
-     * Extension for valuePositiveInt
-     **/
-    _valuePositiveInt?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueString?: string;
-    /**
-     * Extension for valueString
-     **/
-    _valueString?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueTime?: time;
-    /**
-     * Extension for valueTime
-     **/
-    _valueTime?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueUnsignedInt?: unsignedInt;
-    /**
-     * Extension for valueUnsignedInt
-     **/
-    _valueUnsignedInt?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueUri?: uri;
-    /**
-     * Extension for valueUri
-     **/
-    _valueUri?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueUrl?: url;
-    /**
-     * Extension for valueUrl
-     **/
-    _valueUrl?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueUuid?: uuid;
-    /**
-     * Extension for valueUuid
-     **/
-    _valueUuid?: Element;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueAddress?: Address;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueAge?: Age;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueAnnotation?: Annotation;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueAttachment?: Attachment;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueCodeableConcept?: CodeableConcept;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueCoding?: Coding;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueContactPoint?: ContactPoint;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueCount?: Count;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDistance?: Distance;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDuration?: Duration;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueHumanName?: HumanName;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueIdentifier?: Identifier;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueMoney?: Money;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valuePeriod?: Period;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueQuantity?: Quantity;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueRange?: Range;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueRatio?: Ratio;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueReference?: Reference;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueSampledData?: SampledData;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueSignature?: Signature;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueTiming?: Timing;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueContactDetail?: ContactDetail;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueContributor?: Contributor;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDataRequirement?: DataRequirement;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueExpression?: Expression;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueParameterDefinition?: ParameterDefinition;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueRelatedArtifact?: RelatedArtifact;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueTriggerDefinition?: TriggerDefinition;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueUsageContext?: UsageContext;
-    /**
-     * Value of extension
-     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
-     */
-    valueDosage?: Dosage;
+    language: Expressionundefined;
 }
 /**
  * Name of a human - parts and usage
@@ -7352,12 +8118,6 @@ export interface Extension extends Element {
  * Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts might or might not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.
  */
 export interface HumanName extends Element {
-    /**
-     * usual | official | temp | nickname | anonymous | old | maiden
-     * Identifies the purpose for this name.
-     * Applications can assume that a name is current unless it explicitly says that it is temporary or old.
-     */
-    use?: HumanNameNameUse;
     /**
      * Text representation of the full name
      * Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.
@@ -7411,18 +8171,18 @@ export interface HumanName extends Element {
      * Indicates the period of time when this name was valid for the named person.
      */
     period?: Period;
+    /**
+     * usual | official | temp | nickname | anonymous | old | maiden
+     * Identifies the purpose for this name.
+     * Applications can assume that a name is current unless it explicitly says that it is temporary or old.
+     */
+    use?: HumanNameNameUse;
 }
 /**
  * An identifier intended for computation
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface Identifier extends Element {
-    /**
-     * usual | official | temp | secondary | old (If known)
-     * The purpose of this identifier.
-     * Applications can assume that an identifier is permanent unless it explicitly says that it is temporary.
-     */
-    use?: IdentifierUse;
     /**
      * Description of identifier
      * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -7460,143 +8220,18 @@ export interface Identifier extends Element {
      * The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization.
      */
     assigner?: Reference;
-}
-/**
- * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available
- * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
- */
-export interface MarketingStatus extends BackboneElement {
     /**
-     * The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements
-     * The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements.
+     * usual | official | temp | secondary | old (If known)
+     * The purpose of this identifier.
+     * Applications can assume that an identifier is permanent unless it explicitly says that it is temporary.
      */
-    country: CodeableConcept;
-    /**
-     * Where a Medicines Regulatory Agency has granted a marketing authorisation for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified
-     * Where a Medicines Regulatory Agency has granted a marketing authorisation for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified.
-     */
-    jurisdiction?: CodeableConcept;
-    /**
-     * This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples
-     * This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples.
-     */
-    status: CodeableConcept;
-    /**
-     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
-     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain.
-     */
-    dateRange: Period;
-    /**
-     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
-     * The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain.
-     */
-    restoreDate?: dateTime;
-    /**
-     * Extension for restoreDate
-     **/
-    _restoreDate?: Element;
-}
-/**
- * Metadata about a resource
- * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
- */
-export interface Meta extends Element {
-    /**
-     * Version specific identifier
-     * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
-     * The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes.
-     */
-    versionId?: id;
-    /**
-     * Extension for versionId
-     **/
-    _versionId?: Element;
-    /**
-     * When the resource version last changed
-     * When the resource last changed - e.g. when the version changed.
-     * This value is always populated except when the resource is first being created. The server / resource manager sets this value; what a client provides is irrelevant. This is equivalent to the HTTP Last-Modified and SHOULD have the same value on a [read](http.html#read) interaction.
-     */
-    lastUpdated?: instant;
-    /**
-     * Extension for lastUpdated
-     **/
-    _lastUpdated?: Element;
-    /**
-     * Identifies where the resource comes from
-     * A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
-     * In the provenance resource, this corresponds to Provenance.entity.what[x]. The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used.
-
-This element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL.
-     */
-    source?: uri;
-    /**
-     * Extension for source
-     **/
-    _source?: Element;
-    /**
-     * Profiles this resource claims to conform to
-     * A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition-definitions.html#StructureDefinition.url).
-     * It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set.
-     */
-    profile?: canonical[];
-    /**
-     * Extension for profile
-     **/
-    _profile?: Element[];
-    /**
-     * Security Labels applied to this resource
-     * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
-     * The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored.
-     */
-    security?: Coding[];
-    /**
-     * Tags applied to this resource
-     * Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
-     * The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored.
-     */
-    tag?: Coding[];
-}
-/**
- * An amount of economic utility in some recognized currency
- * An amount of economic utility in some recognized currency.
- */
-export interface Money extends Element {
-    /**
-     * Numerical value (with implicit precision)
-     * Numerical value (with implicit precision).
-     * Monetary values have their own rules for handling precision (refer to standard accounting text books).
-     */
-    value?: decimal;
-    /**
-     * Extension for value
-     **/
-    _value?: Element;
-    /**
-     * ISO 4217 Currency Code
-     * ISO 4217 Currency Code.
-     */
-    currency?: code;
-    /**
-     * Extension for currency
-     **/
-    _currency?: Element;
-}
-/**
- * An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)
- * There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = "urn:iso:std:iso:4217" - currency).
- */
-export interface MoneyQuantity extends Quantity {
+    use?: IdentifierUse;
 }
 /**
  * Human-readable summary of the resource (essential clinical and business information)
  * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
  */
 export interface Narrative extends Element {
-    /**
-     * generated | extensions | additional | empty
-     * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
-     */
-    status: NarrativeStatus;
     /**
      * Limited xhtml content
      * The actual narrative content, a stripped down version of XHTML.
@@ -7607,6 +8242,11 @@ export interface Narrative extends Element {
      * Extension for div
      **/
     _div?: Element;
+    /**
+     * generated | extensions | additional | empty
+     * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
+     */
+    status: NarrativeStatus;
 }
 /**
  * Definition of a parameter to a module
@@ -7622,11 +8262,6 @@ export interface ParameterDefinition extends Element {
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * in | out
-     * Whether the parameter is input or output for the module.
-     */
-    use: ParameterDefinitionParameterUse;
     /**
      * Minimum cardinality
      * The minimum number of times this parameter SHALL appear in the request or response.
@@ -7672,165 +8307,11 @@ export interface ParameterDefinition extends Element {
      * Extension for profile
      **/
     _profile?: Element;
-}
-/**
- * Time range defined by start and end date/time
- * A time period defined by a start and end date and optionally time.
- * A Period specifies a range of time; the context of use will specify whether the entire range applies (e.g. "the patient was an inpatient of the hospital for this time range") or one value from the range applies (e.g. "give to the patient between these two times").
-
-Period is not used for a duration (a measure of elapsed time). See [Duration](datatypes.html#Duration).
- */
-export interface Period extends Element {
     /**
-     * Starting time with inclusive boundary
-     * The start of the period. The boundary is inclusive.
-     * If the low element is missing, the meaning is that the low boundary is not known.
+     * in | out
+     * Whether the parameter is input or output for the module.
      */
-    start?: dateTime;
-    /**
-     * Extension for start
-     **/
-    _start?: Element;
-    /**
-     * End time with inclusive boundary, if not ongoing
-     * The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
-     * The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03.
-     */
-    end?: dateTime;
-    /**
-     * Extension for end
-     **/
-    _end?: Element;
-}
-/**
- * A definition of a set of people that apply to some clinically related context, for example people contraindicated for a certain medication
- * A populatioof people with some set of grouping criteria.
- */
-export interface Population extends BackboneElement {
-    /**
-     * The age of the specific population
-     * The age of the specific population.
-     */
-    ageRange?: Range;
-    /**
-     * The age of the specific population
-     * The age of the specific population.
-     */
-    ageCodeableConcept?: CodeableConcept;
-    /**
-     * The gender of the specific population
-     * The gender of the specific population.
-     */
-    gender?: CodeableConcept;
-    /**
-     * Race of the specific population
-     * Race of the specific population.
-     */
-    race?: CodeableConcept;
-    /**
-     * The existing physiological conditions of the specific population to which this applies
-     * The existing physiological conditions of the specific population to which this applies.
-     */
-    physiologicalCondition?: CodeableConcept;
-}
-/**
- * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available
- * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
- */
-export interface ProdCharacteristic extends BackboneElement {
-    /**
-     * Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    height?: Quantity;
-    /**
-     * Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    width?: Quantity;
-    /**
-     * Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    depth?: Quantity;
-    /**
-     * Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    weight?: Quantity;
-    /**
-     * Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    nominalVolume?: Quantity;
-    /**
-     * Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    externalDiameter?: Quantity;
-    /**
-     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
-     * Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
-     */
-    shape?: string;
-    /**
-     * Extension for shape
-     **/
-    _shape?: Element;
-    /**
-     * Where applicable, the color can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
-     * Where applicable, the color can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
-     */
-    color?: string[];
-    /**
-     * Extension for color
-     **/
-    _color?: Element[];
-    /**
-     * Where applicable, the imprint can be specified as text
-     * Where applicable, the imprint can be specified as text.
-     */
-    imprint?: string[];
-    /**
-     * Extension for imprint
-     **/
-    _imprint?: Element[];
-    /**
-     * Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations
-     * Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations.
-     */
-    image?: Attachment[];
-    /**
-     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
-     * Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used.
-     */
-    scoring?: CodeableConcept;
-}
-/**
- * The shelf-life and storage information for a medicinal product item or container can be described using this class
- * The shelf-life and storage information for a medicinal product item or container can be described using this class.
- */
-export interface ProductShelfLife extends BackboneElement {
-    /**
-     * Unique identifier for the packaged Medicinal Product
-     * Unique identifier for the packaged Medicinal Product.
-     */
-    identifier?: Identifier;
-    /**
-     * This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
-     * This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified.
-     */
-    type: CodeableConcept;
-    /**
-     * The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
-     * The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used.
-     */
-    period: Quantity;
-    /**
-     * Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
-     * Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified.
-     */
-    specialPrecautionsForStorage?: CodeableConcept[];
+    use: ParameterDefinitionParameterUse;
 }
 /**
  * A measured or measurable amount
@@ -7848,11 +8329,6 @@ export interface Quantity extends Element {
      * Extension for value
      **/
     _value?: Element;
-    /**
-     * < | <= | >= | > - how to understand the value
-     * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
-     */
-    comparator?: QuantityComparator;
     /**
      * Unit representation
      * A human-readable form of the unit.
@@ -7881,93 +8357,11 @@ export interface Quantity extends Element {
      * Extension for code
      **/
     _code?: Element;
-}
-/**
- * Set of values bounded by low and high
- * A set of ordered Quantities defined by a low and high limit.
- * The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3.
- */
-export interface Range extends Element {
     /**
-     * Low limit
-     * The low limit. The boundary is inclusive.
-     * If the low element is missing, the low boundary is not known.
+     * < | <= | >= | > - how to understand the value
+     * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
      */
-    low?: Quantity;
-    /**
-     * High limit
-     * The high limit. The boundary is inclusive.
-     * If the high element is missing, the high boundary is not known.
-     */
-    high?: Quantity;
-}
-/**
- * A ratio of two Quantity values - a numerator and a denominator
- * A relationship of two Quantity values - expressed as a numerator and a denominator.
- * The Ratio datatype should only be used to express a relationship of two numbers if the relationship cannot be suitably expressed using a Quantity and a common unit.  Where the denominator value is known to be fixed to "1", Quantity should be used instead of Ratio.
- */
-export interface Ratio extends Element {
-    /**
-     * Numerator value
-     * The value of the numerator.
-     */
-    numerator?: Quantity;
-    /**
-     * Denominator value
-     * The value of the denominator.
-     */
-    denominator?: Quantity;
-}
-/**
- * A reference from one resource to another
- * A reference from one resource to another.
- * References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL and looking it up in a local registry/repository.
- */
-export interface Reference extends Element {
-    /**
-     * Literal reference, Relative, internal or absolute URL
-     * A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
-     * Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure "/[type]/[id]" then it should be assumed that the reference is to a FHIR RESTful server.
-     */
-    reference?: string;
-    /**
-     * Extension for reference
-     **/
-    _reference?: Element;
-    /**
-     * Type the reference refers to (e.g. "Patient")
-     * The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.
-
-The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. "Patient" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).
-     * This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified.
-     */
-    type?: uri;
-    /**
-     * Extension for type
-     **/
-    _type?: Element;
-    /**
-     * Logical reference, when literal reference is not known
-     * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
-     * When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy.
-
-When both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference
-
-Applications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.
-
-Reference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).
-     */
-    identifier?: Identifier;
-    /**
-     * Text alternative for the resource
-     * Plain text narrative that identifies the resource in addition to the resource reference.
-     * This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it.
-     */
-    display?: string;
-    /**
-     * Extension for display
-     **/
-    _display?: Element;
+    comparator?: QuantityComparator;
 }
 /**
  * Related artifacts for a knowledge resource
@@ -7975,11 +8369,6 @@ Reference is intended to point to a structure that can potentially be expressed 
  * Each related artifact is either an attachment, or a reference to another knowledge resource, but not both.
  */
 export interface RelatedArtifact extends Element {
-    /**
-     * documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of
-     * The type of relationship to the related artifact.
-     */
-    type: RelatedArtifactType;
     /**
      * Short label
      * A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index.
@@ -8033,209 +8422,11 @@ export interface RelatedArtifact extends Element {
      * Extension for resource
      **/
     _resource?: Element;
-}
-/**
- * A series of measurements taken by a device
- * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
- * The data is not interpretable without at least origin, period, and dimensions, but these are optional to allow a separation between the template of measurement and the actual measurement, such as between DeviceCapabilities and DeviceLog.  When providing a summary view (for example with Observation.value[x]) SampledData should be represented with a brief display text such as "Sampled Data".
- */
-export interface SampledData extends Element {
     /**
-     * Zero value and units
-     * The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.
+     * documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of
+     * The type of relationship to the related artifact.
      */
-    origin: Quantity;
-    /**
-     * Number of milliseconds between samples
-     * The length of time between sampling times, measured in milliseconds.
-     * This is usually a whole number.
-     */
-    period: decimal;
-    /**
-     * Extension for period
-     **/
-    _period?: Element;
-    /**
-     * Multiply data by this before adding to origin
-     * A correction factor that is applied to the sampled data points before they are added to the origin.
-     */
-    factor?: decimal;
-    /**
-     * Extension for factor
-     **/
-    _factor?: Element;
-    /**
-     * Lower limit of detection
-     * The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
-     */
-    lowerLimit?: decimal;
-    /**
-     * Extension for lowerLimit
-     **/
-    _lowerLimit?: Element;
-    /**
-     * Upper limit of detection
-     * The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
-     */
-    upperLimit?: decimal;
-    /**
-     * Extension for upperLimit
-     **/
-    _upperLimit?: Element;
-    /**
-     * Number of sample points at each time point
-     * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
-     * If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data).
-     */
-    dimensions: positiveInt;
-    /**
-     * Extension for dimensions
-     **/
-    _dimensions?: Element;
-    /**
-     * Decimal values with spaces, or "E" | "U" | "L"
-     * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
-     * Data may be missing if it is omitted for summarization purposes. In general, data is required for any actual use of a SampledData.
-     */
-    data?: string;
-    /**
-     * Extension for data
-     **/
-    _data?: Element;
-}
-/**
- * A Signature - XML DigSig, JWS, Graphical image of signature, etc.
- * A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
- * The elements of the Signature Resource are for ease of access of these elements. For digital signatures (Xml DigSig, JWS), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form.
- */
-export interface Signature extends Element {
-    /**
-     * Indication of the reason the entity signed the object(s)
-     * An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
-     * Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;.
-     */
-    type: Coding[];
-    /**
-     * When the signature was created
-     * When the digital signature was signed.
-     * This should agree with the information in the signature.
-     */
-    when: instant;
-    /**
-     * Extension for when
-     **/
-    _when?: Element;
-    /**
-     * Who signed
-     * A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).
-     * This should agree with the information in the signature.
-     */
-    who: Reference;
-    /**
-     * The party represented
-     * A reference to an application-usable description of the identity that is represented by the signature.
-     * The party that can't sign. For example a child.
-     */
-    onBehalfOf?: Reference;
-    /**
-     * The technical format of the signed resources
-     * A mime type that indicates the technical format of the target resources signed by the signature.
-     * "xml", "json" and "ttl" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
-     */
-    targetFormat?: code;
-    /**
-     * Extension for targetFormat
-     **/
-    _targetFormat?: Element;
-    /**
-     * The technical format of the signature
-     * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
-     */
-    sigFormat?: code;
-    /**
-     * Extension for sigFormat
-     **/
-    _sigFormat?: Element;
-    /**
-     * The actual signature content (XML DigSig. JWS, picture, etc.)
-     * The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
-     * Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) "Detached Signature" form.
-     */
-    data?: base64Binary;
-    /**
-     * Extension for data
-     **/
-    _data?: Element;
-}
-/**
- * A fixed quantity (no comparator)
- * The comparator is not used on a SimpleQuantity
- */
-export interface SimpleQuantity extends Quantity {
-    /**
-     * Not allowed to be used in this context
-     */
-    comparator?: undefined;
-}
-/**
- * Reference range of possible or expected values
- * Reference range of possible or expected values.
- */
-export interface SubstanceAmountReferenceRange extends Element {
-    /**
-     * Lower limit possible or expected
-     * Lower limit possible or expected.
-     */
-    lowLimit?: Quantity;
-    /**
-     * Upper limit possible or expected
-     * Upper limit possible or expected.
-     */
-    highLimit?: Quantity;
-}
-/**
- * Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID
- * Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.
- */
-export interface SubstanceAmount extends BackboneElement {
-    /**
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
-     */
-    amountQuantity?: Quantity;
-    /**
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
-     */
-    amountRange?: Range;
-    /**
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
-     * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
-     */
-    amountString?: string;
-    /**
-     * Extension for amountString
-     **/
-    _amountString?: Element;
-    /**
-     * Most elements that require a quantitative value will also have a field called amount type. Amount type should always be specified because the actual value of the amount is often dependent on it. EXAMPLE: In capturing the actual relative amounts of substances or molecular fragments it is essential to indicate whether the amount refers to a mole ratio or weight ratio. For any given element an effort should be made to use same the amount type for all related definitional elements
-     * Most elements that require a quantitative value will also have a field called amount type. Amount type should always be specified because the actual value of the amount is often dependent on it. EXAMPLE: In capturing the actual relative amounts of substances or molecular fragments it is essential to indicate whether the amount refers to a mole ratio or weight ratio. For any given element an effort should be made to use same the amount type for all related definitional elements.
-     */
-    amountType?: CodeableConcept;
-    /**
-     * A textual comment on a numeric value
-     * A textual comment on a numeric value.
-     */
-    amountText?: string;
-    /**
-     * Extension for amountText
-     **/
-    _amountText?: Element;
-    /**
-     * Reference range of possible or expected values
-     * Reference range of possible or expected values.
-     */
-    referenceRange?: SubstanceAmountReferenceRange;
+    type: RelatedArtifactType;
 }
 /**
  * When the event is to occur
@@ -8297,11 +8488,6 @@ export interface TimingRepeat extends Element {
      **/
     _durationMax?: Element;
     /**
-     * s | min | h | d | wk | mo | a - unit of time (UCUM)
-     * The units of time for the duration, in UCUM units.
-     */
-    durationUnit?: TimingUnitsOfTime;
-    /**
      * Event occurs frequency times per period
      * The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency.
      */
@@ -8338,17 +8524,6 @@ export interface TimingRepeat extends Element {
      **/
     _periodMax?: Element;
     /**
-     * s | min | h | d | wk | mo | a - unit of time (UCUM)
-     * The units of time for the period in UCUM units.
-     */
-    periodUnit?: TimingUnitsOfTime;
-    /**
-     * mon | tue | wed | thu | fri | sat | sun
-     * If one or more days of week is provided, then the action happens only on the specified day(s).
-     * If no days are specified, the action is assumed to happen every day as otherwise specified. The elements frequency and period cannot be used as well as dayOfWeek.
-     */
-    dayOfWeek?: TimingDayOfWeek[];
-    /**
      * Time of day for action
      * Specified time of day for action to take place.
      * When time of day is specified, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. The elements when, frequency and period cannot be used as well as timeOfDay.
@@ -8377,6 +8552,22 @@ export interface TimingRepeat extends Element {
      * Extension for offset
      **/
     _offset?: Element;
+    /**
+     * s | min | h | d | wk | mo | a - unit of time (UCUM)
+     * The units of time for the duration, in UCUM units.
+     */
+    durationUnit?: TimingUnitsOfTime;
+    /**
+     * s | min | h | d | wk | mo | a - unit of time (UCUM)
+     * The units of time for the period in UCUM units.
+     */
+    periodUnit?: TimingUnitsOfTime;
+    /**
+     * mon | tue | wed | thu | fri | sat | sun
+     * If one or more days of week is provided, then the action happens only on the specified day(s).
+     * If no days are specified, the action is assumed to happen every day as otherwise specified. The elements frequency and period cannot be used as well as dayOfWeek.
+     */
+    dayOfWeek?: TimingDayOfWeek[];
 }
 /**
  * A timing schedule that specifies an event that may occur multiple times
@@ -8413,11 +8604,6 @@ export interface Timing extends BackboneElement {
  * If an event is a named-event, it means the event is completely pre-coordinated, and no other information can be specified for the event. If the event is one of the data- events, the data and condition elements specify the triggering criteria. The data element specifies the structured component, and the condition element provides additional optional refinement of that structured component. If the event is periodic, the timing element defines when the event is triggered. For both data- and periodic events, a name can be provided as a shorthand for the formal semantics provided by the other elements.
  */
 export interface TriggerDefinition extends Element {
-    /**
-     * named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
-     * The type of triggering event.
-     */
-    type: TriggerDefinitionTriggerType;
     /**
      * Name or URI that identifies the event
      * A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.
@@ -8468,37 +8654,11 @@ export interface TriggerDefinition extends Element {
      * This element can be only be specified for data type triggers and provides additional semantics for the trigger. The context available within the condition is based on the type of data event. For all events, the current resource will be available as context. In addition, for modification events, the previous resource will also be available. The expression may be inlined, or may be a simple absolute URI, which is a reference to a named expression within a logic library referenced by a library element or extension within the containing resource. If the expression is a FHIR Path expression, it evaluates in the context of a resource of one of the type identified in the data requirement, and may also refer to the variable %previous for delta comparisons on events of type data-changed, data-modified, and data-deleted which will always have the same type.
      */
     condition?: Expression;
-}
-/**
- * Describes the context of use for a conformance or knowledge resource
- * Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
- */
-export interface UsageContext extends Element {
     /**
-     * Type of context being specified
-     * A code that identifies the type of context being specified by this usage context.
+     * named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
+     * The type of triggering event.
      */
-    code: Coding;
-    /**
-     * Value that defines the context
-     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
-     */
-    valueCodeableConcept: CodeableConcept;
-    /**
-     * Value that defines the context
-     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
-     */
-    valueQuantity: Quantity;
-    /**
-     * Value that defines the context
-     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
-     */
-    valueRange: Range;
-    /**
-     * Value that defines the context
-     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
-     */
-    valueReference: Reference;
+    type: TriggerDefinitionTriggerType;
 }
 /**
  * The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
@@ -8558,16 +8718,14 @@ export interface AccountGuarantor extends BackboneElement {
  */
 export interface Account extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Account';
+    /**
      * Account number
      * Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).
      */
     identifier?: Identifier[];
-    /**
-     * active | inactive | entered-in-error | on-hold | unknown
-     * Indicates whether the account is presently used/usable or not.
-     * This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the Account as not currently valid.
-     */
-    status: AccountStatus;
     /**
      * E.g. patient, expense, depreciation
      * Categorizes the account for reporting and searching purposes.
@@ -8627,6 +8785,12 @@ Where the order is important, a local/jurisdictional extension may be defined to
      * Reference to a parent Account.
      */
     partOf?: Reference;
+    /**
+     * active | inactive | entered-in-error | on-hold | unknown
+     * Indicates whether the account is presently used/usable or not.
+     * This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the Account as not currently valid.
+     */
+    status: AccountStatus;
 }
 /**
  * Who should participate in the action
@@ -8634,15 +8798,15 @@ Where the order is important, a local/jurisdictional extension may be defined to
  */
 export interface ActivityDefinitionParticipant extends BackboneElement {
     /**
-     * patient | practitioner | related-person | device
-     * The type of participant in the action.
-     */
-    type: ActivityDefinitionActivityParticipantType;
-    /**
      * E.g. Nurse, Surgeon, Parent, etc.
      * The role the participant should play in performing the described action.
      */
     role?: CodeableConcept;
+    /**
+     * patient | practitioner | related-person | device
+     * The type of participant in the action.
+     */
+    type: ActivityDefinitionActivityParticipantType;
 }
 /**
  * Dynamic aspects of the definition
@@ -8672,6 +8836,10 @@ export interface ActivityDefinitionDynamicValue extends BackboneElement {
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
 export interface ActivityDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ActivityDefinition';
     /**
      * Canonical identifier for this activity definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers.
@@ -8731,12 +8899,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this activity definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of activity definitions that are appropriate for use versus not.
-     */
-    status: ActivityDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -8925,16 +9087,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      */
     code?: CodeableConcept;
     /**
-     * proposal | plan | order
-     * Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain.
-     */
-    intent?: ActivityDefinitionRequestIntent;
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the activity  should be addressed with respect to other requests.
-     */
-    priority?: ActivityDefinitionRequestPriority;
-    /**
      * True if the activity should not be performed
      * Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.
      * This element is not intended to be used to communicate a decision support response to cancel an order in progress. That should be done with the "remove" type of a PlanDefinition or RequestGroup.
@@ -9047,6 +9199,22 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform.
      */
     dynamicValue?: ActivityDefinitionDynamicValue[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this activity definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of activity definitions that are appropriate for use versus not.
+     */
+    status: ActivityDefinitionPublicationStatus;
+    /**
+     * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+     * Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain.
+     */
+    intent?: ActivityDefinitionRequestIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the activity  should be addressed with respect to other requests.
+     */
+    priority?: ActivityDefinitionRequestPriority;
 }
 /**
  * Information on the possible cause of the event
@@ -9100,16 +9268,15 @@ export interface AdverseEventSuspectEntity extends BackboneElement {
  */
 export interface AdverseEvent extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'AdverseEvent';
+    /**
      * Business identifier for the event
      * Business identifiers assigned to this adverse event by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
      */
     identifier?: Identifier;
-    /**
-     * actual | potential
-     * Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
-     */
-    actuality: AdverseEventActuality;
     /**
      * product-problem | product-quality | product-use-error | wrong-dose | incorrect-prescribing-information | wrong-technique | wrong-route-of-administration | wrong-rate | wrong-duration | wrong-time | expired-drug | medical-device-use-error | problem-different-manufacturer | unsafe-physical-environment
      * The overall type of event, intended for search and filtering purposes.
@@ -9215,6 +9382,11 @@ export interface AdverseEvent extends DomainResource {
      * AdverseEvent.study.
      */
     study?: Reference[];
+    /**
+     * actual | potential
+     * Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
+     */
+    actuality: AdverseEventActuality;
 }
 /**
  * Adverse Reaction Events linked to exposure to substance
@@ -9253,12 +9425,6 @@ export interface AllergyIntoleranceReaction extends BackboneElement {
      **/
     _onset?: Element;
     /**
-     * mild | moderate | severe (of event as a whole)
-     * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
-     * It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.
-     */
-    severity?: AllergyIntoleranceSeverity;
-    /**
      * How the subject was exposed to the substance
      * Identification of the route by which the subject was exposed to the substance.
      * Coding of the route of exposure with a terminology should be used wherever possible.
@@ -9270,6 +9436,12 @@ export interface AllergyIntoleranceReaction extends BackboneElement {
      * Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased.
      */
     note?: Annotation[];
+    /**
+     * mild | moderate | severe (of event as a whole)
+     * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
+     * It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.
+     */
+    severity?: AllergyIntoleranceSeverity;
 }
 /**
  * Allergy or Intolerance (generally: Risk of adverse reaction to a substance)
@@ -9277,6 +9449,10 @@ export interface AllergyIntoleranceReaction extends BackboneElement {
  * Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
  */
 export interface AllergyIntolerance extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'AllergyIntolerance';
     /**
      * External ids for this item
      * Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -9296,24 +9472,6 @@ The data type is CodeableConcept because clinicalStatus has some clinical judgme
      * The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.
      */
     verificationStatus?: CodeableConcept;
-    /**
-     * allergy | intolerance - Underlying mechanism (if known)
-     * Identification of the underlying physiological mechanism for the reaction risk.
-     * Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term "allergy" is used rather generically and may overlap with the use of "intolerance" - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.
-     */
-    type?: AllergyIntoleranceType;
-    /**
-     * food | medication | environment | biologic
-     * Category of the identified substance.
-     * This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don't have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don't have a category.  Additionally, category should be used with caution because category can be subjective based on the sender.
-     */
-    category?: AllergyIntoleranceCategory[];
-    /**
-     * low | high | unable-to-assess
-     * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
-     * The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).  Systems that capture a severity at the condition level are actually representing the concept of criticality whereas the severity documented at the reaction level is representing the true reaction severity.  Existing systems that are capturing both condition criticality and reaction severity may use the term "severity" to represent both.  Criticality is the worst it could be in the future (i.e. situation-agnostic) whereas severity is situation-dependent.
-     */
-    criticality?: AllergyIntoleranceCriticality;
     /**
      * Code that identifies the allergy or intolerance
      * Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or categorical negated statement (e.g.,  "No known allergy", "No known drug allergies").  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.
@@ -9408,6 +9566,24 @@ The 'substanceExposureRisk' extension is available as a structured and more flex
      * Details about each adverse reaction event linked to exposure to the identified substance.
      */
     reaction?: AllergyIntoleranceReaction[];
+    /**
+     * allergy | intolerance - Underlying mechanism (if known)
+     * Identification of the underlying physiological mechanism for the reaction risk.
+     * Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term "allergy" is used rather generically and may overlap with the use of "intolerance" - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.
+     */
+    type?: AllergyIntoleranceType;
+    /**
+     * food | medication | environment | biologic
+     * Category of the identified substance.
+     * This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don't have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don't have a category.  Additionally, category should be used with caution because category can be subjective based on the sender.
+     */
+    category?: AllergyIntoleranceCategory[];
+    /**
+     * low | high | unable-to-assess
+     * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
+     * The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).  Systems that capture a severity at the condition level are actually representing the concept of criticality whereas the severity documented at the reaction level is representing the true reaction severity.  Existing systems that are capturing both condition criticality and reaction severity may use the term "severity" to represent both.  Criticality is the worst it could be in the future (i.e. situation-agnostic) whereas severity is situation-dependent.
+     */
+    criticality?: AllergyIntoleranceCriticality;
 }
 /**
  * Participants involved in appointment
@@ -9430,6 +9606,11 @@ This value SHALL be the same when creating an AppointmentResponse so that they c
      */
     actor?: Reference;
     /**
+     * Participation period of the actor
+     * Participation period of the actor.
+     */
+    period?: Period;
+    /**
      * required | optional | information-only
      * Whether this participant is required to be present at the meeting. This covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
      */
@@ -9439,11 +9620,6 @@ This value SHALL be the same when creating an AppointmentResponse so that they c
      * Participation status of the actor.
      */
     status: AppointmentParticipationStatus;
-    /**
-     * Participation period of the actor
-     * Participation period of the actor.
-     */
-    period?: Period;
 }
 /**
  * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
@@ -9451,18 +9627,14 @@ This value SHALL be the same when creating an AppointmentResponse so that they c
  */
 export interface Appointment extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Appointment';
+    /**
      * External Ids for this item
      * This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
     identifier?: Identifier[];
-    /**
-     * proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist
-     * The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-     * If the Appointment's status is "cancelled" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.
-
-This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid.
-     */
-    status: AppointmentStatus;
     /**
      * The coded reason for the appointment being cancelled
      * The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply.
@@ -9606,12 +9778,24 @@ The duration (usually in minutes) could also be provided to indicate the length 
      * This does not introduce a capacity for recurring appointments.
      */
     requestedPeriod?: Period[];
+    /**
+     * proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist
+     * The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+     * If the Appointment's status is "cancelled" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.
+
+This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid.
+     */
+    status: AppointmentStatus;
 }
 /**
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
 export interface AppointmentResponse extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'AppointmentResponse';
     /**
      * External Ids for this item
      * This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.
@@ -9657,12 +9841,6 @@ This value SHALL be the same as specified on the referenced Appointment so that 
      */
     actor?: Reference;
     /**
-     * accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
-     * Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
-     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid.
-     */
-    participantStatus: AppointmentResponseParticipantStatus;
-    /**
      * Additional comments
      * Additional comments about the appointment.
      * This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.
@@ -9672,6 +9850,12 @@ This value SHALL be the same as specified on the referenced Appointment so that 
      * Extension for comment
      **/
     _comment?: Element;
+    /**
+     * accepted | declined | tentative | needs-action
+     * Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid.
+     */
+    participantStatus: AppointmentResponseParticipantStatus;
 }
 /**
  * Logical network location for application activity
@@ -9828,7 +10012,7 @@ export interface AuditEventEntityDetail extends BackboneElement {
      * The  value of the extra detail.
      * The value can be string when known to be a string, else base64 encoding should be used to protect binary or undefined content.  The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -9838,7 +10022,7 @@ export interface AuditEventEntityDetail extends BackboneElement {
      * The  value of the extra detail.
      * The value can be string when known to be a string, else base64 encoding should be used to protect binary or undefined content.  The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.
      */
-    valueBase64Binary: base64Binary;
+    valueBase64Binary?: base64Binary;
     /**
      * Extension for valueBase64Binary
      **/
@@ -9919,6 +10103,10 @@ export interface AuditEventEntity extends BackboneElement {
  * Based on IHE-ATNA.
  */
 export interface AuditEvent extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'AuditEvent';
     /**
      * Type/identifier of event
      * Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function.
@@ -10005,6 +10193,10 @@ For example, an activity may be initiated by one user for other users or involve
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
 export interface Basic extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Basic';
     /**
      * Business identifier
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
@@ -10197,15 +10389,15 @@ export interface BiologicallyDerivedProductStorage extends BackboneElement {
      **/
     _temperature?: Element;
     /**
-     * farenheit | celsius | kelvin
-     * Temperature scale used.
-     */
-    scale?: BiologicallyDerivedProductStorageScale;
-    /**
      * Storage timeperiod
      * Storage timeperiod.
      */
     duration?: Period;
+    /**
+     * farenheit | celsius | kelvin
+     * Temperature scale used.
+     */
+    scale?: BiologicallyDerivedProductStorageScale;
 }
 /**
  * A material substance originating from a biological entity
@@ -10215,25 +10407,19 @@ into another (possibly the same) biological entity.
  */
 export interface BiologicallyDerivedProduct extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'BiologicallyDerivedProduct';
+    /**
      * External ids for this item
      * This records identifiers associated with this biologically derived product instance that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
     identifier?: Identifier[];
     /**
-     * organ | tissue | fluid | cells | biologicalAgent
-     * Broad category of this product.
-     */
-    productCategory?: BiologicallyDerivedProductCategory;
-    /**
      * What this biologically derived product is
      * A code that identifies the kind of this biologically derived product (SNOMED Ctcode).
      */
     productCode?: CodeableConcept;
-    /**
-     * available | unavailable
-     * Whether the product is currently available.
-     */
-    status?: BiologicallyDerivedProductStatus;
     /**
      * Procedure request
      * Procedure request to obtain this biologically derived product.
@@ -10274,12 +10460,26 @@ export interface BiologicallyDerivedProduct extends DomainResource {
      * Product storage.
      */
     storage?: BiologicallyDerivedProductStorage[];
+    /**
+     * organ | tissue | fluid | cells | biologicalAgent
+     * Broad category of this product.
+     */
+    productCategory?: BiologicallyDerivedProductCategory;
+    /**
+     * available | unavailable
+     * Whether the product is currently available.
+     */
+    status?: BiologicallyDerivedProductStatus;
 }
 /**
  * Specific and identified anatomical structure
  * Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
 export interface BodyStructure extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'BodyStructure';
     /**
      * Bodystructure identifier
      * Identifier for this instance of the anatomical structure.
@@ -10367,12 +10567,6 @@ export interface BundleLink extends BackboneElement {
  */
 export interface BundleEntrySearch extends BackboneElement {
     /**
-     * match | include | outcome - why this is in the result set
-     * Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
-     * There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence.
-     */
-    mode?: BundleSearchEntryMode;
-    /**
      * Search ranking (between 0 and 1)
      * When searching, the server's search ranking score for the entry.
      * Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order.
@@ -10384,17 +10578,18 @@ See [Patient Match](patient-operation-match.html) for the EMPI search which rela
      * Extension for score
      **/
     _score?: Element;
+    /**
+     * match | include | outcome - why this is in the result set
+     * Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
+     * There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence.
+     */
+    mode?: BundleSearchEntryMode;
 }
 /**
  * Additional execution information (transaction/batch/history)
  * Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry.
  */
 export interface BundleEntryRequest extends BackboneElement {
-    /**
-     * GET | HEAD | POST | PUT | DELETE | PATCH
-     * In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred.
-     */
-    method: BundleHTTPVerb;
     /**
      * URL for HTTP equivalent of this entry
      * The URL for this entry, relative to the root (the address to which the request is posted).
@@ -10441,6 +10636,11 @@ export interface BundleEntryRequest extends BackboneElement {
      * Extension for ifNoneExist
      **/
     _ifNoneExist?: Element;
+    /**
+     * GET | HEAD | POST | PUT | DELETE | PATCH
+     * In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred.
+     */
+    method: BundleHTTPVerb;
 }
 /**
  * Results of execution (transaction/batch/history)
@@ -10551,12 +10751,6 @@ export interface Bundle extends Resource {
      */
     identifier?: Identifier;
     /**
-     * document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection
-     * Indicates the purpose of this bundle - how it is intended to be used.
-     * It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types.
-     */
-    type: BundleType;
-    /**
      * When the bundle was assembled
      * The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
      * For many bundles, the timestamp is equal to .meta.lastUpdated, because they are not stored (e.g. search results). When a bundle is placed in a persistent store, .meta.lastUpdated will be usually be changed by the server. When the bundle is a message, a middleware agent altering the message (even if not stored) SHOULD update .meta.lastUpdated. .timestamp is used to track the original time of the Bundle, and SHOULD be populated.
@@ -10607,6 +10801,12 @@ This specification defines some specific uses of Bundle.link for [searching](sea
      * The signature could be created by the "author" of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific.
      */
     signature?: Signature;
+    /**
+     * document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection
+     * Indicates the purpose of this bundle - how it is intended to be used.
+     * It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types.
+     */
+    type: BundleType;
 }
 /**
  * Software that is covered by this capability statement
@@ -10708,11 +10908,6 @@ export interface CapabilityStatementRestSecurity extends BackboneElement {
  */
 export interface CapabilityStatementRestResourceInteraction extends BackboneElement {
     /**
-     * read | vread | update | patch | delete | history-instance | history-type | create | search-type
-     * Coded identifier of the operation, supported by the system resource.
-     */
-    code: CapabilityStatementTypeRestfulInteraction;
-    /**
      * Anything special about operation behavior
      * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
      */
@@ -10721,6 +10916,11 @@ export interface CapabilityStatementRestResourceInteraction extends BackboneElem
      * Extension for documentation
      **/
     _documentation?: Element;
+    /**
+     * read | vread | update | patch | delete | history-instance | history-type | create | search-type
+     * Coded identifier of the operation, supported by the system resource.
+     */
+    code: CapabilityStatementTypeRestfulInteraction;
 }
 /**
  * Search parameters supported by implementation
@@ -10749,12 +10949,6 @@ export interface CapabilityStatementRestResourceSearchParam extends BackboneElem
      **/
     _definition?: Element;
     /**
-     * number | date | string | token | reference | composite | quantity | uri | special
-     * The type of value a search parameter refers to, and how the content is interpreted.
-     * While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition.
-     */
-    type: CapabilityStatementSearchParamType;
-    /**
      * Server-specific usage
      * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
      */
@@ -10763,6 +10957,12 @@ export interface CapabilityStatementRestResourceSearchParam extends BackboneElem
      * Extension for documentation
      **/
     _documentation?: Element;
+    /**
+     * number | date | string | token | reference | composite | quantity | uri | special
+     * The type of value a search parameter refers to, and how the content is interpreted.
+     * While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition.
+     */
+    type: CapabilityStatementSearchParamType;
 }
 /**
  * Definition of a resource operation
@@ -10853,12 +11053,6 @@ export interface CapabilityStatementRestResource extends BackboneElement {
      */
     interaction?: CapabilityStatementRestResourceInteraction[];
     /**
-     * no-version | versioned | versioned-update
-     * This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
-     * If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so.
-     */
-    versioning?: CapabilityStatementResourceVersionPolicy;
-    /**
      * Whether vRead can return past versions
      * A flag for whether the server is able to return past versions as part of the vRead operation.
      * It is useful to support the vRead operation for current operations, even if past versions aren't available.
@@ -10889,12 +11083,6 @@ export interface CapabilityStatementRestResource extends BackboneElement {
      **/
     _conditionalCreate?: Element;
     /**
-     * not-supported | modified-since | not-match | full-support
-     * A code that indicates how the server supports conditional read.
-     * Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2.
-     */
-    conditionalRead?: CapabilityStatementConditionalReadStatus;
-    /**
      * If allows/uses conditional update
      * A flag that indicates that the server supports conditional update.
      * Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2.
@@ -10904,17 +11092,6 @@ export interface CapabilityStatementRestResource extends BackboneElement {
      * Extension for conditionalUpdate
      **/
     _conditionalUpdate?: Element;
-    /**
-     * not-supported | single | multiple - how conditional delete is supported
-     * A code that indicates how the server supports conditional delete.
-     * Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2.
-     */
-    conditionalDelete?: CapabilityStatementConditionalDeleteStatus;
-    /**
-     * literal | logical | resolves | enforced | local
-     * A set of flags that defines how references are supported.
-     */
-    referencePolicy?: CapabilityStatementReferenceHandlingPolicy[];
     /**
      * _include values supported by the server
      * A list of _include values supported by the server.
@@ -10949,17 +11126,35 @@ export interface CapabilityStatementRestResource extends BackboneElement {
 If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
      */
     operation?: CapabilityStatementRestResourceOperation[];
+    /**
+     * no-version | versioned | versioned-update
+     * This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
+     * If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so.
+     */
+    versioning?: CapabilityStatementResourceVersionPolicy;
+    /**
+     * not-supported | modified-since | not-match | full-support
+     * A code that indicates how the server supports conditional read.
+     * Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2.
+     */
+    conditionalRead?: CapabilityStatementConditionalReadStatus;
+    /**
+     * not-supported | single | multiple - how conditional delete is supported
+     * A code that indicates how the server supports conditional delete.
+     * Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2.
+     */
+    conditionalDelete?: CapabilityStatementConditionalDeleteStatus;
+    /**
+     * literal | logical | resolves | enforced | local
+     * A set of flags that defines how references are supported.
+     */
+    referencePolicy?: CapabilityStatementReferenceHandlingPolicy[];
 }
 /**
  * What operations are supported?
  * A specification of restful operations supported by the system.
  */
 export interface CapabilityStatementRestInteraction extends BackboneElement {
-    /**
-     * transaction | batch | search-system | history-system
-     * A coded identifier of the operation, supported by the system.
-     */
-    code: CapabilityStatementSystemRestfulInteraction;
     /**
      * Anything special about operation behavior
      * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
@@ -10969,6 +11164,11 @@ export interface CapabilityStatementRestInteraction extends BackboneElement {
      * Extension for documentation
      **/
     _documentation?: Element;
+    /**
+     * transaction | batch | search-system | history-system
+     * A coded identifier of the operation, supported by the system.
+     */
+    code: CapabilityStatementSystemRestfulInteraction;
 }
 /**
  * If the endpoint is a RESTful one
@@ -10976,11 +11176,6 @@ export interface CapabilityStatementRestInteraction extends BackboneElement {
  * Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements).
  */
 export interface CapabilityStatementRest extends BackboneElement {
-    /**
-     * client | server
-     * Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
-     */
-    mode: CapabilityStatementRestfulCapabilityMode;
     /**
      * General description of implementation
      * Information about the system's restful capabilities that apply across all applications, such as security.
@@ -11028,6 +11223,11 @@ export interface CapabilityStatementRest extends BackboneElement {
      * Extension for compartment
      **/
     _compartment?: Element[];
+    /**
+     * client | server
+     * Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
+     */
+    mode: CapabilityStatementRestfulCapabilityMode;
 }
 /**
  * Where messages should be sent
@@ -11056,11 +11256,6 @@ export interface CapabilityStatementMessagingEndpoint extends BackboneElement {
  */
 export interface CapabilityStatementMessagingSupportedMessage extends BackboneElement {
     /**
-     * sender | receiver
-     * The mode of this event declaration - whether application is sender or receiver.
-     */
-    mode: CapabilityStatementEventCapabilityMode;
-    /**
      * Message supported by this system
      * Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
      */
@@ -11069,6 +11264,11 @@ export interface CapabilityStatementMessagingSupportedMessage extends BackboneEl
      * Extension for definition
      **/
     _definition?: Element;
+    /**
+     * sender | receiver
+     * The mode of this event declaration - whether application is sender or receiver.
+     */
+    mode: CapabilityStatementEventCapabilityMode;
 }
 /**
  * If messaging is supported
@@ -11113,11 +11313,6 @@ export interface CapabilityStatementMessaging extends BackboneElement {
  */
 export interface CapabilityStatementDocument extends BackboneElement {
     /**
-     * producer | consumer
-     * Mode of this document declaration - whether an application is a producer or consumer.
-     */
-    mode: CapabilityStatementDocumentMode;
-    /**
      * Description of document support
      * A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
      */
@@ -11136,6 +11331,11 @@ export interface CapabilityStatementDocument extends BackboneElement {
      * Extension for profile
      **/
     _profile?: Element;
+    /**
+     * producer | consumer
+     * Mode of this document declaration - whether an application is a producer or consumer.
+     */
+    mode: CapabilityStatementDocumentMode;
 }
 /**
  * A statement of system capabilities
@@ -11143,6 +11343,10 @@ export interface CapabilityStatementDocument extends BackboneElement {
  * Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system's support for a particular version of FHIR, and the server will have multiple statements, one for each version.
  */
 export interface CapabilityStatement extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CapabilityStatement';
     /**
      * Canonical identifier for this capability statement, represented as a URI (globally unique)
      * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.
@@ -11187,12 +11391,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this capability statement. Enables tracking the life-cycle of the content.
-     * Allows filtering of capability statements that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems.
-     */
-    status: CapabilityStatementPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -11270,11 +11468,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for copyright
      **/
     _copyright?: Element;
-    /**
-     * instance | capability | requirements
-     * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
-     */
-    kind: CapabilityStatementKind;
     /**
      * Canonical URL of another capability statement this implements
      * Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.
@@ -11365,21 +11558,23 @@ A capability statement that imports another CapabilityStatement automatically in
      * A document definition.
      */
     document?: CapabilityStatementDocument[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this capability statement. Enables tracking the life-cycle of the content.
+     * Allows filtering of capability statements that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems.
+     */
+    status: CapabilityStatementPublicationStatus;
+    /**
+     * instance | capability | requirements
+     * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
+     */
+    kind: CapabilityStatementKind;
 }
 /**
  * In-line definition of activity
  * A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
  */
 export interface CarePlanActivityDetail extends BackboneElement {
-    /**
-     * Kind of resource
-     * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
-     */
-    kind?: code;
-    /**
-     * Extension for kind
-     **/
-    _kind?: Element;
     /**
      * Instantiates FHIR protocol or definition
      * The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity.
@@ -11422,13 +11617,6 @@ export interface CarePlanActivityDetail extends BackboneElement {
      * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
      */
     goal?: Reference[];
-    /**
-     * not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error
-     * Identifies what progress is being made for the specific activity.
-     * Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that "status" is only as current as the plan was most recently updated.
-The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity.
-     */
-    status: CarePlanActivityStatus;
     /**
      * Reason for current status
      * Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
@@ -11505,6 +11693,18 @@ The unknown code is not to be used to convey other statuses.  The unknown code s
      * Extension for description
      **/
     _description?: Element;
+    /**
+     * Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription
+     * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
+     */
+    kind?: CarePlanActivityKind;
+    /**
+     * not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error
+     * Identifies what progress is being made for the specific activity.
+     * Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that "status" is only as current as the plan was most recently updated.
+The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity.
+     */
+    status: CarePlanActivityStatus;
 }
 /**
  * Action to occur as part of plan
@@ -11548,6 +11748,10 @@ The goal should be visible when the resource referenced by CarePlan.activity.ref
  */
 export interface CarePlan extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CarePlan';
+    /**
      * External Ids for this plan
      * Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -11589,20 +11793,6 @@ export interface CarePlan extends DomainResource {
      * Each care plan is an independent request, such that having a care plan be part of another care plan can cause issues with cascading statuses.  As such, this element is still being discussed.
      */
     partOf?: Reference[];
-    /**
-     * draft | active | suspended | completed | entered-in-error | cancelled | unknown
-     * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
-     * The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.
-
-This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
-     */
-    status: CarePlanStatus;
-    /**
-     * proposal | plan | order | option
-     * Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
-     * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-     */
-    intent: CarePlanIntent;
     /**
      * Type of plan
      * Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", "wellness plan", etc.
@@ -11698,6 +11888,20 @@ This element is labeled as a modifier because the status contains the code enter
      * General notes about the care plan not covered elsewhere.
      */
     note?: Annotation[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+     * The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.
+
+This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid.
+     */
+    status: CarePlanStatus;
+    /**
+     * proposal | plan | order | option
+     * Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
+     * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+     */
+    intent: CarePlanIntent;
 }
 /**
  * Members of the team
@@ -11735,17 +11939,15 @@ Member is optional because some participants may be known only by their role, pa
  */
 export interface CareTeam extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CareTeam';
+    /**
      * External Ids for this team
      * Business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
      */
     identifier?: Identifier[];
-    /**
-     * proposed | active | suspended | inactive | entered-in-error
-     * Indicates the current state of the care team.
-     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the care team as not currently valid.
-     */
-    status?: CareTeamStatus;
     /**
      * Type of team
      * Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
@@ -11809,6 +12011,12 @@ export interface CareTeam extends DomainResource {
      * Comments made about the CareTeam.
      */
     note?: Annotation[];
+    /**
+     * proposed | active | suspended | inactive | entered-in-error
+     * Indicates the current state of the care team.
+     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the care team as not currently valid.
+     */
+    status?: CareTeamStatus;
 }
 /**
  * An item that this catalog entry is related to
@@ -11816,21 +12024,25 @@ export interface CareTeam extends DomainResource {
  */
 export interface CatalogEntryRelatedEntry extends BackboneElement {
     /**
-     * triggers | is-replaced-by
-     * The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.
-     */
-    relationtype: CatalogEntryRelationType;
-    /**
      * The reference to the related item
      * The reference to the related item.
      */
     item: Reference;
+    /**
+     * triggers | is-replaced-by
+     * The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.
+     */
+    relationtype: CatalogEntryRelationType;
 }
 /**
  * An entry in a catalog
  * Catalog entries are wrappers that contextualize items included in a catalog.
  */
 export interface CatalogEntry extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CatalogEntry';
     /**
      * Unique identifier of the catalog item
      * Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.
@@ -11865,11 +12077,6 @@ export interface CatalogEntry extends DomainResource {
      * Classes of devices, or ATC for medication.
      */
     classification?: CodeableConcept[];
-    /**
-     * draft | active | retired | unknown
-     * Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
-     */
-    status?: CatalogEntryPublicationStatus;
     /**
      * The time period in which this catalog entry is expected to be active
      * The time period in which this catalog entry is expected to be active.
@@ -11909,6 +12116,11 @@ export interface CatalogEntry extends DomainResource {
      * Used for example, to point to a substance, or to a device used to administer a medication.
      */
     relatedEntry?: CatalogEntryRelatedEntry[];
+    /**
+     * draft | active | retired | unknown
+     * Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
+     */
+    status?: CatalogEntryPublicationStatus;
 }
 /**
  * Who performed charged service
@@ -11932,6 +12144,10 @@ export interface ChargeItemPerformer extends BackboneElement {
  */
 export interface ChargeItem extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ChargeItem';
+    /**
      * Business Identifier for item
      * Identifiers assigned to this event performer or other systems.
      */
@@ -11954,14 +12170,6 @@ export interface ChargeItem extends DomainResource {
      * Extension for definitionCanonical
      **/
     _definitionCanonical?: Element[];
-    /**
-     * planned | billable | not-billable | aborted | billed | entered-in-error | unknown
-     * The current state of the ChargeItem.
-     * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
-
-This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid.
-     */
-    status: ChargeItemStatus;
     /**
      * Part of referenced ChargeItem
      * ChargeItems can be grouped to larger ChargeItems covering the whole set.
@@ -12118,6 +12326,14 @@ This element is labeled as a modifier because the status contains the code enter
      * Further information supporting this charge.
      */
     supportingInformation?: Reference[];
+    /**
+     * planned | billable | not-billable | aborted | billed | entered-in-error | unknown
+     * The current state of the ChargeItem.
+     * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+
+This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid.
+     */
+    status: ChargeItemStatus;
 }
 /**
  * Whether or not the billing code is applicable
@@ -12161,11 +12377,6 @@ FHIRPath expressions can traverse into other resources linked from the ChargeIte
  */
 export interface ChargeItemDefinitionPropertyGroupPriceComponent extends BackboneElement {
     /**
-     * base | surcharge | deduction | discount | tax | informational
-     * This code identifies the type of the component.
-     */
-    type: ChargeItemDefinitionPriceComponentType;
-    /**
      * Code identifying the specific component
      * A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
      */
@@ -12184,6 +12395,11 @@ export interface ChargeItemDefinitionPropertyGroupPriceComponent extends Backbon
      * The amount calculated for this component.
      */
     amount?: Money;
+    /**
+     * base | surcharge | deduction | discount | tax | informational
+     * This code identifies the type of the component.
+     */
+    type: ChargeItemDefinitionPriceComponentType;
 }
 /**
  * Group of properties which are applicable under the same conditions
@@ -12207,6 +12423,10 @@ export interface ChargeItemDefinitionPropertyGroup extends BackboneElement {
  * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
  */
 export interface ChargeItemDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ChargeItemDefinition';
     /**
      * Canonical identifier for this charge item definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this charge item definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this charge item definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the charge item definition is stored on different servers.
@@ -12274,12 +12494,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for replaces
      **/
     _replaces?: Element[];
-    /**
-     * draft | active | retired | unknown
-     * The current state of the ChargeItemDefinition.
-     * Allows filtering of charge item definitions that are appropriate for use versus not.
-     */
-    status: ChargeItemDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -12395,6 +12609,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Group of properties which are applicable under the same conditions. If no applicability rules are established for the group, then all properties always apply.
      */
     propertyGroup?: ChargeItemDefinitionPropertyGroup[];
+    /**
+     * draft | active | retired | unknown
+     * The current state of the ChargeItemDefinition.
+     * Allows filtering of charge item definitions that are appropriate for use versus not.
+     */
+    status: ChargeItemDefinitionPublicationStatus;
 }
 /**
  * Prior or corollary claims
@@ -12583,12 +12803,12 @@ export interface ClaimDiagnosis extends BackboneElement {
      * Nature of illness or problem
      * The nature of illness or problem in a coded form or as a reference to an external defined Condition.
      */
-    diagnosisCodeableConcept: CodeableConcept;
+    diagnosisCodeableConcept?: CodeableConcept;
     /**
      * Nature of illness or problem
      * The nature of illness or problem in a coded form or as a reference to an external defined Condition.
      */
-    diagnosisReference: Reference;
+    diagnosisReference?: Reference;
     /**
      * Timing or nature of the diagnosis
      * When the condition was observed or the relative ranking.
@@ -12640,12 +12860,12 @@ export interface ClaimProcedure extends BackboneElement {
      * Specific clinical procedure
      * The code or reference to a Procedure resource which identifies the clinical intervention performed.
      */
-    procedureCodeableConcept: CodeableConcept;
+    procedureCodeableConcept?: CodeableConcept;
     /**
      * Specific clinical procedure
      * The code or reference to a Procedure resource which identifies the clinical intervention performed.
      */
-    procedureReference: Reference;
+    procedureReference?: Reference;
     /**
      * Unique device identifier
      * Unique Device Identifiers associated with this line item.
@@ -13069,16 +13289,14 @@ export interface ClaimItem extends BackboneElement {
  */
 export interface Claim extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Claim';
+    /**
      * Business Identifier for claim
      * A unique identifier assigned to this claim.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ClaimStatus;
     /**
      * Category or discipline
      * The category of claim, e.g. oral, pharmacy, vision, institutional, professional.
@@ -13091,11 +13309,6 @@ export interface Claim extends DomainResource {
      * This may contain the local bill type codes, for example the US UB-04 bill type code or the CMS bill type.
      */
     subType?: CodeableConcept;
-    /**
-     * claim | preauthorization | predetermination
-     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
-     */
-    use: ClaimUse;
     /**
      * The recipient of the products and services
      * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.
@@ -13221,6 +13434,17 @@ export interface Claim extends DomainResource {
      * The total value of the all the items in the claim.
      */
     total?: Money;
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ClaimStatus;
+    /**
+     * claim | preauthorization | predetermination
+     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
+     */
+    use: ClaimUse;
 }
 /**
  * Adjudication details
@@ -13690,11 +13914,6 @@ export interface ClaimResponseProcessNote extends BackboneElement {
      **/
     _number?: Element;
     /**
-     * display | print | printoper
-     * The business purpose of the note text.
-     */
-    type?: ClaimResponseNoteType;
-    /**
      * Note explanatory text
      * The explanation or description associated with the processing.
      */
@@ -13709,6 +13928,11 @@ export interface ClaimResponseProcessNote extends BackboneElement {
      * Only required if the language is different from the resource language.
      */
     language?: CodeableConcept;
+    /**
+     * display | print | printoper
+     * The business purpose of the note text.
+     */
+    type?: ClaimResponseNoteType;
 }
 /**
  * Patient insurance information
@@ -13801,16 +14025,14 @@ export interface ClaimResponseError extends BackboneElement {
  */
 export interface ClaimResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ClaimResponse';
+    /**
      * Business Identifier for a claim response
      * A unique identifier assigned to this claim response.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ClaimResponseStatus;
     /**
      * More granular claim type
      * A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
@@ -13823,11 +14045,6 @@ export interface ClaimResponse extends DomainResource {
      * This may contain the local bill type codes, for example the US UB-04 bill type code or the CMS bill type.
      */
     subType?: CodeableConcept;
-    /**
-     * claim | preauthorization | predetermination
-     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
-     */
-    use: ClaimResponseUse;
     /**
      * The recipient of the products and services
      * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.
@@ -13858,12 +14075,6 @@ export interface ClaimResponse extends DomainResource {
      * Original request resource reference.
      */
     request?: Reference;
-    /**
-     * queued | complete | error | partial
-     * The outcome of the claim, predetermination, or preauthorization processing.
-     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
-     */
-    outcome: ClaimResponseRemittanceOutcome;
     /**
      * Disposition Message
      * A human readable description of the status of the adjudication.
@@ -13960,6 +14171,23 @@ export interface ClaimResponse extends DomainResource {
      * If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
      */
     error?: ClaimResponseError[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ClaimResponseStatus;
+    /**
+     * claim | preauthorization | predetermination
+     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
+     */
+    use: ClaimResponseUse;
+    /**
+     * queued | complete | error | partial
+     * The outcome of the claim, predetermination, or preauthorization processing.
+     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
+     */
+    outcome: ClaimResponseRemittanceOutcome;
 }
 /**
  * One or more sets of investigations (signs, symptoms, etc.)
@@ -14009,17 +14237,15 @@ export interface ClinicalImpressionFinding extends BackboneElement {
  */
 export interface ClinicalImpression extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ClinicalImpression';
+    /**
      * Business identifier
      * Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
      */
     identifier?: Identifier[];
-    /**
-     * draft | completed | entered-in-error
-     * Identifies the workflow status of the assessment.
-     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid.
-     */
-    status: ClinicalImpressionStatus;
     /**
      * Reason for current status
      * Captures the reason for the current state of the ClinicalImpression.
@@ -14145,6 +14371,12 @@ export interface ClinicalImpression extends DomainResource {
      * Don't use this element for content that should more properly appear as one of the specific elements of the impression.
      */
     note?: Annotation[];
+    /**
+     * in-progress | completed | entered-in-error
+     * Identifies the workflow status of the assessment.
+     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid.
+     */
+    status: ClinicalImpressionStatus;
 }
 /**
  * Filter that can be used in a value set
@@ -14171,15 +14403,6 @@ export interface CodeSystemFilter extends BackboneElement {
      **/
     _description?: Element;
     /**
-     * Operators that can be used with filter
-     * A list of operators that can be used with the filter.
-     */
-    operator: code[];
-    /**
-     * Extension for operator
-     **/
-    _operator?: Element[];
-    /**
      * What to use for the value
      * A description of what the value for the filter should be.
      */
@@ -14188,6 +14411,11 @@ export interface CodeSystemFilter extends BackboneElement {
      * Extension for value
      **/
     _value?: Element;
+    /**
+     * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
+     * A list of operators that can be used with the filter.
+     */
+    operator: CodeSystemFilterOperator[];
 }
 /**
  * Additional information supplied about each concept
@@ -14277,7 +14505,7 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueCode: code;
+    valueCode?: code;
     /**
      * Extension for valueCode
      **/
@@ -14286,12 +14514,12 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * Value of the property for this concept
      * The value of this property.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -14300,7 +14528,7 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -14309,7 +14537,7 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -14318,7 +14546,7 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
     /**
      * Extension for valueDateTime
      **/
@@ -14327,7 +14555,7 @@ export interface CodeSystemConceptProperty extends BackboneElement {
      * Value of the property for this concept
      * The value of this property.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -14389,6 +14617,10 @@ export interface CodeSystemConcept extends BackboneElement {
  */
 export interface CodeSystem extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CodeSystem';
+    /**
      * Canonical identifier for this code system, represented as a URI (globally unique) (Coding.system)
      * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this code system is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the code system is stored on different servers. This is used in [Coding](datatypes.html#Coding).system.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -14438,12 +14670,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The date (and optionally time) when the code system resource was created or revised.
-     * Allows filtering of code systems that are appropriate for use versus not.
-     */
-    status: CodeSystemPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -14543,12 +14769,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _valueSet?: Element;
     /**
-     * grouped-by | is-a | part-of | classified-with
-     * The meaning of the hierarchy of concepts as represented in this resource.
-     * Note that other representations might have a different hierarchy or none at all, and represent the information using properties.
-     */
-    hierarchyMeaning?: CodeSystemHierarchyMeaning;
-    /**
      * If code system defines a compositional grammar
      * The code system defines a compositional (post-coordination) grammar.
      * Note that the code system resource does not define what the compositional grammar is, only whether or not there is one.
@@ -14570,11 +14790,6 @@ Most code systems occasionally refine the displays defined for concepts between 
      * Extension for versionNeeded
      **/
     _versionNeeded?: Element;
-    /**
-     * not-present | example | fragment | complete | supplement
-     * The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
-     */
-    content: CodeSystemContentMode;
     /**
      * Canonical URL of Code System this adds designations and properties to
      * The canonical URL of the code system that this code system supplement is adding designations and properties to.
@@ -14612,6 +14827,23 @@ Most code systems occasionally refine the displays defined for concepts between 
      * If this is empty, it means that the code system resource does not represent the content of the code system.
      */
     concept?: CodeSystemConcept[];
+    /**
+     * draft | active | retired | unknown
+     * The date (and optionally time) when the code system resource was created or revised.
+     * Allows filtering of code systems that are appropriate for use versus not.
+     */
+    status: CodeSystemPublicationStatus;
+    /**
+     * grouped-by | is-a | part-of | classified-with
+     * The meaning of the hierarchy of concepts as represented in this resource.
+     * Note that other representations might have a different hierarchy or none at all, and represent the information using properties.
+     */
+    hierarchyMeaning?: CodeSystemHierarchyMeaning;
+    /**
+     * not-present | example | fragment | complete | supplement
+     * The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
+     */
+    content: CodeSystemContentMode;
 }
 /**
  * Message payload
@@ -14622,7 +14854,7 @@ export interface CommunicationPayload extends BackboneElement {
      * Message part content
      * A communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentString: string;
+    contentString?: string;
     /**
      * Extension for contentString
      **/
@@ -14631,18 +14863,22 @@ export interface CommunicationPayload extends BackboneElement {
      * Message part content
      * A communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentAttachment: Attachment;
+    contentAttachment?: Attachment;
     /**
      * Message part content
      * A communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentReference: Reference;
+    contentReference?: Reference;
 }
 /**
  * A record of information transmitted from a sender to a receiver
  * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.
  */
 export interface Communication extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Communication';
     /**
      * Unique identifier
      * Business identifiers assigned to this communication by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -14685,12 +14921,6 @@ export interface Communication extends DomainResource {
      */
     inResponseTo?: Reference[];
     /**
-     * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error
-     * The status of the transmission.
-     * This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid.
-     */
-    status: CommunicationStatus;
-    /**
      * Reason for current status
      * Captures the reason for the current state of the Communication.
      * This is generally only used for "exception" statuses such as "not-done", "suspended" or "aborted". The reason for performing the event at all is captured in reasonCode, not here.
@@ -14702,16 +14932,6 @@ export interface Communication extends DomainResource {
      * There may be multiple axes of categorization and one communication may serve multiple purposes.
      */
     category?: CodeableConcept[];
-    /**
-     * Message urgency
-     * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
-     * Used to prioritize workflow (such as which communication to read first) when the communication is planned or in progress.
-     */
-    priority?: code;
-    /**
-     * Extension for priority
-     **/
-    _priority?: Element;
     /**
      * A channel of communication
      * A channel that was used for this communication (e.g. email, fax).
@@ -14789,6 +15009,18 @@ export interface Communication extends DomainResource {
      * Additional notes or commentary about the communication by the sender, receiver or other interested parties.
      */
     note?: Annotation[];
+    /**
+     * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
+     * The status of the transmission.
+     * This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid.
+     */
+    status: CommunicationStatus;
+    /**
+     * routine | urgent | asap | stat
+     * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+     * Used to prioritize workflow (such as which communication to read first) when the communication is planned or in progress.
+     */
+    priority?: CommunicationPriority;
 }
 /**
  * Message payload
@@ -14799,7 +15031,7 @@ export interface CommunicationRequestPayload extends BackboneElement {
      * Message part content
      * The communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentString: string;
+    contentString?: string;
     /**
      * Extension for contentString
      **/
@@ -14808,18 +15040,22 @@ export interface CommunicationRequestPayload extends BackboneElement {
      * Message part content
      * The communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentAttachment: Attachment;
+    contentAttachment?: Attachment;
     /**
      * Message part content
      * The communicated content (or for multi-part communications, one portion of the communication).
      */
-    contentReference: Reference;
+    contentReference?: Reference;
 }
 /**
  * A request for information to be sent to a receiver
  * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
  */
 export interface CommunicationRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'CommunicationRequest';
     /**
      * Unique identifier
      * Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -14844,11 +15080,6 @@ export interface CommunicationRequest extends DomainResource {
      */
     groupIdentifier?: Identifier;
     /**
-     * draft | active | suspended | cancelled | completed | entered-in-error | unknown
-     * The status of the proposal or order.
-     */
-    status: CommunicationRequestStatus;
-    /**
      * Reason for current status
      * Captures the reason for the current state of the CommunicationRequest.
      * This is generally only used for "exception" statuses such as "suspended" or "cancelled".  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here.  [distinct reason codes for different statuses can be enforced using invariants if they are universal bindings].
@@ -14860,15 +15091,6 @@ export interface CommunicationRequest extends DomainResource {
      * There may be multiple axes of categorization and one communication request may serve multiple purposes.
      */
     category?: CodeableConcept[];
-    /**
-     * Message urgency
-     * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
-     */
-    priority?: code;
-    /**
-     * Extension for priority
-     **/
-    _priority?: Element;
     /**
      * True if request is prohibiting action
      * If true indicates that the CommunicationRequest is asking for the specified action to *not* occur.
@@ -14960,6 +15182,16 @@ export interface CommunicationRequest extends DomainResource {
      * Comments made about the request by the requester, sender, recipient, subject or other participants.
      */
     note?: Annotation[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * The status of the proposal or order.
+     */
+    status: CommunicationRequestStatus;
+    /**
+     * routine | urgent | asap | stat
+     * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+     */
+    priority?: CommunicationRequestCommunicationPriority;
 }
 /**
  * How a resource is related to the compartment
@@ -15002,6 +15234,10 @@ export interface CompartmentDefinitionResource extends BackboneElement {
  */
 export interface CompartmentDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CompartmentDefinition';
+    /**
      * Canonical identifier for this compartment definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -15035,12 +15271,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this compartment definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of compartment definitions that are appropriate for use versus not.
-     */
-    status: CompartmentDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -15104,12 +15334,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _purpose?: Element;
     /**
-     * Patient | Encounter | RelatedPerson | Practitioner | Device
-     * Which compartment this definition describes.
-     * Only the specification can define the compartments that can exist. Servers can choose to support them.
-     */
-    code: CompartmentDefinitionCompartmentType;
-    /**
      * Whether the search syntax is supported
      * Whether the search syntax is supported,.
      * Servers may define and use compartments to manage logical access without implementing the compartment related syntax.
@@ -15124,6 +15348,18 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Information about how a resource is related to the compartment.
      */
     resource?: CompartmentDefinitionResource[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this compartment definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of compartment definitions that are appropriate for use versus not.
+     */
+    status: CompartmentDefinitionPublicationStatus;
+    /**
+     * Patient | Encounter | RelatedPerson | Practitioner | Device
+     * Which compartment this definition describes.
+     * Only the specification can define the compartments that can exist. Servers can choose to support them.
+     */
+    code: CompartmentDefinitionCompartmentType;
 }
 /**
  * Attests to accuracy of composition
@@ -15131,11 +15367,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  * Only list each attester once.
  */
 export interface CompositionAttester extends BackboneElement {
-    /**
-     * personal | professional | legal | official
-     * The type of attestation the authenticator offers.
-     */
-    mode: CompositionAttestationMode;
     /**
      * When the composition was attested
      * When the composition was attested by the party.
@@ -15150,6 +15381,11 @@ export interface CompositionAttester extends BackboneElement {
      * Who attested the composition in the specified way.
      */
     party?: Reference;
+    /**
+     * personal | professional | legal | official
+     * The type of attestation the authenticator offers.
+     */
+    mode: CompositionAttestationMode;
 }
 /**
  * Relationships to other compositions/documents
@@ -15158,21 +15394,21 @@ export interface CompositionAttester extends BackboneElement {
  */
 export interface CompositionRelatesTo extends BackboneElement {
     /**
+     * Target of the relationship
+     * The target composition/document of this relationship.
+     */
+    targetIdentifier?: Identifier;
+    /**
+     * Target of the relationship
+     * The target composition/document of this relationship.
+     */
+    targetReference?: Reference;
+    /**
      * replaces | transforms | signs | appends
      * The type of relationship that this composition has with anther composition or document.
      * If this document appends another document, then the document cannot be fully understood without also accessing the referenced document.
      */
     code: CompositionDocumentRelationshipType;
-    /**
-     * Target of the relationship
-     * The target composition/document of this relationship.
-     */
-    targetIdentifier: Identifier;
-    /**
-     * Target of the relationship
-     * The target composition/document of this relationship.
-     */
-    targetReference: Reference;
 }
 /**
  * The clinical service(s) being documented
@@ -15238,12 +15474,6 @@ If the section has content (instead of sub-sections), the section.code does not 
      */
     text?: Narrative;
     /**
-     * working | snapshot | changes
-     * How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-     * This element is labeled as a modifier because a change list must not be misunderstood as a complete list.
-     */
-    mode?: CompositionSectionMode;
-    /**
      * Order of section entries
      * Specifies the order applied to the items in the section entries.
      * Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order.
@@ -15267,6 +15497,12 @@ If the section has content (instead of sub-sections), the section.code does not 
      * Nested sections are primarily used to help human readers navigate to particular portions of the document.
      */
     section?: CompositionSection[];
+    /**
+     * working | snapshot | changes
+     * How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+     * This element is labeled as a modifier because a change list must not be misunderstood as a complete list.
+     */
+    mode?: CompositionSectionMode;
 }
 /**
  * A set of resources composed into a single coherent clinical statement with clinical attestation
@@ -15275,19 +15511,15 @@ If the section has content (instead of sub-sections), the section.code does not 
  */
 export interface Composition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Composition';
+    /**
      * Version-independent identifier for the Composition
      * A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time.
      * Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate.
      */
     identifier?: Identifier;
-    /**
-     * preliminary | final | amended | entered-in-error
-     * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     * If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.
-
-Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
-     */
-    status: CompositionStatus;
     /**
      * Kind of composition (LOINC if possible)
      * Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.
@@ -15375,6 +15607,14 @@ Some reporting work flows require that the original narrative of a final documen
      * The root of the sections that make up the composition.
      */
     section?: CompositionSection[];
+    /**
+     * preliminary | final | amended | entered-in-error
+     * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
+     * If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.
+
+Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required.
+     */
+    status: CompositionStatus;
 }
 /**
  * Other elements required for this mapping (from context)
@@ -15445,12 +15685,6 @@ export interface ConceptMapGroupElementTarget extends BackboneElement {
      **/
     _display?: Element;
     /**
-     * relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
-     * The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
-     * This element is labeled as a modifier because it may indicate that a target does not apply.
-     */
-    equivalence: ConceptMapEquivalence;
-    /**
      * Description of status/issues in mapping
      * A description of status/issues in mapping that conveys additional information not represented in  the structured data.
      */
@@ -15469,6 +15703,12 @@ export interface ConceptMapGroupElementTarget extends BackboneElement {
      * A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.
      */
     product?: ConceptMapGroupElementTargetDependsOn[];
+    /**
+     * relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
+     * The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
+     * This element is labeled as a modifier because it may indicate that a target does not apply.
+     */
+    equivalence: ConceptMapEquivalence;
 }
 /**
  * Mappings for a concept from the source set
@@ -15509,11 +15749,6 @@ export interface ConceptMapGroupElement extends BackboneElement {
  */
 export interface ConceptMapGroupUnmapped extends BackboneElement {
     /**
-     * provided | fixed | other-map
-     * Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).
-     */
-    mode: ConceptMapGroupUnmappedMode;
-    /**
      * Fixed code when mode = fixed
      * The fixed code to use when the mode = 'fixed'  - all unmapped codes are mapped to a single fixed code.
      */
@@ -15541,6 +15776,11 @@ export interface ConceptMapGroupUnmapped extends BackboneElement {
      * Extension for url
      **/
     _url?: Element;
+    /**
+     * provided | fixed | other-map
+     * Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).
+     */
+    mode: ConceptMapGroupUnmappedMode;
 }
 /**
  * Same source and target systems
@@ -15606,6 +15846,10 @@ export interface ConceptMapGroup extends BackboneElement {
  */
 export interface ConceptMap extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ConceptMap';
+    /**
      * Canonical identifier for this concept map, represented as a URI (globally unique)
      * An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -15655,12 +15899,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this concept map. Enables tracking the life-cycle of the content.
-     * Allows filtering of concept maps that are appropriate for use versus not.
-     */
-    status: ConceptMapPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -15784,6 +16022,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A group of mappings that all have the same source and target system.
      */
     group?: ConceptMapGroup[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this concept map. Enables tracking the life-cycle of the content.
+     * Allows filtering of concept maps that are appropriate for use versus not.
+     */
+    status: ConceptMapPublicationStatus;
 }
 /**
  * Stage/grade, usually assessed formally
@@ -15828,6 +16072,10 @@ export interface ConditionEvidence extends BackboneElement {
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  */
 export interface Condition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Condition';
     /**
      * External Ids for this condition
      * Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
@@ -16069,26 +16317,21 @@ export interface ConsentProvisionActor extends BackboneElement {
  */
 export interface ConsentProvisionData extends BackboneElement {
     /**
-     * instance | related | dependents | authoredby
-     * How the resource reference is interpreted when testing consent restrictions.
-     */
-    meaning: ConsentDataMeaning;
-    /**
      * The actual data reference
      * A reference to a specific resource that defines which resources are covered by this consent.
      */
     reference: Reference;
+    /**
+     * instance | related | dependents | authoredby
+     * How the resource reference is interpreted when testing consent restrictions.
+     */
+    meaning: ConsentDataMeaning;
 }
 /**
  * Constraints to the base Consent.policyRule
  * An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
  */
 export interface ConsentProvision extends BackboneElement {
-    /**
-     * deny | permit
-     * Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
-     */
-    type?: ConsentProvisionType;
     /**
      * Timeframe for this rule
      * The timeframe in this rule is valid.
@@ -16145,6 +16388,11 @@ export interface ConsentProvision extends BackboneElement {
      * Rules which provide exceptions to the base rule or subrules.
      */
     provision?: ConsentProvision[];
+    /**
+     * deny | permit
+     * Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
+     */
+    type?: ConsentProvisionType;
 }
 /**
  * A healthcare consumer's  choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time
@@ -16153,17 +16401,15 @@ export interface ConsentProvision extends BackboneElement {
  */
 export interface Consent extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Consent';
+    /**
      * Identifier for this record (external references)
      * Unique identifier for this copy of the Consent Statement.
      * This identifier identifies this copy of the consent. Where this identifier is also used elsewhere as the identifier for a consent record (e.g. a CDA consent document) then the consent details are expected to be the same.
      */
     identifier?: Identifier[];
-    /**
-     * draft | proposed | active | rejected | inactive | entered-in-error
-     * Indicates the current state of this consent.
-     * This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid.
-     */
-    status: ConsentState;
     /**
      * Which of the four areas this resource covers (extensible)
      * A selector of the type of consent being presented: ADR, Privacy, Treatment, Research.  This list is now extensible.
@@ -16234,6 +16480,12 @@ export interface Consent extends DomainResource {
      * An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
      */
     provision?: ConsentProvision;
+    /**
+     * draft | proposed | active | rejected | inactive | entered-in-error
+     * Indicates the current state of this consent.
+     * This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid.
+     */
+    status: ConsentState;
 }
 /**
  * Contract precursor content
@@ -16265,11 +16517,6 @@ export interface ContractContentDefinition extends BackboneElement {
      **/
     _publicationDate?: Element;
     /**
-     * draft | active | retired | unknown
-     * draft | active | retired | unknown.
-     */
-    publicationStatus: ContractPublicationStatus;
-    /**
      * Publication Ownership
      * A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.
      */
@@ -16278,6 +16525,11 @@ export interface ContractContentDefinition extends BackboneElement {
      * Extension for copyright
      **/
     _copyright?: Element;
+    /**
+     * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
+     * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated.
+     */
+    publicationStatus: ContractPublicationStatus;
 }
 /**
  * Protection for the Term
@@ -16334,7 +16586,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -16343,7 +16595,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -16352,7 +16604,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -16361,7 +16613,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueDate: date;
+    valueDate?: date;
     /**
      * Extension for valueDate
      **/
@@ -16370,7 +16622,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
     /**
      * Extension for valueDateTime
      **/
@@ -16379,7 +16631,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueTime: time;
+    valueTime?: time;
     /**
      * Extension for valueTime
      **/
@@ -16388,7 +16640,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -16397,7 +16649,7 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueUri: uri;
+    valueUri?: uri;
     /**
      * Extension for valueUri
      **/
@@ -16406,22 +16658,22 @@ export interface ContractTermOfferAnswer extends BackboneElement {
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueAttachment: Attachment;
+    valueAttachment?: Attachment;
     /**
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * The actual answer response
      * Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
 }
 /**
  * Context of the Contract term
@@ -17014,12 +17266,12 @@ export interface ContractFriendly extends BackboneElement {
      * Easily comprehended representation of this Contract
      * Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.
      */
-    contentAttachment: Attachment;
+    contentAttachment?: Attachment;
     /**
      * Easily comprehended representation of this Contract
      * Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.
      */
-    contentReference: Reference;
+    contentReference?: Reference;
 }
 /**
  * Contract Legal Language
@@ -17030,12 +17282,12 @@ export interface ContractLegal extends BackboneElement {
      * Contract Legal Text
      * Contract legal text in human renderable form.
      */
-    contentAttachment: Attachment;
+    contentAttachment?: Attachment;
     /**
      * Contract Legal Text
      * Contract legal text in human renderable form.
      */
-    contentReference: Reference;
+    contentReference?: Reference;
 }
 /**
  * Computable Contract Language
@@ -17046,18 +17298,22 @@ export interface ContractRule extends BackboneElement {
      * Computable Contract Rules
      * Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
      */
-    contentAttachment: Attachment;
+    contentAttachment?: Attachment;
     /**
      * Computable Contract Rules
      * Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
      */
-    contentReference: Reference;
+    contentReference?: Reference;
 }
 /**
  * Legal Agreement
  * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  */
 export interface Contract extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Contract';
     /**
      * Contract number
      * Unique identifier for this Contract or a derivative that references a Source Contract.
@@ -17084,12 +17340,6 @@ Comments - There may be different contract instances that have the same identifi
      * Extension for version
      **/
     _version?: Element;
-    /**
-     * draft | active | suspended | cancelled | completed | entered-in-error | unknown
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
-     */
-    status?: ContractStatus;
     /**
      * Negotiation status
      * Legal states of the formation of a legal instrument, which is a formally executed written document that can be formally attributed to its author, records and formally expresses a legally enforceable act, process, or contractual duty, obligation, or right, and therefore evidences that act, process, or agreement.
@@ -17274,6 +17524,12 @@ For example, specifying how policies or obligations shall constrain actions and 
      * Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.
      */
     legallyBindingReference?: Reference;
+    /**
+     * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
+     */
+    status?: ContractStatus;
 }
 /**
  * Additional coverage classifications
@@ -17339,13 +17595,13 @@ export interface CoverageCostToBeneficiary extends BackboneElement {
      * The amount due from the patient for the cost category.
      * Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * The amount or percentage due from the beneficiary
      * The amount due from the patient for the cost category.
      * Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency.
      */
-    valueMoney: Money;
+    valueMoney?: Money;
     /**
      * Exceptions for patient payments
      * A suite of codes indicating exceptions or reductions to patient costs and their effective periods.
@@ -17359,17 +17615,15 @@ export interface CoverageCostToBeneficiary extends BackboneElement {
  */
 export interface Coverage extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Coverage';
+    /**
      * Business Identifier for the coverage
      * A unique identifier assigned to this coverage.
      * The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid.
-     */
-    status: CoverageStatus;
     /**
      * Coverage category such as medical or accident
      * The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
@@ -17474,6 +17728,12 @@ For selfpay it may provide multiple paying persons and/or organizations.
      * The policy(s) which constitute this insurance coverage.
      */
     contract?: Reference[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid.
+     */
+    status: CoverageStatus;
 }
 /**
  * Supporting information
@@ -17622,26 +17882,19 @@ export interface CoverageEligibilityRequestItem extends BackboneElement {
  */
 export interface CoverageEligibilityRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CoverageEligibilityRequest';
+    /**
      * Business Identifier for coverage eligiblity request
      * A unique identifier assigned to this coverage eligiblity request.
      */
     identifier?: Identifier[];
     /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: CoverageEligibilityRequestEligibilityRequestStatus;
-    /**
      * Desired processing priority
      * When the requestor expects the processor to complete processing.
      */
     priority?: CodeableConcept;
-    /**
-     * auth-requirements | benefits | discovery | validation
-     * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
-     */
-    purpose: CoverageEligibilityRequestEligibilityRequestPurpose[];
     /**
      * Intended recipient of products and services
      * The party who is the beneficiary of the supplied coverage and for whom eligibility is sought.
@@ -17709,6 +17962,17 @@ export interface CoverageEligibilityRequest extends DomainResource {
      * Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor.
      */
     item?: CoverageEligibilityRequestItem[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: CoverageEligibilityRequestEligibilityRequestStatus;
+    /**
+     * auth-requirements | benefits | discovery | validation
+     * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
+     */
+    purpose: CoverageEligibilityRequestEligibilityRequestPurpose[];
 }
 /**
  * Benefit Summary
@@ -17917,21 +18181,14 @@ export interface CoverageEligibilityResponseError extends BackboneElement {
  */
 export interface CoverageEligibilityResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'CoverageEligibilityResponse';
+    /**
      * Business Identifier for coverage eligiblity request
      * A unique identifier assigned to this coverage eligiblity request.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: CoverageEligibilityResponseEligibilityResponseStatus;
-    /**
-     * auth-requirements | benefits | discovery | validation
-     * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
-     */
-    purpose: CoverageEligibilityResponseEligibilityResponsePurpose[];
     /**
      * Intended recipient of products and services
      * The party who is the beneficiary of the supplied coverage and for whom eligibility is sought.
@@ -17972,12 +18229,6 @@ export interface CoverageEligibilityResponse extends DomainResource {
      */
     request: Reference;
     /**
-     * queued | complete | error | partial
-     * The outcome of the request processing.
-     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
-     */
-    outcome: CoverageEligibilityResponseRemittanceOutcome;
-    /**
      * Disposition Message
      * A human readable description of the status of the adjudication.
      */
@@ -18017,6 +18268,23 @@ export interface CoverageEligibilityResponse extends DomainResource {
      * Errors encountered during the processing of the request.
      */
     error?: CoverageEligibilityResponseError[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: CoverageEligibilityResponseEligibilityResponseStatus;
+    /**
+     * auth-requirements | benefits | discovery | validation
+     * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
+     */
+    purpose: CoverageEligibilityResponseEligibilityResponsePurpose[];
+    /**
+     * queued | complete | error | partial
+     * The outcome of the request processing.
+     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
+     */
+    outcome: CoverageEligibilityResponseRemittanceOutcome;
 }
 /**
  * Supporting evidence
@@ -18067,26 +18335,19 @@ export interface DetectedIssueMitigation extends BackboneElement {
  */
 export interface DetectedIssue extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DetectedIssue';
+    /**
      * Unique id for the detected issue
      * Business identifier associated with the detected issue record.
      */
     identifier?: Identifier[];
     /**
-     * registered | preliminary | final | amended +
-     * Indicates the status of the detected issue.
-     * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
-     */
-    status: DetectedIssueStatus;
-    /**
      * Issue Category, e.g. drug-drug, duplicate therapy, etc.
      * Identifies the general type of issue identified.
      */
     code?: CodeableConcept;
-    /**
-     * high | moderate | low
-     * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
-     */
-    severity?: DetectedIssueSeverity;
     /**
      * Associated patient
      * Indicates the patient whose record the detected issue is associated with.
@@ -18146,6 +18407,17 @@ export interface DetectedIssue extends DomainResource {
      * Indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
      */
     mitigation?: DetectedIssueMitigation[];
+    /**
+     * high | moderate | low
+     * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
+     */
+    severity?: DetectedIssueSeverity;
+    /**
+     * registered | preliminary | final | amended +
+     * Indicates the status of the detected issue.
+     * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid.
+     */
+    status: DetectedIssueStatus;
 }
 /**
  * Unique Device Identifier (UDI) Barcode string
@@ -18233,7 +18505,7 @@ export interface DeviceDeviceName extends BackboneElement {
      * The type of deviceName.
 UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName.
      */
-    type: DeviceDeviceNameType;
+    type: DeviceNameType;
 }
 /**
  * The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication
@@ -18307,6 +18579,10 @@ export interface DeviceProperty extends BackboneElement {
  */
 export interface Device extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Device';
+    /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
      * The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used.
@@ -18323,12 +18599,6 @@ export interface Device extends DomainResource {
      * UDI may identify an unique instance of a device, or it may only identify the type of the device.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
      */
     udiCarrier?: DeviceUdiCarrier[];
-    /**
-     * active | inactive | entered-in-error | unknown
-     * Status of the Device availability.
-     * This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid.
-     */
-    status?: DeviceFHIRDeviceStatus;
     /**
      * online | paused | standby | offline | not-ready | transduc-discon | hw-discon | off
      * Reason for the dtatus of the Device availability.
@@ -18480,6 +18750,12 @@ export interface Device extends DomainResource {
      * The parent device.
      */
     parent?: Reference;
+    /**
+     * active | inactive | entered-in-error | unknown
+     * Status of the Device availability.
+     * This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid.
+     */
+    status?: DeviceFHIRDeviceStatus;
 }
 /**
  * Unique Device Identifier (UDI) Barcode string
@@ -18632,6 +18908,10 @@ export interface DeviceDefinitionMaterial extends BackboneElement {
  */
 export interface DeviceDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceDefinition';
+    /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID.
      */
@@ -18775,6 +19055,15 @@ export interface DeviceDefinition extends DomainResource {
  */
 export interface DeviceMetricCalibration extends BackboneElement {
     /**
+     * Describes the time last calibration has been performed
+     * Describes the time last calibration has been performed.
+     */
+    time?: instant;
+    /**
+     * Extension for time
+     **/
+    _time?: Element;
+    /**
      * unspecified | offset | gain | two-point
      * Describes the type of the calibration method.
      */
@@ -18784,15 +19073,6 @@ export interface DeviceMetricCalibration extends BackboneElement {
      * Describes the state of the calibration.
      */
     state?: DeviceMetricCalibrationState;
-    /**
-     * Describes the time last calibration has been performed
-     * Describes the time last calibration has been performed.
-     */
-    time?: instant;
-    /**
-     * Extension for time
-     **/
-    _time?: Element;
 }
 /**
  * Measurement, calculation or setting capability of a medical device
@@ -18800,6 +19080,10 @@ export interface DeviceMetricCalibration extends BackboneElement {
  * For the initial scope, this DeviceMetric resource is only applicable to describe a single metric node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.
  */
 export interface DeviceMetric extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceMetric';
     /**
      * Instance identifier
      * Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.
@@ -18829,6 +19113,16 @@ export interface DeviceMetric extends DomainResource {
      */
     parent?: Reference;
     /**
+     * Describes the measurement repetition time
+     * Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.
+     */
+    measurementPeriod?: Timing;
+    /**
+     * Describes the calibrations that have been performed or that are required to be performed
+     * Describes the calibrations that have been performed or that are required to be performed.
+     */
+    calibration?: DeviceMetricCalibration[];
+    /**
      * on | off | standby | entered-in-error
      * Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
@@ -18843,16 +19137,6 @@ export interface DeviceMetric extends DomainResource {
      * Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
      */
     category: DeviceMetricCategory;
-    /**
-     * Describes the measurement repetition time
-     * Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.
-     */
-    measurementPeriod?: Timing;
-    /**
-     * Describes the calibrations that have been performed or that are required to be performed
-     * Describes the calibrations that have been performed or that are required to be performed.
-     */
-    calibration?: DeviceMetricCalibration[];
 }
 /**
  * Device details
@@ -18899,6 +19183,10 @@ export interface DeviceRequestParameter extends BackboneElement {
  */
 export interface DeviceRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceRequest';
+    /**
      * External Request identifier
      * Identifiers assigned to this order by the orderer or by the receiver.
      */
@@ -18939,35 +19227,15 @@ export interface DeviceRequest extends DomainResource {
      */
     groupIdentifier?: Identifier;
     /**
-     * draft | active | suspended | completed | entered-in-error | cancelled
-     * The status of the request.
-     * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid.
+     * Device requested
+     * The details of the device to be used.
      */
-    status?: DeviceRequestStatus;
-    /**
-     * proposal | plan | original-order | encoded | reflex-order
-     * Whether the request is a proposal, plan, an original order or a reflex order.
-     */
-    intent: DeviceRequestRequestIntent;
-    /**
-     * Indicates how quickly the {{title}} should be addressed with respect to other requests
-     * Indicates how quickly the {{title}} should be addressed with respect to other requests.
-     */
-    priority?: code;
-    /**
-     * Extension for priority
-     **/
-    _priority?: Element;
+    codeReference?: Reference;
     /**
      * Device requested
      * The details of the device to be used.
      */
-    codeReference: Reference;
-    /**
-     * Device requested
-     * The details of the device to be used.
-     */
-    codeCodeableConcept: CodeableConcept;
+    codeCodeableConcept?: CodeableConcept;
     /**
      * Device details
      * Specific parameters for the ordered item.  For example, the prism value for lenses.
@@ -19059,12 +19327,32 @@ This SHALL NOT include the Provenance associated with this current version of th
 All Provenances should have some historical version of this Request as their subject.
      */
     relevantHistory?: Reference[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * The status of the request.
+     * This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid.
+     */
+    status?: DeviceRequestStatus;
+    /**
+     * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+     * Whether the request is a proposal, plan, an original order or a reflex order.
+     */
+    intent: DeviceRequestRequestIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the {{title}} should be addressed with respect to other requests.
+     */
+    priority?: DeviceRequestRequestPriority;
 }
 /**
  * Record of use of a device
  * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
  */
 export interface DeviceUseStatement extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'DeviceUseStatement';
     /**
      * External identifier for this record
      * An external identifier for this statement such as an IRI.
@@ -19075,14 +19363,6 @@ export interface DeviceUseStatement extends DomainResource {
      * A plan, proposal or order that is fulfilled in whole or in part by this DeviceUseStatement.
      */
     basedOn?: Reference[];
-    /**
-     * active | completed | entered-in-error +
-     * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
-     * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
-     */
-    status: DeviceUseStatementStatus;
     /**
      * Patient using device
      * The patient who used the device.
@@ -19152,6 +19432,14 @@ This element is labeled as a modifier because the status contains the codes that
      * Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
      */
     note?: Annotation[];
+    /**
+     * active | completed | entered-in-error +
+     * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+     * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+     */
+    status: DeviceUseStatementStatus;
 }
 /**
  * Key images associated with this report
@@ -19181,6 +19469,10 @@ export interface DiagnosticReportMedia extends BackboneElement {
  */
 export interface DiagnosticReport extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DiagnosticReport';
+    /**
      * Business identifier for report
      * Identifiers assigned to this report by the performer or other systems.
      * Usually assigned by the Information System of the diagnostic service provider (filler id).
@@ -19192,11 +19484,6 @@ export interface DiagnosticReport extends DomainResource {
      * Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
      */
     basedOn?: Reference[];
-    /**
-     * registered | partial | preliminary | final +
-     * The status of the diagnostic report.
-     */
-    status: DiagnosticReportStatus;
     /**
      * Service category
      * A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
@@ -19300,6 +19587,11 @@ export interface DiagnosticReport extends DomainResource {
      * "application/pdf" is recommended as the most reliable and interoperable in this context.
      */
     presentedForm?: Attachment[];
+    /**
+     * registered | partial | preliminary | final +
+     * The status of the diagnostic report.
+     */
+    status: DiagnosticReportStatus;
 }
 /**
  * Related things
@@ -19326,6 +19618,10 @@ export interface DocumentManifestRelated extends BackboneElement {
  */
 export interface DocumentManifest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DocumentManifest';
+    /**
      * Unique Identifier for the set of documents
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
@@ -19335,12 +19631,6 @@ export interface DocumentManifest extends DomainResource {
      * Other identifiers associated with the document manifest, including version independent  identifiers.
      */
     identifier?: Identifier[];
-    /**
-     * current | superseded | entered-in-error
-     * The status of this document manifest.
-     * This element is labeled as a modifier because the status contains the codes that mark the manifest as not currently valid.
-     */
-    status: DocumentManifestDocumentReferenceStatus;
     /**
      * Kind of document set
      * The code specifying the type of clinical activity that resulted in placing the associated content into the DocumentManifest.
@@ -19405,6 +19695,12 @@ export interface DocumentManifest extends DomainResource {
      * May be identifiers or resources that caused the DocumentManifest to be created.
      */
     related?: DocumentManifestRelated[];
+    /**
+     * current | superseded | entered-in-error
+     * The status of this document manifest.
+     * This element is labeled as a modifier because the status contains the codes that mark the manifest as not currently valid.
+     */
+    status: DocumentManifestDocumentReferenceStatus;
 }
 /**
  * Relationships to other documents
@@ -19413,16 +19709,16 @@ export interface DocumentManifest extends DomainResource {
  */
 export interface DocumentReferenceRelatesTo extends BackboneElement {
     /**
+     * Target of the relationship
+     * The target document of this relationship.
+     */
+    target: Reference;
+    /**
      * replaces | transforms | signs | appends
      * The type of relationship that this document has with anther document.
      * If this document appends another document, then the document cannot be fully understood without also accessing the referenced document.
      */
     code: DocumentReferenceDocumentRelationshipType;
-    /**
-     * Target of the relationship
-     * The target document of this relationship.
-     */
-    target: Reference;
 }
 /**
  * Document referenced
@@ -19493,6 +19789,10 @@ export interface DocumentReferenceContext extends BackboneElement {
  */
 export interface DocumentReference extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'DocumentReference';
+    /**
      * Master Version Specific Identifier
      * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.
      * CDA Document Id extension and root.
@@ -19503,20 +19803,6 @@ export interface DocumentReference extends DomainResource {
      * Other identifiers associated with the document, including version independent identifiers.
      */
     identifier?: Identifier[];
-    /**
-     * current | superseded | entered-in-error
-     * The status of this document reference.
-     * This is the status of the DocumentReference object, which might be independent from the docStatus element.
-
-This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
-     */
-    status: DocumentReferenceStatus;
-    /**
-     * preliminary | final | appended | amended | entered-in-error
-     * The status of the underlying document.
-     * The document that is pointed to might be in various lifecycle states.
-     */
-    docStatus?: DocumentReferenceReferredDocumentStatus;
     /**
      * Kind of document (LOINC if possible)
      * Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
@@ -19597,6 +19883,20 @@ In the HL7 Healthcare Privacy and Security Classification (HCS) there are code s
      * These values are primarily added to help with searching for interesting/relevant documents.
      */
     context?: DocumentReferenceContext;
+    /**
+     * current | superseded | entered-in-error
+     * The status of this document reference.
+     * This is the status of the DocumentReference object, which might be independent from the docStatus element.
+
+This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid.
+     */
+    status: DocumentReferenceStatus;
+    /**
+     * preliminary | final | amended | entered-in-error
+     * The status of the underlying document.
+     * The document that is pointed to might be in various lifecycle states.
+     */
+    docStatus?: DocumentReferenceReferredDocumentStatus;
 }
 /**
  * A resource with narrative, extensions, and contained resources
@@ -19678,11 +19978,6 @@ export interface EffectEvidenceSynthesisResultsByExposure extends BackboneElemen
      **/
     _description?: Element;
     /**
-     * exposure | exposure-alternative
-     * Whether these results are for the exposure state or alternative exposure state.
-     */
-    exposureState?: EffectEvidenceSynthesisExposureState;
-    /**
      * Variant exposure states
      * Used to define variant exposure states such as low-risk state.
      */
@@ -19692,6 +19987,11 @@ export interface EffectEvidenceSynthesisResultsByExposure extends BackboneElemen
      * Reference to a RiskEvidenceSynthesis resource.
      */
     riskEvidenceSynthesis: Reference;
+    /**
+     * exposure | exposure-alternative
+     * Whether these results are for the exposure state or alternative exposure state.
+     */
+    exposureState?: EffectEvidenceSynthesisExposureState;
 }
 /**
  * How precise the estimate is
@@ -19823,6 +20123,10 @@ export interface EffectEvidenceSynthesisCertainty extends BackboneElement {
  */
 export interface EffectEvidenceSynthesis extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EffectEvidenceSynthesis';
+    /**
      * Canonical identifier for this effect evidence synthesis, represented as a URI (globally unique)
      * An absolute URI that is used to identify this effect evidence synthesis when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this effect evidence synthesis is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the effect evidence synthesis is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -19872,12 +20176,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this effect evidence synthesis. Enables tracking the life-cycle of the content.
-     * Allows filtering of effect evidence synthesiss that are appropriate for use versus not.
-     */
-    status: EffectEvidenceSynthesisPublicationStatus;
     /**
      * Date last changed
      * The date  (and optionally time) when the effect evidence synthesis was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the effect evidence synthesis changes.
@@ -20047,6 +20345,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A description of the certainty of the effect estimate.
      */
     certainty?: EffectEvidenceSynthesisCertainty[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this effect evidence synthesis. Enables tracking the life-cycle of the content.
+     * Allows filtering of effect evidence synthesiss that are appropriate for use versus not.
+     */
+    status: EffectEvidenceSynthesisPublicationStatus;
 }
 /**
  * List of past encounter statuses
@@ -20055,15 +20359,15 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  */
 export interface EncounterStatusHistory extends BackboneElement {
     /**
-     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
-     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
-     */
-    status: EncounterStatus;
-    /**
      * The time that the episode was in the specified status
      * The time that the episode was in the specified status.
      */
     period: Period;
+    /**
+     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
+     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
+     */
+    status: EncounterStatus;
 }
 /**
  * List of past encounter classes
@@ -20196,12 +20500,6 @@ export interface EncounterLocation extends BackboneElement {
      */
     location: Reference;
     /**
-     * planned | active | reserved | completed
-     * The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
-     * When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed.
-     */
-    status?: EncounterLocationStatus;
-    /**
      * The physical type of the location (usually the level in the location hierachy - bed room ward etc.)
      * This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.
      * This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.
@@ -20214,6 +20512,12 @@ There may be many levels in the hierachy, and this may only pic specific levels 
      * Time period during which the patient was present at the location.
      */
     period?: Period;
+    /**
+     * planned | active | reserved | completed
+     * The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
+     * When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed.
+     */
+    status?: EncounterLocationStatus;
 }
 /**
  * An interaction during which services are provided to the patient
@@ -20221,16 +20525,14 @@ There may be many levels in the hierachy, and this may only pic specific levels 
  */
 export interface Encounter extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Encounter';
+    /**
      * Identifier(s) by which this encounter is known
      * Identifier(s) by which this encounter is known.
      */
     identifier?: Identifier[];
-    /**
-     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
-     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
-     * Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes).
-     */
-    status: EncounterStatus;
     /**
      * List of past encounter statuses
      * The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.
@@ -20351,6 +20653,12 @@ The duration recorded in the period of this encounter covers the entire scope of
 Refer to the Notes section in the Patient resource for further details.
      */
     partOf?: Reference;
+    /**
+     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +
+     * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
+     * Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes).
+     */
+    status: EncounterStatus;
 }
 /**
  * The technical details of an endpoint that can be used for electronic services
@@ -20358,16 +20666,14 @@ Refer to the Notes section in the Patient resource for further details.
  */
 export interface Endpoint extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Endpoint';
+    /**
      * Identifies this endpoint across multiple systems
      * Identifier for the organization that is used to identify the endpoint across multiple disparate systems.
      */
     identifier?: Identifier[];
-    /**
-     * active | suspended | error | off | entered-in-error | test
-     * active | suspended | error | off | test.
-     * This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid.
-     */
-    status: EndpointStatus;
     /**
      * Protocol/Profile/Standard to be used with this endpoint connection
      * A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook).
@@ -20441,6 +20747,12 @@ and not "https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.6
      * Extension for header
      **/
     _header?: Element[];
+    /**
+     * active | suspended | error | off | entered-in-error | test
+     * active | suspended | error | off | test.
+     * This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid.
+     */
+    status: EndpointStatus;
 }
 /**
  * Enroll in coverage
@@ -20448,16 +20760,14 @@ and not "https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.6
  */
 export interface EnrollmentRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EnrollmentRequest';
+    /**
      * Business Identifier
      * The Response business identifier.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the request as not currently valid.
-     */
-    status?: EnrollmentRequestStatus;
     /**
      * Creation date
      * The date when this resource was created.
@@ -20487,6 +20797,12 @@ export interface EnrollmentRequest extends DomainResource {
      * Reference to the program or plan identification, underwriter or payor.
      */
     coverage?: Reference;
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the request as not currently valid.
+     */
+    status?: EnrollmentRequestStatus;
 }
 /**
  * EnrollmentResponse resource
@@ -20494,26 +20810,19 @@ export interface EnrollmentRequest extends DomainResource {
  */
 export interface EnrollmentResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EnrollmentResponse';
+    /**
      * Business Identifier
      * The Response business identifier.
      */
     identifier?: Identifier[];
     /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the response as not currently valid.
-     */
-    status?: EnrollmentResponseStatus;
-    /**
      * Claim reference
      * Original request resource reference.
      */
     request?: Reference;
-    /**
-     * queued | complete | error | partial
-     * Processing status: error, complete.
-     */
-    outcome?: EnrollmentResponseRemittanceOutcome;
     /**
      * Disposition Message
      * A description of the status of the adjudication.
@@ -20542,6 +20851,17 @@ export interface EnrollmentResponse extends DomainResource {
      * The practitioner who is responsible for the services rendered to the patient.
      */
     requestProvider?: Reference;
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the response as not currently valid.
+     */
+    status?: EnrollmentResponseStatus;
+    /**
+     * queued | complete | error | partial
+     * Processing status: error, complete.
+     */
+    outcome?: EnrollmentResponseRemittanceOutcome;
 }
 /**
  * Past list of status codes (the current status may be included to cover the start date of the status)
@@ -20549,15 +20869,15 @@ export interface EnrollmentResponse extends DomainResource {
  */
 export interface EpisodeOfCareStatusHistory extends BackboneElement {
     /**
-     * planned | waitlist | active | onhold | finished | cancelled | entered-in-error
-     * planned | waitlist | active | onhold | finished | cancelled.
-     */
-    status: EpisodeOfCareStatus;
-    /**
      * Duration the EpisodeOfCare was in the specified status
      * The period during this EpisodeOfCare that the specific status applied.
      */
     period: Period;
+    /**
+     * planned | waitlist | active | onhold | finished | cancelled | entered-in-error
+     * planned | waitlist | active | onhold | finished | cancelled.
+     */
+    status: EpisodeOfCareStatus;
 }
 /**
  * The list of diagnosis relevant to this episode of care
@@ -20590,16 +20910,14 @@ export interface EpisodeOfCareDiagnosis extends BackboneElement {
  */
 export interface EpisodeOfCare extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'EpisodeOfCare';
+    /**
      * Business Identifier(s) relevant for this EpisodeOfCare
      * The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes.
      */
     identifier?: Identifier[];
-    /**
-     * planned | waitlist | active | onhold | finished | cancelled | entered-in-error
-     * planned | waitlist | active | onhold | finished | cancelled.
-     * This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid.
-     */
-    status: EpisodeOfCareStatus;
     /**
      * Past list of status codes (the current status may be included to cover the start date of the status)
      * The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource).
@@ -20652,12 +20970,22 @@ export interface EpisodeOfCare extends DomainResource {
      * The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.
      */
     account?: Reference[];
+    /**
+     * planned | waitlist | active | onhold | finished | cancelled | entered-in-error
+     * planned | waitlist | active | onhold | finished | cancelled.
+     * This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid.
+     */
+    status: EpisodeOfCareStatus;
 }
 /**
  * A description of when an event can occur
  * The EventDefinition resource provides a reusable description of when a particular event can occur.
  */
 export interface EventDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EventDefinition';
     /**
      * Canonical identifier for this event definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this event definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this event definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the event definition is stored on different servers.
@@ -20717,12 +21045,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this event definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of event definitions that are appropriate for use versus not.
-     */
-    status: EventDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this event definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -20881,12 +21203,22 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met.
      */
     trigger: TriggerDefinition[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this event definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of event definitions that are appropriate for use versus not.
+     */
+    status: EventDefinitionPublicationStatus;
 }
 /**
  * A research context or question
  * The Evidence resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
  */
 export interface Evidence extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Evidence';
     /**
      * Canonical identifier for this evidence, represented as a URI (globally unique)
      * An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this evidence is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence is stored on different servers.
@@ -20955,12 +21287,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this evidence. Enables tracking the life-cycle of the content.
-     * Allows filtering of evidences that are appropriate for use versus not.
-     */
-    status: EvidencePublicationStatus;
     /**
      * Date last changed
      * The date  (and optionally time) when the evidence was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence changes.
@@ -21095,6 +21421,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A reference to a EvidenceVariable resomece that defines the outcome for the research.
      */
     outcome?: Reference[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this evidence. Enables tracking the life-cycle of the content.
+     * Allows filtering of evidences that are appropriate for use versus not.
+     */
+    status: EvidencePublicationStatus;
 }
 /**
  * What defines the members of the evidence element
@@ -21115,12 +21447,12 @@ export interface EvidenceVariableCharacteristic extends BackboneElement {
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionReference: Reference;
+    definitionReference?: Reference;
     /**
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionCanonical: canonical;
+    definitionCanonical?: canonical;
     /**
      * Extension for definitionCanonical
      **/
@@ -21129,22 +21461,22 @@ export interface EvidenceVariableCharacteristic extends BackboneElement {
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionCodeableConcept: CodeableConcept;
+    definitionCodeableConcept?: CodeableConcept;
     /**
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionExpression: Expression;
+    definitionExpression?: Expression;
     /**
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionDataRequirement: DataRequirement;
+    definitionDataRequirement?: DataRequirement;
     /**
      * What code or expression defines members?
      * Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionTriggerDefinition: TriggerDefinition;
+    definitionTriggerDefinition?: TriggerDefinition;
     /**
      * What code/value pairs define members?
      * Use UsageContext to define the members of the population, such as Age Ranges, Genders, Settings.
@@ -21200,6 +21532,10 @@ export interface EvidenceVariableCharacteristic extends BackboneElement {
  * PICO stands for Population (the population within which exposures are being compared), Intervention (the conditional state or exposure state being described for its effect on outcomes), Comparison (the alternative conditional state or alternative exposure state being compared against), and Outcome (the result or effect of the intervention in the population).
  */
 export interface EvidenceVariable extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'EvidenceVariable';
     /**
      * Canonical identifier for this evidence variable, represented as a URI (globally unique)
      * An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers.
@@ -21268,12 +21604,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this evidence variable. Enables tracking the life-cycle of the content.
-     * Allows filtering of evidence variables that are appropriate for use versus not.
-     */
-    status: EvidenceVariablePublicationStatus;
     /**
      * Date last changed
      * The date  (and optionally time) when the evidence variable was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes.
@@ -21394,16 +21724,22 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      */
     relatedArtifact?: RelatedArtifact[];
     /**
-     * dichotomous | continuous | descriptive
-     * The type of evidence element, a population, an exposure, or an outcome.
-     */
-    type?: EvidenceVariableType;
-    /**
      * What defines the members of the evidence element
      * A characteristic that defines the members of the evidence element. Multiple characteristics are applied with "and" semantics.
      * Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria.
      */
     characteristic: EvidenceVariableCharacteristic[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this evidence variable. Enables tracking the life-cycle of the content.
+     * Allows filtering of evidence variables that are appropriate for use versus not.
+     */
+    status: EvidenceVariablePublicationStatus;
+    /**
+     * dichotomous | continuous | descriptive
+     * The type of evidence element, a population, an exposure, or an outcome.
+     */
+    type?: EvidenceVariableType;
 }
 /**
  * Actor participating in the resource
@@ -21420,11 +21756,6 @@ export interface ExampleScenarioActor extends BackboneElement {
      * Extension for actorId
      **/
     _actorId?: Element;
-    /**
-     * person | entity
-     * The type of actor - person or system.
-     */
-    type: ExampleScenarioActorType;
     /**
      * The name of the actor as shown in the page
      * The name of the actor as shown in the page.
@@ -21445,6 +21776,11 @@ export interface ExampleScenarioActor extends BackboneElement {
      * Extension for description
      **/
     _description?: Element;
+    /**
+     * person | entity
+     * The type of actor - person or system.
+     */
+    type: ExampleScenarioActorType;
 }
 /**
  * A specific version of the resource
@@ -21746,6 +22082,10 @@ export interface ExampleScenarioProcess extends BackboneElement {
  */
 export interface ExampleScenario extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ExampleScenario';
+    /**
      * Canonical identifier for this example scenario, represented as a URI (globally unique)
      * An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -21785,12 +22125,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this example scenario. Enables tracking the life-cycle of the content.
-     * Allows filtering of example scenarios that are appropriate for use versus not.
-     */
-    status: ExampleScenarioPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -21883,6 +22217,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for workflow
      **/
     _workflow?: Element[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this example scenario. Enables tracking the life-cycle of the content.
+     * Allows filtering of example scenarios that are appropriate for use versus not.
+     */
+    status: ExampleScenarioPublicationStatus;
 }
 /**
  * Prior or corollary claims
@@ -22072,12 +22412,12 @@ export interface ExplanationOfBenefitDiagnosis extends BackboneElement {
      * Nature of illness or problem
      * The nature of illness or problem in a coded form or as a reference to an external defined Condition.
      */
-    diagnosisCodeableConcept: CodeableConcept;
+    diagnosisCodeableConcept?: CodeableConcept;
     /**
      * Nature of illness or problem
      * The nature of illness or problem in a coded form or as a reference to an external defined Condition.
      */
-    diagnosisReference: Reference;
+    diagnosisReference?: Reference;
     /**
      * Timing or nature of the diagnosis
      * When the condition was observed or the relative ranking.
@@ -22128,12 +22468,12 @@ export interface ExplanationOfBenefitProcedure extends BackboneElement {
      * Specific clinical procedure
      * The code or reference to a Procedure resource which identifies the clinical intervention performed.
      */
-    procedureCodeableConcept: CodeableConcept;
+    procedureCodeableConcept?: CodeableConcept;
     /**
      * Specific clinical procedure
      * The code or reference to a Procedure resource which identifies the clinical intervention performed.
      */
-    procedureReference: Reference;
+    procedureReference?: Reference;
     /**
      * Unique device identifier
      * Unique Device Identifiers associated with this line item.
@@ -22932,11 +23272,6 @@ export interface ExplanationOfBenefitProcessNote extends BackboneElement {
      **/
     _number?: Element;
     /**
-     * display | print | printoper
-     * The business purpose of the note text.
-     */
-    type?: ExplanationOfBenefitNoteType;
-    /**
      * Note explanatory text
      * The explanation or description associated with the processing.
      */
@@ -22951,6 +23286,11 @@ export interface ExplanationOfBenefitProcessNote extends BackboneElement {
      * Only required if the language is different from the resource language.
      */
     language?: CodeableConcept;
+    /**
+     * display | print | printoper
+     * The business purpose of the note text.
+     */
+    type?: ExplanationOfBenefitNoteType;
 }
 /**
  * Benefit Summary
@@ -23068,16 +23408,14 @@ export interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
  */
 export interface ExplanationOfBenefit extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ExplanationOfBenefit';
+    /**
      * Business Identifier for the resource
      * A unique identifier assigned to this explanation of benefit.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ExplanationOfBenefitStatus;
     /**
      * Category or discipline
      * The category of claim, e.g. oral, pharmacy, vision, institutional, professional.
@@ -23090,11 +23428,6 @@ export interface ExplanationOfBenefit extends DomainResource {
      * This may contain the local bill type codes such as the US UB-04 bill type code.
      */
     subType?: CodeableConcept;
-    /**
-     * claim | preauthorization | predetermination
-     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
-     */
-    use: ExplanationOfBenefitUse;
     /**
      * The recipient of the products and services
      * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought.
@@ -23194,12 +23527,6 @@ export interface ExplanationOfBenefit extends DomainResource {
      * The business identifier for the instance of the adjudication response: claim, predetermination or preauthorization response.
      */
     claimResponse?: Reference;
-    /**
-     * queued | complete | error | partial
-     * The outcome of the claim, predetermination, or preauthorization processing.
-     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
-     */
-    outcome: ExplanationOfBenefitRemittanceOutcome;
     /**
      * Disposition Message
      * A human readable description of the status of the adjudication.
@@ -23320,6 +23647,23 @@ export interface ExplanationOfBenefit extends DomainResource {
      * Balance by Benefit Category.
      */
     benefitBalance?: ExplanationOfBenefitBenefitBalance[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ExplanationOfBenefitStatus;
+    /**
+     * claim | preauthorization | predetermination
+     * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
+     */
+    use: ExplanationOfBenefitUse;
+    /**
+     * queued | complete | error | partial
+     * The outcome of the claim, predetermination, or preauthorization processing.
+     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
+     */
+    outcome: ExplanationOfBenefitRemittanceOutcome;
 }
 /**
  * Condition that the related person had
@@ -23381,6 +23725,10 @@ export interface FamilyMemberHistoryCondition extends BackboneElement {
  */
 export interface FamilyMemberHistory extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'FamilyMemberHistory';
+    /**
      * External Id(s) for this record
      * Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
@@ -23405,12 +23753,6 @@ export interface FamilyMemberHistory extends DomainResource {
      * Extension for instantiatesUri
      **/
     _instantiatesUri?: Element[];
-    /**
-     * partial | completed | entered-in-error | health-unknown
-     * A code specifying the status of the record of the family history of a specific family member.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: FamilyMemberHistoryFamilyHistoryStatus;
     /**
      * subject-unknown | withheld | unable-to-obtain | deferred
      * Describes why the family member's history is not available.
@@ -23564,6 +23906,12 @@ export interface FamilyMemberHistory extends DomainResource {
      * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
      */
     condition?: FamilyMemberHistoryCondition[];
+    /**
+     * partial | completed | entered-in-error | health-unknown
+     * A code specifying the status of the record of the family history of a specific family member.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: FamilyMemberHistoryFamilyHistoryStatus;
 }
 /**
  * Key information to flag to healthcare providers
@@ -23571,17 +23919,15 @@ export interface FamilyMemberHistory extends DomainResource {
  */
 export interface Flag extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Flag';
+    /**
      * Business identifier
      * Business identifiers assigned to this flag by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
      */
     identifier?: Identifier[];
-    /**
-     * active | inactive | entered-in-error
-     * Supports basic workflow.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: FlagStatus;
     /**
      * Clinical, administrative, etc.
      * Allows a flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
@@ -23615,6 +23961,12 @@ export interface Flag extends DomainResource {
      * The person, organization or device that created the flag.
      */
     author?: Reference;
+    /**
+     * active | inactive | entered-in-error
+     * Supports basic workflow.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: FlagStatus;
 }
 /**
  * Target outcome for the goal
@@ -23703,17 +24055,15 @@ export interface GoalTarget extends BackboneElement {
  */
 export interface Goal extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Goal';
+    /**
      * External Ids for this goal
      * Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.
      */
     identifier?: Identifier[];
-    /**
-     * proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected
-     * The state of the goal throughout its lifecycle.
-     * This element is labeled as a modifier because the lifecycleStatus contains codes that mark the resource as not currently valid.
-     */
-    lifecycleStatus: GoalLifecycleStatus;
     /**
      * in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable
      * Describes the progression, or lack thereof, towards the goal against the target.
@@ -23812,32 +24162,18 @@ The ordinal extension on Coding can be used to convey a numerically comparable r
      * The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome could be calories consumed whereas goal outcome is an observation for the actual body weight measured.
      */
     outcomeReference?: Reference[];
+    /**
+     * proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected
+     * The state of the goal throughout its lifecycle.
+     * This element is labeled as a modifier because the lifecycleStatus contains codes that mark the resource as not currently valid.
+     */
+    lifecycleStatus: GoalLifecycleStatus;
 }
 /**
  * Compartment Consistency Rules
  * Compartment Consistency Rules.
  */
 export interface GraphDefinitionLinkTargetCompartment extends BackboneElement {
-    /**
-     * condition | requirement
-     * Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed.
-     * All conditional rules are evaluated; if they are true, then the rules are evaluated.
-     */
-    use: GraphDefinitionGraphCompartmentUse;
-    /**
-     * Identifies the compartment
-     * Identifies the compartment.
-     */
-    code: code;
-    /**
-     * Extension for code
-     **/
-    _code?: Element;
-    /**
-     * identical | matching | different | custom
-     * identical | matching | different | no-rule | custom.
-     */
-    rule: GraphDefinitionGraphCompartmentRule;
     /**
      * Custom rule, as a FHIRPath expression
      * Custom rule, as a FHIRPath expression.
@@ -23856,6 +24192,22 @@ export interface GraphDefinitionLinkTargetCompartment extends BackboneElement {
      * Extension for description
      **/
     _description?: Element;
+    /**
+     * condition | requirement
+     * Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed.
+     * All conditional rules are evaluated; if they are true, then the rules are evaluated.
+     */
+    use: GraphDefinitionGraphCompartmentUse;
+    /**
+     * Patient | Encounter | RelatedPerson | Practitioner | Device
+     * Identifies the compartment.
+     */
+    code: GraphDefinitionCompartmentCode;
+    /**
+     * identical | matching | different | custom
+     * identical | matching | different | no-rule | custom.
+     */
+    rule: GraphDefinitionGraphCompartmentRule;
 }
 /**
  * Potential target for the link
@@ -23964,6 +24316,10 @@ export interface GraphDefinitionLink extends BackboneElement {
  */
 export interface GraphDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'GraphDefinition';
+    /**
      * Canonical identifier for this graph definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -23997,12 +24353,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this graph definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of graph definitions that are appropriate for use versus not.
-     */
-    status: GraphDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -24095,6 +24445,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Links this graph makes rules about.
      */
     link?: GraphDefinitionLink[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this graph definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of graph definitions that are appropriate for use versus not.
+     */
+    status: GraphDefinitionPublicationStatus;
 }
 /**
  * Include / Exclude group members by Trait
@@ -24112,13 +24468,13 @@ export interface GroupCharacteristic extends BackboneElement {
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
      * For Range, it means members of the group have a value that falls somewhere within the specified range.
      */
-    valueCodeableConcept: CodeableConcept;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * Value held by characteristic
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
      * For Range, it means members of the group have a value that falls somewhere within the specified range.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -24128,19 +24484,19 @@ export interface GroupCharacteristic extends BackboneElement {
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
      * For Range, it means members of the group have a value that falls somewhere within the specified range.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * Value held by characteristic
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
      * For Range, it means members of the group have a value that falls somewhere within the specified range.
      */
-    valueRange: Range;
+    valueRange?: Range;
     /**
      * Value held by characteristic
      * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
      * For Range, it means members of the group have a value that falls somewhere within the specified range.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
     /**
      * Group includes or excludes
      * If true, indicates the characteristic is one that is NOT held by members of the group.
@@ -24189,6 +24545,10 @@ export interface GroupMember extends BackboneElement {
  */
 export interface Group extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Group';
+    /**
      * Unique id
      * A unique business identifier for this group.
      */
@@ -24202,12 +24562,6 @@ export interface Group extends DomainResource {
      * Extension for active
      **/
     _active?: Element;
-    /**
-     * person | animal | practitioner | device | medication | substance
-     * Identifies the broad classification of the kind of resources the group includes.
-     * Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication or Substance for the other types.).
-     */
-    type: GroupType;
     /**
      * Descriptive or actual
      * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
@@ -24259,12 +24613,22 @@ export interface Group extends DomainResource {
      * Identifies the resource instances that are members of the group.
      */
     member?: GroupMember[];
+    /**
+     * person | animal | practitioner | device | medication | substance
+     * Identifies the broad classification of the kind of resources the group includes.
+     * Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication or Substance for the other types.).
+     */
+    type: GroupType;
 }
 /**
  * The formal response to a guidance request
  * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  */
 export interface GuidanceResponse extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'GuidanceResponse';
     /**
      * The identifier of the request associated with this response, if any
      * The identifier of the request associated with this response. If an identifier was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.
@@ -24279,7 +24643,7 @@ export interface GuidanceResponse extends DomainResource {
      * What guidance was requested
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
-    moduleUri: uri;
+    moduleUri?: uri;
     /**
      * Extension for moduleUri
      **/
@@ -24288,7 +24652,7 @@ export interface GuidanceResponse extends DomainResource {
      * What guidance was requested
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
-    moduleCanonical: canonical;
+    moduleCanonical?: canonical;
     /**
      * Extension for moduleCanonical
      **/
@@ -24297,13 +24661,7 @@ export interface GuidanceResponse extends DomainResource {
      * What guidance was requested
      * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
-    moduleCodeableConcept: CodeableConcept;
-    /**
-     * success | data-requested | data-required | in-progress | failure | entered-in-error
-     * The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: GuidanceResponseStatus;
+    moduleCodeableConcept?: CodeableConcept;
     /**
      * Patient the request was performed for
      * The patient for which the request was processed.
@@ -24364,6 +24722,12 @@ export interface GuidanceResponse extends DomainResource {
      * If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.
      */
     dataRequirement?: DataRequirement[];
+    /**
+     * success | data-requested | data-required | in-progress | failure | entered-in-error
+     * The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: GuidanceResponseStatus;
 }
 /**
  * Specific eligibility requirements required to use the service
@@ -24393,11 +24757,6 @@ export interface HealthcareServiceEligibility extends BackboneElement {
  */
 export interface HealthcareServiceAvailableTime extends BackboneElement {
     /**
-     * mon | tue | wed | thu | fri | sat | sun
-     * Indicates which days of the week are available between the start and end Times.
-     */
-    daysOfWeek?: HealthcareServiceDaysOfWeek[];
-    /**
      * Always available? e.g. 24 hour service
      * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
      */
@@ -24426,6 +24785,11 @@ export interface HealthcareServiceAvailableTime extends BackboneElement {
      * Extension for availableEndTime
      **/
     _availableEndTime?: Element;
+    /**
+     * mon | tue | wed | thu | fri | sat | sun
+     * Indicates which days of the week are available between the start and end Times.
+     */
+    daysOfWeek?: HealthcareServiceDaysOfWeek[];
 }
 /**
  * Not available during this time due to provided reason
@@ -24452,6 +24816,10 @@ export interface HealthcareServiceNotAvailable extends BackboneElement {
  * The details of a healthcare service available at a location.
  */
 export interface HealthcareService extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'HealthcareService';
     /**
      * External identifiers for this item
      * External identifiers for this item.
@@ -24760,17 +25128,15 @@ export interface ImagingStudySeries extends BackboneElement {
  */
 export interface ImagingStudy extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ImagingStudy';
+    /**
      * Identifiers for the whole study
      * Identifiers for the ImagingStudy such as DICOM Study Instance UID, and Accession Number.
      * See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. Accession Number should use ACSN Identifier type.
      */
     identifier?: Identifier[];
-    /**
-     * registered | available | cancelled | entered-in-error | unknown
-     * The current state of the ImagingStudy.
-     * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
-     */
-    status: ImagingStudyImagingStudyStatus;
     /**
      * All series modality if actual acquisition modalities
      * A list of all the series.modality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
@@ -24880,6 +25246,12 @@ export interface ImagingStudy extends DomainResource {
      * Each study has one or more series of images or other content.
      */
     series?: ImagingStudySeries[];
+    /**
+     * registered | available | cancelled | entered-in-error | unknown
+     * The current state of the ImagingStudy.
+     * Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+     */
+    status: ImagingStudyStatus;
 }
 /**
  * Who performed event
@@ -24999,7 +25371,7 @@ export interface ImmunizationProtocolApplied extends BackboneElement {
      * Nominal position in a series.
      * The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
      */
-    doseNumberPositiveInt: positiveInt;
+    doseNumberPositiveInt?: positiveInt;
     /**
      * Extension for doseNumberPositiveInt
      **/
@@ -25009,7 +25381,7 @@ export interface ImmunizationProtocolApplied extends BackboneElement {
      * Nominal position in a series.
      * The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose).
      */
-    doseNumberString: string;
+    doseNumberString?: string;
     /**
      * Extension for doseNumberString
      **/
@@ -25041,16 +25413,14 @@ export interface ImmunizationProtocolApplied extends BackboneElement {
  */
 export interface Immunization extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Immunization';
+    /**
      * Business identifier
      * A unique identifier assigned to this immunization record.
      */
     identifier?: Identifier[];
-    /**
-     * completed | entered-in-error | not-done
-     * Indicates the current status of the immunization event.
-     * Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ImmunizationStatus;
     /**
      * Reason not done
      * Indicates the reason the immunization event was not performed.
@@ -25077,7 +25447,7 @@ export interface Immunization extends DomainResource {
      * Date vaccine administered or was to be administered.
      * When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose.
      */
-    occurrenceDateTime: dateTime;
+    occurrenceDateTime?: dateTime;
     /**
      * Extension for occurrenceDateTime
      **/
@@ -25087,7 +25457,7 @@ export interface Immunization extends DomainResource {
      * Date vaccine administered or was to be administered.
      * When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose.
      */
-    occurrenceString: string;
+    occurrenceString?: string;
     /**
      * Extension for occurrenceString
      **/
@@ -25221,6 +25591,12 @@ export interface Immunization extends DomainResource {
      * The protocol (set of recommendations) being followed by the provider who administered the dose.
      */
     protocolApplied?: ImmunizationProtocolApplied[];
+    /**
+     * completed | entered-in-error | not-done
+     * Indicates the current status of the immunization event.
+     * Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ImmunizationStatus;
 }
 /**
  * Immunization evaluation information
@@ -25228,15 +25604,14 @@ export interface Immunization extends DomainResource {
  */
 export interface ImmunizationEvaluation extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ImmunizationEvaluation';
+    /**
      * Business identifier
      * A unique identifier assigned to this immunization evaluation record.
      */
     identifier?: Identifier[];
-    /**
-     * completed | entered-in-error
-     * Indicates the current status of the evaluation of the vaccination administration event.
-     */
-    status: ImmunizationEvaluationStatus;
     /**
      * Who this evaluation is for
      * The individual for whom the evaluation is being done.
@@ -25334,6 +25709,11 @@ export interface ImmunizationEvaluation extends DomainResource {
      * Extension for seriesDosesString
      **/
     _seriesDosesString?: Element;
+    /**
+     * completed | entered-in-error
+     * Indicates the current status of the evaluation of the vaccination administration event.
+     */
+    status: ImmunizationEvaluationStatus;
 }
 /**
  * Dates governing proposed immunization
@@ -25464,6 +25844,10 @@ export interface ImmunizationRecommendationRecommendation extends BackboneElemen
  * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  */
 export interface ImmunizationRecommendation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ImmunizationRecommendation';
     /**
      * Business identifier
      * A unique identifier assigned to this particular recommendation record.
@@ -25672,7 +26056,7 @@ export interface ImplementationGuideDefinitionPage extends BackboneElement {
      * The source address for the page.
      * The publishing tool will autogenerate source for list (source = n/a) and inject included implementations for include (source = uri of guide to include).
      */
-    nameUrl: url;
+    nameUrl?: url;
     /**
      * Extension for nameUrl
      **/
@@ -25682,7 +26066,7 @@ export interface ImplementationGuideDefinitionPage extends BackboneElement {
      * The source address for the page.
      * The publishing tool will autogenerate source for list (source = n/a) and inject included implementations for include (source = uri of guide to include).
      */
-    nameReference: Reference;
+    nameReference?: Reference;
     /**
      * Short title shown for navigational assistance
      * A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
@@ -25693,27 +26077,22 @@ export interface ImplementationGuideDefinitionPage extends BackboneElement {
      **/
     _title?: Element;
     /**
-     * html | markdown | xml | generated
-     * A code that indicates how the page is generated.
-     */
-    generation: ImplementationGuideGuidePageGeneration;
-    /**
      * Nested Pages / Sections
      * Nested Pages/Sections under this page.
      * The implementation guide breadcrumbs are generated from this structure.
      */
     page?: ImplementationGuideDefinitionPage[];
+    /**
+     * html | markdown | xml | generated
+     * A code that indicates how the page is generated.
+     */
+    generation: ImplementationGuideGuidePageGeneration;
 }
 /**
  * Defines how IG is built by tools
  * Defines how IG is built by tools.
  */
 export interface ImplementationGuideDefinitionParameter extends BackboneElement {
-    /**
-     * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template
-     * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
-     */
-    code: ImplementationGuideGuideParameterCode;
     /**
      * Value for named type
      * Value for named type.
@@ -25723,6 +26102,11 @@ export interface ImplementationGuideDefinitionParameter extends BackboneElement 
      * Extension for value
      **/
     _value?: Element;
+    /**
+     * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template
+     * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+     */
+    code: ImplementationGuideGuideParameterCode;
 }
 /**
  * A template for building resources
@@ -25917,6 +26301,10 @@ export interface ImplementationGuideManifest extends BackboneElement {
  */
 export interface ImplementationGuide extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ImplementationGuide';
+    /**
      * Canonical identifier for this implementation guide, represented as a URI (globally unique)
      * An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -25960,12 +26348,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this implementation guide. Enables tracking the life-cycle of the content.
-     * Allows filtering of implementation guides that are appropriate for use versus not.
-     */
-    status: ImplementationGuidePublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -26054,7 +26436,7 @@ In some cases, the resource can no longer be found at the stated url, but the ur
     _license?: Element;
     /**
      * FHIR Version(s) this Implementation Guide targets
-     * The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.0.0. for this version.
+     * The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.0.1. for this version.
      * Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics.
      */
     fhirVersion: code[];
@@ -26084,6 +26466,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Information about an assembled implementation guide, created by the publication tooling.
      */
     manifest?: ImplementationGuideManifest;
+    /**
+     * draft | active | retired | unknown
+     * The status of this implementation guide. Enables tracking the life-cycle of the content.
+     * Allows filtering of implementation guides that are appropriate for use versus not.
+     */
+    status: ImplementationGuidePublicationStatus;
 }
 /**
  * Contact for the product
@@ -26312,15 +26700,14 @@ export interface InsurancePlanPlan extends BackboneElement {
  */
 export interface InsurancePlan extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'InsurancePlan';
+    /**
      * Business Identifier for Product
      * Business identifiers assigned to this health insurance product which remain constant as the resource is updated and propagates from server to server.
      */
     identifier?: Identifier[];
-    /**
-     * draft | active | retired | unknown
-     * The current state of the health insurance product.
-     */
-    status?: InsurancePlanPublicationStatus;
     /**
      * Kind of product
      * The kind of health insurance product.
@@ -26393,6 +26780,11 @@ export interface InsurancePlan extends DomainResource {
      * Details about an insurance plan.
      */
     plan?: InsurancePlanPlan[];
+    /**
+     * draft | active | retired | unknown
+     * The current state of the health insurance product.
+     */
+    status?: InsurancePlanPublicationStatus;
 }
 /**
  * Participant in creation of this Invoice
@@ -26416,11 +26808,6 @@ export interface InvoiceParticipant extends BackboneElement {
  */
 export interface InvoiceLineItemPriceComponent extends BackboneElement {
     /**
-     * base | surcharge | deduction | discount | tax | informational
-     * This code identifies the type of the component.
-     */
-    type: InvoicePriceComponentType;
-    /**
      * Code identifying the specific component
      * A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
      */
@@ -26441,6 +26828,11 @@ export interface InvoiceLineItemPriceComponent extends BackboneElement {
      * There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden.
      */
     amount?: Money;
+    /**
+     * base | surcharge | deduction | discount | tax | informational
+     * This code identifies the type of the component.
+     */
+    type: InvoicePriceComponentType;
 }
 /**
  * Line items of this Invoice
@@ -26460,12 +26852,12 @@ export interface InvoiceLineItem extends BackboneElement {
      * Reference to ChargeItem containing details of this line item or an inline billing code
      * The ChargeItem contains information such as the billing code, date, amount etc. If no further details are required for the lineItem, inline billing codes can be added using the CodeableConcept data type instead of the Reference.
      */
-    chargeItemReference: Reference;
+    chargeItemReference?: Reference;
     /**
      * Reference to ChargeItem containing details of this line item or an inline billing code
      * The ChargeItem contains information such as the billing code, date, amount etc. If no further details are required for the lineItem, inline billing codes can be added using the CodeableConcept data type instead of the Reference.
      */
-    chargeItemCodeableConcept: CodeableConcept;
+    chargeItemCodeableConcept?: CodeableConcept;
     /**
      * Components of total line item price
      * The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice as to how the prices have been calculated.
@@ -26478,15 +26870,14 @@ export interface InvoiceLineItem extends BackboneElement {
  */
 export interface Invoice extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Invoice';
+    /**
      * Business Identifier for item
      * Identifier of this Invoice, often used for reference in correspondence about this invoice or for tracking of payments.
      */
     identifier?: Identifier[];
-    /**
-     * draft | issued | balanced | cancelled | entered-in-error
-     * The current state of the Invoice.
-     */
-    status: InvoiceStatus;
     /**
      * Reason for cancellation of this Invoice
      * In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.).
@@ -26576,12 +26967,21 @@ export interface Invoice extends DomainResource {
      * Comments made about the invoice by the issuer, subject, or other participants.
      */
     note?: Annotation[];
+    /**
+     * draft | issued | balanced | cancelled | entered-in-error
+     * The current state of the Invoice.
+     */
+    status: InvoiceStatus;
 }
 /**
  * Represents a library of quality improvement components
  * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
 export interface Library extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Library';
     /**
      * Canonical identifier for this library, represented as a URI (globally unique)
      * An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this library is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the library is stored on different servers.
@@ -26641,12 +27041,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this library. Enables tracking the life-cycle of the content.
-     * Allows filtering of libraries that are appropriate for use vs. not.
-     */
-    status: LibraryPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -26820,6 +27214,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.
      */
     content?: Attachment[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this library. Enables tracking the life-cycle of the content.
+     * Allows filtering of libraries that are appropriate for use vs. not.
+     */
+    status: LibraryPublicationStatus;
 }
 /**
  * Item to be linked
@@ -26827,21 +27227,25 @@ In some cases, the resource can no longer be found at the stated url, but the ur
  */
 export interface LinkageItem extends BackboneElement {
     /**
-     * source | alternate | historical
-     * Distinguishes which item is "source of truth" (if any) and which items are no longer considered to be current representations.
-     */
-    type: LinkageType;
-    /**
      * Resource being linked
      * The resource instance being linked as part of the group.
      */
     resource: Reference;
+    /**
+     * source | alternate | historical
+     * Distinguishes which item is "source of truth" (if any) and which items are no longer considered to be current representations.
+     */
+    type: LinkageType;
 }
 /**
  * Links records for 'same' item
  * Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
  */
 export interface Linkage extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Linkage';
     /**
      * Whether this linkage assertion is active or not
      * Indicates whether the asserted set of linkages are considered to be "in effect".
@@ -26906,22 +27310,14 @@ export interface ListEntry extends BackboneElement {
  */
 export interface List extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'List';
+    /**
      * Business identifier
      * Identifier for the List assigned for business purposes outside the context of FHIR.
      */
     identifier?: Identifier[];
-    /**
-     * current | retired | entered-in-error
-     * Indicates the current state of this list.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ListStatus;
-    /**
-     * working | snapshot | changes
-     * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
-     * This element is labeled as a modifier because a change list must not be misunderstood as a complete list.
-     */
-    mode: ListMode;
     /**
      * Descriptive name for the list
      * A label for the list assigned by the author.
@@ -26987,6 +27383,18 @@ export interface List extends DomainResource {
      * The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases.
      */
     emptyReason?: CodeableConcept;
+    /**
+     * current | retired | entered-in-error
+     * Indicates the current state of this list.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ListStatus;
+    /**
+     * working | snapshot | changes
+     * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+     * This element is labeled as a modifier because a change list must not be misunderstood as a complete list.
+     */
+    mode: ListMode;
 }
 /**
  * The absolute geographic location
@@ -27030,11 +27438,6 @@ Specific services within the location may have their own hours which could be sh
  */
 export interface LocationHoursOfOperation extends BackboneElement {
     /**
-     * mon | tue | wed | thu | fri | sat | sun
-     * Indicates which days of the week are available between the start and end Times.
-     */
-    daysOfWeek?: LocationDaysOfWeek[];
-    /**
      * The Location is open all day
      * The Location is open all day.
      */
@@ -27061,6 +27464,11 @@ export interface LocationHoursOfOperation extends BackboneElement {
      * Extension for closingTime
      **/
     _closingTime?: Element;
+    /**
+     * mon | tue | wed | thu | fri | sat | sun
+     * Indicates which days of the week are available between the start and end Times.
+     */
+    daysOfWeek?: LocationDaysOfWeek[];
 }
 /**
  * Details and position information for a physical place
@@ -27068,15 +27476,14 @@ export interface LocationHoursOfOperation extends BackboneElement {
  */
 export interface Location extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Location';
+    /**
      * Unique code or number identifying the location to its users
      * Unique code or number identifying the location to its users.
      */
     identifier?: Identifier[];
-    /**
-     * active | suspended | inactive
-     * The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
-     */
-    status?: LocationStatus;
     /**
      * The operational status of the location (typically only for a bed/room)
      * The operational status covers operation values most relevant to beds (but can also apply to rooms/units/chairs/etc. such as an isolation unit/dialysis chair). This typically covers concepts such as contamination, housekeeping, and other activities like maintenance.
@@ -27111,12 +27518,6 @@ export interface Location extends DomainResource {
      * Extension for description
      **/
     _description?: Element;
-    /**
-     * instance | kind
-     * Indicates whether a resource instance represents a specific location or a class of locations.
-     * This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood.
-     */
-    mode?: LocationMode;
     /**
      * Type of function performed
      * Indicates the type of function performed at the location.
@@ -27176,6 +27577,17 @@ Specific services within the location may have their own hours which could be sh
      * Technical endpoints providing access to services operated for the location.
      */
     endpoint?: Reference[];
+    /**
+     * active | suspended | inactive
+     * The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
+     */
+    status?: LocationStatus;
+    /**
+     * instance | kind
+     * Indicates whether a resource instance represents a specific location or a class of locations.
+     * This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood.
+     */
+    mode?: LocationMode;
 }
 /**
  * Population criteria
@@ -27327,6 +27739,10 @@ export interface MeasureSupplementalData extends BackboneElement {
  */
 export interface Measure extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Measure';
+    /**
      * Canonical identifier for this measure, represented as a URI (globally unique)
      * An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -27385,12 +27801,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this measure. Enables tracking the life-cycle of the content.
-     * Allows filtering of measures that are appropriate for use versus not.
-     */
-    status: MeasurePublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -27651,6 +28061,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information.
      */
     supplementalData?: MeasureSupplementalData[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this measure. Enables tracking the life-cycle of the content.
+     * Allows filtering of measures that are appropriate for use versus not.
+     */
+    status: MeasurePublicationStatus;
 }
 /**
  * The populations in the group
@@ -27792,23 +28208,15 @@ export interface MeasureReportGroup extends BackboneElement {
  */
 export interface MeasureReport extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MeasureReport';
+    /**
      * Additional identifier for the MeasureReport
      * A formal identifier that is used to identify this MeasureReport when it is represented in other formats or referenced in a specification, model, design or an instance.
      * Typically, this is used for identifiers that can go in an HL7 V3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use.
      */
     identifier?: Identifier[];
-    /**
-     * complete | pending | error
-     * The MeasureReport status. No data will be available until the MeasureReport status is complete.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: MeasureReportStatus;
-    /**
-     * individual | subject-list | summary | data-collection
-     * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure.
-     * Data-collection reports are used only to communicate data-of-interest for a measure. They do not necessarily include all the data for a particular subject or population, but they may.
-     */
-    type: MeasureReportType;
     /**
      * What measure was calculated
      * A reference to the Measure that was calculated to produce this report.
@@ -27858,12 +28266,28 @@ export interface MeasureReport extends DomainResource {
      * A reference to a Bundle containing the Resources that were used in the calculation of this measure.
      */
     evaluatedResource?: Reference[];
+    /**
+     * complete | pending | error
+     * The MeasureReport status. No data will be available until the MeasureReport status is complete.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: MeasureReportStatus;
+    /**
+     * individual | subject-list | summary | data-collection
+     * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure.
+     * Data-collection reports are used only to communicate data-of-interest for a measure. They do not necessarily include all the data for a particular subject or population, but they may.
+     */
+    type: MeasureReportType;
 }
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
 export interface Media extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Media';
     /**
      * Identifier(s) for the image
      * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.
@@ -27883,14 +28307,6 @@ export interface Media extends DomainResource {
 [The allowed reference resources may be adjusted as appropriate for the event resource].
      */
     partOf?: Reference[];
-    /**
-     * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
-     * The current state of the {{title}}.
-     * A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation
-
-Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
-     */
-    status: MediaStatus;
     /**
      * Classification of media as image, video, or audio
      * A code that classifies whether the media is an image, video or audio recording or some other media category.
@@ -28025,6 +28441,14 @@ If the use case requires BodySite to be handled as a separate resource (e.g. to 
      * Not to be used for observations, conclusions, etc. Instead use an [Observation](observation.html) based on the Media/ImagingStudy resource.
      */
     note?: Annotation[];
+    /**
+     * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
+     * The current state of the {{title}}.
+     * A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation
+
+Unknown does not represent "other" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+     */
+    status: MediaStatus;
 }
 /**
  * Active or inactive ingredient
@@ -28036,12 +28460,12 @@ export interface MedicationIngredient extends BackboneElement {
      * The actual ingredient or content
      * The actual ingredient - either a substance (simple ingredient) or another medication of a medication.
      */
-    itemCodeableConcept: CodeableConcept;
+    itemCodeableConcept?: CodeableConcept;
     /**
      * The actual ingredient or content
      * The actual ingredient - either a substance (simple ingredient) or another medication of a medication.
      */
-    itemReference: Reference;
+    itemReference?: Reference;
     /**
      * Active ingredient indicator
      * Indication of whether this ingredient affects the therapeutic action of the drug.
@@ -28087,6 +28511,10 @@ export interface MedicationBatch extends BackboneElement {
  */
 export interface Medication extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Medication';
+    /**
      * Business identifier for this medication
      * Business identifier for this medication.
      * The serial number could be included as an identifier.
@@ -28098,12 +28526,6 @@ export interface Medication extends DomainResource {
      * Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: "A coding may be marked as a "userSelected" if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
      */
     code?: CodeableConcept;
-    /**
-     * active | inactive | entered-in-error
-     * A code to indicate if the medication is in active use.
-     * This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product "ABC Hospital Special Cream" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to "entered in error".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.
-     */
-    status?: MedicationStatus;
     /**
      * Manufacturer of the item
      * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
@@ -28131,6 +28553,12 @@ export interface Medication extends DomainResource {
      * Information that only applies to packages (not products).
      */
     batch?: MedicationBatch;
+    /**
+     * active | inactive | entered-in-error
+     * A code to indicate if the medication is in active use.
+     * This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product "ABC Hospital Special Cream" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to "entered in error".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.
+     */
+    status?: MedicationStatus;
 }
 /**
  * Who performed the medication administration and what they did
@@ -28206,6 +28634,10 @@ The dosage instructions should reflect the dosage of the medication that was adm
  */
 export interface MedicationAdministration extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationAdministration';
+    /**
      * External identifier
      * Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier.
@@ -28226,12 +28658,6 @@ export interface MedicationAdministration extends DomainResource {
      */
     partOf?: Reference[];
     /**
-     * in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown
-     * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: MedicationAdministrationStatus;
-    /**
      * Reason administration not performed
      * A code indicating why the administration was not performed.
      */
@@ -28246,13 +28672,13 @@ export interface MedicationAdministration extends DomainResource {
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * What was administered
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
     /**
      * Who received medication
      * The person or animal or group receiving the medication.
@@ -28272,7 +28698,7 @@ export interface MedicationAdministration extends DomainResource {
      * Start and end time of administration
      * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
      */
-    effectiveDateTime: dateTime;
+    effectiveDateTime?: dateTime;
     /**
      * Extension for effectiveDateTime
      **/
@@ -28281,7 +28707,7 @@ export interface MedicationAdministration extends DomainResource {
      * Start and end time of administration
      * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
      */
-    effectivePeriod: Period;
+    effectivePeriod?: Period;
     /**
      * Who performed the medication administration and what they did
      * Indicates who or what performed the medication administration and how they were involved.
@@ -28325,6 +28751,12 @@ export interface MedicationAdministration extends DomainResource {
      * This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.
      */
     eventHistory?: Reference[];
+    /**
+     * in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown
+     * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: MedicationAdministrationStatus;
 }
 /**
  * Who performed event
@@ -28378,6 +28810,10 @@ export interface MedicationDispenseSubstitution extends BackboneElement {
  */
 export interface MedicationDispense extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationDispense';
+    /**
      * External identifier
      * Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier.
@@ -28388,12 +28824,6 @@ export interface MedicationDispense extends DomainResource {
      * The procedure that trigger the dispense.
      */
     partOf?: Reference[];
-    /**
-     * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | unknown
-     * A code specifying the state of the set of dispense events.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: MedicationDispenseStatus;
     /**
      * Why a dispense was not performed
      * Indicates the reason why a dispense was not performed.
@@ -28415,13 +28845,13 @@ export interface MedicationDispense extends DomainResource {
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * What medication was supplied
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
     /**
      * Who the dispense is for
      * A link to a resource representing the person or the group to whom the medication will be given.
@@ -28526,6 +28956,12 @@ The pharmacist reviews the medication order prior to dispense and updates the do
      * This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
      */
     eventHistory?: Reference[];
+    /**
+     * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown
+     * A code specifying the state of the set of dispense events.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: MedicationDispenseStatus;
 }
 /**
  * Associated or related medication information
@@ -28568,12 +29004,12 @@ export interface MedicationKnowledgeIngredient extends BackboneElement {
      * Medication(s) or substance(s) contained in the medication
      * The actual ingredient - either a substance (simple ingredient) or another medication.
      */
-    itemCodeableConcept: CodeableConcept;
+    itemCodeableConcept?: CodeableConcept;
     /**
      * Medication(s) or substance(s) contained in the medication
      * The actual ingredient - either a substance (simple ingredient) or another medication.
      */
-    itemReference: Reference;
+    itemReference?: Reference;
     /**
      * Active ingredient indicator
      * Indication of whether this ingredient affects the therapeutic action of the drug.
@@ -28659,12 +29095,12 @@ export interface MedicationKnowledgeAdministrationGuidelinesPatientCharacteristi
      * Specific characteristic that is relevant to the administration guideline
      * Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).
      */
-    characteristicCodeableConcept: CodeableConcept;
+    characteristicCodeableConcept?: CodeableConcept;
     /**
      * Specific characteristic that is relevant to the administration guideline
      * Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).
      */
-    characteristicQuantity: Quantity;
+    characteristicQuantity?: Quantity;
     /**
      * The specific characteristic
      * The specific characteristic (e.g. height, weight, gender, etc.).
@@ -28876,17 +29312,15 @@ export interface MedicationKnowledgeKinetics extends BackboneElement {
  */
 export interface MedicationKnowledge extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationKnowledge';
+    /**
      * Code that identifies this medication
      * A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
      * Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: "A coding may be marked as a "userSelected" if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
      */
     code?: CodeableConcept;
-    /**
-     * active | inactive | entered-in-error
-     * A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties.
-     * This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product "ABC Hospital Special Cream" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to "entered in error".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.
-     */
-    status?: MedicationKnowledgeStatus;
     /**
      * Manufacturer of the item
      * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
@@ -28997,6 +29431,12 @@ export interface MedicationKnowledge extends DomainResource {
      * The time course of drug absorption, distribution, metabolism and excretion of a medication from the body.
      */
     kinetics?: MedicationKnowledgeKinetics[];
+    /**
+     * active | inactive | entered-in-error
+     * A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties.
+     * This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product "ABC Hospital Special Cream" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to "entered in error".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.
+     */
+    status?: MedicationKnowledgeStatus;
 }
 /**
  * First fill details
@@ -29074,7 +29514,7 @@ export interface MedicationRequestSubstitution extends BackboneElement {
      * True if the prescriber allows a different drug to be dispensed from what was prescribed.
      * This element is labeled as a modifier because whether substitution is allow or not, it cannot be ignored.
      */
-    allowedBoolean: boolean;
+    allowedBoolean?: boolean;
     /**
      * Extension for allowedBoolean
      **/
@@ -29084,7 +29524,7 @@ export interface MedicationRequestSubstitution extends BackboneElement {
      * True if the prescriber allows a different drug to be dispensed from what was prescribed.
      * This element is labeled as a modifier because whether substitution is allow or not, it cannot be ignored.
      */
-    allowedCodeableConcept: CodeableConcept;
+    allowedCodeableConcept?: CodeableConcept;
     /**
      * Why should (not) substitution be made
      * Indicates the reason for the substitution, or why substitution must or must not be performed.
@@ -29097,17 +29537,15 @@ export interface MedicationRequestSubstitution extends BackboneElement {
  */
 export interface MedicationRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationRequest';
+    /**
      * External ids for this request
      * Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier.
      */
     identifier?: Identifier[];
-    /**
-     * active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
-     * A code specifying the current state of the order.  Generally, this will be active or completed state.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: MedicationRequestStatus;
     /**
      * Reason for current status
      * Captures the reason for the current state of the MedicationRequest.
@@ -29115,26 +29553,11 @@ export interface MedicationRequest extends DomainResource {
      */
     statusReason?: CodeableConcept;
     /**
-     * proposal | plan | order | original-order | instance-order | option
-     * Whether the request is a proposal, plan, or an original order.
-     * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
-
-An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
-
-This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-     */
-    intent: MedicationRequestIntent;
-    /**
      * Type of medication usage
      * Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).
      * The category can be used to include where the medication is expected to be consumed or other types of requests.
      */
     category?: CodeableConcept[];
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the Medication Request should be addressed with respect to other requests.
-     */
-    priority?: MedicationRequestPriority;
     /**
      * True if request is prohibiting action
      * If true indicates that the provider is asking for the medication request not to occur.
@@ -29164,13 +29587,13 @@ This element is labeled as a modifier because the intent alters when and how the
      * Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * Medication to be taken
      * Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
     /**
      * Who or group medication request is for
      * A link to a resource representing the person or set of individuals to whom the medication will be given.
@@ -29307,6 +29730,27 @@ This element is labeled as a modifier because the intent alters when and how the
      * This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.).
      */
     eventHistory?: Reference[];
+    /**
+     * active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
+     * A code specifying the current state of the order.  Generally, this will be active or completed state.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: MedicationRequestStatus;
+    /**
+     * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
+     * Whether the request is a proposal, plan, or an original order.
+     * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+
+An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
+
+This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+     */
+    intent: MedicationRequestIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the Medication Request should be addressed with respect to other requests.
+     */
+    priority?: MedicationRequestPriority;
 }
 /**
  * Record of medication being taken by a patient
@@ -29326,6 +29770,10 @@ Status=In Error + NotTaken=N/A = In Error.
  */
 export interface MedicationStatement extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicationStatement';
+    /**
      * External identifier
      * Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
      * This is a business identifier, not a resource identifier.
@@ -29342,14 +29790,6 @@ export interface MedicationStatement extends DomainResource {
      */
     partOf?: Reference[];
     /**
-     * active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken
-     * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally, this will be active or completed.
-     * MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).
-
-This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: MedicationStatementStatus;
-    /**
      * Reason for current status
      * Captures the reason for the current state of the MedicationStatement.
      * This is generally only used for "exception" statuses such as "not-taken", "on-hold", "cancelled" or "entered-in-error". The reason for performing the event at all is captured in reasonCode, not here.
@@ -29365,13 +29805,13 @@ This element is labeled as a modifier because the status contains codes that mar
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * What medication was taken
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      * If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
     /**
      * Who is/was taking  the medication
      * The person, animal or group who is/was taking the medication.
@@ -29441,6 +29881,14 @@ This element is labeled as a modifier because the status contains codes that mar
      * The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, "from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily."  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Statement is derived from a MedicationRequest.
      */
     dosage?: Dosage[];
+    /**
+     * active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken
+     * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally, this will be active or completed.
+     * MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: MedicationStatementStatus;
 }
 /**
  * Coding words or phrases of the name
@@ -29603,6 +30051,10 @@ export interface MedicinalProductSpecialDesignation extends BackboneElement {
  * Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
  */
 export interface MedicinalProduct extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProduct';
     /**
      * Business identifier for this product. Could be an MPID
      * Business identifier for this product. Could be an MPID.
@@ -29780,6 +30232,10 @@ export interface MedicinalProductAuthorizationProcedure extends BackboneElement 
  */
 export interface MedicinalProductAuthorization extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductAuthorization';
+    /**
      * Business identifier for the marketing authorization, as assigned by a regulator
      * Business identifier for the marketing authorization, as assigned by a regulator.
      */
@@ -29890,18 +30346,22 @@ export interface MedicinalProductContraindicationOtherTherapy extends BackboneEl
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
 }
 /**
  * MedicinalProductContraindication
  * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
  */
 export interface MedicinalProductContraindication extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductContraindication';
     /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
@@ -29952,18 +30412,22 @@ export interface MedicinalProductIndicationOtherTherapy extends BackboneElement 
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication.
      */
-    medicationCodeableConcept: CodeableConcept;
+    medicationCodeableConcept?: CodeableConcept;
     /**
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication
      * Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication.
      */
-    medicationReference: Reference;
+    medicationReference?: Reference;
 }
 /**
  * MedicinalProductIndication
  * Indication for the Medicinal Product.
  */
 export interface MedicinalProductIndication extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductIndication';
     /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
@@ -30138,6 +30602,10 @@ export interface MedicinalProductIngredientSubstance extends BackboneElement {
  */
 export interface MedicinalProductIngredient extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductIngredient';
+    /**
      * Identifier for the ingredient
      * The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
      */
@@ -30181,18 +30649,22 @@ export interface MedicinalProductInteractionInteractant extends BackboneElement 
      * The specific medication, food or laboratory test that interacts
      * The specific medication, food or laboratory test that interacts.
      */
-    itemReference: Reference;
+    itemReference?: Reference;
     /**
      * The specific medication, food or laboratory test that interacts
      * The specific medication, food or laboratory test that interacts.
      */
-    itemCodeableConcept: CodeableConcept;
+    itemCodeableConcept?: CodeableConcept;
 }
 /**
  * MedicinalProductInteraction
  * The interactions of the medicinal product with other medicinal products, or other forms of interactions.
  */
 export interface MedicinalProductInteraction extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductInteraction';
     /**
      * The medication for which this is a described interaction
      * The medication for which this is a described interaction.
@@ -30238,6 +30710,10 @@ export interface MedicinalProductInteraction extends DomainResource {
  * The manufactured item as contained in the packaged medicinal product.
  */
 export interface MedicinalProductManufactured extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductManufactured';
     /**
      * Dose form as manufactured and before any transformation into the pharmaceutical product
      * Dose form as manufactured and before any transformation into the pharmaceutical product.
@@ -30361,6 +30837,10 @@ export interface MedicinalProductPackagedPackageItem extends BackboneElement {
  * A medicinal product in a container or package.
  */
 export interface MedicinalProductPackaged extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductPackaged';
     /**
      * Unique identifier
      * Unique identifier.
@@ -30515,6 +30995,10 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration extends Bac
  */
 export interface MedicinalProductPharmaceutical extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductPharmaceutical';
+    /**
      * An identifier for the pharmaceutical medicinal product
      * An identifier for the pharmaceutical medicinal product.
      */
@@ -30555,6 +31039,10 @@ export interface MedicinalProductPharmaceutical extends DomainResource {
  * Describe the undesirable effects of the medicinal product.
  */
 export interface MedicinalProductUndesirableEffect extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'MedicinalProductUndesirableEffect';
     /**
      * The medication for which this is an indication
      * The medication for which this is an indication.
@@ -30657,6 +31145,10 @@ export interface MessageDefinitionAllowedResponse extends BackboneElement {
  */
 export interface MessageDefinition extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MessageDefinition';
+    /**
      * Business Identifier for a given MessageDefinition
      * The business identifier that is used to reference the MessageDefinition and *is* expected to be consistent from server to server.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -30715,12 +31207,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for replaces
      **/
     _replaces?: Element[];
-    /**
-     * draft | active | retired | unknown
-     * The status of this message definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of message definitions that are appropriate for use versus not.
-     */
-    status: MessageDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -30821,32 +31307,21 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Event code  or link to the EventDefinition
      * Event code or link to the EventDefinition.
      */
-    eventCoding: Coding;
+    eventCoding?: Coding;
     /**
      * Event code  or link to the EventDefinition
      * Event code or link to the EventDefinition.
      */
-    eventUri: uri;
+    eventUri?: uri;
     /**
      * Extension for eventUri
      **/
     _eventUri?: Element;
     /**
-     * consequence | currency | notification
-     * The impact of the content of the message.
-     */
-    category?: MessageDefinitionMessageSignificanceCategory;
-    /**
      * Resource(s) that are the subject of the event
      * Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge.
      */
     focus?: MessageDefinitionFocus[];
-    /**
-     * always | on-error | never | on-success
-     * Declare at a message definition level whether a response is required or only upon error or success, or never.
-     * This enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message instance level whether a response is required or only upon error or success, or never.
-     */
-    responseRequired?: MessageDefinitionmessageheader_response_request;
     /**
      * Responses to this message
      * Indicates what types of messages may be sent as an application-level response to this message.
@@ -30862,6 +31337,23 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for graph
      **/
     _graph?: Element[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this message definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of message definitions that are appropriate for use versus not.
+     */
+    status: MessageDefinitionPublicationStatus;
+    /**
+     * consequence | currency | notification
+     * The impact of the content of the message.
+     */
+    category?: MessageDefinitionMessageSignificanceCategory;
+    /**
+     * always | on-error | never | on-success
+     * Declare at a message definition level whether a response is required or only upon error or success, or never.
+     * This enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message instance level whether a response is required or only upon error or success, or never.
+     */
+    responseRequired?: MessageDefinitionmessageheader_response_request;
 }
 /**
  * Message destination application(s)
@@ -30962,17 +31454,17 @@ export interface MessageHeaderResponse extends BackboneElement {
      **/
     _identifier?: Element;
     /**
-     * ok | transient-error | fatal-error
-     * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
-     * This is a generic response to the request message. Specific data for the response will be found in MessageHeader.focus.
-     */
-    code: MessageHeaderResponseType;
-    /**
      * Specific list of hints/warnings/errors
      * Full details of any issues found in the message.
      * This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error.
      */
     details?: Reference;
+    /**
+     * ok | transient-error | fatal-error
+     * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
+     * This is a generic response to the request message. Specific data for the response will be found in MessageHeader.focus.
+     */
+    code: MessageHeaderResponseType;
 }
 /**
  * A resource that describes a message that is exchanged between systems
@@ -30980,17 +31472,21 @@ export interface MessageHeaderResponse extends BackboneElement {
  */
 export interface MessageHeader extends DomainResource {
     /**
-     * Code for the event this message represents or link to event definition
-     * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the EventDefinition.
-     * The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp).
+     * The type of the resource.
      */
-    eventCoding: Coding;
+    resourceType: 'MessageHeader';
     /**
      * Code for the event this message represents or link to event definition
      * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the EventDefinition.
      * The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp).
      */
-    eventUri: uri;
+    eventCoding?: Coding;
+    /**
+     * Code for the event this message represents or link to event definition
+     * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the EventDefinition.
+     * The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp).
+     */
+    eventUri?: uri;
     /**
      * Extension for eventUri
      **/
@@ -31076,11 +31572,6 @@ export interface MolecularSequenceReferenceSeq extends BackboneElement {
      **/
     _genomeBuild?: Element;
     /**
-     * sense | antisense
-     * A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the "sense" strand, and the opposite complementary strand is the "antisense" strand.
-     */
-    orientation?: MolecularSequenceorientationType;
-    /**
      * Reference identifier
      * Reference identifier of reference sequence submitted to NCBI. It must match the type in the MolecularSequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.
      */
@@ -31100,11 +31591,6 @@ export interface MolecularSequenceReferenceSeq extends BackboneElement {
      **/
     _referenceSeqString?: Element;
     /**
-     * watson | crick
-     * An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.
-     */
-    strand?: MolecularSequencestrandType;
-    /**
      * Start position of the window on the  reference sequence
      * Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
      */
@@ -31122,6 +31608,16 @@ export interface MolecularSequenceReferenceSeq extends BackboneElement {
      * Extension for windowEnd
      **/
     _windowEnd?: Element;
+    /**
+     * sense | antisense
+     * A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the "sense" strand, and the opposite complementary strand is the "antisense" strand.
+     */
+    orientation?: MolecularSequenceorientationType;
+    /**
+     * watson | crick
+     * An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.
+     */
+    strand?: MolecularSequencestrandType;
 }
 /**
  * Variant in sequence
@@ -31254,11 +31750,6 @@ export interface MolecularSequenceQualityRoc extends BackboneElement {
  */
 export interface MolecularSequenceQuality extends BackboneElement {
     /**
-     * indel | snp | unknown
-     * INDEL / SNP / Undefined variant.
-     */
-    type: MolecularSequencequalityType;
-    /**
      * Standard sequence for comparison
      * Gold standard sequence used for comparing against.
      */
@@ -31368,17 +31859,17 @@ export interface MolecularSequenceQuality extends BackboneElement {
      * Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff.
      */
     roc?: MolecularSequenceQualityRoc;
+    /**
+     * indel | snp | unknown
+     * INDEL / SNP / Undefined variant.
+     */
+    type: MolecularSequencequalityType;
 }
 /**
  * External repository which contains detailed report related with observedSeq in this resource
  * Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq.
  */
 export interface MolecularSequenceRepository extends BackboneElement {
-    /**
-     * directlink | openapi | login | oauth | other
-     * Click and see / RESTful API / Need login to see / RESTful API with authentication / Other ways to see resource.
-     */
-    type: MolecularSequencerepositoryType;
     /**
      * URI of the repository
      * URI of an external repository which contains further details about the genetics data.
@@ -31424,6 +31915,11 @@ export interface MolecularSequenceRepository extends BackboneElement {
      * Extension for readsetId
      **/
     _readsetId?: Element;
+    /**
+     * directlink | openapi | login | oauth | other
+     * Click and see / RESTful API / Need login to see / RESTful API with authentication / Other ways to see resource.
+     */
+    type: MolecularSequencerepositoryType;
 }
 /**
  * Structural variant outer
@@ -31518,15 +32014,14 @@ export interface MolecularSequenceStructureVariant extends BackboneElement {
  */
 export interface MolecularSequence extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'MolecularSequence';
+    /**
      * Unique ID for this particular sequence. This is a FHIR-defined id
      * A unique identifier for this particular sequence instance. This is a FHIR-defined id.
      */
     identifier?: Identifier[];
-    /**
-     * aa | dna | rna
-     * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
-     */
-    type?: MolecularSequencesequenceType;
     /**
      * Base number of coordinate system (0 for 0-based numbering or coordinates, inclusive start, exclusive end, 1 for 1-based numbering, inclusive start, inclusive end)
      * Whether the sequence is numbered starting at 0 (0-based numbering or coordinates, inclusive start, exclusive end) or starting at 1 (1-based numbering, inclusive start and inclusive end).
@@ -31609,6 +32104,11 @@ export interface MolecularSequence extends DomainResource {
      * Information about chromosome structure variation.
      */
     structureVariant?: MolecularSequenceStructureVariant[];
+    /**
+     * aa | dna | rna
+     * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
+     */
+    type?: MolecularSequencesequenceType;
 }
 /**
  * Unique identifiers used for system
@@ -31616,12 +32116,6 @@ export interface MolecularSequence extends DomainResource {
  * Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
  */
 export interface NamingSystemUniqueId extends BackboneElement {
-    /**
-     * oid | uuid | uri | other
-     * Identifies the unique identifier scheme used for this particular identifier.
-     * Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.
-     */
-    type: NamingSystemIdentifierType;
     /**
      * The unique identifier
      * The string that should be sent over the wire to identify the code system or identifier system.
@@ -31657,12 +32151,22 @@ export interface NamingSystemUniqueId extends BackboneElement {
      * Within a registry, a given identifier should only be "active" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).
      */
     period?: Period;
+    /**
+     * oid | uuid | uri | other
+     * Identifies the unique identifier scheme used for this particular identifier.
+     * Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.
+     */
+    type: NamingSystemIdentifierType;
 }
 /**
  * System of unique identification
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
 export interface NamingSystem extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'NamingSystem';
     /**
      * Name for this naming system (computer friendly)
      * A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.
@@ -31673,17 +32177,6 @@ export interface NamingSystem extends DomainResource {
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this naming system. Enables tracking the life-cycle of the content.
-     * Allows filtering of naming systems that are appropriate for use versus not.
-     */
-    status: NamingSystemPublicationStatus;
-    /**
-     * codesystem | identifier | root
-     * Indicates the purpose for the naming system - what kinds of things does it make unique?
-     */
-    kind: NamingSystemType;
     /**
      * Date last changed
      * The date  (and optionally time) when the naming system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.
@@ -31763,6 +32256,17 @@ export interface NamingSystem extends DomainResource {
      * Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
      */
     uniqueId: NamingSystemUniqueId[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this naming system. Enables tracking the life-cycle of the content.
+     * Allows filtering of naming systems that are appropriate for use versus not.
+     */
+    status: NamingSystemPublicationStatus;
+    /**
+     * codesystem | identifier | root
+     * Indicates the purpose for the naming system - what kinds of things does it make unique?
+     */
+    kind: NamingSystemType;
 }
 /**
  * Required  nutrient modifications
@@ -31980,6 +32484,10 @@ export interface NutritionOrderEnteralFormula extends BackboneElement {
  */
 export interface NutritionOrder extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'NutritionOrder';
+    /**
      * Identifiers assigned to this order
      * Identifiers assigned to this order by the order sender or by the order receiver.
      * The Identifier.type element can be to indicate filler vs. placer if needed.  This is explained in further detail [here](servicerequest.html#notes).
@@ -32014,18 +32522,6 @@ export interface NutritionOrder extends DomainResource {
      * Extension for instantiates
      **/
     _instantiates?: Element[];
-    /**
-     * proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
-     * The workflow status of the nutrition order/request.
-     * Typically the system placing the order sets the status to "requested". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: NutritionOrderStatus;
-    /**
-     * proposal | plan | order
-     * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
-     * When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to "proposal, plan or order".  Can have multiple codes that map to one of these.  E.g. "original order", "encoded order", "reflex order" would all map to "order".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
-     */
-    intent: NutritiionOrderIntent;
     /**
      * The person who requires the diet, formula or nutritional supplement
      * The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
@@ -32089,6 +32585,18 @@ export interface NutritionOrder extends DomainResource {
      * This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements.
      */
     note?: Annotation[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * The workflow status of the nutrition order/request.
+     * Typically the system placing the order sets the status to "requested". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: NutritionOrderStatus;
+    /**
+     * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+     * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
+     * When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to "proposal, plan or order".  Can have multiple codes that map to one of these.  E.g. "original order", "encoded order", "reflex order" would all map to "order".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
+     */
+    intent: NutritionOrderNutritiionOrderIntent;
 }
 /**
  * Provides guide for interpretation
@@ -32259,6 +32767,10 @@ The alternate way is to use the value element for actual observations and use th
  */
 export interface Observation extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Observation';
+    /**
      * Business Identifier for observation
      * A unique identifier assigned to this observation.
      */
@@ -32274,12 +32786,6 @@ export interface Observation extends DomainResource {
      * To link an Observation to an Encounter use `encounter`.  See the  [Notes](observation.html#obsgrouping) below for guidance on referencing another Observation.
      */
     partOf?: Reference[];
-    /**
-     * registered | preliminary | final | amended +
-     * The status of the result value.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ObservationStatus;
     /**
      * Classification of  type of observation
      * A code that classifies the general type of observation being made.
@@ -32513,6 +33019,12 @@ If the use case requires BodySite to be handled as a separate resource (e.g. to 
      * For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.
      */
     component?: ObservationComponent[];
+    /**
+     * registered | preliminary | final | amended +
+     * The status of the result value.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ObservationStatus;
 }
 /**
  * Characteristics of quantitative results
@@ -32554,11 +33066,6 @@ export interface ObservationDefinitionQuantitativeDetails extends BackboneElemen
  */
 export interface ObservationDefinitionQualifiedInterval extends BackboneElement {
     /**
-     * reference | critical | absolute
-     * The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition.
-     */
-    category?: ObservationDefinitionObservationRangeCategory;
-    /**
      * The interval itself, for continuous or ordinal observations
      * The low and high values determining the interval. There may be only one of the two.
      */
@@ -32574,11 +33081,6 @@ export interface ObservationDefinitionQualifiedInterval extends BackboneElement 
      * If this element is not present then the global population is assumed.
      */
     appliesTo?: CodeableConcept[];
-    /**
-     * male | female | other | unknown
-     * Sex of the population the range applies to.
-     */
-    gender?: ObservationDefinitionAdministrativeGender;
     /**
      * Applicable age range, if relevant
      * The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.
@@ -32599,6 +33101,16 @@ export interface ObservationDefinitionQualifiedInterval extends BackboneElement 
      * Extension for condition
      **/
     _condition?: Element;
+    /**
+     * reference | critical | absolute
+     * The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition.
+     */
+    category?: ObservationDefinitionObservationRangeCategory;
+    /**
+     * male | female | other | unknown
+     * Sex of the population the range applies to.
+     */
+    gender?: ObservationDefinitionAdministrativeGender;
 }
 /**
  * Definition of an observation
@@ -32606,6 +33118,10 @@ export interface ObservationDefinitionQualifiedInterval extends BackboneElement 
  * An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like.
  */
 export interface ObservationDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ObservationDefinition';
     /**
      * Category of observation
      * A code that classifies the general type of observation.
@@ -32622,11 +33138,6 @@ export interface ObservationDefinition extends DomainResource {
      * A unique identifier assigned to this ObservationDefinition artifact.
      */
     identifier?: Identifier[];
-    /**
-     * Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period
-     * The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
-     */
-    permittedDataType?: ObservationDefinitionObservationDataType[];
     /**
      * Multiple results allowed
      * Multiple results allowed for observations conforming to this ObservationDefinition.
@@ -32682,18 +33193,17 @@ export interface ObservationDefinition extends DomainResource {
      * The set of critical coded results for the observation conforming to this ObservationDefinition.
      */
     criticalCodedValueSet?: Reference;
+    /**
+     * Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period
+     * The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
+     */
+    permittedDataType?: ObservationDefinitionObservationDataType[];
 }
 /**
  * ValueSet details if this is coded
  * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
  */
 export interface OperationDefinitionParameterBinding extends BackboneElement {
-    /**
-     * required | extensible | preferred | example
-     * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
-     * For further discussion, see [Using Terminologies](terminologies.html).
-     */
-    strength: OperationDefinitionBindingStrength;
     /**
      * Source of value set
      * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
@@ -32704,6 +33214,12 @@ export interface OperationDefinitionParameterBinding extends BackboneElement {
      * Extension for valueSet
      **/
     _valueSet?: Element;
+    /**
+     * required | extensible | preferred | example
+     * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
+     * For further discussion, see [Using Terminologies](terminologies.html).
+     */
+    strength: OperationDefinitionBindingStrength;
 }
 /**
  * References to this parameter
@@ -32746,12 +33262,6 @@ export interface OperationDefinitionParameter extends BackboneElement {
      * Extension for name
      **/
     _name?: Element;
-    /**
-     * in | out
-     * Whether this is an input or an output parameter.
-     * If a parameter name is used for both an input and an output parameter, the parameter should be defined twice.
-     */
-    use: OperationDefinitionOperationParameterUse;
     /**
      * Minimum Cardinality
      * The minimum number of times this parameter SHALL appear in the request or response.
@@ -32800,11 +33310,6 @@ export interface OperationDefinitionParameter extends BackboneElement {
      **/
     _targetProfile?: Element[];
     /**
-     * number | date | string | token | reference | composite | quantity | uri | special
-     * How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
-     */
-    searchType?: OperationDefinitionSearchParamType;
-    /**
      * ValueSet details if this is coded
      * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
      */
@@ -32821,6 +33326,17 @@ export interface OperationDefinitionParameter extends BackboneElement {
      * Query Definitions only have one output parameter, named "result". This might not be described, but can be to allow a profile to be defined.
      */
     part?: OperationDefinitionParameter[];
+    /**
+     * in | out
+     * Whether this is an input or an output parameter.
+     * If a parameter name is used for both an input and an output parameter, the parameter should be defined twice.
+     */
+    use: OperationDefinitionOperationParameterUse;
+    /**
+     * number | date | string | token | reference | composite | quantity | uri | special
+     * How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
+     */
+    searchType?: OperationDefinitionSearchParamType;
 }
 /**
  * Define overloaded variants for when  generating code
@@ -32852,6 +33368,10 @@ export interface OperationDefinitionOverload extends BackboneElement {
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 export interface OperationDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'OperationDefinition';
     /**
      * Canonical identifier for this operation definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers.
@@ -32896,18 +33416,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this operation definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of operation definitions that are appropriate for use versus not.
-     */
-    status: OperationDefinitionPublicationStatus;
-    /**
-     * operation | query
-     * Whether this is an operation or a named query.
-     * Named queries are invoked differently, and have different capabilities.
-     */
-    kind: OperationDefinitionOperationKind;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -33087,18 +33595,24 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative.
      */
     overload?: OperationDefinitionOverload[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this operation definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of operation definitions that are appropriate for use versus not.
+     */
+    status: OperationDefinitionPublicationStatus;
+    /**
+     * operation | query
+     * Whether this is an operation or a named query.
+     * Named queries are invoked differently, and have different capabilities.
+     */
+    kind: OperationDefinitionOperationKind;
 }
 /**
  * A single issue associated with the action
  * An error, warning, or information message that results from a system action.
  */
 export interface OperationOutcomeIssue extends BackboneElement {
-    /**
-     * fatal | error | warning | information
-     * Indicates whether the issue indicates a variation from successful processing.
-     * This is labeled as "Is Modifier" because applications should not confuse hints and warnings with errors.
-     */
-    severity: OperationOutcomeIssueSeverity;
     /**
      * Error or warning code
      * Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.
@@ -33146,6 +33660,12 @@ For resource issues, this will be a simple XPath limited to element names, repet
      * Extension for expression
      **/
     _expression?: Element[];
+    /**
+     * fatal | error | warning | information
+     * Indicates whether the issue indicates a variation from successful processing.
+     * This is labeled as "Is Modifier" because applications should not confuse hints and warnings with errors.
+     */
+    severity: OperationOutcomeIssueSeverity;
 }
 /**
  * Information about the success/failure of an action
@@ -33153,6 +33673,10 @@ For resource issues, this will be a simple XPath limited to element names, repet
  * Can result from the failure of a REST call or be part of the response message returned from a request message.
  */
 export interface OperationOutcome extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'OperationOutcome';
     /**
      * A single issue associated with the action
      * An error, warning, or information message that results from a system action.
@@ -33191,6 +33715,10 @@ export interface OrganizationContact extends BackboneElement {
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
  */
 export interface Organization extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Organization';
     /**
      * Identifies this organization  across multiple systems
      * Identifier for the organization that is used to identify the organization across multiple disparate systems.
@@ -33272,6 +33800,10 @@ We expect that some jurisdictions will profile this optionality to be a single c
  * Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.
  */
 export interface OrganizationAffiliation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'OrganizationAffiliation';
     /**
      * Business identifiers that are specific to this role
      * Business identifiers that are specific to this role.
@@ -33674,6 +34206,11 @@ export interface ParametersParameter extends BackboneElement {
      */
     valueDosage?: Dosage;
     /**
+     * If parameter is a data type
+     * If the parameter is a data type.
+     */
+    valueMeta?: Meta;
+    /**
      * If parameter is a whole resource
      * If the parameter is a whole resource.
      * When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to it's general resource resolution methods.
@@ -33726,11 +34263,6 @@ export interface PatientContact extends BackboneElement {
      */
     address?: Address;
     /**
-     * male | female | other | unknown
-     * Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
-     */
-    gender?: PatientAdministrativeGender;
-    /**
      * Organization that is associated with the contact
      * Organization on behalf of which the contact is acting or for which the contact is working.
      */
@@ -33740,6 +34272,11 @@ export interface PatientContact extends BackboneElement {
      * The period during which this contact person or organization is valid to be contacted relating to this patient.
      */
     period?: Period;
+    /**
+     * male | female | other | unknown
+     * Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
+     */
+    gender?: PatientAdministrativeGender;
 }
 /**
  * A language which may be used to communicate with the patient about his or her health
@@ -33788,6 +34325,10 @@ export interface PatientLink extends BackboneElement {
  */
 export interface Patient extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Patient';
+    /**
      * An identifier for this patient
      * An identifier for this patient.
      */
@@ -33819,12 +34360,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
      * A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone).
      */
     telecom?: ContactPoint[];
-    /**
-     * male | female | other | unknown
-     * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
-     * The gender might not match the biological sex as determined by genetics or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than male and female, though the vast majority of systems and contexts only support male and female.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific sex or gender aspect of interest (anatomical, chromosomal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosomal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overridable error, not a "hard" error.  See the Patient Gender and Sex section for additional information about communicating patient gender and sex.
-     */
-    gender?: PatientAdministrativeGender;
     /**
      * The date of birth for the individual
      * The date of birth for the individual.
@@ -33928,6 +34463,12 @@ Jurisdictions may decide that they can profile this down to 1 if desired, or 1 p
      * There is no assumption that linked patient records have mutual links.
      */
     link?: PatientLink[];
+    /**
+     * male | female | other | unknown
+     * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
+     * The gender might not match the biological sex as determined by genetics or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than male and female, though the vast majority of systems and contexts only support male and female.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific sex or gender aspect of interest (anatomical, chromosomal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosomal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overridable error, not a "hard" error.  See the Patient Gender and Sex section for additional information about communicating patient gender and sex.
+     */
+    gender?: PatientAdministrativeGender;
 }
 /**
  * PaymentNotice request
@@ -33935,16 +34476,14 @@ Jurisdictions may decide that they can profile this down to 1 if desired, or 1 p
  */
 export interface PaymentNotice extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'PaymentNotice';
+    /**
      * Business Identifier for the payment noctice
      * A unique identifier assigned to this payment notice.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: PaymentNoticeStatus;
     /**
      * Request reference
      * Reference of resource for which payment is being made.
@@ -34004,6 +34543,12 @@ export interface PaymentNotice extends DomainResource {
      * Typically paid: payment sent, cleared: payment received.
      */
     paymentStatus?: CodeableConcept;
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: PaymentNoticeStatus;
 }
 /**
  * Settlement particulars
@@ -34072,11 +34617,6 @@ export interface PaymentReconciliationDetail extends BackboneElement {
  */
 export interface PaymentReconciliationProcessNote extends BackboneElement {
     /**
-     * display | print | printoper
-     * The business purpose of the note text.
-     */
-    type?: PaymentReconciliationNoteType;
-    /**
      * Note explanatory text
      * The explanation or description associated with the processing.
      */
@@ -34085,6 +34625,11 @@ export interface PaymentReconciliationProcessNote extends BackboneElement {
      * Extension for text
      **/
     _text?: Element;
+    /**
+     * display | print | printoper
+     * The business purpose of the note text.
+     */
+    type?: PaymentReconciliationNoteType;
 }
 /**
  * PaymentReconciliation resource
@@ -34092,16 +34637,14 @@ export interface PaymentReconciliationProcessNote extends BackboneElement {
  */
 export interface PaymentReconciliation extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'PaymentReconciliation';
+    /**
      * Business Identifier for a payment reconciliation
      * A unique identifier assigned to this payment reconciliation.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: PaymentReconciliationPaymentReconciliationStatus;
     /**
      * Period covered
      * The period of time for which payments have been gathered into this bulk payment for settlement.
@@ -34132,12 +34675,6 @@ export interface PaymentReconciliation extends DomainResource {
      * The practitioner who is responsible for the services rendered to the patient.
      */
     requestor?: Reference;
-    /**
-     * queued | complete | error | partial
-     * The outcome of a request for a reconciliation.
-     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
-     */
-    outcome?: PaymentReconciliationRemittanceOutcome;
     /**
      * Disposition message
      * A human readable description of the status of the request for the reconciliation.
@@ -34183,6 +34720,18 @@ export interface PaymentReconciliation extends DomainResource {
      * A note that describes or explains the processing in a human readable form.
      */
     processNote?: PaymentReconciliationProcessNote[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: PaymentReconciliationStatus;
+    /**
+     * queued | complete | error | partial
+     * The outcome of a request for a reconciliation.
+     * The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete).
+     */
+    outcome?: PaymentReconciliationRemittanceOutcome;
 }
 /**
  * Link to a resource that concerns the same actual person
@@ -34207,6 +34756,10 @@ export interface PersonLink extends BackboneElement {
  */
 export interface Person extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Person';
+    /**
      * A human identifier for this person
      * Identifier for a person within a particular scope.
      */
@@ -34223,12 +34776,6 @@ export interface Person extends DomainResource {
      * Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.
      */
     telecom?: ContactPoint[];
-    /**
-     * male | female | other | unknown
-     * Administrative Gender.
-     * The gender might not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though a clear majority of systems and contexts only support M and F.
-     */
-    gender?: PersonAdministrativeGender;
     /**
      * The date on which the person was born
      * The birth date for the person.
@@ -34269,6 +34816,12 @@ export interface Person extends DomainResource {
      * Link to a resource that concerns the same actual person.
      */
     link?: PersonLink[];
+    /**
+     * male | female | other | unknown
+     * Administrative Gender.
+     * The gender might not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though a clear majority of systems and contexts only support M and F.
+     */
+    gender?: PersonAdministrativeGender;
 }
 /**
  * Target outcome for the goal
@@ -34350,17 +34903,17 @@ export interface PlanDefinitionGoal extends BackboneElement {
  */
 export interface PlanDefinitionActionCondition extends BackboneElement {
     /**
-     * applicability | start | stop
-     * The kind of condition.
-     * Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action.
-     */
-    kind: PlanDefinitionActionConditionKind;
-    /**
      * Boolean-valued expression
      * An expression that returns true or false, indicating whether the condition is satisfied.
      * The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element.
      */
     expression?: Expression;
+    /**
+     * applicability | start | stop
+     * The kind of condition.
+     * Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action.
+     */
+    kind: PlanDefinitionActionConditionKind;
 }
 /**
  * Relationship to another action
@@ -34378,11 +34931,6 @@ export interface PlanDefinitionActionRelatedAction extends BackboneElement {
      **/
     _actionId?: Element;
     /**
-     * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
-     * The relationship of this action to the related action.
-     */
-    relationship: PlanDefinitionActionRelationshipType;
-    /**
      * Time offset for the relationship
      * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
      */
@@ -34392,6 +34940,11 @@ export interface PlanDefinitionActionRelatedAction extends BackboneElement {
      * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
      */
     offsetRange?: Range;
+    /**
+     * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
+     * The relationship of this action to the related action.
+     */
+    relationship: PlanDefinitionActionRelationshipType;
 }
 /**
  * Who should participate in the action
@@ -34399,15 +34952,15 @@ export interface PlanDefinitionActionRelatedAction extends BackboneElement {
  */
 export interface PlanDefinitionActionParticipant extends BackboneElement {
     /**
-     * patient | practitioner | related-person | device
-     * The type of participant in the action.
-     */
-    type: PlanDefinitionActionParticipantType;
-    /**
      * E.g. Nurse, Surgeon, Parent
      * The role the participant should play in performing the described action.
      */
     role?: CodeableConcept;
+    /**
+     * patient | practitioner | related-person | device
+     * The type of participant in the action.
+     */
+    type: PlanDefinitionActionParticipantType;
 }
 /**
  * Dynamic aspects of the definition
@@ -34474,11 +35027,6 @@ export interface PlanDefinitionAction extends BackboneElement {
      * Extension for textEquivalent
      **/
     _textEquivalent?: Element;
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the action should be addressed with respect to other actions.
-     */
-    priority?: PlanDefinitionRequestPriority;
     /**
      * Code representing the meaning of the action or sub-actions
      * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for the section of a documentation template.
@@ -34592,31 +35140,6 @@ In addition, because the subject needs to be resolved during realization, use of
      */
     type?: CodeableConcept;
     /**
-     * visual-group | logical-group | sentence-group
-     * Defines the grouping behavior for the action and its children.
-     */
-    groupingBehavior?: PlanDefinitionActionGroupingBehavior;
-    /**
-     * any | all | all-or-none | exactly-one | at-most-one | one-or-more
-     * Defines the selection behavior for the action and its children.
-     */
-    selectionBehavior?: PlanDefinitionActionSelectionBehavior;
-    /**
-     * must | could | must-unless-documented
-     * Defines the required behavior for the action.
-     */
-    requiredBehavior?: PlanDefinitionActionRequiredBehavior;
-    /**
-     * yes | no
-     * Defines whether the action should usually be preselected.
-     */
-    precheckBehavior?: PlanDefinitionActionPrecheckBehavior;
-    /**
-     * single | multiple
-     * Defines whether the action can be selected multiple times.
-     */
-    cardinalityBehavior?: PlanDefinitionActionCardinalityBehavior;
-    /**
      * Description of the activity to be performed
      * A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
      * Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically.
@@ -34657,12 +35180,46 @@ In addition, because the subject needs to be resolved during realization, use of
      * Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
      */
     action?: PlanDefinitionAction[];
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the action should be addressed with respect to other actions.
+     */
+    priority?: PlanDefinitionRequestPriority;
+    /**
+     * visual-group | logical-group | sentence-group
+     * Defines the grouping behavior for the action and its children.
+     */
+    groupingBehavior?: PlanDefinitionActionGroupingBehavior;
+    /**
+     * any | all | all-or-none | exactly-one | at-most-one | one-or-more
+     * Defines the selection behavior for the action and its children.
+     */
+    selectionBehavior?: PlanDefinitionActionSelectionBehavior;
+    /**
+     * must | could | must-unless-documented
+     * Defines the required behavior for the action.
+     */
+    requiredBehavior?: PlanDefinitionActionRequiredBehavior;
+    /**
+     * yes | no
+     * Defines whether the action should usually be preselected.
+     */
+    precheckBehavior?: PlanDefinitionActionPrecheckBehavior;
+    /**
+     * single | multiple
+     * Defines whether the action can be selected multiple times.
+     */
+    cardinalityBehavior?: PlanDefinitionActionCardinalityBehavior;
 }
 /**
  * The definition of a plan for a series of actions, independent of any specific patient or context
  * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
  */
 export interface PlanDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'PlanDefinition';
     /**
      * Canonical identifier for this plan definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this plan definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the plan definition is stored on different servers.
@@ -34727,12 +35284,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition.
      */
     type?: CodeableConcept;
-    /**
-     * draft | active | retired | unknown
-     * The status of this plan definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of plan definitions that are appropriate for use versus not.
-     */
-    status: PlanDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -34906,6 +35457,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information.
      */
     action?: PlanDefinitionAction[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this plan definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of plan definitions that are appropriate for use versus not.
+     */
+    status: PlanDefinitionPublicationStatus;
 }
 /**
  * Certification, licenses, or training pertaining to the provision of care
@@ -34938,6 +35495,10 @@ export interface PractitionerQualification extends BackboneElement {
  * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
 export interface Practitioner extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Practitioner';
     /**
      * An identifier for the person as this agent
      * An identifier that applies to this person in this role.
@@ -34981,11 +35542,6 @@ Work addresses are not typically entered in this property as they are usually ro
      */
     address?: Address[];
     /**
-     * male | female | other | unknown
-     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-     */
-    gender?: PractitionerAdministrativeGender;
-    /**
      * The date  on which the practitioner was born
      * The date of birth for the practitioner.
      */
@@ -35010,6 +35566,11 @@ Work addresses are not typically entered in this property as they are usually ro
      * The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.
      */
     communication?: CodeableConcept[];
+    /**
+     * male | female | other | unknown
+     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    gender?: PractitionerAdministrativeGender;
 }
 /**
  * Times the Service Site is available
@@ -35017,11 +35578,6 @@ Work addresses are not typically entered in this property as they are usually ro
  * More detailed availability information may be provided in associated Schedule/Slot resources.
  */
 export interface PractitionerRoleAvailableTime extends BackboneElement {
-    /**
-     * mon | tue | wed | thu | fri | sat | sun
-     * Indicates which days of the week are available between the start and end Times.
-     */
-    daysOfWeek?: PractitionerRoleDaysOfWeek[];
     /**
      * Always available? e.g. 24 hour service
      * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
@@ -35051,6 +35607,11 @@ export interface PractitionerRoleAvailableTime extends BackboneElement {
      * Extension for availableEndTime
      **/
     _availableEndTime?: Element;
+    /**
+     * mon | tue | wed | thu | fri | sat | sun
+     * Indicates which days of the week are available between the start and end Times.
+     */
+    daysOfWeek?: PractitionerRoleDaysOfWeek[];
 }
 /**
  * Not available during this time due to provided reason
@@ -35077,6 +35638,10 @@ export interface PractitionerRoleNotAvailable extends BackboneElement {
  * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
  */
 export interface PractitionerRole extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'PractitionerRole';
     /**
      * Business Identifiers that are specific to a role/location
      * Business Identifiers that are specific to a role/location.
@@ -35202,6 +35767,10 @@ export interface ProcedureFocalDevice extends BackboneElement {
  */
 export interface Procedure extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Procedure';
+    /**
      * External Identifiers for this procedure
      * Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server.
      * This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and Person resource instances might share the same social insurance number.
@@ -35237,14 +35806,6 @@ export interface Procedure extends DomainResource {
      * The MedicationAdministration resource has a partOf reference to Procedure, but this is not a circular reference.   For example, the anesthesia MedicationAdministration is part of the surgical Procedure (MedicationAdministration.partOf = Procedure).  For example, the procedure to insert the IV port for an IV medication administration is part of the medication administration (Procedure.partOf = MedicationAdministration).
      */
     partOf?: Reference[];
-    /**
-     * preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
-     * A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.
-     * The "unknown" code is not to be used to convey other statuses.  The "unknown" code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.
-
-This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: ProcedureStatus;
     /**
      * Reason for current status
      * Captures the reason for the current state of the procedure.
@@ -35399,6 +35960,14 @@ Use Procedure.reasonCode when a code sufficiently describes the reason.  Use Pro
      * For devices actually implanted or removed, use Procedure.device.
      */
     usedCode?: CodeableConcept[];
+    /**
+     * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
+     * A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.
+     * The "unknown" code is not to be used to convey other statuses.  The "unknown" code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.
+
+This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: ProcedureStatus;
 }
 /**
  * Actor involved
@@ -35437,11 +36006,6 @@ export interface ProvenanceAgent extends BackboneElement {
  */
 export interface ProvenanceEntity extends BackboneElement {
     /**
-     * derivation | revision | quotation | source | removal
-     * How the entity was used during the activity.
-     */
-    role: ProvenanceEntityRole;
-    /**
      * Identity of entity
      * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
      * whatIdentity should be used for entities that are not a Resource type.
@@ -35453,6 +36017,11 @@ export interface ProvenanceEntity extends BackboneElement {
      * A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity.
      */
     agent?: ProvenanceAgent[];
+    /**
+     * derivation | revision | quotation | source | removal
+     * How the entity was used during the activity.
+     */
+    role: ProvenanceEntityRole;
 }
 /**
  * Who, What, When for a set of resources
@@ -35460,6 +36029,10 @@ export interface ProvenanceEntity extends BackboneElement {
  * Some parties may be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance.
  */
 export interface Provenance extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Provenance';
     /**
      * Target Reference(s) (usually version specific)
      * The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
@@ -35551,15 +36124,10 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      **/
     _question?: Element;
     /**
-     * exists | = | != | > | < | >= | <=
-     * Specifies the criteria by which the question is enabled.
-     */
-    operator: QuestionnaireItemOperator;
-    /**
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerBoolean: boolean;
+    answerBoolean?: boolean;
     /**
      * Extension for answerBoolean
      **/
@@ -35568,7 +36136,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerDecimal: decimal;
+    answerDecimal?: decimal;
     /**
      * Extension for answerDecimal
      **/
@@ -35577,7 +36145,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerInteger: integer;
+    answerInteger?: integer;
     /**
      * Extension for answerInteger
      **/
@@ -35586,7 +36154,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerDate: date;
+    answerDate?: date;
     /**
      * Extension for answerDate
      **/
@@ -35595,7 +36163,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerDateTime: dateTime;
+    answerDateTime?: dateTime;
     /**
      * Extension for answerDateTime
      **/
@@ -35604,7 +36172,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerTime: time;
+    answerTime?: time;
     /**
      * Extension for answerTime
      **/
@@ -35613,7 +36181,7 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerString: string;
+    answerString?: string;
     /**
      * Extension for answerString
      **/
@@ -35622,17 +36190,22 @@ export interface QuestionnaireItemEnableWhen extends BackboneElement {
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerCoding: Coding;
+    answerCoding?: Coding;
     /**
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerQuantity: Quantity;
+    answerQuantity?: Quantity;
     /**
      * Value for question comparison based on operator
      * A value that the referenced question is tested using the specified operator in order for the item to be enabled.
      */
-    answerReference: Reference;
+    answerReference?: Reference;
+    /**
+     * exists | = | != | > | < | >= | <=
+     * Specifies the criteria by which the question is enabled.
+     */
+    operator: QuestionnaireItemOperator;
 }
 /**
  * Permitted answer
@@ -35645,7 +36218,7 @@ export interface QuestionnaireItemAnswerOption extends BackboneElement {
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -35655,7 +36228,7 @@ export interface QuestionnaireItemAnswerOption extends BackboneElement {
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueDate: date;
+    valueDate?: date;
     /**
      * Extension for valueDate
      **/
@@ -35665,7 +36238,7 @@ export interface QuestionnaireItemAnswerOption extends BackboneElement {
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueTime: time;
+    valueTime?: time;
     /**
      * Extension for valueTime
      **/
@@ -35675,7 +36248,7 @@ export interface QuestionnaireItemAnswerOption extends BackboneElement {
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -35685,13 +36258,13 @@ export interface QuestionnaireItemAnswerOption extends BackboneElement {
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * Answer value
      * A potential answer that's allowed as the answer to this question.
      * The data type of the value must agree with the item.type.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
     /**
      * Whether option is selected by default
      * Indicates whether the answer value is selected when the list of possible answers is initially shown.
@@ -35714,7 +36287,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -35724,7 +36297,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -35734,7 +36307,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -35744,7 +36317,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueDate: date;
+    valueDate?: date;
     /**
      * Extension for valueDate
      **/
@@ -35754,7 +36327,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
     /**
      * Extension for valueDateTime
      **/
@@ -35764,7 +36337,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueTime: time;
+    valueTime?: time;
     /**
      * Extension for valueTime
      **/
@@ -35774,7 +36347,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -35784,7 +36357,7 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueUri: uri;
+    valueUri?: uri;
     /**
      * Extension for valueUri
      **/
@@ -35794,25 +36367,25 @@ export interface QuestionnaireItemInitial extends BackboneElement {
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueAttachment: Attachment;
+    valueAttachment?: Attachment;
     /**
      * Actual value for initializing the question
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * Actual value for initializing the question
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * Actual value for initializing the question
      * The actual value to for an initial answer.
      * The type of the initial value must be consistent with the type of the item.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
 }
 /**
  * Questions and sections within the Questionnaire
@@ -35875,23 +36448,11 @@ export interface QuestionnaireItem extends BackboneElement {
      **/
     _text?: Element;
     /**
-     * group | display | boolean | decimal | integer | date | dateTime +
-     * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
-     * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
-     */
-    type: QuestionnaireItemType;
-    /**
      * Only allow data when
      * A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
      * If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat "enableWhen"s as being joined by an "or" clause.  This element is a modifier because if enableWhen is present for an item, "required" is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.
      */
     enableWhen?: QuestionnaireItemEnableWhen[];
-    /**
-     * all | any
-     * Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
-     * This element must be specified if more than one enableWhen value is provided.
-     */
-    enableBehavior?: QuestionnaireEnableWhenBehavior;
     /**
      * Whether the item must be included in data results
      * An indication, if true, that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
@@ -35909,7 +36470,7 @@ export interface QuestionnaireItem extends BackboneElement {
 
 The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.
 
-The value may come from the ElementDefinition referred to by .definition.
+ The value may come from the ElementDefinition referred to by .definition.
      */
     repeats?: boolean;
     /**
@@ -35964,12 +36525,28 @@ The value may come from the ElementDefinition referred to by .definition.
      * There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting.
      */
     item?: QuestionnaireItem[];
+    /**
+     * all | any
+     * Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
+     * This element must be specified if more than one enableWhen value is provided.
+     */
+    enableBehavior?: QuestionnaireEnableWhenBehavior;
+    /**
+     * group | display | boolean | decimal | integer | date | dateTime +
+     * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
+     * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
+     */
+    type: QuestionnaireItemType;
 }
 /**
  * A structured set of questions
  * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  */
 export interface Questionnaire extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Questionnaire';
     /**
      * Canonical identifier for this questionnaire, represented as a URI (globally unique)
      * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers.
@@ -36025,12 +36602,6 @@ export interface Questionnaire extends DomainResource {
      * Extension for derivedFrom
      **/
     _derivedFrom?: Element[];
-    /**
-     * draft | active | retired | unknown
-     * The status of this questionnaire. Enables tracking the life-cycle of the content.
-     * Allows filtering of questionnaires that are appropriate for use versus not.
-     */
-    status: QuestionnairePublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -36155,6 +36726,12 @@ export interface Questionnaire extends DomainResource {
      * The content of the questionnaire is constructed from an ordered, hierarchical collection of items.
      */
     item?: QuestionnaireItem[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this questionnaire. Enables tracking the life-cycle of the content.
+     * Allows filtering of questionnaires that are appropriate for use versus not.
+     */
+    status: QuestionnairePublicationStatus;
 }
 /**
  * The response(s) to the question
@@ -36327,6 +36904,10 @@ There is no need for this element if the item pointed to by the linkId has a def
  */
 export interface QuestionnaireResponse extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'QuestionnaireResponse';
+    /**
      * Unique id for this set of answers
      * A business identifier assigned to a particular completed (or partially completed) questionnaire.
      */
@@ -36352,12 +36933,6 @@ export interface QuestionnaireResponse extends DomainResource {
      * Extension for questionnaire
      **/
     _questionnaire?: Element;
-    /**
-     * in-progress | completed | amended | entered-in-error | stopped
-     * The position of the questionnaire response within its overall lifecycle.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: QuestionnaireResponseStatus;
     /**
      * The subject of the questions
      * The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.
@@ -36400,6 +36975,12 @@ This element is optional to allow for systems that might not know the value, how
      * Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).
      */
     item?: QuestionnaireResponseItem[];
+    /**
+     * in-progress | completed | amended | entered-in-error | stopped
+     * The position of the questionnaire response within its overall lifecycle.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: QuestionnaireResponseStatus;
 }
 /**
  * A language which may be used to communicate with about the patient's health
@@ -36429,6 +37010,10 @@ export interface RelatedPersonCommunication extends BackboneElement {
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
 export interface RelatedPerson extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'RelatedPerson';
     /**
      * A human identifier for this person
      * Identifier for a person within a particular scope.
@@ -36466,11 +37051,6 @@ export interface RelatedPerson extends DomainResource {
      */
     telecom?: ContactPoint[];
     /**
-     * male | female | other | unknown
-     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
-     */
-    gender?: RelatedPersonAdministrativeGender;
-    /**
      * The date on which the related person was born
      * The date on which the related person was born.
      */
@@ -36500,6 +37080,11 @@ export interface RelatedPerson extends DomainResource {
      * If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple RelatedPerson.Communication associations.   If the RelatedPerson does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
      */
     communication?: RelatedPersonCommunication[];
+    /**
+     * male | female | other | unknown
+     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    gender?: RelatedPersonAdministrativeGender;
 }
 /**
  * Whether or not the action is applicable
@@ -36508,17 +37093,17 @@ export interface RelatedPerson extends DomainResource {
  */
 export interface RequestGroupActionCondition extends BackboneElement {
     /**
-     * applicability | start | stop
-     * The kind of condition.
-     * Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action.
-     */
-    kind: RequestGroupActionConditionKind;
-    /**
      * Boolean-valued expression
      * An expression that returns true or false, indicating whether or not the condition is satisfied.
      * The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element.
      */
     expression?: Expression;
+    /**
+     * applicability | start | stop
+     * The kind of condition.
+     * Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action.
+     */
+    kind: RequestGroupActionConditionKind;
 }
 /**
  * Relationship to another action
@@ -36535,11 +37120,6 @@ export interface RequestGroupActionRelatedAction extends BackboneElement {
      **/
     _actionId?: Element;
     /**
-     * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
-     * The relationship of this action to the related action.
-     */
-    relationship: RequestGroupActionRelationshipType;
-    /**
      * Time offset for the relationship
      * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
      */
@@ -36549,6 +37129,11 @@ export interface RequestGroupActionRelatedAction extends BackboneElement {
      * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
      */
     offsetRange?: Range;
+    /**
+     * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
+     * The relationship of this action to the related action.
+     */
+    relationship: RequestGroupActionRelationshipType;
 }
 /**
  * Proposed actions, if any
@@ -36591,11 +37176,6 @@ export interface RequestGroupAction extends BackboneElement {
      * Extension for textEquivalent
      **/
     _textEquivalent?: Element;
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the action should be addressed with respect to other actions.
-     */
-    priority?: RequestGroupRequestPriority;
     /**
      * Code representing the meaning of the action or sub-actions
      * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a section of a documentation template.
@@ -36662,6 +37242,22 @@ export interface RequestGroupAction extends BackboneElement {
      */
     type?: CodeableConcept;
     /**
+     * The target of the action
+     * The resource that is the target of the action (e.g. CommunicationRequest).
+     * The target resource SHALL be a [Request](request.html) resource with a Request.intent set to "option".
+     */
+    resource?: Reference;
+    /**
+     * Sub action
+     * Sub actions.
+     */
+    action?: RequestGroupAction[];
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the action should be addressed with respect to other actions.
+     */
+    priority?: RequestGroupRequestPriority;
+    /**
      * visual-group | logical-group | sentence-group
      * Defines the grouping behavior for the action and its children.
      */
@@ -36686,23 +37282,16 @@ export interface RequestGroupAction extends BackboneElement {
      * Defines whether the action can be selected multiple times.
      */
     cardinalityBehavior?: RequestGroupActionCardinalityBehavior;
-    /**
-     * The target of the action
-     * The resource that is the target of the action (e.g. CommunicationRequest).
-     * The target resource SHALL be a [Request](request.html) resource with a Request.intent set to "option".
-     */
-    resource?: Reference;
-    /**
-     * Sub action
-     * Sub actions.
-     */
-    action?: RequestGroupAction[];
 }
 /**
  * A group of related requests
  * A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
  */
 export interface RequestGroup extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'RequestGroup';
     /**
      * Business identifier
      * Allows a service to provide a unique, business identifier for the request.
@@ -36743,21 +37332,6 @@ export interface RequestGroup extends DomainResource {
      * Requests are linked either by a "basedOn" relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
      */
     groupIdentifier?: Identifier;
-    /**
-     * draft | active | suspended | cancelled | completed | entered-in-error | unknown
-     * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
-     */
-    status: RequestGroupRequestStatus;
-    /**
-     * proposal | plan | order
-     * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
-     */
-    intent: RequestGroupRequestIntent;
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the request should be addressed with respect to other requests.
-     */
-    priority?: RequestGroupRequestPriority;
     /**
      * What's being requested/ordered
      * A code that identifies what the overall request group is.
@@ -36808,12 +37382,31 @@ export interface RequestGroup extends DomainResource {
      * The actions, if any, produced by the evaluation of the artifact.
      */
     action?: RequestGroupAction[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
+     */
+    status: RequestGroupRequestStatus;
+    /**
+     * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+     * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
+     */
+    intent: RequestGroupRequestIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the request should be addressed with respect to other requests.
+     */
+    priority?: RequestGroupRequestPriority;
 }
 /**
  * A research context or question
  * The ResearchDefinition resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
  */
 export interface ResearchDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchDefinition';
     /**
      * Canonical identifier for this research definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this research definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this research definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the research definition is stored on different servers.
@@ -36882,12 +37475,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this research definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of research definitions that are appropriate for use versus not.
-     */
-    status: ResearchDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this research definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -37081,6 +37668,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A reference to a ResearchElementDefinition resomece that defines the outcome for the research.
      */
     outcome?: Reference;
+    /**
+     * draft | active | retired | unknown
+     * The status of this research definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of research definitions that are appropriate for use versus not.
+     */
+    status: ResearchDefinitionPublicationStatus;
 }
 /**
  * What defines the members of the research element
@@ -37092,12 +37685,12 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
      * What code or expression defines members?
      * Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionCodeableConcept: CodeableConcept;
+    definitionCodeableConcept?: CodeableConcept;
     /**
      * What code or expression defines members?
      * Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionCanonical: canonical;
+    definitionCanonical?: canonical;
     /**
      * Extension for definitionCanonical
      **/
@@ -37106,12 +37699,12 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
      * What code or expression defines members?
      * Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionExpression: Expression;
+    definitionExpression?: Expression;
     /**
      * What code or expression defines members?
      * Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
      */
-    definitionDataRequirement: DataRequirement;
+    definitionDataRequirement?: DataRequirement;
     /**
      * What code/value pairs define members?
      * Use UsageContext to define the members of the population, such as Age Ranges, Genders, Settings.
@@ -37170,11 +37763,6 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
      */
     studyEffectiveTimeFromStart?: Duration;
     /**
-     * mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median
-     * Indicates how elements are aggregated within the study effective period.
-     */
-    studyEffectiveGroupMeasure?: ResearchElementDefinitionGroupMeasure;
-    /**
      * What time period do participants cover
      * A narrative description of the time period the study covers.
      */
@@ -37216,6 +37804,11 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
      * mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median
      * Indicates how elements are aggregated within the study effective period.
      */
+    studyEffectiveGroupMeasure?: ResearchElementDefinitionGroupMeasure;
+    /**
+     * mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median
+     * Indicates how elements are aggregated within the study effective period.
+     */
     participantEffectiveGroupMeasure?: ResearchElementDefinitionGroupMeasure;
 }
 /**
@@ -37224,6 +37817,10 @@ export interface ResearchElementDefinitionCharacteristic extends BackboneElement
  * PICO stands for Population (the population within which exposures are being compared), Intervention (the conditional state or exposure state being described for its effect on outcomes), Comparison (the alternative conditional state or alternative exposure state being compared against), and Outcome (the result or effect of the intervention in the population).
  */
 export interface ResearchElementDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchElementDefinition';
     /**
      * Canonical identifier for this research element definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this research element definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this research element definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the research element definition is stored on different servers.
@@ -37292,12 +37889,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for subtitle
      **/
     _subtitle?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this research element definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of research element definitions that are appropriate for use versus not.
-     */
-    status: ResearchElementDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this research element definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -37472,6 +38063,18 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _library?: Element[];
     /**
+     * What defines the members of the research element
+     * A characteristic that defines the members of the research element. Multiple characteristics are applied with "and" semantics.
+     * Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria.
+     */
+    characteristic: ResearchElementDefinitionCharacteristic[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this research element definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of research element definitions that are appropriate for use versus not.
+     */
+    status: ResearchElementDefinitionPublicationStatus;
+    /**
      * population | exposure | outcome
      * The type of research element, a population, an exposure, or an outcome.
      */
@@ -37481,12 +38084,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * The type of the outcome (e.g. Dichotomous, Continuous, or Descriptive).
      */
     variableType?: ResearchElementDefinitionVariableType;
-    /**
-     * What defines the members of the research element
-     * A characteristic that defines the members of the research element. Multiple characteristics are applied with "and" semantics.
-     * Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria.
-     */
-    characteristic: ResearchElementDefinitionCharacteristic[];
 }
 /**
  * Defined path through the study for a subject
@@ -37544,6 +38141,10 @@ export interface ResearchStudyObjective extends BackboneElement {
  */
 export interface ResearchStudy extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchStudy';
+    /**
      * Business Identifier for study
      * Identifiers assigned to this research study by the sponsor or other systems.
      */
@@ -37567,11 +38168,6 @@ export interface ResearchStudy extends DomainResource {
      * A larger research study of which this particular study is a component or step.
      */
     partOf?: Reference[];
-    /**
-     * active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn
-     * The current state of the study.
-     */
-    status: ResearchStudyStatus;
     /**
      * treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility
      * The type of study based upon the intent of the study's activities. A classification of the intent of the study.
@@ -37672,6 +38268,11 @@ export interface ResearchStudy extends DomainResource {
      * A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study.
      */
     objective?: ResearchStudyObjective[];
+    /**
+     * active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn
+     * The current state of the study.
+     */
+    status: ResearchStudyStatus;
 }
 /**
  * Physical entity which is the primary unit of interest in the study
@@ -37680,15 +38281,14 @@ export interface ResearchStudy extends DomainResource {
  */
 export interface ResearchSubject extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ResearchSubject';
+    /**
      * Business Identifier for research subject in a study
      * Identifiers assigned to this research subject for a study.
      */
     identifier?: Identifier[];
-    /**
-     * candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
-     * The current state of the subject.
-     */
-    status: ResearchSubjectStatus;
     /**
      * Start and end of participation
      * The dates the subject began and ended their participation in the study.
@@ -37727,6 +38327,11 @@ export interface ResearchSubject extends DomainResource {
      * A record of the patient's informed agreement to participate in the study.
      */
     consent?: Reference;
+    /**
+     * candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
+     * The current state of the subject.
+     */
+    status: ResearchSubjectStatus;
 }
 /**
  * Base Resource
@@ -37736,7 +38341,7 @@ export interface Resource {
     /**
      * The type of the resource.
      */
-    resourceType?: string;
+    resourceType: string;
     /**
      * Extension for 'resourceType'.
      */
@@ -37746,7 +38351,7 @@ export interface Resource {
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      * The only time that a resource does not have an id is when it is being submitted to the server using a create operation.
      */
-    id?: id;
+    id?: string;
     /**
      * Extension for id
      **/
@@ -37846,6 +38451,10 @@ export interface RiskAssessmentPrediction extends BackboneElement {
  */
 export interface RiskAssessment extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'RiskAssessment';
+    /**
      * Unique identifier for the assessment
      * Business identifier assigned to the risk assessment.
      */
@@ -37860,11 +38469,6 @@ export interface RiskAssessment extends DomainResource {
      * A reference to a resource that this risk assessment is part of, such as a Procedure.
      */
     parent?: Reference;
-    /**
-     * registered | preliminary | final | amended +
-     * The status of the RiskAssessment, using the same statuses as an Observation.
-     */
-    status: RiskAssessmentStatus;
     /**
      * Evaluation mechanism
      * The algorithm, process or mechanism used to evaluate the risk.
@@ -37944,6 +38548,11 @@ export interface RiskAssessment extends DomainResource {
      * Additional comments about the risk assessment.
      */
     note?: Annotation[];
+    /**
+     * registered | preliminary | final | amended +
+     * The status of the RiskAssessment, using the same statuses as an Observation.
+     */
+    status: RiskAssessmentStatus;
 }
 /**
  * What sample size was involved?
@@ -38121,6 +38730,10 @@ export interface RiskEvidenceSynthesisCertainty extends BackboneElement {
  */
 export interface RiskEvidenceSynthesis extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'RiskEvidenceSynthesis';
+    /**
      * Canonical identifier for this risk evidence synthesis, represented as a URI (globally unique)
      * An absolute URI that is used to identify this risk evidence synthesis when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this risk evidence synthesis is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the risk evidence synthesis is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -38170,12 +38783,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this risk evidence synthesis. Enables tracking the life-cycle of the content.
-     * Allows filtering of risk evidence synthesiss that are appropriate for use versus not.
-     */
-    status: RiskEvidenceSynthesisPublicationStatus;
     /**
      * Date last changed
      * The date  (and optionally time) when the risk evidence synthesis was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the risk evidence synthesis changes.
@@ -38335,12 +38942,22 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A description of the certainty of the risk estimate.
      */
     certainty?: RiskEvidenceSynthesisCertainty[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this risk evidence synthesis. Enables tracking the life-cycle of the content.
+     * Allows filtering of risk evidence synthesiss that are appropriate for use versus not.
+     */
+    status: RiskEvidenceSynthesisPublicationStatus;
 }
 /**
  * A container for slots of time that may be available for booking appointments
  * A container for slots of time that may be available for booking appointments.
  */
 export interface Schedule extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Schedule';
     /**
      * External Ids for this item
      * External Ids for this item.
@@ -38424,6 +39041,10 @@ export interface SearchParameterComponent extends BackboneElement {
  */
 export interface SearchParameter extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SearchParameter';
+    /**
      * Canonical identifier for this search parameter, represented as a URI (globally unique)
      * An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -38467,12 +39088,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for derivedFrom
      **/
     _derivedFrom?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this search parameter. Enables tracking the life-cycle of the content.
-     * Allows filtering of search parameters that are appropriate for use versus not.
-     */
-    status: SearchParameterPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -38562,11 +39177,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _base?: Element[];
     /**
-     * number | date | string | token | reference | composite | quantity | uri | special
-     * The type of value that a search parameter may contain, and how the content is interpreted.
-     */
-    type: SearchParamType;
-    /**
      * FHIRPath expression that extracts the values
      * A FHIRPath expression that returns a set of elements for the search parameter.
      * Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system. For composite search parameters, the outcome of the expression must a collection of base elements from which the composites are derived.
@@ -38586,11 +39196,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for xpath
      **/
     _xpath?: Element;
-    /**
-     * normal | phonetic | nearby | distance | other
-     * How the search parameter relates to the set of elements returned by evaluating the xpath query.
-     */
-    xpathUsage?: SearchParameterXPathUsageType;
     /**
      * Types of resource (if a resource reference)
      * Types of resource (if a resource is referenced).
@@ -38619,17 +39224,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _multipleAnd?: Element;
     /**
-     * eq | ne | gt | lt | ge | le | sa | eb | ap
-     * Comparators supported for the search parameter.
-     * If no comparators are listed, clients should not expect servers to support any comparators.
-     */
-    comparator?: SearchParameterSearchComparator[];
-    /**
-     * missing | exact | contains | not | text | in | not-in | below | above | type | identifier | ofType
-     * A modifier supported for the search parameter.
-     */
-    modifier?: SearchParameterSearchModifierCode[];
-    /**
      * Chained names supported
      * Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.
      * Systems are not required to list all the chain names they support, but if they don't list them, clients might not know to use them.
@@ -38644,12 +39238,43 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Used to define the parts of a composite search parameter.
      */
     component?: SearchParameterComponent[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this search parameter. Enables tracking the life-cycle of the content.
+     * Allows filtering of search parameters that are appropriate for use versus not.
+     */
+    status: SearchParameterPublicationStatus;
+    /**
+     * number | date | string | token | reference | composite | quantity | uri | special
+     * The type of value that a search parameter may contain, and how the content is interpreted.
+     */
+    type: SearchParameterSearchParamType;
+    /**
+     * normal | phonetic | nearby | distance | other
+     * How the search parameter relates to the set of elements returned by evaluating the xpath query.
+     */
+    xpathUsage?: SearchParameterXPathUsageType;
+    /**
+     * eq | ne | gt | lt | ge | le | sa | eb | ap
+     * Comparators supported for the search parameter.
+     * If no comparators are listed, clients should not expect servers to support any comparators.
+     */
+    comparator?: SearchParameterSearchComparator[];
+    /**
+     * missing | exact | contains | not | text | in | not-in | below | above | type | identifier | ofType
+     * A modifier supported for the search parameter.
+     */
+    modifier?: SearchParameterSearchModifierCode[];
 }
 /**
  * A request for a service to be performed
  * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
  */
 export interface ServiceRequest extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'ServiceRequest';
     /**
      * Identifiers assigned to this order
      * Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
@@ -38693,28 +39318,11 @@ export interface ServiceRequest extends DomainResource {
      */
     requisition?: Identifier;
     /**
-     * draft | active | suspended | completed | entered-in-error | cancelled
-     * The status of the order.
-     * The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.
-     */
-    status: ServiceRequestStatus;
-    /**
-     * proposal | plan | order +
-     * Whether the request is a proposal, plan, an original order or a reflex order.
-     * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
-     */
-    intent: ServiceRequestIntent;
-    /**
      * Classification of service
      * A code that classifies the service for searching, sorting and display purposes (e.g. "Surgical Procedure").
      * There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
      */
     category?: CodeableConcept[];
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
-     */
-    priority?: ServiceRequestPriority;
     /**
      * True if service/procedure should not be performed
      * Set this to true if the record is saying that the service/procedure should NOT be performed.
@@ -38889,12 +39497,33 @@ This SHALL NOT include the Provenance associated with this current version of th
 All Provenances should have some historical version of this Request as their subject.
      */
     relevantHistory?: Reference[];
+    /**
+     * draft | active | on-hold | revoked | completed | entered-in-error | unknown
+     * The status of the order.
+     * The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.
+     */
+    status: ServiceRequestStatus;
+    /**
+     * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+     * Whether the request is a proposal, plan, an original order or a reflex order.
+     * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+     */
+    intent: ServiceRequestIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
+     */
+    priority?: ServiceRequestPriority;
 }
 /**
  * A slot of time on a schedule that may be available for booking appointments
  * A slot of time on a schedule that may be available for booking appointments.
  */
 export interface Slot extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Slot';
     /**
      * External Ids for this item
      * External Ids for this item.
@@ -38925,11 +39554,6 @@ export interface Slot extends DomainResource {
      * The schedule resource that this slot defines an interval of status information.
      */
     schedule: Reference;
-    /**
-     * busy | free | busy-unavailable | busy-tentative | entered-in-error
-     * busy | free | busy-unavailable | busy-tentative | entered-in-error.
-     */
-    status: SlotStatus;
     /**
      * Date/Time that the slot is to begin
      * Date/Time that the slot is to begin.
@@ -38966,6 +39590,11 @@ export interface Slot extends DomainResource {
      * Extension for comment
      **/
     _comment?: Element;
+    /**
+     * busy | free | busy-unavailable | busy-tentative | entered-in-error
+     * busy | free | busy-unavailable | busy-tentative | entered-in-error.
+     */
+    status: SlotStatus;
 }
 /**
  * Collection details
@@ -39115,6 +39744,10 @@ export interface SpecimenContainer extends BackboneElement {
  */
 export interface Specimen extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Specimen';
+    /**
      * External Identifier
      * Id for specimen.
      */
@@ -39124,12 +39757,6 @@ export interface Specimen extends DomainResource {
      * The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
      */
     accessionIdentifier?: Identifier;
-    /**
-     * available | unavailable | unsatisfactory | entered-in-error
-     * The availability of the specimen.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status?: SpecimenSpecimenStatus;
     /**
      * Kind of material that forms the specimen
      * The kind of material that forms the specimen.
@@ -39188,6 +39815,12 @@ export interface Specimen extends DomainResource {
      * To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen).
      */
     note?: Annotation[];
+    /**
+     * available | unavailable | unsatisfactory | entered-in-error
+     * The availability of the specimen.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status?: SpecimenStatus;
 }
 /**
  * Additive associated with container
@@ -39198,12 +39831,12 @@ export interface SpecimenDefinitionTypeTestedContainerAdditive extends BackboneE
      * Additive associated with container
      * Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
      */
-    additiveCodeableConcept: CodeableConcept;
+    additiveCodeableConcept?: CodeableConcept;
     /**
      * Additive associated with container
      * Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
      */
-    additiveReference: Reference;
+    additiveReference?: Reference;
 }
 /**
  * The specimen's container
@@ -39318,11 +39951,6 @@ export interface SpecimenDefinitionTypeTested extends BackboneElement {
      */
     type?: CodeableConcept;
     /**
-     * preferred | alternate
-     * The preference for this type of conditioned specimen.
-     */
-    preference: SpecimenDefinitionSpecimenContainedPreference;
-    /**
      * The specimen's container
      * The specimen's container.
      */
@@ -39351,12 +39979,21 @@ export interface SpecimenDefinitionTypeTested extends BackboneElement {
      * Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process.
      */
     handling?: SpecimenDefinitionTypeTestedHandling[];
+    /**
+     * preferred | alternate
+     * The preference for this type of conditioned specimen.
+     */
+    preference: SpecimenDefinitionSpecimenContainedPreference;
 }
 /**
  * Kind of specimen
  * A kind of specimen with associated set of requirements.
  */
 export interface SpecimenDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SpecimenDefinition';
     /**
      * Business identifier of a kind of specimen
      * A business identifier associated with the kind of specimen.
@@ -39442,11 +40079,6 @@ export interface StructureDefinitionMapping extends BackboneElement {
  */
 export interface StructureDefinitionContext extends BackboneElement {
     /**
-     * fhirpath | element | extension
-     * Defines how to interpret the expression that defines what the context of the extension is.
-     */
-    type: StructureDefinitionExtensionContextType;
-    /**
      * Where the extension can be used in instances
      * An expression that defines where an extension can be used in resources.
      */
@@ -39455,6 +40087,11 @@ export interface StructureDefinitionContext extends BackboneElement {
      * Extension for expression
      **/
     _expression?: Element;
+    /**
+     * fhirpath | element | extension
+     * Defines how to interpret the expression that defines what the context of the extension is.
+     */
+    type: StructureDefinitionExtensionContextType;
 }
 /**
  * Snapshot view of the structure
@@ -39483,6 +40120,10 @@ export interface StructureDefinitionDifferential extends BackboneElement {
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
  */
 export interface StructureDefinition extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'StructureDefinition';
     /**
      * Canonical identifier for this structure definition, represented as a URI (globally unique)
      * An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure definition is stored on different servers.
@@ -39538,12 +40179,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this structure definition. Enables tracking the life-cycle of the content.
-     * Allows filtering of structure definitions that are appropriate for use versus not.
-     */
-    status: StructureDefinitionPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -39628,7 +40263,7 @@ In some cases, the resource can no longer be found at the stated url, but the ur
     keyword?: Coding[];
     /**
      * FHIR Version this StructureDefinition targets
-     * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.0.0. for this version.
+     * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.0.1. for this version.
      * A StructureDefinition does not need to specify the target it applies to as StructureDefinitions will often be valid across multiple versions of FHIR. FHIR tooling can determine whether a StructureDefinition is consistent with a particular StructureDefinition if desired.
      */
     fhirVersion?: code;
@@ -39641,11 +40276,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * An external specification that the content is mapped to.
      */
     mapping?: StructureDefinitionMapping[];
-    /**
-     * primitive-type | complex-type | resource | logical
-     * Defines the kind of structure that this definition is describing.
-     */
-    kind: StructureDefinitionKind;
     /**
      * Whether the structure is abstract
      * Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.
@@ -39694,12 +40324,6 @@ The type must match the elements defined in the differential and the snapshot. F
      **/
     _baseDefinition?: Element;
     /**
-     * specialization | constraint - How relates to base definition
-     * How the type relates to the baseDefinition.
-     * If the definition is a specialization, then it adds new elements in the differential, and the snapshot includes the inherited elements.  If the definition is a constraint, then it cannot define new elements, it can only make new rules about existing content (see [Profiling Resources](profiling.html#resources)).
-     */
-    derivation?: StructureDefinitionTypeDerivationRule;
-    /**
      * Snapshot view of the structure
      * A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.
      */
@@ -39709,6 +40333,23 @@ The type must match the elements defined in the differential and the snapshot. F
      * A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
      */
     differential?: StructureDefinitionDifferential;
+    /**
+     * draft | active | retired | unknown
+     * The status of this structure definition. Enables tracking the life-cycle of the content.
+     * Allows filtering of structure definitions that are appropriate for use versus not.
+     */
+    status: StructureDefinitionPublicationStatus;
+    /**
+     * primitive-type | complex-type | resource | logical
+     * Defines the kind of structure that this definition is describing.
+     */
+    kind: StructureDefinitionKind;
+    /**
+     * specialization | constraint - How relates to base definition
+     * How the type relates to the baseDefinition.
+     * If the definition is a specialization, then it adds new elements in the differential, and the snapshot includes the inherited elements.  If the definition is a constraint, then it cannot define new elements, it can only make new rules about existing content (see [Profiling Resources](profiling.html#resources)).
+     */
+    derivation?: StructureDefinitionTypeDerivationRule;
 }
 /**
  * Structure Definition used by this map
@@ -39725,11 +40366,6 @@ export interface StructureMapStructure extends BackboneElement {
      * Extension for url
      **/
     _url?: Element;
-    /**
-     * source | queried | target | produced
-     * How the referenced structure is used in this mapping.
-     */
-    mode: StructureMapModelMode;
     /**
      * Name for type in this map
      * The name used for this type in the map.
@@ -39749,6 +40385,11 @@ export interface StructureMapStructure extends BackboneElement {
      * Extension for documentation
      **/
     _documentation?: Element;
+    /**
+     * source | queried | target | produced
+     * How the referenced structure is used in this mapping.
+     */
+    mode: StructureMapModelMode;
 }
 /**
  * Named instance provided when invoking the map
@@ -39775,11 +40416,6 @@ export interface StructureMapGroupInput extends BackboneElement {
      **/
     _type?: Element;
     /**
-     * source | target
-     * Mode for this instance of data.
-     */
-    mode: StructureMapInputMode;
-    /**
      * Documentation for this instance of data
      * Documentation for this instance of data.
      */
@@ -39788,6 +40424,11 @@ export interface StructureMapGroupInput extends BackboneElement {
      * Extension for documentation
      **/
     _documentation?: Element;
+    /**
+     * source | target
+     * Mode for this instance of data.
+     */
+    mode: StructureMapInputMode;
 }
 /**
  * Source inputs to the mapping
@@ -40201,6 +40842,12 @@ export interface StructureMapGroupRuleSource extends BackboneElement {
      */
     defaultValueDosage?: Dosage;
     /**
+     * Default value if no value exists
+     * A value to use if there is no existing value in the source object.
+     * If there's a default value on an item that can repeat, it will only be used once.
+     */
+    defaultValueMeta?: Meta;
+    /**
      * Optional field for this source
      * Optional field for this source.
      */
@@ -40209,11 +40856,6 @@ export interface StructureMapGroupRuleSource extends BackboneElement {
      * Extension for element
      **/
     _element?: Element;
-    /**
-     * first | not_first | last | not_last | only_one
-     * How to handle the list mode for this element.
-     */
-    listMode?: StructureMapSourceListMode;
     /**
      * Named context for field, if a field is specified
      * Named context for field, if a field is specified.
@@ -40251,6 +40893,11 @@ export interface StructureMapGroupRuleSource extends BackboneElement {
      * Extension for logMessage
      **/
     _logMessage?: Element;
+    /**
+     * first | not_first | last | not_last | only_one
+     * How to handle the list mode for this element.
+     */
+    listMode?: StructureMapSourceListMode;
 }
 /**
  * Parameters to the transform
@@ -40261,7 +40908,7 @@ export interface StructureMapGroupRuleTargetParameter extends BackboneElement {
      * Parameter value - variable or literal
      * Parameter value - variable or literal.
      */
-    valueId: id;
+    valueId?: id;
     /**
      * Extension for valueId
      **/
@@ -40270,7 +40917,7 @@ export interface StructureMapGroupRuleTargetParameter extends BackboneElement {
      * Parameter value - variable or literal
      * Parameter value - variable or literal.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -40279,7 +40926,7 @@ export interface StructureMapGroupRuleTargetParameter extends BackboneElement {
      * Parameter value - variable or literal
      * Parameter value - variable or literal.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -40288,7 +40935,7 @@ export interface StructureMapGroupRuleTargetParameter extends BackboneElement {
      * Parameter value - variable or literal
      * Parameter value - variable or literal.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -40297,7 +40944,7 @@ export interface StructureMapGroupRuleTargetParameter extends BackboneElement {
      * Parameter value - variable or literal
      * Parameter value - variable or literal.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -40318,11 +40965,6 @@ export interface StructureMapGroupRuleTarget extends BackboneElement {
      **/
     _context?: Element;
     /**
-     * type | variable
-     * How to interpret the context.
-     */
-    contextType?: StructureMapContextType;
-    /**
      * Field to create in the context
      * Field to create in the context.
      */
@@ -40341,11 +40983,6 @@ export interface StructureMapGroupRuleTarget extends BackboneElement {
      **/
     _variable?: Element;
     /**
-     * first | share | last | collate
-     * If field is a list, how to manage the list.
-     */
-    listMode?: StructureMapTargetListMode[];
-    /**
      * Internal rule reference for shared list items
      * Internal rule reference for shared list items.
      */
@@ -40355,15 +40992,25 @@ export interface StructureMapGroupRuleTarget extends BackboneElement {
      **/
     _listRuleId?: Element;
     /**
-     * create | copy +
-     * How the data is copied / created.
-     */
-    transform?: StructureMapTransform;
-    /**
      * Parameters to the transform
      * Parameters to the transform.
      */
     parameter?: StructureMapGroupRuleTargetParameter[];
+    /**
+     * type | variable
+     * How to interpret the context.
+     */
+    contextType?: StructureMapContextType;
+    /**
+     * first | share | last | collate
+     * If field is a list, how to manage the list.
+     */
+    listMode?: StructureMapTargetListMode[];
+    /**
+     * create | copy +
+     * How the data is copied / created.
+     */
+    transform?: StructureMapTransform;
 }
 /**
  * Which other rules to apply in the context of this rule
@@ -40457,12 +41104,6 @@ export interface StructureMapGroup extends BackboneElement {
      **/
     _extends?: Element;
     /**
-     * none | types | type-and-types
-     * If this is the default rule set to apply for the source type or this combination of types.
-     * Not applicable if the underlying model is untyped. There can only be one default mapping for any particular type combination.
-     */
-    typeMode: StructureMapGroupTypeMode;
-    /**
      * Additional description/explanation for group
      * Additional supporting documentation that explains the purpose of the group and the types of mappings within it.
      */
@@ -40482,12 +41123,22 @@ export interface StructureMapGroup extends BackboneElement {
      * Transform Rule from source to target.
      */
     rule: StructureMapGroupRule[];
+    /**
+     * none | types | type-and-types
+     * If this is the default rule set to apply for the source type or this combination of types.
+     * Not applicable if the underlying model is untyped. There can only be one default mapping for any particular type combination.
+     */
+    typeMode: StructureMapGroupTypeMode;
 }
 /**
  * A Map of relationships between 2 structures that can be used to transform data
  * A Map of relationships between 2 structures that can be used to transform data.
  */
 export interface StructureMap extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'StructureMap';
     /**
      * Canonical identifier for this structure map, represented as a URI (globally unique)
      * An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.
@@ -40538,12 +41189,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this structure map. Enables tracking the life-cycle of the content.
-     * Allows filtering of structure maps that are appropriate for use versus not.
-     */
-    status: StructureMapPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -40641,17 +41286,18 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Organizes the mapping into manageable chunks for human review/ease of maintenance.
      */
     group: StructureMapGroup[];
+    /**
+     * draft | active | retired | unknown
+     * The status of this structure map. Enables tracking the life-cycle of the content.
+     * Allows filtering of structure maps that are appropriate for use versus not.
+     */
+    status: StructureMapPublicationStatus;
 }
 /**
  * The channel on which to report matches to the criteria
  * Details where to send notifications when resources are received that meet the criteria.
  */
 export interface SubscriptionChannel extends BackboneElement {
-    /**
-     * rest-hook | websocket | email | sms | message
-     * The type of channel to send notifications on.
-     */
-    type: SubscriptionChannelType;
     /**
      * Where the channel points to
      * The url that describes the actual end-point to send messages to.
@@ -40682,6 +41328,11 @@ export interface SubscriptionChannel extends BackboneElement {
      * Extension for header
      **/
     _header?: Element[];
+    /**
+     * rest-hook | websocket | email | sms | message
+     * The type of channel to send notifications on.
+     */
+    type: SubscriptionChannelType;
 }
 /**
  * Server push subscription criteria
@@ -40689,13 +41340,9 @@ export interface SubscriptionChannel extends BackboneElement {
  */
 export interface Subscription extends DomainResource {
     /**
-     * requested | active | error | off
-     * The status of the subscription, which marks the server state for managing the subscription.
-     * A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.
-
-This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     * The type of the resource.
      */
-    status: SubscriptionStatus;
+    resourceType: 'Subscription';
     /**
      * Contact details for source (e.g. troubleshooting)
      * Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.
@@ -40744,6 +41391,14 @@ This element is labeled as a modifier because the status contains codes that mar
      * Details where to send notifications when resources are received that meet the criteria.
      */
     channel: SubscriptionChannel;
+    /**
+     * requested | active | error | off
+     * The status of the subscription, which marks the server state for managing the subscription.
+     * A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.
+
+This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: SubscriptionStatus;
 }
 /**
  * If this describes a specific package/container of the substance
@@ -40784,12 +41439,12 @@ export interface SubstanceIngredient extends BackboneElement {
      * A component of the substance
      * Another substance that is a component of this substance.
      */
-    substanceCodeableConcept: CodeableConcept;
+    substanceCodeableConcept?: CodeableConcept;
     /**
      * A component of the substance
      * Another substance that is a component of this substance.
      */
-    substanceReference: Reference;
+    substanceReference?: Reference;
 }
 /**
  * A homogeneous material with a definite composition
@@ -40797,16 +41452,15 @@ export interface SubstanceIngredient extends BackboneElement {
  */
 export interface Substance extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'Substance';
+    /**
      * Unique identifier
      * Unique identifier for the substance.
      * This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container.
      */
     identifier?: Identifier[];
-    /**
-     * active | inactive | entered-in-error
-     * A code to indicate if the substance is actively used.
-     */
-    status?: SubstanceFHIRSubstanceStatus;
     /**
      * What class/type of substance this is
      * A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes.
@@ -40838,6 +41492,11 @@ export interface Substance extends DomainResource {
      * A substance can be composed of other substances.
      */
     ingredient?: SubstanceIngredient[];
+    /**
+     * active | inactive | entered-in-error
+     * A code to indicate if the substance is actively used.
+     */
+    status?: SubstanceFHIRSubstanceStatus;
 }
 /**
  * The linkages between sugar residues will also be captured
@@ -40969,6 +41628,10 @@ export interface SubstanceNucleicAcidSubunit extends BackboneElement {
  * Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
  */
 export interface SubstanceNucleicAcid extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceNucleicAcid';
     /**
      * The type of the sequence shall be specified based on a controlled vocabulary
      * The type of the sequence shall be specified based on a controlled vocabulary.
@@ -41165,6 +41828,10 @@ export interface SubstancePolymerRepeat extends BackboneElement {
  */
 export interface SubstancePolymer extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstancePolymer';
+    /**
      * Todo
      * Todo.
      */
@@ -41270,6 +41937,10 @@ export interface SubstanceProteinSubunit extends BackboneElement {
  * A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators.
  */
 export interface SubstanceProtein extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceProtein';
     /**
      * The SubstanceProtein descriptive elements will only be used when a complete or partial amino acid sequence is available or derivable from a nucleic acid sequence
      * The SubstanceProtein descriptive elements will only be used when a complete or partial amino acid sequence is available or derivable from a nucleic acid sequence.
@@ -41432,6 +42103,10 @@ export interface SubstanceReferenceInformationTarget extends BackboneElement {
  * Todo.
  */
 export interface SubstanceReferenceInformation extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceReferenceInformation';
     /**
      * Todo
      * Todo.
@@ -41646,6 +42321,10 @@ export interface SubstanceSourceMaterialPartDescription extends BackboneElement 
  * Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex.
  */
 export interface SubstanceSourceMaterial extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceSourceMaterial';
     /**
      * General high level classification of the source material specific to the origin of the material
      * General high level classification of the source material specific to the origin of the material.
@@ -42170,6 +42849,10 @@ export interface SubstanceSpecificationRelationship extends BackboneElement {
  */
 export interface SubstanceSpecification extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SubstanceSpecification';
+    /**
      * Identifier by which this substance is known
      * Identifier by which this substance is known.
      */
@@ -42300,6 +42983,10 @@ export interface SupplyDeliverySuppliedItem extends BackboneElement {
  */
 export interface SupplyDelivery extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SupplyDelivery';
+    /**
      * External identifier
      * Identifier for the supply delivery event that is used to identify it across multiple disparate systems.
      * This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems.
@@ -42318,12 +43005,6 @@ export interface SupplyDelivery extends DomainResource {
 [The allowed reference resources may be adjusted as appropriate for the event resource].
      */
     partOf?: Reference[];
-    /**
-     * in-progress | completed | abandoned | entered-in-error
-     * A code specifying the state of the dispense event.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status?: SupplyDeliveryStatus;
     /**
      * Patient for whom the item is supplied
      * A link to a resource representing the person whom the delivered item is for.
@@ -42376,6 +43057,12 @@ export interface SupplyDelivery extends DomainResource {
      * Identifies the person who picked up the Supply.
      */
     receiver?: Reference[];
+    /**
+     * in-progress | completed | abandoned | entered-in-error
+     * A code specifying the state of the dispense event.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status?: SupplyDeliveryStatus;
 }
 /**
  * Ordered item details
@@ -42422,38 +43109,32 @@ export interface SupplyRequestParameter extends BackboneElement {
  */
 export interface SupplyRequest extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'SupplyRequest';
+    /**
      * Business Identifier for SupplyRequest
      * Business identifiers assigned to this SupplyRequest by the author and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server.
      * The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.
      */
     identifier?: Identifier[];
     /**
-     * draft | active | suspended +
-     * Status of the supply request.
-     */
-    status?: SupplyRequestStatus;
-    /**
      * The kind of supply (central, non-stock, etc.)
      * Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.
      */
     category?: CodeableConcept;
     /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
+     * Medication, Substance, or Device requested to be supplied
+     * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+     * Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
      */
-    priority?: SupplyRequestRequestPriority;
+    itemCodeableConcept?: CodeableConcept;
     /**
      * Medication, Substance, or Device requested to be supplied
      * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
      * Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
      */
-    itemCodeableConcept: CodeableConcept;
-    /**
-     * Medication, Substance, or Device requested to be supplied
-     * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
-     * Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
-     */
-    itemReference: Reference;
+    itemReference?: Reference;
     /**
      * The requested amount of the item indicated
      * The amount that is being ordered of the indicated item.
@@ -42522,6 +43203,16 @@ export interface SupplyRequest extends DomainResource {
      * Where the supply is destined to go.
      */
     deliverTo?: Reference;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
+     */
+    priority?: SupplyRequestRequestPriority;
+    /**
+     * draft | active | suspended +
+     * Status of the supply request.
+     */
+    status?: SupplyRequestStatus;
 }
 /**
  * Constraints on fulfillment tasks
@@ -42564,7 +43255,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueBase64Binary: base64Binary;
+    valueBase64Binary?: base64Binary;
     /**
      * Extension for valueBase64Binary
      **/
@@ -42573,7 +43264,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -42582,7 +43273,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueCanonical: canonical;
+    valueCanonical?: canonical;
     /**
      * Extension for valueCanonical
      **/
@@ -42591,7 +43282,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueCode: code;
+    valueCode?: code;
     /**
      * Extension for valueCode
      **/
@@ -42600,7 +43291,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDate: date;
+    valueDate?: date;
     /**
      * Extension for valueDate
      **/
@@ -42609,7 +43300,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
     /**
      * Extension for valueDateTime
      **/
@@ -42618,7 +43309,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -42627,7 +43318,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueId: id;
+    valueId?: id;
     /**
      * Extension for valueId
      **/
@@ -42636,7 +43327,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueInstant: instant;
+    valueInstant?: instant;
     /**
      * Extension for valueInstant
      **/
@@ -42645,7 +43336,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -42654,7 +43345,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueMarkdown: markdown;
+    valueMarkdown?: markdown;
     /**
      * Extension for valueMarkdown
      **/
@@ -42663,7 +43354,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueOid: oid;
+    valueOid?: oid;
     /**
      * Extension for valueOid
      **/
@@ -42672,7 +43363,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valuePositiveInt: positiveInt;
+    valuePositiveInt?: positiveInt;
     /**
      * Extension for valuePositiveInt
      **/
@@ -42681,7 +43372,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -42690,7 +43381,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueTime: time;
+    valueTime?: time;
     /**
      * Extension for valueTime
      **/
@@ -42699,7 +43390,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueUnsignedInt: unsignedInt;
+    valueUnsignedInt?: unsignedInt;
     /**
      * Extension for valueUnsignedInt
      **/
@@ -42708,7 +43399,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueUri: uri;
+    valueUri?: uri;
     /**
      * Extension for valueUri
      **/
@@ -42717,7 +43408,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueUrl: url;
+    valueUrl?: url;
     /**
      * Extension for valueUrl
      **/
@@ -42726,7 +43417,7 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueUuid: uuid;
+    valueUuid?: uuid;
     /**
      * Extension for valueUuid
      **/
@@ -42735,152 +43426,157 @@ export interface TaskInput extends BackboneElement {
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueAddress: Address;
+    valueAddress?: Address;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueAge: Age;
+    valueAge?: Age;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueAnnotation: Annotation;
+    valueAnnotation?: Annotation;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueAttachment: Attachment;
+    valueAttachment?: Attachment;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueCodeableConcept: CodeableConcept;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueContactPoint: ContactPoint;
+    valueContactPoint?: ContactPoint;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueCount: Count;
+    valueCount?: Count;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDistance: Distance;
+    valueDistance?: Distance;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDuration: Duration;
+    valueDuration?: Duration;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueHumanName: HumanName;
+    valueHumanName?: HumanName;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueIdentifier: Identifier;
+    valueIdentifier?: Identifier;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueMoney: Money;
+    valueMoney?: Money;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valuePeriod: Period;
+    valuePeriod?: Period;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueRange: Range;
+    valueRange?: Range;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueRatio: Ratio;
+    valueRatio?: Ratio;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueSampledData: SampledData;
+    valueSampledData?: SampledData;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueSignature: Signature;
+    valueSignature?: Signature;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueTiming: Timing;
+    valueTiming?: Timing;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueContactDetail: ContactDetail;
+    valueContactDetail?: ContactDetail;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueContributor: Contributor;
+    valueContributor?: Contributor;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDataRequirement: DataRequirement;
+    valueDataRequirement?: DataRequirement;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueExpression: Expression;
+    valueExpression?: Expression;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueParameterDefinition: ParameterDefinition;
+    valueParameterDefinition?: ParameterDefinition;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueRelatedArtifact: RelatedArtifact;
+    valueRelatedArtifact?: RelatedArtifact;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueTriggerDefinition: TriggerDefinition;
+    valueTriggerDefinition?: TriggerDefinition;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueUsageContext: UsageContext;
+    valueUsageContext?: UsageContext;
     /**
      * Content to use in performing the task
      * The value of the input parameter as a basic type.
      */
-    valueDosage: Dosage;
+    valueDosage?: Dosage;
+    /**
+     * Content to use in performing the task
+     * The value of the input parameter as a basic type.
+     */
+    valueMeta?: Meta;
 }
 /**
  * Information produced as part of task
@@ -42896,7 +43592,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueBase64Binary: base64Binary;
+    valueBase64Binary?: base64Binary;
     /**
      * Extension for valueBase64Binary
      **/
@@ -42905,7 +43601,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueBoolean: boolean;
+    valueBoolean?: boolean;
     /**
      * Extension for valueBoolean
      **/
@@ -42914,7 +43610,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueCanonical: canonical;
+    valueCanonical?: canonical;
     /**
      * Extension for valueCanonical
      **/
@@ -42923,7 +43619,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueCode: code;
+    valueCode?: code;
     /**
      * Extension for valueCode
      **/
@@ -42932,7 +43628,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDate: date;
+    valueDate?: date;
     /**
      * Extension for valueDate
      **/
@@ -42941,7 +43637,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDateTime: dateTime;
+    valueDateTime?: dateTime;
     /**
      * Extension for valueDateTime
      **/
@@ -42950,7 +43646,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDecimal: decimal;
+    valueDecimal?: decimal;
     /**
      * Extension for valueDecimal
      **/
@@ -42959,7 +43655,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueId: id;
+    valueId?: id;
     /**
      * Extension for valueId
      **/
@@ -42968,7 +43664,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueInstant: instant;
+    valueInstant?: instant;
     /**
      * Extension for valueInstant
      **/
@@ -42977,7 +43673,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueInteger: integer;
+    valueInteger?: integer;
     /**
      * Extension for valueInteger
      **/
@@ -42986,7 +43682,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueMarkdown: markdown;
+    valueMarkdown?: markdown;
     /**
      * Extension for valueMarkdown
      **/
@@ -42995,7 +43691,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueOid: oid;
+    valueOid?: oid;
     /**
      * Extension for valueOid
      **/
@@ -43004,7 +43700,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valuePositiveInt: positiveInt;
+    valuePositiveInt?: positiveInt;
     /**
      * Extension for valuePositiveInt
      **/
@@ -43013,7 +43709,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueString: string;
+    valueString?: string;
     /**
      * Extension for valueString
      **/
@@ -43022,7 +43718,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueTime: time;
+    valueTime?: time;
     /**
      * Extension for valueTime
      **/
@@ -43031,7 +43727,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueUnsignedInt: unsignedInt;
+    valueUnsignedInt?: unsignedInt;
     /**
      * Extension for valueUnsignedInt
      **/
@@ -43040,7 +43736,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueUri: uri;
+    valueUri?: uri;
     /**
      * Extension for valueUri
      **/
@@ -43049,7 +43745,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueUrl: url;
+    valueUrl?: url;
     /**
      * Extension for valueUrl
      **/
@@ -43058,7 +43754,7 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueUuid: uuid;
+    valueUuid?: uuid;
     /**
      * Extension for valueUuid
      **/
@@ -43067,158 +43763,167 @@ export interface TaskOutput extends BackboneElement {
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueAddress: Address;
+    valueAddress?: Address;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueAge: Age;
+    valueAge?: Age;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueAnnotation: Annotation;
+    valueAnnotation?: Annotation;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueAttachment: Attachment;
+    valueAttachment?: Attachment;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueCodeableConcept: CodeableConcept;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueCoding: Coding;
+    valueCoding?: Coding;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueContactPoint: ContactPoint;
+    valueContactPoint?: ContactPoint;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueCount: Count;
+    valueCount?: Count;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDistance: Distance;
+    valueDistance?: Distance;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDuration: Duration;
+    valueDuration?: Duration;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueHumanName: HumanName;
+    valueHumanName?: HumanName;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueIdentifier: Identifier;
+    valueIdentifier?: Identifier;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueMoney: Money;
+    valueMoney?: Money;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valuePeriod: Period;
+    valuePeriod?: Period;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueQuantity: Quantity;
+    valueQuantity?: Quantity;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueRange: Range;
+    valueRange?: Range;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueRatio: Ratio;
+    valueRatio?: Ratio;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueReference: Reference;
+    valueReference?: Reference;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueSampledData: SampledData;
+    valueSampledData?: SampledData;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueSignature: Signature;
+    valueSignature?: Signature;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueTiming: Timing;
+    valueTiming?: Timing;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueContactDetail: ContactDetail;
+    valueContactDetail?: ContactDetail;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueContributor: Contributor;
+    valueContributor?: Contributor;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDataRequirement: DataRequirement;
+    valueDataRequirement?: DataRequirement;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueExpression: Expression;
+    valueExpression?: Expression;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueParameterDefinition: ParameterDefinition;
+    valueParameterDefinition?: ParameterDefinition;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueRelatedArtifact: RelatedArtifact;
+    valueRelatedArtifact?: RelatedArtifact;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueTriggerDefinition: TriggerDefinition;
+    valueTriggerDefinition?: TriggerDefinition;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueUsageContext: UsageContext;
+    valueUsageContext?: UsageContext;
     /**
      * Result of output
      * The value of the Output parameter as a basic type.
      */
-    valueDosage: Dosage;
+    valueDosage?: Dosage;
+    /**
+     * Result of output
+     * The value of the Output parameter as a basic type.
+     */
+    valueMeta?: Meta;
 }
 /**
  * A task to be performed
  * A task to be performed.
  */
 export interface Task extends DomainResource {
+    /**
+     * The type of the resource.
+     */
+    resourceType: 'Task';
     /**
      * Task Instance Identifier
      * The business identifier for this task.
@@ -43259,11 +43964,6 @@ export interface Task extends DomainResource {
      */
     partOf?: Reference[];
     /**
-     * draft | requested | received | accepted | +
-     * The current status of the task.
-     */
-    status: TaskStatus;
-    /**
      * Reason for current status
      * An explanation as to why this task is held, failed, was refused, etc.
      * This applies to the current status.  Look at the history of the task to see reasons for past statuses.
@@ -43274,19 +43974,6 @@ export interface Task extends DomainResource {
      * Contains business-specific nuances of the business state.
      */
     businessStatus?: CodeableConcept;
-    /**
-     * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
-     * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
-     * This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
-
-In most cases, Tasks will have an intent of "order".
-     */
-    intent: TaskIntent;
-    /**
-     * routine | urgent | asap | stat
-     * Indicates how quickly the Task should be addressed with respect to other requests.
-     */
-    priority?: TaskPriority;
     /**
      * Task Type
      * A name or code (or both) briefly describing what the task involves.
@@ -43405,6 +44092,24 @@ In most cases, Tasks will have an intent of "order".
      * Outputs produced by the Task.
      */
     output?: TaskOutput[];
+    /**
+     * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
+     * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
+     * This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
+
+In most cases, Tasks will have an intent of "order".
+     */
+    intent: TaskIntent;
+    /**
+     * routine | urgent | asap | stat
+     * Indicates how quickly the Task should be addressed with respect to other requests.
+     */
+    priority?: TaskPriority;
+    /**
+     * draft | requested | received | accepted | +
+     * The current status of the task.
+     */
+    status: TaskStatus;
 }
 /**
  * Software that is covered by this terminology capability statement
@@ -43690,6 +44395,10 @@ export interface TerminologyCapabilitiesClosure extends BackboneElement {
  */
 export interface TerminologyCapabilities extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'TerminologyCapabilities';
+    /**
      * Canonical identifier for this terminology capabilities, represented as a URI (globally unique)
      * An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -43733,12 +44442,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this terminology capabilities. Enables tracking the life-cycle of the content.
-     * Allows filtering of terminology capabilitiess that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems.
-     */
-    status: TerminologyCapabilitiesPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -43817,11 +44520,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      **/
     _copyright?: Element;
     /**
-     * instance | capability | requirements
-     * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
-     */
-    kind: TerminologyCapabilitiesCapabilityStatementKind;
-    /**
      * Software that is covered by this terminology capability statement
      * Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation.
      */
@@ -43852,12 +44550,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      */
     expansion?: TerminologyCapabilitiesExpansion;
     /**
-     * explicit | all
-     * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
-     * See notes on the [ValueSet](valueset.html#) resource.
-     */
-    codeSearch?: TerminologyCapabilitiesCodeSearchSupport;
-    /**
      * Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation
      * Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation.
      */
@@ -43872,17 +44564,29 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Whether the $closure operation is supported.
      */
     closure?: TerminologyCapabilitiesClosure;
+    /**
+     * draft | active | retired | unknown
+     * The status of this terminology capabilities. Enables tracking the life-cycle of the content.
+     * Allows filtering of terminology capabilitiess that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems.
+     */
+    status: TerminologyCapabilitiesPublicationStatus;
+    /**
+     * instance | capability | requirements
+     * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
+     */
+    kind: TerminologyCapabilitiesCapabilityStatementKind;
+    /**
+     * explicit | all
+     * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
+     * See notes on the [ValueSet](valueset.html#) resource.
+     */
+    codeSearch?: TerminologyCapabilitiesCodeSearchSupport;
 }
 /**
  * A participant in the test execution, either the execution engine, a client, or a server
  * A participant in the test execution, either the execution engine, a client, or a server.
  */
 export interface TestReportParticipant extends BackboneElement {
-    /**
-     * test-engine | client | server
-     * The type of participant.
-     */
-    type: TestReportParticipantType;
     /**
      * The uri of the participant. An absolute URL is preferred
      * The uri of the participant. An absolute URL is preferred.
@@ -43901,17 +44605,17 @@ export interface TestReportParticipant extends BackboneElement {
      * Extension for display
      **/
     _display?: Element;
+    /**
+     * test-engine | client | server
+     * The type of participant.
+     */
+    type: TestReportParticipantType;
 }
 /**
  * The operation to perform
  * The operation performed.
  */
 export interface TestReportSetupActionOperation extends BackboneElement {
-    /**
-     * pass | skip | fail | warning | error
-     * The result of this operation.
-     */
-    result: TestReportActionResult;
     /**
      * A message associated with the result
      * An explanatory message associated with the result.
@@ -43930,17 +44634,17 @@ export interface TestReportSetupActionOperation extends BackboneElement {
      * Extension for detail
      **/
     _detail?: Element;
+    /**
+     * pass | skip | fail | warning | error
+     * The result of this operation.
+     */
+    result: TestReportActionResult;
 }
 /**
  * The assertion to perform
  * The results of the assertion performed on the previous operations.
  */
 export interface TestReportSetupActionAssert extends BackboneElement {
-    /**
-     * pass | skip | fail | warning | error
-     * The result of this assertion.
-     */
-    result: TestReportActionResult;
     /**
      * A message associated with the result
      * An explanatory message associated with the result.
@@ -43959,6 +44663,11 @@ export interface TestReportSetupActionAssert extends BackboneElement {
      * Extension for detail
      **/
     _detail?: Element;
+    /**
+     * pass | skip | fail | warning | error
+     * The result of this assertion.
+     */
+    result: TestReportActionResult;
 }
 /**
  * A setup operation or assert that was executed
@@ -44066,6 +44775,10 @@ export interface TestReportTeardown extends BackboneElement {
  */
 export interface TestReport extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'TestReport';
+    /**
      * External identifier
      * Identifier for the TestScript assigned for external purposes outside the context of FHIR.
      */
@@ -44081,24 +44794,10 @@ export interface TestReport extends DomainResource {
      **/
     _name?: Element;
     /**
-     * completed | in-progress | waiting | stopped | entered-in-error
-     * The current state of this test report.
-     * The status represents where the execution is currently within the test script execution life cycle.
-
-This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: TestReportStatus;
-    /**
      * Reference to the  version-specific TestScript that was executed to produce this TestReport
      * Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
      */
     testScript: Reference;
-    /**
-     * pass | fail | pending
-     * The overall result from the execution of the TestScript.
-     * The pass and fail result represents a completed test script execution. The pending result represents a test script execution that has not yet started or is currently in progress.
-     */
-    result: TestReportResult;
     /**
      * The final score (percentage of tests passed) resulting from the execution of the TestScript
      * The final score (percentage of tests passed) resulting from the execution of the TestScript.
@@ -44148,6 +44847,20 @@ This element is labeled as a modifier because the status contains codes that mar
      * The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise).
      */
     teardown?: TestReportTeardown;
+    /**
+     * completed | in-progress | waiting | stopped | entered-in-error
+     * The current state of this test report.
+     * The status represents where the execution is currently within the test script execution life cycle.
+
+This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: TestReportStatus;
+    /**
+     * pass | fail | pending
+     * The overall result from the execution of the TestScript.
+     * The pass and fail result represents a completed test script execution. The pending result represents a test script execution that has not yet started or is currently in progress.
+     */
+    result: TestReportResult;
 }
 /**
  * An abstract server representing a client or sender in a message exchange
@@ -44538,12 +45251,6 @@ export interface TestScriptSetupActionOperation extends BackboneElement {
      **/
     _encodeRequestUrl?: Element;
     /**
-     * delete | get | options | patch | post | put | head
-     * The HTTP method the test engine MUST use for this operation regardless of any other operation details.
-     * The primary purpose of the explicit HTTP method is support of  HTTP POST method invocation of the FHIR search. Other uses will include support of negative testing.
-     */
-    method?: TestScriptRequestMethodCode;
-    /**
      * Server initiating the request
      * The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.
      * If absent, test engine will send the message.  When present, test engine will not send the request message but will wait for the request message to be sent from this origin server.
@@ -44618,6 +45325,12 @@ export interface TestScriptSetupActionOperation extends BackboneElement {
      * Extension for url
      **/
     _url?: Element;
+    /**
+     * delete | get | options | patch | post | put | head
+     * The HTTP method the test engine MUST use for this operation regardless of any other operation details.
+     * The primary purpose of the explicit HTTP method is support of  HTTP POST method invocation of the FHIR search. Other uses will include support of negative testing.
+     */
+    method?: TestScriptRequestMethodCode;
 }
 /**
  * The assertion to perform
@@ -44645,12 +45358,6 @@ export interface TestScriptSetupActionAssert extends BackboneElement {
      * Extension for description
      **/
     _description?: Element;
-    /**
-     * response | request
-     * The direction to use for the assertion.
-     * If the direction is specified as "response" (the default), then the processing of this assert is against the received response message. If the direction is specified as "request", then the processing of this assert is against the sent request message.
-     */
-    direction?: TestScriptAssertionDirectionType;
     /**
      * Id of the source fixture to be evaluated
      * Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
@@ -44731,12 +45438,6 @@ export interface TestScriptSetupActionAssert extends BackboneElement {
      **/
     _navigationLinks?: Element;
     /**
-     * equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval
-     * The operator type defines the conditional behavior of the assert. If not defined, the default is equals.
-     * Operators are useful especially for negative testing.  If operator is not specified, then the "equals" operator is assumed; e.g. ```<code>   <assert>  <operator value="in" />  <responseCode value="200,201,204" />    </assert>    <assert>  <operator value="notEquals" />  <response value="okay"/>   </assert>    <assert>  <operator value="greaterThan" />    <responseHeader>     <field value="Content-Length" />     <value value="0" />    </responseHeader/>   </assert> </code> ```.
-     */
-    operator?: TestScriptAssertionOperatorType;
-    /**
      * XPath or JSONPath expression
      * The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.
      * If both "path" and a "fixtureId" are specified, then the path will be evaluated against the request or response body mapped to the fixtureId.  If "path" is specified and a "fixtureId" is not, then the path will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.
@@ -44746,12 +45447,6 @@ export interface TestScriptSetupActionAssert extends BackboneElement {
      * Extension for path
      **/
     _path?: Element;
-    /**
-     * delete | get | options | patch | post | put | head
-     * The request method or HTTP operation code to compare against that used by the client system under test.
-     * If "requestMethod" is specified then it will be used in place of "value". The "requestMethod" will evaluate against the last operation's request HTTP operation.
-     */
-    requestMethod?: TestScriptRequestMethodCode;
     /**
      * Request URL comparison value
      * The value to use in a comparison against the request URL path string.
@@ -44772,12 +45467,6 @@ export interface TestScriptSetupActionAssert extends BackboneElement {
      * Extension for resource
      **/
     _resource?: Element;
-    /**
-     * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
-     * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
-     * This is a shorter way of achieving similar verifications via "assert.responseCode".  If you need more control, then use "assert.responseCode"  e.g. <assert>  <contentType value="json" />  <response value="okay"/> </assert>.
-     */
-    response?: TestScriptAssertionResponseTypes;
     /**
      * HTTP response code to test
      * The value of the HTTP response code to be tested.
@@ -44828,6 +45517,30 @@ export interface TestScriptSetupActionAssert extends BackboneElement {
      * Extension for warningOnly
      **/
     _warningOnly?: Element;
+    /**
+     * response | request
+     * The direction to use for the assertion.
+     * If the direction is specified as "response" (the default), then the processing of this assert is against the received response message. If the direction is specified as "request", then the processing of this assert is against the sent request message.
+     */
+    direction?: TestScriptAssertionDirectionType;
+    /**
+     * equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval
+     * The operator type defines the conditional behavior of the assert. If not defined, the default is equals.
+     * Operators are useful especially for negative testing.  If operator is not specified, then the "equals" operator is assumed; e.g. ```<code>   <assert>  <operator value="in" />  <responseCode value="200,201,204" />    </assert>    <assert>  <operator value="notEquals" />  <response value="okay"/>   </assert>    <assert>  <operator value="greaterThan" />    <responseHeader>     <field value="Content-Length" />     <value value="0" />    </responseHeader/>   </assert> </code> ```.
+     */
+    operator?: TestScriptAssertionOperatorType;
+    /**
+     * delete | get | options | patch | post | put | head
+     * The request method or HTTP operation code to compare against that used by the client system under test.
+     * If "requestMethod" is specified then it will be used in place of "value". The "requestMethod" will evaluate against the last operation's request HTTP operation.
+     */
+    requestMethod?: TestScriptRequestMethodCode;
+    /**
+     * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
+     * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
+     * This is a shorter way of achieving similar verifications via "assert.responseCode".  If you need more control, then use "assert.responseCode"  e.g. <assert>  <contentType value="json" />  <response value="okay"/> </assert>.
+     */
+    response?: TestScriptAssertionResponseTypes;
 }
 /**
  * A setup operation or assert to perform
@@ -44937,6 +45650,10 @@ export interface TestScriptTeardown extends BackboneElement {
  */
 export interface TestScript extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'TestScript';
+    /**
      * Canonical identifier for this test script, represented as a URI (globally unique)
      * An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -44986,12 +45703,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this test script. Enables tracking the life-cycle of the content.
-     * Allows filtering of test scripts that are appropriate for use versus not.
-     */
-    status: TestScriptPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -45118,6 +45829,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * A series of operations required to clean up after all the tests are executed (successfully or otherwise).
      */
     teardown?: TestScriptTeardown;
+    /**
+     * draft | active | retired | unknown
+     * The status of this test script. Enables tracking the life-cycle of the content.
+     * Allows filtering of test scripts that are appropriate for use versus not.
+     */
+    status: TestScriptPublicationStatus;
 }
 /**
  * Additional representations for this concept
@@ -45200,12 +45917,6 @@ export interface ValueSetComposeIncludeFilter extends BackboneElement {
      **/
     _property?: Element;
     /**
-     * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
-     * The kind of operation to perform as a part of the filter criteria.
-     * In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values.
-     */
-    op: ValueSetFilterOperator;
-    /**
      * Code from the system, or regex criteria, or boolean value for exists
      * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
      * Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example.
@@ -45215,6 +45926,12 @@ export interface ValueSetComposeIncludeFilter extends BackboneElement {
      * Extension for value
      **/
     _value?: Element;
+    /**
+     * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
+     * The kind of operation to perform as a part of the filter criteria.
+     * In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values.
+     */
+    op: ValueSetFilterOperator;
 }
 /**
  * Include one or more codes from a code system or other value set(s)
@@ -45526,6 +46243,10 @@ export interface ValueSetExpansion extends BackboneElement {
  */
 export interface ValueSet extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'ValueSet';
+    /**
      * Canonical identifier for this value set, represented as a URI (globally unique)
      * An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers.
      * Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
@@ -45575,12 +46296,6 @@ In some cases, the resource can no longer be found at the stated url, but the ur
      * Extension for title
      **/
     _title?: Element;
-    /**
-     * draft | active | retired | unknown
-     * The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state.
-     * Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatus](extension-valueset-workflowstatus.html) extension for additional status information related to the editorial process.
-     */
-    status: ValueSetPublicationStatus;
     /**
      * For testing purposes, not real usage
      * A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
@@ -45682,6 +46397,12 @@ In some cases, the resource can no longer be found at the stated url, but the ur
 Expansion.parameter is  a simplified list of parameters - a subset of the features of the [Parameters](parameters.html) resource.
      */
     expansion?: ValueSetExpansion;
+    /**
+     * draft | active | retired | unknown
+     * The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state.
+     * Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatus](extension-valueset-workflowstatus.html) extension for additional status information related to the editorial process.
+     */
+    status: ValueSetPublicationStatus;
 }
 /**
  * Information about the primary source(s) involved in validation
@@ -45817,6 +46538,10 @@ export interface VerificationResultValidator extends BackboneElement {
  */
 export interface VerificationResult extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'VerificationResult';
+    /**
      * A resource that was validated
      * A resource that was validated.
      */
@@ -45835,11 +46560,6 @@ export interface VerificationResult extends DomainResource {
      * The frequency with which the target must be validated (none; initial; periodic).
      */
     need?: CodeableConcept;
-    /**
-     * attested | validated | in-process | req-revalid | val-fail | reval-fail
-     * The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).
-     */
-    status: VerificationResultstatus;
     /**
      * When the validation status was updated
      * When the validation status was updated.
@@ -45902,6 +46622,11 @@ export interface VerificationResult extends DomainResource {
      * Information about the entity validating information.
      */
     validator?: VerificationResultValidator[];
+    /**
+     * attested | validated | in-process | req-revalid | val-fail | reval-fail
+     * The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).
+     */
+    status: VerificationResultstatus;
 }
 /**
  * Eye alignment compensation
@@ -45934,16 +46659,10 @@ export interface VisionPrescriptionLensSpecification extends BackboneElement {
      */
     product: CodeableConcept;
     /**
-     * right | left
-     * The eye for which the lens specification applies.
-     * May also appear as OD (oculus dexter) for the right eye and OS (oculus siniter) for the left eye.
-     */
-    eye: VisionPrescriptionVisionEyes;
-    /**
      * Power of the lens
      * Lens power measured in dioptres (0.25 units).
      * The value is negative for near-sighted and positive for far sighted.
-     * Often insurance will not cover a lens with power between +75 and -75.
+Often insurance will not cover a lens with power between +75 and -75.
      */
     sphere?: decimal;
     /**
@@ -46038,6 +46757,12 @@ export interface VisionPrescriptionLensSpecification extends BackboneElement {
      * Notes for special requirements such as coatings and lens materials.
      */
     note?: Annotation[];
+    /**
+     * right | left
+     * The eye for which the lens specification applies.
+     * May also appear as OD (oculus dexter) for the right eye and OS (oculus siniter) for the left eye.
+     */
+    eye: VisionPrescriptionVisionEyes;
 }
 /**
  * Prescription for vision correction products for a patient
@@ -46045,16 +46770,14 @@ export interface VisionPrescriptionLensSpecification extends BackboneElement {
  */
 export interface VisionPrescription extends DomainResource {
     /**
+     * The type of the resource.
+     */
+    resourceType: 'VisionPrescription';
+    /**
      * Business Identifier for vision prescription
      * A unique identifier assigned to this vision prescription.
      */
     identifier?: Identifier[];
-    /**
-     * active | cancelled | draft | entered-in-error
-     * The status of the resource instance.
-     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-     */
-    status: VisionPrescriptionVisionStatus;
     /**
      * Response creation date
      * The date this resource was created.
@@ -46094,4 +46817,10 @@ export interface VisionPrescription extends DomainResource {
      * Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.
      */
     lensSpecification: VisionPrescriptionLensSpecification[];
+    /**
+     * active | cancelled | draft | entered-in-error
+     * The status of the resource instance.
+     * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
+     */
+    status: VisionPrescriptionVisionStatus;
 }

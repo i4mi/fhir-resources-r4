@@ -4,37 +4,36 @@ Generated from the FHIR® definition json by the Institute of Medical Informatic
 <img src="https://siot.net/upload/resources/bfh.png" width="250px" />
 
 
-# Usage guide
+# 1 Breaking changes in version 2.0.0
+If you're upgrading from version 1.x.x, you may encounter some breaking changes. These are relatively easy to fix though:
+## 1.1 I4MIBundle.addEntry()
+The `addEntry()` method of the I4MIBundle smart resource doesn't need the resourceType as an argument anymore (since it is implicit with the actual resource as an argument). This changes the way you call the method. You just have to remove the second argument from every call of addEntry():
+**Version 1.x.x** (Example):
+```typescript
+myBundle.addEntry(BundleHTTPVerb.POST, 'Observation', myObservationResource);
+```
+becomes 
+**Version 2.0.0** (Example):
+```typescript
+myBundle.addEntry(BundleHTTPVerb.POST, myObservationResource);
+```
+Note, that also the resource you want to add to the I4MIBundle now needs to be actually of type `Resource` (or any type inheriting from Resource), and can not be `any` anymore.
+
+## 1.2 Resources have fixed resourceType now
+In older versions, the resourceType property of every Resource was from type `string` and was not mandatory. This meant that you could have e.g. an Observation resource with no resourceType property at all or with `resourceType = 'Patient'`. This is no longer possible with Version 2.0.0, the resourceType of an Observation resource has to be `Observation`.
+
+# 2 Usage guide
 
 Install with
 ```
 npm i @i4mi/fhir_r4
 ```
 
-## Supported fhir version
-- R4
+## 2.1 Select fhir version
+This library supports the following fhir versions:
+- R4 (v4.0.1)
 
-## Use with NodeJS
-If you want to use this library in a node project which does not run on any browser, you need to install further dependencies.
-
-1. Install XMLHttpRequest:
-```
-npm i xmlhttprequest
-```
-
-2. Set global var
-```
-global['XMLHttpRequest'] = require("xmlhttprequest").XMLHttpRequest;
-```
-or
-```
-const XMLHttpRequestLib = require("xmlhttprequest").XMLHttpRequest;
-global['XMLHttpRequest'] = XMLHttpRequestLib;
-```
-
-3. You're up to go
-
-## Using resources
+## 2.2 Using resources
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
@@ -62,7 +61,7 @@ export class MyPatient implements Patient {
 
 _NOTE:_ You always have to set the `resourceType`!
 
-## Create api calls
+## 2.3 Create api calls
 How do I create api calls?  
 Import statement for using all implemented api methods  
 ```
@@ -105,7 +104,7 @@ __IMPORTANT:__ Check the allowed content type (header) of your target server. If
 this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
 ```
 
-### Other examples (search, create, etc.)
+### 2.3.1 Other examples (search, create, etc.)
 Search:
 ```
 myStaticPatientSearch() {
@@ -135,18 +134,47 @@ myStaticPatientCreate() {
 }
 ```
 
+# 3 Smart resources and utils
+This library also provides some smart resources and utils to make your life with FHIR® easier.
+## 3.1 I4MIBundle
+This smart resource represents a Bundle, and lets you add and remove entries.
+First, the Bundle has to be initialized by calling `const myBundle = new I4MIBundle(type)`, where type is the BundleType needed.
+
+After initializing the Bundle, you can add an entry by calling `myBundle.addEntry(verb, entry)`, where verb is the BundleHTTPVerb for the entry, and entry the resource you want to add to the Bundle. Contrary to earlier versions of the library, it is not necessary anymore to explicitly specify the resourceType.
+
+For removing an entry from the resource, you can call `myBundle.removeEntry(id)`, where id is the id of the resource in the entry.
+
+## 3.2 Internationalization (I18N)
+FHIR® supports I18N with extensions. Any text / string element can have an extensible sibling with an leading underscore, that contains the internationalization strings (e.g. if a resource has a `resource.title` element, the corresponding extensible element would be `resource._title`).
+
+With `readI18N()`, `getAllI18N()` and `writeI18N()`, this library provides functions that help with interacting with this translation extensions.
+
+`readI18N(resource._title, 'en')` allows you to read the translation string for a given element and language (in this case, the resource title in english). If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
+
+`getAllI18N(resource._title)` allows you to get all available translation strings for a given element. If the element does not have a well formed I18N extension or no language is available, an empty object `{}`is returned (and you have to fall back on the normal `resource.title` element).
+
+`writeI18N(translations)` allows you to comfortably write wellformed I18N extensions to a resource element. The 'translations' argument is a key/value pair of the languages and I18N string you want to write, as in the following example:
+
+``` typescript
+const translations = {
+    en: 'This is the title.',
+    fr: 'Voici le titre.',
+    de: 'Dies ist der Titel.'
+};
+resource._title = writeI18N(translations);
+```
 
 
-# Contribution & dev guide
+# 4 Contribution & dev guide
 
-## build
+## 4.1 build
 
 to generate a new build in './dist/' 
 ```
 npm run build
 ```
 
-## deploy
+## 4.2 deploy
 
 update version in package.json
 then
@@ -155,4 +183,4 @@ npm publish --access public
 ```
 
 ----
-FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR trademark does not constitute endorsement of this product by HL7.
+FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR® trademark does not constitute endorsement of this product by HL7.

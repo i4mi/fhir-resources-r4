@@ -1,11 +1,11 @@
 {
   "name": "@i4mi/fhir_r4",
-  "version": "2.0.0",
-  "description": "FHIR resources definitions + API methods",
+  "version": "2.1.0-beta.1",
+  "description": "FHIR resource definitions + API methods + utils",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jestconfig.json --coverage --silent",
     "build": "rm -rf ./dist && npm i && tsc"
   },
   "repository": {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllI18N = exports.readI18N = exports.writeI18N = void 0;
+exports.getCode = exports.hasCoding = exports.getAllI18N = exports.readI18N = exports.writeI18N = void 0;
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
 const CONTENT_URL = 'content';
@@ -86,3 +86,37 @@ function getAllI18N(element) {
     return i18n;
 }
 exports.getAllI18N = getAllI18N;
+/**
+ * Helper function to detect if a CodeableConcept has a given coding
+ * @param codeableConcept   a codeable concept
+ * @param coding            the coding to search for
+ * @returns                 true if the codeable concept contains the given coding
+ *                          false if the codeable concept is undefined or does not
+ *                          contain the given coding
+ */
+function hasCoding(codeableConcept, coding) {
+    if (!codeableConcept)
+        return false;
+    const system = coding.system;
+    const code = coding.code;
+    if (!codeableConcept.coding)
+        return false;
+    return codeableConcept.coding.findIndex(c => (system === undefined || c.system === system) && (c.code === code)) > -1;
+}
+exports.hasCoding = hasCoding;
+/**
+ * Helper function extract a code from a codeable concept
+ * @param codeableConcept   a codeable concept
+ * @param coding            the system of the wanted code
+ * @returns                 the code, if found, else undefined
+ */
+function getCode(codeableConcept, system) {
+    var _a;
+    if (!codeableConcept)
+        return undefined;
+    const coding = (_a = codeableConcept.coding) === null || _a === void 0 ? void 0 : _a.find((coding) => coding.system === system);
+    return coding
+        ? coding.code
+        : undefined;
+}
+exports.getCode = getCode;

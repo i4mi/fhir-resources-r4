@@ -1,4 +1,4 @@
-import { Extension, Element } from "../definition";
+import { Extension, Element, Coding, CodeableConcept, code } from "../definition";
 export interface I18NStrings {
     [lang: string]: string;
 }
@@ -34,3 +34,19 @@ export declare function readI18N(element: Element, lang: string): string | undef
 export declare function getAllI18N(element: Element): {
     [lang: string]: string;
 };
+/**
+ * Helper function to detect if a CodeableConcept has a given coding
+ * @param codeableConcept   a codeable concept
+ * @param coding            the coding to search for
+ * @returns                 true if the codeable concept contains the given coding
+ *                          false if the codeable concept is undefined or does not
+ *                          contain the given coding
+ */
+export declare function hasCoding(codeableConcept: CodeableConcept | undefined, coding: Coding): boolean;
+/**
+ * Helper function extract a code from a codeable concept
+ * @param codeableConcept   a codeable concept
+ * @param coding            the system of the wanted code
+ * @returns                 the code, if found, else undefined
+ */
+export declare function getCode(codeableConcept: CodeableConcept | undefined, system: string): code | undefined;

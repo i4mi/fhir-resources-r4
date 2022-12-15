@@ -71,7 +71,7 @@ export class I4MIBundle implements Bundle {
             }
         });
         if (typeof removedItem === 'undefined')
-            console.warn(`No Entry to remove with id ${id} found`)
+            console.warn(`No Entry to remove with id ${id} found`);
 
         return removedItem;
     }

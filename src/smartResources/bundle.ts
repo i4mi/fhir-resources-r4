@@ -1,5 +1,5 @@
 import { BundleType, Bundle, BundleHTTPVerb, BundleEntry, Resource } from "../definition";
-import { Guid } from "guid-typescript";
+import { v4 as uuidv4 } from 'uuid';
 
 export interface I4MIInterfaceToMapResource {
     [key: string]: any;
@@ -81,7 +81,7 @@ export class I4MIBundle implements Bundle {
      * @returns guid as string
      */
     private generateId(): string {
-        return Guid.create().toString();
+        return uuidv4();
     }
 
     /**

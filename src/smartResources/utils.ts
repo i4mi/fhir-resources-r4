@@ -1,5 +1,4 @@
 import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period } from "../definition";
-import { Guid } from "guid-typescript";
 
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';

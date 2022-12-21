@@ -193,6 +193,8 @@ if (isPollenObservation) {
 
 `isInPeriod(period, time?): boolean` checks if a given time point (`time`) is in a given `period`. If no `time` is provided, the current time is taken.
 
+`getIdentifierString(patient, system)` extracts an identifier string from a Patient resource for a given identifier system. It returns a string in the form of `urn:oid:1.1.1.99.1|1e3796be...`, where `urn:oid:1.1.1.99.1` is the system and `1e3796be...` the identifier.
+
 # 4 Contribution & dev guide
 
 ## 4.1 build

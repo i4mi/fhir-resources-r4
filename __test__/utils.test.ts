@@ -1,5 +1,7 @@
-import { getAllI18N, getCode, getFullName, hasCoding, isUUID, isInPeriod, readI18N, selectName, writeI18N } from "../src";
-import {  CodeableConcept, Element, HumanName, HumanNameNameUse, Period } from "../src/definition";
+import { getAllI18N, getCode, getFullName, hasCoding, isUUID, isInPeriod, readI18N, selectName, writeI18N, getIdentifierString } from "../src";
+import { CodeableConcept, Element, HumanName, HumanNameNameUse, Period } from "../src/definition";
+
+
 
 test('I18N', () => {
     const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
@@ -307,4 +309,47 @@ test('Period', () => {
     expect(isInPeriod(beforeFalse, 1643673600000)).toBe(true);
     expect(isInPeriod(beforeFalse, -1643673600000)).toBe(false);
     expect(isInPeriod(beforeFalse, 0)).toBe(false);
+});
+
+test('Get Identifier', () => {
+    const MPIID_SYSTEM = 'urn:oid:1.1.1.99.1';
+    const UUID1 = 'b9902235-bd16-43d4-b40b-1cd1ff96b356';
+    const UUID2 = '4921a69e-6fb7-4566-a249-90f8a85b9ec1';
+
+    expect(getIdentifierString({
+        resourceType: 'Patient',
+        identifier: [
+            {
+                system: MPIID_SYSTEM,
+                value: UUID1
+            },
+            {
+                value: UUID2
+            }
+        ]
+    }, MPIID_SYSTEM)).toBe(MPIID_SYSTEM + '|' + UUID1);
+
+    expect(() => getIdentifierString({
+        resourceType: 'Patient',
+        identifier: [{
+            system: MPIID_SYSTEM,
+        }]
+    }, MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString({
+        resourceType: 'Patient',
+        identifier: [{
+                system: 'http://midata.coop/test',
+                value: 'ABC1'
+            }]
+    }, MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString({
+        resourceType: 'Patient'
+    }, MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString({
+        resourceType: 'Patient',
+        identifier: [{}]
+    }, MPIID_SYSTEM)).toThrow();
 });

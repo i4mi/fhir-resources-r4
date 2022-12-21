@@ -1,4 +1,4 @@
-import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period } from "../definition";
+import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period, Patient } from "../definition";
 
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
@@ -218,3 +218,18 @@ export function isInPeriod(period: Period, time: string | number | Date = new Da
         : false;
     return (hasStarted && !hasEnded);
 }
+
+  /**
+   * Gets the identifier string for a given system (of the identifier) from a Patient resource
+   * @param patient a Patient resource
+   * @param system     the system the wanted identifier is in (e.g. as oid)
+   * @returns       a string in the form of urn:oid:1.1.1.99.1|1e3796be
+   * @throws        an Error if the Patient resource has no identifier whose system matches the system.
+   */
+  export function getIdentifierString(patient: Patient, system: string): string {
+    const identifier = patient.identifier?.find((id) => id.system?.includes(system));
+    if (!identifier || !identifier.value) {
+      throw new Error('Patient has no identifier that matches the oid ' + system);
+    }
+    return system + '|' + identifier.value;
+  }

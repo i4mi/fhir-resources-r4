@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.I4MIBundle = void 0;
-const guid_typescript_1 = require("guid-typescript");
+const uuid_1 = require("uuid");
 class I4MIBundle {
     constructor(type) {
         this.resourceType = 'Bundle';
@@ -65,7 +65,7 @@ class I4MIBundle {
      * @returns guid as string
      */
     generateId() {
-        return guid_typescript_1.Guid.create().toString();
+        return (0, uuid_1.v4)();
     }
     /**
      * Checks if the given id already exists in the bundle

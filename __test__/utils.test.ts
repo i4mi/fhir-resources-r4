@@ -2,7 +2,6 @@ import { getAllI18N, getCode, getFullName, hasCoding, isUUID, isInPeriod, readI1
 import { CodeableConcept, Element, HumanName, HumanNameNameUse, Period } from "../src/definition";
 
 
-
 test('I18N', () => {
     const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
     const translations = {
@@ -65,6 +64,7 @@ test('I18N', () => {
     expect(getAllI18N({})).toEqual({});
     expect(getAllI18N(otherFhirElement)).toEqual({});
 });
+
 
 test('Coding', () => {
     const SCT_CODE = '42106004'; 
@@ -300,7 +300,6 @@ test('Period', () => {
         start: undefined,
         end: undefined
     };
-
     expect(isInPeriod(noEndTrue)).toBe(true);
     expect(isInPeriod(noEndFalse)).toBe(false);
     expect(isInPeriod(noEndBorder)).toBe(true);
@@ -320,7 +319,7 @@ test('Period', () => {
     expect(isInPeriod(beforeFalse, 1643673600000)).toBe(true);
     expect(isInPeriod(beforeFalse, -1643673600000)).toBe(false);
     expect(isInPeriod(beforeFalse, 0)).toBe(false);
-    // mix formats
+    //mix formats
     expect(isInPeriod({
         start: '2020',
         end: '2022'
@@ -332,7 +331,39 @@ test('Period', () => {
     expect(isInPeriod({
         start: '2020',
         end: '2022'
-    }, 1620130900)).toBe(true);
+    }, 1620130900000)).toBe(true);
+    expect(isInPeriod({
+        start: '2020-01',
+        end: '2022-12'
+    }, '2022-12-18')).toBe(true);
+    expect(isInPeriod({
+        start: '2020-01',
+        end: '2022-12'
+    }, '2022-12-18T02:01:00+01:00')).toBe(true);
+    expect(isInPeriod({
+        start: '2020-01',
+        end: '2022-12'
+    }, '2023-01-01T02:01:00+01:00')).toBe(false);
+    expect(isInPeriod({
+        start: '2020-01',
+        end: '2022-12'
+    }, '2023-01-01')).toBe(false);
+    expect(isInPeriod({
+        start: '2020-01-01',
+        end: '2022-12-31'
+    }, '2023-01-01')).toBe(false);
+    expect(isInPeriod({
+        start: '2020-01-01',
+        end: '2022-12-31'
+    }, '2022-12-31')).toBe(true);
+    expect(isInPeriod({
+        start: '2020-01-01T00:00:00+00:00',
+        end: '2022-12-31T23:59:59+00:00'
+    }, '2022-12-31')).toBe(true);
+    expect(isInPeriod({
+        start: '2020-01-01T00:00:00+00:00',
+        end: '2022-12-31T23:59:59+00:00'
+    }, '2023-01-01')).toBe(false);
 });
 
 test('Get Identifier', () => {

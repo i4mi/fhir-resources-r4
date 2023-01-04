@@ -268,9 +268,17 @@ test('Period', () => {
         start: '2100',
         end: undefined
     };
+    const noEndBorder: Period = {
+        start: new Date().getFullYear().toString(),
+        end: undefined
+    }
     const noStartTrue: Period = {
         start: undefined,
-        end: '2023'
+        end: '9999' // TODO: don't forget to adjust the test in the year 10000 ;-)
+    };
+    const noStartBorder: Period = {
+        start: undefined,
+        end: new Date().getFullYear().toString()
     };
     const noStartFalse: Period = {
         start: undefined,
@@ -295,16 +303,19 @@ test('Period', () => {
 
     expect(isInPeriod(noEndTrue)).toBe(true);
     expect(isInPeriod(noEndFalse)).toBe(false);
+    expect(isInPeriod(noEndBorder)).toBe(true);
     expect(isInPeriod(noStartTrue)).toBe(true);
+    expect(isInPeriod(noStartBorder)).toBe(true);
     expect(isInPeriod(noStartFalse)).toBe(false);
     expect(isInPeriod(invalidPeriod)).toBe(false);
     expect(isInPeriod(beforeFalse)).toBe(false);
     expect(isInPeriod(afterFalse)).toBe(false);
     expect(isInPeriod(emptyTrue)).toBe(true);
 
-   // expect(isInPeriod(beforeFalse, '2022')).toBe(true);
+    expect(isInPeriod(beforeFalse, '2022')).toBe(true);
     expect(isInPeriod(beforeFalse, '2022-02-01')).toBe(true);
     expect(isInPeriod(beforeFalse, '2022-02-01T10:00:00')).toBe(true);
+    expect(isInPeriod(beforeFalse, 's0meRu661sh')).toBe(false);
     expect(isInPeriod(beforeFalse, '20. Jänner 2022')).toBe(false);
     expect(isInPeriod(beforeFalse, 1643673600000)).toBe(true);
     expect(isInPeriod(beforeFalse, -1643673600000)).toBe(false);

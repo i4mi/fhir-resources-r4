@@ -35,14 +35,14 @@ test('AddEntryToBundle', () => {
         valueInteger: 2
     }
 
-    bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationOne);
+    bundle.addEntry(BundleHTTPVerb.POST, observationOne);
 
     let resource = <Observation>bundle.entry[0].resource
 
     expect(bundle.entry.length).toBe(1);
     expect(resource.id).toBeDefined();
 
-    bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationTwo);
+    bundle.addEntry(BundleHTTPVerb.POST, observationTwo);
 
     let resourceTwo = <Observation>bundle.entry[0].resource
 
@@ -71,7 +71,7 @@ test('AddEntryWithIdToBundle', () => {
         id: "1"
     }
 
-    bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationOne);
+    bundle.addEntry(BundleHTTPVerb.POST, observationOne);
 
     let resource = <Observation>bundle.entry[0].resource;
 
@@ -113,14 +113,14 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
         valueInteger: 3
     }
 
-    bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationOne);
+    bundle.addEntry(BundleHTTPVerb.POST, observationOne);
 
     let resource = <Observation>bundle.entry[0].resource;
 
     expect(bundle.entry.length).toBe(1);
     expect(resource.id).toBeDefined();
 
-    bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationTwo);
+    bundle.addEntry(BundleHTTPVerb.POST, observationTwo);
 
     let resourceTwo = <Observation>bundle.entry[1].resource;
 
@@ -129,7 +129,7 @@ test('AddEntryAlreadyDefinedIdToBundle', () => {
 
     observationThree.id = resourceTwo.id;
     expect(() => {
-        bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationThree)
+        bundle.addEntry(BundleHTTPVerb.POST, observationThree)
     }).toThrow();
     expect(bundle.entry.length).toBe(2);
 });
@@ -166,9 +166,9 @@ test('RemoveEntryFromBundle', () => {
         valueInteger: 3
     }
 
-    let one = bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationOne);
-    let two = bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationTwo);
-    let three = bundle.addEntry(BundleHTTPVerb.POST, 'Observation', observationThree)
+    let one = bundle.addEntry(BundleHTTPVerb.POST, observationOne);
+    let two = bundle.addEntry(BundleHTTPVerb.POST, observationTwo);
+    let three = bundle.addEntry(BundleHTTPVerb.POST, observationThree)
 
     let resourceToRemove = <I4MIInterfaceToMapResource>one.resource;
 
@@ -178,6 +178,10 @@ test('RemoveEntryFromBundle', () => {
     let removedEntry = bundle.removeEntry(resourceToRemove['id']);
 
     expect(removedEntry).toBeDefined()
+    expect(bundle.entry.length).toBe(2);
+
+    removedEntry = bundle.removeEntry('invalidId');
+    expect(removedEntry).toBeUndefined()
     expect(bundle.entry.length).toBe(2);
 
     if (typeof removedEntry !== 'undefined') {

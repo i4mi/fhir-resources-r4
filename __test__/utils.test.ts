@@ -320,6 +320,19 @@ test('Period', () => {
     expect(isInPeriod(beforeFalse, 1643673600000)).toBe(true);
     expect(isInPeriod(beforeFalse, -1643673600000)).toBe(false);
     expect(isInPeriod(beforeFalse, 0)).toBe(false);
+    // mix formats
+    expect(isInPeriod({
+        start: '2020',
+        end: '2022'
+    }, '1970-01-01T00:00:01+00:00')).toBe(false);
+    expect(isInPeriod({
+        start: '2020',
+        end: '2022'
+    }, 1000)).toBe(false);
+    expect(isInPeriod({
+        start: '2020',
+        end: '2022'
+    }, 1620130900)).toBe(true);
 });
 
 test('Get Identifier', () => {

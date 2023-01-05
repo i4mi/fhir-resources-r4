@@ -204,18 +204,40 @@ export function isInPeriod(period: Period, time: string | number | Date = new Da
     switch (typeof time) {
         case 'string': 
         case 'number': 
-            now = new Date(time).getTime();
+            now = new Date(time);
             break;
         default: 
-            now = time.getTime();
+            now = time;
     }
 
     let hasStarted = period.start
-        ? new Date(period.start).getTime() < now
+        ? new Date(period.start).getTime() <= now.getTime()
         : true;
-    let hasEnded = period.end
-        ? new Date(period.end).getTime() < now
-        : false;
+    
+    let hasEnded = false;
+    
+    if (period.end) {
+        const parts = period.end.split('-');
+        if (period.end.length === 4) { // it's a year (inclusive for whole year!)
+            const endYear = Number(period.end);
+            hasEnded = endYear < now.getFullYear();
+        } else if (parts.length === 2 && period.end.length < 8) { // it's a year with a month (inclusive for whole month!)
+            const endYear = Number(parts[0]);
+            const endMonth = Number(parts[1]);
+            hasEnded = endYear < now.getFullYear() || endYear === now.getFullYear() && endMonth < now.getMonth() - 1
+        } else if (parts.length === 3 && period.end.length < 11) { // it's a year with month and day (inclusive for whole day!)
+            const endYear = Number(parts[0]);
+            const endMonth = Number(parts[1]);
+            const endDay = Number(parts[2]);
+            hasEnded = (
+                endYear < now.getFullYear() || 
+                (endYear === now.getFullYear() && endMonth < (now.getMonth() + 1)) ||
+                (endYear === now.getFullYear() && endMonth === (now.getMonth() + 1) && endDay < now.getDate())
+            );
+        } else {
+            hasEnded = new Date(period.end).getTime() < now.getTime()
+        }
+    }
     return (hasStarted && !hasEnded);
 }
 

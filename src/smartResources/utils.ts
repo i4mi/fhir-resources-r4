@@ -218,7 +218,7 @@ export function isInPeriod(period: Period, time: string | number | Date = new Da
     
     if (period.end) {
         const parts = period.end.split('-');
-        if (period.end.length === 4) { // it's a year (incluse for whole year!)
+        if (period.end.length === 4) { // it's a year (inclusive for whole year!)
             const endYear = Number(period.end);
             hasEnded = endYear < now.getFullYear();
         } else if (parts.length === 2 && period.end.length < 8) { // it's a year with a month (inclusive for whole month!)

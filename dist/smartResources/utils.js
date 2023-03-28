@@ -222,7 +222,7 @@ function isInPeriod(period, time = new Date()) {
     let hasEnded = false;
     if (period.end) {
         const parts = period.end.split('-');
-        if (period.end.length === 4) { // it's a year (incluse for whole year!)
+        if (period.end.length === 4) { // it's a year (inclusive for whole year!)
             const endYear = Number(period.end);
             hasEnded = endYear < now.getFullYear();
         }

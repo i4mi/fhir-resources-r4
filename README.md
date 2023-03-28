@@ -1,43 +1,25 @@
-# I4MI on FHIR® - fhir-resources-r4.ts
-FHIR® resources, inheritance and type definitions.  
+# I4MI on FHIR®
+FHIR® resources, inheritance and type definitions, for FHIR® R5.  
 Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
 <img src="https://siot.net/upload/resources/bfh.png" width="250px" />
+This package is built on [@i4mi/fhir_r4](https://www.npmjs.com/package/@i4mi/fhir_r4) and includes the same utils as the version 2.1.4, but based on the [FHIR R5](http://hl7.org/fhir/R5/) specification.
 
-
-# 1 Breaking changes in version 2.0.0
-If you're upgrading from version 1.x.x, you may encounter some breaking changes. These are relatively easy to fix though:
-## 1.1 I4MIBundle.addEntry()
-The `addEntry()` method of the I4MIBundle smart resource doesn't need the resourceType as an argument anymore (since it is implicit with the actual resource as an argument). This changes the way you call the method. You just have to remove the second argument from every call of addEntry():
-**Version 1.x.x** (Example):
-```typescript
-myBundle.addEntry(BundleHTTPVerb.POST, 'Observation', myObservationResource);
-```
-becomes 
-**Version 2.0.0** (Example):
-```typescript
-myBundle.addEntry(BundleHTTPVerb.POST, myObservationResource);
-```
-Note, that also the resource you want to add to the I4MIBundle now needs to be actually of type `Resource` (or any type inheriting from Resource), and can not be `any` anymore.
-
-## 1.2 Resources have fixed resourceType now
-In older versions, the resourceType property of every Resource was from type `string` and was not mandatory. This meant that you could have e.g. an Observation resource with no resourceType property at all or with `resourceType = 'Patient'`. This is no longer possible with Version 2.0.0, the resourceType of an Observation resource has to be `Observation`.
-
-# 2 Usage guide
+# 1 Usage guide
 
 Install with
 ```
-npm i @i4mi/fhir_r4
+npm i @i4mi/fhir_r5
 ```
 
-## 2.1 Select fhir version
+## 1.1 Select fhir version
 This library supports the following fhir versions:
-- R4 (v4.0.1)
+- R5 (v5.0.0)
 
-## 2.2 Using resources
+## 1.2 Using resources
 How do I select the resource from a specific Version?
 Just import resources from the path: 
 ```
-import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r4';
+import { Patient, Bundle, Practitioner, Observation, Consent, Group } from '@i4mi/fhir_r5';
 ```
 
 Then you can use them as types or implement them.
@@ -61,11 +43,11 @@ export class MyPatient implements Patient {
 
 _NOTE:_ You always have to set the `resourceType`!
 
-## 2.3 Create api calls
+## 1.3 Create api calls
 How do I create api calls?  
 Import statement for using all implemented api methods  
 ```
-import { ApiMethods, apiCall, ApiCallResponse } from '@i4mi/fhir_r4';
+import { ApiMethods, apiCall, ApiCallResponse } from '@i4mi/fhir_r5';
 ```
 
 Then create a method, which returns the initialized `ApiMethods` class. We recomment doing this in a service. You need a valid access token, the token type and the url to the fhir server. For example:
@@ -99,12 +81,12 @@ initApiMethods() {
 
 The now assigned instance `this.apiMethods` can be used to execute `create`, `update`, `read` and `search`. These methods are implemented according the smart on fhir implementation guidelines.
 
-__IMPORTANT:__ Check the allowed content type (header) of your target server. If it is different than the default "application/fhir+json;fhirVersion=4.0", call `differentiateContentType([YOUR_TYPE])` BEFORE sending any request. For example:  
+__IMPORTANT:__ Check the allowed content type (header) of your target server. If it is different than the default "application/fhir+json;fhirVersion=5.0", call `differentiateContentType([YOUR_TYPE])` BEFORE sending any request. For example:  
 ```typescript
 this.apiMethods.differentiateContentType("application/fhir+json;charset=utf-8");
 ```
 
-### 2.3.1 Other examples (search, create, etc.)
+### 1.3.1 Other examples (search, create, etc.)
 Search:
 ```
 myStaticPatientSearch() {
@@ -134,9 +116,9 @@ myStaticPatientCreate() {
 }
 ```
 
-# 3 Smart resources and utils
+# 2 Smart resources and utils
 This library also provides some smart resources and utils to make your life with FHIR® easier.
-## 3.1 I4MIBundle
+## 2.1 I4MIBundle
 This smart resource represents a Bundle, and lets you add and remove entries.
 First, the Bundle has to be initialized by calling `const myBundle = new I4MIBundle(type)`, where type is the BundleType needed.
 
@@ -144,7 +126,7 @@ After initializing the Bundle, you can add an entry by calling `myBundle.addEntr
 
 For removing an entry from the resource, you can call `myBundle.removeEntry(id)`, where id is the id of the resource in the entry.
 
-## 3.2 Internationalization (I18N)
+## 2.2 Internationalization (I18N)
 FHIR® supports I18N with extensions. Any text / string element can have an extensible sibling with an leading underscore, that contains the internationalization strings (e.g. if a resource has a `resource.title` element, the corresponding extensible element would be `resource._title`).
 
 With `readI18N()`, `getAllI18N()` and `writeI18N()`, this library provides functions that help with interacting with this translation extensions.
@@ -164,7 +146,7 @@ const translations = {
 resource._title = writeI18N(translations);
 ```
 
-## 3.3 Other util functions
+## 2.3 Other util functions
 The library provides some more util functions, that help with working with different simple tasks that you will encounter when using FHIR®.
 
 `hasCode(codeableConcept, coding): boolean` is a helper function that searches for a given coding in a CodeableConcept and returns `true` if at least one of the codings in the CodeableConcept matches the code and the system (if available) of the given coding.
@@ -195,16 +177,16 @@ if (isPollenObservation) {
 
 `getIdentifierString(patient, system)` extracts an identifier string from a Patient resource for a given identifier system. It returns a string in the form of `urn:oid:1.1.1.99.1|1e3796be...`, where `urn:oid:1.1.1.99.1` is the system and `1e3796be...` the identifier.
 
-# 4 Contribution & dev guide
+# 3 Contribution & dev guide
 
-## 4.1 build
+## 3.1 build
 
 to generate a new build in './dist/' 
 ```
 npm run build
 ```
 
-## 4.2 deploy
+## 3.2 deploy
 
 update version in package.json
 then

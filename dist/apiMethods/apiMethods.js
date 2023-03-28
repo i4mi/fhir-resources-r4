@@ -11,14 +11,14 @@ var HttpMethod;
 ;
 class ApiMethods {
     constructor(config) {
-        this._content_type = "application/fhir+json;fhirVersion=4.0";
+        this._content_type = "application/fhir+json;fhirVersion=5.0";
         this._config = config ? config : { base_url: "" };
     }
     /**
      * change the content type to your type
      * the content type is used as "Content-Type" header in CREATE and UPDATE
      * the content type is used as "Accept" header in SEARCH and READ
-     * @param ct content type if not "application/fhir+json;fhirVersion=4.0"
+     * @param ct content type if not "application/fhir+json;fhirVersion=5.0"
      */
     differentiateContentType(ct) {
         this._content_type = ct;

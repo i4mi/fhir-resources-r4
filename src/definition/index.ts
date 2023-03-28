@@ -2,7 +2,7 @@
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
  * https://www.i4mi.ti.bfh.ch
 
- * File generated on 2023-03-28T09:21:58.780Z
+ * File generated on 2023-03-28T13:15:10.633Z
  * Based on https://hl7.org/fhir/R5/
  */
 
@@ -2288,7 +2288,7 @@ export enum GroupType {
 * 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.
 * 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member.
  */
-export enum Group {
+export enum GroupMembership {
 	DEFINITIONAL = 'definitional',
 	ENUMERATED = 'enumerated'
 }
@@ -2680,7 +2680,11 @@ export enum MedicationRequestStatus {
 /**
  * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, or an original order.
- * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+ * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+
+An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
+
+This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
  */
 export enum MedicationRequestIntent {
 	PROPOSAL = 'proposal',
@@ -3589,7 +3593,7 @@ export enum RequirementsPublicationStatus {
  * A short human usable label for this statement.
  * The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)
  */
-export enum Requirements?? {
+export enum RequirementsStatementConformance {
 	SHALL = 'SHALL',
 	SHOULD = 'SHOULD',
 	MAY = 'MAY',
@@ -3962,7 +3966,7 @@ export enum SubscriptionPayloadContent {
  * requested | active | error | off | entered-in-error
  * The status of the subscription, which marks the server state for managing the subscription.
  */
-export enum SubscriptionStatus {
+export enum SubscriptionStatusSubscriptionStatus {
 	REQUESTED = 'requested',
 	ACTIVE = 'active',
 	ERROR = 'error',
@@ -4476,107 +4480,6 @@ export enum VisionPrescriptionVisionBase {
 }
 
 /**
- * active | completed | not-done | entered-in-error | intended | stopped | on-hold
- * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
- * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
- */
-export enum DeviceUsageStatus {
-	ACTIVE = 'active',
-	COMPLETED = 'completed',
-	NOT_DONE = 'not-done',
-	ENTERED_IN_ERROR = 'entered-in-error',
-	INTENDED = 'intended',
-	STOPPED = 'stopped',
-	ON_HOLD = 'on-hold'
-}
-
-/**
- * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
- * The status of the resource instance.
- * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
- */
-export enum ContractStatus {
-	AMENDED = 'amended',
-	APPENDED = 'appended',
-	CANCELLED = 'cancelled',
-	DISPUTED = 'disputed',
-	ENTERED_IN_ERROR = 'entered-in-error',
-	EXECUTABLE = 'executable',
-	EXECUTED = 'executed',
-	NEGOTIABLE = 'negotiable',
-	OFFERED = 'offered',
-	POLICY = 'policy',
-	REJECTED = 'rejected',
-	RENEWED = 'renewed',
-	REVOKED = 'revoked',
-	RESOLVED = 'resolved',
-	TERMINATED = 'terminated'
-}
-
-/**
- * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | coding | attachment | reference | quantity
- * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.).
- * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
- */
-export enum QuestionnaireItemType {
-	GROUP = 'group',
-	DISPLAY = 'display',
-	QUESTION = 'question',
-	BOOLEAN = 'boolean',
-	DECIMAL = 'decimal',
-	INTEGER = 'integer',
-	DATE = 'date',
-	DATETIME = 'dateTime',
-	TIME = 'time',
-	STRING = 'string',
-	TEXT = 'text',
-	URL = 'url',
-	CODING = 'coding',
-	ATTACHMENT = 'attachment',
-	REFERENCE = 'reference',
-	QUANTITY = 'quantity'
-}
-
-/**
- * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
- * How the data is copied / created.
- */
-export enum StructureMapTransform {
-	CREATE = 'create',
-	COPY = 'copy',
-	TRUNCATE = 'truncate',
-	ESCAPE = 'escape',
-	CAST = 'cast',
-	APPEND = 'append',
-	TRANSLATE = 'translate',
-	REFERENCE = 'reference',
-	DATEOP = 'dateOp',
-	UUID = 'uuid',
-	POINTER = 'pointer',
-	EVALUATE = 'evaluate',
-	CC = 'cc',
-	C = 'c',
-	QTY = 'qty',
-	ID = 'id',
-	CP = 'cp'
-}
-
-/**
- * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
- * The status of the RiskAssessment, using the same statuses as an Observation.
- */
-export enum RiskAssessmentStatus {
-	REGISTERED = 'registered',
-	PRELIMINARY = 'preliminary',
-	FINAL = 'final',
-	AMENDED = 'amended',
-	CORRECTED = 'corrected',
-	CANCELLED = 'cancelled',
-	ENTERED_IN_ERROR = 'entered-in-error',
-	UNKNOWN = 'unknown'
-}
-
-/**
  * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
  * The status of the result value.
  * This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
@@ -4615,17 +4518,35 @@ export enum ContractPublicationStatus {
 }
 
 /**
- * draft | active | suspended | cancelled | completed | entered-in-error | unknown
- * Status of the supply request.
+ * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+ * The status of the RiskAssessment, using the same statuses as an Observation.
  */
-export enum SupplyRequestStatus {
-	DRAFT = 'draft',
-	ACTIVE = 'active',
-	SUSPENDED = 'suspended',
+export enum RiskAssessmentStatus {
+	REGISTERED = 'registered',
+	PRELIMINARY = 'preliminary',
+	FINAL = 'final',
+	AMENDED = 'amended',
+	CORRECTED = 'corrected',
 	CANCELLED = 'cancelled',
-	COMPLETED = 'completed',
 	ENTERED_IN_ERROR = 'entered-in-error',
 	UNKNOWN = 'unknown'
+}
+
+/**
+ * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
+ * Whether the request is a proposal, plan, an original order or a reflex order.
+ * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+ */
+export enum ServiceRequestIntent {
+	PROPOSAL = 'proposal',
+	PLAN = 'plan',
+	DIRECTIVE = 'directive',
+	ORDER = 'order',
+	ORIGINAL_ORDER = 'original-order',
+	REFLEX_ORDER = 'reflex-order',
+	FILLER_ORDER = 'filler-order',
+	INSTANCE_ORDER = 'instance-order',
+	OPTION = 'option'
 }
 
 /**
@@ -4648,20 +4569,105 @@ export enum TaskStatus {
 }
 
 /**
- * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
- * Whether the request is a proposal, plan, an original order or a reflex order.
- * This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+ * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | coding | attachment | reference | quantity
+ * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.).
+ * Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.
  */
-export enum ServiceRequestIntent {
-	PROPOSAL = 'proposal',
-	PLAN = 'plan',
-	DIRECTIVE = 'directive',
-	ORDER = 'order',
-	ORIGINAL_ORDER = 'original-order',
-	REFLEX_ORDER = 'reflex-order',
-	FILLER_ORDER = 'filler-order',
-	INSTANCE_ORDER = 'instance-order',
-	OPTION = 'option'
+export enum QuestionnaireItemType {
+	GROUP = 'group',
+	DISPLAY = 'display',
+	QUESTION = 'question',
+	BOOLEAN = 'boolean',
+	DECIMAL = 'decimal',
+	INTEGER = 'integer',
+	DATE = 'date',
+	DATETIME = 'dateTime',
+	TIME = 'time',
+	STRING = 'string',
+	TEXT = 'text',
+	URL = 'url',
+	CODING = 'coding',
+	ATTACHMENT = 'attachment',
+	REFERENCE = 'reference',
+	QUANTITY = 'quantity'
+}
+
+/**
+ * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
+ * The status of the resource instance.
+ * This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active.
+ */
+export enum ContractStatus {
+	AMENDED = 'amended',
+	APPENDED = 'appended',
+	CANCELLED = 'cancelled',
+	DISPUTED = 'disputed',
+	ENTERED_IN_ERROR = 'entered-in-error',
+	EXECUTABLE = 'executable',
+	EXECUTED = 'executed',
+	NEGOTIABLE = 'negotiable',
+	OFFERED = 'offered',
+	POLICY = 'policy',
+	REJECTED = 'rejected',
+	RENEWED = 'renewed',
+	REVOKED = 'revoked',
+	RESOLVED = 'resolved',
+	TERMINATED = 'terminated'
+}
+
+/**
+ * active | completed | not-done | entered-in-error | intended | stopped | on-hold
+ * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+ * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+ */
+export enum DeviceUsageStatus {
+	ACTIVE = 'active',
+	COMPLETED = 'completed',
+	NOT_DONE = 'not-done',
+	ENTERED_IN_ERROR = 'entered-in-error',
+	INTENDED = 'intended',
+	STOPPED = 'stopped',
+	ON_HOLD = 'on-hold'
+}
+
+/**
+ * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
+ * How the data is copied / created.
+ */
+export enum StructureMapTransform {
+	CREATE = 'create',
+	COPY = 'copy',
+	TRUNCATE = 'truncate',
+	ESCAPE = 'escape',
+	CAST = 'cast',
+	APPEND = 'append',
+	TRANSLATE = 'translate',
+	REFERENCE = 'reference',
+	DATEOP = 'dateOp',
+	UUID = 'uuid',
+	POINTER = 'pointer',
+	EVALUATE = 'evaluate',
+	CC = 'cc',
+	C = 'c',
+	QTY = 'qty',
+	ID = 'id',
+	CP = 'cp'
+}
+
+/**
+ * draft | active | suspended | cancelled | completed | entered-in-error | unknown
+ * Status of the supply request.
+ */
+export enum SupplyRequestStatus {
+	DRAFT = 'draft',
+	ACTIVE = 'active',
+	SUSPENDED = 'suspended',
+	CANCELLED = 'cancelled',
+	COMPLETED = 'completed',
+	ENTERED_IN_ERROR = 'entered-in-error',
+	UNKNOWN = 'unknown'
 }
 
 /**
@@ -5126,21 +5132,27 @@ export interface DosageDoseAndRate extends Element {
 	/**
 	 * Amount of medication per unit of time
 	 * Amount of medication per unit of time.
-	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
 	 */
 	rateRatio?: Ratio;
 
 	/**
 	 * Amount of medication per unit of time
 	 * Amount of medication per unit of time.
-	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
 	 */
 	rateRange?: Range;
 
 	/**
 	 * Amount of medication per unit of time
 	 * Amount of medication per unit of time.
-	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
+	 * It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+
+It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour.
 	 */
 	rateQuantity?: Quantity;
 }
@@ -11626,7 +11638,9 @@ export interface AccountRelatedAccount extends BackboneElement {
 
 /**
  * Calculated account balance(s)
- * The calculated account balances - these are calculated and processed by the finance system.The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process.
+ * The calculated account balances - these are calculated and processed by the finance system.
+
+The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process.
  */
 export interface AccountBalance extends BackboneElement {
 
@@ -11772,7 +11786,9 @@ Where the order is important, a local/jurisdictional extension may be defined to
 
 	/**
 	 * Calculated account balance(s)
-	 * The calculated account balances - these are calculated and processed by the finance system.The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process.
+	 * The calculated account balances - these are calculated and processed by the finance system.
+
+The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process.
 	 */
 	balance?: AccountBalance[];
 
@@ -13391,7 +13407,11 @@ The data type is CodeableConcept because clinicalStatus has some clinical judgme
 	/**
 	 * Code that identifies the allergy or intolerance
 	 * Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or categorical negated statement (e.g.,  "No known allergy", "No known drug allergies").  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.
-	 * It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.When a substance or product code is specified for the 'code' element, the "default" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the 'type' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the "Causative agent" relationship.The 'substanceExposureRisk' extension is available as a structured and more flexible alternative to the 'code' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make "no known allergy" (or "no risk of adverse reaction") statements regarding any coded substance/product (including cases when a pre-coordinated "no allergy to x" concept for that substance/product does not exist).  If the 'substanceExposureRisk' extension is present, the AllergyIntolerance.code element SHALL be omitted.
+	 * It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.
+
+When a substance or product code is specified for the 'code' element, the "default" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the 'type' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the "Causative agent" relationship.
+
+The 'substanceExposureRisk' extension is available as a structured and more flexible alternative to the 'code' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make "no known allergy" (or "no risk of adverse reaction") statements regarding any coded substance/product (including cases when a pre-coordinated "no allergy to x" concept for that substance/product does not exist).  If the 'substanceExposureRisk' extension is present, the AllergyIntolerance.code element SHALL be omitted.
 	 */
 	code?: CodeableConcept;
 
@@ -13519,7 +13539,11 @@ export interface AppointmentParticipant extends BackboneElement {
 	/**
 	 * Role of participant in the appointment
 	 * Role of participant in the appointment.
-	 * The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.This value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
+	 * The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.
+
+If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.
+
+This value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
 	 */
 	type?: CodeableConcept[];
 
@@ -13640,7 +13664,9 @@ export interface AppointmentRecurrenceTemplateWeeklyTemplate extends BackboneEle
 
 	/**
 	 * Recurs every nth week
-	 * The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3.
+	 * The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.
+
+e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3.
 	 */
 	weekInterval?: positiveInt;
 
@@ -13866,7 +13892,9 @@ export interface Appointment extends DomainResource {
 	/**
 	 * Used to make informed decisions if needing to re-prioritize
 	 * The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).
-	 * Seeking implementer feedback on this property and how interoperable it is.Using an extension to record a CodeableConcept for named values may be tested at a future connectathon.
+	 * Seeking implementer feedback on this property and how interoperable it is.
+
+Using an extension to record a CodeableConcept for named values may be tested at a future connectathon.
 	 */
 	priority?: CodeableConcept;
 
@@ -13890,7 +13918,14 @@ export interface Appointment extends DomainResource {
 	/**
 	 * Connection details of a virtual service (e.g. conference call)
 	 * Connection details of a virtual service (e.g. conference call).
-	 * There are two types of virtual meetings that often exist:* a persistent, virtual meeting room that can only be used for a single purpose at a time, * and a dynamic virtual meeting room that is generated on demand for a specific purpose.Implementers may consider using Location.virtualService for persistent meeting rooms.If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement.
+	 * There are two types of virtual meetings that often exist:
+
+* a persistent, virtual meeting room that can only be used for a single purpose at a time, 
+* and a dynamic virtual meeting room that is generated on demand for a specific purpose.
+
+Implementers may consider using Location.virtualService for persistent meeting rooms.
+
+If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement.
 	 */
 	virtualService?: VirtualServiceDetail[];
 
@@ -13910,7 +13945,9 @@ export interface Appointment extends DomainResource {
 	/**
 	 * The originating appointment in a recurring set of appointments
 	 * The originating appointment in a recurring set of related appointments.
-	 * This property is intended for use when representing a recurring set of related appointments.For example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which contains the recurring template information.  For representing appointment series, see the guidance on recurring vs. series appointments.
+	 * This property is intended for use when representing a recurring set of related appointments.
+
+For example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which contains the recurring template information.  For representing appointment series, see the guidance on recurring vs. series appointments.
 	 */
 	originatingAppointment?: Reference;
 
@@ -13998,7 +14035,11 @@ The duration (usually in minutes) could also be provided to indicate the length 
 	/**
 	 * Additional comments
 	 * Additional notes/comments about the appointment.
-	 * Additional text to aid in facilitating the appointment. For instance, a note might be, "patient should proceed immediately to infusion room upon arrival"Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required.
+	 * Additional text to aid in facilitating the appointment. For instance, a note might be, "patient should proceed immediately to infusion room upon arrival"
+
+Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
+
+Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required.
 	 */
 	note?: Annotation[];
 
@@ -14124,7 +14165,11 @@ export interface AppointmentResponse extends DomainResource {
 	/**
 	 * Role of participant in the appointment
 	 * Role of participant in the appointment.
-	 * The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.This value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
+	 * The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.
+
+If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.
+
+This value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
 	 */
 	participantType?: CodeableConcept[];
 
@@ -25694,7 +25739,10 @@ export interface ContractTermOffer extends BackboneElement {
 	/**
 	 * Negotiable offer asset
 	 * The owner of an asset has the residual control rights over the asset: the right to decide all usages of the asset in any way not inconsistent with a prior contract, custom, or law (Hart, 1995, p. 30).
-	 * The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. The Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. However, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.If the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
+	 * The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. 
+The Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. 
+However, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.
+If the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
 	 */
 	topic?: Reference;
 
@@ -26057,7 +26105,8 @@ export interface ContractTermActionSubject extends BackboneElement {
 /**
  * Entity being ascribed responsibility
  * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
- * Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+ * Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.
+For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
  */
 export interface ContractTermAction extends BackboneElement {
 
@@ -26316,7 +26365,8 @@ A Security Label is comprised of 1..1 confidentiality code and 0..* other securi
 	/**
 	 * Entity being ascribed responsibility
 	 * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
-	 * Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+	 * Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.
+For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 	 */
 	action?: ContractTermAction[];
 
@@ -26330,7 +26380,8 @@ A Security Label is comprised of 1..1 confidentiality code and 0..* other securi
 /**
  * Contract Signatory
  * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
- * Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
+ * Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.
+For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
  */
 export interface ContractSigner extends BackboneElement {
 
@@ -26441,7 +26492,8 @@ export interface Contract extends DomainResource {
 	/**
 	 * Business edition
 	 * An edition identifier used for business purposes to label business significant variants.
-	 * Note -  This is a business versionId, not a resource version id (see discussion at [Versioning](resource.html#versions)) Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
+	 * Note -  This is a business versionId, not a resource version id (see discussion at [Versioning](resource.html#versions)) 
+Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).
 	 */
 	version?: string;
 
@@ -26505,7 +26557,8 @@ export interface Contract extends DomainResource {
 	/**
 	 * Contract Target Entity
 	 * The target entity impacted by or of interest to parties to the agreement.
-	 * The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
+	 * The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. 
+In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
 	 */
 	subject?: Reference[];
 
@@ -26587,14 +26640,16 @@ export interface Contract extends DomainResource {
 	/**
 	 * Focus of contract interest
 	 * Narrows the range of legal concerns to focus on the achievement of specific contractual objectives.
-	 * Contractual areas of concern are very broad. This element supports narrowing the area of concern to more specific term topics within this Contract. Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. One way to determine the Contract.topic is to answer the question: "What is the overall objective of this legal instrument?". The Contract.topic is described with more detail by the terms of the Contract.
+	 * Contractual areas of concern are very broad. This element supports narrowing the area of concern to more specific term topics within this Contract. Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. 
+One way to determine the Contract.topic is to answer the question: "What is the overall objective of this legal instrument?". The Contract.topic is described with more detail by the terms of the Contract.
 	 */
 	topicCodeableConcept?: CodeableConcept;
 
 	/**
 	 * Focus of contract interest
 	 * Narrows the range of legal concerns to focus on the achievement of specific contractual objectives.
-	 * Contractual areas of concern are very broad. This element supports narrowing the area of concern to more specific term topics within this Contract. Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. One way to determine the Contract.topic is to answer the question: "What is the overall objective of this legal instrument?". The Contract.topic is described with more detail by the terms of the Contract.
+	 * Contractual areas of concern are very broad. This element supports narrowing the area of concern to more specific term topics within this Contract. Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. 
+One way to determine the Contract.topic is to answer the question: "What is the overall objective of this legal instrument?". The Contract.topic is described with more detail by the terms of the Contract.
 	 */
 	topicReference?: Reference;
 
@@ -26637,7 +26692,8 @@ export interface Contract extends DomainResource {
 	/**
 	 * Contract Signatory
 	 * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
-	 * Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
+	 * Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.
+For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
 	 */
 	signer?: ContractSigner[];
 
@@ -29798,7 +29854,9 @@ export interface DeviceRequest extends DomainResource {
 	/**
 	 * Request provenance
 	 * Key events in the history of the request.
-	 * This might not include provenances for all versions of the request - only those deemed "relevant" or important.This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a "relevant" change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revincludeAll Provenances should have some historical version of this Request as their subject.
+	 * This might not include provenances for all versions of the request - only those deemed "relevant" or important.
+This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a "relevant" change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude
+All Provenances should have some historical version of this Request as their subject.
 	 */
 	relevantHistory?: Reference[];
 
@@ -29974,7 +30032,9 @@ export interface DeviceUsage extends DomainResource {
 	/**
 	 * active | completed | not-done | entered-in-error +
 	 * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
-	 * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
+	 * DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+
+This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid.
 	 */
 	status: DeviceUsageStatus;
 }
@@ -30555,7 +30615,13 @@ export interface EncounterParticipant extends BackboneElement {
 	/**
 	 * The individual, device, or service participating in the encounter
 	 * Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times.
-	 * For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded.The role of the participant can be used to declare what the actor will be doing in the scope of this encounter participation.If the individual is not specified during planning, then it is expected that the individual will be filled in at a later stage prior to the encounter commencing.
+	 * For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.
+
+Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded.
+
+The role of the participant can be used to declare what the actor will be doing in the scope of this encounter participation.
+
+If the individual is not specified during planning, then it is expected that the individual will be filled in at a later stage prior to the encounter commencing.
 	 */
 	actor?: Reference;
 }
@@ -30563,7 +30629,11 @@ export interface EncounterParticipant extends BackboneElement {
 /**
  * The list of medical reasons that are expected to be addressed during the episode of care
  * The list of medical reasons that are expected to be addressed during the episode of care.
- * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.Examples: * pregnancy would use HealthcareService or a coding as the reason * patient home monitoring could use Condition as the reason
+ * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.
+
+Examples:
+ * pregnancy would use HealthcareService or a coding as the reason
+ * patient home monitoring could use Condition as the reason
  */
 export interface EncounterReason extends BackboneElement {
 
@@ -30602,8 +30672,12 @@ export interface EncounterDiagnosis extends BackboneElement {
 
 /**
  * Details about the admission to a healthcare service
- * Details about the stay during which a healthcare service is provided.This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.
- * An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.The duration recorded in the period of this encounter covers the entire scope of this admission record.
+ * Details about the stay during which a healthcare service is provided.
+
+This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.
+ * An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.
+
+The duration recorded in the period of this encounter covers the entire scope of this admission record.
  */
 export interface EncounterAdmission extends BackboneElement {
 
@@ -30756,7 +30830,9 @@ export interface Encounter extends DomainResource {
 	/**
 	 * Another Encounter this encounter is part of
 	 * Another Encounter of which this encounter is a part of (administratively or in time).
-	 * This is also used for associating a child's encounter back to the mother's encounter.Refer to the Notes section in the Patient resource for further details.
+	 * This is also used for associating a child's encounter back to the mother's encounter.
+
+Refer to the Notes section in the Patient resource for further details.
 	 */
 	partOf?: Reference;
 
@@ -30782,7 +30858,14 @@ export interface Encounter extends DomainResource {
 	/**
 	 * Connection details of a virtual service (e.g. conference call)
 	 * Connection details of a virtual service (e.g. conference call).
-	 * There are two types of virtual meetings that often exist:* a persistent, virtual meeting room that can only be used for a single purpose at a time, * and a dynamic virtual meeting room that is generated on demand for a specific purpose.Implementers may consider using Location.virtualService for persistent meeting rooms.If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Encounter.participant BackboneElement.
+	 * There are two types of virtual meetings that often exist:
+
+* a persistent, virtual meeting room that can only be used for a single purpose at a time, 
+* and a dynamic virtual meeting room that is generated on demand for a specific purpose.
+
+Implementers may consider using Location.virtualService for persistent meeting rooms.
+
+If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Encounter.participant BackboneElement.
 	 */
 	virtualService?: VirtualServiceDetail[];
 
@@ -30817,15 +30900,23 @@ export interface Encounter extends DomainResource {
 
 	/**
 	 * Actual quantity of time the encounter lasted (less time absent)
-	 * Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.When missing it is the time in between the start and end values.
-	 * If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.May differ from the time in `Encounter.period` due to leave of absence(s).
+	 * Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.
+
+When missing it is the time in between the start and end values.
+	 * If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.
+
+May differ from the time in `Encounter.period` due to leave of absence(s).
 	 */
 	length?: Duration;
 
 	/**
 	 * The list of medical reasons that are expected to be addressed during the episode of care
 	 * The list of medical reasons that are expected to be addressed during the episode of care.
-	 * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.Examples: * pregnancy would use HealthcareService or a coding as the reason * patient home monitoring could use Condition as the reason
+	 * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.
+
+Examples:
+ * pregnancy would use HealthcareService or a coding as the reason
+ * patient home monitoring could use Condition as the reason
 	 */
 	reason?: EncounterReason[];
 
@@ -30859,14 +30950,22 @@ export interface Encounter extends DomainResource {
 	/**
 	 * Special courtesies (VIP, board member)
 	 * Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy).
-	 * Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used.
+	 * Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.
+
+It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.
+
+It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used.
 	 */
 	specialCourtesy?: CodeableConcept[];
 
 	/**
 	 * Details about the admission to a healthcare service
-	 * Details about the stay during which a healthcare service is provided.This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.
-	 * An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.The duration recorded in the period of this encounter covers the entire scope of this admission record.
+	 * Details about the stay during which a healthcare service is provided.
+
+This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.
+	 * An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.
+
+The duration recorded in the period of this encounter covers the entire scope of this admission record.
 	 */
 	admission?: EncounterAdmission;
 
@@ -30921,7 +31020,9 @@ export interface EncounterHistory extends DomainResource {
 	/**
 	 * The Encounter associated with this set of historic values
 	 * The Encounter associated with this set of historic values.
-	 * This is also used for associating a child's encounter back to the mother's encounter.Refer to the Notes section in the Patient resource for further details.
+	 * This is also used for associating a child's encounter back to the mother's encounter.
+
+Refer to the Notes section in the Patient resource for further details.
 	 */
 	encounter?: Reference;
 
@@ -30993,8 +31094,12 @@ export interface EncounterHistory extends DomainResource {
 
 	/**
 	 * Actual quantity of time the encounter lasted (less time absent)
-	 * Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.When missing it is the time in between the start and end values.
-	 * If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.May differ from the time in `Encounter.period` due to leave of absence(s).
+	 * Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.
+
+When missing it is the time in between the start and end values.
+	 * If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.
+
+May differ from the time in `Encounter.period` due to leave of absence(s).
 	 */
 	length?: Duration;
 
@@ -31307,7 +31412,11 @@ export interface EpisodeOfCareStatusHistory extends BackboneElement {
 /**
  * The list of medical reasons that are expected to be addressed during the episode of care
  * The list of medical reasons that are expected to be addressed during the episode of care.
- * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.Examples: * pregnancy would use HealthcareService or a coding as the reason * patient home monitoring could use Condition as the reason
+ * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.
+
+Examples:
+ * pregnancy would use HealthcareService or a coding as the reason
+ * patient home monitoring could use Condition as the reason
  */
 export interface EpisodeOfCareReason extends BackboneElement {
 
@@ -31327,7 +31436,9 @@ export interface EpisodeOfCareReason extends BackboneElement {
 /**
  * The list of medical conditions that were addressed during the episode of care
  * The list of medical conditions that were addressed during the episode of care.
- * The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement.
+ * The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.
+
+Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement.
  */
 export interface EpisodeOfCareDiagnosis extends BackboneElement {
 
@@ -31376,14 +31487,20 @@ export interface EpisodeOfCare extends DomainResource {
 	/**
 	 * The list of medical reasons that are expected to be addressed during the episode of care
 	 * The list of medical reasons that are expected to be addressed during the episode of care.
-	 * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.Examples: * pregnancy would use HealthcareService or a coding as the reason * patient home monitoring could use Condition as the reason
+	 * The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.
+
+Examples:
+ * pregnancy would use HealthcareService or a coding as the reason
+ * patient home monitoring could use Condition as the reason
 	 */
 	reason?: EpisodeOfCareReason[];
 
 	/**
 	 * The list of medical conditions that were addressed during the episode of care
 	 * The list of medical conditions that were addressed during the episode of care.
-	 * The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement.
+	 * The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.
+
+Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement.
 	 */
 	diagnosis?: EpisodeOfCareDiagnosis[];
 
@@ -37261,7 +37378,9 @@ export interface Goal extends DomainResource {
 	/**
 	 * high-priority | medium-priority | low-priority
 	 * Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.
-	 * Extensions are available to track priorities as established by each participant (i.e. Priority from the patient's perspective, different practitioners' perspectives, family member's perspectives)The ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a "low value=important".
+	 * Extensions are available to track priorities as established by each participant (i.e. Priority from the patient's perspective, different practitioners' perspectives, family member's perspectives)
+
+The ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a "low value=important".
 	 */
 	priority?: CodeableConcept;
 
@@ -38000,7 +38119,7 @@ export interface Group extends DomainResource {
 * 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.
 * 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member.
 	 */
-	membership: Group;
+	membership: GroupMembership;
 }
 
 /**
@@ -38332,7 +38451,9 @@ If this is empty (or the type of interest is empty), refer to the location's con
 	 * A collection of times that the healthcare service is available.
 	 * More detailed availability information may be provided in associated Schedule/Slot resources.
 
-Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays).
+Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".
+
+The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays).
 	 */
 	availability?: Availability[];
 
@@ -42477,14 +42598,21 @@ If this is empty (or the type of interest is empty), refer to the organization's
 
 Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.
 
-Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The availableStartTime is the opening time, and the availableEndTime is the closing time.
+Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".
+
+The availableStartTime is the opening time, and the availableEndTime is the closing time.
 	 */
 	hoursOfOperation?: Availability[];
 
 	/**
 	 * Connection details of a virtual service (e.g. conference call)
 	 * Connection details of a virtual service (e.g. shared conference call facility with dedicated number/details).
-	 * There are two types of virtual meetings that often exist:* a persistent, virtual meeting room that can only be used for a single purpose at a time, * and a dynamic virtual meeting room that is generated on demand for a specific purpose. Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand.
+	 * There are two types of virtual meetings that often exist:
+
+* a persistent, virtual meeting room that can only be used for a single purpose at a time,
+ * and a dynamic virtual meeting room that is generated on demand for a specific purpose.
+
+ Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand.
 	 */
 	virtualService?: VirtualServiceDetail[];
 
@@ -44252,7 +44380,9 @@ export interface MedicationAdministrationDosage extends BackboneElement {
 
 	/**
 	 * Free text dosage instructions e.g. SIG
-	 * Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.
+	 * Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.
 	 */
 	text?: string;
 
@@ -44711,7 +44841,8 @@ export interface MedicationDispense extends DomainResource {
 	/**
 	 * How the medication is to be used by the patient or administered by the caregiver
 	 * Indicates how the medication is to be used by the patient.
-	 * When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
+	 * When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
+The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
 	 */
 	dosageInstruction?: Dosage[];
 
@@ -45791,7 +45922,11 @@ Clinical decision support systems should take the status into account when deter
 	/**
 	 * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
 	 * Whether the request is a proposal, plan, or an original order.
-	 * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
+	 * It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+
+An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.
+
+This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.
 	 */
 	intent: MedicationRequestIntent;
 
@@ -50831,7 +50966,9 @@ export interface OperationOutcome extends DomainResource {
 
 /**
  * Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care
- * The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
+ * The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.
+
+For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
  */
 export interface OrganizationQualification extends BackboneElement {
 
@@ -50957,7 +51094,9 @@ We expect that some jurisdictions will profile this optionality to be a single c
 
 	/**
 	 * Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care
-	 * The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
+	 * The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.
+
+For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.
 	 */
 	qualification?: OrganizationQualification[];
 }
@@ -54024,7 +54163,9 @@ See guidance around (not) making local changes to elements [here](canonicalresou
 
 /**
  * Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care
- * The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.
+ * The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.
+
+For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.
  * The PractitionerRole.specialty defines the functional role that they are practicing at a given organization or location.  Those specialties may or might not require a qualification, and are not defined on the practitioner.
  */
 export interface PractitionerQualification extends BackboneElement {
@@ -54056,8 +54197,12 @@ export interface PractitionerQualification extends BackboneElement {
 
 /**
  * A language which may be used to communicate with the practitioner
- * A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).
- * If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.For animals, language is not a relevant field, and should be absent from the instance.
+ * A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.
+
+The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).
+ * If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.
+
+For animals, language is not a relevant field, and should be absent from the instance.
  */
 export interface PractitionerCommunication extends BackboneElement {
 
@@ -54112,7 +54257,15 @@ export interface Practitioner extends DomainResource {
 	/**
 	 * The name(s) associated with the practitioner
 	 * The name(s) associated with the practitioner.
-	 * The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.  In general, select the value to be used in the ResourceReference.display based on this:1. There is more than 1 name2. Use = usual3. Period is current to the date of the usage4. Use = official5. Other order as decided by internal business rules.
+	 * The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.  
+
+In general, select the value to be used in the ResourceReference.display based on this:
+
+1. There is more than 1 name
+2. Use = usual
+3. Period is current to the date of the usage
+4. Use = official
+5. Other order as decided by internal business rules.
 	 */
 	name?: HumanName[];
 
@@ -54160,7 +54313,8 @@ export interface Practitioner extends DomainResource {
 
 	/**
 	 * Address(es) of the practitioner that are not role specific (typically home address)
-	 * Address(es) of the practitioner that are not role specific (typically home address). Work addresses are not typically entered in this property as they are usually role dependent.
+	 * Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent.
 	 * The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address).
 	 */
 	address?: Address[];
@@ -54173,15 +54327,21 @@ export interface Practitioner extends DomainResource {
 
 	/**
 	 * Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care
-	 * The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.
+	 * The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.
+
+For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.
 	 * The PractitionerRole.specialty defines the functional role that they are practicing at a given organization or location.  Those specialties may or might not require a qualification, and are not defined on the practitioner.
 	 */
 	qualification?: PractitionerQualification[];
 
 	/**
 	 * A language which may be used to communicate with the practitioner
-	 * A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).
-	 * If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.For animals, language is not a relevant field, and should be absent from the instance.
+	 * A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.
+
+The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).
+	 * If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.
+
+For animals, language is not a relevant field, and should be absent from the instance.
 	 */
 	communication?: PractitionerCommunication[];
 
@@ -54282,7 +54442,9 @@ export interface PractitionerRole extends DomainResource {
 	/**
 	 * A language the practitioner (in this role) can use in patient communication
 	 * A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.
-	 * The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.Note that for non-patient oriented communication, see Practitioner.communication.  Note that all 'person' type resources (Person, RelatedPerson, Patient, Practitioner) have a communication structure that includes preferences.  Role or service oriented resources such as HealthcareService and PractitionerRole only include languages that are available for interacting with patients.
+	 * The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.
+
+Note that for non-patient oriented communication, see Practitioner.communication.  Note that all 'person' type resources (Person, RelatedPerson, Patient, Practitioner) have a communication structure that includes preferences.  Role or service oriented resources such as HealthcareService and PractitionerRole only include languages that are available for interacting with patients.
 	 */
 	communication?: CodeableConcept[];
 
@@ -54291,7 +54453,9 @@ export interface PractitionerRole extends DomainResource {
 	 * A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.
 	 * More detailed availability information may be provided in associated Schedule/Slot resources.
 
-Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays).
+Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than "Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm" as would be implied by two availableTime repetitions, an application could render this information as "Mon-Fri 9-12am and 1-5pm".
+
+The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays).
 	 */
 	availability?: Availability[];
 
@@ -56933,7 +57097,7 @@ export interface RequirementsStatement extends BackboneElement {
 	 * A short human usable label for this statement.
 	 * The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)
 	 */
-	conformance?: Requirements??[];
+	conformance?: RequirementsStatementConformance[];
 }
 
 /**
@@ -58942,7 +59106,9 @@ export interface ServiceRequest extends DomainResource {
 	/**
 	 * Request provenance
 	 * Key events in the history of the request.
-	 * This might not include provenances for all versions of the request – only those deemed “relevant” or important.This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revincludeAll Provenances should have some historical version of this Request as their subject.
+	 * This might not include provenances for all versions of the request – only those deemed “relevant” or important.
+This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude
+All Provenances should have some historical version of this Request as their subject.
 	 */
 	relevantHistory?: Reference[];
 
@@ -61442,7 +61608,7 @@ export interface SubscriptionStatus extends DomainResource {
 	 * requested | active | error | off | entered-in-error
 	 * The status of the subscription, which marks the server state for managing the subscription.
 	 */
-	status?: SubscriptionStatus;
+	status?: SubscriptionStatusSubscriptionStatus;
 
 	/**
 	 * handshake | heartbeat | event-notification | query-status | query-event
@@ -63946,7 +64112,9 @@ export interface SupplyDelivery extends DomainResource {
 	/**
 	 * Part of referenced event
 	 * A larger event of which this particular event is a component or step.
-	 * Not to be used to link an event to an Encounter - use Event.context for that.[The allowed reference resources may be adjusted as appropriate for the event resource].
+	 * Not to be used to link an event to an Encounter - use Event.context for that.
+
+[The allowed reference resources may be adjusted as appropriate for the event resource].
 	 */
 	partOf?: Reference[];
 
@@ -69122,7 +69290,9 @@ export interface Transport extends DomainResource {
 	/**
 	 * Part of referenced event
 	 * A larger event of which this particular event is a component or step.
-	 * Not to be used to link an event to an Encounter - use Event.context for that.[The allowed reference resources may be adjusted as appropriate for the event resource].
+	 * Not to be used to link an event to an Encounter - use Event.context for that.
+
+[The allowed reference resources may be adjusted as appropriate for the event resource].
 	 */
 	partOf?: Reference[];
 

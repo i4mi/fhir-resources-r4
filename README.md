@@ -2,6 +2,7 @@
 FHIR® resources, inheritance and type definitions, for FHIR® R5.  
 Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
 <img src="https://siot.net/upload/resources/bfh.png" width="250px" />
+
 This package is built on [@i4mi/fhir_r4](https://www.npmjs.com/package/@i4mi/fhir_r4) and includes the same utils as the version 2.1.4, but based on the [FHIR R5](http://hl7.org/fhir/R5/) specification.
 
 # 1 Usage guide

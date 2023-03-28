@@ -3,6 +3,7 @@ FHIR® resources, inheritance and type definitions.
 Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
 <img src="https://siot.net/upload/resources/bfh.png" width="250px" />
 
+This is the library based on FHIR® Release 4. You may also be interested in the corresponding library for FHIR® R5: See [@i4mi/fhir_r5](https://www.npmjs.com/package/@i4mi/fhir_r5)
 
 # 1 Breaking changes in version 2.0.0
 If you're upgrading from version 1.x.x, you may encounter some breaking changes. These are relatively easy to fix though:

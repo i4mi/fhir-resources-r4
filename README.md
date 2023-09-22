@@ -1,8 +1,8 @@
 # I4MI on FHIR® - fhir-resources-r4.ts
 FHIR® resources, inheritance and type definitions.  
-Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
-<img src="https://siot.net/upload/resources/bfh.png" width="250px" />
+Generated from the FHIR® definition JSON by the Institute of Medical Informatics (I4MI). 
 
+This is the library based on FHIR® Release 4. You may also be interested in the corresponding library for FHIR® R5: See [@i4mi/fhir_r5](https://www.npmjs.com/package/@i4mi/fhir_r5)
 
 # 1 Breaking changes in version 2.0.0
 If you're upgrading from version 1.x.x, you may encounter some breaking changes. These are relatively easy to fix though:
@@ -149,11 +149,11 @@ FHIR® supports I18N with extensions. Any text / string element can have an exte
 
 With `readI18N()`, `getAllI18N()` and `writeI18N()`, this library provides functions that help with interacting with this translation extensions.
 
-`readI18N(resource._title, 'en')` allows you to read the translation string for a given element and language (in this case, the resource title in english). If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
+`readI18N(resource._title, 'en'): string` allows you to read the translation string for a given element and language (in this case, the resource title in english). If the element does not have a well formed I18N extension or the respective language is not available, `undefined` is returned (and you have to fall back on the normal `resource.title` element or another a language).
 
-`getAllI18N(resource._title)` allows you to get all available translation strings for a given element. If the element does not have a well formed I18N extension or no language is available, an empty object `{}`is returned (and you have to fall back on the normal `resource.title` element).
+`getAllI18N(resource._title): {[l: string]: string}` allows you to get all available translation strings for a given element. If the element does not have a well formed I18N extension or no language is available, an empty object `{}`is returned (and you have to fall back on the normal `resource.title` element).
 
-`writeI18N(translations)` allows you to comfortably write wellformed I18N extensions to a resource element. The 'translations' argument is a key/value pair of the languages and I18N string you want to write, as in the following example:
+`writeI18N(translations): ExtensionElement` allows you to comfortably write wellformed I18N extensions to a resource element. The 'translations' argument is a key/value pair of the languages and I18N string you want to write, as in the following example:
 
 ``` typescript
 const translations = {
@@ -164,17 +164,47 @@ const translations = {
 resource._title = writeI18N(translations);
 ```
 
+## 3.3 Other util functions
+The library provides some more util functions, that help with working with different simple tasks that you will encounter when using FHIR®.
+
+`hasCode(codeableConcept, coding): boolean` is a helper function that searches for a given coding in a CodeableConcept and returns `true` if at least one of the codings in the CodeableConcept matches the code and the system (if available) of the given coding.
+
+Example code: 
+```typescript
+const isPollenObservation = hasCoding(
+    myObservation.code,     // codeable concept of e.g. an Observation
+    { 
+        system: 'http://snomed.info/sct', 
+        code: '256277009'   // SNOMED for grass pollen
+    }
+);
+if (isPollenObservation) {
+    console.log('Resource "myObservation" is about grass pollen.');
+}
+```
+
+`getCode(codeableConcept, system): code | undefined` extracts a code for a given system (e.g. 'http://snomed.info/sct' for SNOMED CT) from a CodeableConcept. If no code is available for the given system or if the CodeableConcept itself is `undefined`, getCode() returns `undefined`.
+
+`isUUID(id): boolean` checks if a given Value is a valid (Universally Unique Identifier UUID)[https://en.wikipedia.org/wiki/Universally_unique_identifier] (also known als Globally Unique Identifier GUID). It returns true if the given id is an UUID / GUID, and false in every other case.
+
+`getFullName(name): string` extracts the full name from a HumanName, with all given names separated by a whitespace and in the end followed by the family name. Example: Homer Jay Simpson.
+
+`selectName(names, priorisation?): HumanName` selects the best suited HumanName from an array of multiple HumanName. If no priorisation is given, the default priorisation is USUAL > OFFICIAL > TEMP (if period is given and does match) > NICKNAME > ANONYMOUS > TEMP (if period does not match) > MAIDEN > OLD. If none of the provided HumanNames have an use poperty, the first name of the array is returned.
+
+`isInPeriod(period, time?): boolean` checks if a given time point (`time`) is in a given `period`. If no `time` is provided, the current time is taken.
+
+`getIdentifierString(patient, system)` extracts an identifier string from a Patient resource for a given identifier system. It returns a string in the form of `urn:oid:1.1.1.99.1|1e3796be...`, where `urn:oid:1.1.1.99.1` is the system and `1e3796be...` the identifier.
 
 # 4 Contribution & dev guide
 
-## 4.1 build
+## 4.1 Build
 
 to generate a new build in './dist/' 
 ```
 npm run build
 ```
 
-## 4.2 deploy
+## 4.2 Deploy
 
 update version in package.json
 then
@@ -182,5 +212,12 @@ then
 npm publish --access public
 ```
 
-----
+# 5 License & Versions
+## 5.1 Apache 2.0
+This software is published under an [Apache 2.0 License](License.txt). 
+
+## 5.2 FHIR® Trademark
 FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR® trademark does not constitute endorsement of this product by HL7.
+
+## 5.3 Changelog
+You can see the history of changes in the newest versions of this library in the [changelog file](CHANGELOG.md).

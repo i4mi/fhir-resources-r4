@@ -19,4 +19,4 @@ var bundle_1 = require("./smartResources/bundle");
 Object.defineProperty(exports, "I4MIBundle", { enumerable: true, get: function () { return bundle_1.I4MIBundle; } });
 __exportStar(require("./apiMethods/apiMethods"), exports);
 __exportStar(require("./definition"), exports);
-__exportStar(require("./smartResources/i18nUtil"), exports);
+__exportStar(require("./smartResources/utils"), exports);

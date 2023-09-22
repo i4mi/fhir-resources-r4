@@ -3,6 +3,21 @@
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
  * File generated on 2022-11-01T13:49:11.646Z
  * https://www.i4mi.ti.bfh.ch
+ *
+ *  Copyright 2023 Institute for Medical Informatics
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CapabilityStatementConditionalDeleteStatus = exports.CapabilityStatementConditionalReadStatus = exports.CapabilityStatementResourceVersionPolicy = exports.CapabilityStatementTypeRestfulInteraction = exports.CapabilityStatementRestfulCapabilityMode = exports.CapabilityStatementKind = exports.CapabilityStatementPublicationStatus = exports.BundleHTTPVerb = exports.BundleSearchEntryMode = exports.BundleType = exports.BiologicallyDerivedProductStorageScale = exports.BiologicallyDerivedProductStatus = exports.BiologicallyDerivedProductCategory = exports.AppointmentResponseParticipantStatus = exports.AppointmentParticipationStatus = exports.AppointmentParticipantRequired = exports.AppointmentStatus = exports.AllergyIntoleranceSeverity = exports.AllergyIntoleranceCriticality = exports.AllergyIntoleranceCategory = exports.AllergyIntoleranceType = exports.AdverseEventActuality = exports.ActivityDefinitionActivityParticipantType = exports.ActivityDefinitionRequestPriority = exports.ActivityDefinitionRequestIntent = exports.ActivityDefinitionPublicationStatus = exports.AccountStatus = exports.TriggerDefinitionTriggerType = exports.TimingDayOfWeek = exports.TimingUnitsOfTime = exports.RelatedArtifactType = exports.QuantityComparator = exports.ParameterDefinitionParameterUse = exports.NarrativeStatus = exports.IdentifierUse = exports.HumanNameNameUse = exports.Expressionundefined = exports.ElementDefinitionBindingStrength = exports.ElementDefinitionConstraintSeverity = exports.ElementDefinitionReferenceVersionRules = exports.ElementDefinitionAggregationMode = exports.ElementDefinitionSlicingRules = exports.ElementDefinitionDiscriminatorType = exports.ElementDefinitionPropertyRepresentation = exports.DataRequirementSortDirection = exports.ContributorType = exports.ContactPointUse = exports.ContactPointSystem = exports.AddressType = exports.AddressUse = void 0;

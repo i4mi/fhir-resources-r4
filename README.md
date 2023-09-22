@@ -1,7 +1,6 @@
 # I4MI on FHIR® - fhir-resources-r4.ts
 FHIR® resources, inheritance and type definitions.  
-Generated from the FHIR® definition json by the Institute of Medical Informatics (I4MI). 
-<img src="https://siot.net/upload/resources/bfh.png" width="250px" />
+Generated from the FHIR® definition JSON by the Institute of Medical Informatics (I4MI). 
 
 This is the library based on FHIR® Release 4. You may also be interested in the corresponding library for FHIR® R5: See [@i4mi/fhir_r5](https://www.npmjs.com/package/@i4mi/fhir_r5)
 
@@ -198,14 +197,14 @@ if (isPollenObservation) {
 
 # 4 Contribution & dev guide
 
-## 4.1 build
+## 4.1 Build
 
 to generate a new build in './dist/' 
 ```
 npm run build
 ```
 
-## 4.2 deploy
+## 4.2 Deploy
 
 update version in package.json
 then
@@ -213,5 +212,12 @@ then
 npm publish --access public
 ```
 
-----
+# 5 License & Versions
+## 5.1 Apache 2.0
+This software is published under an [Apache 2.0 License](License.txt). 
+
+## 5.2 FHIR® Trademark
 FHIR® is the registered trademark of HL7 and is used with the permission of HL7. Use of the FHIR® trademark does not constitute endorsement of this product by HL7.
+
+## 5.3 Changelog
+You can see the history of changes in the newest versions of this library in the [changelog file](CHANGELOG.md).

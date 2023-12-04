@@ -186,6 +186,32 @@ test('Name', () => {
     expect(getFullName(undefined)).toEqual('');
     expect(getFullName({})).toEqual('');
 
+    const waldemar: HumanName = {
+        text: 'Mag. Waldemar Möbius',
+        family: 'Möbius',
+        prefix: ['Mag.'],
+        suffix: [],
+        given: [
+            'Waldemar'
+        ]
+    };
+
+    expect(getFullName(waldemar)).toEqual('Mag. Waldemar Möbius');
+
+    const justus: HumanName = {
+        text: 'Eine sehr wichtige Person mit vielen Titeln',
+        family: 'von Gschaft',
+        prefix: ['Univ.-Prof.', 'Dr.', 'Dr.', 'Mag.'],
+        suffix: ['M.Sc.', 'B.A.'],
+        given: [
+            'Justus',
+            'Julian'
+        ]
+    };
+
+    expect(getFullName(justus, false)).toEqual('Univ.-Prof. Dr. Dr. Mag. Justus Julian von Gschaft, M.Sc. B.A.');
+    expect(getFullName(justus, true)).toEqual('Justus Julian von Gschaft');
+
     const officialName = {
         family: 'Simpson',
         given: ['Marjorie', 'Jacqueline'],

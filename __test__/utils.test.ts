@@ -201,8 +201,16 @@ test('Name', () => {
     const justus: HumanName = {
         text: 'Eine sehr wichtige Person mit vielen Titeln',
         family: 'von Gschaft',
-        prefix: ['Univ.-Prof.', 'Dr.', 'Dr.', 'Mag.'],
-        suffix: ['M.Sc.', 'B.A.'],
+        prefix: [
+            'Univ.-Prof.', 
+            'Dr.', 
+            'Dr.', 
+            'Mag.'
+        ],
+        suffix: [
+            'M.Sc.', 
+            'B.A.'
+        ],
         given: [
             'Justus',
             'Julian'

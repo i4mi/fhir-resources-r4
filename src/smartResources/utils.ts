@@ -139,17 +139,20 @@ export function isUUID(id: any): boolean {
 
 /**
 * Generates the full name according the given HumanName
-* @param name   the HumanName that will be used to generate the full name
-* @returns      the name concatenated to a string
+* @param name            the HumanName that will be used to generate the full name
+* @param excludeTitles     
+* @returns               the name concatenated to a string
 */
-export function getFullName(name: HumanName | undefined): string {
+export function getFullName(name: HumanName | undefined, excludeTitles = false): string {
+    if (!name) return '';
+
     let text = '';
-    if (name && (name.given || name.family)) {
-        name.given?.forEach((x) => (text += `${x} `));
-        text += name.family;
-        text.trimEnd();
-    }
-    return text;
+    if (name.prefix && name.prefix.length > 0 && !excludeTitles) text += name.prefix.reduce((a,b) => a + ' ' + b) + ' ';
+    if (name.given) text += name.given.reduce((a,b) => a + ' ' + b) + ' ';
+    if (name.family) text += name.family;
+    if (name.suffix && name.suffix.length > 0 && !excludeTitles) text += ', ' + name.suffix.reduce((a,b) => a + ' ' + b);
+    
+    return text.trimEnd();
 }
 
 /**

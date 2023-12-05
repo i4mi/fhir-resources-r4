@@ -187,7 +187,7 @@ if (isPollenObservation) {
 
 `isUUID(id): boolean` checks if a given Value is a valid (Universally Unique Identifier UUID)[https://en.wikipedia.org/wiki/Universally_unique_identifier] (also known als Globally Unique Identifier GUID). It returns true if the given id is an UUID / GUID, and false in every other case.
 
-`getFullName(name): string` extracts the full name from a HumanName, with all given names separated by a whitespace and in the end followed by the family name. Example: Homer Jay Simpson.
+`getFullName(name, exludeTitles?): string` extracts the full name from a HumanName, with all given names separated by a whitespace and in the end followed by the family name. Example: Homer Jay Simpson. Set the optional excludeTitles parameter to true to omit  titles in prefix and suffix.
 
 `selectName(names, priorisation?): HumanName` selects the best suited HumanName from an array of multiple HumanName. If no priorisation is given, the default priorisation is USUAL > OFFICIAL > TEMP (if period is given and does match) > NICKNAME > ANONYMOUS > TEMP (if period does not match) > MAIDEN > OLD. If none of the provided HumanNames have an use poperty, the first name of the array is returned.
 

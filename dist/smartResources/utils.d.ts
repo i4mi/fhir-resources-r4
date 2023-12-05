@@ -60,10 +60,11 @@ export declare function getCode(codeableConcept: CodeableConcept | undefined, sy
 export declare function isUUID(id: any): boolean;
 /**
 * Generates the full name according the given HumanName
-* @param name   the HumanName that will be used to generate the full name
-* @returns      the name concatenated to a string
+* @param name            the HumanName that will be used to generate the full name
+* @param excludeTitles
+* @returns               the name concatenated to a string
 */
-export declare function getFullName(name: HumanName | undefined): string;
+export declare function getFullName(name: HumanName | undefined, excludeTitles?: boolean): string;
 /**
 * Chooses which supplied HumanName is the best suited. When no priorisation provided,
 * the priority is:

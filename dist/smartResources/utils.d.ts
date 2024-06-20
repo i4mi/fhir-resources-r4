@@ -1,4 +1,4 @@
-import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period, Patient } from "../definition";
+import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period, Patient, Identifier } from "../definition";
 export interface I18NStrings {
     [lang: string]: string;
 }
@@ -88,10 +88,11 @@ export declare function selectName(names: HumanName[], priorisation?: HumanNameN
  */
 export declare function isInPeriod(period: Period, time?: string | number | Date): boolean;
 /**
- * Gets the identifier string for a given system (of the identifier) from a Patient resource
- * @param patient a Patient resource
- * @param system     the system the wanted identifier is in (e.g. as oid)
+ * Gets the identifier string for a given system (of the identifier) from an array of identifiers
+ * For backward compatibility, also a Patient resource can be passed as source
+ * @param source  an array of Identifier (or a Patient resource)
+ * @param system  the system the wanted identifier is in (e.g. as oid)
  * @returns       a string in the form of urn:oid:1.1.1.99.1|1e3796be
- * @throws        an Error if the Patient resource has no identifier whose system matches the system.
+ * @throws        an Error if the source has no identifier whose system matches the given system
  */
-export declare function getIdentifierString(patient: Patient, system: string): string;
+export declare function getIdentifierString(source: Patient | Identifier[], system: string): string;

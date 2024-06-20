@@ -405,6 +405,58 @@ test('Get Identifier', () => {
     const UUID1 = 'b9902235-bd16-43d4-b40b-1cd1ff96b356';
     const UUID2 = '4921a69e-6fb7-4566-a249-90f8a85b9ec1';
 
+    expect(getIdentifierString([
+            {
+                system: MPIID_SYSTEM,
+                value: UUID1
+            },
+            {
+                value: UUID2
+            }
+        ], MPIID_SYSTEM)).toBe(MPIID_SYSTEM + '|' + UUID1);
+
+    expect(getIdentifierString([
+        {
+            value: UUID2
+        },
+        {
+            system: MPIID_SYSTEM,
+            value: UUID1
+        }
+    ], MPIID_SYSTEM)).toBe(MPIID_SYSTEM + '|' + UUID1);
+
+    expect(getIdentifierString([
+        {},
+        {
+            system: MPIID_SYSTEM,
+            value: UUID1
+        }
+    ], MPIID_SYSTEM)).toBe(MPIID_SYSTEM + '|' + UUID1);
+
+    expect(getIdentifierString([
+        {
+            system: MPIID_SYSTEM
+        },
+        {
+            system: MPIID_SYSTEM,
+            value: UUID1
+        }
+    ], MPIID_SYSTEM)).toBe(MPIID_SYSTEM + '|' + UUID1);
+
+    expect(() => getIdentifierString([{
+            system: MPIID_SYSTEM,
+        }], MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString([{
+                system: 'http://midata.coop/test',
+                value: 'ABC1'
+            }], MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString([], MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString([{}], MPIID_SYSTEM)).toThrow();
+
+    // backward compatibility with Patient resource as source
     expect(getIdentifierString({
         resourceType: 'Patient',
         identifier: [
@@ -440,5 +492,10 @@ test('Get Identifier', () => {
     expect(() => getIdentifierString({
         resourceType: 'Patient',
         identifier: [{}]
+    }, MPIID_SYSTEM)).toThrow();
+
+    expect(() => getIdentifierString({
+        resourceType: 'Patient',
+        identifier: []
     }, MPIID_SYSTEM)).toThrow();
 });

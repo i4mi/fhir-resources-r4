@@ -252,15 +252,22 @@ function isInPeriod(period, time = new Date()) {
 }
 exports.isInPeriod = isInPeriod;
 /**
- * Gets the identifier string for a given system (of the identifier) from a Patient resource
- * @param patient a Patient resource
- * @param system     the system the wanted identifier is in (e.g. as oid)
+ * Gets the identifier string for a given system (of the identifier) from an array of identifiers
+ * For backward compatibility, also a Patient resource can be passed as source
+ * @param source  an array of Identifier (or a Patient resource)
+ * @param system  the system the wanted identifier is in (e.g. as oid)
  * @returns       a string in the form of urn:oid:1.1.1.99.1|1e3796be
- * @throws        an Error if the Patient resource has no identifier whose system matches the system.
+ * @throws        an Error if the source has no identifier whose system matches the given system
  */
-function getIdentifierString(patient, system) {
-    var _a;
-    const identifier = (_a = patient.identifier) === null || _a === void 0 ? void 0 : _a.find((id) => { var _a; return (_a = id.system) === null || _a === void 0 ? void 0 : _a.includes(system); });
+function getIdentifierString(source, system) {
+    let identifiers;
+    if (source.resourceType === 'Patient') {
+        identifiers = source.identifier || [];
+    }
+    else {
+        identifiers = source;
+    }
+    const identifier = identifiers.find((id) => { var _a; return ((_a = id.system) === null || _a === void 0 ? void 0 : _a.includes(system)) && id.value != undefined; });
     if (!identifier || !identifier.value) {
         throw new Error('Patient has no identifier that matches the oid ' + system);
     }

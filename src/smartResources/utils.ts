@@ -1,4 +1,4 @@
-import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period, Patient } from "../definition";
+import { Extension, Element, Coding, CodeableConcept, code, HumanName, HumanNameNameUse, Period, Patient, Identifier } from "../definition";
 
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
@@ -245,14 +245,24 @@ export function isInPeriod(period: Period, time: string | number | Date = new Da
 }
 
   /**
-   * Gets the identifier string for a given system (of the identifier) from a Patient resource
-   * @param patient a Patient resource
-   * @param system     the system the wanted identifier is in (e.g. as oid)
+   * Gets the identifier string for a given system (of the identifier) from an array of identifiers
+   * For backward compatibility, also a Patient resource can be passed as source
+   * @param source  an array of Identifier (or a Patient resource)
+   * @param system  the system the wanted identifier is in (e.g. as oid)
    * @returns       a string in the form of urn:oid:1.1.1.99.1|1e3796be
-   * @throws        an Error if the Patient resource has no identifier whose system matches the system.
+   * @throws        an Error if the source has no identifier whose system matches the given system
    */
-  export function getIdentifierString(patient: Patient, system: string): string {
-    const identifier = patient.identifier?.find((id) => id.system?.includes(system));
+  export function getIdentifierString(source: Patient | Identifier[], system: string): string {
+    let identifiers: Identifier[];
+
+    if ((source as Patient).resourceType === 'Patient') {
+        identifiers = (source as Patient).identifier || [];
+    } else {
+        identifiers = source as Identifier[];
+    }
+
+    const identifier = identifiers.find((id) => id.system?.includes(system) && id.value != undefined);
+
     if (!identifier || !identifier.value) {
       throw new Error('Patient has no identifier that matches the oid ' + system);
     }

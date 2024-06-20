@@ -38,7 +38,7 @@ var AddressUse;
     AddressUse["TEMP"] = "temp";
     AddressUse["OLD"] = "old";
     AddressUse["BILLING"] = "billing";
-})(AddressUse = exports.AddressUse || (exports.AddressUse = {}));
+})(AddressUse || (exports.AddressUse = AddressUse = {}));
 /**
  * postal | physical | both
  * Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
@@ -49,7 +49,7 @@ var AddressType;
     AddressType["POSTAL"] = "postal";
     AddressType["PHYSICAL"] = "physical";
     AddressType["BOTH"] = "both";
-})(AddressType = exports.AddressType || (exports.AddressType = {}));
+})(AddressType || (exports.AddressType = AddressType = {}));
 /**
  * phone | fax | email | pager | url | sms | other
  * Telecommunications form for contact point - what communications system is required to make use of the contact.
@@ -63,7 +63,7 @@ var ContactPointSystem;
     ContactPointSystem["URL"] = "url";
     ContactPointSystem["SMS"] = "sms";
     ContactPointSystem["OTHER"] = "other";
-})(ContactPointSystem = exports.ContactPointSystem || (exports.ContactPointSystem = {}));
+})(ContactPointSystem || (exports.ContactPointSystem = ContactPointSystem = {}));
 /**
  * home | work | temp | old | mobile - purpose of this contact point
  * Identifies the purpose for the contact point.
@@ -76,7 +76,7 @@ var ContactPointUse;
     ContactPointUse["TEMP"] = "temp";
     ContactPointUse["OLD"] = "old";
     ContactPointUse["MOBILE"] = "mobile";
-})(ContactPointUse = exports.ContactPointUse || (exports.ContactPointUse = {}));
+})(ContactPointUse || (exports.ContactPointUse = ContactPointUse = {}));
 /**
  * author | editor | reviewer | endorser
  * The type of contributor.
@@ -87,7 +87,7 @@ var ContributorType;
     ContributorType["EDITOR"] = "editor";
     ContributorType["REVIEWER"] = "reviewer";
     ContributorType["ENDORSER"] = "endorser";
-})(ContributorType = exports.ContributorType || (exports.ContributorType = {}));
+})(ContributorType || (exports.ContributorType = ContributorType = {}));
 /**
  * ascending | descending
  * The direction of the sort, ascending or descending.
@@ -96,7 +96,7 @@ var DataRequirementSortDirection;
 (function (DataRequirementSortDirection) {
     DataRequirementSortDirection["ASCENDING"] = "ascending";
     DataRequirementSortDirection["DESCENDING"] = "descending";
-})(DataRequirementSortDirection = exports.DataRequirementSortDirection || (exports.DataRequirementSortDirection = {}));
+})(DataRequirementSortDirection || (exports.DataRequirementSortDirection = DataRequirementSortDirection = {}));
 /**
  * xmlAttr | xmlText | typeAttr | cdaText | xhtml
  * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
@@ -109,7 +109,7 @@ var ElementDefinitionPropertyRepresentation;
     ElementDefinitionPropertyRepresentation["TYPEATTR"] = "typeAttr";
     ElementDefinitionPropertyRepresentation["CDATEXT"] = "cdaText";
     ElementDefinitionPropertyRepresentation["XHTML"] = "xhtml";
-})(ElementDefinitionPropertyRepresentation = exports.ElementDefinitionPropertyRepresentation || (exports.ElementDefinitionPropertyRepresentation = {}));
+})(ElementDefinitionPropertyRepresentation || (exports.ElementDefinitionPropertyRepresentation = ElementDefinitionPropertyRepresentation = {}));
 /**
  * value | exists | pattern | type | profile
  * How the element value is interpreted when discrimination is evaluated.
@@ -121,7 +121,7 @@ var ElementDefinitionDiscriminatorType;
     ElementDefinitionDiscriminatorType["PATTERN"] = "pattern";
     ElementDefinitionDiscriminatorType["TYPE"] = "type";
     ElementDefinitionDiscriminatorType["PROFILE"] = "profile";
-})(ElementDefinitionDiscriminatorType = exports.ElementDefinitionDiscriminatorType || (exports.ElementDefinitionDiscriminatorType = {}));
+})(ElementDefinitionDiscriminatorType || (exports.ElementDefinitionDiscriminatorType = ElementDefinitionDiscriminatorType = {}));
 /**
  * closed | open | openAtEnd
  * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
@@ -132,7 +132,7 @@ var ElementDefinitionSlicingRules;
     ElementDefinitionSlicingRules["CLOSED"] = "closed";
     ElementDefinitionSlicingRules["OPEN"] = "open";
     ElementDefinitionSlicingRules["OPENATEND"] = "openAtEnd";
-})(ElementDefinitionSlicingRules = exports.ElementDefinitionSlicingRules || (exports.ElementDefinitionSlicingRules = {}));
+})(ElementDefinitionSlicingRules || (exports.ElementDefinitionSlicingRules = ElementDefinitionSlicingRules = {}));
 /**
  * contained | referenced | bundled - how aggregated
  * If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
@@ -143,7 +143,7 @@ var ElementDefinitionAggregationMode;
     ElementDefinitionAggregationMode["CONTAINED"] = "contained";
     ElementDefinitionAggregationMode["REFERENCED"] = "referenced";
     ElementDefinitionAggregationMode["BUNDLED"] = "bundled";
-})(ElementDefinitionAggregationMode = exports.ElementDefinitionAggregationMode || (exports.ElementDefinitionAggregationMode = {}));
+})(ElementDefinitionAggregationMode || (exports.ElementDefinitionAggregationMode = ElementDefinitionAggregationMode = {}));
 /**
  * either | independent | specific
  * Whether this reference needs to be version specific or version independent, or whether either can be used.
@@ -154,7 +154,7 @@ var ElementDefinitionReferenceVersionRules;
     ElementDefinitionReferenceVersionRules["EITHER"] = "either";
     ElementDefinitionReferenceVersionRules["INDEPENDENT"] = "independent";
     ElementDefinitionReferenceVersionRules["SPECIFIC"] = "specific";
-})(ElementDefinitionReferenceVersionRules = exports.ElementDefinitionReferenceVersionRules || (exports.ElementDefinitionReferenceVersionRules = {}));
+})(ElementDefinitionReferenceVersionRules || (exports.ElementDefinitionReferenceVersionRules = ElementDefinitionReferenceVersionRules = {}));
 /**
  * error | warning
  * Identifies the impact constraint violation has on the conformance of the instance.
@@ -164,7 +164,7 @@ var ElementDefinitionConstraintSeverity;
 (function (ElementDefinitionConstraintSeverity) {
     ElementDefinitionConstraintSeverity["ERROR"] = "error";
     ElementDefinitionConstraintSeverity["WARNING"] = "warning";
-})(ElementDefinitionConstraintSeverity = exports.ElementDefinitionConstraintSeverity || (exports.ElementDefinitionConstraintSeverity = {}));
+})(ElementDefinitionConstraintSeverity || (exports.ElementDefinitionConstraintSeverity = ElementDefinitionConstraintSeverity = {}));
 /**
  * required | extensible | preferred | example
  * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
@@ -176,7 +176,7 @@ var ElementDefinitionBindingStrength;
     ElementDefinitionBindingStrength["EXTENSIBLE"] = "extensible";
     ElementDefinitionBindingStrength["PREFERRED"] = "preferred";
     ElementDefinitionBindingStrength["EXAMPLE"] = "example";
-})(ElementDefinitionBindingStrength = exports.ElementDefinitionBindingStrength || (exports.ElementDefinitionBindingStrength = {}));
+})(ElementDefinitionBindingStrength || (exports.ElementDefinitionBindingStrength = ElementDefinitionBindingStrength = {}));
 /**
  * text/cql | text/fhirpath | application/x-fhir-query | etc.
  * The media type of the language for the expression.
@@ -187,7 +187,7 @@ var Expressionundefined;
     Expressionundefined["TEXT_FHIRPATH"] = "text/fhirpath";
     Expressionundefined["APPLICATION_X_FHIR_QUERY"] = "application/x-fhir-query";
     Expressionundefined["ETC_"] = "etc.";
-})(Expressionundefined = exports.Expressionundefined || (exports.Expressionundefined = {}));
+})(Expressionundefined || (exports.Expressionundefined = Expressionundefined = {}));
 /**
  * usual | official | temp | nickname | anonymous | old | maiden
  * Identifies the purpose for this name.
@@ -202,7 +202,7 @@ var HumanNameNameUse;
     HumanNameNameUse["ANONYMOUS"] = "anonymous";
     HumanNameNameUse["OLD"] = "old";
     HumanNameNameUse["MAIDEN"] = "maiden";
-})(HumanNameNameUse = exports.HumanNameNameUse || (exports.HumanNameNameUse = {}));
+})(HumanNameNameUse || (exports.HumanNameNameUse = HumanNameNameUse = {}));
 /**
  * usual | official | temp | secondary | old (If known)
  * The purpose of this identifier.
@@ -215,7 +215,7 @@ var IdentifierUse;
     IdentifierUse["TEMP"] = "temp";
     IdentifierUse["SECONDARY"] = "secondary";
     IdentifierUse["OLD"] = "old";
-})(IdentifierUse = exports.IdentifierUse || (exports.IdentifierUse = {}));
+})(IdentifierUse || (exports.IdentifierUse = IdentifierUse = {}));
 /**
  * generated | extensions | additional | empty
  * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
@@ -226,7 +226,7 @@ var NarrativeStatus;
     NarrativeStatus["EXTENSIONS"] = "extensions";
     NarrativeStatus["ADDITIONAL"] = "additional";
     NarrativeStatus["EMPTY"] = "empty";
-})(NarrativeStatus = exports.NarrativeStatus || (exports.NarrativeStatus = {}));
+})(NarrativeStatus || (exports.NarrativeStatus = NarrativeStatus = {}));
 /**
  * in | out
  * Whether the parameter is input or output for the module.
@@ -235,7 +235,7 @@ var ParameterDefinitionParameterUse;
 (function (ParameterDefinitionParameterUse) {
     ParameterDefinitionParameterUse["IN"] = "in";
     ParameterDefinitionParameterUse["OUT"] = "out";
-})(ParameterDefinitionParameterUse = exports.ParameterDefinitionParameterUse || (exports.ParameterDefinitionParameterUse = {}));
+})(ParameterDefinitionParameterUse || (exports.ParameterDefinitionParameterUse = ParameterDefinitionParameterUse = {}));
 /**
  * < | <= | >= | > - how to understand the value
  * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
@@ -246,7 +246,7 @@ var QuantityComparator;
     QuantityComparator["LE"] = "<=";
     QuantityComparator["GE"] = ">=";
     QuantityComparator["GT"] = ">";
-})(QuantityComparator = exports.QuantityComparator || (exports.QuantityComparator = {}));
+})(QuantityComparator || (exports.QuantityComparator = QuantityComparator = {}));
 /**
  * documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of
  * The type of relationship to the related artifact.
@@ -261,7 +261,7 @@ var RelatedArtifactType;
     RelatedArtifactType["DERIVED_FROM"] = "derived-from";
     RelatedArtifactType["DEPENDS_ON"] = "depends-on";
     RelatedArtifactType["COMPOSED_OF"] = "composed-of";
-})(RelatedArtifactType = exports.RelatedArtifactType || (exports.RelatedArtifactType = {}));
+})(RelatedArtifactType || (exports.RelatedArtifactType = RelatedArtifactType = {}));
 /**
  * s | min | h | d | wk | mo | a - unit of time (UCUM)
  * The units of time for the duration, in UCUM units.
@@ -275,7 +275,7 @@ var TimingUnitsOfTime;
     TimingUnitsOfTime["WK"] = "wk";
     TimingUnitsOfTime["MO"] = "mo";
     TimingUnitsOfTime["A"] = "a";
-})(TimingUnitsOfTime = exports.TimingUnitsOfTime || (exports.TimingUnitsOfTime = {}));
+})(TimingUnitsOfTime || (exports.TimingUnitsOfTime = TimingUnitsOfTime = {}));
 /**
  * mon | tue | wed | thu | fri | sat | sun
  * If one or more days of week is provided, then the action happens only on the specified day(s).
@@ -290,7 +290,7 @@ var TimingDayOfWeek;
     TimingDayOfWeek["FRI"] = "fri";
     TimingDayOfWeek["SAT"] = "sat";
     TimingDayOfWeek["SUN"] = "sun";
-})(TimingDayOfWeek = exports.TimingDayOfWeek || (exports.TimingDayOfWeek = {}));
+})(TimingDayOfWeek || (exports.TimingDayOfWeek = TimingDayOfWeek = {}));
 /**
  * named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
  * The type of triggering event.
@@ -305,7 +305,7 @@ var TriggerDefinitionTriggerType;
     TriggerDefinitionTriggerType["DATA_REMOVED"] = "data-removed";
     TriggerDefinitionTriggerType["DATA_ACCESSED"] = "data-accessed";
     TriggerDefinitionTriggerType["DATA_ACCESS_ENDED"] = "data-access-ended";
-})(TriggerDefinitionTriggerType = exports.TriggerDefinitionTriggerType || (exports.TriggerDefinitionTriggerType = {}));
+})(TriggerDefinitionTriggerType || (exports.TriggerDefinitionTriggerType = TriggerDefinitionTriggerType = {}));
 /**
  * active | inactive | entered-in-error | on-hold | unknown
  * Indicates whether the account is presently used/usable or not.
@@ -318,7 +318,7 @@ var AccountStatus;
     AccountStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     AccountStatus["ON_HOLD"] = "on-hold";
     AccountStatus["UNKNOWN"] = "unknown";
-})(AccountStatus = exports.AccountStatus || (exports.AccountStatus = {}));
+})(AccountStatus || (exports.AccountStatus = AccountStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this activity definition. Enables tracking the life-cycle of the content.
@@ -330,7 +330,7 @@ var ActivityDefinitionPublicationStatus;
     ActivityDefinitionPublicationStatus["ACTIVE"] = "active";
     ActivityDefinitionPublicationStatus["RETIRED"] = "retired";
     ActivityDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(ActivityDefinitionPublicationStatus = exports.ActivityDefinitionPublicationStatus || (exports.ActivityDefinitionPublicationStatus = {}));
+})(ActivityDefinitionPublicationStatus || (exports.ActivityDefinitionPublicationStatus = ActivityDefinitionPublicationStatus = {}));
 /**
  * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain.
@@ -346,7 +346,7 @@ var ActivityDefinitionRequestIntent;
     ActivityDefinitionRequestIntent["FILLER_ORDER"] = "filler-order";
     ActivityDefinitionRequestIntent["INSTANCE_ORDER"] = "instance-order";
     ActivityDefinitionRequestIntent["OPTION"] = "option";
-})(ActivityDefinitionRequestIntent = exports.ActivityDefinitionRequestIntent || (exports.ActivityDefinitionRequestIntent = {}));
+})(ActivityDefinitionRequestIntent || (exports.ActivityDefinitionRequestIntent = ActivityDefinitionRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the activity  should be addressed with respect to other requests.
@@ -357,7 +357,7 @@ var ActivityDefinitionRequestPriority;
     ActivityDefinitionRequestPriority["URGENT"] = "urgent";
     ActivityDefinitionRequestPriority["ASAP"] = "asap";
     ActivityDefinitionRequestPriority["STAT"] = "stat";
-})(ActivityDefinitionRequestPriority = exports.ActivityDefinitionRequestPriority || (exports.ActivityDefinitionRequestPriority = {}));
+})(ActivityDefinitionRequestPriority || (exports.ActivityDefinitionRequestPriority = ActivityDefinitionRequestPriority = {}));
 /**
  * patient | practitioner | related-person | device
  * The type of participant in the action.
@@ -368,7 +368,7 @@ var ActivityDefinitionActivityParticipantType;
     ActivityDefinitionActivityParticipantType["PRACTITIONER"] = "practitioner";
     ActivityDefinitionActivityParticipantType["RELATED_PERSON"] = "related-person";
     ActivityDefinitionActivityParticipantType["DEVICE"] = "device";
-})(ActivityDefinitionActivityParticipantType = exports.ActivityDefinitionActivityParticipantType || (exports.ActivityDefinitionActivityParticipantType = {}));
+})(ActivityDefinitionActivityParticipantType || (exports.ActivityDefinitionActivityParticipantType = ActivityDefinitionActivityParticipantType = {}));
 /**
  * actual | potential
  * Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
@@ -377,7 +377,7 @@ var AdverseEventActuality;
 (function (AdverseEventActuality) {
     AdverseEventActuality["ACTUAL"] = "actual";
     AdverseEventActuality["POTENTIAL"] = "potential";
-})(AdverseEventActuality = exports.AdverseEventActuality || (exports.AdverseEventActuality = {}));
+})(AdverseEventActuality || (exports.AdverseEventActuality = AdverseEventActuality = {}));
 /**
  * allergy | intolerance - Underlying mechanism (if known)
  * Identification of the underlying physiological mechanism for the reaction risk.
@@ -387,7 +387,7 @@ var AllergyIntoleranceType;
 (function (AllergyIntoleranceType) {
     AllergyIntoleranceType["ALLERGY"] = "allergy";
     AllergyIntoleranceType["INTOLERANCE"] = "intolerance";
-})(AllergyIntoleranceType = exports.AllergyIntoleranceType || (exports.AllergyIntoleranceType = {}));
+})(AllergyIntoleranceType || (exports.AllergyIntoleranceType = AllergyIntoleranceType = {}));
 /**
  * food | medication | environment | biologic
  * Category of the identified substance.
@@ -399,7 +399,7 @@ var AllergyIntoleranceCategory;
     AllergyIntoleranceCategory["MEDICATION"] = "medication";
     AllergyIntoleranceCategory["ENVIRONMENT"] = "environment";
     AllergyIntoleranceCategory["BIOLOGIC"] = "biologic";
-})(AllergyIntoleranceCategory = exports.AllergyIntoleranceCategory || (exports.AllergyIntoleranceCategory = {}));
+})(AllergyIntoleranceCategory || (exports.AllergyIntoleranceCategory = AllergyIntoleranceCategory = {}));
 /**
  * low | high | unable-to-assess
  * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
@@ -410,7 +410,7 @@ var AllergyIntoleranceCriticality;
     AllergyIntoleranceCriticality["LOW"] = "low";
     AllergyIntoleranceCriticality["HIGH"] = "high";
     AllergyIntoleranceCriticality["UNABLE_TO_ASSESS"] = "unable-to-assess";
-})(AllergyIntoleranceCriticality = exports.AllergyIntoleranceCriticality || (exports.AllergyIntoleranceCriticality = {}));
+})(AllergyIntoleranceCriticality || (exports.AllergyIntoleranceCriticality = AllergyIntoleranceCriticality = {}));
 /**
  * mild | moderate | severe (of event as a whole)
  * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
@@ -421,7 +421,7 @@ var AllergyIntoleranceSeverity;
     AllergyIntoleranceSeverity["MILD"] = "mild";
     AllergyIntoleranceSeverity["MODERATE"] = "moderate";
     AllergyIntoleranceSeverity["SEVERE"] = "severe";
-})(AllergyIntoleranceSeverity = exports.AllergyIntoleranceSeverity || (exports.AllergyIntoleranceSeverity = {}));
+})(AllergyIntoleranceSeverity || (exports.AllergyIntoleranceSeverity = AllergyIntoleranceSeverity = {}));
 /**
  * proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist
  * The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
@@ -441,7 +441,7 @@ var AppointmentStatus;
     AppointmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     AppointmentStatus["CHECKED_IN"] = "checked-in";
     AppointmentStatus["WAITLIST"] = "waitlist";
-})(AppointmentStatus = exports.AppointmentStatus || (exports.AppointmentStatus = {}));
+})(AppointmentStatus || (exports.AppointmentStatus = AppointmentStatus = {}));
 /**
  * required | optional | information-only
  * Whether this participant is required to be present at the meeting. This covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
@@ -451,7 +451,7 @@ var AppointmentParticipantRequired;
     AppointmentParticipantRequired["REQUIRED"] = "required";
     AppointmentParticipantRequired["OPTIONAL"] = "optional";
     AppointmentParticipantRequired["INFORMATION_ONLY"] = "information-only";
-})(AppointmentParticipantRequired = exports.AppointmentParticipantRequired || (exports.AppointmentParticipantRequired = {}));
+})(AppointmentParticipantRequired || (exports.AppointmentParticipantRequired = AppointmentParticipantRequired = {}));
 /**
  * accepted | declined | tentative | needs-action
  * Participation status of the actor.
@@ -462,7 +462,7 @@ var AppointmentParticipationStatus;
     AppointmentParticipationStatus["DECLINED"] = "declined";
     AppointmentParticipationStatus["TENTATIVE"] = "tentative";
     AppointmentParticipationStatus["NEEDS_ACTION"] = "needs-action";
-})(AppointmentParticipationStatus = exports.AppointmentParticipationStatus || (exports.AppointmentParticipationStatus = {}));
+})(AppointmentParticipationStatus || (exports.AppointmentParticipationStatus = AppointmentParticipationStatus = {}));
 /**
  * accepted | declined | tentative | needs-action
  * Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
@@ -474,7 +474,7 @@ var AppointmentResponseParticipantStatus;
     AppointmentResponseParticipantStatus["DECLINED"] = "declined";
     AppointmentResponseParticipantStatus["TENTATIVE"] = "tentative";
     AppointmentResponseParticipantStatus["NEEDS_ACTION"] = "needs-action";
-})(AppointmentResponseParticipantStatus = exports.AppointmentResponseParticipantStatus || (exports.AppointmentResponseParticipantStatus = {}));
+})(AppointmentResponseParticipantStatus || (exports.AppointmentResponseParticipantStatus = AppointmentResponseParticipantStatus = {}));
 /**
  * organ | tissue | fluid | cells | biologicalAgent
  * Broad category of this product.
@@ -486,7 +486,7 @@ var BiologicallyDerivedProductCategory;
     BiologicallyDerivedProductCategory["FLUID"] = "fluid";
     BiologicallyDerivedProductCategory["CELLS"] = "cells";
     BiologicallyDerivedProductCategory["BIOLOGICALAGENT"] = "biologicalAgent";
-})(BiologicallyDerivedProductCategory = exports.BiologicallyDerivedProductCategory || (exports.BiologicallyDerivedProductCategory = {}));
+})(BiologicallyDerivedProductCategory || (exports.BiologicallyDerivedProductCategory = BiologicallyDerivedProductCategory = {}));
 /**
  * available | unavailable
  * Whether the product is currently available.
@@ -495,7 +495,7 @@ var BiologicallyDerivedProductStatus;
 (function (BiologicallyDerivedProductStatus) {
     BiologicallyDerivedProductStatus["AVAILABLE"] = "available";
     BiologicallyDerivedProductStatus["UNAVAILABLE"] = "unavailable";
-})(BiologicallyDerivedProductStatus = exports.BiologicallyDerivedProductStatus || (exports.BiologicallyDerivedProductStatus = {}));
+})(BiologicallyDerivedProductStatus || (exports.BiologicallyDerivedProductStatus = BiologicallyDerivedProductStatus = {}));
 /**
  * farenheit | celsius | kelvin
  * Temperature scale used.
@@ -505,7 +505,7 @@ var BiologicallyDerivedProductStorageScale;
     BiologicallyDerivedProductStorageScale["FARENHEIT"] = "farenheit";
     BiologicallyDerivedProductStorageScale["CELSIUS"] = "celsius";
     BiologicallyDerivedProductStorageScale["KELVIN"] = "kelvin";
-})(BiologicallyDerivedProductStorageScale = exports.BiologicallyDerivedProductStorageScale || (exports.BiologicallyDerivedProductStorageScale = {}));
+})(BiologicallyDerivedProductStorageScale || (exports.BiologicallyDerivedProductStorageScale = BiologicallyDerivedProductStorageScale = {}));
 /**
  * document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection
  * Indicates the purpose of this bundle - how it is intended to be used.
@@ -522,7 +522,7 @@ var BundleType;
     BundleType["HISTORY"] = "history";
     BundleType["SEARCHSET"] = "searchset";
     BundleType["COLLECTION"] = "collection";
-})(BundleType = exports.BundleType || (exports.BundleType = {}));
+})(BundleType || (exports.BundleType = BundleType = {}));
 /**
  * match | include | outcome - why this is in the result set
  * Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
@@ -533,7 +533,7 @@ var BundleSearchEntryMode;
     BundleSearchEntryMode["MATCH"] = "match";
     BundleSearchEntryMode["INCLUDE"] = "include";
     BundleSearchEntryMode["OUTCOME"] = "outcome";
-})(BundleSearchEntryMode = exports.BundleSearchEntryMode || (exports.BundleSearchEntryMode = {}));
+})(BundleSearchEntryMode || (exports.BundleSearchEntryMode = BundleSearchEntryMode = {}));
 /**
  * GET | HEAD | POST | PUT | DELETE | PATCH
  * In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred.
@@ -546,7 +546,7 @@ var BundleHTTPVerb;
     BundleHTTPVerb["PUT"] = "PUT";
     BundleHTTPVerb["DELETE"] = "DELETE";
     BundleHTTPVerb["PATCH"] = "PATCH";
-})(BundleHTTPVerb = exports.BundleHTTPVerb || (exports.BundleHTTPVerb = {}));
+})(BundleHTTPVerb || (exports.BundleHTTPVerb = BundleHTTPVerb = {}));
 /**
  * draft | active | retired | unknown
  * The status of this capability statement. Enables tracking the life-cycle of the content.
@@ -558,7 +558,7 @@ var CapabilityStatementPublicationStatus;
     CapabilityStatementPublicationStatus["ACTIVE"] = "active";
     CapabilityStatementPublicationStatus["RETIRED"] = "retired";
     CapabilityStatementPublicationStatus["UNKNOWN"] = "unknown";
-})(CapabilityStatementPublicationStatus = exports.CapabilityStatementPublicationStatus || (exports.CapabilityStatementPublicationStatus = {}));
+})(CapabilityStatementPublicationStatus || (exports.CapabilityStatementPublicationStatus = CapabilityStatementPublicationStatus = {}));
 /**
  * instance | capability | requirements
  * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
@@ -568,7 +568,7 @@ var CapabilityStatementKind;
     CapabilityStatementKind["INSTANCE"] = "instance";
     CapabilityStatementKind["CAPABILITY"] = "capability";
     CapabilityStatementKind["REQUIREMENTS"] = "requirements";
-})(CapabilityStatementKind = exports.CapabilityStatementKind || (exports.CapabilityStatementKind = {}));
+})(CapabilityStatementKind || (exports.CapabilityStatementKind = CapabilityStatementKind = {}));
 /**
  * client | server
  * Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
@@ -577,7 +577,7 @@ var CapabilityStatementRestfulCapabilityMode;
 (function (CapabilityStatementRestfulCapabilityMode) {
     CapabilityStatementRestfulCapabilityMode["CLIENT"] = "client";
     CapabilityStatementRestfulCapabilityMode["SERVER"] = "server";
-})(CapabilityStatementRestfulCapabilityMode = exports.CapabilityStatementRestfulCapabilityMode || (exports.CapabilityStatementRestfulCapabilityMode = {}));
+})(CapabilityStatementRestfulCapabilityMode || (exports.CapabilityStatementRestfulCapabilityMode = CapabilityStatementRestfulCapabilityMode = {}));
 /**
  * read | vread | update | patch | delete | history-instance | history-type | create | search-type
  * Coded identifier of the operation, supported by the system resource.
@@ -593,7 +593,7 @@ var CapabilityStatementTypeRestfulInteraction;
     CapabilityStatementTypeRestfulInteraction["HISTORY_TYPE"] = "history-type";
     CapabilityStatementTypeRestfulInteraction["CREATE"] = "create";
     CapabilityStatementTypeRestfulInteraction["SEARCH_TYPE"] = "search-type";
-})(CapabilityStatementTypeRestfulInteraction = exports.CapabilityStatementTypeRestfulInteraction || (exports.CapabilityStatementTypeRestfulInteraction = {}));
+})(CapabilityStatementTypeRestfulInteraction || (exports.CapabilityStatementTypeRestfulInteraction = CapabilityStatementTypeRestfulInteraction = {}));
 /**
  * no-version | versioned | versioned-update
  * This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
@@ -604,7 +604,7 @@ var CapabilityStatementResourceVersionPolicy;
     CapabilityStatementResourceVersionPolicy["NO_VERSION"] = "no-version";
     CapabilityStatementResourceVersionPolicy["VERSIONED"] = "versioned";
     CapabilityStatementResourceVersionPolicy["VERSIONED_UPDATE"] = "versioned-update";
-})(CapabilityStatementResourceVersionPolicy = exports.CapabilityStatementResourceVersionPolicy || (exports.CapabilityStatementResourceVersionPolicy = {}));
+})(CapabilityStatementResourceVersionPolicy || (exports.CapabilityStatementResourceVersionPolicy = CapabilityStatementResourceVersionPolicy = {}));
 /**
  * not-supported | modified-since | not-match | full-support
  * A code that indicates how the server supports conditional read.
@@ -616,7 +616,7 @@ var CapabilityStatementConditionalReadStatus;
     CapabilityStatementConditionalReadStatus["MODIFIED_SINCE"] = "modified-since";
     CapabilityStatementConditionalReadStatus["NOT_MATCH"] = "not-match";
     CapabilityStatementConditionalReadStatus["FULL_SUPPORT"] = "full-support";
-})(CapabilityStatementConditionalReadStatus = exports.CapabilityStatementConditionalReadStatus || (exports.CapabilityStatementConditionalReadStatus = {}));
+})(CapabilityStatementConditionalReadStatus || (exports.CapabilityStatementConditionalReadStatus = CapabilityStatementConditionalReadStatus = {}));
 /**
  * not-supported | single | multiple - how conditional delete is supported
  * A code that indicates how the server supports conditional delete.
@@ -627,7 +627,7 @@ var CapabilityStatementConditionalDeleteStatus;
     CapabilityStatementConditionalDeleteStatus["NOT_SUPPORTED"] = "not-supported";
     CapabilityStatementConditionalDeleteStatus["SINGLE"] = "single";
     CapabilityStatementConditionalDeleteStatus["MULTIPLE"] = "multiple";
-})(CapabilityStatementConditionalDeleteStatus = exports.CapabilityStatementConditionalDeleteStatus || (exports.CapabilityStatementConditionalDeleteStatus = {}));
+})(CapabilityStatementConditionalDeleteStatus || (exports.CapabilityStatementConditionalDeleteStatus = CapabilityStatementConditionalDeleteStatus = {}));
 /**
  * literal | logical | resolves | enforced | local
  * A set of flags that defines how references are supported.
@@ -639,7 +639,7 @@ var CapabilityStatementReferenceHandlingPolicy;
     CapabilityStatementReferenceHandlingPolicy["RESOLVES"] = "resolves";
     CapabilityStatementReferenceHandlingPolicy["ENFORCED"] = "enforced";
     CapabilityStatementReferenceHandlingPolicy["LOCAL"] = "local";
-})(CapabilityStatementReferenceHandlingPolicy = exports.CapabilityStatementReferenceHandlingPolicy || (exports.CapabilityStatementReferenceHandlingPolicy = {}));
+})(CapabilityStatementReferenceHandlingPolicy || (exports.CapabilityStatementReferenceHandlingPolicy = CapabilityStatementReferenceHandlingPolicy = {}));
 /**
  * number | date | string | token | reference | composite | quantity | uri | special
  * The type of value a search parameter refers to, and how the content is interpreted.
@@ -656,7 +656,7 @@ var CapabilityStatementSearchParamType;
     CapabilityStatementSearchParamType["QUANTITY"] = "quantity";
     CapabilityStatementSearchParamType["URI"] = "uri";
     CapabilityStatementSearchParamType["SPECIAL"] = "special";
-})(CapabilityStatementSearchParamType = exports.CapabilityStatementSearchParamType || (exports.CapabilityStatementSearchParamType = {}));
+})(CapabilityStatementSearchParamType || (exports.CapabilityStatementSearchParamType = CapabilityStatementSearchParamType = {}));
 /**
  * transaction | batch | search-system | history-system
  * A coded identifier of the operation, supported by the system.
@@ -667,7 +667,7 @@ var CapabilityStatementSystemRestfulInteraction;
     CapabilityStatementSystemRestfulInteraction["BATCH"] = "batch";
     CapabilityStatementSystemRestfulInteraction["SEARCH_SYSTEM"] = "search-system";
     CapabilityStatementSystemRestfulInteraction["HISTORY_SYSTEM"] = "history-system";
-})(CapabilityStatementSystemRestfulInteraction = exports.CapabilityStatementSystemRestfulInteraction || (exports.CapabilityStatementSystemRestfulInteraction = {}));
+})(CapabilityStatementSystemRestfulInteraction || (exports.CapabilityStatementSystemRestfulInteraction = CapabilityStatementSystemRestfulInteraction = {}));
 /**
  * sender | receiver
  * The mode of this event declaration - whether application is sender or receiver.
@@ -676,7 +676,7 @@ var CapabilityStatementEventCapabilityMode;
 (function (CapabilityStatementEventCapabilityMode) {
     CapabilityStatementEventCapabilityMode["SENDER"] = "sender";
     CapabilityStatementEventCapabilityMode["RECEIVER"] = "receiver";
-})(CapabilityStatementEventCapabilityMode = exports.CapabilityStatementEventCapabilityMode || (exports.CapabilityStatementEventCapabilityMode = {}));
+})(CapabilityStatementEventCapabilityMode || (exports.CapabilityStatementEventCapabilityMode = CapabilityStatementEventCapabilityMode = {}));
 /**
  * producer | consumer
  * Mode of this document declaration - whether an application is a producer or consumer.
@@ -685,7 +685,7 @@ var CapabilityStatementDocumentMode;
 (function (CapabilityStatementDocumentMode) {
     CapabilityStatementDocumentMode["PRODUCER"] = "producer";
     CapabilityStatementDocumentMode["CONSUMER"] = "consumer";
-})(CapabilityStatementDocumentMode = exports.CapabilityStatementDocumentMode || (exports.CapabilityStatementDocumentMode = {}));
+})(CapabilityStatementDocumentMode || (exports.CapabilityStatementDocumentMode = CapabilityStatementDocumentMode = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
@@ -702,7 +702,7 @@ var CarePlanStatus;
     CarePlanStatus["COMPLETED"] = "completed";
     CarePlanStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     CarePlanStatus["UNKNOWN"] = "unknown";
-})(CarePlanStatus = exports.CarePlanStatus || (exports.CarePlanStatus = {}));
+})(CarePlanStatus || (exports.CarePlanStatus = CarePlanStatus = {}));
 /**
  * proposal | plan | order | option
  * Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
@@ -714,7 +714,7 @@ var CarePlanIntent;
     CarePlanIntent["PLAN"] = "plan";
     CarePlanIntent["ORDER"] = "order";
     CarePlanIntent["OPTION"] = "option";
-})(CarePlanIntent = exports.CarePlanIntent || (exports.CarePlanIntent = {}));
+})(CarePlanIntent || (exports.CarePlanIntent = CarePlanIntent = {}));
 /**
  * Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription
  * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
@@ -729,7 +729,7 @@ var CarePlanActivityKind;
     CarePlanActivityKind["TASK"] = "Task";
     CarePlanActivityKind["SERVICEREQUEST"] = "ServiceRequest";
     CarePlanActivityKind["VISIONPRESCRIPTION"] = "VisionPrescription";
-})(CarePlanActivityKind = exports.CarePlanActivityKind || (exports.CarePlanActivityKind = {}));
+})(CarePlanActivityKind || (exports.CarePlanActivityKind = CarePlanActivityKind = {}));
 /**
  * not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error
  * Identifies what progress is being made for the specific activity.
@@ -747,7 +747,7 @@ var CarePlanActivityStatus;
     CarePlanActivityStatus["STOPPED"] = "stopped";
     CarePlanActivityStatus["UNKNOWN"] = "unknown";
     CarePlanActivityStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CarePlanActivityStatus = exports.CarePlanActivityStatus || (exports.CarePlanActivityStatus = {}));
+})(CarePlanActivityStatus || (exports.CarePlanActivityStatus = CarePlanActivityStatus = {}));
 /**
  * proposed | active | suspended | inactive | entered-in-error
  * Indicates the current state of the care team.
@@ -760,7 +760,7 @@ var CareTeamStatus;
     CareTeamStatus["SUSPENDED"] = "suspended";
     CareTeamStatus["INACTIVE"] = "inactive";
     CareTeamStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CareTeamStatus = exports.CareTeamStatus || (exports.CareTeamStatus = {}));
+})(CareTeamStatus || (exports.CareTeamStatus = CareTeamStatus = {}));
 /**
  * draft | active | retired | unknown
  * Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
@@ -771,7 +771,7 @@ var CatalogEntryPublicationStatus;
     CatalogEntryPublicationStatus["ACTIVE"] = "active";
     CatalogEntryPublicationStatus["RETIRED"] = "retired";
     CatalogEntryPublicationStatus["UNKNOWN"] = "unknown";
-})(CatalogEntryPublicationStatus = exports.CatalogEntryPublicationStatus || (exports.CatalogEntryPublicationStatus = {}));
+})(CatalogEntryPublicationStatus || (exports.CatalogEntryPublicationStatus = CatalogEntryPublicationStatus = {}));
 /**
  * triggers | is-replaced-by
  * The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.
@@ -780,7 +780,7 @@ var CatalogEntryRelationType;
 (function (CatalogEntryRelationType) {
     CatalogEntryRelationType["TRIGGERS"] = "triggers";
     CatalogEntryRelationType["IS_REPLACED_BY"] = "is-replaced-by";
-})(CatalogEntryRelationType = exports.CatalogEntryRelationType || (exports.CatalogEntryRelationType = {}));
+})(CatalogEntryRelationType || (exports.CatalogEntryRelationType = CatalogEntryRelationType = {}));
 /**
  * planned | billable | not-billable | aborted | billed | entered-in-error | unknown
  * The current state of the ChargeItem.
@@ -797,7 +797,7 @@ var ChargeItemStatus;
     ChargeItemStatus["BILLED"] = "billed";
     ChargeItemStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ChargeItemStatus["UNKNOWN"] = "unknown";
-})(ChargeItemStatus = exports.ChargeItemStatus || (exports.ChargeItemStatus = {}));
+})(ChargeItemStatus || (exports.ChargeItemStatus = ChargeItemStatus = {}));
 /**
  * draft | active | retired | unknown
  * The current state of the ChargeItemDefinition.
@@ -809,7 +809,7 @@ var ChargeItemDefinitionPublicationStatus;
     ChargeItemDefinitionPublicationStatus["ACTIVE"] = "active";
     ChargeItemDefinitionPublicationStatus["RETIRED"] = "retired";
     ChargeItemDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(ChargeItemDefinitionPublicationStatus = exports.ChargeItemDefinitionPublicationStatus || (exports.ChargeItemDefinitionPublicationStatus = {}));
+})(ChargeItemDefinitionPublicationStatus || (exports.ChargeItemDefinitionPublicationStatus = ChargeItemDefinitionPublicationStatus = {}));
 /**
  * base | surcharge | deduction | discount | tax | informational
  * This code identifies the type of the component.
@@ -822,7 +822,7 @@ var ChargeItemDefinitionPriceComponentType;
     ChargeItemDefinitionPriceComponentType["DISCOUNT"] = "discount";
     ChargeItemDefinitionPriceComponentType["TAX"] = "tax";
     ChargeItemDefinitionPriceComponentType["INFORMATIONAL"] = "informational";
-})(ChargeItemDefinitionPriceComponentType = exports.ChargeItemDefinitionPriceComponentType || (exports.ChargeItemDefinitionPriceComponentType = {}));
+})(ChargeItemDefinitionPriceComponentType || (exports.ChargeItemDefinitionPriceComponentType = ChargeItemDefinitionPriceComponentType = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -834,7 +834,7 @@ var ClaimStatus;
     ClaimStatus["CANCELLED"] = "cancelled";
     ClaimStatus["DRAFT"] = "draft";
     ClaimStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ClaimStatus = exports.ClaimStatus || (exports.ClaimStatus = {}));
+})(ClaimStatus || (exports.ClaimStatus = ClaimStatus = {}));
 /**
  * claim | preauthorization | predetermination
  * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
@@ -844,7 +844,7 @@ var ClaimUse;
     ClaimUse["CLAIM"] = "claim";
     ClaimUse["PREAUTHORIZATION"] = "preauthorization";
     ClaimUse["PREDETERMINATION"] = "predetermination";
-})(ClaimUse = exports.ClaimUse || (exports.ClaimUse = {}));
+})(ClaimUse || (exports.ClaimUse = ClaimUse = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -856,7 +856,7 @@ var ClaimResponseStatus;
     ClaimResponseStatus["CANCELLED"] = "cancelled";
     ClaimResponseStatus["DRAFT"] = "draft";
     ClaimResponseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ClaimResponseStatus = exports.ClaimResponseStatus || (exports.ClaimResponseStatus = {}));
+})(ClaimResponseStatus || (exports.ClaimResponseStatus = ClaimResponseStatus = {}));
 /**
  * claim | preauthorization | predetermination
  * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
@@ -866,7 +866,7 @@ var ClaimResponseUse;
     ClaimResponseUse["CLAIM"] = "claim";
     ClaimResponseUse["PREAUTHORIZATION"] = "preauthorization";
     ClaimResponseUse["PREDETERMINATION"] = "predetermination";
-})(ClaimResponseUse = exports.ClaimResponseUse || (exports.ClaimResponseUse = {}));
+})(ClaimResponseUse || (exports.ClaimResponseUse = ClaimResponseUse = {}));
 /**
  * queued | complete | error | partial
  * The outcome of the claim, predetermination, or preauthorization processing.
@@ -878,7 +878,7 @@ var ClaimResponseRemittanceOutcome;
     ClaimResponseRemittanceOutcome["COMPLETE"] = "complete";
     ClaimResponseRemittanceOutcome["ERROR"] = "error";
     ClaimResponseRemittanceOutcome["PARTIAL"] = "partial";
-})(ClaimResponseRemittanceOutcome = exports.ClaimResponseRemittanceOutcome || (exports.ClaimResponseRemittanceOutcome = {}));
+})(ClaimResponseRemittanceOutcome || (exports.ClaimResponseRemittanceOutcome = ClaimResponseRemittanceOutcome = {}));
 /**
  * display | print | printoper
  * The business purpose of the note text.
@@ -888,7 +888,7 @@ var ClaimResponseNoteType;
     ClaimResponseNoteType["DISPLAY"] = "display";
     ClaimResponseNoteType["PRINT"] = "print";
     ClaimResponseNoteType["PRINTOPER"] = "printoper";
-})(ClaimResponseNoteType = exports.ClaimResponseNoteType || (exports.ClaimResponseNoteType = {}));
+})(ClaimResponseNoteType || (exports.ClaimResponseNoteType = ClaimResponseNoteType = {}));
 /**
  * in-progress | completed | entered-in-error
  * Identifies the workflow status of the assessment.
@@ -899,7 +899,7 @@ var ClinicalImpressionStatus;
     ClinicalImpressionStatus["IN_PROGRESS"] = "in-progress";
     ClinicalImpressionStatus["COMPLETED"] = "completed";
     ClinicalImpressionStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ClinicalImpressionStatus = exports.ClinicalImpressionStatus || (exports.ClinicalImpressionStatus = {}));
+})(ClinicalImpressionStatus || (exports.ClinicalImpressionStatus = ClinicalImpressionStatus = {}));
 /**
  * draft | active | retired | unknown
  * The date (and optionally time) when the code system resource was created or revised.
@@ -911,7 +911,7 @@ var CodeSystemPublicationStatus;
     CodeSystemPublicationStatus["ACTIVE"] = "active";
     CodeSystemPublicationStatus["RETIRED"] = "retired";
     CodeSystemPublicationStatus["UNKNOWN"] = "unknown";
-})(CodeSystemPublicationStatus = exports.CodeSystemPublicationStatus || (exports.CodeSystemPublicationStatus = {}));
+})(CodeSystemPublicationStatus || (exports.CodeSystemPublicationStatus = CodeSystemPublicationStatus = {}));
 /**
  * grouped-by | is-a | part-of | classified-with
  * The meaning of the hierarchy of concepts as represented in this resource.
@@ -923,7 +923,7 @@ var CodeSystemHierarchyMeaning;
     CodeSystemHierarchyMeaning["IS_A"] = "is-a";
     CodeSystemHierarchyMeaning["PART_OF"] = "part-of";
     CodeSystemHierarchyMeaning["CLASSIFIED_WITH"] = "classified-with";
-})(CodeSystemHierarchyMeaning = exports.CodeSystemHierarchyMeaning || (exports.CodeSystemHierarchyMeaning = {}));
+})(CodeSystemHierarchyMeaning || (exports.CodeSystemHierarchyMeaning = CodeSystemHierarchyMeaning = {}));
 /**
  * not-present | example | fragment | complete | supplement
  * The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
@@ -935,7 +935,7 @@ var CodeSystemContentMode;
     CodeSystemContentMode["FRAGMENT"] = "fragment";
     CodeSystemContentMode["COMPLETE"] = "complete";
     CodeSystemContentMode["SUPPLEMENT"] = "supplement";
-})(CodeSystemContentMode = exports.CodeSystemContentMode || (exports.CodeSystemContentMode = {}));
+})(CodeSystemContentMode || (exports.CodeSystemContentMode = CodeSystemContentMode = {}));
 /**
  * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
  * A list of operators that can be used with the filter.
@@ -951,7 +951,7 @@ var CodeSystemFilterOperator;
     CodeSystemFilterOperator["NOT_IN"] = "not-in";
     CodeSystemFilterOperator["GENERALIZES"] = "generalizes";
     CodeSystemFilterOperator["EXISTS"] = "exists";
-})(CodeSystemFilterOperator = exports.CodeSystemFilterOperator || (exports.CodeSystemFilterOperator = {}));
+})(CodeSystemFilterOperator || (exports.CodeSystemFilterOperator = CodeSystemFilterOperator = {}));
 /**
  * code | Coding | string | integer | boolean | dateTime | decimal
  * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
@@ -965,7 +965,7 @@ var CodeSystemPropertyType;
     CodeSystemPropertyType["BOOLEAN"] = "boolean";
     CodeSystemPropertyType["DATETIME"] = "dateTime";
     CodeSystemPropertyType["DECIMAL"] = "decimal";
-})(CodeSystemPropertyType = exports.CodeSystemPropertyType || (exports.CodeSystemPropertyType = {}));
+})(CodeSystemPropertyType || (exports.CodeSystemPropertyType = CodeSystemPropertyType = {}));
 /**
  * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The status of the transmission.
@@ -981,7 +981,7 @@ var CommunicationStatus;
     CommunicationStatus["COMPLETED"] = "completed";
     CommunicationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     CommunicationStatus["UNKNOWN"] = "unknown";
-})(CommunicationStatus = exports.CommunicationStatus || (exports.CommunicationStatus = {}));
+})(CommunicationStatus || (exports.CommunicationStatus = CommunicationStatus = {}));
 /**
  * routine | urgent | asap | stat
  * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
@@ -993,7 +993,7 @@ var CommunicationPriority;
     CommunicationPriority["URGENT"] = "urgent";
     CommunicationPriority["ASAP"] = "asap";
     CommunicationPriority["STAT"] = "stat";
-})(CommunicationPriority = exports.CommunicationPriority || (exports.CommunicationPriority = {}));
+})(CommunicationPriority || (exports.CommunicationPriority = CommunicationPriority = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the proposal or order.
@@ -1007,7 +1007,7 @@ var CommunicationRequestStatus;
     CommunicationRequestStatus["COMPLETED"] = "completed";
     CommunicationRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     CommunicationRequestStatus["UNKNOWN"] = "unknown";
-})(CommunicationRequestStatus = exports.CommunicationRequestStatus || (exports.CommunicationRequestStatus = {}));
+})(CommunicationRequestStatus || (exports.CommunicationRequestStatus = CommunicationRequestStatus = {}));
 /**
  * routine | urgent | asap | stat
  * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
@@ -1018,7 +1018,7 @@ var CommunicationRequestCommunicationPriority;
     CommunicationRequestCommunicationPriority["URGENT"] = "urgent";
     CommunicationRequestCommunicationPriority["ASAP"] = "asap";
     CommunicationRequestCommunicationPriority["STAT"] = "stat";
-})(CommunicationRequestCommunicationPriority = exports.CommunicationRequestCommunicationPriority || (exports.CommunicationRequestCommunicationPriority = {}));
+})(CommunicationRequestCommunicationPriority || (exports.CommunicationRequestCommunicationPriority = CommunicationRequestCommunicationPriority = {}));
 /**
  * draft | active | retired | unknown
  * The status of this compartment definition. Enables tracking the life-cycle of the content.
@@ -1030,7 +1030,7 @@ var CompartmentDefinitionPublicationStatus;
     CompartmentDefinitionPublicationStatus["ACTIVE"] = "active";
     CompartmentDefinitionPublicationStatus["RETIRED"] = "retired";
     CompartmentDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(CompartmentDefinitionPublicationStatus = exports.CompartmentDefinitionPublicationStatus || (exports.CompartmentDefinitionPublicationStatus = {}));
+})(CompartmentDefinitionPublicationStatus || (exports.CompartmentDefinitionPublicationStatus = CompartmentDefinitionPublicationStatus = {}));
 /**
  * Patient | Encounter | RelatedPerson | Practitioner | Device
  * Which compartment this definition describes.
@@ -1043,7 +1043,7 @@ var CompartmentDefinitionCompartmentType;
     CompartmentDefinitionCompartmentType["RELATEDPERSON"] = "RelatedPerson";
     CompartmentDefinitionCompartmentType["PRACTITIONER"] = "Practitioner";
     CompartmentDefinitionCompartmentType["DEVICE"] = "Device";
-})(CompartmentDefinitionCompartmentType = exports.CompartmentDefinitionCompartmentType || (exports.CompartmentDefinitionCompartmentType = {}));
+})(CompartmentDefinitionCompartmentType || (exports.CompartmentDefinitionCompartmentType = CompartmentDefinitionCompartmentType = {}));
 /**
  * preliminary | final | amended | entered-in-error
  * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
@@ -1057,7 +1057,7 @@ var CompositionStatus;
     CompositionStatus["FINAL"] = "final";
     CompositionStatus["AMENDED"] = "amended";
     CompositionStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CompositionStatus = exports.CompositionStatus || (exports.CompositionStatus = {}));
+})(CompositionStatus || (exports.CompositionStatus = CompositionStatus = {}));
 /**
  * personal | professional | legal | official
  * The type of attestation the authenticator offers.
@@ -1068,7 +1068,7 @@ var CompositionAttestationMode;
     CompositionAttestationMode["PROFESSIONAL"] = "professional";
     CompositionAttestationMode["LEGAL"] = "legal";
     CompositionAttestationMode["OFFICIAL"] = "official";
-})(CompositionAttestationMode = exports.CompositionAttestationMode || (exports.CompositionAttestationMode = {}));
+})(CompositionAttestationMode || (exports.CompositionAttestationMode = CompositionAttestationMode = {}));
 /**
  * replaces | transforms | signs | appends
  * The type of relationship that this composition has with anther composition or document.
@@ -1080,7 +1080,7 @@ var CompositionDocumentRelationshipType;
     CompositionDocumentRelationshipType["TRANSFORMS"] = "transforms";
     CompositionDocumentRelationshipType["SIGNS"] = "signs";
     CompositionDocumentRelationshipType["APPENDS"] = "appends";
-})(CompositionDocumentRelationshipType = exports.CompositionDocumentRelationshipType || (exports.CompositionDocumentRelationshipType = {}));
+})(CompositionDocumentRelationshipType || (exports.CompositionDocumentRelationshipType = CompositionDocumentRelationshipType = {}));
 /**
  * working | snapshot | changes
  * How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
@@ -1091,7 +1091,7 @@ var CompositionSectionMode;
     CompositionSectionMode["WORKING"] = "working";
     CompositionSectionMode["SNAPSHOT"] = "snapshot";
     CompositionSectionMode["CHANGES"] = "changes";
-})(CompositionSectionMode = exports.CompositionSectionMode || (exports.CompositionSectionMode = {}));
+})(CompositionSectionMode || (exports.CompositionSectionMode = CompositionSectionMode = {}));
 /**
  * draft | active | retired | unknown
  * The status of this concept map. Enables tracking the life-cycle of the content.
@@ -1103,7 +1103,7 @@ var ConceptMapPublicationStatus;
     ConceptMapPublicationStatus["ACTIVE"] = "active";
     ConceptMapPublicationStatus["RETIRED"] = "retired";
     ConceptMapPublicationStatus["UNKNOWN"] = "unknown";
-})(ConceptMapPublicationStatus = exports.ConceptMapPublicationStatus || (exports.ConceptMapPublicationStatus = {}));
+})(ConceptMapPublicationStatus || (exports.ConceptMapPublicationStatus = ConceptMapPublicationStatus = {}));
 /**
  * relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
  * The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
@@ -1121,7 +1121,7 @@ var ConceptMapEquivalence;
     ConceptMapEquivalence["INEXACT"] = "inexact";
     ConceptMapEquivalence["UNMATCHED"] = "unmatched";
     ConceptMapEquivalence["DISJOINT"] = "disjoint";
-})(ConceptMapEquivalence = exports.ConceptMapEquivalence || (exports.ConceptMapEquivalence = {}));
+})(ConceptMapEquivalence || (exports.ConceptMapEquivalence = ConceptMapEquivalence = {}));
 /**
  * provided | fixed | other-map
  * Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).
@@ -1131,7 +1131,7 @@ var ConceptMapGroupUnmappedMode;
     ConceptMapGroupUnmappedMode["PROVIDED"] = "provided";
     ConceptMapGroupUnmappedMode["FIXED"] = "fixed";
     ConceptMapGroupUnmappedMode["OTHER_MAP"] = "other-map";
-})(ConceptMapGroupUnmappedMode = exports.ConceptMapGroupUnmappedMode || (exports.ConceptMapGroupUnmappedMode = {}));
+})(ConceptMapGroupUnmappedMode || (exports.ConceptMapGroupUnmappedMode = ConceptMapGroupUnmappedMode = {}));
 /**
  * draft | proposed | active | rejected | inactive | entered-in-error
  * Indicates the current state of this consent.
@@ -1145,7 +1145,7 @@ var ConsentState;
     ConsentState["REJECTED"] = "rejected";
     ConsentState["INACTIVE"] = "inactive";
     ConsentState["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ConsentState = exports.ConsentState || (exports.ConsentState = {}));
+})(ConsentState || (exports.ConsentState = ConsentState = {}));
 /**
  * deny | permit
  * Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
@@ -1154,7 +1154,7 @@ var ConsentProvisionType;
 (function (ConsentProvisionType) {
     ConsentProvisionType["DENY"] = "deny";
     ConsentProvisionType["PERMIT"] = "permit";
-})(ConsentProvisionType = exports.ConsentProvisionType || (exports.ConsentProvisionType = {}));
+})(ConsentProvisionType || (exports.ConsentProvisionType = ConsentProvisionType = {}));
 /**
  * instance | related | dependents | authoredby
  * How the resource reference is interpreted when testing consent restrictions.
@@ -1165,7 +1165,7 @@ var ConsentDataMeaning;
     ConsentDataMeaning["RELATED"] = "related";
     ConsentDataMeaning["DEPENDENTS"] = "dependents";
     ConsentDataMeaning["AUTHOREDBY"] = "authoredby";
-})(ConsentDataMeaning = exports.ConsentDataMeaning || (exports.ConsentDataMeaning = {}));
+})(ConsentDataMeaning || (exports.ConsentDataMeaning = ConsentDataMeaning = {}));
 /**
  * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
  * The status of the resource instance.
@@ -1188,7 +1188,7 @@ var ContractStatus;
     ContractStatus["REVOKED"] = "revoked";
     ContractStatus["RESOLVED"] = "resolved";
     ContractStatus["TERMINATED"] = "terminated";
-})(ContractStatus = exports.ContractStatus || (exports.ContractStatus = {}));
+})(ContractStatus || (exports.ContractStatus = ContractStatus = {}));
 /**
  * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
  * amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated.
@@ -1210,7 +1210,7 @@ var ContractPublicationStatus;
     ContractPublicationStatus["REVOKED"] = "revoked";
     ContractPublicationStatus["RESOLVED"] = "resolved";
     ContractPublicationStatus["TERMINATED"] = "terminated";
-})(ContractPublicationStatus = exports.ContractPublicationStatus || (exports.ContractPublicationStatus = {}));
+})(ContractPublicationStatus || (exports.ContractPublicationStatus = ContractPublicationStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1222,7 +1222,7 @@ var CoverageStatus;
     CoverageStatus["CANCELLED"] = "cancelled";
     CoverageStatus["DRAFT"] = "draft";
     CoverageStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CoverageStatus = exports.CoverageStatus || (exports.CoverageStatus = {}));
+})(CoverageStatus || (exports.CoverageStatus = CoverageStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1234,7 +1234,7 @@ var CoverageEligibilityRequestEligibilityRequestStatus;
     CoverageEligibilityRequestEligibilityRequestStatus["CANCELLED"] = "cancelled";
     CoverageEligibilityRequestEligibilityRequestStatus["DRAFT"] = "draft";
     CoverageEligibilityRequestEligibilityRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CoverageEligibilityRequestEligibilityRequestStatus = exports.CoverageEligibilityRequestEligibilityRequestStatus || (exports.CoverageEligibilityRequestEligibilityRequestStatus = {}));
+})(CoverageEligibilityRequestEligibilityRequestStatus || (exports.CoverageEligibilityRequestEligibilityRequestStatus = CoverageEligibilityRequestEligibilityRequestStatus = {}));
 /**
  * auth-requirements | benefits | discovery | validation
  * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
@@ -1245,7 +1245,7 @@ var CoverageEligibilityRequestEligibilityRequestPurpose;
     CoverageEligibilityRequestEligibilityRequestPurpose["BENEFITS"] = "benefits";
     CoverageEligibilityRequestEligibilityRequestPurpose["DISCOVERY"] = "discovery";
     CoverageEligibilityRequestEligibilityRequestPurpose["VALIDATION"] = "validation";
-})(CoverageEligibilityRequestEligibilityRequestPurpose = exports.CoverageEligibilityRequestEligibilityRequestPurpose || (exports.CoverageEligibilityRequestEligibilityRequestPurpose = {}));
+})(CoverageEligibilityRequestEligibilityRequestPurpose || (exports.CoverageEligibilityRequestEligibilityRequestPurpose = CoverageEligibilityRequestEligibilityRequestPurpose = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1257,7 +1257,7 @@ var CoverageEligibilityResponseEligibilityResponseStatus;
     CoverageEligibilityResponseEligibilityResponseStatus["CANCELLED"] = "cancelled";
     CoverageEligibilityResponseEligibilityResponseStatus["DRAFT"] = "draft";
     CoverageEligibilityResponseEligibilityResponseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(CoverageEligibilityResponseEligibilityResponseStatus = exports.CoverageEligibilityResponseEligibilityResponseStatus || (exports.CoverageEligibilityResponseEligibilityResponseStatus = {}));
+})(CoverageEligibilityResponseEligibilityResponseStatus || (exports.CoverageEligibilityResponseEligibilityResponseStatus = CoverageEligibilityResponseEligibilityResponseStatus = {}));
 /**
  * auth-requirements | benefits | discovery | validation
  * Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
@@ -1268,7 +1268,7 @@ var CoverageEligibilityResponseEligibilityResponsePurpose;
     CoverageEligibilityResponseEligibilityResponsePurpose["BENEFITS"] = "benefits";
     CoverageEligibilityResponseEligibilityResponsePurpose["DISCOVERY"] = "discovery";
     CoverageEligibilityResponseEligibilityResponsePurpose["VALIDATION"] = "validation";
-})(CoverageEligibilityResponseEligibilityResponsePurpose = exports.CoverageEligibilityResponseEligibilityResponsePurpose || (exports.CoverageEligibilityResponseEligibilityResponsePurpose = {}));
+})(CoverageEligibilityResponseEligibilityResponsePurpose || (exports.CoverageEligibilityResponseEligibilityResponsePurpose = CoverageEligibilityResponseEligibilityResponsePurpose = {}));
 /**
  * queued | complete | error | partial
  * The outcome of the request processing.
@@ -1280,7 +1280,7 @@ var CoverageEligibilityResponseRemittanceOutcome;
     CoverageEligibilityResponseRemittanceOutcome["COMPLETE"] = "complete";
     CoverageEligibilityResponseRemittanceOutcome["ERROR"] = "error";
     CoverageEligibilityResponseRemittanceOutcome["PARTIAL"] = "partial";
-})(CoverageEligibilityResponseRemittanceOutcome = exports.CoverageEligibilityResponseRemittanceOutcome || (exports.CoverageEligibilityResponseRemittanceOutcome = {}));
+})(CoverageEligibilityResponseRemittanceOutcome || (exports.CoverageEligibilityResponseRemittanceOutcome = CoverageEligibilityResponseRemittanceOutcome = {}));
 /**
  * high | moderate | low
  * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
@@ -1290,7 +1290,7 @@ var DetectedIssueSeverity;
     DetectedIssueSeverity["HIGH"] = "high";
     DetectedIssueSeverity["MODERATE"] = "moderate";
     DetectedIssueSeverity["LOW"] = "low";
-})(DetectedIssueSeverity = exports.DetectedIssueSeverity || (exports.DetectedIssueSeverity = {}));
+})(DetectedIssueSeverity || (exports.DetectedIssueSeverity = DetectedIssueSeverity = {}));
 /**
  * active | inactive | entered-in-error | unknown
  * Status of the Device availability.
@@ -1302,7 +1302,7 @@ var DeviceFHIRDeviceStatus;
     DeviceFHIRDeviceStatus["INACTIVE"] = "inactive";
     DeviceFHIRDeviceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     DeviceFHIRDeviceStatus["UNKNOWN"] = "unknown";
-})(DeviceFHIRDeviceStatus = exports.DeviceFHIRDeviceStatus || (exports.DeviceFHIRDeviceStatus = {}));
+})(DeviceFHIRDeviceStatus || (exports.DeviceFHIRDeviceStatus = DeviceFHIRDeviceStatus = {}));
 /**
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
@@ -1316,7 +1316,7 @@ var DeviceNameType;
     DeviceNameType["MANUFACTURER_NAME"] = "manufacturer-name";
     DeviceNameType["MODEL_NAME"] = "model-name";
     DeviceNameType["OTHER"] = "other";
-})(DeviceNameType = exports.DeviceNameType || (exports.DeviceNameType = {}));
+})(DeviceNameType || (exports.DeviceNameType = DeviceNameType = {}));
 /**
  * udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other
  * The type of deviceName.
@@ -1330,7 +1330,7 @@ var DeviceDefinitionDeviceNameType;
     DeviceDefinitionDeviceNameType["MANUFACTURER_NAME"] = "manufacturer-name";
     DeviceDefinitionDeviceNameType["MODEL_NAME"] = "model-name";
     DeviceDefinitionDeviceNameType["OTHER"] = "other";
-})(DeviceDefinitionDeviceNameType = exports.DeviceDefinitionDeviceNameType || (exports.DeviceDefinitionDeviceNameType = {}));
+})(DeviceDefinitionDeviceNameType || (exports.DeviceDefinitionDeviceNameType = DeviceDefinitionDeviceNameType = {}));
 /**
  * on | off | standby | entered-in-error
  * Indicates current operational state of the device. For example: On, Off, Standby, etc.
@@ -1341,7 +1341,7 @@ var DeviceMetricOperationalStatus;
     DeviceMetricOperationalStatus["OFF"] = "off";
     DeviceMetricOperationalStatus["STANDBY"] = "standby";
     DeviceMetricOperationalStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(DeviceMetricOperationalStatus = exports.DeviceMetricOperationalStatus || (exports.DeviceMetricOperationalStatus = {}));
+})(DeviceMetricOperationalStatus || (exports.DeviceMetricOperationalStatus = DeviceMetricOperationalStatus = {}));
 /**
  * black | red | green | yellow | blue | magenta | cyan | white
  * Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
@@ -1356,7 +1356,7 @@ var DeviceMetricColor;
     DeviceMetricColor["MAGENTA"] = "magenta";
     DeviceMetricColor["CYAN"] = "cyan";
     DeviceMetricColor["WHITE"] = "white";
-})(DeviceMetricColor = exports.DeviceMetricColor || (exports.DeviceMetricColor = {}));
+})(DeviceMetricColor || (exports.DeviceMetricColor = DeviceMetricColor = {}));
 /**
  * measurement | setting | calculation | unspecified
  * Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
@@ -1367,7 +1367,7 @@ var DeviceMetricCategory;
     DeviceMetricCategory["SETTING"] = "setting";
     DeviceMetricCategory["CALCULATION"] = "calculation";
     DeviceMetricCategory["UNSPECIFIED"] = "unspecified";
-})(DeviceMetricCategory = exports.DeviceMetricCategory || (exports.DeviceMetricCategory = {}));
+})(DeviceMetricCategory || (exports.DeviceMetricCategory = DeviceMetricCategory = {}));
 /**
  * unspecified | offset | gain | two-point
  * Describes the type of the calibration method.
@@ -1378,7 +1378,7 @@ var DeviceMetricCalibrationType;
     DeviceMetricCalibrationType["OFFSET"] = "offset";
     DeviceMetricCalibrationType["GAIN"] = "gain";
     DeviceMetricCalibrationType["TWO_POINT"] = "two-point";
-})(DeviceMetricCalibrationType = exports.DeviceMetricCalibrationType || (exports.DeviceMetricCalibrationType = {}));
+})(DeviceMetricCalibrationType || (exports.DeviceMetricCalibrationType = DeviceMetricCalibrationType = {}));
 /**
  * not-calibrated | calibration-required | calibrated | unspecified
  * Describes the state of the calibration.
@@ -1389,7 +1389,7 @@ var DeviceMetricCalibrationState;
     DeviceMetricCalibrationState["CALIBRATION_REQUIRED"] = "calibration-required";
     DeviceMetricCalibrationState["CALIBRATED"] = "calibrated";
     DeviceMetricCalibrationState["UNSPECIFIED"] = "unspecified";
-})(DeviceMetricCalibrationState = exports.DeviceMetricCalibrationState || (exports.DeviceMetricCalibrationState = {}));
+})(DeviceMetricCalibrationState || (exports.DeviceMetricCalibrationState = DeviceMetricCalibrationState = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the request.
@@ -1404,7 +1404,7 @@ var DeviceRequestStatus;
     DeviceRequestStatus["COMPLETED"] = "completed";
     DeviceRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     DeviceRequestStatus["UNKNOWN"] = "unknown";
-})(DeviceRequestStatus = exports.DeviceRequestStatus || (exports.DeviceRequestStatus = {}));
+})(DeviceRequestStatus || (exports.DeviceRequestStatus = DeviceRequestStatus = {}));
 /**
  * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
@@ -1420,7 +1420,7 @@ var DeviceRequestRequestIntent;
     DeviceRequestRequestIntent["FILLER_ORDER"] = "filler-order";
     DeviceRequestRequestIntent["INSTANCE_ORDER"] = "instance-order";
     DeviceRequestRequestIntent["OPTION"] = "option";
-})(DeviceRequestRequestIntent = exports.DeviceRequestRequestIntent || (exports.DeviceRequestRequestIntent = {}));
+})(DeviceRequestRequestIntent || (exports.DeviceRequestRequestIntent = DeviceRequestRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the {{title}} should be addressed with respect to other requests.
@@ -1431,7 +1431,7 @@ var DeviceRequestRequestPriority;
     DeviceRequestRequestPriority["URGENT"] = "urgent";
     DeviceRequestRequestPriority["ASAP"] = "asap";
     DeviceRequestRequestPriority["STAT"] = "stat";
-})(DeviceRequestRequestPriority = exports.DeviceRequestRequestPriority || (exports.DeviceRequestRequestPriority = {}));
+})(DeviceRequestRequestPriority || (exports.DeviceRequestRequestPriority = DeviceRequestRequestPriority = {}));
 /**
  * current | superseded | entered-in-error
  * The status of this document manifest.
@@ -1442,7 +1442,7 @@ var DocumentManifestDocumentReferenceStatus;
     DocumentManifestDocumentReferenceStatus["CURRENT"] = "current";
     DocumentManifestDocumentReferenceStatus["SUPERSEDED"] = "superseded";
     DocumentManifestDocumentReferenceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(DocumentManifestDocumentReferenceStatus = exports.DocumentManifestDocumentReferenceStatus || (exports.DocumentManifestDocumentReferenceStatus = {}));
+})(DocumentManifestDocumentReferenceStatus || (exports.DocumentManifestDocumentReferenceStatus = DocumentManifestDocumentReferenceStatus = {}));
 /**
  * current | superseded | entered-in-error
  * The status of this document reference.
@@ -1455,7 +1455,7 @@ var DocumentReferenceStatus;
     DocumentReferenceStatus["CURRENT"] = "current";
     DocumentReferenceStatus["SUPERSEDED"] = "superseded";
     DocumentReferenceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(DocumentReferenceStatus = exports.DocumentReferenceStatus || (exports.DocumentReferenceStatus = {}));
+})(DocumentReferenceStatus || (exports.DocumentReferenceStatus = DocumentReferenceStatus = {}));
 /**
  * preliminary | final | amended | entered-in-error
  * The status of the underlying document.
@@ -1467,7 +1467,7 @@ var DocumentReferenceReferredDocumentStatus;
     DocumentReferenceReferredDocumentStatus["FINAL"] = "final";
     DocumentReferenceReferredDocumentStatus["AMENDED"] = "amended";
     DocumentReferenceReferredDocumentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(DocumentReferenceReferredDocumentStatus = exports.DocumentReferenceReferredDocumentStatus || (exports.DocumentReferenceReferredDocumentStatus = {}));
+})(DocumentReferenceReferredDocumentStatus || (exports.DocumentReferenceReferredDocumentStatus = DocumentReferenceReferredDocumentStatus = {}));
 /**
  * replaces | transforms | signs | appends
  * The type of relationship that this document has with anther document.
@@ -1479,7 +1479,7 @@ var DocumentReferenceDocumentRelationshipType;
     DocumentReferenceDocumentRelationshipType["TRANSFORMS"] = "transforms";
     DocumentReferenceDocumentRelationshipType["SIGNS"] = "signs";
     DocumentReferenceDocumentRelationshipType["APPENDS"] = "appends";
-})(DocumentReferenceDocumentRelationshipType = exports.DocumentReferenceDocumentRelationshipType || (exports.DocumentReferenceDocumentRelationshipType = {}));
+})(DocumentReferenceDocumentRelationshipType || (exports.DocumentReferenceDocumentRelationshipType = DocumentReferenceDocumentRelationshipType = {}));
 /**
  * draft | active | retired | unknown
  * The status of this effect evidence synthesis. Enables tracking the life-cycle of the content.
@@ -1491,7 +1491,7 @@ var EffectEvidenceSynthesisPublicationStatus;
     EffectEvidenceSynthesisPublicationStatus["ACTIVE"] = "active";
     EffectEvidenceSynthesisPublicationStatus["RETIRED"] = "retired";
     EffectEvidenceSynthesisPublicationStatus["UNKNOWN"] = "unknown";
-})(EffectEvidenceSynthesisPublicationStatus = exports.EffectEvidenceSynthesisPublicationStatus || (exports.EffectEvidenceSynthesisPublicationStatus = {}));
+})(EffectEvidenceSynthesisPublicationStatus || (exports.EffectEvidenceSynthesisPublicationStatus = EffectEvidenceSynthesisPublicationStatus = {}));
 /**
  * exposure | exposure-alternative
  * Whether these results are for the exposure state or alternative exposure state.
@@ -1500,7 +1500,7 @@ var EffectEvidenceSynthesisExposureState;
 (function (EffectEvidenceSynthesisExposureState) {
     EffectEvidenceSynthesisExposureState["EXPOSURE"] = "exposure";
     EffectEvidenceSynthesisExposureState["EXPOSURE_ALTERNATIVE"] = "exposure-alternative";
-})(EffectEvidenceSynthesisExposureState = exports.EffectEvidenceSynthesisExposureState || (exports.EffectEvidenceSynthesisExposureState = {}));
+})(EffectEvidenceSynthesisExposureState || (exports.EffectEvidenceSynthesisExposureState = EffectEvidenceSynthesisExposureState = {}));
 /**
  * planned | active | reserved | completed
  * The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
@@ -1512,7 +1512,7 @@ var EncounterLocationStatus;
     EncounterLocationStatus["ACTIVE"] = "active";
     EncounterLocationStatus["RESERVED"] = "reserved";
     EncounterLocationStatus["COMPLETED"] = "completed";
-})(EncounterLocationStatus = exports.EncounterLocationStatus || (exports.EncounterLocationStatus = {}));
+})(EncounterLocationStatus || (exports.EncounterLocationStatus = EncounterLocationStatus = {}));
 /**
  * active | suspended | error | off | entered-in-error | test
  * active | suspended | error | off | test.
@@ -1526,7 +1526,7 @@ var EndpointStatus;
     EndpointStatus["OFF"] = "off";
     EndpointStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     EndpointStatus["TEST"] = "test";
-})(EndpointStatus = exports.EndpointStatus || (exports.EndpointStatus = {}));
+})(EndpointStatus || (exports.EndpointStatus = EndpointStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1538,7 +1538,7 @@ var EnrollmentRequestStatus;
     EnrollmentRequestStatus["CANCELLED"] = "cancelled";
     EnrollmentRequestStatus["DRAFT"] = "draft";
     EnrollmentRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(EnrollmentRequestStatus = exports.EnrollmentRequestStatus || (exports.EnrollmentRequestStatus = {}));
+})(EnrollmentRequestStatus || (exports.EnrollmentRequestStatus = EnrollmentRequestStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1550,7 +1550,7 @@ var EnrollmentResponseStatus;
     EnrollmentResponseStatus["CANCELLED"] = "cancelled";
     EnrollmentResponseStatus["DRAFT"] = "draft";
     EnrollmentResponseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(EnrollmentResponseStatus = exports.EnrollmentResponseStatus || (exports.EnrollmentResponseStatus = {}));
+})(EnrollmentResponseStatus || (exports.EnrollmentResponseStatus = EnrollmentResponseStatus = {}));
 /**
  * queued | complete | error | partial
  * Processing status: error, complete.
@@ -1561,7 +1561,7 @@ var EnrollmentResponseRemittanceOutcome;
     EnrollmentResponseRemittanceOutcome["COMPLETE"] = "complete";
     EnrollmentResponseRemittanceOutcome["ERROR"] = "error";
     EnrollmentResponseRemittanceOutcome["PARTIAL"] = "partial";
-})(EnrollmentResponseRemittanceOutcome = exports.EnrollmentResponseRemittanceOutcome || (exports.EnrollmentResponseRemittanceOutcome = {}));
+})(EnrollmentResponseRemittanceOutcome || (exports.EnrollmentResponseRemittanceOutcome = EnrollmentResponseRemittanceOutcome = {}));
 /**
  * planned | waitlist | active | onhold | finished | cancelled | entered-in-error
  * planned | waitlist | active | onhold | finished | cancelled.
@@ -1576,7 +1576,7 @@ var EpisodeOfCareStatus;
     EpisodeOfCareStatus["FINISHED"] = "finished";
     EpisodeOfCareStatus["CANCELLED"] = "cancelled";
     EpisodeOfCareStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(EpisodeOfCareStatus = exports.EpisodeOfCareStatus || (exports.EpisodeOfCareStatus = {}));
+})(EpisodeOfCareStatus || (exports.EpisodeOfCareStatus = EpisodeOfCareStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this event definition. Enables tracking the life-cycle of the content.
@@ -1588,7 +1588,7 @@ var EventDefinitionPublicationStatus;
     EventDefinitionPublicationStatus["ACTIVE"] = "active";
     EventDefinitionPublicationStatus["RETIRED"] = "retired";
     EventDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(EventDefinitionPublicationStatus = exports.EventDefinitionPublicationStatus || (exports.EventDefinitionPublicationStatus = {}));
+})(EventDefinitionPublicationStatus || (exports.EventDefinitionPublicationStatus = EventDefinitionPublicationStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this evidence. Enables tracking the life-cycle of the content.
@@ -1600,7 +1600,7 @@ var EvidencePublicationStatus;
     EvidencePublicationStatus["ACTIVE"] = "active";
     EvidencePublicationStatus["RETIRED"] = "retired";
     EvidencePublicationStatus["UNKNOWN"] = "unknown";
-})(EvidencePublicationStatus = exports.EvidencePublicationStatus || (exports.EvidencePublicationStatus = {}));
+})(EvidencePublicationStatus || (exports.EvidencePublicationStatus = EvidencePublicationStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this evidence variable. Enables tracking the life-cycle of the content.
@@ -1612,7 +1612,7 @@ var EvidenceVariablePublicationStatus;
     EvidenceVariablePublicationStatus["ACTIVE"] = "active";
     EvidenceVariablePublicationStatus["RETIRED"] = "retired";
     EvidenceVariablePublicationStatus["UNKNOWN"] = "unknown";
-})(EvidenceVariablePublicationStatus = exports.EvidenceVariablePublicationStatus || (exports.EvidenceVariablePublicationStatus = {}));
+})(EvidenceVariablePublicationStatus || (exports.EvidenceVariablePublicationStatus = EvidenceVariablePublicationStatus = {}));
 /**
  * dichotomous | continuous | descriptive
  * The type of evidence element, a population, an exposure, or an outcome.
@@ -1622,7 +1622,7 @@ var EvidenceVariableType;
     EvidenceVariableType["DICHOTOMOUS"] = "dichotomous";
     EvidenceVariableType["CONTINUOUS"] = "continuous";
     EvidenceVariableType["DESCRIPTIVE"] = "descriptive";
-})(EvidenceVariableType = exports.EvidenceVariableType || (exports.EvidenceVariableType = {}));
+})(EvidenceVariableType || (exports.EvidenceVariableType = EvidenceVariableType = {}));
 /**
  * mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median
  * Indicates how elements are aggregated within the study effective period.
@@ -1635,7 +1635,7 @@ var EvidenceVariableGroupMeasure;
     EvidenceVariableGroupMeasure["MEAN_OF_MEDIAN"] = "mean-of-median";
     EvidenceVariableGroupMeasure["MEDIAN_OF_MEAN"] = "median-of-mean";
     EvidenceVariableGroupMeasure["MEDIAN_OF_MEDIAN"] = "median-of-median";
-})(EvidenceVariableGroupMeasure = exports.EvidenceVariableGroupMeasure || (exports.EvidenceVariableGroupMeasure = {}));
+})(EvidenceVariableGroupMeasure || (exports.EvidenceVariableGroupMeasure = EvidenceVariableGroupMeasure = {}));
 /**
  * draft | active | retired | unknown
  * The status of this example scenario. Enables tracking the life-cycle of the content.
@@ -1647,7 +1647,7 @@ var ExampleScenarioPublicationStatus;
     ExampleScenarioPublicationStatus["ACTIVE"] = "active";
     ExampleScenarioPublicationStatus["RETIRED"] = "retired";
     ExampleScenarioPublicationStatus["UNKNOWN"] = "unknown";
-})(ExampleScenarioPublicationStatus = exports.ExampleScenarioPublicationStatus || (exports.ExampleScenarioPublicationStatus = {}));
+})(ExampleScenarioPublicationStatus || (exports.ExampleScenarioPublicationStatus = ExampleScenarioPublicationStatus = {}));
 /**
  * person | entity
  * The type of actor - person or system.
@@ -1656,7 +1656,7 @@ var ExampleScenarioActorType;
 (function (ExampleScenarioActorType) {
     ExampleScenarioActorType["PERSON"] = "person";
     ExampleScenarioActorType["ENTITY"] = "entity";
-})(ExampleScenarioActorType = exports.ExampleScenarioActorType || (exports.ExampleScenarioActorType = {}));
+})(ExampleScenarioActorType || (exports.ExampleScenarioActorType = ExampleScenarioActorType = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -1668,7 +1668,7 @@ var ExplanationOfBenefitStatus;
     ExplanationOfBenefitStatus["CANCELLED"] = "cancelled";
     ExplanationOfBenefitStatus["DRAFT"] = "draft";
     ExplanationOfBenefitStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ExplanationOfBenefitStatus = exports.ExplanationOfBenefitStatus || (exports.ExplanationOfBenefitStatus = {}));
+})(ExplanationOfBenefitStatus || (exports.ExplanationOfBenefitStatus = ExplanationOfBenefitStatus = {}));
 /**
  * claim | preauthorization | predetermination
  * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
@@ -1678,7 +1678,7 @@ var ExplanationOfBenefitUse;
     ExplanationOfBenefitUse["CLAIM"] = "claim";
     ExplanationOfBenefitUse["PREAUTHORIZATION"] = "preauthorization";
     ExplanationOfBenefitUse["PREDETERMINATION"] = "predetermination";
-})(ExplanationOfBenefitUse = exports.ExplanationOfBenefitUse || (exports.ExplanationOfBenefitUse = {}));
+})(ExplanationOfBenefitUse || (exports.ExplanationOfBenefitUse = ExplanationOfBenefitUse = {}));
 /**
  * queued | complete | error | partial
  * The outcome of the claim, predetermination, or preauthorization processing.
@@ -1690,7 +1690,7 @@ var ExplanationOfBenefitRemittanceOutcome;
     ExplanationOfBenefitRemittanceOutcome["COMPLETE"] = "complete";
     ExplanationOfBenefitRemittanceOutcome["ERROR"] = "error";
     ExplanationOfBenefitRemittanceOutcome["PARTIAL"] = "partial";
-})(ExplanationOfBenefitRemittanceOutcome = exports.ExplanationOfBenefitRemittanceOutcome || (exports.ExplanationOfBenefitRemittanceOutcome = {}));
+})(ExplanationOfBenefitRemittanceOutcome || (exports.ExplanationOfBenefitRemittanceOutcome = ExplanationOfBenefitRemittanceOutcome = {}));
 /**
  * display | print | printoper
  * The business purpose of the note text.
@@ -1700,7 +1700,7 @@ var ExplanationOfBenefitNoteType;
     ExplanationOfBenefitNoteType["DISPLAY"] = "display";
     ExplanationOfBenefitNoteType["PRINT"] = "print";
     ExplanationOfBenefitNoteType["PRINTOPER"] = "printoper";
-})(ExplanationOfBenefitNoteType = exports.ExplanationOfBenefitNoteType || (exports.ExplanationOfBenefitNoteType = {}));
+})(ExplanationOfBenefitNoteType || (exports.ExplanationOfBenefitNoteType = ExplanationOfBenefitNoteType = {}));
 /**
  * partial | completed | entered-in-error | health-unknown
  * A code specifying the status of the record of the family history of a specific family member.
@@ -1712,7 +1712,7 @@ var FamilyMemberHistoryFamilyHistoryStatus;
     FamilyMemberHistoryFamilyHistoryStatus["COMPLETED"] = "completed";
     FamilyMemberHistoryFamilyHistoryStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     FamilyMemberHistoryFamilyHistoryStatus["HEALTH_UNKNOWN"] = "health-unknown";
-})(FamilyMemberHistoryFamilyHistoryStatus = exports.FamilyMemberHistoryFamilyHistoryStatus || (exports.FamilyMemberHistoryFamilyHistoryStatus = {}));
+})(FamilyMemberHistoryFamilyHistoryStatus || (exports.FamilyMemberHistoryFamilyHistoryStatus = FamilyMemberHistoryFamilyHistoryStatus = {}));
 /**
  * active | inactive | entered-in-error
  * Supports basic workflow.
@@ -1723,7 +1723,7 @@ var FlagStatus;
     FlagStatus["ACTIVE"] = "active";
     FlagStatus["INACTIVE"] = "inactive";
     FlagStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(FlagStatus = exports.FlagStatus || (exports.FlagStatus = {}));
+})(FlagStatus || (exports.FlagStatus = FlagStatus = {}));
 /**
  * proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected
  * The state of the goal throughout its lifecycle.
@@ -1740,7 +1740,7 @@ var GoalLifecycleStatus;
     GoalLifecycleStatus["CANCELLED"] = "cancelled";
     GoalLifecycleStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     GoalLifecycleStatus["REJECTED"] = "rejected";
-})(GoalLifecycleStatus = exports.GoalLifecycleStatus || (exports.GoalLifecycleStatus = {}));
+})(GoalLifecycleStatus || (exports.GoalLifecycleStatus = GoalLifecycleStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this graph definition. Enables tracking the life-cycle of the content.
@@ -1752,7 +1752,7 @@ var GraphDefinitionPublicationStatus;
     GraphDefinitionPublicationStatus["ACTIVE"] = "active";
     GraphDefinitionPublicationStatus["RETIRED"] = "retired";
     GraphDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(GraphDefinitionPublicationStatus = exports.GraphDefinitionPublicationStatus || (exports.GraphDefinitionPublicationStatus = {}));
+})(GraphDefinitionPublicationStatus || (exports.GraphDefinitionPublicationStatus = GraphDefinitionPublicationStatus = {}));
 /**
  * condition | requirement
  * Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed.
@@ -1762,7 +1762,7 @@ var GraphDefinitionGraphCompartmentUse;
 (function (GraphDefinitionGraphCompartmentUse) {
     GraphDefinitionGraphCompartmentUse["CONDITION"] = "condition";
     GraphDefinitionGraphCompartmentUse["REQUIREMENT"] = "requirement";
-})(GraphDefinitionGraphCompartmentUse = exports.GraphDefinitionGraphCompartmentUse || (exports.GraphDefinitionGraphCompartmentUse = {}));
+})(GraphDefinitionGraphCompartmentUse || (exports.GraphDefinitionGraphCompartmentUse = GraphDefinitionGraphCompartmentUse = {}));
 /**
  * Patient | Encounter | RelatedPerson | Practitioner | Device
  * Identifies the compartment.
@@ -1774,7 +1774,7 @@ var GraphDefinitionCompartmentCode;
     GraphDefinitionCompartmentCode["RELATEDPERSON"] = "RelatedPerson";
     GraphDefinitionCompartmentCode["PRACTITIONER"] = "Practitioner";
     GraphDefinitionCompartmentCode["DEVICE"] = "Device";
-})(GraphDefinitionCompartmentCode = exports.GraphDefinitionCompartmentCode || (exports.GraphDefinitionCompartmentCode = {}));
+})(GraphDefinitionCompartmentCode || (exports.GraphDefinitionCompartmentCode = GraphDefinitionCompartmentCode = {}));
 /**
  * identical | matching | different | custom
  * identical | matching | different | no-rule | custom.
@@ -1785,7 +1785,7 @@ var GraphDefinitionGraphCompartmentRule;
     GraphDefinitionGraphCompartmentRule["MATCHING"] = "matching";
     GraphDefinitionGraphCompartmentRule["DIFFERENT"] = "different";
     GraphDefinitionGraphCompartmentRule["CUSTOM"] = "custom";
-})(GraphDefinitionGraphCompartmentRule = exports.GraphDefinitionGraphCompartmentRule || (exports.GraphDefinitionGraphCompartmentRule = {}));
+})(GraphDefinitionGraphCompartmentRule || (exports.GraphDefinitionGraphCompartmentRule = GraphDefinitionGraphCompartmentRule = {}));
 /**
  * person | animal | practitioner | device | medication | substance
  * Identifies the broad classification of the kind of resources the group includes.
@@ -1799,7 +1799,7 @@ var GroupType;
     GroupType["DEVICE"] = "device";
     GroupType["MEDICATION"] = "medication";
     GroupType["SUBSTANCE"] = "substance";
-})(GroupType = exports.GroupType || (exports.GroupType = {}));
+})(GroupType || (exports.GroupType = GroupType = {}));
 /**
  * success | data-requested | data-required | in-progress | failure | entered-in-error
  * The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
@@ -1813,7 +1813,7 @@ var GuidanceResponseStatus;
     GuidanceResponseStatus["IN_PROGRESS"] = "in-progress";
     GuidanceResponseStatus["FAILURE"] = "failure";
     GuidanceResponseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(GuidanceResponseStatus = exports.GuidanceResponseStatus || (exports.GuidanceResponseStatus = {}));
+})(GuidanceResponseStatus || (exports.GuidanceResponseStatus = GuidanceResponseStatus = {}));
 /**
  * mon | tue | wed | thu | fri | sat | sun
  * Indicates which days of the week are available between the start and end Times.
@@ -1827,7 +1827,7 @@ var HealthcareServiceDaysOfWeek;
     HealthcareServiceDaysOfWeek["FRI"] = "fri";
     HealthcareServiceDaysOfWeek["SAT"] = "sat";
     HealthcareServiceDaysOfWeek["SUN"] = "sun";
-})(HealthcareServiceDaysOfWeek = exports.HealthcareServiceDaysOfWeek || (exports.HealthcareServiceDaysOfWeek = {}));
+})(HealthcareServiceDaysOfWeek || (exports.HealthcareServiceDaysOfWeek = HealthcareServiceDaysOfWeek = {}));
 /**
  * registered | available | cancelled | entered-in-error | unknown
  * The current state of the ImagingStudy.
@@ -1840,7 +1840,7 @@ var ImagingStudyStatus;
     ImagingStudyStatus["CANCELLED"] = "cancelled";
     ImagingStudyStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ImagingStudyStatus["UNKNOWN"] = "unknown";
-})(ImagingStudyStatus = exports.ImagingStudyStatus || (exports.ImagingStudyStatus = {}));
+})(ImagingStudyStatus || (exports.ImagingStudyStatus = ImagingStudyStatus = {}));
 /**
  * completed | entered-in-error | not-done
  * Indicates the current status of the immunization event.
@@ -1851,7 +1851,7 @@ var ImmunizationStatus;
     ImmunizationStatus["COMPLETED"] = "completed";
     ImmunizationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ImmunizationStatus["NOT_DONE"] = "not-done";
-})(ImmunizationStatus = exports.ImmunizationStatus || (exports.ImmunizationStatus = {}));
+})(ImmunizationStatus || (exports.ImmunizationStatus = ImmunizationStatus = {}));
 /**
  * completed | entered-in-error
  * Indicates the current status of the evaluation of the vaccination administration event.
@@ -1860,7 +1860,7 @@ var ImmunizationEvaluationStatus;
 (function (ImmunizationEvaluationStatus) {
     ImmunizationEvaluationStatus["COMPLETED"] = "completed";
     ImmunizationEvaluationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ImmunizationEvaluationStatus = exports.ImmunizationEvaluationStatus || (exports.ImmunizationEvaluationStatus = {}));
+})(ImmunizationEvaluationStatus || (exports.ImmunizationEvaluationStatus = ImmunizationEvaluationStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this implementation guide. Enables tracking the life-cycle of the content.
@@ -1872,7 +1872,7 @@ var ImplementationGuidePublicationStatus;
     ImplementationGuidePublicationStatus["ACTIVE"] = "active";
     ImplementationGuidePublicationStatus["RETIRED"] = "retired";
     ImplementationGuidePublicationStatus["UNKNOWN"] = "unknown";
-})(ImplementationGuidePublicationStatus = exports.ImplementationGuidePublicationStatus || (exports.ImplementationGuidePublicationStatus = {}));
+})(ImplementationGuidePublicationStatus || (exports.ImplementationGuidePublicationStatus = ImplementationGuidePublicationStatus = {}));
 /**
  * html | markdown | xml | generated
  * A code that indicates how the page is generated.
@@ -1883,7 +1883,7 @@ var ImplementationGuideGuidePageGeneration;
     ImplementationGuideGuidePageGeneration["MARKDOWN"] = "markdown";
     ImplementationGuideGuidePageGeneration["XML"] = "xml";
     ImplementationGuideGuidePageGeneration["GENERATED"] = "generated";
-})(ImplementationGuideGuidePageGeneration = exports.ImplementationGuideGuidePageGeneration || (exports.ImplementationGuideGuidePageGeneration = {}));
+})(ImplementationGuideGuidePageGeneration || (exports.ImplementationGuideGuidePageGeneration = ImplementationGuideGuidePageGeneration = {}));
 /**
  * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template
  * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
@@ -1900,7 +1900,7 @@ var ImplementationGuideGuideParameterCode;
     ImplementationGuideGuideParameterCode["GENERATE_JSON"] = "generate-json";
     ImplementationGuideGuideParameterCode["GENERATE_TURTLE"] = "generate-turtle";
     ImplementationGuideGuideParameterCode["HTML_TEMPLATE"] = "html-template";
-})(ImplementationGuideGuideParameterCode = exports.ImplementationGuideGuideParameterCode || (exports.ImplementationGuideGuideParameterCode = {}));
+})(ImplementationGuideGuideParameterCode || (exports.ImplementationGuideGuideParameterCode = ImplementationGuideGuideParameterCode = {}));
 /**
  * draft | active | retired | unknown
  * The current state of the health insurance product.
@@ -1911,7 +1911,7 @@ var InsurancePlanPublicationStatus;
     InsurancePlanPublicationStatus["ACTIVE"] = "active";
     InsurancePlanPublicationStatus["RETIRED"] = "retired";
     InsurancePlanPublicationStatus["UNKNOWN"] = "unknown";
-})(InsurancePlanPublicationStatus = exports.InsurancePlanPublicationStatus || (exports.InsurancePlanPublicationStatus = {}));
+})(InsurancePlanPublicationStatus || (exports.InsurancePlanPublicationStatus = InsurancePlanPublicationStatus = {}));
 /**
  * draft | issued | balanced | cancelled | entered-in-error
  * The current state of the Invoice.
@@ -1923,7 +1923,7 @@ var InvoiceStatus;
     InvoiceStatus["BALANCED"] = "balanced";
     InvoiceStatus["CANCELLED"] = "cancelled";
     InvoiceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(InvoiceStatus = exports.InvoiceStatus || (exports.InvoiceStatus = {}));
+})(InvoiceStatus || (exports.InvoiceStatus = InvoiceStatus = {}));
 /**
  * base | surcharge | deduction | discount | tax | informational
  * This code identifies the type of the component.
@@ -1936,7 +1936,7 @@ var InvoicePriceComponentType;
     InvoicePriceComponentType["DISCOUNT"] = "discount";
     InvoicePriceComponentType["TAX"] = "tax";
     InvoicePriceComponentType["INFORMATIONAL"] = "informational";
-})(InvoicePriceComponentType = exports.InvoicePriceComponentType || (exports.InvoicePriceComponentType = {}));
+})(InvoicePriceComponentType || (exports.InvoicePriceComponentType = InvoicePriceComponentType = {}));
 /**
  * draft | active | retired | unknown
  * The status of this library. Enables tracking the life-cycle of the content.
@@ -1948,7 +1948,7 @@ var LibraryPublicationStatus;
     LibraryPublicationStatus["ACTIVE"] = "active";
     LibraryPublicationStatus["RETIRED"] = "retired";
     LibraryPublicationStatus["UNKNOWN"] = "unknown";
-})(LibraryPublicationStatus = exports.LibraryPublicationStatus || (exports.LibraryPublicationStatus = {}));
+})(LibraryPublicationStatus || (exports.LibraryPublicationStatus = LibraryPublicationStatus = {}));
 /**
  * source | alternate | historical
  * Distinguishes which item is "source of truth" (if any) and which items are no longer considered to be current representations.
@@ -1958,7 +1958,7 @@ var LinkageType;
     LinkageType["SOURCE"] = "source";
     LinkageType["ALTERNATE"] = "alternate";
     LinkageType["HISTORICAL"] = "historical";
-})(LinkageType = exports.LinkageType || (exports.LinkageType = {}));
+})(LinkageType || (exports.LinkageType = LinkageType = {}));
 /**
  * current | retired | entered-in-error
  * Indicates the current state of this list.
@@ -1969,7 +1969,7 @@ var ListStatus;
     ListStatus["CURRENT"] = "current";
     ListStatus["RETIRED"] = "retired";
     ListStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(ListStatus = exports.ListStatus || (exports.ListStatus = {}));
+})(ListStatus || (exports.ListStatus = ListStatus = {}));
 /**
  * working | snapshot | changes
  * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
@@ -1980,7 +1980,7 @@ var ListMode;
     ListMode["WORKING"] = "working";
     ListMode["SNAPSHOT"] = "snapshot";
     ListMode["CHANGES"] = "changes";
-})(ListMode = exports.ListMode || (exports.ListMode = {}));
+})(ListMode || (exports.ListMode = ListMode = {}));
 /**
  * active | suspended | inactive
  * The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
@@ -1990,7 +1990,7 @@ var LocationStatus;
     LocationStatus["ACTIVE"] = "active";
     LocationStatus["SUSPENDED"] = "suspended";
     LocationStatus["INACTIVE"] = "inactive";
-})(LocationStatus = exports.LocationStatus || (exports.LocationStatus = {}));
+})(LocationStatus || (exports.LocationStatus = LocationStatus = {}));
 /**
  * instance | kind
  * Indicates whether a resource instance represents a specific location or a class of locations.
@@ -2000,7 +2000,7 @@ var LocationMode;
 (function (LocationMode) {
     LocationMode["INSTANCE"] = "instance";
     LocationMode["KIND"] = "kind";
-})(LocationMode = exports.LocationMode || (exports.LocationMode = {}));
+})(LocationMode || (exports.LocationMode = LocationMode = {}));
 /**
  * mon | tue | wed | thu | fri | sat | sun
  * Indicates which days of the week are available between the start and end Times.
@@ -2014,7 +2014,7 @@ var LocationDaysOfWeek;
     LocationDaysOfWeek["FRI"] = "fri";
     LocationDaysOfWeek["SAT"] = "sat";
     LocationDaysOfWeek["SUN"] = "sun";
-})(LocationDaysOfWeek = exports.LocationDaysOfWeek || (exports.LocationDaysOfWeek = {}));
+})(LocationDaysOfWeek || (exports.LocationDaysOfWeek = LocationDaysOfWeek = {}));
 /**
  * draft | active | retired | unknown
  * The status of this measure. Enables tracking the life-cycle of the content.
@@ -2026,7 +2026,7 @@ var MeasurePublicationStatus;
     MeasurePublicationStatus["ACTIVE"] = "active";
     MeasurePublicationStatus["RETIRED"] = "retired";
     MeasurePublicationStatus["UNKNOWN"] = "unknown";
-})(MeasurePublicationStatus = exports.MeasurePublicationStatus || (exports.MeasurePublicationStatus = {}));
+})(MeasurePublicationStatus || (exports.MeasurePublicationStatus = MeasurePublicationStatus = {}));
 /**
  * complete | pending | error
  * The MeasureReport status. No data will be available until the MeasureReport status is complete.
@@ -2037,7 +2037,7 @@ var MeasureReportStatus;
     MeasureReportStatus["COMPLETE"] = "complete";
     MeasureReportStatus["PENDING"] = "pending";
     MeasureReportStatus["ERROR"] = "error";
-})(MeasureReportStatus = exports.MeasureReportStatus || (exports.MeasureReportStatus = {}));
+})(MeasureReportStatus || (exports.MeasureReportStatus = MeasureReportStatus = {}));
 /**
  * individual | subject-list | summary | data-collection
  * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure.
@@ -2049,7 +2049,7 @@ var MeasureReportType;
     MeasureReportType["SUBJECT_LIST"] = "subject-list";
     MeasureReportType["SUMMARY"] = "summary";
     MeasureReportType["DATA_COLLECTION"] = "data-collection";
-})(MeasureReportType = exports.MeasureReportType || (exports.MeasureReportType = {}));
+})(MeasureReportType || (exports.MeasureReportType = MeasureReportType = {}));
 /**
  * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * The current state of the {{title}}.
@@ -2067,7 +2067,7 @@ var MediaStatus;
     MediaStatus["COMPLETED"] = "completed";
     MediaStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     MediaStatus["UNKNOWN"] = "unknown";
-})(MediaStatus = exports.MediaStatus || (exports.MediaStatus = {}));
+})(MediaStatus || (exports.MediaStatus = MediaStatus = {}));
 /**
  * active | inactive | entered-in-error
  * A code to indicate if the medication is in active use.
@@ -2078,7 +2078,7 @@ var MedicationStatus;
     MedicationStatus["ACTIVE"] = "active";
     MedicationStatus["INACTIVE"] = "inactive";
     MedicationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(MedicationStatus = exports.MedicationStatus || (exports.MedicationStatus = {}));
+})(MedicationStatus || (exports.MedicationStatus = MedicationStatus = {}));
 /**
  * in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown
  * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
@@ -2093,7 +2093,7 @@ var MedicationAdministrationStatus;
     MedicationAdministrationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     MedicationAdministrationStatus["STOPPED"] = "stopped";
     MedicationAdministrationStatus["UNKNOWN"] = "unknown";
-})(MedicationAdministrationStatus = exports.MedicationAdministrationStatus || (exports.MedicationAdministrationStatus = {}));
+})(MedicationAdministrationStatus || (exports.MedicationAdministrationStatus = MedicationAdministrationStatus = {}));
 /**
  * preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown
  * A code specifying the state of the set of dispense events.
@@ -2110,7 +2110,7 @@ var MedicationDispenseStatus;
     MedicationDispenseStatus["STOPPED"] = "stopped";
     MedicationDispenseStatus["DECLINED"] = "declined";
     MedicationDispenseStatus["UNKNOWN"] = "unknown";
-})(MedicationDispenseStatus = exports.MedicationDispenseStatus || (exports.MedicationDispenseStatus = {}));
+})(MedicationDispenseStatus || (exports.MedicationDispenseStatus = MedicationDispenseStatus = {}));
 /**
  * active | inactive | entered-in-error
  * A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties.
@@ -2121,7 +2121,7 @@ var MedicationKnowledgeStatus;
     MedicationKnowledgeStatus["ACTIVE"] = "active";
     MedicationKnowledgeStatus["INACTIVE"] = "inactive";
     MedicationKnowledgeStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(MedicationKnowledgeStatus = exports.MedicationKnowledgeStatus || (exports.MedicationKnowledgeStatus = {}));
+})(MedicationKnowledgeStatus || (exports.MedicationKnowledgeStatus = MedicationKnowledgeStatus = {}));
 /**
  * active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
  * A code specifying the current state of the order.  Generally, this will be active or completed state.
@@ -2137,7 +2137,7 @@ var MedicationRequestStatus;
     MedicationRequestStatus["STOPPED"] = "stopped";
     MedicationRequestStatus["DRAFT"] = "draft";
     MedicationRequestStatus["UNKNOWN"] = "unknown";
-})(MedicationRequestStatus = exports.MedicationRequestStatus || (exports.MedicationRequestStatus = {}));
+})(MedicationRequestStatus || (exports.MedicationRequestStatus = MedicationRequestStatus = {}));
 /**
  * proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, or an original order.
@@ -2157,7 +2157,7 @@ var MedicationRequestIntent;
     MedicationRequestIntent["FILLER_ORDER"] = "filler-order";
     MedicationRequestIntent["INSTANCE_ORDER"] = "instance-order";
     MedicationRequestIntent["OPTION"] = "option";
-})(MedicationRequestIntent = exports.MedicationRequestIntent || (exports.MedicationRequestIntent = {}));
+})(MedicationRequestIntent || (exports.MedicationRequestIntent = MedicationRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the Medication Request should be addressed with respect to other requests.
@@ -2168,7 +2168,7 @@ var MedicationRequestPriority;
     MedicationRequestPriority["URGENT"] = "urgent";
     MedicationRequestPriority["ASAP"] = "asap";
     MedicationRequestPriority["STAT"] = "stat";
-})(MedicationRequestPriority = exports.MedicationRequestPriority || (exports.MedicationRequestPriority = {}));
+})(MedicationRequestPriority || (exports.MedicationRequestPriority = MedicationRequestPriority = {}));
 /**
  * active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken
  * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally, this will be active or completed.
@@ -2186,7 +2186,7 @@ var MedicationStatementStatus;
     MedicationStatementStatus["ON_HOLD"] = "on-hold";
     MedicationStatementStatus["UNKNOWN"] = "unknown";
     MedicationStatementStatus["NOT_TAKEN"] = "not-taken";
-})(MedicationStatementStatus = exports.MedicationStatementStatus || (exports.MedicationStatementStatus = {}));
+})(MedicationStatementStatus || (exports.MedicationStatementStatus = MedicationStatementStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this message definition. Enables tracking the life-cycle of the content.
@@ -2198,7 +2198,7 @@ var MessageDefinitionPublicationStatus;
     MessageDefinitionPublicationStatus["ACTIVE"] = "active";
     MessageDefinitionPublicationStatus["RETIRED"] = "retired";
     MessageDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(MessageDefinitionPublicationStatus = exports.MessageDefinitionPublicationStatus || (exports.MessageDefinitionPublicationStatus = {}));
+})(MessageDefinitionPublicationStatus || (exports.MessageDefinitionPublicationStatus = MessageDefinitionPublicationStatus = {}));
 /**
  * consequence | currency | notification
  * The impact of the content of the message.
@@ -2208,7 +2208,7 @@ var MessageDefinitionMessageSignificanceCategory;
     MessageDefinitionMessageSignificanceCategory["CONSEQUENCE"] = "consequence";
     MessageDefinitionMessageSignificanceCategory["CURRENCY"] = "currency";
     MessageDefinitionMessageSignificanceCategory["NOTIFICATION"] = "notification";
-})(MessageDefinitionMessageSignificanceCategory = exports.MessageDefinitionMessageSignificanceCategory || (exports.MessageDefinitionMessageSignificanceCategory = {}));
+})(MessageDefinitionMessageSignificanceCategory || (exports.MessageDefinitionMessageSignificanceCategory = MessageDefinitionMessageSignificanceCategory = {}));
 /**
  * always | on-error | never | on-success
  * Declare at a message definition level whether a response is required or only upon error or success, or never.
@@ -2220,7 +2220,7 @@ var MessageDefinitionmessageheader_response_request;
     MessageDefinitionmessageheader_response_request["ON_ERROR"] = "on-error";
     MessageDefinitionmessageheader_response_request["NEVER"] = "never";
     MessageDefinitionmessageheader_response_request["ON_SUCCESS"] = "on-success";
-})(MessageDefinitionmessageheader_response_request = exports.MessageDefinitionmessageheader_response_request || (exports.MessageDefinitionmessageheader_response_request = {}));
+})(MessageDefinitionmessageheader_response_request || (exports.MessageDefinitionmessageheader_response_request = MessageDefinitionmessageheader_response_request = {}));
 /**
  * ok | transient-error | fatal-error
  * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
@@ -2231,7 +2231,7 @@ var MessageHeaderResponseType;
     MessageHeaderResponseType["OK"] = "ok";
     MessageHeaderResponseType["TRANSIENT_ERROR"] = "transient-error";
     MessageHeaderResponseType["FATAL_ERROR"] = "fatal-error";
-})(MessageHeaderResponseType = exports.MessageHeaderResponseType || (exports.MessageHeaderResponseType = {}));
+})(MessageHeaderResponseType || (exports.MessageHeaderResponseType = MessageHeaderResponseType = {}));
 /**
  * aa | dna | rna
  * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
@@ -2241,7 +2241,7 @@ var MolecularSequencesequenceType;
     MolecularSequencesequenceType["AA"] = "aa";
     MolecularSequencesequenceType["DNA"] = "dna";
     MolecularSequencesequenceType["RNA"] = "rna";
-})(MolecularSequencesequenceType = exports.MolecularSequencesequenceType || (exports.MolecularSequencesequenceType = {}));
+})(MolecularSequencesequenceType || (exports.MolecularSequencesequenceType = MolecularSequencesequenceType = {}));
 /**
  * sense | antisense
  * A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the "sense" strand, and the opposite complementary strand is the "antisense" strand.
@@ -2250,7 +2250,7 @@ var MolecularSequenceorientationType;
 (function (MolecularSequenceorientationType) {
     MolecularSequenceorientationType["SENSE"] = "sense";
     MolecularSequenceorientationType["ANTISENSE"] = "antisense";
-})(MolecularSequenceorientationType = exports.MolecularSequenceorientationType || (exports.MolecularSequenceorientationType = {}));
+})(MolecularSequenceorientationType || (exports.MolecularSequenceorientationType = MolecularSequenceorientationType = {}));
 /**
  * watson | crick
  * An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.
@@ -2259,7 +2259,7 @@ var MolecularSequencestrandType;
 (function (MolecularSequencestrandType) {
     MolecularSequencestrandType["WATSON"] = "watson";
     MolecularSequencestrandType["CRICK"] = "crick";
-})(MolecularSequencestrandType = exports.MolecularSequencestrandType || (exports.MolecularSequencestrandType = {}));
+})(MolecularSequencestrandType || (exports.MolecularSequencestrandType = MolecularSequencestrandType = {}));
 /**
  * indel | snp | unknown
  * INDEL / SNP / Undefined variant.
@@ -2269,7 +2269,7 @@ var MolecularSequencequalityType;
     MolecularSequencequalityType["INDEL"] = "indel";
     MolecularSequencequalityType["SNP"] = "snp";
     MolecularSequencequalityType["UNKNOWN"] = "unknown";
-})(MolecularSequencequalityType = exports.MolecularSequencequalityType || (exports.MolecularSequencequalityType = {}));
+})(MolecularSequencequalityType || (exports.MolecularSequencequalityType = MolecularSequencequalityType = {}));
 /**
  * directlink | openapi | login | oauth | other
  * Click and see / RESTful API / Need login to see / RESTful API with authentication / Other ways to see resource.
@@ -2281,7 +2281,7 @@ var MolecularSequencerepositoryType;
     MolecularSequencerepositoryType["LOGIN"] = "login";
     MolecularSequencerepositoryType["OAUTH"] = "oauth";
     MolecularSequencerepositoryType["OTHER"] = "other";
-})(MolecularSequencerepositoryType = exports.MolecularSequencerepositoryType || (exports.MolecularSequencerepositoryType = {}));
+})(MolecularSequencerepositoryType || (exports.MolecularSequencerepositoryType = MolecularSequencerepositoryType = {}));
 /**
  * draft | active | retired | unknown
  * The status of this naming system. Enables tracking the life-cycle of the content.
@@ -2293,7 +2293,7 @@ var NamingSystemPublicationStatus;
     NamingSystemPublicationStatus["ACTIVE"] = "active";
     NamingSystemPublicationStatus["RETIRED"] = "retired";
     NamingSystemPublicationStatus["UNKNOWN"] = "unknown";
-})(NamingSystemPublicationStatus = exports.NamingSystemPublicationStatus || (exports.NamingSystemPublicationStatus = {}));
+})(NamingSystemPublicationStatus || (exports.NamingSystemPublicationStatus = NamingSystemPublicationStatus = {}));
 /**
  * codesystem | identifier | root
  * Indicates the purpose for the naming system - what kinds of things does it make unique?
@@ -2303,7 +2303,7 @@ var NamingSystemType;
     NamingSystemType["CODESYSTEM"] = "codesystem";
     NamingSystemType["IDENTIFIER"] = "identifier";
     NamingSystemType["ROOT"] = "root";
-})(NamingSystemType = exports.NamingSystemType || (exports.NamingSystemType = {}));
+})(NamingSystemType || (exports.NamingSystemType = NamingSystemType = {}));
 /**
  * oid | uuid | uri | other
  * Identifies the unique identifier scheme used for this particular identifier.
@@ -2315,7 +2315,7 @@ var NamingSystemIdentifierType;
     NamingSystemIdentifierType["UUID"] = "uuid";
     NamingSystemIdentifierType["URI"] = "uri";
     NamingSystemIdentifierType["OTHER"] = "other";
-})(NamingSystemIdentifierType = exports.NamingSystemIdentifierType || (exports.NamingSystemIdentifierType = {}));
+})(NamingSystemIdentifierType || (exports.NamingSystemIdentifierType = NamingSystemIdentifierType = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The workflow status of the nutrition order/request.
@@ -2330,7 +2330,7 @@ var NutritionOrderStatus;
     NutritionOrderStatus["COMPLETED"] = "completed";
     NutritionOrderStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     NutritionOrderStatus["UNKNOWN"] = "unknown";
-})(NutritionOrderStatus = exports.NutritionOrderStatus || (exports.NutritionOrderStatus = {}));
+})(NutritionOrderStatus || (exports.NutritionOrderStatus = NutritionOrderStatus = {}));
 /**
  * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
@@ -2347,7 +2347,7 @@ var NutritionOrderNutritiionOrderIntent;
     NutritionOrderNutritiionOrderIntent["FILLER_ORDER"] = "filler-order";
     NutritionOrderNutritiionOrderIntent["INSTANCE_ORDER"] = "instance-order";
     NutritionOrderNutritiionOrderIntent["OPTION"] = "option";
-})(NutritionOrderNutritiionOrderIntent = exports.NutritionOrderNutritiionOrderIntent || (exports.NutritionOrderNutritiionOrderIntent = {}));
+})(NutritionOrderNutritiionOrderIntent || (exports.NutritionOrderNutritiionOrderIntent = NutritionOrderNutritiionOrderIntent = {}));
 /**
  * Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period
  * The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
@@ -2365,7 +2365,7 @@ var ObservationDefinitionObservationDataType;
     ObservationDefinitionObservationDataType["TIME"] = "time";
     ObservationDefinitionObservationDataType["DATETIME"] = "dateTime";
     ObservationDefinitionObservationDataType["PERIOD"] = "Period";
-})(ObservationDefinitionObservationDataType = exports.ObservationDefinitionObservationDataType || (exports.ObservationDefinitionObservationDataType = {}));
+})(ObservationDefinitionObservationDataType || (exports.ObservationDefinitionObservationDataType = ObservationDefinitionObservationDataType = {}));
 /**
  * reference | critical | absolute
  * The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition.
@@ -2375,7 +2375,7 @@ var ObservationDefinitionObservationRangeCategory;
     ObservationDefinitionObservationRangeCategory["REFERENCE"] = "reference";
     ObservationDefinitionObservationRangeCategory["CRITICAL"] = "critical";
     ObservationDefinitionObservationRangeCategory["ABSOLUTE"] = "absolute";
-})(ObservationDefinitionObservationRangeCategory = exports.ObservationDefinitionObservationRangeCategory || (exports.ObservationDefinitionObservationRangeCategory = {}));
+})(ObservationDefinitionObservationRangeCategory || (exports.ObservationDefinitionObservationRangeCategory = ObservationDefinitionObservationRangeCategory = {}));
 /**
  * male | female | other | unknown
  * Sex of the population the range applies to.
@@ -2386,7 +2386,7 @@ var ObservationDefinitionAdministrativeGender;
     ObservationDefinitionAdministrativeGender["FEMALE"] = "female";
     ObservationDefinitionAdministrativeGender["OTHER"] = "other";
     ObservationDefinitionAdministrativeGender["UNKNOWN"] = "unknown";
-})(ObservationDefinitionAdministrativeGender = exports.ObservationDefinitionAdministrativeGender || (exports.ObservationDefinitionAdministrativeGender = {}));
+})(ObservationDefinitionAdministrativeGender || (exports.ObservationDefinitionAdministrativeGender = ObservationDefinitionAdministrativeGender = {}));
 /**
  * draft | active | retired | unknown
  * The status of this operation definition. Enables tracking the life-cycle of the content.
@@ -2398,7 +2398,7 @@ var OperationDefinitionPublicationStatus;
     OperationDefinitionPublicationStatus["ACTIVE"] = "active";
     OperationDefinitionPublicationStatus["RETIRED"] = "retired";
     OperationDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(OperationDefinitionPublicationStatus = exports.OperationDefinitionPublicationStatus || (exports.OperationDefinitionPublicationStatus = {}));
+})(OperationDefinitionPublicationStatus || (exports.OperationDefinitionPublicationStatus = OperationDefinitionPublicationStatus = {}));
 /**
  * operation | query
  * Whether this is an operation or a named query.
@@ -2408,7 +2408,7 @@ var OperationDefinitionOperationKind;
 (function (OperationDefinitionOperationKind) {
     OperationDefinitionOperationKind["OPERATION"] = "operation";
     OperationDefinitionOperationKind["QUERY"] = "query";
-})(OperationDefinitionOperationKind = exports.OperationDefinitionOperationKind || (exports.OperationDefinitionOperationKind = {}));
+})(OperationDefinitionOperationKind || (exports.OperationDefinitionOperationKind = OperationDefinitionOperationKind = {}));
 /**
  * in | out
  * Whether this is an input or an output parameter.
@@ -2418,7 +2418,7 @@ var OperationDefinitionOperationParameterUse;
 (function (OperationDefinitionOperationParameterUse) {
     OperationDefinitionOperationParameterUse["IN"] = "in";
     OperationDefinitionOperationParameterUse["OUT"] = "out";
-})(OperationDefinitionOperationParameterUse = exports.OperationDefinitionOperationParameterUse || (exports.OperationDefinitionOperationParameterUse = {}));
+})(OperationDefinitionOperationParameterUse || (exports.OperationDefinitionOperationParameterUse = OperationDefinitionOperationParameterUse = {}));
 /**
  * number | date | string | token | reference | composite | quantity | uri | special
  * How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
@@ -2434,7 +2434,7 @@ var OperationDefinitionSearchParamType;
     OperationDefinitionSearchParamType["QUANTITY"] = "quantity";
     OperationDefinitionSearchParamType["URI"] = "uri";
     OperationDefinitionSearchParamType["SPECIAL"] = "special";
-})(OperationDefinitionSearchParamType = exports.OperationDefinitionSearchParamType || (exports.OperationDefinitionSearchParamType = {}));
+})(OperationDefinitionSearchParamType || (exports.OperationDefinitionSearchParamType = OperationDefinitionSearchParamType = {}));
 /**
  * required | extensible | preferred | example
  * Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
@@ -2446,7 +2446,7 @@ var OperationDefinitionBindingStrength;
     OperationDefinitionBindingStrength["EXTENSIBLE"] = "extensible";
     OperationDefinitionBindingStrength["PREFERRED"] = "preferred";
     OperationDefinitionBindingStrength["EXAMPLE"] = "example";
-})(OperationDefinitionBindingStrength = exports.OperationDefinitionBindingStrength || (exports.OperationDefinitionBindingStrength = {}));
+})(OperationDefinitionBindingStrength || (exports.OperationDefinitionBindingStrength = OperationDefinitionBindingStrength = {}));
 /**
  * fatal | error | warning | information
  * Indicates whether the issue indicates a variation from successful processing.
@@ -2458,7 +2458,7 @@ var OperationOutcomeIssueSeverity;
     OperationOutcomeIssueSeverity["ERROR"] = "error";
     OperationOutcomeIssueSeverity["WARNING"] = "warning";
     OperationOutcomeIssueSeverity["INFORMATION"] = "information";
-})(OperationOutcomeIssueSeverity = exports.OperationOutcomeIssueSeverity || (exports.OperationOutcomeIssueSeverity = {}));
+})(OperationOutcomeIssueSeverity || (exports.OperationOutcomeIssueSeverity = OperationOutcomeIssueSeverity = {}));
 /**
  * male | female | other | unknown
  * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
@@ -2470,7 +2470,7 @@ var PatientAdministrativeGender;
     PatientAdministrativeGender["FEMALE"] = "female";
     PatientAdministrativeGender["OTHER"] = "other";
     PatientAdministrativeGender["UNKNOWN"] = "unknown";
-})(PatientAdministrativeGender = exports.PatientAdministrativeGender || (exports.PatientAdministrativeGender = {}));
+})(PatientAdministrativeGender || (exports.PatientAdministrativeGender = PatientAdministrativeGender = {}));
 /**
  * replaced-by | replaces | refer | seealso
  * The type of link between this patient resource and another patient resource.
@@ -2481,7 +2481,7 @@ var PatientLinkType;
     PatientLinkType["REPLACES"] = "replaces";
     PatientLinkType["REFER"] = "refer";
     PatientLinkType["SEEALSO"] = "seealso";
-})(PatientLinkType = exports.PatientLinkType || (exports.PatientLinkType = {}));
+})(PatientLinkType || (exports.PatientLinkType = PatientLinkType = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -2493,7 +2493,7 @@ var PaymentNoticeStatus;
     PaymentNoticeStatus["CANCELLED"] = "cancelled";
     PaymentNoticeStatus["DRAFT"] = "draft";
     PaymentNoticeStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(PaymentNoticeStatus = exports.PaymentNoticeStatus || (exports.PaymentNoticeStatus = {}));
+})(PaymentNoticeStatus || (exports.PaymentNoticeStatus = PaymentNoticeStatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -2505,7 +2505,7 @@ var PaymentReconciliationStatus;
     PaymentReconciliationStatus["CANCELLED"] = "cancelled";
     PaymentReconciliationStatus["DRAFT"] = "draft";
     PaymentReconciliationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(PaymentReconciliationStatus = exports.PaymentReconciliationStatus || (exports.PaymentReconciliationStatus = {}));
+})(PaymentReconciliationStatus || (exports.PaymentReconciliationStatus = PaymentReconciliationStatus = {}));
 /**
  * queued | complete | error | partial
  * The outcome of a request for a reconciliation.
@@ -2517,7 +2517,7 @@ var PaymentReconciliationRemittanceOutcome;
     PaymentReconciliationRemittanceOutcome["COMPLETE"] = "complete";
     PaymentReconciliationRemittanceOutcome["ERROR"] = "error";
     PaymentReconciliationRemittanceOutcome["PARTIAL"] = "partial";
-})(PaymentReconciliationRemittanceOutcome = exports.PaymentReconciliationRemittanceOutcome || (exports.PaymentReconciliationRemittanceOutcome = {}));
+})(PaymentReconciliationRemittanceOutcome || (exports.PaymentReconciliationRemittanceOutcome = PaymentReconciliationRemittanceOutcome = {}));
 /**
  * display | print | printoper
  * The business purpose of the note text.
@@ -2527,7 +2527,7 @@ var PaymentReconciliationNoteType;
     PaymentReconciliationNoteType["DISPLAY"] = "display";
     PaymentReconciliationNoteType["PRINT"] = "print";
     PaymentReconciliationNoteType["PRINTOPER"] = "printoper";
-})(PaymentReconciliationNoteType = exports.PaymentReconciliationNoteType || (exports.PaymentReconciliationNoteType = {}));
+})(PaymentReconciliationNoteType || (exports.PaymentReconciliationNoteType = PaymentReconciliationNoteType = {}));
 /**
  * male | female | other | unknown
  * Administrative Gender.
@@ -2539,7 +2539,7 @@ var PersonAdministrativeGender;
     PersonAdministrativeGender["FEMALE"] = "female";
     PersonAdministrativeGender["OTHER"] = "other";
     PersonAdministrativeGender["UNKNOWN"] = "unknown";
-})(PersonAdministrativeGender = exports.PersonAdministrativeGender || (exports.PersonAdministrativeGender = {}));
+})(PersonAdministrativeGender || (exports.PersonAdministrativeGender = PersonAdministrativeGender = {}));
 /**
  * level1 | level2 | level3 | level4
  * Level of assurance that this link is associated with the target resource.
@@ -2550,7 +2550,7 @@ var PersonIdentityAssuranceLevel;
     PersonIdentityAssuranceLevel["LEVEL2"] = "level2";
     PersonIdentityAssuranceLevel["LEVEL3"] = "level3";
     PersonIdentityAssuranceLevel["LEVEL4"] = "level4";
-})(PersonIdentityAssuranceLevel = exports.PersonIdentityAssuranceLevel || (exports.PersonIdentityAssuranceLevel = {}));
+})(PersonIdentityAssuranceLevel || (exports.PersonIdentityAssuranceLevel = PersonIdentityAssuranceLevel = {}));
 /**
  * draft | active | retired | unknown
  * The status of this plan definition. Enables tracking the life-cycle of the content.
@@ -2562,7 +2562,7 @@ var PlanDefinitionPublicationStatus;
     PlanDefinitionPublicationStatus["ACTIVE"] = "active";
     PlanDefinitionPublicationStatus["RETIRED"] = "retired";
     PlanDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(PlanDefinitionPublicationStatus = exports.PlanDefinitionPublicationStatus || (exports.PlanDefinitionPublicationStatus = {}));
+})(PlanDefinitionPublicationStatus || (exports.PlanDefinitionPublicationStatus = PlanDefinitionPublicationStatus = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the action should be addressed with respect to other actions.
@@ -2573,7 +2573,7 @@ var PlanDefinitionRequestPriority;
     PlanDefinitionRequestPriority["URGENT"] = "urgent";
     PlanDefinitionRequestPriority["ASAP"] = "asap";
     PlanDefinitionRequestPriority["STAT"] = "stat";
-})(PlanDefinitionRequestPriority = exports.PlanDefinitionRequestPriority || (exports.PlanDefinitionRequestPriority = {}));
+})(PlanDefinitionRequestPriority || (exports.PlanDefinitionRequestPriority = PlanDefinitionRequestPriority = {}));
 /**
  * applicability | start | stop
  * The kind of condition.
@@ -2584,7 +2584,7 @@ var PlanDefinitionActionConditionKind;
     PlanDefinitionActionConditionKind["APPLICABILITY"] = "applicability";
     PlanDefinitionActionConditionKind["START"] = "start";
     PlanDefinitionActionConditionKind["STOP"] = "stop";
-})(PlanDefinitionActionConditionKind = exports.PlanDefinitionActionConditionKind || (exports.PlanDefinitionActionConditionKind = {}));
+})(PlanDefinitionActionConditionKind || (exports.PlanDefinitionActionConditionKind = PlanDefinitionActionConditionKind = {}));
 /**
  * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
  * The relationship of this action to the related action.
@@ -2600,7 +2600,7 @@ var PlanDefinitionActionRelationshipType;
     PlanDefinitionActionRelationshipType["AFTER_START"] = "after-start";
     PlanDefinitionActionRelationshipType["AFTER"] = "after";
     PlanDefinitionActionRelationshipType["AFTER_END"] = "after-end";
-})(PlanDefinitionActionRelationshipType = exports.PlanDefinitionActionRelationshipType || (exports.PlanDefinitionActionRelationshipType = {}));
+})(PlanDefinitionActionRelationshipType || (exports.PlanDefinitionActionRelationshipType = PlanDefinitionActionRelationshipType = {}));
 /**
  * patient | practitioner | related-person | device
  * The type of participant in the action.
@@ -2611,7 +2611,7 @@ var PlanDefinitionActionParticipantType;
     PlanDefinitionActionParticipantType["PRACTITIONER"] = "practitioner";
     PlanDefinitionActionParticipantType["RELATED_PERSON"] = "related-person";
     PlanDefinitionActionParticipantType["DEVICE"] = "device";
-})(PlanDefinitionActionParticipantType = exports.PlanDefinitionActionParticipantType || (exports.PlanDefinitionActionParticipantType = {}));
+})(PlanDefinitionActionParticipantType || (exports.PlanDefinitionActionParticipantType = PlanDefinitionActionParticipantType = {}));
 /**
  * visual-group | logical-group | sentence-group
  * Defines the grouping behavior for the action and its children.
@@ -2621,7 +2621,7 @@ var PlanDefinitionActionGroupingBehavior;
     PlanDefinitionActionGroupingBehavior["VISUAL_GROUP"] = "visual-group";
     PlanDefinitionActionGroupingBehavior["LOGICAL_GROUP"] = "logical-group";
     PlanDefinitionActionGroupingBehavior["SENTENCE_GROUP"] = "sentence-group";
-})(PlanDefinitionActionGroupingBehavior = exports.PlanDefinitionActionGroupingBehavior || (exports.PlanDefinitionActionGroupingBehavior = {}));
+})(PlanDefinitionActionGroupingBehavior || (exports.PlanDefinitionActionGroupingBehavior = PlanDefinitionActionGroupingBehavior = {}));
 /**
  * any | all | all-or-none | exactly-one | at-most-one | one-or-more
  * Defines the selection behavior for the action and its children.
@@ -2634,7 +2634,7 @@ var PlanDefinitionActionSelectionBehavior;
     PlanDefinitionActionSelectionBehavior["EXACTLY_ONE"] = "exactly-one";
     PlanDefinitionActionSelectionBehavior["AT_MOST_ONE"] = "at-most-one";
     PlanDefinitionActionSelectionBehavior["ONE_OR_MORE"] = "one-or-more";
-})(PlanDefinitionActionSelectionBehavior = exports.PlanDefinitionActionSelectionBehavior || (exports.PlanDefinitionActionSelectionBehavior = {}));
+})(PlanDefinitionActionSelectionBehavior || (exports.PlanDefinitionActionSelectionBehavior = PlanDefinitionActionSelectionBehavior = {}));
 /**
  * must | could | must-unless-documented
  * Defines the required behavior for the action.
@@ -2644,7 +2644,7 @@ var PlanDefinitionActionRequiredBehavior;
     PlanDefinitionActionRequiredBehavior["MUST"] = "must";
     PlanDefinitionActionRequiredBehavior["COULD"] = "could";
     PlanDefinitionActionRequiredBehavior["MUST_UNLESS_DOCUMENTED"] = "must-unless-documented";
-})(PlanDefinitionActionRequiredBehavior = exports.PlanDefinitionActionRequiredBehavior || (exports.PlanDefinitionActionRequiredBehavior = {}));
+})(PlanDefinitionActionRequiredBehavior || (exports.PlanDefinitionActionRequiredBehavior = PlanDefinitionActionRequiredBehavior = {}));
 /**
  * yes | no
  * Defines whether the action should usually be preselected.
@@ -2653,7 +2653,7 @@ var PlanDefinitionActionPrecheckBehavior;
 (function (PlanDefinitionActionPrecheckBehavior) {
     PlanDefinitionActionPrecheckBehavior["YES"] = "yes";
     PlanDefinitionActionPrecheckBehavior["NO"] = "no";
-})(PlanDefinitionActionPrecheckBehavior = exports.PlanDefinitionActionPrecheckBehavior || (exports.PlanDefinitionActionPrecheckBehavior = {}));
+})(PlanDefinitionActionPrecheckBehavior || (exports.PlanDefinitionActionPrecheckBehavior = PlanDefinitionActionPrecheckBehavior = {}));
 /**
  * single | multiple
  * Defines whether the action can be selected multiple times.
@@ -2662,7 +2662,7 @@ var PlanDefinitionActionCardinalityBehavior;
 (function (PlanDefinitionActionCardinalityBehavior) {
     PlanDefinitionActionCardinalityBehavior["SINGLE"] = "single";
     PlanDefinitionActionCardinalityBehavior["MULTIPLE"] = "multiple";
-})(PlanDefinitionActionCardinalityBehavior = exports.PlanDefinitionActionCardinalityBehavior || (exports.PlanDefinitionActionCardinalityBehavior = {}));
+})(PlanDefinitionActionCardinalityBehavior || (exports.PlanDefinitionActionCardinalityBehavior = PlanDefinitionActionCardinalityBehavior = {}));
 /**
  * male | female | other | unknown
  * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
@@ -2673,7 +2673,7 @@ var PractitionerAdministrativeGender;
     PractitionerAdministrativeGender["FEMALE"] = "female";
     PractitionerAdministrativeGender["OTHER"] = "other";
     PractitionerAdministrativeGender["UNKNOWN"] = "unknown";
-})(PractitionerAdministrativeGender = exports.PractitionerAdministrativeGender || (exports.PractitionerAdministrativeGender = {}));
+})(PractitionerAdministrativeGender || (exports.PractitionerAdministrativeGender = PractitionerAdministrativeGender = {}));
 /**
  * mon | tue | wed | thu | fri | sat | sun
  * Indicates which days of the week are available between the start and end Times.
@@ -2687,7 +2687,7 @@ var PractitionerRoleDaysOfWeek;
     PractitionerRoleDaysOfWeek["FRI"] = "fri";
     PractitionerRoleDaysOfWeek["SAT"] = "sat";
     PractitionerRoleDaysOfWeek["SUN"] = "sun";
-})(PractitionerRoleDaysOfWeek = exports.PractitionerRoleDaysOfWeek || (exports.PractitionerRoleDaysOfWeek = {}));
+})(PractitionerRoleDaysOfWeek || (exports.PractitionerRoleDaysOfWeek = PractitionerRoleDaysOfWeek = {}));
 /**
  * preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
  * A code specifying the state of the procedure. Generally, this will be the in-progress or completed state.
@@ -2705,7 +2705,7 @@ var ProcedureStatus;
     ProcedureStatus["COMPLETED"] = "completed";
     ProcedureStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ProcedureStatus["UNKNOWN"] = "unknown";
-})(ProcedureStatus = exports.ProcedureStatus || (exports.ProcedureStatus = {}));
+})(ProcedureStatus || (exports.ProcedureStatus = ProcedureStatus = {}));
 /**
  * derivation | revision | quotation | source | removal
  * How the entity was used during the activity.
@@ -2717,7 +2717,7 @@ var ProvenanceEntityRole;
     ProvenanceEntityRole["QUOTATION"] = "quotation";
     ProvenanceEntityRole["SOURCE"] = "source";
     ProvenanceEntityRole["REMOVAL"] = "removal";
-})(ProvenanceEntityRole = exports.ProvenanceEntityRole || (exports.ProvenanceEntityRole = {}));
+})(ProvenanceEntityRole || (exports.ProvenanceEntityRole = ProvenanceEntityRole = {}));
 /**
  * draft | active | retired | unknown
  * The status of this questionnaire. Enables tracking the life-cycle of the content.
@@ -2729,7 +2729,7 @@ var QuestionnairePublicationStatus;
     QuestionnairePublicationStatus["ACTIVE"] = "active";
     QuestionnairePublicationStatus["RETIRED"] = "retired";
     QuestionnairePublicationStatus["UNKNOWN"] = "unknown";
-})(QuestionnairePublicationStatus = exports.QuestionnairePublicationStatus || (exports.QuestionnairePublicationStatus = {}));
+})(QuestionnairePublicationStatus || (exports.QuestionnairePublicationStatus = QuestionnairePublicationStatus = {}));
 /**
  * exists | = | != | > | < | >= | <=
  * Specifies the criteria by which the question is enabled.
@@ -2743,7 +2743,7 @@ var QuestionnaireItemOperator;
     QuestionnaireItemOperator["LT"] = "<";
     QuestionnaireItemOperator["GE"] = ">=";
     QuestionnaireItemOperator["LE"] = "<=";
-})(QuestionnaireItemOperator = exports.QuestionnaireItemOperator || (exports.QuestionnaireItemOperator = {}));
+})(QuestionnaireItemOperator || (exports.QuestionnaireItemOperator = QuestionnaireItemOperator = {}));
 /**
  * all | any
  * Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
@@ -2753,7 +2753,7 @@ var QuestionnaireEnableWhenBehavior;
 (function (QuestionnaireEnableWhenBehavior) {
     QuestionnaireEnableWhenBehavior["ALL"] = "all";
     QuestionnaireEnableWhenBehavior["ANY"] = "any";
-})(QuestionnaireEnableWhenBehavior = exports.QuestionnaireEnableWhenBehavior || (exports.QuestionnaireEnableWhenBehavior = {}));
+})(QuestionnaireEnableWhenBehavior || (exports.QuestionnaireEnableWhenBehavior = QuestionnaireEnableWhenBehavior = {}));
 /**
  * in-progress | completed | amended | entered-in-error | stopped
  * The position of the questionnaire response within its overall lifecycle.
@@ -2766,7 +2766,7 @@ var QuestionnaireResponseStatus;
     QuestionnaireResponseStatus["AMENDED"] = "amended";
     QuestionnaireResponseStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     QuestionnaireResponseStatus["STOPPED"] = "stopped";
-})(QuestionnaireResponseStatus = exports.QuestionnaireResponseStatus || (exports.QuestionnaireResponseStatus = {}));
+})(QuestionnaireResponseStatus || (exports.QuestionnaireResponseStatus = QuestionnaireResponseStatus = {}));
 /**
  * male | female | other | unknown
  * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
@@ -2777,7 +2777,7 @@ var RelatedPersonAdministrativeGender;
     RelatedPersonAdministrativeGender["FEMALE"] = "female";
     RelatedPersonAdministrativeGender["OTHER"] = "other";
     RelatedPersonAdministrativeGender["UNKNOWN"] = "unknown";
-})(RelatedPersonAdministrativeGender = exports.RelatedPersonAdministrativeGender || (exports.RelatedPersonAdministrativeGender = {}));
+})(RelatedPersonAdministrativeGender || (exports.RelatedPersonAdministrativeGender = RelatedPersonAdministrativeGender = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
@@ -2791,7 +2791,7 @@ var RequestGroupRequestStatus;
     RequestGroupRequestStatus["COMPLETED"] = "completed";
     RequestGroupRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     RequestGroupRequestStatus["UNKNOWN"] = "unknown";
-})(RequestGroupRequestStatus = exports.RequestGroupRequestStatus || (exports.RequestGroupRequestStatus = {}));
+})(RequestGroupRequestStatus || (exports.RequestGroupRequestStatus = RequestGroupRequestStatus = {}));
 /**
  * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
@@ -2807,7 +2807,7 @@ var RequestGroupRequestIntent;
     RequestGroupRequestIntent["FILLER_ORDER"] = "filler-order";
     RequestGroupRequestIntent["INSTANCE_ORDER"] = "instance-order";
     RequestGroupRequestIntent["OPTION"] = "option";
-})(RequestGroupRequestIntent = exports.RequestGroupRequestIntent || (exports.RequestGroupRequestIntent = {}));
+})(RequestGroupRequestIntent || (exports.RequestGroupRequestIntent = RequestGroupRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the request should be addressed with respect to other requests.
@@ -2818,7 +2818,7 @@ var RequestGroupRequestPriority;
     RequestGroupRequestPriority["URGENT"] = "urgent";
     RequestGroupRequestPriority["ASAP"] = "asap";
     RequestGroupRequestPriority["STAT"] = "stat";
-})(RequestGroupRequestPriority = exports.RequestGroupRequestPriority || (exports.RequestGroupRequestPriority = {}));
+})(RequestGroupRequestPriority || (exports.RequestGroupRequestPriority = RequestGroupRequestPriority = {}));
 /**
  * applicability | start | stop
  * The kind of condition.
@@ -2829,7 +2829,7 @@ var RequestGroupActionConditionKind;
     RequestGroupActionConditionKind["APPLICABILITY"] = "applicability";
     RequestGroupActionConditionKind["START"] = "start";
     RequestGroupActionConditionKind["STOP"] = "stop";
-})(RequestGroupActionConditionKind = exports.RequestGroupActionConditionKind || (exports.RequestGroupActionConditionKind = {}));
+})(RequestGroupActionConditionKind || (exports.RequestGroupActionConditionKind = RequestGroupActionConditionKind = {}));
 /**
  * before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
  * The relationship of this action to the related action.
@@ -2845,7 +2845,7 @@ var RequestGroupActionRelationshipType;
     RequestGroupActionRelationshipType["AFTER_START"] = "after-start";
     RequestGroupActionRelationshipType["AFTER"] = "after";
     RequestGroupActionRelationshipType["AFTER_END"] = "after-end";
-})(RequestGroupActionRelationshipType = exports.RequestGroupActionRelationshipType || (exports.RequestGroupActionRelationshipType = {}));
+})(RequestGroupActionRelationshipType || (exports.RequestGroupActionRelationshipType = RequestGroupActionRelationshipType = {}));
 /**
  * visual-group | logical-group | sentence-group
  * Defines the grouping behavior for the action and its children.
@@ -2855,7 +2855,7 @@ var RequestGroupActionGroupingBehavior;
     RequestGroupActionGroupingBehavior["VISUAL_GROUP"] = "visual-group";
     RequestGroupActionGroupingBehavior["LOGICAL_GROUP"] = "logical-group";
     RequestGroupActionGroupingBehavior["SENTENCE_GROUP"] = "sentence-group";
-})(RequestGroupActionGroupingBehavior = exports.RequestGroupActionGroupingBehavior || (exports.RequestGroupActionGroupingBehavior = {}));
+})(RequestGroupActionGroupingBehavior || (exports.RequestGroupActionGroupingBehavior = RequestGroupActionGroupingBehavior = {}));
 /**
  * any | all | all-or-none | exactly-one | at-most-one | one-or-more
  * Defines the selection behavior for the action and its children.
@@ -2868,7 +2868,7 @@ var RequestGroupActionSelectionBehavior;
     RequestGroupActionSelectionBehavior["EXACTLY_ONE"] = "exactly-one";
     RequestGroupActionSelectionBehavior["AT_MOST_ONE"] = "at-most-one";
     RequestGroupActionSelectionBehavior["ONE_OR_MORE"] = "one-or-more";
-})(RequestGroupActionSelectionBehavior = exports.RequestGroupActionSelectionBehavior || (exports.RequestGroupActionSelectionBehavior = {}));
+})(RequestGroupActionSelectionBehavior || (exports.RequestGroupActionSelectionBehavior = RequestGroupActionSelectionBehavior = {}));
 /**
  * must | could | must-unless-documented
  * Defines expectations around whether an action is required.
@@ -2878,7 +2878,7 @@ var RequestGroupActionRequiredBehavior;
     RequestGroupActionRequiredBehavior["MUST"] = "must";
     RequestGroupActionRequiredBehavior["COULD"] = "could";
     RequestGroupActionRequiredBehavior["MUST_UNLESS_DOCUMENTED"] = "must-unless-documented";
-})(RequestGroupActionRequiredBehavior = exports.RequestGroupActionRequiredBehavior || (exports.RequestGroupActionRequiredBehavior = {}));
+})(RequestGroupActionRequiredBehavior || (exports.RequestGroupActionRequiredBehavior = RequestGroupActionRequiredBehavior = {}));
 /**
  * yes | no
  * Defines whether the action should usually be preselected.
@@ -2887,7 +2887,7 @@ var RequestGroupActionPrecheckBehavior;
 (function (RequestGroupActionPrecheckBehavior) {
     RequestGroupActionPrecheckBehavior["YES"] = "yes";
     RequestGroupActionPrecheckBehavior["NO"] = "no";
-})(RequestGroupActionPrecheckBehavior = exports.RequestGroupActionPrecheckBehavior || (exports.RequestGroupActionPrecheckBehavior = {}));
+})(RequestGroupActionPrecheckBehavior || (exports.RequestGroupActionPrecheckBehavior = RequestGroupActionPrecheckBehavior = {}));
 /**
  * single | multiple
  * Defines whether the action can be selected multiple times.
@@ -2896,7 +2896,7 @@ var RequestGroupActionCardinalityBehavior;
 (function (RequestGroupActionCardinalityBehavior) {
     RequestGroupActionCardinalityBehavior["SINGLE"] = "single";
     RequestGroupActionCardinalityBehavior["MULTIPLE"] = "multiple";
-})(RequestGroupActionCardinalityBehavior = exports.RequestGroupActionCardinalityBehavior || (exports.RequestGroupActionCardinalityBehavior = {}));
+})(RequestGroupActionCardinalityBehavior || (exports.RequestGroupActionCardinalityBehavior = RequestGroupActionCardinalityBehavior = {}));
 /**
  * draft | active | retired | unknown
  * The status of this research definition. Enables tracking the life-cycle of the content.
@@ -2908,7 +2908,7 @@ var ResearchDefinitionPublicationStatus;
     ResearchDefinitionPublicationStatus["ACTIVE"] = "active";
     ResearchDefinitionPublicationStatus["RETIRED"] = "retired";
     ResearchDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(ResearchDefinitionPublicationStatus = exports.ResearchDefinitionPublicationStatus || (exports.ResearchDefinitionPublicationStatus = {}));
+})(ResearchDefinitionPublicationStatus || (exports.ResearchDefinitionPublicationStatus = ResearchDefinitionPublicationStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this research element definition. Enables tracking the life-cycle of the content.
@@ -2920,7 +2920,7 @@ var ResearchElementDefinitionPublicationStatus;
     ResearchElementDefinitionPublicationStatus["ACTIVE"] = "active";
     ResearchElementDefinitionPublicationStatus["RETIRED"] = "retired";
     ResearchElementDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(ResearchElementDefinitionPublicationStatus = exports.ResearchElementDefinitionPublicationStatus || (exports.ResearchElementDefinitionPublicationStatus = {}));
+})(ResearchElementDefinitionPublicationStatus || (exports.ResearchElementDefinitionPublicationStatus = ResearchElementDefinitionPublicationStatus = {}));
 /**
  * population | exposure | outcome
  * The type of research element, a population, an exposure, or an outcome.
@@ -2930,7 +2930,7 @@ var ResearchElementDefinitionResearchElementType;
     ResearchElementDefinitionResearchElementType["POPULATION"] = "population";
     ResearchElementDefinitionResearchElementType["EXPOSURE"] = "exposure";
     ResearchElementDefinitionResearchElementType["OUTCOME"] = "outcome";
-})(ResearchElementDefinitionResearchElementType = exports.ResearchElementDefinitionResearchElementType || (exports.ResearchElementDefinitionResearchElementType = {}));
+})(ResearchElementDefinitionResearchElementType || (exports.ResearchElementDefinitionResearchElementType = ResearchElementDefinitionResearchElementType = {}));
 /**
  * dichotomous | continuous | descriptive
  * The type of the outcome (e.g. Dichotomous, Continuous, or Descriptive).
@@ -2940,7 +2940,7 @@ var ResearchElementDefinitionVariableType;
     ResearchElementDefinitionVariableType["DICHOTOMOUS"] = "dichotomous";
     ResearchElementDefinitionVariableType["CONTINUOUS"] = "continuous";
     ResearchElementDefinitionVariableType["DESCRIPTIVE"] = "descriptive";
-})(ResearchElementDefinitionVariableType = exports.ResearchElementDefinitionVariableType || (exports.ResearchElementDefinitionVariableType = {}));
+})(ResearchElementDefinitionVariableType || (exports.ResearchElementDefinitionVariableType = ResearchElementDefinitionVariableType = {}));
 /**
  * mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median
  * Indicates how elements are aggregated within the study effective period.
@@ -2953,7 +2953,7 @@ var ResearchElementDefinitionGroupMeasure;
     ResearchElementDefinitionGroupMeasure["MEAN_OF_MEDIAN"] = "mean-of-median";
     ResearchElementDefinitionGroupMeasure["MEDIAN_OF_MEAN"] = "median-of-mean";
     ResearchElementDefinitionGroupMeasure["MEDIAN_OF_MEDIAN"] = "median-of-median";
-})(ResearchElementDefinitionGroupMeasure = exports.ResearchElementDefinitionGroupMeasure || (exports.ResearchElementDefinitionGroupMeasure = {}));
+})(ResearchElementDefinitionGroupMeasure || (exports.ResearchElementDefinitionGroupMeasure = ResearchElementDefinitionGroupMeasure = {}));
 /**
  * active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn
  * The current state of the study.
@@ -2971,7 +2971,7 @@ var ResearchStudyStatus;
     ResearchStudyStatus["TEMPORARILY_CLOSED_TO_ACCRUAL"] = "temporarily-closed-to-accrual";
     ResearchStudyStatus["TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION"] = "temporarily-closed-to-accrual-and-intervention";
     ResearchStudyStatus["WITHDRAWN"] = "withdrawn";
-})(ResearchStudyStatus = exports.ResearchStudyStatus || (exports.ResearchStudyStatus = {}));
+})(ResearchStudyStatus || (exports.ResearchStudyStatus = ResearchStudyStatus = {}));
 /**
  * candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
  * The current state of the subject.
@@ -2991,7 +2991,7 @@ var ResearchSubjectStatus;
     ResearchSubjectStatus["POTENTIAL_CANDIDATE"] = "potential-candidate";
     ResearchSubjectStatus["SCREENING"] = "screening";
     ResearchSubjectStatus["WITHDRAWN"] = "withdrawn";
-})(ResearchSubjectStatus = exports.ResearchSubjectStatus || (exports.ResearchSubjectStatus = {}));
+})(ResearchSubjectStatus || (exports.ResearchSubjectStatus = ResearchSubjectStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this risk evidence synthesis. Enables tracking the life-cycle of the content.
@@ -3003,7 +3003,7 @@ var RiskEvidenceSynthesisPublicationStatus;
     RiskEvidenceSynthesisPublicationStatus["ACTIVE"] = "active";
     RiskEvidenceSynthesisPublicationStatus["RETIRED"] = "retired";
     RiskEvidenceSynthesisPublicationStatus["UNKNOWN"] = "unknown";
-})(RiskEvidenceSynthesisPublicationStatus = exports.RiskEvidenceSynthesisPublicationStatus || (exports.RiskEvidenceSynthesisPublicationStatus = {}));
+})(RiskEvidenceSynthesisPublicationStatus || (exports.RiskEvidenceSynthesisPublicationStatus = RiskEvidenceSynthesisPublicationStatus = {}));
 /**
  * draft | active | retired | unknown
  * The status of this search parameter. Enables tracking the life-cycle of the content.
@@ -3015,7 +3015,7 @@ var SearchParameterPublicationStatus;
     SearchParameterPublicationStatus["ACTIVE"] = "active";
     SearchParameterPublicationStatus["RETIRED"] = "retired";
     SearchParameterPublicationStatus["UNKNOWN"] = "unknown";
-})(SearchParameterPublicationStatus = exports.SearchParameterPublicationStatus || (exports.SearchParameterPublicationStatus = {}));
+})(SearchParameterPublicationStatus || (exports.SearchParameterPublicationStatus = SearchParameterPublicationStatus = {}));
 /**
  * number | date | string | token | reference | composite | quantity | uri | special
  * The type of value that a search parameter may contain, and how the content is interpreted.
@@ -3031,7 +3031,7 @@ var SearchParameterSearchParamType;
     SearchParameterSearchParamType["QUANTITY"] = "quantity";
     SearchParameterSearchParamType["URI"] = "uri";
     SearchParameterSearchParamType["SPECIAL"] = "special";
-})(SearchParameterSearchParamType = exports.SearchParameterSearchParamType || (exports.SearchParameterSearchParamType = {}));
+})(SearchParameterSearchParamType || (exports.SearchParameterSearchParamType = SearchParameterSearchParamType = {}));
 /**
  * normal | phonetic | nearby | distance | other
  * How the search parameter relates to the set of elements returned by evaluating the xpath query.
@@ -3043,7 +3043,7 @@ var SearchParameterXPathUsageType;
     SearchParameterXPathUsageType["NEARBY"] = "nearby";
     SearchParameterXPathUsageType["DISTANCE"] = "distance";
     SearchParameterXPathUsageType["OTHER"] = "other";
-})(SearchParameterXPathUsageType = exports.SearchParameterXPathUsageType || (exports.SearchParameterXPathUsageType = {}));
+})(SearchParameterXPathUsageType || (exports.SearchParameterXPathUsageType = SearchParameterXPathUsageType = {}));
 /**
  * eq | ne | gt | lt | ge | le | sa | eb | ap
  * Comparators supported for the search parameter.
@@ -3060,7 +3060,7 @@ var SearchParameterSearchComparator;
     SearchParameterSearchComparator["SA"] = "sa";
     SearchParameterSearchComparator["EB"] = "eb";
     SearchParameterSearchComparator["AP"] = "ap";
-})(SearchParameterSearchComparator = exports.SearchParameterSearchComparator || (exports.SearchParameterSearchComparator = {}));
+})(SearchParameterSearchComparator || (exports.SearchParameterSearchComparator = SearchParameterSearchComparator = {}));
 /**
  * missing | exact | contains | not | text | in | not-in | below | above | type | identifier | ofType
  * A modifier supported for the search parameter.
@@ -3079,7 +3079,7 @@ var SearchParameterSearchModifierCode;
     SearchParameterSearchModifierCode["TYPE"] = "type";
     SearchParameterSearchModifierCode["IDENTIFIER"] = "identifier";
     SearchParameterSearchModifierCode["OFTYPE"] = "ofType";
-})(SearchParameterSearchModifierCode = exports.SearchParameterSearchModifierCode || (exports.SearchParameterSearchModifierCode = {}));
+})(SearchParameterSearchModifierCode || (exports.SearchParameterSearchModifierCode = SearchParameterSearchModifierCode = {}));
 /**
  * draft | active | on-hold | revoked | completed | entered-in-error | unknown
  * The status of the order.
@@ -3094,7 +3094,7 @@ var ServiceRequestStatus;
     ServiceRequestStatus["COMPLETED"] = "completed";
     ServiceRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ServiceRequestStatus["UNKNOWN"] = "unknown";
-})(ServiceRequestStatus = exports.ServiceRequestStatus || (exports.ServiceRequestStatus = {}));
+})(ServiceRequestStatus || (exports.ServiceRequestStatus = ServiceRequestStatus = {}));
 /**
  * proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option
  * Whether the request is a proposal, plan, an original order or a reflex order.
@@ -3111,7 +3111,7 @@ var ServiceRequestIntent;
     ServiceRequestIntent["FILLER_ORDER"] = "filler-order";
     ServiceRequestIntent["INSTANCE_ORDER"] = "instance-order";
     ServiceRequestIntent["OPTION"] = "option";
-})(ServiceRequestIntent = exports.ServiceRequestIntent || (exports.ServiceRequestIntent = {}));
+})(ServiceRequestIntent || (exports.ServiceRequestIntent = ServiceRequestIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
@@ -3122,7 +3122,7 @@ var ServiceRequestPriority;
     ServiceRequestPriority["URGENT"] = "urgent";
     ServiceRequestPriority["ASAP"] = "asap";
     ServiceRequestPriority["STAT"] = "stat";
-})(ServiceRequestPriority = exports.ServiceRequestPriority || (exports.ServiceRequestPriority = {}));
+})(ServiceRequestPriority || (exports.ServiceRequestPriority = ServiceRequestPriority = {}));
 /**
  * busy | free | busy-unavailable | busy-tentative | entered-in-error
  * busy | free | busy-unavailable | busy-tentative | entered-in-error.
@@ -3134,7 +3134,7 @@ var SlotStatus;
     SlotStatus["BUSY_UNAVAILABLE"] = "busy-unavailable";
     SlotStatus["BUSY_TENTATIVE"] = "busy-tentative";
     SlotStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(SlotStatus = exports.SlotStatus || (exports.SlotStatus = {}));
+})(SlotStatus || (exports.SlotStatus = SlotStatus = {}));
 /**
  * available | unavailable | unsatisfactory | entered-in-error
  * The availability of the specimen.
@@ -3146,7 +3146,7 @@ var SpecimenStatus;
     SpecimenStatus["UNAVAILABLE"] = "unavailable";
     SpecimenStatus["UNSATISFACTORY"] = "unsatisfactory";
     SpecimenStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(SpecimenStatus = exports.SpecimenStatus || (exports.SpecimenStatus = {}));
+})(SpecimenStatus || (exports.SpecimenStatus = SpecimenStatus = {}));
 /**
  * preferred | alternate
  * The preference for this type of conditioned specimen.
@@ -3155,7 +3155,7 @@ var SpecimenDefinitionSpecimenContainedPreference;
 (function (SpecimenDefinitionSpecimenContainedPreference) {
     SpecimenDefinitionSpecimenContainedPreference["PREFERRED"] = "preferred";
     SpecimenDefinitionSpecimenContainedPreference["ALTERNATE"] = "alternate";
-})(SpecimenDefinitionSpecimenContainedPreference = exports.SpecimenDefinitionSpecimenContainedPreference || (exports.SpecimenDefinitionSpecimenContainedPreference = {}));
+})(SpecimenDefinitionSpecimenContainedPreference || (exports.SpecimenDefinitionSpecimenContainedPreference = SpecimenDefinitionSpecimenContainedPreference = {}));
 /**
  * draft | active | retired | unknown
  * The status of this structure definition. Enables tracking the life-cycle of the content.
@@ -3167,7 +3167,7 @@ var StructureDefinitionPublicationStatus;
     StructureDefinitionPublicationStatus["ACTIVE"] = "active";
     StructureDefinitionPublicationStatus["RETIRED"] = "retired";
     StructureDefinitionPublicationStatus["UNKNOWN"] = "unknown";
-})(StructureDefinitionPublicationStatus = exports.StructureDefinitionPublicationStatus || (exports.StructureDefinitionPublicationStatus = {}));
+})(StructureDefinitionPublicationStatus || (exports.StructureDefinitionPublicationStatus = StructureDefinitionPublicationStatus = {}));
 /**
  * primitive-type | complex-type | resource | logical
  * Defines the kind of structure that this definition is describing.
@@ -3178,7 +3178,7 @@ var StructureDefinitionKind;
     StructureDefinitionKind["COMPLEX_TYPE"] = "complex-type";
     StructureDefinitionKind["RESOURCE"] = "resource";
     StructureDefinitionKind["LOGICAL"] = "logical";
-})(StructureDefinitionKind = exports.StructureDefinitionKind || (exports.StructureDefinitionKind = {}));
+})(StructureDefinitionKind || (exports.StructureDefinitionKind = StructureDefinitionKind = {}));
 /**
  * fhirpath | element | extension
  * Defines how to interpret the expression that defines what the context of the extension is.
@@ -3188,7 +3188,7 @@ var StructureDefinitionExtensionContextType;
     StructureDefinitionExtensionContextType["FHIRPATH"] = "fhirpath";
     StructureDefinitionExtensionContextType["ELEMENT"] = "element";
     StructureDefinitionExtensionContextType["EXTENSION"] = "extension";
-})(StructureDefinitionExtensionContextType = exports.StructureDefinitionExtensionContextType || (exports.StructureDefinitionExtensionContextType = {}));
+})(StructureDefinitionExtensionContextType || (exports.StructureDefinitionExtensionContextType = StructureDefinitionExtensionContextType = {}));
 /**
  * specialization | constraint - How relates to base definition
  * How the type relates to the baseDefinition.
@@ -3198,7 +3198,7 @@ var StructureDefinitionTypeDerivationRule;
 (function (StructureDefinitionTypeDerivationRule) {
     StructureDefinitionTypeDerivationRule["SPECIALIZATION"] = "specialization";
     StructureDefinitionTypeDerivationRule["CONSTRAINT"] = "constraint";
-})(StructureDefinitionTypeDerivationRule = exports.StructureDefinitionTypeDerivationRule || (exports.StructureDefinitionTypeDerivationRule = {}));
+})(StructureDefinitionTypeDerivationRule || (exports.StructureDefinitionTypeDerivationRule = StructureDefinitionTypeDerivationRule = {}));
 /**
  * draft | active | retired | unknown
  * The status of this structure map. Enables tracking the life-cycle of the content.
@@ -3210,7 +3210,7 @@ var StructureMapPublicationStatus;
     StructureMapPublicationStatus["ACTIVE"] = "active";
     StructureMapPublicationStatus["RETIRED"] = "retired";
     StructureMapPublicationStatus["UNKNOWN"] = "unknown";
-})(StructureMapPublicationStatus = exports.StructureMapPublicationStatus || (exports.StructureMapPublicationStatus = {}));
+})(StructureMapPublicationStatus || (exports.StructureMapPublicationStatus = StructureMapPublicationStatus = {}));
 /**
  * source | queried | target | produced
  * How the referenced structure is used in this mapping.
@@ -3221,7 +3221,7 @@ var StructureMapModelMode;
     StructureMapModelMode["QUERIED"] = "queried";
     StructureMapModelMode["TARGET"] = "target";
     StructureMapModelMode["PRODUCED"] = "produced";
-})(StructureMapModelMode = exports.StructureMapModelMode || (exports.StructureMapModelMode = {}));
+})(StructureMapModelMode || (exports.StructureMapModelMode = StructureMapModelMode = {}));
 /**
  * none | types | type-and-types
  * If this is the default rule set to apply for the source type or this combination of types.
@@ -3232,7 +3232,7 @@ var StructureMapGroupTypeMode;
     StructureMapGroupTypeMode["NONE"] = "none";
     StructureMapGroupTypeMode["TYPES"] = "types";
     StructureMapGroupTypeMode["TYPE_AND_TYPES"] = "type-and-types";
-})(StructureMapGroupTypeMode = exports.StructureMapGroupTypeMode || (exports.StructureMapGroupTypeMode = {}));
+})(StructureMapGroupTypeMode || (exports.StructureMapGroupTypeMode = StructureMapGroupTypeMode = {}));
 /**
  * source | target
  * Mode for this instance of data.
@@ -3241,7 +3241,7 @@ var StructureMapInputMode;
 (function (StructureMapInputMode) {
     StructureMapInputMode["SOURCE"] = "source";
     StructureMapInputMode["TARGET"] = "target";
-})(StructureMapInputMode = exports.StructureMapInputMode || (exports.StructureMapInputMode = {}));
+})(StructureMapInputMode || (exports.StructureMapInputMode = StructureMapInputMode = {}));
 /**
  * first | not_first | last | not_last | only_one
  * How to handle the list mode for this element.
@@ -3253,7 +3253,7 @@ var StructureMapSourceListMode;
     StructureMapSourceListMode["LAST"] = "last";
     StructureMapSourceListMode["NOT_LAST"] = "not_last";
     StructureMapSourceListMode["ONLY_ONE"] = "only_one";
-})(StructureMapSourceListMode = exports.StructureMapSourceListMode || (exports.StructureMapSourceListMode = {}));
+})(StructureMapSourceListMode || (exports.StructureMapSourceListMode = StructureMapSourceListMode = {}));
 /**
  * type | variable
  * How to interpret the context.
@@ -3262,7 +3262,7 @@ var StructureMapContextType;
 (function (StructureMapContextType) {
     StructureMapContextType["TYPE"] = "type";
     StructureMapContextType["VARIABLE"] = "variable";
-})(StructureMapContextType = exports.StructureMapContextType || (exports.StructureMapContextType = {}));
+})(StructureMapContextType || (exports.StructureMapContextType = StructureMapContextType = {}));
 /**
  * first | share | last | collate
  * If field is a list, how to manage the list.
@@ -3273,7 +3273,7 @@ var StructureMapTargetListMode;
     StructureMapTargetListMode["SHARE"] = "share";
     StructureMapTargetListMode["LAST"] = "last";
     StructureMapTargetListMode["COLLATE"] = "collate";
-})(StructureMapTargetListMode = exports.StructureMapTargetListMode || (exports.StructureMapTargetListMode = {}));
+})(StructureMapTargetListMode || (exports.StructureMapTargetListMode = StructureMapTargetListMode = {}));
 /**
  * requested | active | error | off
  * The status of the subscription, which marks the server state for managing the subscription.
@@ -3287,7 +3287,7 @@ var SubscriptionStatus;
     SubscriptionStatus["ACTIVE"] = "active";
     SubscriptionStatus["ERROR"] = "error";
     SubscriptionStatus["OFF"] = "off";
-})(SubscriptionStatus = exports.SubscriptionStatus || (exports.SubscriptionStatus = {}));
+})(SubscriptionStatus || (exports.SubscriptionStatus = SubscriptionStatus = {}));
 /**
  * rest-hook | websocket | email | sms | message
  * The type of channel to send notifications on.
@@ -3299,7 +3299,7 @@ var SubscriptionChannelType;
     SubscriptionChannelType["EMAIL"] = "email";
     SubscriptionChannelType["SMS"] = "sms";
     SubscriptionChannelType["MESSAGE"] = "message";
-})(SubscriptionChannelType = exports.SubscriptionChannelType || (exports.SubscriptionChannelType = {}));
+})(SubscriptionChannelType || (exports.SubscriptionChannelType = SubscriptionChannelType = {}));
 /**
  * active | inactive | entered-in-error
  * A code to indicate if the substance is actively used.
@@ -3309,7 +3309,7 @@ var SubstanceFHIRSubstanceStatus;
     SubstanceFHIRSubstanceStatus["ACTIVE"] = "active";
     SubstanceFHIRSubstanceStatus["INACTIVE"] = "inactive";
     SubstanceFHIRSubstanceStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(SubstanceFHIRSubstanceStatus = exports.SubstanceFHIRSubstanceStatus || (exports.SubstanceFHIRSubstanceStatus = {}));
+})(SubstanceFHIRSubstanceStatus || (exports.SubstanceFHIRSubstanceStatus = SubstanceFHIRSubstanceStatus = {}));
 /**
  * in-progress | completed | abandoned | entered-in-error
  * A code specifying the state of the dispense event.
@@ -3321,7 +3321,7 @@ var SupplyDeliveryStatus;
     SupplyDeliveryStatus["COMPLETED"] = "completed";
     SupplyDeliveryStatus["ABANDONED"] = "abandoned";
     SupplyDeliveryStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(SupplyDeliveryStatus = exports.SupplyDeliveryStatus || (exports.SupplyDeliveryStatus = {}));
+})(SupplyDeliveryStatus || (exports.SupplyDeliveryStatus = SupplyDeliveryStatus = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly this SupplyRequest should be addressed with respect to other requests.
@@ -3332,7 +3332,7 @@ var SupplyRequestRequestPriority;
     SupplyRequestRequestPriority["URGENT"] = "urgent";
     SupplyRequestRequestPriority["ASAP"] = "asap";
     SupplyRequestRequestPriority["STAT"] = "stat";
-})(SupplyRequestRequestPriority = exports.SupplyRequestRequestPriority || (exports.SupplyRequestRequestPriority = {}));
+})(SupplyRequestRequestPriority || (exports.SupplyRequestRequestPriority = SupplyRequestRequestPriority = {}));
 /**
  * unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
  * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
@@ -3351,7 +3351,7 @@ var TaskIntent;
     TaskIntent["FILLER_ORDER"] = "filler-order";
     TaskIntent["INSTANCE_ORDER"] = "instance-order";
     TaskIntent["OPTION"] = "option";
-})(TaskIntent = exports.TaskIntent || (exports.TaskIntent = {}));
+})(TaskIntent || (exports.TaskIntent = TaskIntent = {}));
 /**
  * routine | urgent | asap | stat
  * Indicates how quickly the Task should be addressed with respect to other requests.
@@ -3362,7 +3362,7 @@ var TaskPriority;
     TaskPriority["URGENT"] = "urgent";
     TaskPriority["ASAP"] = "asap";
     TaskPriority["STAT"] = "stat";
-})(TaskPriority = exports.TaskPriority || (exports.TaskPriority = {}));
+})(TaskPriority || (exports.TaskPriority = TaskPriority = {}));
 /**
  * draft | active | retired | unknown
  * The status of this terminology capabilities. Enables tracking the life-cycle of the content.
@@ -3374,7 +3374,7 @@ var TerminologyCapabilitiesPublicationStatus;
     TerminologyCapabilitiesPublicationStatus["ACTIVE"] = "active";
     TerminologyCapabilitiesPublicationStatus["RETIRED"] = "retired";
     TerminologyCapabilitiesPublicationStatus["UNKNOWN"] = "unknown";
-})(TerminologyCapabilitiesPublicationStatus = exports.TerminologyCapabilitiesPublicationStatus || (exports.TerminologyCapabilitiesPublicationStatus = {}));
+})(TerminologyCapabilitiesPublicationStatus || (exports.TerminologyCapabilitiesPublicationStatus = TerminologyCapabilitiesPublicationStatus = {}));
 /**
  * instance | capability | requirements
  * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
@@ -3384,7 +3384,7 @@ var TerminologyCapabilitiesCapabilityStatementKind;
     TerminologyCapabilitiesCapabilityStatementKind["INSTANCE"] = "instance";
     TerminologyCapabilitiesCapabilityStatementKind["CAPABILITY"] = "capability";
     TerminologyCapabilitiesCapabilityStatementKind["REQUIREMENTS"] = "requirements";
-})(TerminologyCapabilitiesCapabilityStatementKind = exports.TerminologyCapabilitiesCapabilityStatementKind || (exports.TerminologyCapabilitiesCapabilityStatementKind = {}));
+})(TerminologyCapabilitiesCapabilityStatementKind || (exports.TerminologyCapabilitiesCapabilityStatementKind = TerminologyCapabilitiesCapabilityStatementKind = {}));
 /**
  * explicit | all
  * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
@@ -3394,7 +3394,7 @@ var TerminologyCapabilitiesCodeSearchSupport;
 (function (TerminologyCapabilitiesCodeSearchSupport) {
     TerminologyCapabilitiesCodeSearchSupport["EXPLICIT"] = "explicit";
     TerminologyCapabilitiesCodeSearchSupport["ALL"] = "all";
-})(TerminologyCapabilitiesCodeSearchSupport = exports.TerminologyCapabilitiesCodeSearchSupport || (exports.TerminologyCapabilitiesCodeSearchSupport = {}));
+})(TerminologyCapabilitiesCodeSearchSupport || (exports.TerminologyCapabilitiesCodeSearchSupport = TerminologyCapabilitiesCodeSearchSupport = {}));
 /**
  * completed | in-progress | waiting | stopped | entered-in-error
  * The current state of this test report.
@@ -3409,7 +3409,7 @@ var TestReportStatus;
     TestReportStatus["WAITING"] = "waiting";
     TestReportStatus["STOPPED"] = "stopped";
     TestReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(TestReportStatus = exports.TestReportStatus || (exports.TestReportStatus = {}));
+})(TestReportStatus || (exports.TestReportStatus = TestReportStatus = {}));
 /**
  * pass | fail | pending
  * The overall result from the execution of the TestScript.
@@ -3420,7 +3420,7 @@ var TestReportResult;
     TestReportResult["PASS"] = "pass";
     TestReportResult["FAIL"] = "fail";
     TestReportResult["PENDING"] = "pending";
-})(TestReportResult = exports.TestReportResult || (exports.TestReportResult = {}));
+})(TestReportResult || (exports.TestReportResult = TestReportResult = {}));
 /**
  * test-engine | client | server
  * The type of participant.
@@ -3430,7 +3430,7 @@ var TestReportParticipantType;
     TestReportParticipantType["TEST_ENGINE"] = "test-engine";
     TestReportParticipantType["CLIENT"] = "client";
     TestReportParticipantType["SERVER"] = "server";
-})(TestReportParticipantType = exports.TestReportParticipantType || (exports.TestReportParticipantType = {}));
+})(TestReportParticipantType || (exports.TestReportParticipantType = TestReportParticipantType = {}));
 /**
  * pass | skip | fail | warning | error
  * The result of this operation.
@@ -3442,7 +3442,7 @@ var TestReportActionResult;
     TestReportActionResult["FAIL"] = "fail";
     TestReportActionResult["WARNING"] = "warning";
     TestReportActionResult["ERROR"] = "error";
-})(TestReportActionResult = exports.TestReportActionResult || (exports.TestReportActionResult = {}));
+})(TestReportActionResult || (exports.TestReportActionResult = TestReportActionResult = {}));
 /**
  * draft | active | retired | unknown
  * The status of this test script. Enables tracking the life-cycle of the content.
@@ -3454,7 +3454,7 @@ var TestScriptPublicationStatus;
     TestScriptPublicationStatus["ACTIVE"] = "active";
     TestScriptPublicationStatus["RETIRED"] = "retired";
     TestScriptPublicationStatus["UNKNOWN"] = "unknown";
-})(TestScriptPublicationStatus = exports.TestScriptPublicationStatus || (exports.TestScriptPublicationStatus = {}));
+})(TestScriptPublicationStatus || (exports.TestScriptPublicationStatus = TestScriptPublicationStatus = {}));
 /**
  * delete | get | options | patch | post | put | head
  * The HTTP method the test engine MUST use for this operation regardless of any other operation details.
@@ -3469,7 +3469,7 @@ var TestScriptRequestMethodCode;
     TestScriptRequestMethodCode["POST"] = "post";
     TestScriptRequestMethodCode["PUT"] = "put";
     TestScriptRequestMethodCode["HEAD"] = "head";
-})(TestScriptRequestMethodCode = exports.TestScriptRequestMethodCode || (exports.TestScriptRequestMethodCode = {}));
+})(TestScriptRequestMethodCode || (exports.TestScriptRequestMethodCode = TestScriptRequestMethodCode = {}));
 /**
  * response | request
  * The direction to use for the assertion.
@@ -3479,7 +3479,7 @@ var TestScriptAssertionDirectionType;
 (function (TestScriptAssertionDirectionType) {
     TestScriptAssertionDirectionType["RESPONSE"] = "response";
     TestScriptAssertionDirectionType["REQUEST"] = "request";
-})(TestScriptAssertionDirectionType = exports.TestScriptAssertionDirectionType || (exports.TestScriptAssertionDirectionType = {}));
+})(TestScriptAssertionDirectionType || (exports.TestScriptAssertionDirectionType = TestScriptAssertionDirectionType = {}));
 /**
  * equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval
  * The operator type defines the conditional behavior of the assert. If not defined, the default is equals.
@@ -3498,7 +3498,7 @@ var TestScriptAssertionOperatorType;
     TestScriptAssertionOperatorType["CONTAINS"] = "contains";
     TestScriptAssertionOperatorType["NOTCONTAINS"] = "notContains";
     TestScriptAssertionOperatorType["EVAL"] = "eval";
-})(TestScriptAssertionOperatorType = exports.TestScriptAssertionOperatorType || (exports.TestScriptAssertionOperatorType = {}));
+})(TestScriptAssertionOperatorType || (exports.TestScriptAssertionOperatorType = TestScriptAssertionOperatorType = {}));
 /**
  * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
  * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
@@ -3518,7 +3518,7 @@ var TestScriptAssertionResponseTypes;
     TestScriptAssertionResponseTypes["GONE"] = "gone";
     TestScriptAssertionResponseTypes["PRECONDITIONFAILED"] = "preconditionFailed";
     TestScriptAssertionResponseTypes["UNPROCESSABLE"] = "unprocessable";
-})(TestScriptAssertionResponseTypes = exports.TestScriptAssertionResponseTypes || (exports.TestScriptAssertionResponseTypes = {}));
+})(TestScriptAssertionResponseTypes || (exports.TestScriptAssertionResponseTypes = TestScriptAssertionResponseTypes = {}));
 /**
  * draft | active | retired | unknown
  * The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state.
@@ -3530,7 +3530,7 @@ var ValueSetPublicationStatus;
     ValueSetPublicationStatus["ACTIVE"] = "active";
     ValueSetPublicationStatus["RETIRED"] = "retired";
     ValueSetPublicationStatus["UNKNOWN"] = "unknown";
-})(ValueSetPublicationStatus = exports.ValueSetPublicationStatus || (exports.ValueSetPublicationStatus = {}));
+})(ValueSetPublicationStatus || (exports.ValueSetPublicationStatus = ValueSetPublicationStatus = {}));
 /**
  * = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
  * The kind of operation to perform as a part of the filter criteria.
@@ -3547,7 +3547,7 @@ var ValueSetFilterOperator;
     ValueSetFilterOperator["NOT_IN"] = "not-in";
     ValueSetFilterOperator["GENERALIZES"] = "generalizes";
     ValueSetFilterOperator["EXISTS"] = "exists";
-})(ValueSetFilterOperator = exports.ValueSetFilterOperator || (exports.ValueSetFilterOperator = {}));
+})(ValueSetFilterOperator || (exports.ValueSetFilterOperator = ValueSetFilterOperator = {}));
 /**
  * attested | validated | in-process | req-revalid | val-fail | reval-fail
  * The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).
@@ -3560,7 +3560,7 @@ var VerificationResultstatus;
     VerificationResultstatus["REQ_REVALID"] = "req-revalid";
     VerificationResultstatus["VAL_FAIL"] = "val-fail";
     VerificationResultstatus["REVAL_FAIL"] = "reval-fail";
-})(VerificationResultstatus = exports.VerificationResultstatus || (exports.VerificationResultstatus = {}));
+})(VerificationResultstatus || (exports.VerificationResultstatus = VerificationResultstatus = {}));
 /**
  * active | cancelled | draft | entered-in-error
  * The status of the resource instance.
@@ -3572,7 +3572,7 @@ var VisionPrescriptionVisionStatus;
     VisionPrescriptionVisionStatus["CANCELLED"] = "cancelled";
     VisionPrescriptionVisionStatus["DRAFT"] = "draft";
     VisionPrescriptionVisionStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(VisionPrescriptionVisionStatus = exports.VisionPrescriptionVisionStatus || (exports.VisionPrescriptionVisionStatus = {}));
+})(VisionPrescriptionVisionStatus || (exports.VisionPrescriptionVisionStatus = VisionPrescriptionVisionStatus = {}));
 /**
  * right | left
  * The eye for which the lens specification applies.
@@ -3582,7 +3582,7 @@ var VisionPrescriptionVisionEyes;
 (function (VisionPrescriptionVisionEyes) {
     VisionPrescriptionVisionEyes["RIGHT"] = "right";
     VisionPrescriptionVisionEyes["LEFT"] = "left";
-})(VisionPrescriptionVisionEyes = exports.VisionPrescriptionVisionEyes || (exports.VisionPrescriptionVisionEyes = {}));
+})(VisionPrescriptionVisionEyes || (exports.VisionPrescriptionVisionEyes = VisionPrescriptionVisionEyes = {}));
 /**
  * up | down | in | out
  * The relative base, or reference lens edge, for the prism.
@@ -3593,7 +3593,7 @@ var VisionPrescriptionVisionBase;
     VisionPrescriptionVisionBase["DOWN"] = "down";
     VisionPrescriptionVisionBase["IN"] = "in";
     VisionPrescriptionVisionBase["OUT"] = "out";
-})(VisionPrescriptionVisionBase = exports.VisionPrescriptionVisionBase || (exports.VisionPrescriptionVisionBase = {}));
+})(VisionPrescriptionVisionBase || (exports.VisionPrescriptionVisionBase = VisionPrescriptionVisionBase = {}));
 /**
  * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
  * Indicates the status of the detected issue.
@@ -3609,7 +3609,7 @@ var DetectedIssueStatus;
     DetectedIssueStatus["CANCELLED"] = "cancelled";
     DetectedIssueStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     DetectedIssueStatus["UNKNOWN"] = "unknown";
-})(DetectedIssueStatus = exports.DetectedIssueStatus || (exports.DetectedIssueStatus = {}));
+})(DetectedIssueStatus || (exports.DetectedIssueStatus = DetectedIssueStatus = {}));
 /**
  * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
  * The status of the result value.
@@ -3625,7 +3625,7 @@ var ObservationStatus;
     ObservationStatus["CANCELLED"] = "cancelled";
     ObservationStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     ObservationStatus["UNKNOWN"] = "unknown";
-})(ObservationStatus = exports.ObservationStatus || (exports.ObservationStatus = {}));
+})(ObservationStatus || (exports.ObservationStatus = ObservationStatus = {}));
 /**
  * registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown
  * The status of the diagnostic report.
@@ -3642,7 +3642,7 @@ var DiagnosticReportStatus;
     DiagnosticReportStatus["CANCELLED"] = "cancelled";
     DiagnosticReportStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     DiagnosticReportStatus["UNKNOWN"] = "unknown";
-})(DiagnosticReportStatus = exports.DiagnosticReportStatus || (exports.DiagnosticReportStatus = {}));
+})(DiagnosticReportStatus || (exports.DiagnosticReportStatus = DiagnosticReportStatus = {}));
 /**
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
  * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
@@ -3658,7 +3658,7 @@ var EncounterStatus;
     EncounterStatus["CANCELLED"] = "cancelled";
     EncounterStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     EncounterStatus["UNKNOWN"] = "unknown";
-})(EncounterStatus = exports.EncounterStatus || (exports.EncounterStatus = {}));
+})(EncounterStatus || (exports.EncounterStatus = EncounterStatus = {}));
 /**
  * barcode | rfid | manual | card | self-reported | unknown
  * A coded entry to indicate how the data was entered.
@@ -3671,7 +3671,7 @@ var DeviceUDIEntryType;
     DeviceUDIEntryType["CARD"] = "card";
     DeviceUDIEntryType["SELF_REPORTED"] = "self-reported";
     DeviceUDIEntryType["UNKNOWN"] = "unknown";
-})(DeviceUDIEntryType = exports.DeviceUDIEntryType || (exports.DeviceUDIEntryType = {}));
+})(DeviceUDIEntryType || (exports.DeviceUDIEntryType = DeviceUDIEntryType = {}));
 /**
  * group | display | question | boolean | decimal | integer | date | dateTime | time | string | text | url | choice | open-choice | attachment | reference | quantity
  * The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
@@ -3696,7 +3696,7 @@ var QuestionnaireItemType;
     QuestionnaireItemType["ATTACHMENT"] = "attachment";
     QuestionnaireItemType["REFERENCE"] = "reference";
     QuestionnaireItemType["QUANTITY"] = "quantity";
-})(QuestionnaireItemType = exports.QuestionnaireItemType || (exports.QuestionnaireItemType = {}));
+})(QuestionnaireItemType || (exports.QuestionnaireItemType = QuestionnaireItemType = {}));
 /**
  * registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
  * The status of the RiskAssessment, using the same statuses as an Observation.
@@ -3711,7 +3711,7 @@ var RiskAssessmentStatus;
     RiskAssessmentStatus["CANCELLED"] = "cancelled";
     RiskAssessmentStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     RiskAssessmentStatus["UNKNOWN"] = "unknown";
-})(RiskAssessmentStatus = exports.RiskAssessmentStatus || (exports.RiskAssessmentStatus = {}));
+})(RiskAssessmentStatus || (exports.RiskAssessmentStatus = RiskAssessmentStatus = {}));
 /**
  * draft | active | suspended | cancelled | completed | entered-in-error | unknown
  * Status of the supply request.
@@ -3725,7 +3725,7 @@ var SupplyRequestStatus;
     SupplyRequestStatus["COMPLETED"] = "completed";
     SupplyRequestStatus["ENTERED_IN_ERROR"] = "entered-in-error";
     SupplyRequestStatus["UNKNOWN"] = "unknown";
-})(SupplyRequestStatus = exports.SupplyRequestStatus || (exports.SupplyRequestStatus = {}));
+})(SupplyRequestStatus || (exports.SupplyRequestStatus = SupplyRequestStatus = {}));
 /**
  * active | completed | entered-in-error | intended | stopped | on-hold
  * A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
@@ -3741,7 +3741,7 @@ var DeviceUseStatementStatus;
     DeviceUseStatementStatus["INTENDED"] = "intended";
     DeviceUseStatementStatus["STOPPED"] = "stopped";
     DeviceUseStatementStatus["ON_HOLD"] = "on-hold";
-})(DeviceUseStatementStatus = exports.DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = {}));
+})(DeviceUseStatementStatus || (exports.DeviceUseStatementStatus = DeviceUseStatementStatus = {}));
 /**
  * draft | requested | received | accepted | rejected | ready | cancelled | in-progress | on-hold | failed | completed | entered-in-error
  * The current status of the task.
@@ -3760,7 +3760,7 @@ var TaskStatus;
     TaskStatus["FAILED"] = "failed";
     TaskStatus["COMPLETED"] = "completed";
     TaskStatus["ENTERED_IN_ERROR"] = "entered-in-error";
-})(TaskStatus = exports.TaskStatus || (exports.TaskStatus = {}));
+})(TaskStatus || (exports.TaskStatus = TaskStatus = {}));
 /**
  * create | copy | truncate | escape | cast | append | translate | reference | dateOp | uuid | pointer | evaluate | cc | c | qty | id | cp
  * How the data is copied / created.
@@ -3784,4 +3784,4 @@ var StructureMapTransform;
     StructureMapTransform["QTY"] = "qty";
     StructureMapTransform["ID"] = "id";
     StructureMapTransform["CP"] = "cp";
-})(StructureMapTransform = exports.StructureMapTransform || (exports.StructureMapTransform = {}));
+})(StructureMapTransform || (exports.StructureMapTransform = StructureMapTransform = {}));

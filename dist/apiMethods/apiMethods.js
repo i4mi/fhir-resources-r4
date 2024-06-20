@@ -7,7 +7,7 @@ var HttpMethod;
     HttpMethod["PUT"] = "PUT";
     HttpMethod["GET"] = "GET";
     HttpMethod["DELETE"] = "DELETE";
-})(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
+})(HttpMethod || (exports.HttpMethod = HttpMethod = {}));
 ;
 class ApiMethods {
     constructor(config) {

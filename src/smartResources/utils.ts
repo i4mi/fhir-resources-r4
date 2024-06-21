@@ -264,7 +264,7 @@ export function isInPeriod(period: Period, time: string | number | Date = new Da
     const identifier = identifiers.find((id) => id.system?.includes(system) && id.value != undefined);
 
     if (!identifier || !identifier.value) {
-      throw new Error('Patient has no identifier that matches the oid ' + system);
+      throw new Error('No identifier matches the system "' + system + '".');
     }
     return system + '|' + identifier.value;
-  }
+  };

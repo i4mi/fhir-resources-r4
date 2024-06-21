@@ -269,8 +269,9 @@ function getIdentifierString(source, system) {
     }
     const identifier = identifiers.find((id) => { var _a; return ((_a = id.system) === null || _a === void 0 ? void 0 : _a.includes(system)) && id.value != undefined; });
     if (!identifier || !identifier.value) {
-        throw new Error('Patient has no identifier that matches the oid ' + system);
+        throw new Error('No identifier matches the system "' + system + '".');
     }
     return system + '|' + identifier.value;
 }
 exports.getIdentifierString = getIdentifierString;
+;

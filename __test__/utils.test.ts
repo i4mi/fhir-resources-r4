@@ -417,6 +417,14 @@ test('Get Identifier', () => {
 
     expect(getIdentifierString([
         {
+          system: 'https://approches.ch/feedback-questionnaire',
+          value: 'q-001'
+        }
+      ], 'https://approches.ch/feedback-questionnaire'))
+    .toBe('https://approches.ch/feedback-questionnaire|q-001');
+
+    expect(getIdentifierString([
+        {
             value: UUID2
         },
         {

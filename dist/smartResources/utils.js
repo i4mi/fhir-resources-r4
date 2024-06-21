@@ -137,18 +137,23 @@ function isUUID(id) {
 exports.isUUID = isUUID;
 /**
 * Generates the full name according the given HumanName
-* @param name   the HumanName that will be used to generate the full name
-* @returns      the name concatenated to a string
+* @param name            the HumanName that will be used to generate the full name
+* @param excludeTitles
+* @returns               the name concatenated to a string
 */
-function getFullName(name) {
-    var _a;
+function getFullName(name, excludeTitles = false) {
+    if (!name)
+        return '';
     let text = '';
-    if (name && (name.given || name.family)) {
-        (_a = name.given) === null || _a === void 0 ? void 0 : _a.forEach((x) => (text += `${x} `));
+    if (name.prefix && name.prefix.length > 0 && !excludeTitles)
+        text += name.prefix.reduce((a, b) => a + ' ' + b) + ' ';
+    if (name.given)
+        text += name.given.reduce((a, b) => a + ' ' + b) + ' ';
+    if (name.family)
         text += name.family;
-        text.trimEnd();
-    }
-    return text;
+    if (name.suffix && name.suffix.length > 0 && !excludeTitles)
+        text += ', ' + name.suffix.reduce((a, b) => a + ' ' + b);
+    return text.trimEnd();
 }
 exports.getFullName = getFullName;
 /**
@@ -247,18 +252,26 @@ function isInPeriod(period, time = new Date()) {
 }
 exports.isInPeriod = isInPeriod;
 /**
- * Gets the identifier string for a given system (of the identifier) from a Patient resource
- * @param patient a Patient resource
- * @param system     the system the wanted identifier is in (e.g. as oid)
+ * Gets the identifier string for a given system (of the identifier) from an array of identifiers
+ * For backward compatibility, also a Patient resource can be passed as source
+ * @param source  an array of Identifier (or a Patient resource)
+ * @param system  the system the wanted identifier is in (e.g. as oid)
  * @returns       a string in the form of urn:oid:1.1.1.99.1|1e3796be
- * @throws        an Error if the Patient resource has no identifier whose system matches the system.
+ * @throws        an Error if the source has no identifier whose system matches the given system
  */
-function getIdentifierString(patient, system) {
-    var _a;
-    const identifier = (_a = patient.identifier) === null || _a === void 0 ? void 0 : _a.find((id) => { var _a; return (_a = id.system) === null || _a === void 0 ? void 0 : _a.includes(system); });
+function getIdentifierString(source, system) {
+    let identifiers;
+    if (source.resourceType === 'Patient') {
+        identifiers = source.identifier || [];
+    }
+    else {
+        identifiers = source;
+    }
+    const identifier = identifiers.find((id) => { var _a; return ((_a = id.system) === null || _a === void 0 ? void 0 : _a.includes(system)) && id.value != undefined; });
     if (!identifier || !identifier.value) {
-        throw new Error('Patient has no identifier that matches the oid ' + system);
+        throw new Error('No identifier matches the system "' + system + '".');
     }
     return system + '|' + identifier.value;
 }
 exports.getIdentifierString = getIdentifierString;
+;

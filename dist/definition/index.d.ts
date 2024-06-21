@@ -2,107 +2,122 @@
  * Created by Institute for Medical Informatics (I4MI) - Department of Engineering and Information Technology - Bern University of Applied Science (BFH)
  * File generated on 2022-11-01T13:49:11.646Z
  * https://www.i4mi.ti.bfh.ch
+ *
+ *  Copyright 2023 Institute for Medical Informatics
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
  */
 /**
  * Primitive Type base64Binary
  * A stream of bytes, base64 encoded
  * A stream of bytes
  */
-export declare type base64Binary = string;
+export type base64Binary = string;
 /**
  * Primitive Type canonical
  * see [Canonical References](references.html#canonical)
  * A URI that is a reference to a canonical URL on a FHIR resource
  */
-export declare type canonical = string;
+export type canonical = string;
 /**
  * Primitive Type code
  * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
  */
-export declare type code = string;
+export type code = string;
 /**
  * Primitive Type date
  * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
  */
-export declare type date = string;
+export type date = string;
 /**
  * Primitive Type dateTime
  * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
  */
-export declare type dateTime = string;
+export type dateTime = string;
 /**
  * Primitive Type decimal
  * Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)
  * A rational number with implicit precision
  */
-export declare type decimal = number;
+export type decimal = number;
 /**
  * Primitive Type id
  * RFC 4122
  * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
  */
-export declare type id = string;
+export type id = string;
 /**
  * Primitive Type instant
  * Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. Time zone is always required
  * An instant in time - known at least to the second
  */
-export declare type instant = string;
+export type instant = string;
 /**
  * Primitive Type integer
  * 32 bit number; for values larger than this, use decimal
  * A whole number
  */
-export declare type integer = number;
+export type integer = number;
 /**
  * Primitive Type markdown
  * Systems are not required to have markdown support, so the text should be readable without markdown processing. The markdown syntax is GFM - see https://github.github.com/gfm/
  * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
  */
-export declare type markdown = string;
+export type markdown = string;
 /**
  * Primitive Type oid
  * RFC 3001. See also ISO/IEC 8824:1990 €
  * An OID represented as a URI
  */
-export declare type oid = string;
+export type oid = string;
 /**
  * Primitive Type positiveInt
  * An integer with a value that is positive (e.g. >0)
  */
-export declare type positiveInt = number;
+export type positiveInt = number;
 /**
  * Primitive Type time
  * A time during the day, with no date specified
  */
-export declare type time = string;
+export type time = string;
 /**
  * Primitive Type unsignedInt
  * An integer with a value that is not negative (e.g. >= 0)
  */
-export declare type unsignedInt = number;
+export type unsignedInt = number;
 /**
  * Primitive Type uri
  * see http://en.wikipedia.org/wiki/Uniform_resource_identifier
  * String of characters used to identify a name or a resource
  */
-export declare type uri = string;
+export type uri = string;
 /**
  * Primitive Type url
  * A URI that is a literal reference
  */
-export declare type url = string;
+export type url = string;
 /**
  * Primitive Type uuid
  * See The Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A.
  * A UUID, represented as a URI
  */
-export declare type uuid = string;
+export type uuid = string;
 /**
  * Primitive Type xhtml
  * XHTML
  */
-export declare type xhtml = string;
+export type xhtml = string;
 /**
  * home | work | temp | old | billing - purpose of this address
  * The purpose of this address.

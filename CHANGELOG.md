@@ -2,7 +2,7 @@
 
 | Version | Date     | Changes                   |
 | ------- | -------- | ------------------------- |
-|2.1.5    |2024-06-20| - Enhance getFullName() method to include pre- and suffixes<br />- Enhance getIdentifierString() to work with all Identifier arrays (but include backward compatibility for Patient resource)<br />- Update dependencies |
+|2.1.5    |2024-06-21| - Enhance getFullName() method to include pre- and suffixes<br />- Enhance getIdentifierString() to work with all Identifier arrays (but include backward compatibility for Patient resource)<br />- Update dependencies |
 |2.1.4    |2023-09-22| - Add licence file<br />- Update README<br />- Update dependencies |
 |2.1.3    |2023-03-28| - Fix a bug in isInPeriod(), where results could be wrong when period end was not full datetime but only a date |
 |2.1.2    |2022-12-21| - Add getIdentifierString() to utils |

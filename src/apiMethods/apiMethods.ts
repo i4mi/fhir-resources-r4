@@ -1,3 +1,5 @@
+import { Resource } from "..";
+
 export enum HttpMethod{
     POST = 'POST',
     PUT = 'PUT',
@@ -51,7 +53,7 @@ export class ApiMethods {
      * @param resource the resource to create
      * @param config Optional - the configurations for the request
      */
-    create(resource: any, config?: ApiConfig) : Promise<ApiCallResponse> {
+    create(resource: Resource, config?: ApiConfig) : Promise<ApiCallResponse> {
         let args:ApiCallArgs = this.init(HttpMethod.POST, config);
 
         if (resource.resourceType !== 'Bundle') {
@@ -78,7 +80,7 @@ export class ApiMethods {
      * @param resource resource to update
      * @param config Optional - the configurations for the request
      */
-    update(resource: any, config?: ApiConfig) : Promise<ApiCallResponse> {
+    update(resource: Resource, config?: ApiConfig) : Promise<ApiCallResponse> {
         let args:ApiCallArgs = this.init(HttpMethod.PUT, config);
         args.url += ('/' + resource.resourceType + '/' + resource.id);
 

@@ -1,3 +1,4 @@
+import { Resource } from "..";
 export declare enum HttpMethod {
     POST = "POST",
     PUT = "PUT",
@@ -38,13 +39,13 @@ export declare class ApiMethods {
      * @param resource the resource to create
      * @param config Optional - the configurations for the request
      */
-    create(resource: any, config?: ApiConfig): Promise<ApiCallResponse>;
+    create(resource: Resource, config?: ApiConfig): Promise<ApiCallResponse>;
     /**
      * update a record
      * @param resource resource to update
      * @param config Optional - the configurations for the request
      */
-    update(resource: any, config?: ApiConfig): Promise<ApiCallResponse>;
+    update(resource: Resource, config?: ApiConfig): Promise<ApiCallResponse>;
     /**
      * get a resource
      * @param resourceType the resource type

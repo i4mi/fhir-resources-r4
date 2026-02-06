@@ -1,6 +1,6 @@
 {
   "name": "@i4mi/fhir_r4",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "FHIR resource definitions + API methods + utils",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

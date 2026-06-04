@@ -2,6 +2,7 @@
 
 | Version | Date     | Changes                   |
 | ------- | -------- | ------------------------- |
+|2.1.9    |2026-06-04| - Update uuid to 11.x to fix vulnerability |
 |2.1.8    |2026-02-06| - Update packages to fix vulnerabilities |
 |2.1.7    |2025-05-26| - Small update to getFullName() |
 |2.1.6    |2025-05-26| - Update dependencies |

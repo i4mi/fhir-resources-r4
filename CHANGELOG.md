@@ -2,6 +2,10 @@
 
 | Version | Date     | Changes                   |
 | ------- | -------- | ------------------------- |
+|2.1.9    |2026-06-04| - Update uuid to 11.x to fix vulnerability |
+|2.1.8    |2026-02-06| - Update packages to fix vulnerabilities |
+|2.1.7    |2025-05-26| - Small update to getFullName() |
+|2.1.6    |2025-05-26| - Update dependencies |
 |2.1.5    |2024-06-21| - Enhance getFullName() method to include pre- and suffixes<br />- Enhance getIdentifierString() to work with all Identifier arrays (but include backward compatibility for Patient resource)<br />- Update dependencies |
 |2.1.4    |2023-09-22| - Add licence file<br />- Update README<br />- Update dependencies |
 |2.1.3    |2023-03-28| - Fix a bug in isInPeriod(), where results could be wrong when period end was not full datetime but only a date |

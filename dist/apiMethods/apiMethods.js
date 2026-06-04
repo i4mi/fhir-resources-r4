@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.apiCall = exports.ApiMethods = exports.HttpMethod = void 0;
+exports.ApiMethods = exports.HttpMethod = void 0;
+exports.apiCall = apiCall;
 var HttpMethod;
 (function (HttpMethod) {
     HttpMethod["POST"] = "POST";
@@ -240,5 +241,4 @@ function apiCall(args) {
         }
     });
 }
-exports.apiCall = apiCall;
 ;

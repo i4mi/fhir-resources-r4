@@ -183,6 +183,7 @@ test('Name', () => {
     };
 
     expect(getFullName(homer)).toEqual('Homer Jay Simpson');
+    expect(getFullName(homer, false, true)).toEqual('Homer J. Simpson');
     expect(getFullName(undefined)).toEqual('');
     expect(getFullName({})).toEqual('');
 
@@ -218,7 +219,9 @@ test('Name', () => {
     };
 
     expect(getFullName(justus, false)).toEqual('Univ.-Prof. Dr. Dr. Mag. Justus Julian von Gschaft, M.Sc. B.A.');
+    expect(getFullName(justus, false, true)).toEqual('Univ.-Prof. Dr. Dr. Mag. Justus J. von Gschaft, M.Sc. B.A.');
     expect(getFullName(justus, true)).toEqual('Justus Julian von Gschaft');
+    expect(getFullName(justus, true, true)).toEqual('Justus J. von Gschaft');
 
     const officialName = {
         family: 'Simpson',

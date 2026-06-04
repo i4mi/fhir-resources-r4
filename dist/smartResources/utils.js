@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getIdentifierString = exports.isInPeriod = exports.selectName = exports.getFullName = exports.isUUID = exports.getCode = exports.hasCoding = exports.getAllI18N = exports.readI18N = exports.writeI18N = void 0;
+exports.writeI18N = writeI18N;
+exports.readI18N = readI18N;
+exports.getAllI18N = getAllI18N;
+exports.hasCoding = hasCoding;
+exports.getCode = getCode;
+exports.isUUID = isUUID;
+exports.getFullName = getFullName;
+exports.selectName = selectName;
+exports.isInPeriod = isInPeriod;
+exports.getIdentifierString = getIdentifierString;
 const definition_1 = require("../definition");
 const TRANSLATION_URL = 'http://hl7.org/fhir/StructureDefinition/translation';
 const LANG_URL = 'lang';
@@ -34,7 +43,6 @@ function writeI18N(strings) {
         extension: i18nExtensions
     };
 }
-exports.writeI18N = writeI18N;
 /**
  * Reads the i18n string from a given extension element. The element needs to have
  * the structure as defined in http://hl7.org/fhir/R4B/extension-translation.html
@@ -64,7 +72,6 @@ function readI18N(element, lang) {
         return extension.url === CONTENT_URL;
     })) === null || _b === void 0 ? void 0 : _b.valueString;
 }
-exports.readI18N = readI18N;
 /**
  * Reads all available i18n strings from a given extension element. The element needs to have
  * the structure as defined in http://hl7.org/fhir/R4B/extension-translation.html
@@ -87,7 +94,6 @@ function getAllI18N(element) {
     });
     return i18n;
 }
-exports.getAllI18N = getAllI18N;
 /**
  * Helper function to detect if a CodeableConcept has a given coding
  * @param codeableConcept   a codeable concept
@@ -105,7 +111,6 @@ function hasCoding(codeableConcept, coding) {
         return false;
     return codeableConcept.coding.findIndex(c => (system === undefined || c.system === system) && (c.code === code)) > -1;
 }
-exports.hasCoding = hasCoding;
 /**
  * Helper function extract a code from a codeable concept
  * @param codeableConcept   a codeable concept
@@ -121,7 +126,6 @@ function getCode(codeableConcept, system) {
         ? coding.code
         : undefined;
 }
-exports.getCode = getCode;
 /**
 
 * Checks if the given value is a valid UUID / GUID.
@@ -134,28 +138,27 @@ function isUUID(id) {
         return false;
     return REG_EXP_UUID.test(id);
 }
-exports.isUUID = isUUID;
 /**
 * Generates the full name according the given HumanName
-* @param name            the HumanName that will be used to generate the full name
-* @param excludeTitles
-* @returns               the name concatenated to a string
+* @param name               the HumanName that will be used to generate the full name
+* @param excludeTitles      set to true if you want to exclude the titles (default: false)
+* @param shortenMiddleNames set to true if you want to shorten the second to nth middle names (default: false)
+* @returns                  the name concatenated to a string
 */
-function getFullName(name, excludeTitles = false) {
+function getFullName(name, excludeTitles = false, shortenMiddleNames = false) {
     if (!name)
         return '';
     let text = '';
     if (name.prefix && name.prefix.length > 0 && !excludeTitles)
         text += name.prefix.reduce((a, b) => a + ' ' + b) + ' ';
     if (name.given)
-        text += name.given.reduce((a, b) => a + ' ' + b) + ' ';
+        text += name.given.reduce((a, b) => a + ' ' + (shortenMiddleNames ? (b.substring(0, 1) + '.') : b)) + ' ';
     if (name.family)
         text += name.family;
     if (name.suffix && name.suffix.length > 0 && !excludeTitles)
         text += ', ' + name.suffix.reduce((a, b) => a + ' ' + b);
     return text.trimEnd();
 }
-exports.getFullName = getFullName;
 /**
 * Chooses which supplied HumanName is the best suited. When no priorisation provided,
 * the priority is:
@@ -199,7 +202,6 @@ function selectName(names, priorisation, alsoReturnOldNames) {
     name = names.find((x) => x.use !== definition_1.HumanNameNameUse.OLD || alsoReturnOldNames);
     return name;
 }
-exports.selectName = selectName;
 /**
  * Evaluates if a given time is in a given period.
  * @param period    the Period (can have a start and / or an end) to check against
@@ -250,7 +252,6 @@ function isInPeriod(period, time = new Date()) {
     }
     return (hasStarted && !hasEnded);
 }
-exports.isInPeriod = isInPeriod;
 /**
  * Gets the identifier string for a given system (of the identifier) from an array of identifiers
  * For backward compatibility, also a Patient resource can be passed as source
@@ -273,5 +274,4 @@ function getIdentifierString(source, system) {
     }
     return system + '|' + identifier.value;
 }
-exports.getIdentifierString = getIdentifierString;
 ;
